@@ -1,0 +1,40 @@
+
+openapi: 3.0.3
+
+info:
+  title: Mindwm API
+  description: API defining the operations available in the Mindwm API
+  version: 0.1.0
+servers:
+  - url: "https://mindwmw.io/v1"
+    description: Production API endpoint for the Mindwm API
+components:
+  schemas:
+    IoDocument:
+      type: object
+      properties:
+        user_input:
+          type: string
+          description: user input
+        output:
+          type: string
+          description: command output (mix of stdout/stderr)
+        fullcmd:
+          type: string
+          description: Full input command 
+
+paths:
+  /ping:
+    get:
+      summary: Ping the server
+      responses:
+        '200':
+          description: Pong response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: pong
