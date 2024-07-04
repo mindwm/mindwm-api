@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **UserInput** | Pointer to **string** | user input | [optional] 
 **Output** | Pointer to **string** | command output (mix of stdout/stderr) | [optional] 
 **Fullcmd** | Pointer to **string** | Full input command | [optional] 
+**Ps1** | Pointer to **string** | PS1 string AFTER the command output | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetFullcmd sets Fullcmd field to given value.
 `func (o *IoDocument) HasFullcmd() bool`
 
 HasFullcmd returns a boolean if a field has been set.
+
+### GetPs1
+
+`func (o *IoDocument) GetPs1() string`
+
+GetPs1 returns the Ps1 field if non-nil, zero value otherwise.
+
+### GetPs1Ok
+
+`func (o *IoDocument) GetPs1Ok() (*string, bool)`
+
+GetPs1Ok returns a tuple with the Ps1 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPs1
+
+`func (o *IoDocument) SetPs1(v string)`
+
+SetPs1 sets Ps1 field to given value.
+
+### HasPs1
+
+`func (o *IoDocument) HasPs1() bool`
+
+HasPs1 returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

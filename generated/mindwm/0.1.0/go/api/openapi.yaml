@@ -30,6 +30,9 @@ components:
         fullcmd:
           description: Full input command
           type: string
+        ps1:
+          description: PS1 string AFTER the command output
+          type: string
       type: object
     _ping_get_200_response:
       example:

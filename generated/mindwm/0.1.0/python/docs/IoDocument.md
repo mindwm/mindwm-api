@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **user_input** | **str** | user input | [optional] 
 **output** | **str** | command output (mix of stdout/stderr) | [optional] 
 **fullcmd** | **str** | Full input command | [optional] 
+**ps1** | **str** | PS1 string AFTER the command output | [optional] 
 
 ## Example
 

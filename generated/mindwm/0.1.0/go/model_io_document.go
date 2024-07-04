@@ -25,6 +25,8 @@ type IoDocument struct {
 	Output *string `json:"output,omitempty"`
 	// Full input command
 	Fullcmd *string `json:"fullcmd,omitempty"`
+	// PS1 string AFTER the command output
+	Ps1 *string `json:"ps1,omitempty"`
 }
 
 // NewIoDocument instantiates a new IoDocument object
@@ -140,6 +142,38 @@ func (o *IoDocument) SetFullcmd(v string) {
 	o.Fullcmd = &v
 }
 
+// GetPs1 returns the Ps1 field value if set, zero value otherwise.
+func (o *IoDocument) GetPs1() string {
+	if o == nil || IsNil(o.Ps1) {
+		var ret string
+		return ret
+	}
+	return *o.Ps1
+}
+
+// GetPs1Ok returns a tuple with the Ps1 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IoDocument) GetPs1Ok() (*string, bool) {
+	if o == nil || IsNil(o.Ps1) {
+		return nil, false
+	}
+	return o.Ps1, true
+}
+
+// HasPs1 returns a boolean if a field has been set.
+func (o *IoDocument) HasPs1() bool {
+	if o != nil && !IsNil(o.Ps1) {
+		return true
+	}
+
+	return false
+}
+
+// SetPs1 gets a reference to the given string and assigns it to the Ps1 field.
+func (o *IoDocument) SetPs1(v string) {
+	o.Ps1 = &v
+}
+
 func (o IoDocument) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -158,6 +192,9 @@ func (o IoDocument) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Fullcmd) {
 		toSerialize["fullcmd"] = o.Fullcmd
+	}
+	if !IsNil(o.Ps1) {
+		toSerialize["ps1"] = o.Ps1
 	}
 	return toSerialize, nil
 }

@@ -5,6 +5,8 @@ OPENAPI_MINDWM_VERSION := $(shell cat mindwm_openapi.yaml | yq '.info.version')
 GENERATED_DIR := "generated/$(PACKAGE_NAME)/$(OPENAPI_MINDWM_VERSION)"
 
 
+.DEFAULT_GOAL=openapi-generator
+
 # XXX
 .PHONY: generated_dir
 generated_dir:
@@ -33,5 +35,3 @@ openapi-generator-gdscript: generated_dir
 
 openapi-generator: generated_dir openapi-generator-go openapi-generator-python openapi-generator-gdscript
 
-test: 
-	echo test

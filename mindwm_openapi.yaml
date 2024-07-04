@@ -22,6 +22,9 @@ components:
         fullcmd:
           type: string
           description: Full input command 
+        ps1:
+          type: string
+          description: PS1 string AFTER the command output
 
 paths:
   /ping:

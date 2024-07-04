@@ -29,7 +29,8 @@ class IoDocument(BaseModel):
     user_input: Optional[StrictStr] = Field(default=None, description="user input")
     output: Optional[StrictStr] = Field(default=None, description="command output (mix of stdout/stderr)")
     fullcmd: Optional[StrictStr] = Field(default=None, description="Full input command")
-    __properties: ClassVar[List[str]] = ["user_input", "output", "fullcmd"]
+    ps1: Optional[StrictStr] = Field(default=None, description="PS1 string AFTER the command output")
+    __properties: ClassVar[List[str]] = ["user_input", "output", "fullcmd", "ps1"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,7 +85,8 @@ class IoDocument(BaseModel):
         _obj = cls.model_validate({
             "user_input": obj.get("user_input"),
             "output": obj.get("output"),
-            "fullcmd": obj.get("fullcmd")
+            "fullcmd": obj.get("fullcmd"),
+            "ps1": obj.get("ps1")
         })
         return _obj
 
