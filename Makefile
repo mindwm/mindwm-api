@@ -31,7 +31,8 @@ openapi-generator-gdscript: generated_dir
 	cp ./mindwm_openapi.yaml openapi-generator/modules
 	cd openapi-generator && \
 	./run-in-docker.sh generate -i modules/mindwm_openapi.yaml  -g gdscript -o /gen/$(GENERATED_DIR)/gdscript-mindwm -p packageName=$(PACKAGE_NAME) && \
-	cp -vr out/gdscript-$(PACKAGE_NAME) ../$(GENERATED_DIR)/gdscript
+	cp -vr $(GENERATED_DIR)/gdscript-mindwm/* ../$(GENERATED_DIR)/gdscript/
+
 
 openapi-generator: generated_dir openapi-generator-go openapi-generator-python openapi-generator-gdscript
 

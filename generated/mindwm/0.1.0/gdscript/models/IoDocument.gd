@@ -37,6 +37,15 @@ var __output__was__set := false
 		fullcmd = value
 var __fullcmd__was__set := false
 
+# PS1 string AFTER the command output
+# Required: False
+# isArray: false
+@export var ps1: String = "":
+	set(value):
+		__ps1__was__set = true
+		ps1 = value
+var __ps1__was__set := false
+
 
 func bzz_collect_missing_properties() -> Array:
 	var bzz_missing_properties := Array()
@@ -51,6 +60,8 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["output"] = self.output
 	if self.__fullcmd__was__set:
 		bzz_dictionary["fullcmd"] = self.fullcmd
+	if self.__ps1__was__set:
+		bzz_dictionary["ps1"] = self.ps1
 	return bzz_dictionary
 
 
@@ -63,6 +74,8 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 		me.output = from_dict["output"]
 	if from_dict.has("fullcmd"):
 		me.fullcmd = from_dict["fullcmd"]
+	if from_dict.has("ps1"):
+		me.ps1 = from_dict["ps1"]
 	return me
 
 
