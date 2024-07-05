@@ -12,6 +12,11 @@ components:
   schemas:
     IoDocument:
       type: object
+      required:
+        - user_input
+        - output
+        - fullcmd
+        - ps1
       properties:
         user_input:
           type: string
@@ -25,6 +30,7 @@ components:
         ps1:
           type: string
           description: PS1 string AFTER the command output
+
 
 paths:
   /ping:

@@ -12,6 +12,8 @@ package mindwm
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the IoDocument type satisfies the MappedNullable interface at compile time
@@ -20,21 +22,27 @@ var _ MappedNullable = &IoDocument{}
 // IoDocument struct for IoDocument
 type IoDocument struct {
 	// user input
-	UserInput *string `json:"user_input,omitempty"`
+	UserInput string `json:"user_input"`
 	// command output (mix of stdout/stderr)
-	Output *string `json:"output,omitempty"`
+	Output string `json:"output"`
 	// Full input command
-	Fullcmd *string `json:"fullcmd,omitempty"`
+	Fullcmd string `json:"fullcmd"`
 	// PS1 string AFTER the command output
-	Ps1 *string `json:"ps1,omitempty"`
+	Ps1 string `json:"ps1"`
 }
+
+type _IoDocument IoDocument
 
 // NewIoDocument instantiates a new IoDocument object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIoDocument() *IoDocument {
+func NewIoDocument(userInput string, output string, fullcmd string, ps1 string) *IoDocument {
 	this := IoDocument{}
+	this.UserInput = userInput
+	this.Output = output
+	this.Fullcmd = fullcmd
+	this.Ps1 = ps1
 	return &this
 }
 
@@ -46,132 +54,100 @@ func NewIoDocumentWithDefaults() *IoDocument {
 	return &this
 }
 
-// GetUserInput returns the UserInput field value if set, zero value otherwise.
+// GetUserInput returns the UserInput field value
 func (o *IoDocument) GetUserInput() string {
-	if o == nil || IsNil(o.UserInput) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.UserInput
+
+	return o.UserInput
 }
 
-// GetUserInputOk returns a tuple with the UserInput field value if set, nil otherwise
+// GetUserInputOk returns a tuple with the UserInput field value
 // and a boolean to check if the value has been set.
 func (o *IoDocument) GetUserInputOk() (*string, bool) {
-	if o == nil || IsNil(o.UserInput) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UserInput, true
+	return &o.UserInput, true
 }
 
-// HasUserInput returns a boolean if a field has been set.
-func (o *IoDocument) HasUserInput() bool {
-	if o != nil && !IsNil(o.UserInput) {
-		return true
-	}
-
-	return false
-}
-
-// SetUserInput gets a reference to the given string and assigns it to the UserInput field.
+// SetUserInput sets field value
 func (o *IoDocument) SetUserInput(v string) {
-	o.UserInput = &v
+	o.UserInput = v
 }
 
-// GetOutput returns the Output field value if set, zero value otherwise.
+// GetOutput returns the Output field value
 func (o *IoDocument) GetOutput() string {
-	if o == nil || IsNil(o.Output) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Output
+
+	return o.Output
 }
 
-// GetOutputOk returns a tuple with the Output field value if set, nil otherwise
+// GetOutputOk returns a tuple with the Output field value
 // and a boolean to check if the value has been set.
 func (o *IoDocument) GetOutputOk() (*string, bool) {
-	if o == nil || IsNil(o.Output) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Output, true
+	return &o.Output, true
 }
 
-// HasOutput returns a boolean if a field has been set.
-func (o *IoDocument) HasOutput() bool {
-	if o != nil && !IsNil(o.Output) {
-		return true
-	}
-
-	return false
-}
-
-// SetOutput gets a reference to the given string and assigns it to the Output field.
+// SetOutput sets field value
 func (o *IoDocument) SetOutput(v string) {
-	o.Output = &v
+	o.Output = v
 }
 
-// GetFullcmd returns the Fullcmd field value if set, zero value otherwise.
+// GetFullcmd returns the Fullcmd field value
 func (o *IoDocument) GetFullcmd() string {
-	if o == nil || IsNil(o.Fullcmd) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Fullcmd
+
+	return o.Fullcmd
 }
 
-// GetFullcmdOk returns a tuple with the Fullcmd field value if set, nil otherwise
+// GetFullcmdOk returns a tuple with the Fullcmd field value
 // and a boolean to check if the value has been set.
 func (o *IoDocument) GetFullcmdOk() (*string, bool) {
-	if o == nil || IsNil(o.Fullcmd) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Fullcmd, true
+	return &o.Fullcmd, true
 }
 
-// HasFullcmd returns a boolean if a field has been set.
-func (o *IoDocument) HasFullcmd() bool {
-	if o != nil && !IsNil(o.Fullcmd) {
-		return true
-	}
-
-	return false
-}
-
-// SetFullcmd gets a reference to the given string and assigns it to the Fullcmd field.
+// SetFullcmd sets field value
 func (o *IoDocument) SetFullcmd(v string) {
-	o.Fullcmd = &v
+	o.Fullcmd = v
 }
 
-// GetPs1 returns the Ps1 field value if set, zero value otherwise.
+// GetPs1 returns the Ps1 field value
 func (o *IoDocument) GetPs1() string {
-	if o == nil || IsNil(o.Ps1) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Ps1
+
+	return o.Ps1
 }
 
-// GetPs1Ok returns a tuple with the Ps1 field value if set, nil otherwise
+// GetPs1Ok returns a tuple with the Ps1 field value
 // and a boolean to check if the value has been set.
 func (o *IoDocument) GetPs1Ok() (*string, bool) {
-	if o == nil || IsNil(o.Ps1) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Ps1, true
+	return &o.Ps1, true
 }
 
-// HasPs1 returns a boolean if a field has been set.
-func (o *IoDocument) HasPs1() bool {
-	if o != nil && !IsNil(o.Ps1) {
-		return true
-	}
-
-	return false
-}
-
-// SetPs1 gets a reference to the given string and assigns it to the Ps1 field.
+// SetPs1 sets field value
 func (o *IoDocument) SetPs1(v string) {
-	o.Ps1 = &v
+	o.Ps1 = v
 }
 
 func (o IoDocument) MarshalJSON() ([]byte, error) {
@@ -184,19 +160,51 @@ func (o IoDocument) MarshalJSON() ([]byte, error) {
 
 func (o IoDocument) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.UserInput) {
-		toSerialize["user_input"] = o.UserInput
-	}
-	if !IsNil(o.Output) {
-		toSerialize["output"] = o.Output
-	}
-	if !IsNil(o.Fullcmd) {
-		toSerialize["fullcmd"] = o.Fullcmd
-	}
-	if !IsNil(o.Ps1) {
-		toSerialize["ps1"] = o.Ps1
-	}
+	toSerialize["user_input"] = o.UserInput
+	toSerialize["output"] = o.Output
+	toSerialize["fullcmd"] = o.Fullcmd
+	toSerialize["ps1"] = o.Ps1
 	return toSerialize, nil
+}
+
+func (o *IoDocument) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"user_input",
+		"output",
+		"fullcmd",
+		"ps1",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varIoDocument := _IoDocument{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varIoDocument)
+
+	if err != nil {
+		return err
+	}
+
+	*o = IoDocument(varIoDocument)
+
+	return err
 }
 
 type NullableIoDocument struct {

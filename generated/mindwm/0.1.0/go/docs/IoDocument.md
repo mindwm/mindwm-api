@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserInput** | Pointer to **string** | user input | [optional] 
-**Output** | Pointer to **string** | command output (mix of stdout/stderr) | [optional] 
-**Fullcmd** | Pointer to **string** | Full input command | [optional] 
-**Ps1** | Pointer to **string** | PS1 string AFTER the command output | [optional] 
+**UserInput** | **string** | user input | 
+**Output** | **string** | command output (mix of stdout/stderr) | 
+**Fullcmd** | **string** | Full input command | 
+**Ps1** | **string** | PS1 string AFTER the command output | 
 
 ## Methods
 
 ### NewIoDocument
 
-`func NewIoDocument() *IoDocument`
+`func NewIoDocument(userInput string, output string, fullcmd string, ps1 string, ) *IoDocument`
 
 NewIoDocument instantiates a new IoDocument object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetUserInput sets UserInput field to given value.
 
-### HasUserInput
-
-`func (o *IoDocument) HasUserInput() bool`
-
-HasUserInput returns a boolean if a field has been set.
 
 ### GetOutput
 
@@ -72,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetOutput sets Output field to given value.
 
-### HasOutput
-
-`func (o *IoDocument) HasOutput() bool`
-
-HasOutput returns a boolean if a field has been set.
 
 ### GetFullcmd
 
@@ -97,11 +87,6 @@ and a boolean to check if the value has been set.
 
 SetFullcmd sets Fullcmd field to given value.
 
-### HasFullcmd
-
-`func (o *IoDocument) HasFullcmd() bool`
-
-HasFullcmd returns a boolean if a field has been set.
 
 ### GetPs1
 
@@ -122,11 +107,6 @@ and a boolean to check if the value has been set.
 
 SetPs1 sets Ps1 field to given value.
 
-### HasPs1
-
-`func (o *IoDocument) HasPs1() bool`
-
-HasPs1 returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

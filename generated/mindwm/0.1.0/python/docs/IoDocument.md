@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user_input** | **str** | user input | [optional] 
-**output** | **str** | command output (mix of stdout/stderr) | [optional] 
-**fullcmd** | **str** | Full input command | [optional] 
-**ps1** | **str** | PS1 string AFTER the command output | [optional] 
+**user_input** | **str** | user input | 
+**output** | **str** | command output (mix of stdout/stderr) | 
+**fullcmd** | **str** | Full input command | 
+**ps1** | **str** | PS1 string AFTER the command output | 
 
 ## Example
 

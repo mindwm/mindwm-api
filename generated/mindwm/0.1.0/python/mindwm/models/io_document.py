@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,10 +26,10 @@ class IoDocument(BaseModel):
     """
     IoDocument
     """ # noqa: E501
-    user_input: Optional[StrictStr] = Field(default=None, description="user input")
-    output: Optional[StrictStr] = Field(default=None, description="command output (mix of stdout/stderr)")
-    fullcmd: Optional[StrictStr] = Field(default=None, description="Full input command")
-    ps1: Optional[StrictStr] = Field(default=None, description="PS1 string AFTER the command output")
+    user_input: StrictStr = Field(description="user input")
+    output: StrictStr = Field(description="command output (mix of stdout/stderr)")
+    fullcmd: StrictStr = Field(description="Full input command")
+    ps1: StrictStr = Field(description="PS1 string AFTER the command output")
     __properties: ClassVar[List[str]] = ["user_input", "output", "fullcmd", "ps1"]
 
     model_config = ConfigDict(

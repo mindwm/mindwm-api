@@ -11,7 +11,7 @@ class_name IoDocument
 
 
 # user input
-# Required: False
+# Required: True
 # isArray: false
 @export var userUnderscoreinput: String = "":
 	set(value):
@@ -20,7 +20,7 @@ class_name IoDocument
 var __userUnderscoreinput__was__set := false
 
 # command output (mix of stdout/stderr)
-# Required: False
+# Required: True
 # isArray: false
 @export var output: String = "":
 	set(value):
@@ -29,7 +29,7 @@ var __userUnderscoreinput__was__set := false
 var __output__was__set := false
 
 # Full input command
-# Required: False
+# Required: True
 # isArray: false
 @export var fullcmd: String = "":
 	set(value):
@@ -38,7 +38,7 @@ var __output__was__set := false
 var __fullcmd__was__set := false
 
 # PS1 string AFTER the command output
-# Required: False
+# Required: True
 # isArray: false
 @export var ps1: String = "":
 	set(value):
@@ -49,6 +49,14 @@ var __ps1__was__set := false
 
 func bzz_collect_missing_properties() -> Array:
 	var bzz_missing_properties := Array()
+	if not self.__userUnderscoreinput__was__set:
+		bzz_missing_properties.append("userUnderscoreinput")
+	if not self.__output__was__set:
+		bzz_missing_properties.append("output")
+	if not self.__fullcmd__was__set:
+		bzz_missing_properties.append("fullcmd")
+	if not self.__ps1__was__set:
+		bzz_missing_properties.append("ps1")
 	return bzz_missing_properties
 
 

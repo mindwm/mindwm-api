@@ -33,6 +33,11 @@ components:
         ps1:
           description: PS1 string AFTER the command output
           type: string
+      required:
+      - fullcmd
+      - output
+      - ps1
+      - user_input
       type: object
     _ping_get_200_response:
       example:
