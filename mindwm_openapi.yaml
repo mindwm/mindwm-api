@@ -31,7 +31,6 @@ components:
           type: string
           description: PS1 string AFTER the command output
 
-
 paths:
   /ping:
     get:
