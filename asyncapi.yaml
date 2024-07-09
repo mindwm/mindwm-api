@@ -9,7 +9,7 @@ info:
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
 servers:
   asciinema: 
-    host: "${USER_HOSTNAME}"
+    host: "/"
     protocol: unixsocket
     description: Asciinema
     variables:
@@ -18,7 +18,7 @@ servers:
     externalDocs:
       url: https://github.com/mindwm/mindwm-manager/blob/dc926f637bb8d31f21ecbd28479ab9b0a1ece23c/src/mindwm/modules/tmux_session.py
   mindwm-client:
-    host: "${USER_HOSTNAME}"
+    host: "/"
     protocol: unixsocket
     description: |
       Mindwm Client      
@@ -51,6 +51,9 @@ channels:
     servers:
       - $ref: '#/servers/asciinema'
       - $ref: '#/servers/mindwm-client'
+    messages:
+      TmuxPaneIoDocument: 
+        $ref: '#/components/messages/TmuxPaneIoDocument'
 
   HostJetStreamChannel:
     address: "KN_USER_${USERNAME}__${HOSTNAME}_BROKER_KNE_TRIGGER"
@@ -67,6 +70,14 @@ channels:
     servers: 
       - $ref: '#/servers/nats'
  
+operations:
+  TmuxPaneIoDocument:
+    action: send
+    channel: 
+      $ref: '#/channels/TmuxPane'
+    messages:
+      - $ref: '#/channels/TmuxPane/messages/TmuxPaneIoDocument'
+    
 
 components:
   messages:
@@ -82,6 +93,7 @@ components:
           type: string
           description: User input
           minLength: 1
+
         output:
           type: string
           minLength: 0
@@ -90,13 +102,12 @@ components:
           type: string
           description: ps1 (prompt) AFTER the input and output
           minLength: 1
+      additionalProperties: false
       required:
         - input
         - output
         - ps1
-      additionalProperties: false
       examples:
         - input: uptime
           output: "16:37:51 up 19 days,  2:15, 71 users,  load average: 2.01, 2.85, 2.95"
           ps1: "user@mindwm-dev1:~/rnd/asyncapi$"
-

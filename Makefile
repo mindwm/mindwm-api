@@ -44,7 +44,12 @@ asyncapi-generate:
 asyncapi-generate-html:
 	$(MAKE) asyncapi-generate TEMPLATE=html
 asyncapi-generate-markdown:
-	$(MAKE) asyncapi-generate TEMPLATE=markdown
+	docker run --rm -it \
+	   --user=root \
+		 -v $(PWD)/.asyncapi-analytics:/root/.asyncapi-analytics \
+	   -v $(PWD)/asyncapi.yaml:/app/asyncapi.yml \
+		 -v $(PWD)/asyncapi/markdown:/app/output/markdown \
+		 asyncapi/cli generate fromTemplate -o /app/output/markdown /app/asyncapi.yml @asyncapi/markdown-template@1.2.1 --force-write
 
 openapi-generator: generated_dir openapi-generator-go openapi-generator-python openapi-generator-gdscript asyncapi-generate-html asyncapi-generate-markdown
 
