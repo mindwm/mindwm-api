@@ -66,10 +66,31 @@ channels:
     address: 'mindwm.${USER}.${HOSTNAME}.tmux.${TMUX_SOCKET}.${MINDWM_UUID}.${TMUX_ID}.${TMUX_PANE_ID}.iodocument'
     servers: 
       - $ref: '#/servers/nats'
+    messages:
+      iodocument:
+        $ref: '#/components/messages/iodocument'
  
 
 components:
   messages:
+    iodocument:
+      properties:
+        id:
+          type: uuid
+        knativebrokerttl:
+          type: integer
+        specversion:
+          type: string
+        source:
+          type: string
+        subject:
+          type: string
+        datacontenttype:
+          type: string
+        data:
+          type: object
+          $ref: '#/components/schemas/TmuxPaneIoDocument'
+
     TmuxPaneIoDocument:
       summary: "Basic IoDocument produced by mindwm-client"
       payload:
