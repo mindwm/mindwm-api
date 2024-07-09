@@ -14,5 +14,8 @@
 
 
 # import models into model package
+from mindwm.models.cloud_event import CloudEvent
+from mindwm.models.cloudevents import Cloudevents
 from mindwm.models.io_document import IoDocument
 from mindwm.models.ping_get200_response import PingGet200Response
+from mindwm.models.tmux_pane_io_document import TmuxPaneIoDocument

@@ -1,327 +1,327 @@
-# IoDocument
+# Cloudevents
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** |  | [optional] 
-**Source** | Pointer to **string** |  | [optional] 
-**Data** | Pointer to [**TmuxPaneIoDocument**](TmuxPaneIoDocument.md) |  | [optional] 
 **Id** | **string** |  | 
+**Source** | **string** |  | 
 **Specversion** | **string** |  | 
+**Type** | **string** |  | 
 **Datacontenttype** | Pointer to **interface{}** |  | [optional] 
 **Dataschema** | Pointer to **interface{}** |  | [optional] 
 **Subject** | Pointer to **interface{}** |  | [optional] 
 **Time** | Pointer to **interface{}** |  | [optional] 
+**Data** | Pointer to **interface{}** |  | [optional] 
 **DataBase64** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
-### NewIoDocument
+### NewCloudevents
 
-`func NewIoDocument(id string, specversion string, ) *IoDocument`
+`func NewCloudevents(id string, source string, specversion string, type_ string, ) *Cloudevents`
 
-NewIoDocument instantiates a new IoDocument object
+NewCloudevents instantiates a new Cloudevents object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewIoDocumentWithDefaults
+### NewCloudeventsWithDefaults
 
-`func NewIoDocumentWithDefaults() *IoDocument`
+`func NewCloudeventsWithDefaults() *Cloudevents`
 
-NewIoDocumentWithDefaults instantiates a new IoDocument object
+NewCloudeventsWithDefaults instantiates a new Cloudevents object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetType
-
-`func (o *IoDocument) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *IoDocument) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *IoDocument) SetType(v string)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *IoDocument) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### GetSource
-
-`func (o *IoDocument) GetSource() string`
-
-GetSource returns the Source field if non-nil, zero value otherwise.
-
-### GetSourceOk
-
-`func (o *IoDocument) GetSourceOk() (*string, bool)`
-
-GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSource
-
-`func (o *IoDocument) SetSource(v string)`
-
-SetSource sets Source field to given value.
-
-### HasSource
-
-`func (o *IoDocument) HasSource() bool`
-
-HasSource returns a boolean if a field has been set.
-
-### GetData
-
-`func (o *IoDocument) GetData() TmuxPaneIoDocument`
-
-GetData returns the Data field if non-nil, zero value otherwise.
-
-### GetDataOk
-
-`func (o *IoDocument) GetDataOk() (*TmuxPaneIoDocument, bool)`
-
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetData
-
-`func (o *IoDocument) SetData(v TmuxPaneIoDocument)`
-
-SetData sets Data field to given value.
-
-### HasData
-
-`func (o *IoDocument) HasData() bool`
-
-HasData returns a boolean if a field has been set.
-
 ### GetId
 
-`func (o *IoDocument) GetId() string`
+`func (o *Cloudevents) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *IoDocument) GetIdOk() (*string, bool)`
+`func (o *Cloudevents) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *IoDocument) SetId(v string)`
+`func (o *Cloudevents) SetId(v string)`
 
 SetId sets Id field to given value.
 
 
+### GetSource
+
+`func (o *Cloudevents) GetSource() string`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *Cloudevents) GetSourceOk() (*string, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *Cloudevents) SetSource(v string)`
+
+SetSource sets Source field to given value.
+
+
 ### GetSpecversion
 
-`func (o *IoDocument) GetSpecversion() string`
+`func (o *Cloudevents) GetSpecversion() string`
 
 GetSpecversion returns the Specversion field if non-nil, zero value otherwise.
 
 ### GetSpecversionOk
 
-`func (o *IoDocument) GetSpecversionOk() (*string, bool)`
+`func (o *Cloudevents) GetSpecversionOk() (*string, bool)`
 
 GetSpecversionOk returns a tuple with the Specversion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpecversion
 
-`func (o *IoDocument) SetSpecversion(v string)`
+`func (o *Cloudevents) SetSpecversion(v string)`
 
 SetSpecversion sets Specversion field to given value.
 
 
+### GetType
+
+`func (o *Cloudevents) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *Cloudevents) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *Cloudevents) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
 ### GetDatacontenttype
 
-`func (o *IoDocument) GetDatacontenttype() interface{}`
+`func (o *Cloudevents) GetDatacontenttype() interface{}`
 
 GetDatacontenttype returns the Datacontenttype field if non-nil, zero value otherwise.
 
 ### GetDatacontenttypeOk
 
-`func (o *IoDocument) GetDatacontenttypeOk() (*interface{}, bool)`
+`func (o *Cloudevents) GetDatacontenttypeOk() (*interface{}, bool)`
 
 GetDatacontenttypeOk returns a tuple with the Datacontenttype field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDatacontenttype
 
-`func (o *IoDocument) SetDatacontenttype(v interface{})`
+`func (o *Cloudevents) SetDatacontenttype(v interface{})`
 
 SetDatacontenttype sets Datacontenttype field to given value.
 
 ### HasDatacontenttype
 
-`func (o *IoDocument) HasDatacontenttype() bool`
+`func (o *Cloudevents) HasDatacontenttype() bool`
 
 HasDatacontenttype returns a boolean if a field has been set.
 
 ### SetDatacontenttypeNil
 
-`func (o *IoDocument) SetDatacontenttypeNil(b bool)`
+`func (o *Cloudevents) SetDatacontenttypeNil(b bool)`
 
  SetDatacontenttypeNil sets the value for Datacontenttype to be an explicit nil
 
 ### UnsetDatacontenttype
-`func (o *IoDocument) UnsetDatacontenttype()`
+`func (o *Cloudevents) UnsetDatacontenttype()`
 
 UnsetDatacontenttype ensures that no value is present for Datacontenttype, not even an explicit nil
 ### GetDataschema
 
-`func (o *IoDocument) GetDataschema() interface{}`
+`func (o *Cloudevents) GetDataschema() interface{}`
 
 GetDataschema returns the Dataschema field if non-nil, zero value otherwise.
 
 ### GetDataschemaOk
 
-`func (o *IoDocument) GetDataschemaOk() (*interface{}, bool)`
+`func (o *Cloudevents) GetDataschemaOk() (*interface{}, bool)`
 
 GetDataschemaOk returns a tuple with the Dataschema field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDataschema
 
-`func (o *IoDocument) SetDataschema(v interface{})`
+`func (o *Cloudevents) SetDataschema(v interface{})`
 
 SetDataschema sets Dataschema field to given value.
 
 ### HasDataschema
 
-`func (o *IoDocument) HasDataschema() bool`
+`func (o *Cloudevents) HasDataschema() bool`
 
 HasDataschema returns a boolean if a field has been set.
 
 ### SetDataschemaNil
 
-`func (o *IoDocument) SetDataschemaNil(b bool)`
+`func (o *Cloudevents) SetDataschemaNil(b bool)`
 
  SetDataschemaNil sets the value for Dataschema to be an explicit nil
 
 ### UnsetDataschema
-`func (o *IoDocument) UnsetDataschema()`
+`func (o *Cloudevents) UnsetDataschema()`
 
 UnsetDataschema ensures that no value is present for Dataschema, not even an explicit nil
 ### GetSubject
 
-`func (o *IoDocument) GetSubject() interface{}`
+`func (o *Cloudevents) GetSubject() interface{}`
 
 GetSubject returns the Subject field if non-nil, zero value otherwise.
 
 ### GetSubjectOk
 
-`func (o *IoDocument) GetSubjectOk() (*interface{}, bool)`
+`func (o *Cloudevents) GetSubjectOk() (*interface{}, bool)`
 
 GetSubjectOk returns a tuple with the Subject field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSubject
 
-`func (o *IoDocument) SetSubject(v interface{})`
+`func (o *Cloudevents) SetSubject(v interface{})`
 
 SetSubject sets Subject field to given value.
 
 ### HasSubject
 
-`func (o *IoDocument) HasSubject() bool`
+`func (o *Cloudevents) HasSubject() bool`
 
 HasSubject returns a boolean if a field has been set.
 
 ### SetSubjectNil
 
-`func (o *IoDocument) SetSubjectNil(b bool)`
+`func (o *Cloudevents) SetSubjectNil(b bool)`
 
  SetSubjectNil sets the value for Subject to be an explicit nil
 
 ### UnsetSubject
-`func (o *IoDocument) UnsetSubject()`
+`func (o *Cloudevents) UnsetSubject()`
 
 UnsetSubject ensures that no value is present for Subject, not even an explicit nil
 ### GetTime
 
-`func (o *IoDocument) GetTime() interface{}`
+`func (o *Cloudevents) GetTime() interface{}`
 
 GetTime returns the Time field if non-nil, zero value otherwise.
 
 ### GetTimeOk
 
-`func (o *IoDocument) GetTimeOk() (*interface{}, bool)`
+`func (o *Cloudevents) GetTimeOk() (*interface{}, bool)`
 
 GetTimeOk returns a tuple with the Time field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTime
 
-`func (o *IoDocument) SetTime(v interface{})`
+`func (o *Cloudevents) SetTime(v interface{})`
 
 SetTime sets Time field to given value.
 
 ### HasTime
 
-`func (o *IoDocument) HasTime() bool`
+`func (o *Cloudevents) HasTime() bool`
 
 HasTime returns a boolean if a field has been set.
 
 ### SetTimeNil
 
-`func (o *IoDocument) SetTimeNil(b bool)`
+`func (o *Cloudevents) SetTimeNil(b bool)`
 
  SetTimeNil sets the value for Time to be an explicit nil
 
 ### UnsetTime
-`func (o *IoDocument) UnsetTime()`
+`func (o *Cloudevents) UnsetTime()`
 
 UnsetTime ensures that no value is present for Time, not even an explicit nil
+### GetData
+
+`func (o *Cloudevents) GetData() interface{}`
+
+GetData returns the Data field if non-nil, zero value otherwise.
+
+### GetDataOk
+
+`func (o *Cloudevents) GetDataOk() (*interface{}, bool)`
+
+GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetData
+
+`func (o *Cloudevents) SetData(v interface{})`
+
+SetData sets Data field to given value.
+
+### HasData
+
+`func (o *Cloudevents) HasData() bool`
+
+HasData returns a boolean if a field has been set.
+
+### SetDataNil
+
+`func (o *Cloudevents) SetDataNil(b bool)`
+
+ SetDataNil sets the value for Data to be an explicit nil
+
+### UnsetData
+`func (o *Cloudevents) UnsetData()`
+
+UnsetData ensures that no value is present for Data, not even an explicit nil
 ### GetDataBase64
 
-`func (o *IoDocument) GetDataBase64() interface{}`
+`func (o *Cloudevents) GetDataBase64() interface{}`
 
 GetDataBase64 returns the DataBase64 field if non-nil, zero value otherwise.
 
 ### GetDataBase64Ok
 
-`func (o *IoDocument) GetDataBase64Ok() (*interface{}, bool)`
+`func (o *Cloudevents) GetDataBase64Ok() (*interface{}, bool)`
 
 GetDataBase64Ok returns a tuple with the DataBase64 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDataBase64
 
-`func (o *IoDocument) SetDataBase64(v interface{})`
+`func (o *Cloudevents) SetDataBase64(v interface{})`
 
 SetDataBase64 sets DataBase64 field to given value.
 
 ### HasDataBase64
 
-`func (o *IoDocument) HasDataBase64() bool`
+`func (o *Cloudevents) HasDataBase64() bool`
 
 HasDataBase64 returns a boolean if a field has been set.
 
 ### SetDataBase64Nil
 
-`func (o *IoDocument) SetDataBase64Nil(b bool)`
+`func (o *Cloudevents) SetDataBase64Nil(b bool)`
 
  SetDataBase64Nil sets the value for DataBase64 to be an explicit nil
 
 ### UnsetDataBase64
-`func (o *IoDocument) UnsetDataBase64()`
+`func (o *Cloudevents) UnsetDataBase64()`
 
 UnsetDataBase64 ensures that no value is present for DataBase64, not even an explicit nil
 

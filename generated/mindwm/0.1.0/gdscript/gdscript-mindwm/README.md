@@ -75,11 +75,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
-- [CloudEvent](models/CloudEvent.md)
-- [Cloudevents](models/Cloudevents.md)
 - [IoDocument](models/IoDocument.md)
 - [PingGet200Response](models/PingGet200Response.md)
-- [TmuxPaneIoDocument](models/TmuxPaneIoDocument.md)
 
 
 ## Documentation For Authorization

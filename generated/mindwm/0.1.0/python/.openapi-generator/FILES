@@ -3,9 +3,12 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+docs/CloudEvent.md
+docs/Cloudevents.md
 docs/DefaultApi.md
 docs/IoDocument.md
 docs/PingGet200Response.md
+docs/TmuxPaneIoDocument.md
 git_push.sh
 mindwm/__init__.py
 mindwm/api/__init__.py
@@ -15,8 +18,11 @@ mindwm/api_response.py
 mindwm/configuration.py
 mindwm/exceptions.py
 mindwm/models/__init__.py
+mindwm/models/cloud_event.py
+mindwm/models/cloudevents.py
 mindwm/models/io_document.py
 mindwm/models/ping_get200_response.py
+mindwm/models/tmux_pane_io_document.py
 mindwm/py.typed
 mindwm/rest.py
 pyproject.toml
@@ -25,4 +31,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_cloud_event.py
+test/test_cloudevents.py
+test/test_tmux_pane_io_document.py
 tox.ini

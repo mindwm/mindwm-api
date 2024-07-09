@@ -19,26 +19,133 @@ paths:
       summary: Ping the server
 components:
   schemas:
-    IoDocument:
+    CloudEvent:
+      description: CloudEvents Specification JSON Schema
       properties:
-        user_input:
-          description: user input
+        id:
+          minLength: 1
+          type: string
+        source:
+          format: uri-reference
+          minLength: 1
+          type: string
+        specversion:
+          minLength: 1
+          type: string
+        type:
+          minLength: 1
+          type: string
+        datacontenttype:
+          minLength: 1
+        dataschema:
+          format: uri
+          minLength: 1
+        subject:
+          minLength: 1
+        time:
+          format: date-time
+          minLength: 1
+        data: {}
+        data_base64: {}
+      required:
+      - id
+      - source
+      - specversion
+      - type
+      type: object
+    IoDocument:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      properties:
+        type:
+          type: string
+        source:
+          pattern: "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\
+            \\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\
+            \\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$"
+          type: string
+        data:
+          $ref: '#/components/schemas/TmuxPaneIoDocument'
+    TmuxPaneIoDocument:
+      additionalProperties: false
+      properties:
+        input:
+          description: User input
+          minLength: 1
           type: string
         output:
-          description: command output (mix of stdout/stderr)
-          type: string
-        fullcmd:
-          description: Full input command
+          description: Command output (mix of stdout & stderr)
+          minLength: 0
           type: string
         ps1:
-          description: PS1 string AFTER the command output
+          description: ps1 (prompt) AFTER the input and output
+          minLength: 1
           type: string
       required:
-      - fullcmd
+      - input
       - output
       - ps1
-      - user_input
       type: object
+    cloudevents:
+      description: CloudEvents Specification JSON Schema
+      properties:
+        id:
+          minLength: 1
+          type: string
+        source:
+          format: uri-reference
+          minLength: 1
+          type: string
+        specversion:
+          minLength: 1
+          type: string
+        type:
+          minLength: 1
+          type: string
+        datacontenttype:
+          minLength: 1
+        dataschema:
+          format: uri
+          minLength: 1
+        subject:
+          minLength: 1
+        time:
+          format: date-time
+          minLength: 1
+        data: {}
+        data_base64: {}
+      required:
+      - id
+      - source
+      - specversion
+      - type
+      type: object
+    iddef:
+      minLength: 1
+      type: string
+    sourcedef:
+      format: uri-reference
+      minLength: 1
+      type: string
+    specversiondef:
+      minLength: 1
+      type: string
+    typedef:
+      minLength: 1
+      type: string
+    datacontenttypedef:
+      minLength: 1
+    dataschemadef:
+      format: uri
+      minLength: 1
+    subjectdef:
+      minLength: 1
+    timedef:
+      format: date-time
+      minLength: 1
+    datadef: {}
+    data_base64def: {}
     _ping_get_200_response:
       example:
         message: pong

@@ -16,31 +16,31 @@ import (
 	"fmt"
 )
 
-// checks if the IoDocument type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &IoDocument{}
+// checks if the Cloudevents type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Cloudevents{}
 
-// IoDocument struct for IoDocument
-type IoDocument struct {
-	Type *string `json:"type,omitempty"`
-	Source *string `json:"source,omitempty"`
-	Data *TmuxPaneIoDocument `json:"data,omitempty"`
+// Cloudevents CloudEvents Specification JSON Schema
+type Cloudevents struct {
 	Id string `json:"id"`
+	Source string `json:"source"`
 	Specversion string `json:"specversion"`
+	Type string `json:"type"`
 	Datacontenttype interface{} `json:"datacontenttype,omitempty"`
 	Dataschema interface{} `json:"dataschema,omitempty"`
 	Subject interface{} `json:"subject,omitempty"`
 	Time interface{} `json:"time,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 	DataBase64 interface{} `json:"data_base64,omitempty"`
 }
 
-type _IoDocument IoDocument
+type _Cloudevents Cloudevents
 
-// NewIoDocument instantiates a new IoDocument object
+// NewCloudevents instantiates a new Cloudevents object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIoDocument(id string, source string, specversion string, type_ string) *IoDocument {
-	this := IoDocument{}
+func NewCloudevents(id string, source string, specversion string, type_ string) *Cloudevents {
+	this := Cloudevents{}
 	this.Id = id
 	this.Source = source
 	this.Specversion = specversion
@@ -48,112 +48,16 @@ func NewIoDocument(id string, source string, specversion string, type_ string) *
 	return &this
 }
 
-// NewIoDocumentWithDefaults instantiates a new IoDocument object
+// NewCloudeventsWithDefaults instantiates a new Cloudevents object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewIoDocumentWithDefaults() *IoDocument {
-	this := IoDocument{}
+func NewCloudeventsWithDefaults() *Cloudevents {
+	this := Cloudevents{}
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *IoDocument) GetType() string {
-	if o == nil || IsNil(o.Type) {
-		var ret string
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IoDocument) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *IoDocument) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given string and assigns it to the Type field.
-func (o *IoDocument) SetType(v string) {
-	o.Type = &v
-}
-
-// GetSource returns the Source field value if set, zero value otherwise.
-func (o *IoDocument) GetSource() string {
-	if o == nil || IsNil(o.Source) {
-		var ret string
-		return ret
-	}
-	return *o.Source
-}
-
-// GetSourceOk returns a tuple with the Source field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IoDocument) GetSourceOk() (*string, bool) {
-	if o == nil || IsNil(o.Source) {
-		return nil, false
-	}
-	return o.Source, true
-}
-
-// HasSource returns a boolean if a field has been set.
-func (o *IoDocument) HasSource() bool {
-	if o != nil && !IsNil(o.Source) {
-		return true
-	}
-
-	return false
-}
-
-// SetSource gets a reference to the given string and assigns it to the Source field.
-func (o *IoDocument) SetSource(v string) {
-	o.Source = &v
-}
-
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *IoDocument) GetData() TmuxPaneIoDocument {
-	if o == nil || IsNil(o.Data) {
-		var ret TmuxPaneIoDocument
-		return ret
-	}
-	return *o.Data
-}
-
-// GetDataOk returns a tuple with the Data field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IoDocument) GetDataOk() (*TmuxPaneIoDocument, bool) {
-	if o == nil || IsNil(o.Data) {
-		return nil, false
-	}
-	return o.Data, true
-}
-
-// HasData returns a boolean if a field has been set.
-func (o *IoDocument) HasData() bool {
-	if o != nil && !IsNil(o.Data) {
-		return true
-	}
-
-	return false
-}
-
-// SetData gets a reference to the given TmuxPaneIoDocument and assigns it to the Data field.
-func (o *IoDocument) SetData(v TmuxPaneIoDocument) {
-	o.Data = &v
-}
-
 // GetId returns the Id field value
-func (o *IoDocument) GetId() string {
+func (o *Cloudevents) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -164,7 +68,7 @@ func (o *IoDocument) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *IoDocument) GetIdOk() (*string, bool) {
+func (o *Cloudevents) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -172,12 +76,36 @@ func (o *IoDocument) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *IoDocument) SetId(v string) {
+func (o *Cloudevents) SetId(v string) {
 	o.Id = v
 }
 
+// GetSource returns the Source field value
+func (o *Cloudevents) GetSource() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Source
+}
+
+// GetSourceOk returns a tuple with the Source field value
+// and a boolean to check if the value has been set.
+func (o *Cloudevents) GetSourceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Source, true
+}
+
+// SetSource sets field value
+func (o *Cloudevents) SetSource(v string) {
+	o.Source = v
+}
+
 // GetSpecversion returns the Specversion field value
-func (o *IoDocument) GetSpecversion() string {
+func (o *Cloudevents) GetSpecversion() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -188,7 +116,7 @@ func (o *IoDocument) GetSpecversion() string {
 
 // GetSpecversionOk returns a tuple with the Specversion field value
 // and a boolean to check if the value has been set.
-func (o *IoDocument) GetSpecversionOk() (*string, bool) {
+func (o *Cloudevents) GetSpecversionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -196,12 +124,36 @@ func (o *IoDocument) GetSpecversionOk() (*string, bool) {
 }
 
 // SetSpecversion sets field value
-func (o *IoDocument) SetSpecversion(v string) {
+func (o *Cloudevents) SetSpecversion(v string) {
 	o.Specversion = v
 }
 
+// GetType returns the Type field value
+func (o *Cloudevents) GetType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *Cloudevents) GetTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *Cloudevents) SetType(v string) {
+	o.Type = v
+}
+
 // GetDatacontenttype returns the Datacontenttype field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IoDocument) GetDatacontenttype() interface{} {
+func (o *Cloudevents) GetDatacontenttype() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
@@ -212,7 +164,7 @@ func (o *IoDocument) GetDatacontenttype() interface{} {
 // GetDatacontenttypeOk returns a tuple with the Datacontenttype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IoDocument) GetDatacontenttypeOk() (*interface{}, bool) {
+func (o *Cloudevents) GetDatacontenttypeOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Datacontenttype) {
 		return nil, false
 	}
@@ -220,7 +172,7 @@ func (o *IoDocument) GetDatacontenttypeOk() (*interface{}, bool) {
 }
 
 // HasDatacontenttype returns a boolean if a field has been set.
-func (o *IoDocument) HasDatacontenttype() bool {
+func (o *Cloudevents) HasDatacontenttype() bool {
 	if o != nil && !IsNil(o.Datacontenttype) {
 		return true
 	}
@@ -229,12 +181,12 @@ func (o *IoDocument) HasDatacontenttype() bool {
 }
 
 // SetDatacontenttype gets a reference to the given interface{} and assigns it to the Datacontenttype field.
-func (o *IoDocument) SetDatacontenttype(v interface{}) {
+func (o *Cloudevents) SetDatacontenttype(v interface{}) {
 	o.Datacontenttype = v
 }
 
 // GetDataschema returns the Dataschema field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IoDocument) GetDataschema() interface{} {
+func (o *Cloudevents) GetDataschema() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
@@ -245,7 +197,7 @@ func (o *IoDocument) GetDataschema() interface{} {
 // GetDataschemaOk returns a tuple with the Dataschema field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IoDocument) GetDataschemaOk() (*interface{}, bool) {
+func (o *Cloudevents) GetDataschemaOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Dataschema) {
 		return nil, false
 	}
@@ -253,7 +205,7 @@ func (o *IoDocument) GetDataschemaOk() (*interface{}, bool) {
 }
 
 // HasDataschema returns a boolean if a field has been set.
-func (o *IoDocument) HasDataschema() bool {
+func (o *Cloudevents) HasDataschema() bool {
 	if o != nil && !IsNil(o.Dataschema) {
 		return true
 	}
@@ -262,12 +214,12 @@ func (o *IoDocument) HasDataschema() bool {
 }
 
 // SetDataschema gets a reference to the given interface{} and assigns it to the Dataschema field.
-func (o *IoDocument) SetDataschema(v interface{}) {
+func (o *Cloudevents) SetDataschema(v interface{}) {
 	o.Dataschema = v
 }
 
 // GetSubject returns the Subject field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IoDocument) GetSubject() interface{} {
+func (o *Cloudevents) GetSubject() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
@@ -278,7 +230,7 @@ func (o *IoDocument) GetSubject() interface{} {
 // GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IoDocument) GetSubjectOk() (*interface{}, bool) {
+func (o *Cloudevents) GetSubjectOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Subject) {
 		return nil, false
 	}
@@ -286,7 +238,7 @@ func (o *IoDocument) GetSubjectOk() (*interface{}, bool) {
 }
 
 // HasSubject returns a boolean if a field has been set.
-func (o *IoDocument) HasSubject() bool {
+func (o *Cloudevents) HasSubject() bool {
 	if o != nil && !IsNil(o.Subject) {
 		return true
 	}
@@ -295,12 +247,12 @@ func (o *IoDocument) HasSubject() bool {
 }
 
 // SetSubject gets a reference to the given interface{} and assigns it to the Subject field.
-func (o *IoDocument) SetSubject(v interface{}) {
+func (o *Cloudevents) SetSubject(v interface{}) {
 	o.Subject = v
 }
 
 // GetTime returns the Time field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IoDocument) GetTime() interface{} {
+func (o *Cloudevents) GetTime() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
@@ -311,7 +263,7 @@ func (o *IoDocument) GetTime() interface{} {
 // GetTimeOk returns a tuple with the Time field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IoDocument) GetTimeOk() (*interface{}, bool) {
+func (o *Cloudevents) GetTimeOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Time) {
 		return nil, false
 	}
@@ -319,7 +271,7 @@ func (o *IoDocument) GetTimeOk() (*interface{}, bool) {
 }
 
 // HasTime returns a boolean if a field has been set.
-func (o *IoDocument) HasTime() bool {
+func (o *Cloudevents) HasTime() bool {
 	if o != nil && !IsNil(o.Time) {
 		return true
 	}
@@ -328,12 +280,45 @@ func (o *IoDocument) HasTime() bool {
 }
 
 // SetTime gets a reference to the given interface{} and assigns it to the Time field.
-func (o *IoDocument) SetTime(v interface{}) {
+func (o *Cloudevents) SetTime(v interface{}) {
 	o.Time = v
 }
 
+// GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Cloudevents) GetData() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.Data
+}
+
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Cloudevents) GetDataOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.Data) {
+		return nil, false
+	}
+	return &o.Data, true
+}
+
+// HasData returns a boolean if a field has been set.
+func (o *Cloudevents) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given interface{} and assigns it to the Data field.
+func (o *Cloudevents) SetData(v interface{}) {
+	o.Data = v
+}
+
 // GetDataBase64 returns the DataBase64 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IoDocument) GetDataBase64() interface{} {
+func (o *Cloudevents) GetDataBase64() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
@@ -344,7 +329,7 @@ func (o *IoDocument) GetDataBase64() interface{} {
 // GetDataBase64Ok returns a tuple with the DataBase64 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IoDocument) GetDataBase64Ok() (*interface{}, bool) {
+func (o *Cloudevents) GetDataBase64Ok() (*interface{}, bool) {
 	if o == nil || IsNil(o.DataBase64) {
 		return nil, false
 	}
@@ -352,7 +337,7 @@ func (o *IoDocument) GetDataBase64Ok() (*interface{}, bool) {
 }
 
 // HasDataBase64 returns a boolean if a field has been set.
-func (o *IoDocument) HasDataBase64() bool {
+func (o *Cloudevents) HasDataBase64() bool {
 	if o != nil && !IsNil(o.DataBase64) {
 		return true
 	}
@@ -361,11 +346,11 @@ func (o *IoDocument) HasDataBase64() bool {
 }
 
 // SetDataBase64 gets a reference to the given interface{} and assigns it to the DataBase64 field.
-func (o *IoDocument) SetDataBase64(v interface{}) {
+func (o *Cloudevents) SetDataBase64(v interface{}) {
 	o.DataBase64 = v
 }
 
-func (o IoDocument) MarshalJSON() ([]byte, error) {
+func (o Cloudevents) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -373,19 +358,12 @@ func (o IoDocument) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o IoDocument) ToMap() (map[string]interface{}, error) {
+func (o Cloudevents) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
-	if !IsNil(o.Source) {
-		toSerialize["source"] = o.Source
-	}
-	if !IsNil(o.Data) {
-		toSerialize["data"] = o.Data
-	}
 	toSerialize["id"] = o.Id
+	toSerialize["source"] = o.Source
 	toSerialize["specversion"] = o.Specversion
+	toSerialize["type"] = o.Type
 	if o.Datacontenttype != nil {
 		toSerialize["datacontenttype"] = o.Datacontenttype
 	}
@@ -398,13 +376,16 @@ func (o IoDocument) ToMap() (map[string]interface{}, error) {
 	if o.Time != nil {
 		toSerialize["time"] = o.Time
 	}
+	if o.Data != nil {
+		toSerialize["data"] = o.Data
+	}
 	if o.DataBase64 != nil {
 		toSerialize["data_base64"] = o.DataBase64
 	}
 	return toSerialize, nil
 }
 
-func (o *IoDocument) UnmarshalJSON(data []byte) (err error) {
+func (o *Cloudevents) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -429,53 +410,53 @@ func (o *IoDocument) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varIoDocument := _IoDocument{}
+	varCloudevents := _Cloudevents{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varIoDocument)
+	err = decoder.Decode(&varCloudevents)
 
 	if err != nil {
 		return err
 	}
 
-	*o = IoDocument(varIoDocument)
+	*o = Cloudevents(varCloudevents)
 
 	return err
 }
 
-type NullableIoDocument struct {
-	value *IoDocument
+type NullableCloudevents struct {
+	value *Cloudevents
 	isSet bool
 }
 
-func (v NullableIoDocument) Get() *IoDocument {
+func (v NullableCloudevents) Get() *Cloudevents {
 	return v.value
 }
 
-func (v *NullableIoDocument) Set(val *IoDocument) {
+func (v *NullableCloudevents) Set(val *Cloudevents) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableIoDocument) IsSet() bool {
+func (v NullableCloudevents) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableIoDocument) Unset() {
+func (v *NullableCloudevents) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableIoDocument(val *IoDocument) *NullableIoDocument {
-	return &NullableIoDocument{value: val, isSet: true}
+func NewNullableCloudevents(val *Cloudevents) *NullableCloudevents {
+	return &NullableCloudevents{value: val, isSet: true}
 }
 
-func (v NullableIoDocument) MarshalJSON() ([]byte, error) {
+func (v NullableCloudevents) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableIoDocument) UnmarshalJSON(src []byte) error {
+func (v *NullableCloudevents) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

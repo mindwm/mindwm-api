@@ -1,37 +1,38 @@
-# IoDocument
+# Cloudevents
 
+CloudEvents Specification JSON Schema
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | [optional] 
-**source** | **str** |  | [optional] 
-**data** | [**TmuxPaneIoDocument**](TmuxPaneIoDocument.md) |  | [optional] 
 **id** | **str** |  | 
+**source** | **str** |  | 
 **specversion** | **str** |  | 
+**type** | **str** |  | 
 **datacontenttype** | **object** |  | [optional] 
 **dataschema** | **object** |  | [optional] 
 **subject** | **object** |  | [optional] 
 **time** | **object** |  | [optional] 
+**data** | **object** |  | [optional] 
 **data_base64** | **object** |  | [optional] 
 
 ## Example
 
 ```python
-from mindwm.models.io_document import IoDocument
+from mindwm.models.cloudevents import Cloudevents
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of IoDocument from a JSON string
-io_document_instance = IoDocument.from_json(json)
+# create an instance of Cloudevents from a JSON string
+cloudevents_instance = Cloudevents.from_json(json)
 # print the JSON string representation of the object
-print(IoDocument.to_json())
+print(Cloudevents.to_json())
 
 # convert the object into a dict
-io_document_dict = io_document_instance.to_dict()
-# create an instance of IoDocument from a dict
-io_document_from_dict = IoDocument.from_dict(io_document_dict)
+cloudevents_dict = cloudevents_instance.to_dict()
+# create an instance of Cloudevents from a dict
+cloudevents_from_dict = Cloudevents.from_dict(cloudevents_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

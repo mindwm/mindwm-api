@@ -43,8 +43,10 @@ asyncapi-generate:
 
 asyncapi-generate-html:
 	$(MAKE) asyncapi-generate TEMPLATE=html
+# doesn't work with asyncapi 3.0.0.
 asyncapi-generate-python:
 	$(MAKE) asyncapi-generate TEMPLATE=python-paho
+# doesn't work with asyncapi 3.0.0.
 asyncapi-generate-markdown:
 	docker run --rm -it \
 	   --user=root \
@@ -53,5 +55,5 @@ asyncapi-generate-markdown:
 		 -v $(PWD)/asyncapi/markdown:/app/output/markdown \
 		 asyncapi/cli generate fromTemplate -o /app/output/markdown /app/asyncapi.yml @asyncapi/markdown-template@1.2.1 --force-write
 
-openapi-generator: generated_dir openapi-generator-go openapi-generator-python openapi-generator-gdscript asyncapi-generate-html asyncapi-generate-markdown
+openapi-generator: generated_dir openapi-generator-go openapi-generator-python openapi-generator-gdscript asyncapi-generate-html #asyncapi-generate-markdown
 

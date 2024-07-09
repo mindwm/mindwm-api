@@ -89,8 +89,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [CloudEvent](docs/CloudEvent.md)
+ - [Cloudevents](docs/Cloudevents.md)
  - [IoDocument](docs/IoDocument.md)
  - [PingGet200Response](docs/PingGet200Response.md)
+ - [TmuxPaneIoDocument](docs/TmuxPaneIoDocument.md)
 
 
 <a id="documentation-for-authorization"></a>

@@ -17,38 +17,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from mindwm.models.tmux_pane_io_document import TmuxPaneIoDocument
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IoDocument(BaseModel):
+class Cloudevents(BaseModel):
     """
-    IoDocument
+    CloudEvents Specification JSON Schema
     """ # noqa: E501
-    type: Optional[StrictStr] = None
-    source: Optional[Annotated[str, Field(strict=True)]] = None
-    data: Optional[TmuxPaneIoDocument] = None
     id: Annotated[str, Field(min_length=1, strict=True)]
+    source: Annotated[str, Field(min_length=1, strict=True)]
     specversion: Annotated[str, Field(min_length=1, strict=True)]
+    type: Annotated[str, Field(min_length=1, strict=True)]
     datacontenttype: Optional[Any] = None
     dataschema: Optional[Any] = None
     subject: Optional[Any] = None
     time: Optional[Any] = None
+    data: Optional[Any] = None
     data_base64: Optional[Any] = None
     __properties: ClassVar[List[str]] = ["id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64"]
-
-    @field_validator('source')
-    def source_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+\/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$", value):
-            raise ValueError(r"must validate the regular expression /[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+\/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,7 +57,7 @@ class IoDocument(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IoDocument from a JSON string"""
+        """Create an instance of Cloudevents from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -123,7 +112,7 @@ class IoDocument(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IoDocument from a dict"""
+        """Create an instance of Cloudevents from a dict"""
         if obj is None:
             return None
 
