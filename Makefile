@@ -43,6 +43,8 @@ asyncapi-generate:
 
 asyncapi-generate-html:
 	$(MAKE) asyncapi-generate TEMPLATE=html
+asyncapi-generate-python:
+	$(MAKE) asyncapi-generate TEMPLATE=python-paho
 asyncapi-generate-markdown:
 	docker run --rm -it \
 	   --user=root \

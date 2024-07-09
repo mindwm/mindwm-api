@@ -9,7 +9,7 @@ info:
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
 servers:
   asciinema: 
-    host: "/"
+    host: "/tmp/mindwm-asciinema-${MINDWM_UUID}.socket"
     protocol: unixsocket
     description: Asciinema
     variables:
@@ -18,7 +18,7 @@ servers:
     externalDocs:
       url: https://github.com/mindwm/mindwm-manager/blob/dc926f637bb8d31f21ecbd28479ab9b0a1ece23c/src/mindwm/modules/tmux_session.py
   mindwm-client:
-    host: "/"
+    host: "/tmp/mindwm-asciinema-${MINDWM_UUID}.socket"
     protocol: unixsocket
     description: |
       Mindwm Client      
@@ -37,6 +37,7 @@ servers:
         enum:
           - "10.20.30.211" 
           - "nats.nats"
+        default: nats.nats
       port:
         enum:
           - "31101"
@@ -69,6 +70,9 @@ channels:
     address: 'mindwm.${USER}.${HOSTNAME}.tmux.${TMUX_SOCKET}.${MINDWM_UUID}.${TMUX_ID}.${TMUX_PANE_ID}.iodocument'
     servers: 
       - $ref: '#/servers/nats'
+    messages:
+      IoDocument:
+        $ref: '#/components/messages/IoDocument'
  
 operations:
   TmuxPaneIoDocument:
@@ -77,6 +81,12 @@ operations:
       $ref: '#/channels/TmuxPane'
     messages:
       - $ref: '#/channels/TmuxPane/messages/TmuxPaneIoDocument'
+  IoDocument:
+    action: send
+    channel:
+      $ref: '#/channels/HostNatsTopicIoDocument'
+    messages:
+      - $ref: '#/channels/HostNatsTopicIoDocument/messages/IoDocument'
     
 
 components:
@@ -85,7 +95,27 @@ components:
       summary: "Basic IoDocument produced by mindwm-client"
       payload:
         $ref: '#/components/schemas/TmuxPaneIoDocument'
+    IoDocument:
+      summary: "TmuxPaneIoDocument in cloudevent"
+      payload:
+        $ref: "#/components/schemas/IoDocument"    
   schemas:
+    CloudEvent:
+      $ref: https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/formats/cloudevents.json
+      discrimniator: type
+
+    IoDocument:
+      allOf:
+        - $ref: '#/components/schemas/CloudEvent'
+              
+      properties:
+        type:
+          type: string
+          const: IoDocument
+      additionalProperties: false
+
+
+
     TmuxPaneIoDocument:
       type: object
       properties:
@@ -111,3 +141,4 @@ components:
         - input: uptime
           output: "16:37:51 up 19 days,  2:15, 71 users,  load average: 2.01, 2.85, 2.95"
           ps1: "user@mindwm-dev1:~/rnd/asyncapi$"
+
