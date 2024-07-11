@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **Type** | Pointer to **string** |  | [optional] 
 **Source** | Pointer to **string** |  | [optional] 
 **Data** | Pointer to [**ClipboardPayload**](ClipboardPayload.md) |  | [optional] 
+**Subject** | Pointer to **string** |  | [optional] 
 **Id** | **string** | Identifies the event. | 
 **Specversion** | **string** | The version of the CloudEvents specification which the event uses. | 
 **Datacontenttype** | Pointer to **string** | Content type of the data value. Must adhere to RFC 2046 format. | [optional] 
 **Dataschema** | Pointer to **string** | Identifies the schema that data adheres to. | [optional] 
-**Subject** | Pointer to **string** | Describes the subject of the event in the context of the event producer (identified by source). | [optional] 
 **Time** | Pointer to **time.Time** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
 **DataBase64** | Pointer to **string** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
@@ -109,6 +109,31 @@ SetData sets Data field to given value.
 
 HasData returns a boolean if a field has been set.
 
+### GetSubject
+
+`func (o *Clipboard) GetSubject() string`
+
+GetSubject returns the Subject field if non-nil, zero value otherwise.
+
+### GetSubjectOk
+
+`func (o *Clipboard) GetSubjectOk() (*string, bool)`
+
+GetSubjectOk returns a tuple with the Subject field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubject
+
+`func (o *Clipboard) SetSubject(v string)`
+
+SetSubject sets Subject field to given value.
+
+### HasSubject
+
+`func (o *Clipboard) HasSubject() bool`
+
+HasSubject returns a boolean if a field has been set.
+
 ### GetId
 
 `func (o *Clipboard) GetId() string`
@@ -198,31 +223,6 @@ SetDataschema sets Dataschema field to given value.
 `func (o *Clipboard) HasDataschema() bool`
 
 HasDataschema returns a boolean if a field has been set.
-
-### GetSubject
-
-`func (o *Clipboard) GetSubject() string`
-
-GetSubject returns the Subject field if non-nil, zero value otherwise.
-
-### GetSubjectOk
-
-`func (o *Clipboard) GetSubjectOk() (*string, bool)`
-
-GetSubjectOk returns a tuple with the Subject field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSubject
-
-`func (o *Clipboard) SetSubject(v string)`
-
-SetSubject sets Subject field to given value.
-
-### HasSubject
-
-`func (o *Clipboard) HasSubject() bool`
-
-HasSubject returns a boolean if a field has been set.
 
 ### GetTime
 

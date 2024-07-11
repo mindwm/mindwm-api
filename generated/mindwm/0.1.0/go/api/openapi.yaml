@@ -1,6 +1,10 @@
 openapi: 3.1.0
 info:
-  description: API defining the operations available in the Mindwm API
+  description: "This document describes the documentation, a collection of JSON schemas\
+    \ and example cloudevent and payloads"
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Mindwm API
   version: 0.1.0
 servers:
@@ -82,11 +86,14 @@ components:
       allOf:
       - $ref: '#/components/schemas/CloudEvent'
       properties:
-        type: {}
+        type:
+          defaullt: Clipboard
         source:
-          pattern: "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$"
+          pattern: "mindwm.[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$"
         data:
           $ref: '#/components/schemas/ClipboardPayload'
+        subject:
+          defaullt: Clipboard
     ClipboardPayload:
       properties:
         start:

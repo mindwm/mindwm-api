@@ -33,7 +33,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_clipboard.py
-test/test_clipboard_payload.py
-test/test_clipboard_payload_context.py
 tox.ini

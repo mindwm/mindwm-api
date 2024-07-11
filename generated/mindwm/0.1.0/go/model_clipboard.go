@@ -1,7 +1,7 @@
 /*
 Mindwm API
 
-API defining the operations available in the Mindwm API
+This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
 
 API version: 0.1.0
 */
@@ -24,6 +24,7 @@ type Clipboard struct {
 	Type *string `json:"type,omitempty"`
 	Source *string `json:"source,omitempty"`
 	Data *ClipboardPayload `json:"data,omitempty"`
+	Subject *string `json:"subject,omitempty"`
 	// Identifies the event.
 	Id string `json:"id"`
 	// The version of the CloudEvents specification which the event uses.
@@ -32,8 +33,6 @@ type Clipboard struct {
 	Datacontenttype *string `json:"datacontenttype,omitempty"`
 	// Identifies the schema that data adheres to.
 	Dataschema *string `json:"dataschema,omitempty"`
-	// Describes the subject of the event in the context of the event producer (identified by source).
-	Subject *string `json:"subject,omitempty"`
 	// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 	Time *time.Time `json:"time,omitempty"`
 	// Base64 encoded event payload. Must adhere to RFC4648.
@@ -160,6 +159,38 @@ func (o *Clipboard) SetData(v ClipboardPayload) {
 	o.Data = &v
 }
 
+// GetSubject returns the Subject field value if set, zero value otherwise.
+func (o *Clipboard) GetSubject() string {
+	if o == nil || IsNil(o.Subject) {
+		var ret string
+		return ret
+	}
+	return *o.Subject
+}
+
+// GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Clipboard) GetSubjectOk() (*string, bool) {
+	if o == nil || IsNil(o.Subject) {
+		return nil, false
+	}
+	return o.Subject, true
+}
+
+// HasSubject returns a boolean if a field has been set.
+func (o *Clipboard) HasSubject() bool {
+	if o != nil && !IsNil(o.Subject) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubject gets a reference to the given string and assigns it to the Subject field.
+func (o *Clipboard) SetSubject(v string) {
+	o.Subject = &v
+}
+
 // GetId returns the Id field value
 func (o *Clipboard) GetId() string {
 	if o == nil {
@@ -272,38 +303,6 @@ func (o *Clipboard) SetDataschema(v string) {
 	o.Dataschema = &v
 }
 
-// GetSubject returns the Subject field value if set, zero value otherwise.
-func (o *Clipboard) GetSubject() string {
-	if o == nil || IsNil(o.Subject) {
-		var ret string
-		return ret
-	}
-	return *o.Subject
-}
-
-// GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Clipboard) GetSubjectOk() (*string, bool) {
-	if o == nil || IsNil(o.Subject) {
-		return nil, false
-	}
-	return o.Subject, true
-}
-
-// HasSubject returns a boolean if a field has been set.
-func (o *Clipboard) HasSubject() bool {
-	if o != nil && !IsNil(o.Subject) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubject gets a reference to the given string and assigns it to the Subject field.
-func (o *Clipboard) SetSubject(v string) {
-	o.Subject = &v
-}
-
 // GetTime returns the Time field value if set, zero value otherwise.
 func (o *Clipboard) GetTime() time.Time {
 	if o == nil || IsNil(o.Time) {
@@ -387,6 +386,9 @@ func (o Clipboard) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
+	if !IsNil(o.Subject) {
+		toSerialize["subject"] = o.Subject
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["specversion"] = o.Specversion
 	if !IsNil(o.Datacontenttype) {
@@ -394,9 +396,6 @@ func (o Clipboard) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Dataschema) {
 		toSerialize["dataschema"] = o.Dataschema
-	}
-	if !IsNil(o.Subject) {
-		toSerialize["subject"] = o.Subject
 	}
 	if !IsNil(o.Time) {
 		toSerialize["time"] = o.Time
@@ -453,11 +452,11 @@ func (o *Clipboard) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "type")
 		delete(additionalProperties, "source")
 		delete(additionalProperties, "data")
+		delete(additionalProperties, "subject")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "specversion")
 		delete(additionalProperties, "datacontenttype")
 		delete(additionalProperties, "dataschema")
-		delete(additionalProperties, "subject")
 		delete(additionalProperties, "time")
 		delete(additionalProperties, "data_base64")
 		o.AdditionalProperties = additionalProperties

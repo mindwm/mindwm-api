@@ -1,7 +1,7 @@
 /*
 Mindwm API
 
-API defining the operations available in the Mindwm API
+This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
 
 API version: 0.1.0
 */
