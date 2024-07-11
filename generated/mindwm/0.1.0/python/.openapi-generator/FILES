@@ -3,6 +3,9 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+docs/Clipboard.md
+docs/ClipboardPayload.md
+docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
 docs/CloudEventData.md
 docs/IoDocument.md
@@ -15,6 +18,9 @@ mindwm/api_response.py
 mindwm/configuration.py
 mindwm/exceptions.py
 mindwm/models/__init__.py
+mindwm/models/clipboard.py
+mindwm/models/clipboard_payload.py
+mindwm/models/clipboard_payload_context.py
 mindwm/models/cloud_event.py
 mindwm/models/cloud_event_data.py
 mindwm/models/io_document.py
@@ -27,5 +33,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_cloud_event_data.py
+test/test_clipboard.py
+test/test_clipboard_payload.py
+test/test_clipboard_payload_context.py
 tox.ini

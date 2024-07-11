@@ -30,6 +30,9 @@ from mindwm.exceptions import ApiAttributeError
 from mindwm.exceptions import ApiException
 
 # import models into sdk package
+from mindwm.models.clipboard import Clipboard
+from mindwm.models.clipboard_payload import ClipboardPayload
+from mindwm.models.clipboard_payload_context import ClipboardPayloadContext
 from mindwm.models.cloud_event import CloudEvent
 from mindwm.models.cloud_event_data import CloudEventData
 from mindwm.models.io_document import IoDocument

@@ -44,6 +44,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+- [Clipboard](models/Clipboard.md)
+- [ClipboardPayload](models/ClipboardPayload.md)
+- [ClipboardPayloadContext](models/ClipboardPayloadContext.md)
 - [CloudEvent](models/CloudEvent.md)
 - [IoDocument](models/IoDocument.md)
 - [TmuxPaneIoDocument](models/TmuxPaneIoDocument.md)

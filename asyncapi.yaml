@@ -73,6 +73,14 @@ channels:
     messages:
       IoDocument:
         $ref: '#/components/messages/IoDocument'
+  HostNatsTopicClipboard:
+    address: 'mindwm.${USER}.${HOSTNAME}.clipboard'
+    servers: 
+      - $ref: '#/servers/nats'
+    messages:
+      IoDocument:
+        $ref: '#/components/messages/Clipboard'
+ 
  
 operations:
   TmuxPaneIoDocument:
@@ -99,6 +107,12 @@ components:
       summary: "TmuxPaneIoDocument in cloudevent"
       payload:
         $ref: "#/components/schemas/IoDocument"    
+
+    Clipboard:
+      summary: "Clipboard"
+      payload:
+        $ref: "#/components/schemas/Clipboard"    
+
   schemas:
     CloudEvent:
       $ref: https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/formats/cloudevents.json
@@ -107,7 +121,6 @@ components:
     IoDocument:
       allOf:
         - $ref: '#/components/schemas/CloudEvent'
-              
       properties:
         type:
           type: string
@@ -121,7 +134,62 @@ components:
           $ref: '#/components/schemas/TmuxPaneIoDocument'
       additionalProperties: false
 
+    Clipboard:
+      allOf:
+        - $ref: '#/components/schemas/CloudEvent'
+      properties:
+        type:
+          type: string
+          const: Clipboard
+        source:
+          type: string
+          # mindwm.bebebeko.mcmp6.tmux.L3RtcC90bXV4LTkyOTYwMDAwNS9kZWZhdWx0LDE2MzczOTQsMA==.505eec90-266c-11ef-bc96-2fde980ed4b5.0.0.iodocument
+          #              username                           hostname                  tmux   base64_tmux socket path                    UUID                                      TMUX_SESS  PANE_ID  iodocument topic 
+          pattern: '[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$'
+        data:
+          $ref: '#/components/schemas/ClipboardPayload'
+      additionalProperties: false
 
+
+    ClipboardPayload:
+      type: object
+      properties: 
+        start: 
+          type: array
+          description: "Starting position of clipboard selection [x,y]"
+          items: 
+            type: integer
+          minItems: 2
+          maxItems: 2
+        stop: 
+          type: array
+          description: "Ending position of clipboard selection [x,y]"
+          items: 
+            type: integer
+          minItems: 2
+          maxItems: 2
+        data:
+          type: string
+          description: "Clipboard data"
+          minLength: 1
+        type:
+          type: string
+          description: "Clipboard type"
+          enum: ["primary", "secondary", "clipboard"]
+        context: 
+          type: object
+          description: "Selection context"
+          properties:
+            window:
+              type: string
+              description: "window id"
+      examples: 
+        - data: "clipboard selection data"
+          type: "secondary"
+          start: [86, 120]
+          stop: [321, 420]
+          context:
+            window: 0x8061cdef
 
     TmuxPaneIoDocument:
       type: object

@@ -82,6 +82,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Clipboard](docs/Clipboard.md)
+ - [ClipboardPayload](docs/ClipboardPayload.md)
+ - [ClipboardPayloadContext](docs/ClipboardPayloadContext.md)
  - [CloudEvent](docs/CloudEvent.md)
  - [CloudEventData](docs/CloudEventData.md)
  - [IoDocument](docs/IoDocument.md)
