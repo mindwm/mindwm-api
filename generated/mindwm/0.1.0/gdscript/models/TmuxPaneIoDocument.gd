@@ -13,7 +13,7 @@ class_name TmuxPaneIoDocument
 # User input
 # Required: True
 # isArray: false
-@export var some_input: String = "":
+@export var some_input: AnyType:
 	set(value):
 		__some_input__was__set = true
 		some_input = value
@@ -22,7 +22,7 @@ var __some_input__was__set := false
 # Command output (mix of stdout & stderr)
 # Required: True
 # isArray: false
-@export var output: String = "":
+@export var output: AnyType:
 	set(value):
 		__output__was__set = true
 		output = value
@@ -31,7 +31,7 @@ var __output__was__set := false
 # ps1 (prompt) AFTER the input and output
 # Required: True
 # isArray: false
-@export var ps1: String = "":
+@export var ps1: AnyType:
 	set(value):
 		__ps1__was__set = true
 		ps1 = value

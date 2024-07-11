@@ -17,9 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from mindwm.models.cloud_event_data import CloudEventData
 from mindwm.models.tmux_pane_io_document import TmuxPaneIoDocument
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,13 +33,14 @@ class IoDocument(BaseModel):
     type: Optional[StrictStr] = None
     source: Optional[Annotated[str, Field(strict=True)]] = None
     data: Optional[TmuxPaneIoDocument] = None
-    id: Annotated[str, Field(min_length=1, strict=True)]
-    specversion: Annotated[str, Field(min_length=1, strict=True)]
-    datacontenttype: Optional[Any] = None
-    dataschema: Optional[Any] = None
-    subject: Optional[Any] = None
-    time: Optional[Any] = None
-    data_base64: Optional[Any] = None
+    id: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Identifies the event.")
+    specversion: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The version of the CloudEvents specification which the event uses.")
+    datacontenttype: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Content type of the data value. Must adhere to RFC 2046 format.")
+    dataschema: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Identifies the schema that data adheres to.")
+    subject: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Describes the subject of the event in the context of the event producer (identified by source).")
+    time: Optional[datetime] = Field(default=None, description="Timestamp of when the occurrence happened. Must adhere to RFC 3339.")
+    data_base64: Optional[StrictStr] = Field(default=None, description="Base64 encoded event payload. Must adhere to RFC4648.")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64"]
 
     @field_validator('source')
@@ -80,8 +83,10 @@ class IoDocument(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -89,35 +94,18 @@ class IoDocument(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if datacontenttype (nullable) is None
-        # and model_fields_set contains the field
-        if self.datacontenttype is None and "datacontenttype" in self.model_fields_set:
-            _dict['datacontenttype'] = None
-
-        # set to None if dataschema (nullable) is None
-        # and model_fields_set contains the field
-        if self.dataschema is None and "dataschema" in self.model_fields_set:
-            _dict['dataschema'] = None
-
-        # set to None if subject (nullable) is None
-        # and model_fields_set contains the field
-        if self.subject is None and "subject" in self.model_fields_set:
-            _dict['subject'] = None
-
-        # set to None if time (nullable) is None
-        # and model_fields_set contains the field
-        if self.time is None and "time" in self.model_fields_set:
-            _dict['time'] = None
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
 
         # set to None if data (nullable) is None
         # and model_fields_set contains the field
         if self.data is None and "data" in self.model_fields_set:
             _dict['data'] = None
-
-        # set to None if data_base64 (nullable) is None
-        # and model_fields_set contains the field
-        if self.data_base64 is None and "data_base64" in self.model_fields_set:
-            _dict['data_base64'] = None
 
         return _dict
 
@@ -139,9 +127,14 @@ class IoDocument(BaseModel):
             "dataschema": obj.get("dataschema"),
             "subject": obj.get("subject"),
             "time": obj.get("time"),
-            "data": obj.get("data"),
+            "data": CloudEventData.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "data_base64": obj.get("data_base64")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

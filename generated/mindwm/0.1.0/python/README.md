@@ -55,27 +55,6 @@ import mindwm
 from mindwm.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://mindwmw.io/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = mindwm.Configuration(
-    host = "https://mindwmw.io/v1"
-)
-
-
-
-# Enter a context with an instance of the API client
-with mindwm.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = mindwm.DefaultApi(api_client)
-
-    try:
-        # Ping the server
-        api_response = api_instance.ping_get()
-        print("The response of DefaultApi->ping_get:\n")
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DefaultApi->ping_get: %s\n" % e)
-
 ```
 
 ## Documentation for API Endpoints
@@ -84,15 +63,13 @@ All URIs are relative to *https://mindwmw.io/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**ping_get**](docs/DefaultApi.md#ping_get) | **GET** /ping | Ping the server
 
 
 ## Documentation For Models
 
  - [CloudEvent](docs/CloudEvent.md)
- - [Cloudevents](docs/Cloudevents.md)
+ - [CloudEventData](docs/CloudEventData.md)
  - [IoDocument](docs/IoDocument.md)
- - [PingGet200Response](docs/PingGet200Response.md)
  - [TmuxPaneIoDocument](docs/TmuxPaneIoDocument.md)
 
 
@@ -103,7 +80,6 @@ Endpoints do not require authorization.
 
 
 ## Author
-
 
 
 

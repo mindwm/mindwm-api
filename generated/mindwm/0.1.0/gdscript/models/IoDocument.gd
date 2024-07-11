@@ -12,7 +12,7 @@ class_name IoDocument
 
 # Required: False
 # isArray: false
-@export var type: String = "":
+@export var type: AnyType:
 	set(value):
 		__type__was__set = true
 		type = value
@@ -20,7 +20,7 @@ var __type__was__set := false
 
 # Required: False
 # isArray: false
-@export var source: String = "":
+@export var source: AnyType:
 	set(value):
 		__source__was__set = true
 		source = value
@@ -34,69 +34,9 @@ var __source__was__set := false
 		data = value
 var __data__was__set := false
 
-# Required: True
-# isArray: false
-@export var id: String = "":
-	set(value):
-		__id__was__set = true
-		id = value
-var __id__was__set := false
-
-# Required: True
-# isArray: false
-@export var specversion: String = "":
-	set(value):
-		__specversion__was__set = true
-		specversion = value
-var __specversion__was__set := false
-
-# Required: False
-# isArray: false
-@export var datacontenttype: AnyType:
-	set(value):
-		__datacontenttype__was__set = true
-		datacontenttype = value
-var __datacontenttype__was__set := false
-
-# Required: False
-# isArray: false
-@export var dataschema: AnyType:
-	set(value):
-		__dataschema__was__set = true
-		dataschema = value
-var __dataschema__was__set := false
-
-# Required: False
-# isArray: false
-@export var subject: AnyType:
-	set(value):
-		__subject__was__set = true
-		subject = value
-var __subject__was__set := false
-
-# Required: False
-# isArray: false
-@export var some_time: AnyType:
-	set(value):
-		__some_time__was__set = true
-		some_time = value
-var __some_time__was__set := false
-
-# Required: False
-# isArray: false
-@export var dataUnderscorebase64: AnyType:
-	set(value):
-		__dataUnderscorebase64__was__set = true
-		dataUnderscorebase64 = value
-var __dataUnderscorebase64__was__set := false
-
 
 func bzz_collect_missing_properties() -> Array:
 	var bzz_missing_properties := Array()
-	if not self.__id__was__set:
-		bzz_missing_properties.append("id")
-	if not self.__specversion__was__set:
-		bzz_missing_properties.append("specversion")
 	return bzz_missing_properties
 
 
@@ -108,20 +48,6 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["source"] = self.source
 	if self.__data__was__set:
 		bzz_dictionary["data"] = self.data
-	if self.__id__was__set:
-		bzz_dictionary["id"] = self.id
-	if self.__specversion__was__set:
-		bzz_dictionary["specversion"] = self.specversion
-	if self.__datacontenttype__was__set:
-		bzz_dictionary["datacontenttype"] = self.datacontenttype
-	if self.__dataschema__was__set:
-		bzz_dictionary["dataschema"] = self.dataschema
-	if self.__subject__was__set:
-		bzz_dictionary["subject"] = self.subject
-	if self.__some_time__was__set:
-		bzz_dictionary["some_time"] = self.some_time
-	if self.__dataUnderscorebase64__was__set:
-		bzz_dictionary["dataUnderscorebase64"] = self.dataUnderscorebase64
 	return bzz_dictionary
 
 
@@ -134,20 +60,6 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 		me.source = from_dict["source"]
 	if from_dict.has("data"):
 		me.data = TmuxPaneIoDocument.bzz_denormalize_single(from_dict["data"])
-	if from_dict.has("id"):
-		me.id = from_dict["id"]
-	if from_dict.has("specversion"):
-		me.specversion = from_dict["specversion"]
-	if from_dict.has("datacontenttype"):
-		me.datacontenttype = from_dict["datacontenttype"]
-	if from_dict.has("dataschema"):
-		me.dataschema = from_dict["dataschema"]
-	if from_dict.has("subject"):
-		me.subject = from_dict["subject"]
-	if from_dict.has("some_time"):
-		me.some_time = from_dict["some_time"]
-	if from_dict.has("dataUnderscorebase64"):
-		me.dataUnderscorebase64 = from_dict["dataUnderscorebase64"]
 	return me
 
 

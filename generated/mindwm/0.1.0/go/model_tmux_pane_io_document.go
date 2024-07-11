@@ -12,7 +12,6 @@ package mindwm
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type TmuxPaneIoDocument struct {
 	Output string `json:"output"`
 	// ps1 (prompt) AFTER the input and output
 	Ps1 string `json:"ps1"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _TmuxPaneIoDocument TmuxPaneIoDocument
@@ -136,6 +136,11 @@ func (o TmuxPaneIoDocument) ToMap() (map[string]interface{}, error) {
 	toSerialize["input"] = o.Input
 	toSerialize["output"] = o.Output
 	toSerialize["ps1"] = o.Ps1
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *TmuxPaneIoDocument) UnmarshalJSON(data []byte) (err error) {
 
 	varTmuxPaneIoDocument := _TmuxPaneIoDocument{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTmuxPaneIoDocument)
+	err = json.Unmarshal(data, &varTmuxPaneIoDocument)
 
 	if err != nil {
 		return err
 	}
 
 	*o = TmuxPaneIoDocument(varTmuxPaneIoDocument)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "input")
+		delete(additionalProperties, "output")
+		delete(additionalProperties, "ps1")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

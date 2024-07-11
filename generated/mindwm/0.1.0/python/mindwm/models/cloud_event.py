@@ -17,9 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from mindwm.models.cloud_event_data import CloudEventData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,16 +29,16 @@ class CloudEvent(BaseModel):
     """
     CloudEvents Specification JSON Schema
     """ # noqa: E501
-    id: Annotated[str, Field(min_length=1, strict=True)]
-    source: Annotated[str, Field(min_length=1, strict=True)]
-    specversion: Annotated[str, Field(min_length=1, strict=True)]
-    type: Annotated[str, Field(min_length=1, strict=True)]
-    datacontenttype: Optional[Any] = None
-    dataschema: Optional[Any] = None
-    subject: Optional[Any] = None
-    time: Optional[Any] = None
-    data: Optional[Any] = None
-    data_base64: Optional[Any] = None
+    id: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Identifies the event.")
+    source: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Identifies the context in which an event happened.")
+    specversion: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The version of the CloudEvents specification which the event uses.")
+    type: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Describes the type of event related to the originating occurrence.")
+    datacontenttype: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Content type of the data value. Must adhere to RFC 2046 format.")
+    dataschema: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Identifies the schema that data adheres to.")
+    subject: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Describes the subject of the event in the context of the event producer (identified by source).")
+    time: Optional[datetime] = Field(default=None, description="Timestamp of when the occurrence happened. Must adhere to RFC 3339.")
+    data: Optional[CloudEventData] = None
+    data_base64: Optional[StrictStr] = Field(default=None, description="Base64 encoded event payload. Must adhere to RFC4648.")
     __properties: ClassVar[List[str]] = ["id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64"]
 
     model_config = ConfigDict(
@@ -78,6 +80,9 @@ class CloudEvent(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
         # set to None if datacontenttype (nullable) is None
         # and model_fields_set contains the field
         if self.datacontenttype is None and "datacontenttype" in self.model_fields_set:
@@ -128,7 +133,7 @@ class CloudEvent(BaseModel):
             "dataschema": obj.get("dataschema"),
             "subject": obj.get("subject"),
             "time": obj.get("time"),
-            "data": obj.get("data"),
+            "data": CloudEventData.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "data_base64": obj.get("data_base64")
         })
         return _obj

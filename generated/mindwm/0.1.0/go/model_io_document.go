@@ -12,7 +12,7 @@ package mindwm
 
 import (
 	"encoding/json"
-	"bytes"
+	"time"
 	"fmt"
 )
 
@@ -24,13 +24,21 @@ type IoDocument struct {
 	Type *string `json:"type,omitempty"`
 	Source *string `json:"source,omitempty"`
 	Data *TmuxPaneIoDocument `json:"data,omitempty"`
+	// Identifies the event.
 	Id string `json:"id"`
+	// The version of the CloudEvents specification which the event uses.
 	Specversion string `json:"specversion"`
-	Datacontenttype interface{} `json:"datacontenttype,omitempty"`
-	Dataschema interface{} `json:"dataschema,omitempty"`
-	Subject interface{} `json:"subject,omitempty"`
-	Time interface{} `json:"time,omitempty"`
-	DataBase64 interface{} `json:"data_base64,omitempty"`
+	// Content type of the data value. Must adhere to RFC 2046 format.
+	Datacontenttype *string `json:"datacontenttype,omitempty"`
+	// Identifies the schema that data adheres to.
+	Dataschema *string `json:"dataschema,omitempty"`
+	// Describes the subject of the event in the context of the event producer (identified by source).
+	Subject *string `json:"subject,omitempty"`
+	// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+	Time *time.Time `json:"time,omitempty"`
+	// Base64 encoded event payload. Must adhere to RFC4648.
+	DataBase64 *string `json:"data_base64,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _IoDocument IoDocument
@@ -200,23 +208,22 @@ func (o *IoDocument) SetSpecversion(v string) {
 	o.Specversion = v
 }
 
-// GetDatacontenttype returns the Datacontenttype field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IoDocument) GetDatacontenttype() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetDatacontenttype returns the Datacontenttype field value if set, zero value otherwise.
+func (o *IoDocument) GetDatacontenttype() string {
+	if o == nil || IsNil(o.Datacontenttype) {
+		var ret string
 		return ret
 	}
-	return o.Datacontenttype
+	return *o.Datacontenttype
 }
 
 // GetDatacontenttypeOk returns a tuple with the Datacontenttype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IoDocument) GetDatacontenttypeOk() (*interface{}, bool) {
+func (o *IoDocument) GetDatacontenttypeOk() (*string, bool) {
 	if o == nil || IsNil(o.Datacontenttype) {
 		return nil, false
 	}
-	return &o.Datacontenttype, true
+	return o.Datacontenttype, true
 }
 
 // HasDatacontenttype returns a boolean if a field has been set.
@@ -228,28 +235,27 @@ func (o *IoDocument) HasDatacontenttype() bool {
 	return false
 }
 
-// SetDatacontenttype gets a reference to the given interface{} and assigns it to the Datacontenttype field.
-func (o *IoDocument) SetDatacontenttype(v interface{}) {
-	o.Datacontenttype = v
+// SetDatacontenttype gets a reference to the given string and assigns it to the Datacontenttype field.
+func (o *IoDocument) SetDatacontenttype(v string) {
+	o.Datacontenttype = &v
 }
 
-// GetDataschema returns the Dataschema field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IoDocument) GetDataschema() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetDataschema returns the Dataschema field value if set, zero value otherwise.
+func (o *IoDocument) GetDataschema() string {
+	if o == nil || IsNil(o.Dataschema) {
+		var ret string
 		return ret
 	}
-	return o.Dataschema
+	return *o.Dataschema
 }
 
 // GetDataschemaOk returns a tuple with the Dataschema field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IoDocument) GetDataschemaOk() (*interface{}, bool) {
+func (o *IoDocument) GetDataschemaOk() (*string, bool) {
 	if o == nil || IsNil(o.Dataschema) {
 		return nil, false
 	}
-	return &o.Dataschema, true
+	return o.Dataschema, true
 }
 
 // HasDataschema returns a boolean if a field has been set.
@@ -261,28 +267,27 @@ func (o *IoDocument) HasDataschema() bool {
 	return false
 }
 
-// SetDataschema gets a reference to the given interface{} and assigns it to the Dataschema field.
-func (o *IoDocument) SetDataschema(v interface{}) {
-	o.Dataschema = v
+// SetDataschema gets a reference to the given string and assigns it to the Dataschema field.
+func (o *IoDocument) SetDataschema(v string) {
+	o.Dataschema = &v
 }
 
-// GetSubject returns the Subject field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IoDocument) GetSubject() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetSubject returns the Subject field value if set, zero value otherwise.
+func (o *IoDocument) GetSubject() string {
+	if o == nil || IsNil(o.Subject) {
+		var ret string
 		return ret
 	}
-	return o.Subject
+	return *o.Subject
 }
 
 // GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IoDocument) GetSubjectOk() (*interface{}, bool) {
+func (o *IoDocument) GetSubjectOk() (*string, bool) {
 	if o == nil || IsNil(o.Subject) {
 		return nil, false
 	}
-	return &o.Subject, true
+	return o.Subject, true
 }
 
 // HasSubject returns a boolean if a field has been set.
@@ -294,28 +299,27 @@ func (o *IoDocument) HasSubject() bool {
 	return false
 }
 
-// SetSubject gets a reference to the given interface{} and assigns it to the Subject field.
-func (o *IoDocument) SetSubject(v interface{}) {
-	o.Subject = v
+// SetSubject gets a reference to the given string and assigns it to the Subject field.
+func (o *IoDocument) SetSubject(v string) {
+	o.Subject = &v
 }
 
-// GetTime returns the Time field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IoDocument) GetTime() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetTime returns the Time field value if set, zero value otherwise.
+func (o *IoDocument) GetTime() time.Time {
+	if o == nil || IsNil(o.Time) {
+		var ret time.Time
 		return ret
 	}
-	return o.Time
+	return *o.Time
 }
 
 // GetTimeOk returns a tuple with the Time field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IoDocument) GetTimeOk() (*interface{}, bool) {
+func (o *IoDocument) GetTimeOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.Time) {
 		return nil, false
 	}
-	return &o.Time, true
+	return o.Time, true
 }
 
 // HasTime returns a boolean if a field has been set.
@@ -327,28 +331,27 @@ func (o *IoDocument) HasTime() bool {
 	return false
 }
 
-// SetTime gets a reference to the given interface{} and assigns it to the Time field.
-func (o *IoDocument) SetTime(v interface{}) {
-	o.Time = v
+// SetTime gets a reference to the given time.Time and assigns it to the Time field.
+func (o *IoDocument) SetTime(v time.Time) {
+	o.Time = &v
 }
 
-// GetDataBase64 returns the DataBase64 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IoDocument) GetDataBase64() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetDataBase64 returns the DataBase64 field value if set, zero value otherwise.
+func (o *IoDocument) GetDataBase64() string {
+	if o == nil || IsNil(o.DataBase64) {
+		var ret string
 		return ret
 	}
-	return o.DataBase64
+	return *o.DataBase64
 }
 
 // GetDataBase64Ok returns a tuple with the DataBase64 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IoDocument) GetDataBase64Ok() (*interface{}, bool) {
+func (o *IoDocument) GetDataBase64Ok() (*string, bool) {
 	if o == nil || IsNil(o.DataBase64) {
 		return nil, false
 	}
-	return &o.DataBase64, true
+	return o.DataBase64, true
 }
 
 // HasDataBase64 returns a boolean if a field has been set.
@@ -360,9 +363,9 @@ func (o *IoDocument) HasDataBase64() bool {
 	return false
 }
 
-// SetDataBase64 gets a reference to the given interface{} and assigns it to the DataBase64 field.
-func (o *IoDocument) SetDataBase64(v interface{}) {
-	o.DataBase64 = v
+// SetDataBase64 gets a reference to the given string and assigns it to the DataBase64 field.
+func (o *IoDocument) SetDataBase64(v string) {
+	o.DataBase64 = &v
 }
 
 func (o IoDocument) MarshalJSON() ([]byte, error) {
@@ -386,21 +389,26 @@ func (o IoDocument) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["specversion"] = o.Specversion
-	if o.Datacontenttype != nil {
+	if !IsNil(o.Datacontenttype) {
 		toSerialize["datacontenttype"] = o.Datacontenttype
 	}
-	if o.Dataschema != nil {
+	if !IsNil(o.Dataschema) {
 		toSerialize["dataschema"] = o.Dataschema
 	}
-	if o.Subject != nil {
+	if !IsNil(o.Subject) {
 		toSerialize["subject"] = o.Subject
 	}
-	if o.Time != nil {
+	if !IsNil(o.Time) {
 		toSerialize["time"] = o.Time
 	}
-	if o.DataBase64 != nil {
+	if !IsNil(o.DataBase64) {
 		toSerialize["data_base64"] = o.DataBase64
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -431,15 +439,29 @@ func (o *IoDocument) UnmarshalJSON(data []byte) (err error) {
 
 	varIoDocument := _IoDocument{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varIoDocument)
+	err = json.Unmarshal(data, &varIoDocument)
 
 	if err != nil {
 		return err
 	}
 
 	*o = IoDocument(varIoDocument)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "source")
+		delete(additionalProperties, "data")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "specversion")
+		delete(additionalProperties, "datacontenttype")
+		delete(additionalProperties, "dataschema")
+		delete(additionalProperties, "subject")
+		delete(additionalProperties, "time")
+		delete(additionalProperties, "data_base64")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

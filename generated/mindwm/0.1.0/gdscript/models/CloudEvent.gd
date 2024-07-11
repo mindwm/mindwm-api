@@ -11,38 +11,43 @@ class_name CloudEvent
 # CloudEvents Specification JSON Schema
 
 
+# Identifies the event.
 # Required: True
 # isArray: false
-@export var id: String = "":
+@export var id: AnyType:
 	set(value):
 		__id__was__set = true
 		id = value
 var __id__was__set := false
 
+# Identifies the context in which an event happened.
 # Required: True
 # isArray: false
-@export var source: String = "":
+@export var source: AnyType:
 	set(value):
 		__source__was__set = true
 		source = value
 var __source__was__set := false
 
+# The version of the CloudEvents specification which the event uses.
 # Required: True
 # isArray: false
-@export var specversion: String = "":
+@export var specversion: AnyType:
 	set(value):
 		__specversion__was__set = true
 		specversion = value
 var __specversion__was__set := false
 
+# Describes the type of event related to the originating occurrence.
 # Required: True
 # isArray: false
-@export var type: String = "":
+@export var type: AnyType:
 	set(value):
 		__type__was__set = true
 		type = value
 var __type__was__set := false
 
+# Content type of the data value. Must adhere to RFC 2046 format.
 # Required: False
 # isArray: false
 @export var datacontenttype: AnyType:
@@ -51,6 +56,7 @@ var __type__was__set := false
 		datacontenttype = value
 var __datacontenttype__was__set := false
 
+# Identifies the schema that data adheres to.
 # Required: False
 # isArray: false
 @export var dataschema: AnyType:
@@ -59,6 +65,7 @@ var __datacontenttype__was__set := false
 		dataschema = value
 var __dataschema__was__set := false
 
+# Describes the subject of the event in the context of the event producer (identified by source).
 # Required: False
 # isArray: false
 @export var subject: AnyType:
@@ -67,6 +74,7 @@ var __dataschema__was__set := false
 		subject = value
 var __subject__was__set := false
 
+# Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 # Required: False
 # isArray: false
 @export var some_time: AnyType:
@@ -75,6 +83,7 @@ var __subject__was__set := false
 		some_time = value
 var __some_time__was__set := false
 
+# The event payload.
 # Required: False
 # isArray: false
 @export var data: AnyType:
@@ -83,6 +92,7 @@ var __some_time__was__set := false
 		data = value
 var __data__was__set := false
 
+# Base64 encoded event payload. Must adhere to RFC4648.
 # Required: False
 # isArray: false
 @export var dataUnderscorebase64: AnyType:

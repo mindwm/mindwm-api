@@ -23,27 +23,3 @@ from setuptools import setup, find_packages  # noqa: H301
 NAME = "mindwm"
 VERSION = "1.0.0"
 PYTHON_REQUIRES = ">=3.7"
-REQUIRES = [
-    "urllib3 >= 1.25.3, < 2.1.0",
-    "python-dateutil",
-    "pydantic >= 2",
-    "typing-extensions >= 4.7.1",
-]
-
-setup(
-    name=NAME,
-    version=VERSION,
-    description="Mindwm API",
-    author="OpenAPI Generator community",
-    author_email="team@openapitools.org",
-    url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "Mindwm API"],
-    install_requires=REQUIRES,
-    packages=find_packages(exclude=["test", "tests"]),
-    include_package_data=True,
-    long_description_content_type='text/markdown',
-    long_description="""\
-    API defining the operations available in the Mindwm API
-    """,  # noqa: E501
-    package_data={"mindwm": ["py.typed"]},
-)

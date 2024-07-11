@@ -23,36 +23,6 @@ Then, enable the addon in your project settings.
 
 You can now use it anywhere in your code:
 
-```gdscript
-
-# Customize configuration
-var config := ApiConfig.new()
-config.host = "localhost"
-config.port = 8080
-#config.tls_enabled = true
-#config.trusted_chain = preload("res://my_cert_chain.crt")
-
-# Instantiate the api
-var api = DefaultApi.new(config)
-# You can also provide your own HTTPClient, to re-use it across apis.
-#var api = DefaultApi.new(config, client)
-
-
-# Invoke an endpoint
-api.ping_get(
-	# On Success
-	func(response):  # response is ApiResponse
-		prints("Success!", "ping_get", response)
-		assert(response.data is _ping_get_200_response)
-		pass  # do things, make stuff
-		,
-	# On Error
-	func(error):  # error is ApiError
-		push_error(str(error))
-		,
-)
-
-```
 
 
 ## Customization
@@ -70,15 +40,12 @@ All URIs are relative to *https://mindwmw.io/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**ping_get**](apis/DefaultApi.md#ping_get) | **GET** /ping | Ping the server
 
 
 ## Documentation For Models
 
 - [CloudEvent](models/CloudEvent.md)
-- [Cloudevents](models/Cloudevents.md)
 - [IoDocument](models/IoDocument.md)
-- [PingGet200Response](models/PingGet200Response.md)
 - [TmuxPaneIoDocument](models/TmuxPaneIoDocument.md)
 
 

@@ -78,15 +78,13 @@ All URIs are relative to *https://mindwmw.io/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultAPI* | [**PingGet**](docs/DefaultAPI.md#pingget) | **Get** /ping | Ping the server
 
 
 ## Documentation For Models
 
  - [CloudEvent](docs/CloudEvent.md)
- - [Cloudevents](docs/Cloudevents.md)
+ - [CloudEventData](docs/CloudEventData.md)
  - [IoDocument](docs/IoDocument.md)
- - [PingGet200Response](docs/PingGet200Response.md)
  - [TmuxPaneIoDocument](docs/TmuxPaneIoDocument.md)
 
 
@@ -112,6 +110,5 @@ Each of these functions takes a value of the given basic type and returns a poin
 * `PtrTime`
 
 ## Author
-
 
 

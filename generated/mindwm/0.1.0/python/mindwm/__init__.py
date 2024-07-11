@@ -17,7 +17,6 @@
 __version__ = "1.0.0"
 
 # import apis into sdk package
-from mindwm.api.default_api import DefaultApi
 
 # import ApiClient
 from mindwm.api_response import ApiResponse
@@ -32,7 +31,6 @@ from mindwm.exceptions import ApiException
 
 # import models into sdk package
 from mindwm.models.cloud_event import CloudEvent
-from mindwm.models.cloudevents import Cloudevents
+from mindwm.models.cloud_event_data import CloudEventData
 from mindwm.models.io_document import IoDocument
-from mindwm.models.ping_get200_response import PingGet200Response
 from mindwm.models.tmux_pane_io_document import TmuxPaneIoDocument

@@ -1,5 +1,4 @@
-
-openapi: 3.0.3
+openapi: 3.1.0
 
 info:
   title: Mindwm API
@@ -22,6 +21,7 @@ components:
       properties:
         type:
           type: string
+          const: IoDocument
         source:
           type: string
           # mindwm.bebebeko.mcmp6.tmux.L3RtcC90bXV4LTkyOTYwMDAwNS9kZWZhdWx0LDE2MzczOTQsMA==.505eec90-266c-11ef-bc96-2fde980ed4b5.0.0.iodocument
@@ -53,19 +53,8 @@ components:
         - input
         - output
         - ps1
+      examples:
+        - input: uptime
+          output: "16:37:51 up 19 days,  2:15, 71 users,  load average: 2.01, 2.85, 2.95"
+          ps1: "user@mindwm-dev1:~/rnd/asyncapi$"
 
-paths:
-  /ping:
-    get:
-      summary: Ping the server
-      responses:
-        '200':
-          description: Pong response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: pong

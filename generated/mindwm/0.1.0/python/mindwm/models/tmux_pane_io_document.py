@@ -30,6 +30,7 @@ class TmuxPaneIoDocument(BaseModel):
     input: Annotated[str, Field(min_length=1, strict=True)] = Field(description="User input")
     output: Annotated[str, Field(min_length=0, strict=True)] = Field(description="Command output (mix of stdout & stderr)")
     ps1: Annotated[str, Field(min_length=1, strict=True)] = Field(description="ps1 (prompt) AFTER the input and output")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["input", "output", "ps1"]
 
     model_config = ConfigDict(
@@ -62,8 +63,10 @@ class TmuxPaneIoDocument(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -71,6 +74,11 @@ class TmuxPaneIoDocument(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -87,6 +95,11 @@ class TmuxPaneIoDocument(BaseModel):
             "output": obj.get("output"),
             "ps1": obj.get("ps1")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

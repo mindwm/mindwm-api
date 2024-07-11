@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   description: API defining the operations available in the Mindwm API
   title: Mindwm API
@@ -6,151 +6,97 @@ info:
 servers:
 - description: Production API endpoint for the Mindwm API
   url: https://mindwmw.io/v1
-paths:
-  /ping:
-    get:
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/_ping_get_200_response'
-          description: Pong response
-      summary: Ping the server
 components:
   schemas:
     CloudEvent:
       description: CloudEvents Specification JSON Schema
       properties:
         id:
+          description: Identifies the event.
           minLength: 1
           type: string
         source:
+          description: Identifies the context in which an event happened.
           format: uri-reference
           minLength: 1
           type: string
         specversion:
+          description: The version of the CloudEvents specification which the event
+            uses.
           minLength: 1
           type: string
         type:
+          description: Describes the type of event related to the originating occurrence.
           minLength: 1
           type: string
         datacontenttype:
+          description: Content type of the data value. Must adhere to RFC 2046 format.
           minLength: 1
+          nullable: true
+          type: string
         dataschema:
+          description: Identifies the schema that data adheres to.
           format: uri
           minLength: 1
+          nullable: true
+          type: string
         subject:
+          description: Describes the subject of the event in the context of the event
+            producer (identified by source).
           minLength: 1
+          nullable: true
+          type: string
         time:
+          description: Timestamp of when the occurrence happened. Must adhere to RFC
+            3339.
           format: date-time
           minLength: 1
-        data: {}
-        data_base64: {}
+          nullable: true
+          type: string
+        data:
+          $ref: '#/components/schemas/CloudEvent_data'
+        data_base64:
+          description: Base64 encoded event payload. Must adhere to RFC4648.
+          nullable: true
+          type: string
       required:
       - id
       - source
       - specversion
       - type
-      type: object
+      discrimniator: type
     IoDocument:
-      additionalProperties: false
+      additionalProperties: {}
       allOf:
       - $ref: '#/components/schemas/CloudEvent'
       properties:
-        type:
-          type: string
+        type: {}
         source:
           pattern: "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\
             \\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\
             \\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$"
-          type: string
         data:
           $ref: '#/components/schemas/TmuxPaneIoDocument'
     TmuxPaneIoDocument:
-      additionalProperties: false
+      additionalProperties: {}
       properties:
         input:
           description: User input
           minLength: 1
-          type: string
         output:
           description: Command output (mix of stdout & stderr)
           minLength: 0
-          type: string
         ps1:
           description: ps1 (prompt) AFTER the input and output
           minLength: 1
-          type: string
       required:
       - input
       - output
       - ps1
-      type: object
-    cloudevents:
-      description: CloudEvents Specification JSON Schema
-      properties:
-        id:
-          minLength: 1
-          type: string
-        source:
-          format: uri-reference
-          minLength: 1
-          type: string
-        specversion:
-          minLength: 1
-          type: string
-        type:
-          minLength: 1
-          type: string
-        datacontenttype:
-          minLength: 1
-        dataschema:
-          format: uri
-          minLength: 1
-        subject:
-          minLength: 1
-        time:
-          format: date-time
-          minLength: 1
-        data: {}
-        data_base64: {}
-      required:
-      - id
-      - source
-      - specversion
-      - type
-      type: object
-    iddef:
-      minLength: 1
-      type: string
-    sourcedef:
-      format: uri-reference
-      minLength: 1
-      type: string
-    specversiondef:
-      minLength: 1
-      type: string
-    typedef:
-      minLength: 1
-      type: string
-    datacontenttypedef:
-      minLength: 1
-    dataschemadef:
-      format: uri
-      minLength: 1
-    subjectdef:
-      minLength: 1
-    timedef:
-      format: date-time
-      minLength: 1
-    datadef: {}
-    data_base64def: {}
-    _ping_get_200_response:
-      example:
-        message: pong
-      properties:
-        message:
-          example: pong
-          type: string
-      type: object
+    CloudEvent_data:
+      anyOf:
+      - type: string
+      - type: number
+      - type: boolean
+      description: The event payload.
+      nullable: true

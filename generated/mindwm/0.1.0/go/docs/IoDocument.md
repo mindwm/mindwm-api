@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Type** | Pointer to **string** |  | [optional] 
 **Source** | Pointer to **string** |  | [optional] 
 **Data** | Pointer to [**TmuxPaneIoDocument**](TmuxPaneIoDocument.md) |  | [optional] 
-**Id** | **string** |  | 
-**Specversion** | **string** |  | 
-**Datacontenttype** | Pointer to **interface{}** |  | [optional] 
-**Dataschema** | Pointer to **interface{}** |  | [optional] 
-**Subject** | Pointer to **interface{}** |  | [optional] 
-**Time** | Pointer to **interface{}** |  | [optional] 
-**DataBase64** | Pointer to **interface{}** |  | [optional] 
+**Id** | **string** | Identifies the event. | 
+**Specversion** | **string** | The version of the CloudEvents specification which the event uses. | 
+**Datacontenttype** | Pointer to **string** | Content type of the data value. Must adhere to RFC 2046 format. | [optional] 
+**Dataschema** | Pointer to **string** | Identifies the schema that data adheres to. | [optional] 
+**Subject** | Pointer to **string** | Describes the subject of the event in the context of the event producer (identified by source). | [optional] 
+**Time** | Pointer to **time.Time** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
+**DataBase64** | Pointer to **string** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
 ## Methods
 
@@ -151,20 +151,20 @@ SetSpecversion sets Specversion field to given value.
 
 ### GetDatacontenttype
 
-`func (o *IoDocument) GetDatacontenttype() interface{}`
+`func (o *IoDocument) GetDatacontenttype() string`
 
 GetDatacontenttype returns the Datacontenttype field if non-nil, zero value otherwise.
 
 ### GetDatacontenttypeOk
 
-`func (o *IoDocument) GetDatacontenttypeOk() (*interface{}, bool)`
+`func (o *IoDocument) GetDatacontenttypeOk() (*string, bool)`
 
 GetDatacontenttypeOk returns a tuple with the Datacontenttype field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDatacontenttype
 
-`func (o *IoDocument) SetDatacontenttype(v interface{})`
+`func (o *IoDocument) SetDatacontenttype(v string)`
 
 SetDatacontenttype sets Datacontenttype field to given value.
 
@@ -174,32 +174,22 @@ SetDatacontenttype sets Datacontenttype field to given value.
 
 HasDatacontenttype returns a boolean if a field has been set.
 
-### SetDatacontenttypeNil
-
-`func (o *IoDocument) SetDatacontenttypeNil(b bool)`
-
- SetDatacontenttypeNil sets the value for Datacontenttype to be an explicit nil
-
-### UnsetDatacontenttype
-`func (o *IoDocument) UnsetDatacontenttype()`
-
-UnsetDatacontenttype ensures that no value is present for Datacontenttype, not even an explicit nil
 ### GetDataschema
 
-`func (o *IoDocument) GetDataschema() interface{}`
+`func (o *IoDocument) GetDataschema() string`
 
 GetDataschema returns the Dataschema field if non-nil, zero value otherwise.
 
 ### GetDataschemaOk
 
-`func (o *IoDocument) GetDataschemaOk() (*interface{}, bool)`
+`func (o *IoDocument) GetDataschemaOk() (*string, bool)`
 
 GetDataschemaOk returns a tuple with the Dataschema field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDataschema
 
-`func (o *IoDocument) SetDataschema(v interface{})`
+`func (o *IoDocument) SetDataschema(v string)`
 
 SetDataschema sets Dataschema field to given value.
 
@@ -209,32 +199,22 @@ SetDataschema sets Dataschema field to given value.
 
 HasDataschema returns a boolean if a field has been set.
 
-### SetDataschemaNil
-
-`func (o *IoDocument) SetDataschemaNil(b bool)`
-
- SetDataschemaNil sets the value for Dataschema to be an explicit nil
-
-### UnsetDataschema
-`func (o *IoDocument) UnsetDataschema()`
-
-UnsetDataschema ensures that no value is present for Dataschema, not even an explicit nil
 ### GetSubject
 
-`func (o *IoDocument) GetSubject() interface{}`
+`func (o *IoDocument) GetSubject() string`
 
 GetSubject returns the Subject field if non-nil, zero value otherwise.
 
 ### GetSubjectOk
 
-`func (o *IoDocument) GetSubjectOk() (*interface{}, bool)`
+`func (o *IoDocument) GetSubjectOk() (*string, bool)`
 
 GetSubjectOk returns a tuple with the Subject field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSubject
 
-`func (o *IoDocument) SetSubject(v interface{})`
+`func (o *IoDocument) SetSubject(v string)`
 
 SetSubject sets Subject field to given value.
 
@@ -244,32 +224,22 @@ SetSubject sets Subject field to given value.
 
 HasSubject returns a boolean if a field has been set.
 
-### SetSubjectNil
-
-`func (o *IoDocument) SetSubjectNil(b bool)`
-
- SetSubjectNil sets the value for Subject to be an explicit nil
-
-### UnsetSubject
-`func (o *IoDocument) UnsetSubject()`
-
-UnsetSubject ensures that no value is present for Subject, not even an explicit nil
 ### GetTime
 
-`func (o *IoDocument) GetTime() interface{}`
+`func (o *IoDocument) GetTime() time.Time`
 
 GetTime returns the Time field if non-nil, zero value otherwise.
 
 ### GetTimeOk
 
-`func (o *IoDocument) GetTimeOk() (*interface{}, bool)`
+`func (o *IoDocument) GetTimeOk() (*time.Time, bool)`
 
 GetTimeOk returns a tuple with the Time field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTime
 
-`func (o *IoDocument) SetTime(v interface{})`
+`func (o *IoDocument) SetTime(v time.Time)`
 
 SetTime sets Time field to given value.
 
@@ -279,32 +249,22 @@ SetTime sets Time field to given value.
 
 HasTime returns a boolean if a field has been set.
 
-### SetTimeNil
-
-`func (o *IoDocument) SetTimeNil(b bool)`
-
- SetTimeNil sets the value for Time to be an explicit nil
-
-### UnsetTime
-`func (o *IoDocument) UnsetTime()`
-
-UnsetTime ensures that no value is present for Time, not even an explicit nil
 ### GetDataBase64
 
-`func (o *IoDocument) GetDataBase64() interface{}`
+`func (o *IoDocument) GetDataBase64() string`
 
 GetDataBase64 returns the DataBase64 field if non-nil, zero value otherwise.
 
 ### GetDataBase64Ok
 
-`func (o *IoDocument) GetDataBase64Ok() (*interface{}, bool)`
+`func (o *IoDocument) GetDataBase64Ok() (*string, bool)`
 
 GetDataBase64Ok returns a tuple with the DataBase64 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDataBase64
 
-`func (o *IoDocument) SetDataBase64(v interface{})`
+`func (o *IoDocument) SetDataBase64(v string)`
 
 SetDataBase64 sets DataBase64 field to given value.
 
@@ -314,16 +274,6 @@ SetDataBase64 sets DataBase64 field to given value.
 
 HasDataBase64 returns a boolean if a field has been set.
 
-### SetDataBase64Nil
-
-`func (o *IoDocument) SetDataBase64Nil(b bool)`
-
- SetDataBase64Nil sets the value for DataBase64 to be an explicit nil
-
-### UnsetDataBase64
-`func (o *IoDocument) UnsetDataBase64()`
-
-UnsetDataBase64 ensures that no value is present for DataBase64, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
