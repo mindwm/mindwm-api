@@ -9,6 +9,11 @@ IoDocument:
         type:
           type: string
           const: IoDocument
+          default: IoDocument
+        subject:
+          type: string
+          const: IoDocument
+          default: IoDocument
         source:
           type: string
           # mindwm.bebebeko.mcmp6.tmux.L3RtcC90bXV4LTkyOTYwMDAwNS9kZWZhdWx0LDE2MzczOTQsMA==.505eec90-266c-11ef-bc96-2fde980ed4b5.0.0.iodocument
@@ -17,6 +22,14 @@ IoDocument:
         data:
           $ref: '#/components/schemas/TmuxPaneIoDocument'
   additionalProperties: false
+  examples:
+    - source: "mindwm.alice.laptop.tmux.L3RtcC90bXV4LTEwMDAvZGVmYXVsdA==.1c41f0ca-4056-11ef-a365-5b2236197e08.0.15.iodocument"
+      subject: "IoDocument"
+      type: "IoDocument"
+      id: "2f3ad8a4-4056-11ef-86f8-9f634df7447b"
+      specversion: "1.0.0"
+      data: 
+        $ref: '#/components/schemas/TmuxPaneIoDocument/examples/0'
 
 Clipboard:
   allOf:
