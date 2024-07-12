@@ -1,0 +1,14 @@
+.openapi-generator-ignore
+README.md
+authentication.js
+index.js
+models/Clipboard.js
+models/ClipboardPayload.js
+models/ClipboardPayload_context.js
+models/CloudEvent.js
+models/CloudEvent_data.js
+models/IoDocument.js
+models/TmuxPaneIoDocument.js
+operations/actions.js
+package.json
+utils/utils.js

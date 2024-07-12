@@ -1,0 +1,13 @@
+.openapi-generator-ignore
+Dockerfile
+README.md
+_client.sh
+client.sh
+client.sh.bash-completion
+docs/Clipboard.md
+docs/ClipboardPayload.md
+docs/ClipboardPayloadContext.md
+docs/CloudEvent.md
+docs/CloudEventData.md
+docs/IoDocument.md
+docs/TmuxPaneIoDocument.md

@@ -1,0 +1,13 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/gen/java/org/openapitools/api/RestApplication.java
+src/gen/java/org/openapitools/api/RestResourceRoot.java
+src/gen/java/org/openapitools/model/Clipboard.java
+src/gen/java/org/openapitools/model/ClipboardPayload.java
+src/gen/java/org/openapitools/model/ClipboardPayloadContext.java
+src/gen/java/org/openapitools/model/CloudEvent.java
+src/gen/java/org/openapitools/model/CloudEventData.java
+src/gen/java/org/openapitools/model/IoDocument.java
+src/gen/java/org/openapitools/model/TmuxPaneIoDocument.java
+src/main/openapi/openapi.yaml

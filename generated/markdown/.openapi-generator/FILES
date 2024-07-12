@@ -1,0 +1,9 @@
+.openapi-generator-ignore
+Models/Clipboard.md
+Models/ClipboardPayload.md
+Models/ClipboardPayload_context.md
+Models/CloudEvent.md
+Models/CloudEvent_data.md
+Models/IoDocument.md
+Models/TmuxPaneIoDocument.md
+README.md

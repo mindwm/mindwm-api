@@ -1,0 +1,9 @@
+.openapi-generator-ignore
+src/main/java/org/openapitools/RestConfiguration.java
+src/main/java/org/openapitools/model/Clipboard.java
+src/main/java/org/openapitools/model/ClipboardPayload.java
+src/main/java/org/openapitools/model/ClipboardPayloadContext.java
+src/main/java/org/openapitools/model/CloudEvent.java
+src/main/java/org/openapitools/model/CloudEventData.java
+src/main/java/org/openapitools/model/IoDocument.java
+src/main/java/org/openapitools/model/TmuxPaneIoDocument.java

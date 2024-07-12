@@ -1,0 +1,13 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/main/java/org/openapitools/vertxweb/server/ApiResponse.java
+src/main/java/org/openapitools/vertxweb/server/HttpServerVerticle.java
+src/main/java/org/openapitools/vertxweb/server/model/Clipboard.java
+src/main/java/org/openapitools/vertxweb/server/model/ClipboardPayload.java
+src/main/java/org/openapitools/vertxweb/server/model/ClipboardPayloadContext.java
+src/main/java/org/openapitools/vertxweb/server/model/CloudEvent.java
+src/main/java/org/openapitools/vertxweb/server/model/CloudEventData.java
+src/main/java/org/openapitools/vertxweb/server/model/IoDocument.java
+src/main/java/org/openapitools/vertxweb/server/model/TmuxPaneIoDocument.java
+src/main/resources/openapi.yaml

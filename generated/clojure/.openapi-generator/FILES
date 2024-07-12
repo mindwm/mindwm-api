@@ -1,0 +1,12 @@
+.gitignore
+.openapi-generator-ignore
+git_push.sh
+project.clj
+src/mindwm_api/core.clj
+src/mindwm_api/specs/clipboard.clj
+src/mindwm_api/specs/clipboard_payload.clj
+src/mindwm_api/specs/clipboard_payload_context.clj
+src/mindwm_api/specs/cloud_event.clj
+src/mindwm_api/specs/cloud_event_data.clj
+src/mindwm_api/specs/io_document.clj
+src/mindwm_api/specs/tmux_pane_io_document.clj

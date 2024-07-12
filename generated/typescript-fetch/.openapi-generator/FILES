@@ -1,0 +1,11 @@
+.openapi-generator-ignore
+index.ts
+models/Clipboard.ts
+models/ClipboardPayload.ts
+models/ClipboardPayloadContext.ts
+models/CloudEvent.ts
+models/CloudEventData.ts
+models/IoDocument.ts
+models/TmuxPaneIoDocument.ts
+models/index.ts
+runtime.ts

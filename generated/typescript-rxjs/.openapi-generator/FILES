@@ -1,0 +1,15 @@
+.gitignore
+.openapi-generator-ignore
+apis/index.ts
+index.ts
+models/Clipboard.ts
+models/ClipboardPayload.ts
+models/ClipboardPayloadContext.ts
+models/CloudEvent.ts
+models/CloudEventData.ts
+models/IoDocument.ts
+models/TmuxPaneIoDocument.ts
+models/index.ts
+runtime.ts
+servers.ts
+tsconfig.json

@@ -1,0 +1,25 @@
+.openapi-generator-ignore
+App.xojo_code
+Build Automation.xojo_code
+Mock.xojo_code
+OpenAPIClient.xojo_code
+OpenAPIClient.xojo_project
+OpenAPIClient.xojo_resources
+OpenAPIClient/APIs.xojo_code
+OpenAPIClient/Models.xojo_code
+OpenAPIClient/Models/Clipboard.xojo_code
+OpenAPIClient/Models/ClipboardOptional.xojo_code
+OpenAPIClient/Models/ClipboardPayload.xojo_code
+OpenAPIClient/Models/ClipboardPayloadContext.xojo_code
+OpenAPIClient/Models/ClipboardPayloadContextOptional.xojo_code
+OpenAPIClient/Models/ClipboardPayloadOptional.xojo_code
+OpenAPIClient/Models/CloudEvent.xojo_code
+OpenAPIClient/Models/CloudEventData.xojo_code
+OpenAPIClient/Models/CloudEventDataOptional.xojo_code
+OpenAPIClient/Models/CloudEventOptional.xojo_code
+OpenAPIClient/Models/IoDocument.xojo_code
+OpenAPIClient/Models/IoDocumentOptional.xojo_code
+OpenAPIClient/Models/TmuxPaneIoDocument.xojo_code
+OpenAPIClient/Models/TmuxPaneIoDocumentOptional.xojo_code
+OpenAPIClient/OpenAPIClientException.xojo_code
+README.md

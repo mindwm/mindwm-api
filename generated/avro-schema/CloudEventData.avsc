@@ -1,0 +1,9 @@
+{
+  "namespace": "MindwWM",
+  "type": "record",
+  "doc": "The event payload.",
+  "name": "CloudEventData",
+  "fields": [
+  ]
+
+}

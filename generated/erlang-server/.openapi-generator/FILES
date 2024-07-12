@@ -1,0 +1,12 @@
+.openapi-generator-ignore
+README.md
+priv/openapi.json
+rebar.config
+src/MindwWM.app.src
+src/MindwWM_api.erl
+src/MindwWM_auth.erl
+src/MindwWM_default_logic_handler.erl
+src/MindwWM_logic_handler.erl
+src/MindwWM_router.erl
+src/MindwWM_server.erl
+src/MindwWM_utils.erl

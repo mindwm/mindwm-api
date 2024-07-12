@@ -1,0 +1,15 @@
+.gitignore
+.openapi-generator-ignore
+Model/Clipboard.php
+Model/ClipboardPayload.php
+Model/ClipboardPayloadContext.php
+Model/ClipboardPayloadType.php
+Model/CloudEvent.php
+Model/CloudEventData.php
+Model/IoDocument.php
+Model/TmuxPaneIoDocument.php
+README.md
+RegisterRoutes.php
+Test/RegisterRoutesTest.php
+composer.json
+phpunit.xml.dist

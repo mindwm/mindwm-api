@@ -1,0 +1,15 @@
+.openapi-generator-ignore
+ApiServiceBinder.ts
+Headers.ts
+HttpClient.ts
+HttpResponse.ts
+IAPIConfiguration.ts
+IHttpClient.ts
+model/clipboard.ts
+model/clipboardPayload.ts
+model/clipboardPayloadContext.ts
+model/cloudEvent.ts
+model/cloudEventData.ts
+model/ioDocument.ts
+model/tmuxPaneIoDocument.ts
+variables.ts

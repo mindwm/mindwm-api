@@ -1,0 +1,16 @@
+.openapi-generator-ignore
+README.md
+rebar.config
+src/MindwWM.app.src
+src/MindwWM.hrl
+src/MindwWM_gen.erl
+src/MindwWM_statem.hrl
+src/MindwWM_utils.erl
+src/model/MindwWM_clipboard.erl
+src/model/MindwWM_clipboard_payload.erl
+src/model/MindwWM_clipboard_payload_context.erl
+src/model/MindwWM_cloud_event.erl
+src/model/MindwWM_cloud_event_data.erl
+src/model/MindwWM_io_document.erl
+src/model/MindwWM_tmux_pane_io_document.erl
+test/prop_MindwWM.erl

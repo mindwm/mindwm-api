@@ -1,0 +1,12 @@
+.gitignore
+.openapi-generator-ignore
+src/index.ts
+src/models/Clipboard.ts
+src/models/ClipboardPayload.ts
+src/models/ClipboardPayloadContext.ts
+src/models/CloudEvent.ts
+src/models/CloudEventData.ts
+src/models/IoDocument.ts
+src/models/TmuxPaneIoDocument.ts
+src/runtime.ts
+tsconfig.json

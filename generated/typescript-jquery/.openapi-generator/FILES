@@ -1,0 +1,14 @@
+.openapi-generator-ignore
+api/api.ts
+configuration.ts
+git_push.sh
+index.ts
+model/Clipboard.ts
+model/ClipboardPayload.ts
+model/ClipboardPayloadContext.ts
+model/CloudEvent.ts
+model/CloudEventData.ts
+model/IoDocument.ts
+model/TmuxPaneIoDocument.ts
+model/models.ts
+variables.ts

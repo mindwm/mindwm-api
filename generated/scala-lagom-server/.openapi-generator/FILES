@@ -1,0 +1,13 @@
+.gitignore
+.openapi-generator-ignore
+README.md
+build.sbt
+project/build.properties
+project/plugins.sbt
+src/main/scala/io/swagger/client/model/Clipboard.scala
+src/main/scala/io/swagger/client/model/ClipboardPayload.scala
+src/main/scala/io/swagger/client/model/ClipboardPayloadContext.scala
+src/main/scala/io/swagger/client/model/CloudEvent.scala
+src/main/scala/io/swagger/client/model/CloudEventData.scala
+src/main/scala/io/swagger/client/model/IoDocument.scala
+src/main/scala/io/swagger/client/model/TmuxPaneIoDocument.scala

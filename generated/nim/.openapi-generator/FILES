@@ -1,0 +1,12 @@
+.openapi-generator-ignore
+MindwWM.nim
+MindwWM/models/model_clipboard.nim
+MindwWM/models/model_clipboard_payload.nim
+MindwWM/models/model_clipboard_payload_context.nim
+MindwWM/models/model_cloud_event.nim
+MindwWM/models/model_cloud_event_data.nim
+MindwWM/models/model_io_document.nim
+MindwWM/models/model_tmux_pane_io_document.nim
+README.md
+config.nim
+sample_client.nim

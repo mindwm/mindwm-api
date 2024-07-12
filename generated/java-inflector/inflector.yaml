@@ -1,0 +1,18 @@
+controllerPackage: org.openapitools.controllers
+modelPackage:  org.openapitools.model
+swaggerUrl: ./src/main/openapi/openapi.yaml
+modelMappings:
+  # to enable explicit mappings, use this syntax:
+  DefinitionFromSwaggerSpecification: fully.qualified.path.to.Model
+  Clipboard : org.openapitools.model.Clipboard
+ClipboardPayload : org.openapitools.model.ClipboardPayload
+ClipboardPayloadContext : org.openapitools.model.ClipboardPayloadContext
+CloudEvent : org.openapitools.model.CloudEvent
+CloudEventData : org.openapitools.model.CloudEventData
+IoDocument : org.openapitools.model.IoDocument
+TmuxPaneIoDocument : org.openapitools.model.TmuxPaneIoDocument
+
+entityProcessors:
+  - json
+  - xml
+  - yaml

@@ -1,0 +1,11 @@
+.openapi-generator-ignore
+README.md
+build.gradle
+src/main/groovy/org/openapitools/api/ApiUtils.groovy
+src/main/groovy/org/openapitools/model/Clipboard.groovy
+src/main/groovy/org/openapitools/model/ClipboardPayload.groovy
+src/main/groovy/org/openapitools/model/ClipboardPayloadContext.groovy
+src/main/groovy/org/openapitools/model/CloudEvent.groovy
+src/main/groovy/org/openapitools/model/CloudEventData.groovy
+src/main/groovy/org/openapitools/model/IoDocument.groovy
+src/main/groovy/org/openapitools/model/TmuxPaneIoDocument.groovy

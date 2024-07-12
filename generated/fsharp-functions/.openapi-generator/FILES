@@ -1,0 +1,14 @@
+.gitignore
+.openapi-generator-ignore
+MindwWM/MindwWM.fsproj
+MindwWM/build.bat
+MindwWM/build.sh
+MindwWM/src/model/Clipboard.fs
+MindwWM/src/model/ClipboardPayload.fs
+MindwWM/src/model/ClipboardPayloadContext.fs
+MindwWM/src/model/CloudEvent.fs
+MindwWM/src/model/CloudEventData.fs
+MindwWM/src/model/IoDocument.fs
+MindwWM/src/model/TmuxPaneIoDocument.fs
+host.json
+local.settings.json

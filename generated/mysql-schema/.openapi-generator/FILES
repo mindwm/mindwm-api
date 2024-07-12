@@ -1,0 +1,10 @@
+.openapi-generator-ignore
+Model/Clipboard.sql
+Model/ClipboardPayload.sql
+Model/ClipboardPayloadContext.sql
+Model/CloudEvent.sql
+Model/CloudEventData.sql
+Model/IoDocument.sql
+Model/TmuxPaneIoDocument.sql
+README.md
+mysql_schema.sql

@@ -1,4 +1,5 @@
 cd /github/workspace/
-asyncapi config analytics --disable
-asyncapi generate fromTemplate ./asyncapi.yaml @asyncapi/html-template -o generated/asyncapi/html --force-write
+for lang in `docker-entrypoint.sh list -s | sed 's/,/ /g'`; do 
+  docker-entrypoint.sh generate -i generated/openapi/openapi.yaml -p packageName=MindwWM -g ${lang} -o generated/${lang}; 
+done
 

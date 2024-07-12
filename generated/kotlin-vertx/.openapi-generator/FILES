@@ -1,0 +1,10 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/main/kotlin/MindwWM/models/Clipboard.kt
+src/main/kotlin/MindwWM/models/ClipboardPayload.kt
+src/main/kotlin/MindwWM/models/ClipboardPayloadContext.kt
+src/main/kotlin/MindwWM/models/CloudEvent.kt
+src/main/kotlin/MindwWM/models/CloudEventData.kt
+src/main/kotlin/MindwWM/models/IoDocument.kt
+src/main/kotlin/MindwWM/models/TmuxPaneIoDocument.kt

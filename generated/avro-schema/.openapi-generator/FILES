@@ -1,0 +1,8 @@
+.openapi-generator-ignore
+Clipboard.avsc
+ClipboardPayload.avsc
+ClipboardPayloadContext.avsc
+CloudEvent.avsc
+CloudEventData.avsc
+IoDocument.avsc
+TmuxPaneIoDocument.avsc

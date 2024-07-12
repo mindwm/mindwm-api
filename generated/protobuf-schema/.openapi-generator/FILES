@@ -1,0 +1,9 @@
+.openapi-generator-ignore
+README.md
+models/clipboard.proto
+models/clipboard_payload.proto
+models/clipboard_payload_context.proto
+models/cloud_event.proto
+models/cloud_event_data.proto
+models/io_document.proto
+models/tmux_pane_io_document.proto

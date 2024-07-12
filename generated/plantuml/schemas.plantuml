@@ -1,0 +1,51 @@
+@startuml
+
+title Mindwm API Schemas Diagram
+
+entity Clipboard {
+}
+
+entity ClipboardPayload {
+    start: List<Integer>
+    stop: List<Integer>
+    data: String
+    type: String
+    context: ClipboardPayloadContext
+}
+
+entity ClipboardPayloadContext {
+    window: String
+}
+
+entity CloudEvent {
+    * id: String
+    * source: String
+    * specversion: String
+    * type: String
+    datacontenttype: String
+    dataschema: URI
+    subject: String
+    time: Date
+    data: CloudEventData
+    data_base64: String
+}
+
+entity CloudEventData {
+}
+
+entity IoDocument {
+}
+
+entity TmuxPaneIoDocument {
+    * input: String
+    * output: String
+    * ps1: String
+}
+
+CloudEvent <|--- Clipboard
+CloudEvent <|--- IoDocument
+
+ClipboardPayload -- ClipboardPayloadContext : context
+CloudEvent -- CloudEventData : data
+
+@enduml

@@ -1,0 +1,35 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "MindwWM ClipboardPayloadContext"
+package     = MindwWM
+version     = "1.0"
+description = "Defines a ClipboardPayloadContext"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ClipboardPayloadContext {
+    title = ClipboardPayloadContext
+    description = ClipboardPayloadContext
+    derivedFrom = Root
+    properties {
+        window {
+          type =  string
+          description = "window id"
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ClipboardPayloadContext {
+    title = ClipboardPayloadContext
+    description = ClipboardPayloadContext
+    implements = MindwWM.resourceTypes.ClipboardPayloadContext
+
+  }
+}

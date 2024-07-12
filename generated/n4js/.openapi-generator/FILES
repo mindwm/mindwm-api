@@ -1,0 +1,8 @@
+.openapi-generator-ignore
+ApiHelper.n4js
+Clipboard.n4jsd
+ClipboardPayload.n4jsd
+CloudEvent.n4jsd
+IoDocument.n4jsd
+README.md
+TmuxPaneIoDocument.n4jsd

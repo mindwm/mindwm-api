@@ -1,0 +1,13 @@
+.openapi-generator-ignore
+build.sbt
+project/build.properties
+src/main/scala/org/openapitools/client/api/Clipboard.scala
+src/main/scala/org/openapitools/client/api/ClipboardPayload.scala
+src/main/scala/org/openapitools/client/api/ClipboardPayloadContext.scala
+src/main/scala/org/openapitools/client/api/CloudEvent.scala
+src/main/scala/org/openapitools/client/api/CloudEventData.scala
+src/main/scala/org/openapitools/client/api/DateTimeCodecs.scala
+src/main/scala/org/openapitools/client/api/HelperCodecs.scala
+src/main/scala/org/openapitools/client/api/IoDocument.scala
+src/main/scala/org/openapitools/client/api/QueryParamTypeclass.scala
+src/main/scala/org/openapitools/client/api/TmuxPaneIoDocument.scala

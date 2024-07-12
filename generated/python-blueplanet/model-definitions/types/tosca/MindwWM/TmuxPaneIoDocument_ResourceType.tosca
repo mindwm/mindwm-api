@@ -1,0 +1,45 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "MindwWM TmuxPaneIoDocument"
+package     = MindwWM
+version     = "1.0"
+description = "Defines a TmuxPaneIoDocument"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  TmuxPaneIoDocument {
+    title = TmuxPaneIoDocument
+    description = TmuxPaneIoDocument
+    derivedFrom = Root
+    properties {
+        input {
+          type =  string
+          description = "User input"
+          optional = true
+        }
+        output {
+          type =  string
+          description = "Command output (mix of stdout &amp; stderr)"
+          optional = true
+        }
+        ps1 {
+          type =  string
+          description = "ps1 (prompt) AFTER the input and output"
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TmuxPaneIoDocument {
+    title = TmuxPaneIoDocument
+    description = TmuxPaneIoDocument
+    implements = MindwWM.resourceTypes.TmuxPaneIoDocument
+
+  }
+}

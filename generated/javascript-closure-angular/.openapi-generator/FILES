@@ -1,0 +1,8 @@
+.openapi-generator-ignore
+API/Client/Clipboard.js
+API/Client/ClipboardPayload.js
+API/Client/ClipboardPayloadContext.js
+API/Client/CloudEvent.js
+API/Client/CloudEventData.js
+API/Client/IoDocument.js
+API/Client/TmuxPaneIoDocument.js

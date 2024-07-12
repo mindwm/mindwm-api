@@ -1,0 +1,8 @@
+.openapi-generator-ignore
+MindwWM/model/clipboard.graphql
+MindwWM/model/clipboard_payload.graphql
+MindwWM/model/clipboard_payload_context.graphql
+MindwWM/model/cloud_event.graphql
+MindwWM/model/cloud_event_data.graphql
+MindwWM/model/io_document.graphql
+MindwWM/model/tmux_pane_io_document.graphql
