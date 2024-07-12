@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import io.swagger.annotations.*;
 import javax.validation.Valid;
 
-@ApiModel(description="CloudEvents Specification JSON Schema")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-12T11:00:01.133897064Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@ApiModel(description="CloudEvents Specification JSON Schema")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-12T11:12:32.103593247Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEvent   {
   
   private String id;

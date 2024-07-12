@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * TmuxPaneIoDocument
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-12T10:59:52.191926660Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-12T11:12:23.456828640Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class TmuxPaneIoDocument {
 
   private String input;

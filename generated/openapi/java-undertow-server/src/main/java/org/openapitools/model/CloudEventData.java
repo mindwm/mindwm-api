@@ -21,7 +21,7 @@ import java.math.BigDecimal;
  */
 
 @ApiModel(description = "The event payload.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-12T10:59:48.696280250Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-12T11:12:19.950311283Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEventData   {
   
 

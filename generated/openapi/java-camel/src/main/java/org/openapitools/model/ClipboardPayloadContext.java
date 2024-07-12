@@ -21,7 +21,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "ClipboardPayload_context", description = "Selection context")
 @JsonTypeName("ClipboardPayload_context")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-12T10:59:52.191926660Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-12T11:12:23.456828640Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardPayloadContext {
 
   private String window;

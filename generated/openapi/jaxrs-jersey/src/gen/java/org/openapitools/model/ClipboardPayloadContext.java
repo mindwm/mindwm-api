@@ -30,7 +30,7 @@ import javax.validation.Valid;
 @JsonPropertyOrder({
   ClipboardPayloadContext.JSON_PROPERTY_WINDOW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-12T10:59:59.370837154Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-12T11:12:30.427829805Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardPayloadContext   {
   public static final String JSON_PROPERTY_WINDOW = "window";
   @JsonProperty(JSON_PROPERTY_WINDOW)

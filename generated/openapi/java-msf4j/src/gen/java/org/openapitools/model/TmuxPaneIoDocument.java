@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * TmuxPaneIoDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-12T10:59:43.422927096Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-12T11:12:14.707480498Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class TmuxPaneIoDocument extends HashMap<String, Object>  {
   @JsonProperty("input")
   private String input;

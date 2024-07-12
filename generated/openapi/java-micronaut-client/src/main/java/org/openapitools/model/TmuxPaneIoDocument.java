@@ -32,7 +32,7 @@ import javax.annotation.Generated;
   TmuxPaneIoDocument.JSON_PROPERTY_PS1
 })
 @JsonTypeName("TmuxPaneIoDocument")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-12T10:59:39.719373794Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-12T11:12:10.980483007Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class TmuxPaneIoDocument extends HashMap<String, Object> {
     public static final String JSON_PROPERTY_INPUT = "input";

@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   ClipboardPayload.JSON_PROPERTY_CONTEXT
 })
 @JsonTypeName("ClipboardPayload")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-12T10:59:41.591174914Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-12T11:12:12.857282624Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class ClipboardPayload {
     public static final String JSON_PROPERTY_START = "start";

@@ -9,7 +9,7 @@ import play.api.libs.json._
   * @param data Clipboard data
   * @param `type` Clipboard type
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-12T11:01:43.106442835Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-12T11:14:16.444769042Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 case class ClipboardPayload(
   start: Option[List[Int]],
   stop: Option[List[Int]],
