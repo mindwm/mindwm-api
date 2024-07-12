@@ -1,0 +1,179 @@
+openapi: 3.1.0
+info:
+  description: "This document describes the documentation, a collection of JSON schemas\
+    \ and example cloudevent and payloads"
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Mindwm API
+  version: 0.1.0
+servers:
+- description: Production API endpoint for the Mindwm API
+  url: https://mindwmw.io/v1
+components:
+  schemas:
+    CloudEvent:
+      description: CloudEvents Specification JSON Schema
+      properties:
+        id:
+          description: Identifies the event.
+          minLength: 1
+          title: id
+          type: string
+        source:
+          description: Identifies the context in which an event happened.
+          format: uri-reference
+          minLength: 1
+          title: source
+          type: string
+        specversion:
+          description: The version of the CloudEvents specification which the event
+            uses.
+          minLength: 1
+          title: specversion
+          type: string
+        type:
+          description: Describes the type of event related to the originating occurrence.
+          minLength: 1
+          title: type
+          type: string
+        datacontenttype:
+          description: Content type of the data value. Must adhere to RFC 2046 format.
+          minLength: 1
+          nullable: true
+          title: datacontenttype
+          type: string
+        dataschema:
+          description: Identifies the schema that data adheres to.
+          format: uri
+          minLength: 1
+          nullable: true
+          title: dataschema
+          type: string
+        subject:
+          description: Describes the subject of the event in the context of the event
+            producer (identified by source).
+          minLength: 1
+          nullable: true
+          title: subject
+          type: string
+        time:
+          description: Timestamp of when the occurrence happened. Must adhere to RFC
+            3339.
+          format: date-time
+          minLength: 1
+          nullable: true
+          title: time
+          type: string
+        data:
+          $ref: '#/components/schemas/CloudEvent_data'
+        data_base64:
+          description: Base64 encoded event payload. Must adhere to RFC4648.
+          nullable: true
+          title: data_base64
+          type: string
+      required:
+      - id
+      - source
+      - specversion
+      - type
+      title: CloudEvent
+      discrimniator: type
+    IoDocument:
+      additionalProperties: {}
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      properties:
+        type: {}
+        source:
+          pattern: "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\
+            \\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\
+            \\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$"
+        data:
+          $ref: '#/components/schemas/TmuxPaneIoDocument'
+    Clipboard:
+      additionalProperties: {}
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      - properties:
+          type:
+            defaullt: Clipboard
+          subject:
+            defaullt: Clipboard
+          source:
+            pattern: "mindwm.[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-).clipboard$"
+          data:
+            $ref: '#/components/schemas/ClipboardPayload'
+      properties:
+        type: {}
+        source:
+          pattern: "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$"
+        data:
+          $ref: '#/components/schemas/ClipboardPayload'
+    ClipboardPayload:
+      properties:
+        start:
+          description: "Starting position of clipboard selection [x,y]"
+          items:
+            type: integer
+          maxItems: 2
+          minItems: 2
+          title: start
+          type: array
+        stop:
+          description: "Ending position of clipboard selection [x,y]"
+          items:
+            type: integer
+          maxItems: 2
+          minItems: 2
+          title: stop
+          type: array
+        data:
+          description: Clipboard data
+          minLength: 1
+          title: data
+          type: string
+        type:
+          description: Clipboard type
+          enum:
+          - primary
+          - secondary
+          - clipboard
+          title: type
+          type: string
+        context:
+          $ref: '#/components/schemas/ClipboardPayload_context'
+      title: ClipboardPayload
+    TmuxPaneIoDocument:
+      additionalProperties: {}
+      properties:
+        input:
+          description: User input
+          minLength: 1
+        output:
+          description: Command output (mix of stdout & stderr)
+          minLength: 0
+        ps1:
+          description: ps1 (prompt) AFTER the input and output
+          minLength: 1
+      required:
+      - input
+      - output
+      - ps1
+      title: TmuxPaneIoDocument
+    CloudEvent_data:
+      anyOf:
+      - type: string
+      - type: number
+      - type: boolean
+      description: The event payload.
+      nullable: true
+      title: CloudEvent_data
+    ClipboardPayload_context:
+      description: Selection context
+      properties:
+        window:
+          description: window id
+          title: window
+          type: string
+      title: ClipboardPayload_context
