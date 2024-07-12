@@ -72,7 +72,7 @@ jobs:
       id: push_directory
       uses: cpina/github-action-push-to-another-repository@target-branch
       env:
-        API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+        API_TOKEN_GITHUB: ${{ secrets.MINDWM_TOKEN }}
       with:
         source-directory: generated/asyncapi/html
         destination-github-username: 'mindwm'
