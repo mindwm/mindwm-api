@@ -1,0 +1,38 @@
+name: Two Step Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-and-grep:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Step 1 - Generate output file
+      uses: docker://kcllang/kcl:v0.9.0
+      with:
+         entrypoint: /bin/sh
+      run: | 
+	pwd
+	cd /github/workspace/
+        kcl run ./mindwm_asyncapi | tee asyncapi.yaml
+        kcl run ./mindwm_openapi | tee openapi.yaml
+
+
+      run: |
+        mkdir -p generated
+        echo "This is a test file with some test content" > generated/output.txt
+
+    - name: Step 2 - Grep for word 'test' in Alpine container
+      uses: docker://alpine:latest
+      with:
+        entrypoint: '/bin/sh'
+      run: |
+	pwd
+	cd /github/workspace/
+        test -f openapi.yaml && cat openapi.yaml
