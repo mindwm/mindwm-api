@@ -46,7 +46,7 @@ jobs:
         run: | 
           cd /github/workspace/
           asyncapi config analytics --disable
-          asyncapi generate fromTemplate ./asyncapi.yaml @asyncapi/html-template -o generated/asyncapi/html --force-write
+          asyncapi generate fromTemplate generated/asyncapi/asyncapi.yaml @asyncapi/html-template -o generated/asyncapi/html --force-write
 
     - name: openapi generate
       uses: addnab/docker-run-action@v3
