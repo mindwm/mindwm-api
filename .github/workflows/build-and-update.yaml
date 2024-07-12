@@ -22,18 +22,17 @@ jobs:
           pwd
           ls
           cd /github/workspace/
-          kcl run ./mindwm_asyncapi | tee asyncapi.yaml
+          kcl run ./mindwm_asyncapi.k | tee asyncapi.yaml
           kcl run ./mindwm_openapi | tee openapi.yaml
+          mkdir -p generated/asyncapi generated/openapi generated/modelina
+
 
     - name: Generate
       uses: addnab/docker-run-action@v3
       with:
-        image: alpine:latest
+        image: 
         options: -v ${{ github.workspace }}:/github/workspace
         run: | 
-          pwd
-          ls
           cd /github/workspace/
-          ls
-          test -n asyncapi.yaml && cat asyncapi.yaml
-
+          asyncapi config analytics --disable
+          asyncapi generate fromTemplate /host/asyncapi.yaml @asyncapi/html-template -o generated/asyncapi/html --force-write
