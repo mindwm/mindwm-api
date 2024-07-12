@@ -6,16 +6,16 @@ IoDocument:
   allOf:
     - $ref: '#/components/schemas/CloudEvent'
     - properties:
-      type:
-        type: string
-        const: IoDocument
-      source:
-        type: string
-        # mindwm.bebebeko.mcmp6.tmux.L3RtcC90bXV4LTkyOTYwMDAwNS9kZWZhdWx0LDE2MzczOTQsMA==.505eec90-266c-11ef-bc96-2fde980ed4b5.0.0.iodocument
-        #              username                           hostname                  tmux   base64_tmux socket path                    UUID                                      TMUX_SESS  PANE_ID  iodocument topic 
-        pattern: '[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$'
-      data:
-        $ref: '#/components/schemas/TmuxPaneIoDocument'
+        type:
+          type: string
+          const: IoDocument
+        source:
+          type: string
+          # mindwm.bebebeko.mcmp6.tmux.L3RtcC90bXV4LTkyOTYwMDAwNS9kZWZhdWx0LDE2MzczOTQsMA==.505eec90-266c-11ef-bc96-2fde980ed4b5.0.0.iodocument
+          #              username                           hostname                  tmux   base64_tmux socket path                    UUID                                      TMUX_SESS  PANE_ID  iodocument topic 
+          pattern: '[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$'
+        data:
+          $ref: '#/components/schemas/TmuxPaneIoDocument'
   additionalProperties: false
 
 Clipboard:
