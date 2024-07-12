@@ -11,4 +11,4 @@
  */
 
 
-export external public type IoDocument = CloudEvent;
+export external public type IoDocument = CloudEvent & ~Object+;

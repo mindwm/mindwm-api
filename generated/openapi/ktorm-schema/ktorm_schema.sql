@@ -80,9 +80,9 @@ CREATE TABLE IF NOT EXISTS `CloudEvent` (
 
 CREATE TABLE IF NOT EXISTS `IoDocument` (
   `id` text NOT NULL PRIMARY KEY /*Identifies the event.*/,
-  `source` text NOT NULL /*Identifies the context in which an event happened.*/,
+  `source` text NOT NULL,
   `specversion` text NOT NULL /*The version of the CloudEvents specification which the event uses.*/,
-  `type` text NOT NULL /*Describes the type of event related to the originating occurrence.*/,
+  `type` text NOT NULL,
   `datacontenttype` text /*Content type of the data value. Must adhere to RFC 2046 format.*/,
   `dataschema` text /*Identifies the schema that data adheres to.*/,
   `subject` text /*Describes the subject of the event in the context of the event producer (identified by source).*/,

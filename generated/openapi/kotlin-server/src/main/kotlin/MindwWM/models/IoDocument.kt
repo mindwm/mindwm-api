@@ -11,7 +11,6 @@
 */
 package MindwWM.models
 
-import MindwWM.models.CloudEventData
 import MindwWM.models.TmuxPaneIoDocument
 
 /**
@@ -30,11 +29,9 @@ import MindwWM.models.TmuxPaneIoDocument
 data class IoDocument(
     /* Identifies the event. */
     val id: kotlin.String,
-    /* Identifies the context in which an event happened. */
     val source: kotlin.String,
     /* The version of the CloudEvents specification which the event uses. */
     val specversion: kotlin.String,
-    /* Describes the type of event related to the originating occurrence. */
     val type: kotlin.String,
     val type: kotlin.String? = null,
     val source: kotlin.String? = null,

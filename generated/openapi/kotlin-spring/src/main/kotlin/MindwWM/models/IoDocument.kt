@@ -1,7 +1,6 @@
 package MindwWM.models
 
 import java.util.Objects
-import MindwWM.models.CloudEventData
 import MindwWM.models.TmuxPaneIoDocument
 import com.fasterxml.jackson.annotation.JsonProperty
 import javax.validation.constraints.DecimalMax
@@ -34,16 +33,15 @@ data class IoDocument(
     @Schema(example = "null", required = true, description = "Identifies the event.")
     @get:JsonProperty("id", required = true) val id: kotlin.String,
 
-    @get:Size(min=1)
-    @Schema(example = "null", required = true, description = "Identifies the context in which an event happened.")
+    @get:Pattern(regexp="[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$")
+    @Schema(example = "null", required = true, description = "")
     @get:JsonProperty("source", required = true) val source: kotlin.String,
 
     @get:Size(min=1)
     @Schema(example = "null", required = true, description = "The version of the CloudEvents specification which the event uses.")
     @get:JsonProperty("specversion", required = true) val specversion: kotlin.String,
 
-    @get:Size(min=1)
-    @Schema(example = "null", required = true, description = "Describes the type of event related to the originating occurrence.")
+    @Schema(example = "null", required = true, description = "")
     @get:JsonProperty("type", required = true) val type: kotlin.String,
 
     @Schema(example = "null", description = "")

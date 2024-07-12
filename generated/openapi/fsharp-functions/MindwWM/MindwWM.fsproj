@@ -22,8 +22,8 @@
 
   <ItemGroup>
     <Compile Include="src/model/TmuxPaneIoDocument.fs" />
-    <Compile Include="src/model/CloudEventData.fs" />
     <Compile Include="src/model/IoDocument.fs" />
+    <Compile Include="src/model/CloudEventData.fs" />
     <Compile Include="src/model/CloudEvent.fs" />
     <Compile Include="src/model/ClipboardPayloadContext.fs" />
     <Compile Include="src/model/ClipboardPayload.fs" />

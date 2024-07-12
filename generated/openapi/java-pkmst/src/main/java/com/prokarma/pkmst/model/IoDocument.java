@@ -3,7 +3,6 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.CloudEventData;
 import com.prokarma.pkmst.model.TmuxPaneIoDocument;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -11,7 +10,6 @@ import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * Response class to be returned by Api
  * @author pkmst
@@ -21,7 +19,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * IoDocument
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-12T12:33:08.793540044Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-12T13:38:35.129180895Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument extends HashMap<String, Object>  {
   @JsonProperty("type")
   private String type;

@@ -7,8 +7,8 @@ A [Giraffe](https://github.com/giraffe-fsharp/Giraffe) server stub for the Mindw
 The following models have been auto-generated from the provided OpenAPI schema:
 
 - model/TmuxPaneIoDocumentModel.fs
-- model/CloudEventDataModel.fs
 - model/IoDocumentModel.fs
+- model/CloudEventDataModel.fs
 - model/CloudEventModel.fs
 - model/ClipboardPayloadContextModel.fs
 - model/ClipboardPayloadModel.fs

@@ -22,8 +22,8 @@
     <Content Include="openapi.yaml"/>
     <Compile Include="helpers/Helpers.fs" />
     <Compile Include="model/TmuxPaneIoDocument.fs" />
-    <Compile Include="model/CloudEventData.fs" />
     <Compile Include="model/IoDocument.fs" />
+    <Compile Include="model/CloudEventData.fs" />
     <Compile Include="model/CloudEvent.fs" />
     <Compile Include="model/ClipboardPayloadContext.fs" />
     <Compile Include="model/ClipboardPayload.fs" />

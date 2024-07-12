@@ -12,9 +12,6 @@
  */
 
 import {
-    CloudEventData,
-    CloudEventDataFromJSON,
-    CloudEventDataToJSON,
     TmuxPaneIoDocument,
     TmuxPaneIoDocumentFromJSON,
     TmuxPaneIoDocumentToJSON,

@@ -6,8 +6,6 @@ import java.net.URI;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.CloudEventData;
 import org.openapitools.model.TmuxPaneIoDocument;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -22,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 @JsonTypeName("IoDocument")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-12T12:33:28.020182227Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-12T13:38:54.231174516Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument extends HashMap<String, Object>  {
   private String type;
   private String source;

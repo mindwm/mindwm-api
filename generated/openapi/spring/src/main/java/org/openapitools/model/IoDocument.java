@@ -6,9 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.net.URI;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.CloudEventData;
 import org.openapitools.model.TmuxPaneIoDocument;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -29,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * IoDocument
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-12T12:35:11.728094944Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-12T13:40:36.859893812Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument {
 
   private String type;
@@ -324,20 +321,9 @@ public class IoDocument {
     Objects.equals(this.additionalProperties, ioDocument.additionalProperties);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(type, source, data, id, specversion, datacontenttype, dataschema, subject, time, dataBase64, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

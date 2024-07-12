@@ -13,12 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CloudEventData } from './CloudEventData';
-import {
-    CloudEventDataFromJSON,
-    CloudEventDataFromJSONTyped,
-    CloudEventDataToJSON,
-} from './CloudEventData';
 import type { TmuxPaneIoDocument } from './TmuxPaneIoDocument';
 import {
     TmuxPaneIoDocumentFromJSON,

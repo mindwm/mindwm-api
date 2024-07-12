@@ -7,8 +7,6 @@ import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.vertxweb.server.model.CloudEventData;
 import org.openapitools.vertxweb.server.model.TmuxPaneIoDocument;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

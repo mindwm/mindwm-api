@@ -21,7 +21,6 @@ module OpenAPIClient
     @[JSON::Field(key: "id", type: String, nillable: false, emit_null: false)]
     property id : String
 
-    # Identifies the context in which an event happened.
     @[JSON::Field(key: "source", type: String, nillable: false, emit_null: false)]
     property source : String
 
@@ -29,7 +28,6 @@ module OpenAPIClient
     @[JSON::Field(key: "specversion", type: String, nillable: false, emit_null: false)]
     property specversion : String
 
-    # Describes the type of event related to the originating occurrence.
     @[JSON::Field(key: "type", type: String, nillable: false, emit_null: false)]
     property _type : String
 

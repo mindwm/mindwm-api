@@ -9,7 +9,7 @@ import play.api.libs.json._
   * @param ps1 ps1 (prompt) AFTER the input and output
   * @param additionalProperties Any additional properties this model may have.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-12T12:35:04.450005790Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-12T13:40:29.641813395Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 case class TmuxPaneIoDocument(
   input: String,
   output: String,

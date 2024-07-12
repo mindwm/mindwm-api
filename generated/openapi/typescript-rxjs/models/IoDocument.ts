@@ -13,7 +13,6 @@
 
 import type {
     CloudEvent,
-    CloudEventData,
     TmuxPaneIoDocument,
 } from './';
 

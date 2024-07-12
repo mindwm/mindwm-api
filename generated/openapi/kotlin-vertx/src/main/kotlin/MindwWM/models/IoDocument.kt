@@ -11,7 +11,6 @@
 */
 package MindwWM.models
 
-import MindwWM.models.CloudEventData
 import MindwWM.models.TmuxPaneIoDocument
 
         
@@ -36,11 +35,9 @@ import com.fasterxml.jackson.annotation.JsonInclude
 data class IoDocument (
     /* Identifies the event. */
     @SerializedName("id") private val _id: kotlin.String?,
-    /* Identifies the context in which an event happened. */
     @SerializedName("source") private val _source: kotlin.String?,
     /* The version of the CloudEvents specification which the event uses. */
     @SerializedName("specversion") private val _specversion: kotlin.String?,
-    /* Describes the type of event related to the originating occurrence. */
     @SerializedName("type") private val _type: kotlin.String?,
     val type: kotlin.String? = null,
     val source: kotlin.String? = null,

@@ -15,7 +15,6 @@
 
 package MindwWM.models
 
-import MindwWM.models.CloudEventData
 import MindwWM.models.TmuxPaneIoDocument
 
 import com.squareup.moshi.Json
@@ -25,9 +24,9 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param id Identifies the event.
- * @param source Identifies the context in which an event happened.
+ * @param source 
  * @param specversion The version of the CloudEvents specification which the event uses.
- * @param type Describes the type of event related to the originating occurrence.
+ * @param type 
  * @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
  * @param dataschema Identifies the schema that data adheres to.
  * @param subject Describes the subject of the event in the context of the event producer (identified by source).
@@ -43,7 +42,6 @@ data class IoDocument (
     @Json(name = "id")
     val id: kotlin.String,
 
-    /* Identifies the context in which an event happened. */
     @Json(name = "source")
     val source: kotlin.String,
 
@@ -51,7 +49,6 @@ data class IoDocument (
     @Json(name = "specversion")
     val specversion: kotlin.String,
 
-    /* Describes the type of event related to the originating occurrence. */
     @Json(name = "type")
     val type: kotlin.String,
 
@@ -72,7 +69,7 @@ data class IoDocument (
     val time: java.time.OffsetDateTime? = null,
 
     @Json(name = "data")
-    val `data`: CloudEventData? = null,
+    val `data`: TmuxPaneIoDocument? = null,
 
     /* Base64 encoded event payload. Must adhere to RFC4648. */
     @Json(name = "data_base64")

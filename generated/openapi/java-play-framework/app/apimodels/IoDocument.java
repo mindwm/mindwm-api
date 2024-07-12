@@ -1,12 +1,10 @@
 package apimodels;
 
-import apimodels.CloudEventData;
 import apimodels.TmuxPaneIoDocument;
 import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.*;
 import java.util.Set;
 import javax.validation.*;
@@ -16,7 +14,7 @@ import javax.validation.Valid;
 /**
  * IoDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-12T12:33:10.515817455Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-12T13:38:36.851904478Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class IoDocument extends HashMap<String, Object>  {
   @JsonProperty("type")

@@ -19,7 +19,6 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import MindwWM.models.IoDocument
-import MindwWM.models.CloudEventData
 import MindwWM.models.TmuxPaneIoDocument
 
 class IoDocumentTest : ShouldSpec() {

@@ -17,8 +17,6 @@ import java.net.URI;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.CloudEventData;
 import org.openapitools.server.model.TmuxPaneIoDocument;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;

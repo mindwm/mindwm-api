@@ -11,7 +11,6 @@
  */
 
 import { RequestFile } from './models';
-import { CloudEventData } from './cloudEventData';
 import { TmuxPaneIoDocument } from './tmuxPaneIoDocument';
 
 export class IoDocument extends any {

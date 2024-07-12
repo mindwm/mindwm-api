@@ -7,8 +7,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.CloudEventData;
 import org.openapitools.model.TmuxPaneIoDocument;
 import javax.validation.constraints.*;
 import javax.validation.Valid;

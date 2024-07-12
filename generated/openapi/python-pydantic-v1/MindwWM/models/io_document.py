@@ -20,7 +20,6 @@ import json
 from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr, constr, validator
-from MindwWM.models.cloud_event_data import CloudEventData
 from MindwWM.models.tmux_pane_io_document import TmuxPaneIoDocument
 
 class IoDocument(BaseModel):
@@ -83,11 +82,6 @@ class IoDocument(BaseModel):
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
-        # set to None if data (nullable) is None
-        # and __fields_set__ contains the field
-        if self.data is None and "data" in self.__fields_set__:
-            _dict['data'] = None
-
         return _dict
 
     @classmethod
@@ -108,7 +102,7 @@ class IoDocument(BaseModel):
             "dataschema": obj.get("dataschema"),
             "subject": obj.get("subject"),
             "time": obj.get("time"),
-            "data": CloudEventData.from_dict(obj.get("data")) if obj.get("data") is not None else None,
+            "data": TmuxPaneIoDocument.from_dict(obj.get("data")) if obj.get("data") is not None else None,
             "data_base64": obj.get("data_base64")
         })
         # store additional fields in additional_properties

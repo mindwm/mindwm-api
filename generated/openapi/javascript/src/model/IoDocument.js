@@ -13,7 +13,6 @@
 
 import ApiClient from '../ApiClient';
 import CloudEvent from './CloudEvent';
-import CloudEventData from './CloudEventData';
 import TmuxPaneIoDocument from './TmuxPaneIoDocument';
 
 /**
@@ -28,9 +27,9 @@ class IoDocument {
      * @extends Object
      * @implements module:model/CloudEvent
      * @param id {String} Identifies the event.
-     * @param source {String} Identifies the context in which an event happened.
+     * @param source {String} 
      * @param specversion {String} The version of the CloudEvents specification which the event uses.
-     * @param type {String} Describes the type of event related to the originating occurrence.
+     * @param type {String} 
      */
     constructor(id, source, specversion, type) { 
         CloudEvent.initialize(this, id, source, specversion, type);

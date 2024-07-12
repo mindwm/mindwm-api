@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import io.swagger.annotations.*;
 import javax.validation.Valid;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-12T12:33:24.625835786Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-12T13:38:50.817342336Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class TmuxPaneIoDocument extends HashMap<String, Object>  {
   
   private String input;

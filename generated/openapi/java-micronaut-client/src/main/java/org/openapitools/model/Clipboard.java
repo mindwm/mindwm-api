@@ -42,7 +42,7 @@ import javax.annotation.Generated;
   Clipboard.JSON_PROPERTY_DATA_BASE64
 })
 @JsonTypeName("Clipboard")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-12T12:33:03.453317724Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-12T13:38:29.783565459Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Clipboard extends HashMap<String, Object> {
     public static final String JSON_PROPERTY_TYPE = "type";

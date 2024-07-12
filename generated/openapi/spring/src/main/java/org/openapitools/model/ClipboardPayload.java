@@ -23,7 +23,7 @@ import javax.annotation.Generated;
  * ClipboardPayload
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-12T12:35:11.728094944Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-12T13:40:36.859893812Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardPayload {
 
   @Valid

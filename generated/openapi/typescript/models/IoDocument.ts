@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { CloudEventData } from '../models/CloudEventData';
 import { TmuxPaneIoDocument } from '../models/TmuxPaneIoDocument';
 import { HttpFile } from '../http/http';
 

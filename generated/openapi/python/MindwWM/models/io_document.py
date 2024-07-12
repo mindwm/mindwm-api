@@ -21,7 +21,6 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from MindwWM.models.cloud_event_data import CloudEventData
 from MindwWM.models.tmux_pane_io_document import TmuxPaneIoDocument
 from typing import Optional, Set
 from typing_extensions import Self
@@ -102,11 +101,6 @@ class IoDocument(BaseModel):
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
-        # set to None if data (nullable) is None
-        # and model_fields_set contains the field
-        if self.data is None and "data" in self.model_fields_set:
-            _dict['data'] = None
-
         return _dict
 
     @classmethod
@@ -127,7 +121,7 @@ class IoDocument(BaseModel):
             "dataschema": obj.get("dataschema"),
             "subject": obj.get("subject"),
             "time": obj.get("time"),
-            "data": CloudEventData.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": TmuxPaneIoDocument.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "data_base64": obj.get("data_base64")
         })
         # store additional fields in additional_properties

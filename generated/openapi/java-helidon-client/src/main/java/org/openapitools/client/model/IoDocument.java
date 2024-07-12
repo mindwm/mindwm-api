@@ -21,9 +21,7 @@ import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.client.model.CloudEventData;
 import org.openapitools.client.model.TmuxPaneIoDocument;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 
 

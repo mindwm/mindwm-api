@@ -4,7 +4,6 @@ open System
 open System.Collections.Generic
 open Newtonsoft.Json
 open MindwWM.Model.AnyType
-open MindwWM.Model.CloudEventData
 open MindwWM.Model.TmuxPaneIoDocument
 open System.Collections.Generic
 

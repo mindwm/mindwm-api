@@ -3,7 +3,6 @@ namespace MindwWM.Model
 open System
 open System.Collections.Generic
 open MindwWM.Model.AnyType
-open MindwWM.Model.CloudEventData
 open MindwWM.Model.TmuxPaneIoDocument
 open System.Collections.Generic
 

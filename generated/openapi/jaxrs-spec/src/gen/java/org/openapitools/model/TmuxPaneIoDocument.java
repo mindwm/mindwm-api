@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 @JsonTypeName("TmuxPaneIoDocument")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-12T12:33:28.020182227Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-12T13:38:54.231174516Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class TmuxPaneIoDocument extends HashMap<String, Object>  {
   private String input;
   private String output;
