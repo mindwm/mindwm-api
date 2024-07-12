@@ -1,0 +1,112 @@
+h1. Mindwm API
+
+This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
+
+*Version:* 0.1.0
+
+----
+
+{expand:Table of Contents - Click to expand}
+{toc:printable=true|style=square|minLevel=2|maxLevel=3|type=list|outline=false|include=.*}
+{expand}
+
+h2. Endpoints
+
+{anchor:models}
+h2. Models
+
+        {anchor:ClipboardModelAnchor}
+        h3. Clipboard
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |type |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |source |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |data |(x) |{noformat:nopanel=true}ClipboardPayload{noformat} |  |  | null
+         |id |(/) |{noformat:nopanel=true}String{noformat} | Identifies the event. |  | null
+         |specversion |(/) |{noformat:nopanel=true}String{noformat} | The version of the CloudEvents specification which the event uses. |  | null
+         |datacontenttype |(x) |{noformat:nopanel=true}String{noformat} | Content type of the data value. Must adhere to RFC 2046 format. |  | null
+         |dataschema |(x) |{noformat:nopanel=true}URI{noformat} | Identifies the schema that data adheres to. |  | null
+         |subject |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
+         |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
+         
+        {anchor:ClipboardPayloadModelAnchor}
+        h3. ClipboardPayload
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |start |(x) |{noformat:nopanel=true}array[Integer]{noformat} | Starting position of clipboard selection [x,y\] |  | null
+         |stop |(x) |{noformat:nopanel=true}array[Integer]{noformat} | Ending position of clipboard selection [x,y\] |  | null
+         |data |(x) |{noformat:nopanel=true}String{noformat} | Clipboard data |  | null
+         |type |(x) |{noformat:nopanel=true}String{noformat} | Clipboard type |  [primary, secondary, clipboard]  | null
+         |context |(x) |{noformat:nopanel=true}ClipboardPayload_context{noformat} |  |  | null
+         
+        {anchor:ClipboardPayloadContextModelAnchor}
+        h3. ClipboardPayloadContext
+
+        Selection context
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |window |(x) |{noformat:nopanel=true}String{noformat} | window id |  | null
+         
+        {anchor:CloudEventModelAnchor}
+        h3. CloudEvent
+
+        CloudEvents Specification JSON Schema
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |id |(/) |{noformat:nopanel=true}String{noformat} | Identifies the event. |  | null
+         |source |(/) |{noformat:nopanel=true}String{noformat} | Identifies the context in which an event happened. |  | null
+         |specversion |(/) |{noformat:nopanel=true}String{noformat} | The version of the CloudEvents specification which the event uses. |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} | Describes the type of event related to the originating occurrence. |  | null
+         |datacontenttype |(x) |{noformat:nopanel=true}String{noformat} | Content type of the data value. Must adhere to RFC 2046 format. |  | null
+         |dataschema |(x) |{noformat:nopanel=true}URI{noformat} | Identifies the schema that data adheres to. |  | null
+         |subject |(x) |{noformat:nopanel=true}String{noformat} | Describes the subject of the event in the context of the event producer (identified by source). |  | null
+         |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
+         |data |(x) |{noformat:nopanel=true}CloudEvent_data{noformat} |  |  | null
+         |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
+         
+        {anchor:CloudEventDataModelAnchor}
+        h3. CloudEventData
+
+        The event payload.
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         
+        {anchor:IoDocumentModelAnchor}
+        h3. IoDocument
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |type |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |source |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |data |(x) |{noformat:nopanel=true}TmuxPaneIoDocument{noformat} |  |  | null
+         |id |(/) |{noformat:nopanel=true}String{noformat} | Identifies the event. |  | null
+         |specversion |(/) |{noformat:nopanel=true}String{noformat} | The version of the CloudEvents specification which the event uses. |  | null
+         |datacontenttype |(x) |{noformat:nopanel=true}String{noformat} | Content type of the data value. Must adhere to RFC 2046 format. |  | null
+         |dataschema |(x) |{noformat:nopanel=true}URI{noformat} | Identifies the schema that data adheres to. |  | null
+         |subject |(x) |{noformat:nopanel=true}String{noformat} | Describes the subject of the event in the context of the event producer (identified by source). |  | null
+         |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
+         |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
+         
+        {anchor:TmuxPaneIoDocumentModelAnchor}
+        h3. TmuxPaneIoDocument
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |input |(/) |{noformat:nopanel=true}String{noformat} | User input |  | null
+         |output |(/) |{noformat:nopanel=true}String{noformat} | Command output (mix of stdout &amp; stderr) |  | null
+         |ps1 |(/) |{noformat:nopanel=true}String{noformat} | ps1 (prompt) AFTER the input and output |  | null
+         
