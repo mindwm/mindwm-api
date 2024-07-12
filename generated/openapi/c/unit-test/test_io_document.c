@@ -29,7 +29,7 @@ io_document_t* instantiate_io_document(int include_optional) {
       "0",
       "0",
       "0",
-      "0",
+      "IoDocument",
       "2013-10-20T19:20:30+01:00",
       "0"
     );
@@ -42,7 +42,7 @@ io_document_t* instantiate_io_document(int include_optional) {
       "0",
       "0",
       "0",
-      "0",
+      "IoDocument",
       "2013-10-20T19:20:30+01:00",
       "0"
     );

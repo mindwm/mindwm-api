@@ -104,7 +104,7 @@ public:
     void setDataschema(std::string value);
 
     /// <summary>
-    /// Describes the subject of the event in the context of the event producer (identified by source).
+    /// 
     /// </summary>
     std::string getSubject() const;
     void setSubject(std::string value);
@@ -129,7 +129,7 @@ protected:
     std::string m_Specversion = "";
     std::string m_Datacontenttype = "";
     std::string m_Dataschema = "";
-    std::string m_Subject = "";
+    std::string m_Subject = "IoDocument";
     std::string m_Time = "";
     std::string m_Data_base64 = "";
 };

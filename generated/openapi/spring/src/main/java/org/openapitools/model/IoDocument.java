@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * IoDocument
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-12T13:40:36.859893812Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-12T14:00:44.793693Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument {
 
   private String type;
@@ -43,7 +43,7 @@ public class IoDocument {
 
   private URI dataschema;
 
-  private String subject;
+  private String subject = "IoDocument";
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime time;
@@ -208,11 +208,11 @@ public class IoDocument {
   }
 
   /**
-   * Describes the subject of the event in the context of the event producer (identified by source).
+   * Get subject
    * @return subject
    */
-  @Size(min = 1) 
-  @Schema(name = "subject", description = "Describes the subject of the event in the context of the event producer (identified by source).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  
+  @Schema(name = "subject", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("subject")
   public String getSubject() {
     return subject;

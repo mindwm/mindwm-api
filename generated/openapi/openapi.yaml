@@ -21,6 +21,11 @@ components:
           type:
             type: string
             const: IoDocument
+            default: IoDocument
+          subject:
+            type: string
+            const: IoDocument
+            default: IoDocument
           source:
             type: string
             pattern: '[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$'
@@ -36,6 +41,14 @@ components:
         data:
           $ref: '#/components/schemas/TmuxPaneIoDocument'
       additionalProperties: false
+      examples:
+      - source: mindwm.alice.laptop.tmux.L3RtcC90bXV4LTEwMDAvZGVmYXVsdA==.1c41f0ca-4056-11ef-a365-5b2236197e08.0.15.iodocument
+        subject: IoDocument
+        type: IoDocument
+        id: '2f3ad8a4-4056-11ef-86f8-9f634df7447b'
+        specversion: '1.0.0'
+        data:
+          $ref: '#/components/schemas/TmuxPaneIoDocument/examples/0'
     Clipboard:
       allOf:
       - $ref: '#/components/schemas/CloudEvent'

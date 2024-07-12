@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **specversion** | **string** |  | [default to null]
 **datacontenttype** | **string** |  | [optional] [default to null]
 **dataschema** | **string** |  | [optional] [default to null]
-**subject** | **string** |  | [optional] [default to null]
+**subject** | **string** |  | [optional] [default to IoDocument]
 **_time** | **string** |  | [optional] [default to null]
 **dataUnderscorebase64** | **string** |  | [optional] [default to null]
 

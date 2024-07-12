@@ -41,7 +41,7 @@ module.exports = {
             },
             {
                 key: `${keyPrefix}subject`,
-                label: `Describes the subject of the event in the context of the event producer (identified by source). - [${labelPrefix}subject]`,
+                label: `[${labelPrefix}subject]`,
                 type: 'string',
             },
             {

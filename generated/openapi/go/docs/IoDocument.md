@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Specversion** | **string** | The version of the CloudEvents specification which the event uses. | 
 **Datacontenttype** | Pointer to **string** | Content type of the data value. Must adhere to RFC 2046 format. | [optional] 
 **Dataschema** | Pointer to **string** | Identifies the schema that data adheres to. | [optional] 
-**Subject** | Pointer to **string** | Describes the subject of the event in the context of the event producer (identified by source). | [optional] 
+**Subject** | Pointer to **string** |  | [optional] [default to "IoDocument"]
 **Time** | Pointer to **time.Time** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
 **DataBase64** | Pointer to **string** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 

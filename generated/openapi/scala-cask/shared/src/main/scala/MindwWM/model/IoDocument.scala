@@ -42,8 +42,7 @@ case class IoDocument(
   /* Identifies the schema that data adheres to. */
   dataschema: Option[URI] = None ,
 
-  /* Describes the subject of the event in the context of the event producer (identified by source). */
-  subject: Option[String] = None ,
+    subject: Option[String] = None ,
 
   /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
   time: Option[OffsetDateTime] = None ,
@@ -64,7 +63,7 @@ case class IoDocument(
             specversion = specversion,
             datacontenttype = datacontenttype.getOrElse(""),
             dataschema = dataschema.getOrElse(""),
-            subject = subject.getOrElse(""),
+            subject = subject.getOrElse(IoDocument),
             time = time.getOrElse(null),
             dataBase64 = dataBase64.getOrElse("")
     )

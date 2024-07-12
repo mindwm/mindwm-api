@@ -42,7 +42,7 @@ import javax.validation.Valid;
   IoDocument.JSON_PROPERTY_TIME,
   IoDocument.JSON_PROPERTY_DATA_BASE64
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-12T13:38:49.064195947Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-12T13:58:58.532194061Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument extends HashMap<String, Object>  {
   public static final String JSON_PROPERTY_TYPE = "type";
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -74,7 +74,7 @@ public class IoDocument extends HashMap<String, Object>  {
 
   public static final String JSON_PROPERTY_SUBJECT = "subject";
   @JsonProperty(JSON_PROPERTY_SUBJECT)
-  private String subject;
+  private String subject = "IoDocument";
 
   public static final String JSON_PROPERTY_TIME = "time";
   @JsonProperty(JSON_PROPERTY_TIME)
@@ -230,12 +230,12 @@ public class IoDocument extends HashMap<String, Object>  {
   }
 
   /**
-   * Describes the subject of the event in the context of the event producer (identified by source).
+   * Get subject
    * @return subject
    **/
   @JsonProperty(value = "subject")
-  @ApiModelProperty(value = "Describes the subject of the event in the context of the event producer (identified by source).")
-   @Size(min=1)
+  @ApiModelProperty(value = "")
+  
   public String getSubject() {
     return subject;
   }

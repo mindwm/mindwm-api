@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import io.swagger.annotations.*;
 import javax.validation.Valid;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-12T13:38:50.817342336Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-12T13:59:00.229900211Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument extends HashMap<String, Object>  {
   
   private String type;
@@ -26,7 +26,7 @@ public class IoDocument extends HashMap<String, Object>  {
   private String specversion;
   private String datacontenttype;
   private URI dataschema;
-  private String subject;
+  private String subject = "IoDocument";
   private Date time;
   private String dataBase64;
 
@@ -122,12 +122,11 @@ public class IoDocument extends HashMap<String, Object>  {
   }
 
   /**
-   * Describes the subject of the event in the context of the event producer (identified by source).
    **/
   
-  @ApiModelProperty(value = "Describes the subject of the event in the context of the event producer (identified by source).")
+  @ApiModelProperty(value = "")
   @JsonProperty("subject")
- @Size(min=1)  public String getSubject() {
+  public String getSubject() {
     return subject;
   }
   public void setSubject(String subject) {

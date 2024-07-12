@@ -113,17 +113,12 @@ class IoDocument  implements \JsonSerializable
     public ?string $dataschema;
 
     /**
-     * Describes the subject of the event in the context of the event producer (identified by source).
-     *
      * @var string|null
      * @SerializedName("subject")
      * @Assert\Type("string")
      * @Type("string")
-     * @Assert\Length(
-     *   min = 1
-     * )
      */
-    public ?string $subject;
+    public ?string $subject = 'IoDocument';
 
     /**
      * Timestamp of when the occurrence happened. Must adhere to RFC 3339.

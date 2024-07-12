@@ -29,7 +29,7 @@ Content type of the data value. Must adhere to RFC 2046 format.
 .PARAMETER Dataschema
 Identifies the schema that data adheres to.
 .PARAMETER Subject
-Describes the subject of the event in the context of the event producer (identified by source).
+No description available.
 .PARAMETER Time
 Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 .PARAMETER DataBase64
@@ -66,7 +66,7 @@ function Initialize-IoDocument {
         ${Dataschema},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Subject},
+        ${Subject} = "IoDocument",
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Time},
@@ -101,10 +101,6 @@ function Initialize-IoDocument {
 
         if (!$Dataschema -and $Dataschema.length -lt 1) {
             throw "invalid value for 'Dataschema', the character length must be great than or equal to 1."
-        }
-
-        if (!$Subject -and $Subject.length -lt 1) {
-            throw "invalid value for 'Subject', the character length must be great than or equal to 1."
         }
 
         if (!$Time -and $Time.length -lt 1) {

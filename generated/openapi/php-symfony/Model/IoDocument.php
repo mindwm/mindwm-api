@@ -115,15 +115,12 @@ class IoDocument
     protected ?string $dataschema = null;
 
     /**
-     * Describes the subject of the event in the context of the event producer (identified by source).
-     *
      * @var string|null
      * @SerializedName("subject")
      * @Type("string")
     */
     #[Assert\Type("string")]
-    #[Assert\Length(min: 1)]
-    protected ?string $subject = null;
+    protected ?string $subject = 'IoDocument';
 
     /**
      * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
@@ -368,7 +365,7 @@ class IoDocument
     /**
     * Sets subject.
     *
-    * @param string|null $subject  Describes the subject of the event in the context of the event producer (identified by source).
+    * @param string|null $subject
     *
     * @return $this
     */

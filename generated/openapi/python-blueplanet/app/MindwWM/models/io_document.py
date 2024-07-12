@@ -17,7 +17,7 @@ class IoDocument(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, type: str=None, source: str=None, data: TmuxPaneIoDocument=None, id: str=None, specversion: str=None, datacontenttype: str=None, dataschema: str=None, subject: str=None, time: datetime=None, data_base64: str=None):  # noqa: E501
+    def __init__(self, type: str=None, source: str=None, data: TmuxPaneIoDocument=None, id: str=None, specversion: str=None, datacontenttype: str=None, dataschema: str=None, subject: str='IoDocument', time: datetime=None, data_base64: str=None):  # noqa: E501
         """IoDocument - a model defined in Swagger
 
         :param type: The type of this IoDocument.  # noqa: E501
@@ -262,7 +262,6 @@ class IoDocument(Model):
     def subject(self) -> str:
         """Gets the subject of this IoDocument.
 
-        Describes the subject of the event in the context of the event producer (identified by source).  # noqa: E501
 
         :return: The subject of this IoDocument.
         :rtype: str
@@ -273,13 +272,10 @@ class IoDocument(Model):
     def subject(self, subject: str):
         """Sets the subject of this IoDocument.
 
-        Describes the subject of the event in the context of the event producer (identified by source).  # noqa: E501
 
         :param subject: The subject of this IoDocument.
         :type subject: str
         """
-        if subject is not None and len(subject) < 1:
-            raise ValueError("Invalid value for `subject`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._subject = subject
 

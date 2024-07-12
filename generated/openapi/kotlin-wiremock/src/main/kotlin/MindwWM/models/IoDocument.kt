@@ -18,7 +18,7 @@ data class IoDocument(
     val specversion: kotlin.String,
 
     @field:JsonProperty("type")
-    val type: kotlin.String,
+    val type: kotlin.String = "IoDocument",
 
     @field:JsonProperty("datacontenttype")
     val datacontenttype: kotlin.String? = null,
@@ -27,7 +27,7 @@ data class IoDocument(
     val dataschema: java.net.URI? = null,
 
     @field:JsonProperty("subject")
-    val subject: kotlin.String? = null,
+    val subject: kotlin.String? = "IoDocument",
 
     @field:JsonProperty("time")
     val time: java.time.OffsetDateTime? = null,

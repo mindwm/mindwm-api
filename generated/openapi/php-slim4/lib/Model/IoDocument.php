@@ -58,7 +58,12 @@ class IoDocument extends BaseModel
     "$ref" : "#/components/schemas/CloudEvent"
   }, {
     "properties" : {
-      "type" : { },
+      "type" : {
+        "default" : "IoDocument"
+      },
+      "subject" : {
+        "default" : "IoDocument"
+      },
       "source" : {
         "pattern" : "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$"
       },

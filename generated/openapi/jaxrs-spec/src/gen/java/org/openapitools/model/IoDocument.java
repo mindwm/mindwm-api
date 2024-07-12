@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 @JsonTypeName("IoDocument")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-12T13:38:54.231174516Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-12T13:59:03.577860464Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument extends HashMap<String, Object>  {
   private String type;
   private String source;
@@ -29,7 +29,7 @@ public class IoDocument extends HashMap<String, Object>  {
   private String specversion;
   private String datacontenttype;
   private URI dataschema;
-  private String subject;
+  private String subject = "IoDocument";
   private Date time;
   private String dataBase64;
 
@@ -171,7 +171,6 @@ public class IoDocument extends HashMap<String, Object>  {
   }
 
   /**
-   * Describes the subject of the event in the context of the event producer (identified by source).
    **/
   public IoDocument subject(String subject) {
     this.subject = subject;
@@ -179,9 +178,9 @@ public class IoDocument extends HashMap<String, Object>  {
   }
 
   
-  @ApiModelProperty(value = "Describes the subject of the event in the context of the event producer (identified by source).")
+  @ApiModelProperty(value = "")
   @JsonProperty("subject")
-   @Size(min=1)public String getSubject() {
+  public String getSubject() {
     return subject;
   }
 

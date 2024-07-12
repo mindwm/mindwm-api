@@ -22,7 +22,7 @@ import MindwWM.models.TmuxPaneIoDocument
  * @param `data` 
  * @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
  * @param dataschema Identifies the schema that data adheres to.
- * @param subject Describes the subject of the event in the context of the event producer (identified by source).
+ * @param subject 
  * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
  * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
  */
@@ -40,8 +40,7 @@ data class IoDocument(
     val datacontenttype: kotlin.String? = null,
     /* Identifies the schema that data adheres to. */
     val dataschema: java.net.URI? = null,
-    /* Describes the subject of the event in the context of the event producer (identified by source). */
-    val subject: kotlin.String? = null,
+    val subject: kotlin.String? = "IoDocument",
     /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
     val time: java.time.OffsetDateTime? = null,
     /* Base64 encoded event payload. Must adhere to RFC4648. */

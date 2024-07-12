@@ -95,7 +95,7 @@ h2. Models
          |specversion |(/) |{noformat:nopanel=true}String{noformat} | The version of the CloudEvents specification which the event uses. |  | null
          |datacontenttype |(x) |{noformat:nopanel=true}String{noformat} | Content type of the data value. Must adhere to RFC 2046 format. |  | null
          |dataschema |(x) |{noformat:nopanel=true}URI{noformat} | Identifies the schema that data adheres to. |  | null
-         |subject |(x) |{noformat:nopanel=true}String{noformat} | Describes the subject of the event in the context of the event producer (identified by source). |  | null
+         |subject |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
          |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
          |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
          

@@ -33,7 +33,7 @@ MindwWM_io_document(Fields) ->
             , {'specversion', binary(1) }
             , {'datacontenttype', binary(1) }
             , {'dataschema', binary(1) }
-            , {'subject', binary(1) }
+            , {'subject', binary() }
             , {'time', datetime() }
             , {'data_base64', binary() }
             ],

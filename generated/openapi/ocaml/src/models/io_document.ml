@@ -17,7 +17,6 @@ type t = {
     datacontenttype: string option [@default None];
     (* Identifies the schema that data adheres to. *)
     dataschema: string option [@default None];
-    (* Describes the subject of the event in the context of the event producer (identified by source). *)
     subject: string option [@default None];
     (* Timestamp of when the occurrence happened. Must adhere to RFC 3339. *)
     time: string option [@default None];

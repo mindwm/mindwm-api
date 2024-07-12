@@ -39,7 +39,7 @@ public class IoDocument extends HashMap<String, OasAnyTypeNotMapped> {
   @SerializedName("dataschema")
   private URI dataschema = null;
   @SerializedName("subject")
-  private String subject = null;
+  private String subject = IoDocument;
   @SerializedName("time")
   private Date time = null;
   @SerializedName("data_base64")
@@ -120,9 +120,8 @@ public class IoDocument extends HashMap<String, OasAnyTypeNotMapped> {
   }
 
   /**
-   * Describes the subject of the event in the context of the event producer (identified by source).
    **/
-  @ApiModelProperty(value = "Describes the subject of the event in the context of the event producer (identified by source).")
+  @ApiModelProperty(value = "")
   public String getSubject() {
     return subject;
   }

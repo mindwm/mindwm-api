@@ -19,7 +19,7 @@ public class IoDocument extends HashMap<String, Object>  {
   private String specversion;
   private String datacontenttype;
   private URI dataschema;
-  private String subject;
+  private String subject = "IoDocument";
   private OffsetDateTime time;
   private String dataBase64;
 

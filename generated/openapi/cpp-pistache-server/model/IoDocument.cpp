@@ -32,7 +32,7 @@ IoDocument::IoDocument()
     m_DatacontenttypeIsSet = false;
     m_Dataschema = "";
     m_DataschemaIsSet = false;
-    m_Subject = "";
+    m_Subject = "IoDocument";
     m_SubjectIsSet = false;
     m_Time = "";
     m_TimeIsSet = false;
@@ -125,21 +125,7 @@ bool IoDocument::validate(std::stringstream& msg, const std::string& pathPrefix)
         }
 
     }
-         
-    if (subjectIsSet())
-    {
-        const std::string& value = m_Subject;
-        const std::string currentValuePath = _pathPrefix + ".subject";
-                
-        
-        if (value.length() < 1)
-        {
-            success = false;
-            msg << currentValuePath << ": must be at least 1 characters long;";
-        }
-
-    }
-         
+             
     if (timeIsSet())
     {
         const std::string& value = m_Time;

@@ -272,7 +272,7 @@ __PACKAGE__->method_documentation({
     'subject' => {
         datatype => 'string',
         base_name => 'subject',
-        description => 'Describes the subject of the event in the context of the event producer (identified by source).',
+        description => '',
         format => '',
         read_only => '',
             },

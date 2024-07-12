@@ -25,7 +25,7 @@ import .*
  * @param type 
  * @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
  * @param dataschema Identifies the schema that data adheres to.
- * @param subject Describes the subject of the event in the context of the event producer (identified by source).
+ * @param subject 
  * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
  * @param data 
  * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
@@ -37,7 +37,7 @@ object IoDocuments : BaseTable<IoDocument>("IoDocument") {
     val type = text("type")
     val datacontenttype = text("datacontenttype") /* null */ /* Content type of the data value. Must adhere to RFC 2046 format. */
     val dataschema = text("dataschema") /* null */ /* Identifies the schema that data adheres to. */
-    val subject = text("subject") /* null */ /* Describes the subject of the event in the context of the event producer (identified by source). */
+    val subject = text("subject") /* null */
     val time = datetime("time") /* null */ /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
     val data = long("data") /* null */
     val dataBase64 = text("data_base64") /* null */ /* Base64 encoded event payload. Must adhere to RFC4648. */
@@ -52,7 +52,7 @@ object IoDocuments : BaseTable<IoDocument>("IoDocument") {
         type = row[type] ?: "" /* kotlin.String */,
         datacontenttype = row[datacontenttype]  /* kotlin.String? */ /* Content type of the data value. Must adhere to RFC 2046 format. */,
         dataschema = row[dataschema]  /* java.net.URI? */ /* Identifies the schema that data adheres to. */,
-        subject = row[subject]  /* kotlin.String? */ /* Describes the subject of the event in the context of the event producer (identified by source). */,
+        subject = row[subject] ?: "IoDocument" /* kotlin.String? */,
         time = row[time]  /* java.time.LocalDateTime? */ /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */,
         data = TmuxPaneIoDocuments.createEntity(row, withReferences) /* TmuxPaneIoDocument? */,
         dataBase64 = row[dataBase64]  /* kotlin.String? */ /* Base64 encoded event payload. Must adhere to RFC4648. */

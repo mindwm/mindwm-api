@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * IoDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-12T13:38:19.576914170Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-12T13:58:29.670219765Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -84,7 +84,7 @@ public class IoDocument {
 
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
   @SerializedName(SERIALIZED_NAME_SUBJECT)
-  private String subject;
+  private String subject = "IoDocument";
 
   public static final String SERIALIZED_NAME_TIME = "time";
   @SerializedName(SERIALIZED_NAME_TIME)
@@ -236,7 +236,7 @@ public class IoDocument {
   }
 
   /**
-   * Describes the subject of the event in the context of the event producer (identified by source).
+   * Get subject
    * @return subject
    */
   @javax.annotation.Nullable

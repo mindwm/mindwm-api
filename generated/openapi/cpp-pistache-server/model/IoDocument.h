@@ -107,7 +107,7 @@ public:
     bool dataschemaIsSet() const;
     void unsetDataschema();
     /// <summary>
-    /// Describes the subject of the event in the context of the event producer (identified by source).
+    /// 
     /// </summary>
     std::string getSubject() const;
     void setSubject(std::string const& value);

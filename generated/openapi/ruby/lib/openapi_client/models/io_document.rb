@@ -33,7 +33,6 @@ module OpenapiClient
     # Identifies the schema that data adheres to.
     attr_accessor :dataschema
 
-    # Describes the subject of the event in the context of the event producer (identified by source).
     attr_accessor :subject
 
     # Timestamp of when the occurrence happened. Must adhere to RFC 3339.
@@ -141,6 +140,8 @@ module OpenapiClient
 
       if attributes.key?(:'subject')
         self.subject = attributes[:'subject']
+      else
+        self.subject = 'IoDocument'
       end
 
       if attributes.key?(:'time')
@@ -186,10 +187,6 @@ module OpenapiClient
         invalid_properties.push('invalid value for "dataschema", the character length must be great than or equal to 1.')
       end
 
-      if !@subject.nil? && @subject.to_s.length < 1
-        invalid_properties.push('invalid value for "subject", the character length must be great than or equal to 1.')
-      end
-
       if !@time.nil? && @time.to_s.length < 1
         invalid_properties.push('invalid value for "time", the character length must be great than or equal to 1.')
       end
@@ -208,7 +205,6 @@ module OpenapiClient
       return false if @specversion.to_s.length < 1
       return false if !@datacontenttype.nil? && @datacontenttype.to_s.length < 1
       return false if !@dataschema.nil? && @dataschema.to_s.length < 1
-      return false if !@subject.nil? && @subject.to_s.length < 1
       return false if !@time.nil? && @time.to_s.length < 1
       true
     end
@@ -282,20 +278,6 @@ module OpenapiClient
       end
 
       @dataschema = dataschema
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] subject Value to be assigned
-    def subject=(subject)
-      if subject.nil?
-        fail ArgumentError, 'subject cannot be nil'
-      end
-
-      if subject.to_s.length < 1
-        fail ArgumentError, 'invalid value for "subject", the character length must be great than or equal to 1.'
-      end
-
-      @subject = subject
     end
 
     # Custom attribute writer method with validation

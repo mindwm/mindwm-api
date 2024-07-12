@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema
  * @param &#x60;data&#x60; 
  * @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
  * @param dataschema Identifies the schema that data adheres to.
- * @param subject Describes the subject of the event in the context of the event producer (identified by source).
+ * @param subject 
  * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
  * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
  */
@@ -42,7 +42,7 @@ data class IoDocument(
     @get:JsonProperty("specversion", required = true) val specversion: kotlin.String,
 
     @Schema(example = "null", required = true, description = "")
-    @get:JsonProperty("type", required = true) val type: kotlin.String,
+    @get:JsonProperty("type", required = true) val type: kotlin.String = "IoDocument",
 
     @Schema(example = "null", description = "")
     @get:JsonProperty("type") val type: kotlin.String? = null,
@@ -64,9 +64,8 @@ data class IoDocument(
     @Schema(example = "null", description = "Identifies the schema that data adheres to.")
     @get:JsonProperty("dataschema") val dataschema: java.net.URI? = null,
 
-    @get:Size(min=1)
-    @Schema(example = "null", description = "Describes the subject of the event in the context of the event producer (identified by source).")
-    @get:JsonProperty("subject") val subject: kotlin.String? = null,
+    @Schema(example = "null", description = "")
+    @get:JsonProperty("subject") val subject: kotlin.String? = "IoDocument",
 
     @get:Size(min=1)
     @Schema(example = "null", description = "Timestamp of when the occurrence happened. Must adhere to RFC 3339.")

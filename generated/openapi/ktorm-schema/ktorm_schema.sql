@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `IoDocument` (
   `type` text NOT NULL,
   `datacontenttype` text /*Content type of the data value. Must adhere to RFC 2046 format.*/,
   `dataschema` text /*Identifies the schema that data adheres to.*/,
-  `subject` text /*Describes the subject of the event in the context of the event producer (identified by source).*/,
+  `subject` text,
   `time` datetime /*Timestamp of when the occurrence happened. Must adhere to RFC 3339.*/,
   `data` long,
   `data_base64` text /*Base64 encoded event payload. Must adhere to RFC4648.*/

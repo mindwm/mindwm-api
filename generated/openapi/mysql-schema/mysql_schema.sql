@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `IoDocument` (
   `specversion` TEXT NOT NULL COMMENT 'The version of the CloudEvents specification which the event uses.',
   `datacontenttype` TEXT DEFAULT NULL COMMENT 'Content type of the data value. Must adhere to RFC 2046 format.',
   `dataschema` TEXT DEFAULT NULL COMMENT 'Identifies the schema that data adheres to.',
-  `subject` TEXT DEFAULT NULL COMMENT 'Describes the subject of the event in the context of the event producer (identified by source).',
+  `subject` TEXT,
   `time` DATETIME DEFAULT NULL COMMENT 'Timestamp of when the occurrence happened. Must adhere to RFC 3339.',
   `data_base64` TEXT DEFAULT NULL COMMENT 'Base64 encoded event payload. Must adhere to RFC4648.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

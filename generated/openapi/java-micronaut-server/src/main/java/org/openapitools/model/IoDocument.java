@@ -43,7 +43,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   IoDocument.JSON_PROPERTY_DATA_BASE64
 })
 @JsonTypeName("IoDocument")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-12T13:38:31.599892342Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-12T13:58:41.463228963Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class IoDocument extends HashMap<String, Object> {
     public static final String JSON_PROPERTY_TYPE = "type";
@@ -68,7 +68,7 @@ public class IoDocument extends HashMap<String, Object> {
     private URI dataschema;
 
     public static final String JSON_PROPERTY_SUBJECT = "subject";
-    private String subject;
+    private String subject = "IoDocument";
 
     public static final String JSON_PROPERTY_TIME = "time";
     private OffsetDateTime time;
@@ -254,12 +254,11 @@ public class IoDocument extends HashMap<String, Object> {
     }
 
     /**
-     * Describes the subject of the event in the context of the event producer (identified by source).
+     * Get subject
      * @return subject
      */
     @Nullable
-    @Size(min=1)
-    @Schema(name = "subject", description = "Describes the subject of the event in the context of the event producer (identified by source).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "subject", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty(JSON_PROPERTY_SUBJECT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSubject() {

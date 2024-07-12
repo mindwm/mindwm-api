@@ -33,7 +33,6 @@ type IoDocument struct {
 	// Identifies the schema that data adheres to.
 	Dataschema string `json:"dataschema,omitempty"`
 
-	// Describes the subject of the event in the context of the event producer (identified by source).
 	Subject string `json:"subject,omitempty"`
 
 	// Timestamp of when the occurrence happened. Must adhere to RFC 3339.

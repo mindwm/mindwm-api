@@ -32,7 +32,6 @@ type IoDocument struct {
 	Datacontenttype *string `json:"datacontenttype,omitempty"`
 	// Identifies the schema that data adheres to.
 	Dataschema *string `json:"dataschema,omitempty"`
-	// Describes the subject of the event in the context of the event producer (identified by source).
 	Subject *string `json:"subject,omitempty"`
 	// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 	Time *time.Time `json:"time,omitempty"`
@@ -53,6 +52,8 @@ func NewIoDocument(id string, source string, specversion string, type_ string) *
 	this.Source = source
 	this.Specversion = specversion
 	this.Type = type_
+	var subject string = "IoDocument"
+	this.Subject = &subject
 	return &this
 }
 
@@ -61,6 +62,8 @@ func NewIoDocument(id string, source string, specversion string, type_ string) *
 // but it doesn't guarantee that properties required by API are set
 func NewIoDocumentWithDefaults() *IoDocument {
 	this := IoDocument{}
+	var subject string = "IoDocument"
+	this.Subject = &subject
 	return &this
 }
 

@@ -31,7 +31,6 @@ pub struct IoDocument {
     /// Identifies the schema that data adheres to.
     #[serde(rename = "dataschema", skip_serializing_if = "Option::is_none")]
     pub dataschema: Option<String>,
-    /// Describes the subject of the event in the context of the event producer (identified by source).
     #[serde(rename = "subject", skip_serializing_if = "Option::is_none")]
     pub subject: Option<String>,
     /// Timestamp of when the occurrence happened. Must adhere to RFC 3339.

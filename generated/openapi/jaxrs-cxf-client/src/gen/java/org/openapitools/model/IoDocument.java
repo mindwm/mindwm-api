@@ -46,11 +46,8 @@ public class IoDocument extends HashMap<String, Object> {
   **/
   private URI dataschema;
 
-  @ApiModelProperty(value = "Describes the subject of the event in the context of the event producer (identified by source).")
- /**
-   * Describes the subject of the event in the context of the event producer (identified by source).
-  **/
-  private String subject;
+  @ApiModelProperty(value = "")
+  private String subject = "IoDocument";
 
   @ApiModelProperty(value = "Timestamp of when the occurrence happened. Must adhere to RFC 3339.")
  /**
@@ -190,7 +187,7 @@ public class IoDocument extends HashMap<String, Object> {
   }
 
  /**
-   * Describes the subject of the event in the context of the event producer (identified by source).
+   * Get subject
    * @return subject
   **/
   @JsonProperty("subject")

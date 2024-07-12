@@ -19,7 +19,7 @@ public class IoDocument extends HashMap<String, Object>  {
     private String specversion;
     private String datacontenttype;
     private URI dataschema;
-    private String subject;
+    private String subject = "IoDocument";
     private OffsetDateTime time;
     private String dataBase64;
 
@@ -40,7 +40,7 @@ public class IoDocument extends HashMap<String, Object>  {
      * @param specversion The version of the CloudEvents specification which the event uses.
      * @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
      * @param dataschema Identifies the schema that data adheres to.
-     * @param subject Describes the subject of the event in the context of the event producer (identified by source).
+     * @param subject subject
      * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
      * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
      */
@@ -155,7 +155,7 @@ public class IoDocument extends HashMap<String, Object>  {
     }
 
     /**
-     * Describes the subject of the event in the context of the event producer (identified by source).
+     * Get subject
      * @return subject
      */
     public String getSubject() {

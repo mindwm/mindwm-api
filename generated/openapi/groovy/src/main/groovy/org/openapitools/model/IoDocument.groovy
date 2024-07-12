@@ -23,8 +23,8 @@ class IoDocument {
     String datacontenttype
     /* Identifies the schema that data adheres to. */
     URI dataschema
-    /* Describes the subject of the event in the context of the event producer (identified by source). */
-    String subject
+    
+    String subject = "IoDocument"
     /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
     Date time
     /* Base64 encoded event payload. Must adhere to RFC4648. */

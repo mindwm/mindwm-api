@@ -14,7 +14,7 @@
 #' @field specversion The version of the CloudEvents specification which the event uses. character
 #' @field datacontenttype Content type of the data value. Must adhere to RFC 2046 format. character [optional]
 #' @field dataschema Identifies the schema that data adheres to. character [optional]
-#' @field subject Describes the subject of the event in the context of the event producer (identified by source). character [optional]
+#' @field subject  character [optional]
 #' @field time Timestamp of when the occurrence happened. Must adhere to RFC 3339. character [optional]
 #' @field data_base64 Base64 encoded event payload. Must adhere to RFC4648. character [optional]
 #' @field _field_list a list of fields list(character)
@@ -50,13 +50,13 @@ IoDocument <- R6::R6Class(
     #' @param data data
     #' @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
     #' @param dataschema Identifies the schema that data adheres to.
-    #' @param subject Describes the subject of the event in the context of the event producer (identified by source).
+    #' @param subject subject. Default to "IoDocument".
     #' @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     #' @param data_base64 Base64 encoded event payload. Must adhere to RFC4648.
     #' @param additional_properties additional properties (optional)
     #' @param ... Other optional arguments.
     #' @export
-    initialize = function(`id`, `specversion`, `type` = NULL, `source` = NULL, `data` = NULL, `datacontenttype` = NULL, `dataschema` = NULL, `subject` = NULL, `time` = NULL, `data_base64` = NULL, additional_properties = NULL, ...) {
+    initialize = function(`id`, `specversion`, `type` = NULL, `source` = NULL, `data` = NULL, `datacontenttype` = NULL, `dataschema` = NULL, `subject` = "IoDocument", `time` = NULL, `data_base64` = NULL, additional_properties = NULL, ...) {
       if (!missing(`id`)) {
         if (!(is.character(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be a string:", `id`))
@@ -444,10 +444,6 @@ IoDocument <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`subject`) < 1) {
-        return(FALSE)
-      }
-
       if (nchar(self$`time`) < 1) {
         return(FALSE)
       }
@@ -495,10 +491,6 @@ IoDocument <- R6::R6Class(
       # to validate URL. ref: https://stackoverflow.com/questions/73952024/url-validation-in-r
       if (!stringr::str_detect(self$`dataschema`, "(https?|ftp)://[^ /$.?#].[^\\s]*")) {
         invalid_fields["dataschema"] <- "Invalid value for `dataschema`, must be URL."
-      }
-
-      if (nchar(self$`subject`) < 1) {
-        invalid_fields["subject"] <- "Invalid length for `subject`, must be bigger than or equal to 1."
       }
 
       if (nchar(self$`time`) < 1) {

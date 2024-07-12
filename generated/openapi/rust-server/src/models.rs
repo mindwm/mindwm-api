@@ -1053,11 +1053,7 @@ pub struct IoDocument {
     #[serde(skip_serializing_if="Option::is_none")]
     pub dataschema: Option<String>,
 
-    /// Describes the subject of the event in the context of the event producer (identified by source).
     #[serde(rename = "subject")]
-    #[validate(
-            length(min = 1),
-        )]
     #[serde(skip_serializing_if="Option::is_none")]
     pub subject: Option<String>,
 
@@ -1091,7 +1087,7 @@ impl IoDocument {
             specversion,
             datacontenttype: None,
             dataschema: None,
-            subject: None,
+            subject: Some("IoDocument".to_string()),
             time: None,
             data_base64: None,
         }

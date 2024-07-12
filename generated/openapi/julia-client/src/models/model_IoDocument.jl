@@ -12,7 +12,7 @@
         specversion=nothing,
         datacontenttype=nothing,
         dataschema=nothing,
-        subject=nothing,
+        subject="IoDocument",
         time=nothing,
         data_base64=nothing,
     )
@@ -24,7 +24,7 @@
     - specversion::String : The version of the CloudEvents specification which the event uses.
     - datacontenttype::String : Content type of the data value. Must adhere to RFC 2046 format.
     - dataschema::String : Identifies the schema that data adheres to.
-    - subject::String : Describes the subject of the event in the context of the event producer (identified by source).
+    - subject::String
     - time::ZonedDateTime : Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     - data_base64::String : Base64 encoded event payload. Must adhere to RFC4648.
 """
@@ -36,7 +36,7 @@ Base.@kwdef mutable struct IoDocument <: OpenAPI.APIModel
     specversion::Union{Nothing, String} = nothing
     datacontenttype::Union{Nothing, String} = nothing
     dataschema::Union{Nothing, String} = nothing
-    subject::Union{Nothing, String} = nothing
+    subject::Union{Nothing, String} = "IoDocument"
     time::Union{Nothing, ZonedDateTime} = nothing
     data_base64::Union{Nothing, String} = nothing
 
@@ -81,9 +81,6 @@ function OpenAPI.validate_property(::Type{ IoDocument }, name::Symbol, val)
         OpenAPI.validate_param(name, "IoDocument", :format, val, "uri")
     end
     if name === Symbol("dataschema")
-        OpenAPI.validate_param(name, "IoDocument", :minLength, val, 1)
-    end
-    if name === Symbol("subject")
         OpenAPI.validate_param(name, "IoDocument", :minLength, val, 1)
     end
     if name === Symbol("time")

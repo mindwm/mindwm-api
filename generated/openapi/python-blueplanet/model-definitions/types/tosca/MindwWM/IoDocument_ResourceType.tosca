@@ -54,7 +54,7 @@ resourceTypes {
         }
         subject {
           type =  string
-          description = "Describes the subject of the event in the context of the event producer (identified by source)."
+          description = ""
           optional = false
         }
         time {

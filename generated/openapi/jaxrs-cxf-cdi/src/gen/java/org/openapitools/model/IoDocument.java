@@ -33,7 +33,7 @@ public class IoDocument extends HashMap<String, Object>  {
 
   private URI dataschema;
 
-  private String subject;
+  private String subject = "IoDocument";
 
   private java.util.Date time;
 
@@ -172,7 +172,6 @@ public class IoDocument extends HashMap<String, Object>  {
 
 
   /**
-   * Describes the subject of the event in the context of the event producer (identified by source).
    **/
   public IoDocument subject(String subject) {
     this.subject = subject;
@@ -180,9 +179,9 @@ public class IoDocument extends HashMap<String, Object>  {
   }
 
   
-  @ApiModelProperty(value = "Describes the subject of the event in the context of the event producer (identified by source).")
+  @ApiModelProperty(value = "")
   @JsonProperty("subject")
- @Size(min=1)  public String getSubject() {
+  public String getSubject() {
     return subject;
   }
   public void setSubject(String subject) {

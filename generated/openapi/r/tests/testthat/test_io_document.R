@@ -60,7 +60,6 @@ test_that("dataschema", {
 
 test_that("subject", {
   # tests for the property `subject` (character)
-  # Describes the subject of the event in the context of the event producer (identified by source).
 
   # uncomment below to test the property
   #expect_equal(model.instance$`subject`, "EXPECTED_RESULT")

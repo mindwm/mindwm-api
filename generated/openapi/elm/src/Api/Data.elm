@@ -412,7 +412,7 @@ ioDocumentDecoder =
         |> decode "specversion" Json.Decode.string 
         |> maybeDecode "datacontenttype" Json.Decode.string Nothing
         |> maybeDecode "dataschema" Json.Decode.string Nothing
-        |> maybeDecode "subject" Json.Decode.string Nothing
+        |> maybeDecode "subject" Json.Decode.string (Just "IoDocument")
         |> maybeDecode "time" Api.Time.dateTimeDecoder Nothing
         |> maybeDecode "data_base64" Json.Decode.string Nothing
 

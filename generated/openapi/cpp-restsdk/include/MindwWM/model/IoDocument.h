@@ -121,7 +121,7 @@ public:
     void setDataschema(const utility::string_t& value);
 
     /// <summary>
-    /// Describes the subject of the event in the context of the event producer (identified by source).
+    /// 
     /// </summary>
     utility::string_t getSubject() const;
     bool subjectIsSet() const;

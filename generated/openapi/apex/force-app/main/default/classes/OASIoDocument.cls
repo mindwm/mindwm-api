@@ -57,7 +57,7 @@ public class OASIoDocument extends Map<String, oas_any_type_not_mapped> implemen
     public String dataschema { get; set; }
 
     /**
-     * Describes the subject of the event in the context of the event producer (identified by source).
+     * Get subject
      * @return subject
      */
     public String subject { get; set; }
@@ -90,6 +90,10 @@ public class OASIoDocument extends Map<String, oas_any_type_not_mapped> implemen
 
     public Map<String, String> getPropertyMappings() {
         return propertyMappings;
+    }
+
+    public OASIoDocument() {
+        subject = 'IoDocument';
     }
 
     public static OASIoDocument getExample() {

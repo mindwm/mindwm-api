@@ -49,9 +49,6 @@ Protected Class IoDocument
 
 
 	#tag Property, Flags = &h0
-		#tag Note
-			Describes the subject of the event in the context of the event producer (identified by source).
-		#tag EndNote
 		subject As Xoson.O.OptionalString
 	#tag EndProperty
 

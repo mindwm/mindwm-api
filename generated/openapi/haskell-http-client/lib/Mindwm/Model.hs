@@ -317,7 +317,7 @@ data IoDocument = IoDocument
   , ioDocumentSpecversion :: !(Text) -- ^ /Required/ "specversion" - The version of the CloudEvents specification which the event uses.
   , ioDocumentDatacontenttype :: !(Maybe Text) -- ^ "datacontenttype" - Content type of the data value. Must adhere to RFC 2046 format.
   , ioDocumentDataschema :: !(Maybe Text) -- ^ "dataschema" - Identifies the schema that data adheres to.
-  , ioDocumentSubject :: !(Maybe Text) -- ^ "subject" - Describes the subject of the event in the context of the event producer (identified by source).
+  , ioDocumentSubject :: !(Maybe Text) -- ^ "subject"
   , ioDocumentTime :: !(Maybe DateTime) -- ^ "time" - Timestamp of when the occurrence happened. Must adhere to RFC 3339.
   , ioDocumentDataBase64 :: !(Maybe Text) -- ^ "data_base64" - Base64 encoded event payload. Must adhere to RFC4648.
   } deriving (P.Show, P.Eq, P.Typeable)

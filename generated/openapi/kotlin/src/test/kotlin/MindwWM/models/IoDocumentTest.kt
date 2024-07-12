@@ -68,7 +68,7 @@ class IoDocumentTest : ShouldSpec() {
             //modelInstance.dataschema shouldBe ("TODO")
         }
 
-        // to test the property `subject` - Describes the subject of the event in the context of the event producer (identified by source).
+        // to test the property `subject`
         should("test subject") {
             // uncomment below to test the property
             //modelInstance.subject shouldBe ("TODO")

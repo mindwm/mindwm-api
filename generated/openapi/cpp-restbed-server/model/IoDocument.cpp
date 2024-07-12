@@ -83,7 +83,7 @@ void IoDocument::fromPropertyTree(ptree const &pt)
 	m_Specversion = pt.get("specversion", "");
 	m_Datacontenttype = pt.get("datacontenttype", "");
 	m_Dataschema = pt.get("dataschema", "");
-	m_Subject = pt.get("subject", "");
+	m_Subject = pt.get("subject", "IoDocument");
 	m_Time = pt.get("time", "");
 	m_Data_base64 = pt.get("data_base64", "");
 }

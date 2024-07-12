@@ -151,7 +151,7 @@ object CloudEventData {
 * @param specversion The version of the CloudEvents specification which the event uses.
 * @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
 * @param dataschema Identifies the schema that data adheres to.
-* @param subject Describes the subject of the event in the context of the event producer (identified by source).
+* @param subject 
 * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 * @param dataUnderscorebase64 Base64 encoded event payload. Must adhere to RFC4648.
 */
@@ -164,7 +164,7 @@ case class IoDocument(
   specversion: Refined[String, MinSize[1]],
   datacontenttype: Option[Refined[String, MinSize[1]]],
   dataschema: Option[Refined[URI, MinSize[1]]],
-  subject: Option[Refined[String, MinSize[1]]],
+  subject: Option[String],
   time: Option[ZonedDateTime],
   dataUnderscorebase64: Option[String]
 )
@@ -176,12 +176,14 @@ object IoDocument {
 /**
 * 
 * @param _type 
+* @param subject 
 * @param source 
 * @param data 
 */
 
 case class IoDocumentAllOf(
   _type: Option[String],
+  subject: Option[String],
   source: Option[Refined[String, MatchesRegex["[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+\/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$"]]],
   data: Option[TmuxPaneIoDocument]
 )

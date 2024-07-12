@@ -42,7 +42,6 @@ public:
 	TOptional<FString> Datacontenttype;
 	/* Identifies the schema that data adheres to. */
 	TOptional<OpenAPIURI> Dataschema;
-	/* Describes the subject of the event in the context of the event producer (identified by source). */
 	TOptional<FString> Subject;
 	/* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
 	TOptional<FDateTime> Time;

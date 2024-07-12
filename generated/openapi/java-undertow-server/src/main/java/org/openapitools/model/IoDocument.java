@@ -25,7 +25,7 @@ import org.openapitools.model.TmuxPaneIoDocument;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-12T13:38:38.582021428Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-12T13:58:48.418840178Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument extends HashMap<String, Object>  {
   
   private String type;
@@ -35,7 +35,7 @@ public class IoDocument extends HashMap<String, Object>  {
   private String specversion;
   private String datacontenttype;
   private URI dataschema;
-  private String subject;
+  private String subject = "IoDocument";
   private Date time;
   private String dataBase64;
 
@@ -163,7 +163,6 @@ public class IoDocument extends HashMap<String, Object>  {
   }
 
   /**
-   * Describes the subject of the event in the context of the event producer (identified by source).
    */
   public IoDocument subject(String subject) {
     this.subject = subject;
@@ -171,7 +170,7 @@ public class IoDocument extends HashMap<String, Object>  {
   }
 
   
-  @ApiModelProperty(value = "Describes the subject of the event in the context of the event producer (identified by source).")
+  @ApiModelProperty(value = "")
   @JsonProperty("subject")
   public String getSubject() {
     return subject;

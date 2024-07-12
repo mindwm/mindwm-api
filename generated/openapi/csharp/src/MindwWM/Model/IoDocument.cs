@@ -49,10 +49,10 @@ namespace MindwWM.Model
         /// <param name="specversion">The version of the CloudEvents specification which the event uses. (required).</param>
         /// <param name="datacontenttype">Content type of the data value. Must adhere to RFC 2046 format..</param>
         /// <param name="dataschema">Identifies the schema that data adheres to..</param>
-        /// <param name="subject">Describes the subject of the event in the context of the event producer (identified by source)..</param>
+        /// <param name="subject">subject (default to &quot;IoDocument&quot;).</param>
         /// <param name="time">Timestamp of when the occurrence happened. Must adhere to RFC 3339..</param>
         /// <param name="dataBase64">Base64 encoded event payload. Must adhere to RFC4648..</param>
-        public IoDocument(string type = default(string), string source = default(string), TmuxPaneIoDocument data = default(TmuxPaneIoDocument), string id = default(string), string specversion = default(string), string datacontenttype = default(string), string dataschema = default(string), string subject = default(string), DateTime time = default(DateTime), string dataBase64 = default(string))
+        public IoDocument(string type = default(string), string source = default(string), TmuxPaneIoDocument data = default(TmuxPaneIoDocument), string id = default(string), string specversion = default(string), string datacontenttype = default(string), string dataschema = default(string), string subject = @"IoDocument", DateTime time = default(DateTime), string dataBase64 = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -71,7 +71,8 @@ namespace MindwWM.Model
             this.Data = data;
             this.Datacontenttype = datacontenttype;
             this.Dataschema = dataschema;
-            this.Subject = subject;
+            // use default value if no "subject" provided
+            this.Subject = subject ?? @"IoDocument";
             this.Time = time;
             this.DataBase64 = dataBase64;
             this.AdditionalProperties = new Dictionary<string, object>();
@@ -124,9 +125,8 @@ namespace MindwWM.Model
         public string Dataschema { get; set; }
 
         /// <summary>
-        /// Describes the subject of the event in the context of the event producer (identified by source).
+        /// Gets or Sets Subject
         /// </summary>
-        /// <value>Describes the subject of the event in the context of the event producer (identified by source).</value>
         [DataMember(Name = "subject", EmitDefaultValue = false)]
         public string Subject { get; set; }
 
@@ -220,12 +220,6 @@ namespace MindwWM.Model
             if (this.Dataschema != null && this.Dataschema.Length < 1)
             {
                 yield return new ValidationResult("Invalid value for Dataschema, length must be greater than 1.", new [] { "Dataschema" });
-            }
-
-            // Subject (string) minLength
-            if (this.Subject != null && this.Subject.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for Subject, length must be greater than 1.", new [] { "Subject" });
             }
 
             // Time (DateTime) minLength

@@ -33,7 +33,7 @@ class IoDocument(BaseModel):
     specversion: constr(strict=True, min_length=1) = Field(default=..., description="The version of the CloudEvents specification which the event uses.")
     datacontenttype: Optional[constr(strict=True, min_length=1)] = Field(default=None, description="Content type of the data value. Must adhere to RFC 2046 format.")
     dataschema: Optional[constr(strict=True, min_length=1)] = Field(default=None, description="Identifies the schema that data adheres to.")
-    subject: Optional[constr(strict=True, min_length=1)] = Field(default=None, description="Describes the subject of the event in the context of the event producer (identified by source).")
+    subject: Optional[StrictStr] = 'IoDocument'
     time: Optional[datetime] = Field(default=None, description="Timestamp of when the occurrence happened. Must adhere to RFC 3339.")
     data_base64: Optional[StrictStr] = Field(default=None, description="Base64 encoded event payload. Must adhere to RFC4648.")
     additional_properties: Dict[str, Any] = {}
@@ -97,10 +97,10 @@ class IoDocument(BaseModel):
             "id": obj.get("id"),
             "source": obj.get("source"),
             "specversion": obj.get("specversion"),
-            "type": obj.get("type"),
+            "type": obj.get("type") if obj.get("type") is not None else 'IoDocument',
             "datacontenttype": obj.get("datacontenttype"),
             "dataschema": obj.get("dataschema"),
-            "subject": obj.get("subject"),
+            "subject": obj.get("subject") if obj.get("subject") is not None else 'IoDocument',
             "time": obj.get("time"),
             "data": TmuxPaneIoDocument.from_dict(obj.get("data")) if obj.get("data") is not None else None,
             "data_base64": obj.get("data_base64")

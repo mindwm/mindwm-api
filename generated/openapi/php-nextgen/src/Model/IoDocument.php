@@ -303,7 +303,7 @@ class IoDocument implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('specversion', $data ?? [], null);
         $this->setIfExists('datacontenttype', $data ?? [], null);
         $this->setIfExists('dataschema', $data ?? [], null);
-        $this->setIfExists('subject', $data ?? [], null);
+        $this->setIfExists('subject', $data ?? [], 'IoDocument');
         $this->setIfExists('time', $data ?? [], null);
         $this->setIfExists('data_base64', $data ?? [], null);
     }
@@ -359,10 +359,6 @@ class IoDocument implements ModelInterface, ArrayAccess, JsonSerializable
 
         if (!is_null($this->container['dataschema']) && (mb_strlen($this->container['dataschema']) < 1)) {
             $invalidProperties[] = "invalid value for 'dataschema', the character length must be bigger than or equal to 1.";
-        }
-
-        if (!is_null($this->container['subject']) && (mb_strlen($this->container['subject']) < 1)) {
-            $invalidProperties[] = "invalid value for 'subject', the character length must be bigger than or equal to 1.";
         }
 
         if (!is_null($this->container['time']) && (mb_strlen($this->container['time']) < 1)) {
@@ -611,7 +607,7 @@ class IoDocument implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets subject
      *
-     * @param string|null $subject Describes the subject of the event in the context of the event producer (identified by source).
+     * @param string|null $subject subject
      *
      * @return $this
      */
@@ -620,11 +616,6 @@ class IoDocument implements ModelInterface, ArrayAccess, JsonSerializable
         if (is_null($subject)) {
             throw new InvalidArgumentException('non-nullable subject cannot be null');
         }
-
-        if ((mb_strlen($subject) < 1)) {
-            throw new InvalidArgumentException('invalid length for $subject when calling IoDocument., must be bigger than or equal to 1.');
-        }
-
         $this->container['subject'] = $subject;
 
         return $this;

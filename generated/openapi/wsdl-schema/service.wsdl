@@ -252,16 +252,7 @@
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
-          <xs:element minOccurs="0" name="subject">
-            <xs:simpleType>
-              <xs:annotation>
-                <xs:documentation>Describes the subject of the event in the context of the event producer (identified by source).</xs:documentation>
-              </xs:annotation>
-              <xs:restriction base="xs:string">
-                <xs:minLength value="1" />
-              </xs:restriction>
-            </xs:simpleType>
-          </xs:element>
+          <xs:element minOccurs="0" default="IoDocument" name="subject" type="xs:string" />
           <xs:element minOccurs="0" name="time">
             <xs:simpleType>
               <xs:annotation>

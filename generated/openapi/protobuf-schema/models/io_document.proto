@@ -35,7 +35,6 @@ message IoDocument {
   // Identifies the schema that data adheres to.
   string dataschema = 507232824;
 
-  // Describes the subject of the event in the context of the event producer (identified by source).
   string subject = 257272535;
 
   // Timestamp of when the occurrence happened. Must adhere to RFC 3339.

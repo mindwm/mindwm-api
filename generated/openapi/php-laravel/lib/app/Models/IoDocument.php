@@ -30,8 +30,8 @@ class IoDocument {
     /** @var string $dataschema Identifies the schema that data adheres to.*/
     public $dataschema = "";
 
-    /** @var string $subject Describes the subject of the event in the context of the event producer (identified by source).*/
-    public $subject = "";
+    /** @var string $subject */
+    public $subject = 'IoDocument';
 
     /** @var \DateTime $time Timestamp of when the occurrence happened. Must adhere to RFC 3339.*/
     public $time;

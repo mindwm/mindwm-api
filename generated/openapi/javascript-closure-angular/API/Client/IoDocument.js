@@ -52,7 +52,6 @@ API.Client.IoDocument.prototype.datacontenttype;
 API.Client.IoDocument.prototype.dataschema;
 
 /**
- * Describes the subject of the event in the context of the event producer (identified by source).
  * @type {!string}
  * @export
  */

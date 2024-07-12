@@ -28,7 +28,7 @@ module OpenAPIClient
     @[JSON::Field(key: "specversion", type: String, nillable: false, emit_null: false)]
     property specversion : String
 
-    @[JSON::Field(key: "type", type: String, nillable: false, emit_null: false)]
+    @[JSON::Field(key: "type", type: String, default: "IoDocument", nillable: false, emit_null: false)]
     property _type : String
 
     # Optional properties
@@ -49,8 +49,7 @@ module OpenAPIClient
     @[JSON::Field(key: "dataschema", type: String?, nillable: true, emit_null: false)]
     property dataschema : String?
 
-    # Describes the subject of the event in the context of the event producer (identified by source).
-    @[JSON::Field(key: "subject", type: String?, nillable: true, emit_null: false)]
+    @[JSON::Field(key: "subject", type: String?, default: "IoDocument", nillable: true, emit_null: false)]
     property subject : String?
 
     # Timestamp of when the occurrence happened. Must adhere to RFC 3339.
@@ -98,10 +97,6 @@ module OpenAPIClient
         invalid_properties.push("invalid value for \"dataschema\", the character length must be great than or equal to 1.")
       end
 
-      if !@subject.nil? && @subject.to_s.size < 1
-        invalid_properties.push("invalid value for \"subject\", the character length must be great than or equal to 1.")
-      end
-
       if !@time.nil? && @time.to_s.size < 1
         invalid_properties.push("invalid value for \"time\", the character length must be great than or equal to 1.")
       end
@@ -117,7 +112,6 @@ module OpenAPIClient
       return false if @specversion.to_s.size < 1
       return false if !@datacontenttype.nil? && @datacontenttype.to_s.size < 1
       return false if !@dataschema.nil? && @dataschema.to_s.size < 1
-      return false if !@subject.nil? && @subject.to_s.size < 1
       return false if !@time.nil? && @time.to_s.size < 1
       true
     end
@@ -171,16 +165,6 @@ module OpenAPIClient
       end
 
       @dataschema = dataschema
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] subject Value to be assigned
-    def subject=(subject)
-      if !subject.nil? && subject.to_s.size < 1
-        raise ArgumentError.new("invalid value for \"subject\", the character length must be great than or equal to 1.")
-      end
-
-      @subject = subject
     end
 
     # Custom attribute writer method with validation

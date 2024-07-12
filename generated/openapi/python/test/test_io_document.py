@@ -44,7 +44,7 @@ class TestIoDocument(unittest.TestCase):
                 specversion = '0',
                 datacontenttype = '0',
                 dataschema = '0',
-                subject = '0',
+                subject = 'IoDocument',
                 time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 data_base64 = ''
             )
