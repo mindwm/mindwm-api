@@ -48,6 +48,18 @@ jobs:
           asyncapi config analytics --disable
           asyncapi generate fromTemplate ./asyncapi.yaml @asyncapi/html-template -o generated/asyncapi/html --force-write
 
+    - name: openapi generate
+      uses: addnab/docker-run-action@v3
+      with:
+        image: openapitools/openapi-generator-cli:v7.7.0
+        options: -v ${{ github.workspace }}:/github/workspace
+        shell: /bin/sh
+        run: | 
+          cd /github/workspace/
+          for lang in `docker-entrypoint.sh list -s | sed 's/,/ /g'`; do 
+            docker-entrypoint.sh generate -i ./openapi.yaml -p packageName=MindwWM -g ${lang} -o generated/${lang}; 
+          done
+
     - name: Commit changes
       run: |
           git add generated
