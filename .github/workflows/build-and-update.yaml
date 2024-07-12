@@ -18,21 +18,16 @@ jobs:
       with:
          entrypoint: /bin/sh
       run: | 
-	pwd
-	cd /github/workspace/
+        pwd
+        cd /github/workspace/
         kcl run ./mindwm_asyncapi | tee asyncapi.yaml
         kcl run ./mindwm_openapi | tee openapi.yaml
-
-
-      run: |
-        mkdir -p generated
-        echo "This is a test file with some test content" > generated/output.txt
 
     - name: Step 2 - Grep for word 'test' in Alpine container
       uses: docker://alpine:latest
       with:
         entrypoint: '/bin/sh'
       run: |
-	pwd
-	cd /github/workspace/
+        pwd
+        cd /github/workspace/
         test -f openapi.yaml && cat openapi.yaml
