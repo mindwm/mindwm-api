@@ -13,6 +13,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Prepare directories
+      run: |
+        mkdir -p generated/asyncapi generated/openapi generated/modelina
+        chmod a+rwx -R generated
+        
+
     - name: KCL run
       uses: addnab/docker-run-action@v3
       with:
@@ -25,7 +31,6 @@ jobs:
           kcl mod update
           kcl run ./mindwm_asyncapi.k | tee asyncapi.yaml
           kcl run ./mindwm_openapi | tee openapi.yaml
-          mkdir -p generated/asyncapi generated/openapi generated/modelina
 
 
     - name: Generate
