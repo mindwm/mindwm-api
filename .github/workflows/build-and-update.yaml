@@ -22,6 +22,7 @@ jobs:
           pwd
           ls
           cd /github/workspace/
+          kcl mod update
           kcl run ./mindwm_asyncapi.k | tee asyncapi.yaml
           kcl run ./mindwm_openapi | tee openapi.yaml
           mkdir -p generated/asyncapi generated/openapi generated/modelina
