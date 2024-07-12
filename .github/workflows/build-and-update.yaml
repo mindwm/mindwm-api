@@ -30,7 +30,7 @@ jobs:
     - name: Generate
       uses: addnab/docker-run-action@v3
       with:
-        image: 
+        image: asyncapi/cli:2.0.3
         options: -v ${{ github.workspace }}:/github/workspace
         run: | 
           cd /github/workspace/
