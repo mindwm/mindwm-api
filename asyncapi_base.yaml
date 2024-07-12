@@ -45,23 +45,50 @@ servers:
         default: "4222"
            
 channels:
+  TmuxPane:
+    address: /tmp/mindwm-asciinema-${MINDWM_UUID}.socket
+    externalDocs:
+      url: https://github.com/mindwm/mindwm-manager/blob/dc926f637bb8d31f21ecbd28479ab9b0a1ece23c/src/mindwm/modules/tmux_session.py#L33
+    servers:
+      - $ref: '#/servers/asciinema'
+      - $ref: '#/servers/mindwm-client'
+    messages:
+      TmuxPaneIoDocument: 
+        $ref: '#/components/messages/TmuxPaneIoDocument'
+
+  HostJetStreamChannel:
+    address: "KN_USER_${USERNAME}__${HOSTNAME}_BROKER_KNE_TRIGGER"
+    servers: 
+      - $ref: '#/servers/nats'
+    externalDocs: 
+      url: https://github.com/knative-extensions/eventing-natss
+  HostNatsTopicIn:
+    address: user-${USERNAME}.${HOSTNAME}-broker-kne-trigger._knative
+    servers: 
+      - $ref: '#/servers/nats'   
   HostNatsTopicIoDocument:
     address: 'mindwm.${USER}.${HOSTNAME}.tmux.${TMUX_SOCKET}.${MINDWM_UUID}.${TMUX_ID}.${TMUX_PANE_ID}.iodocument'
     servers: 
       - $ref: '#/servers/nats'
     messages:
       IoDocument:
-        $ref: '#/components/messages/CloudEvent'
+        $ref: '#/components/messages/IoDocument'
   HostNatsTopicClipboard:
     address: 'mindwm.${USER}.${HOSTNAME}.clipboard'
     servers: 
       - $ref: '#/servers/nats'
     messages:
       Clipboard:
-        $ref: '#/components/messages/CloudEvent'
+        $ref: '#/components/messages/Clipboard'
  
  
 operations:
+  TmuxPaneIoDocument:
+    action: send
+    channel: 
+      $ref: '#/channels/TmuxPane'
+    messages:
+      - $ref: '#/channels/TmuxPane/messages/TmuxPaneIoDocument'
   IoDocument:
     action: send
     channel:
@@ -79,7 +106,17 @@ operations:
 
 components:
   messages:
-    CloudEvent:
+    TmuxPaneIoDocument:
       summary: "Basic IoDocument produced by mindwm-client"
       payload:
-        $ref: '#/components/schemas/CloudEvent'
+        $ref: '#/components/schemas/TmuxPaneIoDocument'
+    IoDocument:
+      summary: "TmuxPaneIoDocument in cloudevent"
+      payload:
+        $ref: "#/components/schemas/IoDocument"    
+
+    Clipboard:
+      summary: "Clipboard"
+      payload:
+        $ref: "#/components/schemas/Clipboard"    
+
