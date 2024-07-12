@@ -13,7 +13,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Step 1 - Generate output file
+    - name: KCL run
       uses: addnab/docker-run-action@v3
       with:
         image: kcllang/kcl:v0.9.0
@@ -25,7 +25,7 @@ jobs:
           kcl run ./mindwm_asyncapi | tee asyncapi.yaml
           kcl run ./mindwm_openapi | tee openapi.yaml
 
-    - name: Step 1 - Generate output file
+    - name: Generate
       uses: addnab/docker-run-action@v3
       with:
         image: alpine:latest
