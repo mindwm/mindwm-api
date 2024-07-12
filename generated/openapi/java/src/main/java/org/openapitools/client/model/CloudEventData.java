@@ -51,7 +51,7 @@ import com.google.gson.JsonParseException;
 
 import org.openapitools.client.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-12T11:11:59.915960707Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-12T12:32:52.990914297Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEventData extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CloudEventData.class.getName());
 

@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * IoDocument
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-12T11:12:23.456828640Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-12T12:33:15.762879043Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument {
 
   private String type;

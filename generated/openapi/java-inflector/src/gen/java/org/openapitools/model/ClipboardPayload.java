@@ -15,7 +15,7 @@ import org.openapitools.model.ClipboardPayloadContext;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-12T11:12:09.157517509Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-12T12:33:01.740909330Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardPayload   {
   @JsonProperty("start")
   private List<Integer> start = null;

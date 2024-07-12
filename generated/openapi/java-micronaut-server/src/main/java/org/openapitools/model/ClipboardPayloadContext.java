@@ -31,7 +31,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   ClipboardPayloadContext.JSON_PROPERTY_WINDOW
 })
 @JsonTypeName("ClipboardPayload_context")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-12T11:12:12.857282624Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-12T12:33:05.243347656Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class ClipboardPayloadContext {
     public static final String JSON_PROPERTY_WINDOW = "window";

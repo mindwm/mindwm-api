@@ -151,7 +151,7 @@ components:
         id: d0c13e76-3f79-11ef-8f1d-4be6bb85b216
         specversion: '1.0.0'
         data:
-          $ref: '#/components/schemas/ClipboardPayload'
+          $ref: '#/components/schemas/ClipboardPayload/examples/0'
     ClipboardPayload:
       type: object
       properties:

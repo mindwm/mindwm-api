@@ -14,7 +14,7 @@ import org.openapitools.model.CloudEventData;
  * CloudEvents Specification JSON Schema
  */
 @ApiModel(description = "CloudEvents Specification JSON Schema")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-12T11:12:14.707480498Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-12T12:33:07.081692708Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEvent   {
   @JsonProperty("id")
   private String id;

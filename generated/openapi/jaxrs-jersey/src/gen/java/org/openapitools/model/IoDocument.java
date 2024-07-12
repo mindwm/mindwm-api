@@ -43,7 +43,7 @@ import javax.validation.Valid;
   IoDocument.JSON_PROPERTY_TIME,
   IoDocument.JSON_PROPERTY_DATA_BASE64
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-12T11:12:30.427829805Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-12T12:33:22.893302606Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument extends HashMap<String, Object>  {
   public static final String JSON_PROPERTY_TYPE = "type";
   @JsonProperty(JSON_PROPERTY_TYPE)

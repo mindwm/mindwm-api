@@ -19,7 +19,7 @@ import java.util.List;
  * ClipboardPayload
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-12T11:12:16.475710193Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-12T12:33:08.793540044Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardPayload   {
   @JsonProperty("start")
   

@@ -59,7 +59,7 @@ $Manifest = @{
     ModuleVersion = '0.1.2'
 
     RootModule = 'MindwWM.psm1'
-    Guid = '{7E8BF969-60F6-4CD0-997E-FA43C68C2431}' # Has to be static, otherwise each new build will be considered different module
+    Guid = '{C46DDF22-464A-43DA-9B93-3DBA933F3A21}' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '6.2'
 

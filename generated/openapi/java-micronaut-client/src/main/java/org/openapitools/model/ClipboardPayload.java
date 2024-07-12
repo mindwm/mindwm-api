@@ -36,7 +36,7 @@ import javax.annotation.Generated;
   ClipboardPayload.JSON_PROPERTY_CONTEXT
 })
 @JsonTypeName("ClipboardPayload")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-12T11:12:10.980483007Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-12T12:33:03.453317724Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class ClipboardPayload {
     public static final String JSON_PROPERTY_START = "start";
