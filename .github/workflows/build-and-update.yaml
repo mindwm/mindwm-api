@@ -51,6 +51,7 @@ jobs:
     - name: Commit changes
       run: |
           git add generated
+
     - name: Push changes
       uses: stefanzweifel/git-auto-commit-action@v5
         
