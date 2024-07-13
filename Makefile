@@ -33,10 +33,17 @@ openapi-generator-python: generated_dir
 	$(MAKE) openapi-generator-docker LANG=python
 .PHONY: openapi-generator-gdscript
 openapi-generator-gdscript: generated_dir
-	cp ./openapi.yaml openapi-generator/modules
-	cd openapi-generator && \
-	./run-in-docker.sh generate -i modules/openapi.yaml  -g gdscript -o /gen/$(GENERATED_DIR)/gdscript-mindwm -p packageName=$(PACKAGE_NAME) && \
-	cp -vr $(GENERATED_DIR)/gdscript-mindwm/* ../$(GENERATED_DIR)/gdscript/
+	docker run --rm -v "$(PWD):/local" ghcr.io/mindwm/openapi-generator/openapi-generator:gdscript generate \
+    		-i /local/openapi.yaml \
+        -p packageName=$(PACKAGE_NAME) \
+    		-g gdscript \
+    		-o /local/$(GENERATED_DIR)/gdscript
+
+
+	#cp ./openapi.yaml openapi-generator/modules
+	#cd openapi-generator && \
+	#./run-in-docker.sh generate -i modules/openapi.yaml  -g gdscript -o /gen/$(GENERATED_DIR)/gdscript-mindwm -p packageName=$(PACKAGE_NAME) && \
+	#cp -vr $(GENERATED_DIR)/gdscript-mindwm/* ../$(GENERATED_DIR)/gdscript/
 
 asyncapi-generate:
 	docker run --rm -it \

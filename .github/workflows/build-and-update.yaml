@@ -35,6 +35,7 @@ jobs:
           kcl mod update
           kcl run ./mindwm_asyncapi.k | tee generated/asyncapi/asyncapi.yaml
           kcl run ./mindwm_openapi | tee generated/openapi/openapi.yaml
+          GDSCRIPT_WORKAROUND=1 kcl run ./mindwm_openapi | tee generated/openapi/openapi_gdscript.yaml
 
 
     - name: asyncapi html-template generate
@@ -59,6 +60,19 @@ jobs:
           for lang in `docker-entrypoint.sh list -s | sed 's/,/ /g'`; do 
             docker-entrypoint.sh generate -i generated/openapi/openapi.yaml -p packageName=MindwWM -g ${lang} -o generated/openapi/${lang}; 
           done
+
+    - name: openapi generate gdscript
+      uses: addnab/docker-run-action@v3
+      with:
+        image: ghcr.io/mindwm/openapi-generator/openapi-generator:gdscript
+        options: -v ${{ github.workspace }}:/github/workspace
+        shell: /bin/sh
+        run: | 
+          cd /github/workspace/
+          for lang in `docker-entrypoint.sh list -s | sed 's/,/ /g'`; do 
+            docker-entrypoint.sh generate -i generated/openapi/openapi_gdscript.yaml -p packageName=MindwWM -g ${lang} -o generated/openapi/${lang}; 
+          done
+          rm -v generated/openapi/openapi_gdscript.yaml
 
     - name: Commit changes
       run: |
