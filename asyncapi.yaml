@@ -154,6 +154,48 @@ components:
       - input: uptime
         output: '16:37:51 up 19 days,  2:15, 71 users,  load average: 2.01, 2.85, 2.95'
         ps1: user@mindwm-dev1:~/rnd/asyncapi$
+    GraphNode:
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      - properties:
+          type:
+            type: string
+            enum:
+            - created
+            - updated
+            - deleted
+          source:
+            type: string
+            enum:
+            - graph.node
+          data:
+            allOf:
+            - $ref: '#/components/schemas/Neo4jCaptureDataChange'
+            - properties:
+                payload:
+                  $ref: '#/components/schemas/Neo4jCaptureDataChangeNodePayload'
+      additionalProperties: false
+    GraphRelationship:
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      - properties:
+          type:
+            type: string
+            enum:
+            - created
+            - updated
+            - deleted
+          source:
+            type: string
+            enum:
+            - graph.relationship
+          data:
+            allOf:
+            - $ref: '#/components/schemas/Neo4jCaptureDataChange'
+            - properties:
+                payload:
+                  $ref: '#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload'
+      additionalProperties: false
     Neo4jCaptureDataChange:
       type: object
       properties:
@@ -203,6 +245,20 @@ components:
           format: date-time
         topic:
           type: string
+        schema:
+          type: object
+          properties:
+            constraints:
+              type: object
+              additionalProperties: true
+            properties:
+              type: object
+              additionalProperties: true
+        payload:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/Neo4jCaptureDataChangeNodePayload'
+          - $ref: '#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload'
       required:
       - headers
       - message_key
@@ -214,3 +270,84 @@ components:
       - source_type
       - timestamp
       - topic
+    Neo4jCaptureDataChangeNodePayload:
+      type: object
+      properties:
+        after:
+          type: object
+          properties:
+            labels:
+              type: array
+              items:
+                type: string
+            properties:
+              type: object
+              additionalProperties: true
+          required:
+          - labels
+          - properties
+        before:
+          type: string
+        id:
+          type: string
+        type:
+          type: string
+      required:
+      - after
+      - before
+      - id
+      - type
+    Neo4jCaptureDataChangeRelationshipPayload:
+      type: object
+      properties:
+        after:
+          type: object
+        before:
+          type: string
+        end:
+          type: object
+          properties:
+            id:
+              type: string
+            ids:
+              type: object
+              additionalProperties: true
+            labels:
+              type: array
+              items:
+                type: string
+          required:
+          - id
+          - ids
+          - labels
+        id:
+          type: string
+        label:
+          type: string
+        start:
+          type: object
+          properties:
+            id:
+              type: string
+            ids:
+              type: object
+              additionalProperties: true
+            labels:
+              type: array
+              items:
+                type: string
+          required:
+          - id
+          - ids
+          - labels
+        type:
+          type: string
+          const: relationship
+      required:
+      - after
+      - before
+      - end
+      - id
+      - label
+      - start
+      - type

@@ -60,6 +60,50 @@ Clipboard:
       data: 
         $ref: '#/components/schemas/ClipboardPayload/examples/0'
 
+GraphNode:
+  allOf:
+    - $ref: '#/components/schemas/CloudEvent'
+    - properties:
+        type:
+          type: string
+          enum: ["created", "updated", "deleted"]
+        source:
+          type: string
+          enum: ["graph.node"]
+        data:
+          allOf: 
+            - $ref: '#/components/schemas/Neo4jCaptureDataChange'
+            - properties:
+                payload: 
+                  "$ref": "#/components/schemas/Neo4jCaptureDataChangeNodePayload"
+  additionalProperties: false
+#  examples:
+#    - source: "graph.node"
+#      subject: "IoDocument"
+#      type: created
+#      id: "5ea0d0c6-4155-11ef-90d8-6f5a5689b5ac"
+#      specversion: "1.0.0"
+#      data: 
+#        $ref: '#/components/schemas/ClipboardPayload/examples/0'
+#
+GraphRelationship:
+  allOf:
+    - $ref: '#/components/schemas/CloudEvent'
+    - properties:
+        type:
+          type: string
+          enum: ["created", "updated", "deleted"]
+        source:
+          type: string
+          enum: ["graph.relationship"]
+        data:
+          allOf: 
+            - $ref: '#/components/schemas/Neo4jCaptureDataChange'
+            - properties:
+                payload: 
+                  "$ref": "#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload"
+  additionalProperties: false
+
 
 ClipboardPayload:
   type: object

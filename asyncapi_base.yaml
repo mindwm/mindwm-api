@@ -96,6 +96,13 @@ operations:
     messages:
       - $ref: '#/channels/HostNatsTopicIoDocument/messages/IoDocument'
 
+  GraphEvent:
+    action: send
+    channel:
+      $ref: '#/channels/HostNatsTopicIn'
+    messages:
+      - $ref: '#/components/messages/GraphEvent'
+
   Clipboard:
     action: send
     channel:
@@ -120,3 +127,7 @@ components:
       payload:
         $ref: "#/components/schemas/Clipboard"    
 
+    GraphEvent:
+      summary: "Graph node events"
+      payload:
+        $ref: "#/components/schemas/Neo4jCaptureDataChange"    
