@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-  generate-and-grep:
+  generate-api:
     runs-on: ubuntu-latest
     permissions:
       contents: write
