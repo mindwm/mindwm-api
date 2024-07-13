@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import io.swagger.annotations.*;
 import javax.validation.Valid;
 
-@ApiModel(description="Selection context")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-12T13:59:00.229900211Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@ApiModel(description="Selection context")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-13T19:25:41.489421394Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardPayloadContext   {
   
   private String window;

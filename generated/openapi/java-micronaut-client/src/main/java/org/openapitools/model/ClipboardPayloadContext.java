@@ -29,7 +29,7 @@ import javax.annotation.Generated;
   ClipboardPayloadContext.JSON_PROPERTY_WINDOW
 })
 @JsonTypeName("ClipboardPayload_context")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-12T13:58:39.697667796Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-13T19:25:19.850732847Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class ClipboardPayloadContext {
     public static final String JSON_PROPERTY_WINDOW = "window";

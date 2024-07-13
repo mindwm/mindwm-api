@@ -13,7 +13,7 @@ import javax.validation.Valid;
 /**
  * CloudEvents Specification JSON Schema
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-12T13:58:46.702075757Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-13T19:25:27.174547200Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class CloudEvent   {
   @JsonProperty("id")
