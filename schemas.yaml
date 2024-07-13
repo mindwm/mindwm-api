@@ -183,6 +183,10 @@ Neo4jCaptureDataChange:
         properties:
           type: object
           additionalProperties: true
+    payload: 
+      type: object
+      oneOf:
+        - "$ref": "#/components/schemas/Neo4jCaptureDataChangeNodePayload"
   required:
     - headers
     - message_key
@@ -194,3 +198,31 @@ Neo4jCaptureDataChange:
     - source_type
     - timestamp
     - topic
+Neo4jCaptureDataChangeNodePayload:
+  type: object
+  properties:
+    after:
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            type: string
+        properties:
+          type: object
+          additionalProperties: true
+      required:
+        - labels
+        - properties
+    before:
+      type: string
+    id:
+      type: string
+    type:
+      type: string
+  required:
+    - after
+    - before
+    - id
+    - type
+
