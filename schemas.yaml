@@ -187,6 +187,7 @@ Neo4jCaptureDataChange:
       type: object
       oneOf:
         - "$ref": "#/components/schemas/Neo4jCaptureDataChangeNodePayload"
+        - "$ref": "#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload"
   required:
     - headers
     - message_key
@@ -224,5 +225,60 @@ Neo4jCaptureDataChangeNodePayload:
     - after
     - before
     - id
+    - type
+
+Neo4jCaptureDataChangeRelationshipPayload:
+  type: object
+  properties:
+    after:
+      type: object
+    before:
+      type: string
+    end:
+      type: object
+      properties:
+        id:
+          type: string
+        ids:
+          type: object
+          additionalProperties: true
+        labels:
+          type: array
+          items:
+            type: string
+      required:
+        - id
+        - ids
+        - labels
+    id:
+      type: string
+    label:
+      type: string
+    start:
+      type: object
+      properties:
+        id:
+          type: string
+        ids:
+          type: object
+          additionalProperties: true
+        labels:
+          type: array
+          items:
+            type: string
+      required:
+        - id
+        - ids
+        - labels
+    type:
+      type: string
+      const: "relationship"
+  required:
+    - after
+    - before
+    - end
+    - id
+    - label
+    - start
     - type
 
