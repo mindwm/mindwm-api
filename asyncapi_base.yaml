@@ -65,7 +65,10 @@ channels:
   HostNatsTopicIn:
     address: user-${USERNAME}.${HOSTNAME}-broker-kne-trigger._knative
     servers: 
-      - $ref: '#/servers/nats'   
+      - $ref: '#/servers/nats'
+    messages:
+      GraphEvent:
+        $ref: '#/components/messages/GraphEvent'
   HostNatsTopicIoDocument:
     address: 'mindwm.${USER}.${HOSTNAME}.tmux.${TMUX_SOCKET}.${MINDWM_UUID}.${TMUX_ID}.${TMUX_PANE_ID}.iodocument'
     servers: 
@@ -101,7 +104,14 @@ operations:
     channel:
       $ref: '#/channels/HostNatsTopicIn'
     messages:
-      - $ref: '#/components/messages/GraphEvent'
+      - $ref: '#/channels/HostNatsTopicIn/messages/GraphEvent'
+
+#  GraphEvent:
+#    action: send
+#    channel:
+#      $ref: '#/channels/HostNatsTopicIn'
+#    messages:
+#      - $ref: '#/channels/HostNatsTopicIn/messages/GraphEvent'
 
   Clipboard:
     action: send
@@ -120,14 +130,12 @@ components:
     IoDocument:
       summary: "TmuxPaneIoDocument in cloudevent"
       payload:
-        $ref: "#/components/schemas/IoDocument"    
-
+        $ref: "#/components/schemas/IoDocument"
     Clipboard:
       summary: "Clipboard"
       payload:
-        $ref: "#/components/schemas/Clipboard"    
-
+        $ref: "#/components/schemas/Clipboard"
     GraphEvent:
       summary: "Graph node events"
       payload:
-        $ref: "#/components/schemas/Neo4jCaptureDataChange"    
+        $ref: "#/components/schemas/Neo4jCaptureDataChange"

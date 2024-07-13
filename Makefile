@@ -14,7 +14,7 @@ generated_dir:
 	test -d $(GENERATED_DIR) || (mkdir -p $(GENERATED_DIR) && chmod a+rwx $(GENERATED_DIR))
 	
 kcl:
-	kcl run ./mindwm_asyncapi > asyncapi.yaml
+	kcl run ./mindwm_asyncapi.k > asyncapi2.yaml
 	kcl run ./mindwm_openapi > openapi.yaml
 
 .PHONY: openapi-generator-docker
