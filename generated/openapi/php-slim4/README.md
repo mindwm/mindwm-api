@@ -171,7 +171,20 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\ClipboardPayloadContext
 * OpenAPIServer\Model\CloudEvent
 * OpenAPIServer\Model\CloudEventData
+* OpenAPIServer\Model\GraphNode
+* OpenAPIServer\Model\GraphNodeAllOfData
+* OpenAPIServer\Model\GraphRelationship
+* OpenAPIServer\Model\GraphRelationshipAllOfData
 * OpenAPIServer\Model\IoDocument
+* OpenAPIServer\Model\Neo4jCaptureDataChange
+* OpenAPIServer\Model\Neo4jCaptureDataChangeMeta
+* OpenAPIServer\Model\Neo4jCaptureDataChangeMetaSource
+* OpenAPIServer\Model\Neo4jCaptureDataChangeNodePayload
+* OpenAPIServer\Model\Neo4jCaptureDataChangeNodePayloadAfter
+* OpenAPIServer\Model\Neo4jCaptureDataChangePayload
+* OpenAPIServer\Model\Neo4jCaptureDataChangeRelationshipPayload
+* OpenAPIServer\Model\Neo4jCaptureDataChangeRelationshipPayloadEnd
+* OpenAPIServer\Model\Neo4jCaptureDataChangeSchema
 * OpenAPIServer\Model\TmuxPaneIoDocument
 
 

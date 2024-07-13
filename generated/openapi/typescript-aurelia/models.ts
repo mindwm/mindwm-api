@@ -131,6 +131,124 @@ export interface CloudEventData {
 }
 
 
+export interface GraphNode extends any {
+  /**
+   * Identifies the event.
+   */
+  id: string;
+  source: GraphNodeSourceEnum;
+  /**
+   * The version of the CloudEvents specification which the event uses.
+   */
+  specversion: string;
+  type: GraphNodeTypeEnum;
+  /**
+   * Content type of the data value. Must adhere to RFC 2046 format.
+   */
+  datacontenttype?: string;
+  /**
+   * Identifies the schema that data adheres to.
+   */
+  dataschema?: string;
+  /**
+   * Describes the subject of the event in the context of the event producer (identified by source).
+   */
+  subject?: string;
+  /**
+   * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+   */
+  time?: string;
+  data?: GraphNodeAllOfData;
+  /**
+   * Base64 encoded event payload. Must adhere to RFC4648.
+   */
+  data_base64?: string;
+}
+
+/**
+ * Enum for the source property.
+ */
+export type GraphNodeSourceEnum = 'graph.node';
+
+/**
+ * Enum for the type property.
+ */
+export type GraphNodeTypeEnum = 'created' | 'updated' | 'deleted';
+
+
+export interface GraphNodeAllOfData {
+  headers: object;
+  message_key: string;
+  meta: Neo4jCaptureDataChangeMeta;
+  offset: number;
+  partition: number;
+  source_type: string;
+  timestamp: string;
+  topic: string;
+  schema: Neo4jCaptureDataChangeSchema;
+  payload: Neo4jCaptureDataChangeNodePayload;
+}
+
+
+export interface GraphRelationship extends any {
+  /**
+   * Identifies the event.
+   */
+  id: string;
+  source: GraphRelationshipSourceEnum;
+  /**
+   * The version of the CloudEvents specification which the event uses.
+   */
+  specversion: string;
+  type: GraphRelationshipTypeEnum;
+  /**
+   * Content type of the data value. Must adhere to RFC 2046 format.
+   */
+  datacontenttype?: string;
+  /**
+   * Identifies the schema that data adheres to.
+   */
+  dataschema?: string;
+  /**
+   * Describes the subject of the event in the context of the event producer (identified by source).
+   */
+  subject?: string;
+  /**
+   * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+   */
+  time?: string;
+  data?: GraphRelationshipAllOfData;
+  /**
+   * Base64 encoded event payload. Must adhere to RFC4648.
+   */
+  data_base64?: string;
+}
+
+/**
+ * Enum for the source property.
+ */
+export type GraphRelationshipSourceEnum = 'graph.relationship';
+
+/**
+ * Enum for the type property.
+ */
+export type GraphRelationshipTypeEnum = 'created' | 'updated' | 'deleted';
+
+
+export interface GraphRelationshipAllOfData {
+  headers: object;
+  message_key: string;
+  meta: Neo4jCaptureDataChangeMeta;
+  offset: number;
+  partition: number;
+  source_type: string;
+  timestamp: string;
+  topic: string;
+  schema: Neo4jCaptureDataChangeSchema;
+  payload: Neo4jCaptureDataChangeRelationshipPayload;
+}
+
+
 export interface IoDocument extends any {
   type?: string;
   source?: string;
@@ -160,6 +278,80 @@ export interface IoDocument extends any {
    * Base64 encoded event payload. Must adhere to RFC4648.
    */
   data_base64?: string;
+}
+
+
+export interface Neo4jCaptureDataChange {
+  headers: { [key: string]: any; };
+  message_key: string;
+  meta: Neo4jCaptureDataChangeMeta;
+  offset: number;
+  partition: number;
+  source_type: string;
+  timestamp: string;
+  topic: string;
+  schema: Neo4jCaptureDataChangeSchema;
+  payload: Neo4jCaptureDataChangePayload;
+}
+
+
+export interface Neo4jCaptureDataChangeMeta {
+  operation: string;
+  source: Neo4jCaptureDataChangeMetaSource;
+  timestamp: number;
+  txEventId: number;
+  txEventsCount: number;
+  txId: number;
+  username: string;
+}
+
+
+export interface Neo4jCaptureDataChangeMetaSource {
+  hostname: string;
+}
+
+
+export interface Neo4jCaptureDataChangeNodePayload {
+  after: Neo4jCaptureDataChangeNodePayloadAfter;
+  before: string;
+  id: string;
+  type: string;
+}
+
+
+export interface Neo4jCaptureDataChangeNodePayloadAfter {
+  labels: Array<string>;
+  properties: { [key: string]: any; };
+}
+
+/**
+ * @type Neo4jCaptureDataChangePayload
+ * @export
+ */
+export type Neo4jCaptureDataChangePayload = Neo4jCaptureDataChangeNodePayload | Neo4jCaptureDataChangeRelationshipPayload;
+
+
+export interface Neo4jCaptureDataChangeRelationshipPayload {
+  after: object;
+  before: string;
+  end: Neo4jCaptureDataChangeRelationshipPayloadEnd;
+  id: string;
+  label: string;
+  start: Neo4jCaptureDataChangeRelationshipPayloadEnd;
+  type: string;
+}
+
+
+export interface Neo4jCaptureDataChangeRelationshipPayloadEnd {
+  id: string;
+  ids: { [key: string]: any; };
+  labels: Array<string>;
+}
+
+
+export interface Neo4jCaptureDataChangeSchema {
+  constraints?: { [key: string]: any; };
+  properties?: { [key: string]: any; };
 }
 
 

@@ -172,6 +172,127 @@ components:
       - output
       - ps1
       title: TmuxPaneIoDocument
+    GraphNode:
+      additionalProperties: {}
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      - properties:
+          type:
+            enum:
+            - created
+            - updated
+            - deleted
+          source:
+            enum:
+            - graph.node
+          data:
+            $ref: '#/components/schemas/GraphNode_allOf_data'
+    GraphRelationship:
+      additionalProperties: {}
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      - properties:
+          type:
+            enum:
+            - created
+            - updated
+            - deleted
+          source:
+            enum:
+            - graph.relationship
+          data:
+            $ref: '#/components/schemas/GraphRelationship_allOf_data'
+    Neo4jCaptureDataChange:
+      properties:
+        headers:
+          additionalProperties: {}
+          title: headers
+        message_key:
+          title: id
+          type: string
+        meta:
+          $ref: '#/components/schemas/Neo4jCaptureDataChange_meta'
+        offset:
+          title: offset
+          type: integer
+        partition:
+          title: offset
+          type: integer
+        source_type:
+          title: id
+          type: string
+        timestamp:
+          format: date-time
+          title: timestamp
+          type: string
+        topic:
+          title: id
+          type: string
+        schema:
+          $ref: '#/components/schemas/Neo4jCaptureDataChange_schema'
+        payload:
+          $ref: '#/components/schemas/Neo4jCaptureDataChange_payload'
+      required:
+      - headers
+      - message_key
+      - meta
+      - offset
+      - partition
+      - payload
+      - schema
+      - source_type
+      - timestamp
+      - topic
+      title: Neo4jCaptureDataChange
+    Neo4jCaptureDataChangeNodePayload:
+      properties:
+        after:
+          $ref: '#/components/schemas/Neo4jCaptureDataChangeNodePayload_after'
+        before:
+          title: id
+          type: string
+        id:
+          title: id
+          type: string
+        type:
+          title: id
+          type: string
+      required:
+      - after
+      - before
+      - id
+      - type
+      title: Neo4jCaptureDataChangeNodePayload
+    Neo4jCaptureDataChangeRelationshipPayload:
+      properties:
+        after:
+          title: after
+          type: object
+        before:
+          title: id
+          type: string
+        end:
+          $ref: '#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload_end'
+        id:
+          title: id
+          type: string
+        label:
+          title: id
+          type: string
+        start:
+          $ref: '#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload_end'
+        type:
+          title: type
+          type: string
+      required:
+      - after
+      - before
+      - end
+      - id
+      - label
+      - start
+      - type
+      title: Neo4jCaptureDataChangeRelationshipPayload
     CloudEvent_data:
       anyOf:
       - type: string
@@ -188,3 +309,102 @@ components:
           title: window
           type: string
       title: ClipboardPayload_context
+    GraphNode_allOf_data:
+      allOf:
+      - $ref: '#/components/schemas/Neo4jCaptureDataChange'
+      - properties:
+          payload:
+            $ref: '#/components/schemas/Neo4jCaptureDataChangeNodePayload'
+      title: GraphNode_allOf_data
+    GraphRelationship_allOf_data:
+      allOf:
+      - $ref: '#/components/schemas/Neo4jCaptureDataChange'
+      - properties:
+          payload:
+            $ref: '#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload'
+      title: GraphRelationship_allOf_data
+    Neo4jCaptureDataChange_meta_source:
+      properties:
+        hostname:
+          title: hostname
+          type: string
+      required:
+      - hostname
+      title: Neo4jCaptureDataChange_meta_source
+    Neo4jCaptureDataChange_meta:
+      properties:
+        operation:
+          title: operation
+          type: string
+        source:
+          $ref: '#/components/schemas/Neo4jCaptureDataChange_meta_source'
+        timestamp:
+          title: timestamp
+          type: integer
+        txEventId:
+          title: txEventId
+          type: integer
+        txEventsCount:
+          title: txEventsCount
+          type: integer
+        txId:
+          title: txId
+          type: integer
+        username:
+          title: username
+          type: string
+      required:
+      - operation
+      - source
+      - timestamp
+      - txEventId
+      - txEventsCount
+      - txId
+      - username
+      title: Neo4jCaptureDataChange_meta
+    Neo4jCaptureDataChange_schema:
+      properties:
+        constraints:
+          additionalProperties: {}
+          title: constraints
+        properties:
+          additionalProperties: {}
+          title: properties
+      title: Neo4jCaptureDataChange_schema
+    Neo4jCaptureDataChange_payload:
+      oneOf:
+      - $ref: '#/components/schemas/Neo4jCaptureDataChangeNodePayload'
+      - $ref: '#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload'
+      title: Neo4jCaptureDataChange_payload
+    Neo4jCaptureDataChangeNodePayload_after:
+      properties:
+        labels:
+          items:
+            type: string
+          title: labels
+          type: array
+        properties:
+          additionalProperties: {}
+          title: properties
+      required:
+      - labels
+      - properties
+      title: Neo4jCaptureDataChangeNodePayload_after
+    Neo4jCaptureDataChangeRelationshipPayload_end:
+      properties:
+        id:
+          title: id
+          type: string
+        ids:
+          additionalProperties: {}
+          title: ids
+        labels:
+          items:
+            type: string
+          title: labels
+          type: array
+      required:
+      - id
+      - ids
+      - labels
+      title: Neo4jCaptureDataChangeRelationshipPayload_end

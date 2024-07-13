@@ -16,7 +16,7 @@ import java.time.OffsetDateTime
   * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
   * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-13T19:27:24.476124881Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-13T22:11:25.888770443Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 case class CloudEvent(
   id: String,
   source: String,

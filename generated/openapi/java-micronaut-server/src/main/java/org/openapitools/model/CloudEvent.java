@@ -43,7 +43,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   CloudEvent.JSON_PROPERTY_DATA_BASE64
 })
 @JsonTypeName("CloudEvent")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-13T19:25:21.734128876Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-13T22:09:17.084738328Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class CloudEvent {
     public static final String JSON_PROPERTY_ID = "id";

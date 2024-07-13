@@ -47,7 +47,20 @@ Import the following:
 #import <OpenAPIClient/OAIClipboardPayloadContext.h>
 #import <OpenAPIClient/OAICloudEvent.h>
 #import <OpenAPIClient/OAICloudEventData.h>
+#import <OpenAPIClient/OAIGraphNode.h>
+#import <OpenAPIClient/OAIGraphNodeAllOfData.h>
+#import <OpenAPIClient/OAIGraphRelationship.h>
+#import <OpenAPIClient/OAIGraphRelationshipAllOfData.h>
 #import <OpenAPIClient/OAIIoDocument.h>
+#import <OpenAPIClient/OAINeo4jCaptureDataChange.h>
+#import <OpenAPIClient/OAINeo4jCaptureDataChangeMeta.h>
+#import <OpenAPIClient/OAINeo4jCaptureDataChangeMetaSource.h>
+#import <OpenAPIClient/OAINeo4jCaptureDataChangeNodePayload.h>
+#import <OpenAPIClient/OAINeo4jCaptureDataChangeNodePayloadAfter.h>
+#import <OpenAPIClient/OAINeo4jCaptureDataChangePayload.h>
+#import <OpenAPIClient/OAINeo4jCaptureDataChangeRelationshipPayload.h>
+#import <OpenAPIClient/OAINeo4jCaptureDataChangeRelationshipPayloadEnd.h>
+#import <OpenAPIClient/OAINeo4jCaptureDataChangeSchema.h>
 #import <OpenAPIClient/OAITmuxPaneIoDocument.h>
 // load API classes for accessing endpoints
 
@@ -80,7 +93,20 @@ Class | Method | HTTP request | Description
  - [OAIClipboardPayloadContext](docs/OAIClipboardPayloadContext.md)
  - [OAICloudEvent](docs/OAICloudEvent.md)
  - [OAICloudEventData](docs/OAICloudEventData.md)
+ - [OAIGraphNode](docs/OAIGraphNode.md)
+ - [OAIGraphNodeAllOfData](docs/OAIGraphNodeAllOfData.md)
+ - [OAIGraphRelationship](docs/OAIGraphRelationship.md)
+ - [OAIGraphRelationshipAllOfData](docs/OAIGraphRelationshipAllOfData.md)
  - [OAIIoDocument](docs/OAIIoDocument.md)
+ - [OAINeo4jCaptureDataChange](docs/OAINeo4jCaptureDataChange.md)
+ - [OAINeo4jCaptureDataChangeMeta](docs/OAINeo4jCaptureDataChangeMeta.md)
+ - [OAINeo4jCaptureDataChangeMetaSource](docs/OAINeo4jCaptureDataChangeMetaSource.md)
+ - [OAINeo4jCaptureDataChangeNodePayload](docs/OAINeo4jCaptureDataChangeNodePayload.md)
+ - [OAINeo4jCaptureDataChangeNodePayloadAfter](docs/OAINeo4jCaptureDataChangeNodePayloadAfter.md)
+ - [OAINeo4jCaptureDataChangePayload](docs/OAINeo4jCaptureDataChangePayload.md)
+ - [OAINeo4jCaptureDataChangeRelationshipPayload](docs/OAINeo4jCaptureDataChangeRelationshipPayload.md)
+ - [OAINeo4jCaptureDataChangeRelationshipPayloadEnd](docs/OAINeo4jCaptureDataChangeRelationshipPayloadEnd.md)
+ - [OAINeo4jCaptureDataChangeSchema](docs/OAINeo4jCaptureDataChangeSchema.md)
  - [OAITmuxPaneIoDocument](docs/OAITmuxPaneIoDocument.md)
 
 

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * TmuxPaneIoDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-13T19:25:09.475911302Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-13T22:09:03.675638753Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class TmuxPaneIoDocument {
   public static final String SERIALIZED_NAME_INPUT = "input";
   @SerializedName(SERIALIZED_NAME_INPUT)

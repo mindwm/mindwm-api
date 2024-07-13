@@ -59,7 +59,20 @@ set(SRCS
     model/clipboard_payload_context.c
     model/cloud_event.c
     model/cloud_event_data.c
+    model/graph_node.c
+    model/graph_node_all_of_data.c
+    model/graph_relationship.c
+    model/graph_relationship_all_of_data.c
     model/io_document.c
+    model/neo4j_capture_data_change.c
+    model/neo4j_capture_data_change_meta.c
+    model/neo4j_capture_data_change_meta_source.c
+    model/neo4j_capture_data_change_node_payload.c
+    model/neo4j_capture_data_change_node_payload_after.c
+    model/neo4j_capture_data_change_payload.c
+    model/neo4j_capture_data_change_relationship_payload.c
+    model/neo4j_capture_data_change_relationship_payload_end.c
+    model/neo4j_capture_data_change_schema.c
     model/tmux_pane_io_document.c
 
 )
@@ -76,7 +89,20 @@ set(HDRS
     model/clipboard_payload_context.h
     model/cloud_event.h
     model/cloud_event_data.h
+    model/graph_node.h
+    model/graph_node_all_of_data.h
+    model/graph_relationship.h
+    model/graph_relationship_all_of_data.h
     model/io_document.h
+    model/neo4j_capture_data_change.h
+    model/neo4j_capture_data_change_meta.h
+    model/neo4j_capture_data_change_meta_source.h
+    model/neo4j_capture_data_change_node_payload.h
+    model/neo4j_capture_data_change_node_payload_after.h
+    model/neo4j_capture_data_change_payload.h
+    model/neo4j_capture_data_change_relationship_payload.h
+    model/neo4j_capture_data_change_relationship_payload_end.h
+    model/neo4j_capture_data_change_schema.h
     model/tmux_pane_io_document.h
 
 )

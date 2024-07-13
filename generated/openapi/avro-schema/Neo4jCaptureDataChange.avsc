@@ -1,0 +1,62 @@
+{
+  "namespace": "MindwWM",
+  "type": "record",
+  "doc": "",
+  "name": "Neo4jCaptureDataChange",
+  "fields": [
+    {
+      "name": "headers",
+      "type": {
+        "type": "map",
+        "items": "MindwWM.AnyType"
+      },
+      "doc": ""
+    },
+    {
+      "name": "message_key",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "meta",
+      "type": "MindwWM.Neo4jCaptureDataChangeMeta",
+      "doc": ""
+    },
+    {
+      "name": "offset",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "partition",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "source_type",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "topic",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "schema",
+      "type": "MindwWM.Neo4jCaptureDataChangeSchema",
+      "doc": ""
+    },
+    {
+      "name": "payload",
+      "type": "MindwWM.Neo4jCaptureDataChangePayload",
+      "doc": ""
+    }
+  ]
+
+}

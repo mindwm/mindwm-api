@@ -241,7 +241,20 @@ use WWW::OpenAPIClient::Object::ClipboardPayload;
 use WWW::OpenAPIClient::Object::ClipboardPayloadContext;
 use WWW::OpenAPIClient::Object::CloudEvent;
 use WWW::OpenAPIClient::Object::CloudEventData;
+use WWW::OpenAPIClient::Object::GraphNode;
+use WWW::OpenAPIClient::Object::GraphNodeAllOfData;
+use WWW::OpenAPIClient::Object::GraphRelationship;
+use WWW::OpenAPIClient::Object::GraphRelationshipAllOfData;
 use WWW::OpenAPIClient::Object::IoDocument;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChange;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeMeta;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeMetaSource;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeNodePayload;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeNodePayloadAfter;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangePayload;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeRelationshipPayload;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeRelationshipPayloadEnd;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeSchema;
 use WWW::OpenAPIClient::Object::TmuxPaneIoDocument;
 
 ````
@@ -261,7 +274,20 @@ use WWW::OpenAPIClient::Object::ClipboardPayload;
 use WWW::OpenAPIClient::Object::ClipboardPayloadContext;
 use WWW::OpenAPIClient::Object::CloudEvent;
 use WWW::OpenAPIClient::Object::CloudEventData;
+use WWW::OpenAPIClient::Object::GraphNode;
+use WWW::OpenAPIClient::Object::GraphNodeAllOfData;
+use WWW::OpenAPIClient::Object::GraphRelationship;
+use WWW::OpenAPIClient::Object::GraphRelationshipAllOfData;
 use WWW::OpenAPIClient::Object::IoDocument;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChange;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeMeta;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeMetaSource;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeNodePayload;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeNodePayloadAfter;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangePayload;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeRelationshipPayload;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeRelationshipPayloadEnd;
+use WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeSchema;
 use WWW::OpenAPIClient::Object::TmuxPaneIoDocument;
 
 # for displaying the API response data
@@ -284,7 +310,20 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ClipboardPayloadContext](docs/ClipboardPayloadContext.md)
  - [WWW::OpenAPIClient::Object::CloudEvent](docs/CloudEvent.md)
  - [WWW::OpenAPIClient::Object::CloudEventData](docs/CloudEventData.md)
+ - [WWW::OpenAPIClient::Object::GraphNode](docs/GraphNode.md)
+ - [WWW::OpenAPIClient::Object::GraphNodeAllOfData](docs/GraphNodeAllOfData.md)
+ - [WWW::OpenAPIClient::Object::GraphRelationship](docs/GraphRelationship.md)
+ - [WWW::OpenAPIClient::Object::GraphRelationshipAllOfData](docs/GraphRelationshipAllOfData.md)
  - [WWW::OpenAPIClient::Object::IoDocument](docs/IoDocument.md)
+ - [WWW::OpenAPIClient::Object::Neo4jCaptureDataChange](docs/Neo4jCaptureDataChange.md)
+ - [WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeMeta](docs/Neo4jCaptureDataChangeMeta.md)
+ - [WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeMetaSource](docs/Neo4jCaptureDataChangeMetaSource.md)
+ - [WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeNodePayload](docs/Neo4jCaptureDataChangeNodePayload.md)
+ - [WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeNodePayloadAfter](docs/Neo4jCaptureDataChangeNodePayloadAfter.md)
+ - [WWW::OpenAPIClient::Object::Neo4jCaptureDataChangePayload](docs/Neo4jCaptureDataChangePayload.md)
+ - [WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeRelationshipPayload](docs/Neo4jCaptureDataChangeRelationshipPayload.md)
+ - [WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeRelationshipPayloadEnd](docs/Neo4jCaptureDataChangeRelationshipPayloadEnd.md)
+ - [WWW::OpenAPIClient::Object::Neo4jCaptureDataChangeSchema](docs/Neo4jCaptureDataChangeSchema.md)
  - [WWW::OpenAPIClient::Object::TmuxPaneIoDocument](docs/TmuxPaneIoDocument.md)
 
 

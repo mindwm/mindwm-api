@@ -77,8 +77,60 @@ public class JsonUtil {
       return new TypeToken<List<CloudEventData>>(){}.getType();
     }
     
+    if ("GraphNode".equalsIgnoreCase(className)) {
+      return new TypeToken<List<GraphNode>>(){}.getType();
+    }
+    
+    if ("GraphNodeAllOfData".equalsIgnoreCase(className)) {
+      return new TypeToken<List<GraphNodeAllOfData>>(){}.getType();
+    }
+    
+    if ("GraphRelationship".equalsIgnoreCase(className)) {
+      return new TypeToken<List<GraphRelationship>>(){}.getType();
+    }
+    
+    if ("GraphRelationshipAllOfData".equalsIgnoreCase(className)) {
+      return new TypeToken<List<GraphRelationshipAllOfData>>(){}.getType();
+    }
+    
     if ("IoDocument".equalsIgnoreCase(className)) {
       return new TypeToken<List<IoDocument>>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChange".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Neo4jCaptureDataChange>>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeMeta".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Neo4jCaptureDataChangeMeta>>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeMetaSource".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Neo4jCaptureDataChangeMetaSource>>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeNodePayload".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Neo4jCaptureDataChangeNodePayload>>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeNodePayloadAfter".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Neo4jCaptureDataChangeNodePayloadAfter>>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangePayload".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Neo4jCaptureDataChangePayload>>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeRelationshipPayload".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Neo4jCaptureDataChangeRelationshipPayload>>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeRelationshipPayloadEnd".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Neo4jCaptureDataChangeRelationshipPayloadEnd>>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeSchema".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Neo4jCaptureDataChangeSchema>>(){}.getType();
     }
     
     if ("TmuxPaneIoDocument".equalsIgnoreCase(className)) {
@@ -111,8 +163,60 @@ public class JsonUtil {
       return new TypeToken<CloudEventData>(){}.getType();
     }
     
+    if ("GraphNode".equalsIgnoreCase(className)) {
+      return new TypeToken<GraphNode>(){}.getType();
+    }
+    
+    if ("GraphNodeAllOfData".equalsIgnoreCase(className)) {
+      return new TypeToken<GraphNodeAllOfData>(){}.getType();
+    }
+    
+    if ("GraphRelationship".equalsIgnoreCase(className)) {
+      return new TypeToken<GraphRelationship>(){}.getType();
+    }
+    
+    if ("GraphRelationshipAllOfData".equalsIgnoreCase(className)) {
+      return new TypeToken<GraphRelationshipAllOfData>(){}.getType();
+    }
+    
     if ("IoDocument".equalsIgnoreCase(className)) {
       return new TypeToken<IoDocument>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChange".equalsIgnoreCase(className)) {
+      return new TypeToken<Neo4jCaptureDataChange>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeMeta".equalsIgnoreCase(className)) {
+      return new TypeToken<Neo4jCaptureDataChangeMeta>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeMetaSource".equalsIgnoreCase(className)) {
+      return new TypeToken<Neo4jCaptureDataChangeMetaSource>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeNodePayload".equalsIgnoreCase(className)) {
+      return new TypeToken<Neo4jCaptureDataChangeNodePayload>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeNodePayloadAfter".equalsIgnoreCase(className)) {
+      return new TypeToken<Neo4jCaptureDataChangeNodePayloadAfter>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangePayload".equalsIgnoreCase(className)) {
+      return new TypeToken<Neo4jCaptureDataChangePayload>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeRelationshipPayload".equalsIgnoreCase(className)) {
+      return new TypeToken<Neo4jCaptureDataChangeRelationshipPayload>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeRelationshipPayloadEnd".equalsIgnoreCase(className)) {
+      return new TypeToken<Neo4jCaptureDataChangeRelationshipPayloadEnd>(){}.getType();
+    }
+    
+    if ("Neo4jCaptureDataChangeSchema".equalsIgnoreCase(className)) {
+      return new TypeToken<Neo4jCaptureDataChangeSchema>(){}.getType();
     }
     
     if ("TmuxPaneIoDocument".equalsIgnoreCase(className)) {

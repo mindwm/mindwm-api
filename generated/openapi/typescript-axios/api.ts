@@ -228,6 +228,306 @@ export interface CloudEventData {
 /**
  * 
  * @export
+ * @interface GraphNode
+ */
+export interface GraphNode {
+    [key: string]: any;
+
+    /**
+     * Identifies the event.
+     * @type {string}
+     * @memberof GraphNode
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphNode
+     */
+    'source': GraphNodeSourceEnum;
+    /**
+     * The version of the CloudEvents specification which the event uses.
+     * @type {string}
+     * @memberof GraphNode
+     */
+    'specversion': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphNode
+     */
+    'type': GraphNodeTypeEnum;
+    /**
+     * Content type of the data value. Must adhere to RFC 2046 format.
+     * @type {string}
+     * @memberof GraphNode
+     */
+    'datacontenttype'?: string;
+    /**
+     * Identifies the schema that data adheres to.
+     * @type {string}
+     * @memberof GraphNode
+     */
+    'dataschema'?: string;
+    /**
+     * Describes the subject of the event in the context of the event producer (identified by source).
+     * @type {string}
+     * @memberof GraphNode
+     */
+    'subject'?: string;
+    /**
+     * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+     * @type {string}
+     * @memberof GraphNode
+     */
+    'time'?: string;
+    /**
+     * 
+     * @type {GraphNodeAllOfData}
+     * @memberof GraphNode
+     */
+    'data'?: GraphNodeAllOfData;
+    /**
+     * Base64 encoded event payload. Must adhere to RFC4648.
+     * @type {string}
+     * @memberof GraphNode
+     */
+    'data_base64'?: string;
+}
+
+export const GraphNodeSourceEnum = {
+    GraphNode: 'graph.node'
+} as const;
+
+export type GraphNodeSourceEnum = typeof GraphNodeSourceEnum[keyof typeof GraphNodeSourceEnum];
+export const GraphNodeTypeEnum = {
+    Created: 'created',
+    Updated: 'updated',
+    Deleted: 'deleted'
+} as const;
+
+export type GraphNodeTypeEnum = typeof GraphNodeTypeEnum[keyof typeof GraphNodeTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface GraphNodeAllOfData
+ */
+export interface GraphNodeAllOfData {
+    /**
+     * 
+     * @type {object}
+     * @memberof GraphNodeAllOfData
+     */
+    'headers': object;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphNodeAllOfData
+     */
+    'message_key': string;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeMeta}
+     * @memberof GraphNodeAllOfData
+     */
+    'meta': Neo4jCaptureDataChangeMeta;
+    /**
+     * 
+     * @type {number}
+     * @memberof GraphNodeAllOfData
+     */
+    'offset': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GraphNodeAllOfData
+     */
+    'partition': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphNodeAllOfData
+     */
+    'source_type': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphNodeAllOfData
+     */
+    'timestamp': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphNodeAllOfData
+     */
+    'topic': string;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeSchema}
+     * @memberof GraphNodeAllOfData
+     */
+    'schema': Neo4jCaptureDataChangeSchema;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeNodePayload}
+     * @memberof GraphNodeAllOfData
+     */
+    'payload': Neo4jCaptureDataChangeNodePayload;
+}
+/**
+ * 
+ * @export
+ * @interface GraphRelationship
+ */
+export interface GraphRelationship {
+    [key: string]: any;
+
+    /**
+     * Identifies the event.
+     * @type {string}
+     * @memberof GraphRelationship
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphRelationship
+     */
+    'source': GraphRelationshipSourceEnum;
+    /**
+     * The version of the CloudEvents specification which the event uses.
+     * @type {string}
+     * @memberof GraphRelationship
+     */
+    'specversion': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphRelationship
+     */
+    'type': GraphRelationshipTypeEnum;
+    /**
+     * Content type of the data value. Must adhere to RFC 2046 format.
+     * @type {string}
+     * @memberof GraphRelationship
+     */
+    'datacontenttype'?: string;
+    /**
+     * Identifies the schema that data adheres to.
+     * @type {string}
+     * @memberof GraphRelationship
+     */
+    'dataschema'?: string;
+    /**
+     * Describes the subject of the event in the context of the event producer (identified by source).
+     * @type {string}
+     * @memberof GraphRelationship
+     */
+    'subject'?: string;
+    /**
+     * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+     * @type {string}
+     * @memberof GraphRelationship
+     */
+    'time'?: string;
+    /**
+     * 
+     * @type {GraphRelationshipAllOfData}
+     * @memberof GraphRelationship
+     */
+    'data'?: GraphRelationshipAllOfData;
+    /**
+     * Base64 encoded event payload. Must adhere to RFC4648.
+     * @type {string}
+     * @memberof GraphRelationship
+     */
+    'data_base64'?: string;
+}
+
+export const GraphRelationshipSourceEnum = {
+    GraphRelationship: 'graph.relationship'
+} as const;
+
+export type GraphRelationshipSourceEnum = typeof GraphRelationshipSourceEnum[keyof typeof GraphRelationshipSourceEnum];
+export const GraphRelationshipTypeEnum = {
+    Created: 'created',
+    Updated: 'updated',
+    Deleted: 'deleted'
+} as const;
+
+export type GraphRelationshipTypeEnum = typeof GraphRelationshipTypeEnum[keyof typeof GraphRelationshipTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface GraphRelationshipAllOfData
+ */
+export interface GraphRelationshipAllOfData {
+    /**
+     * 
+     * @type {object}
+     * @memberof GraphRelationshipAllOfData
+     */
+    'headers': object;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphRelationshipAllOfData
+     */
+    'message_key': string;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeMeta}
+     * @memberof GraphRelationshipAllOfData
+     */
+    'meta': Neo4jCaptureDataChangeMeta;
+    /**
+     * 
+     * @type {number}
+     * @memberof GraphRelationshipAllOfData
+     */
+    'offset': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GraphRelationshipAllOfData
+     */
+    'partition': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphRelationshipAllOfData
+     */
+    'source_type': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphRelationshipAllOfData
+     */
+    'timestamp': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphRelationshipAllOfData
+     */
+    'topic': string;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeSchema}
+     * @memberof GraphRelationshipAllOfData
+     */
+    'schema': Neo4jCaptureDataChangeSchema;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeRelationshipPayload}
+     * @memberof GraphRelationshipAllOfData
+     */
+    'payload': Neo4jCaptureDataChangeRelationshipPayload;
+}
+/**
+ * 
+ * @export
  * @interface IoDocument
  */
 export interface IoDocument {
@@ -293,6 +593,284 @@ export interface IoDocument {
      * @memberof IoDocument
      */
     'data_base64'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface Neo4jCaptureDataChange
+ */
+export interface Neo4jCaptureDataChange {
+    /**
+     * 
+     * @type {{ [key: string]: any; }}
+     * @memberof Neo4jCaptureDataChange
+     */
+    'headers': { [key: string]: any; };
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChange
+     */
+    'message_key': string;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeMeta}
+     * @memberof Neo4jCaptureDataChange
+     */
+    'meta': Neo4jCaptureDataChangeMeta;
+    /**
+     * 
+     * @type {number}
+     * @memberof Neo4jCaptureDataChange
+     */
+    'offset': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Neo4jCaptureDataChange
+     */
+    'partition': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChange
+     */
+    'source_type': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChange
+     */
+    'timestamp': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChange
+     */
+    'topic': string;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeSchema}
+     * @memberof Neo4jCaptureDataChange
+     */
+    'schema': Neo4jCaptureDataChangeSchema;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangePayload}
+     * @memberof Neo4jCaptureDataChange
+     */
+    'payload': Neo4jCaptureDataChangePayload;
+}
+/**
+ * 
+ * @export
+ * @interface Neo4jCaptureDataChangeMeta
+ */
+export interface Neo4jCaptureDataChangeMeta {
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeMeta
+     */
+    'operation': string;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeMetaSource}
+     * @memberof Neo4jCaptureDataChangeMeta
+     */
+    'source': Neo4jCaptureDataChangeMetaSource;
+    /**
+     * 
+     * @type {number}
+     * @memberof Neo4jCaptureDataChangeMeta
+     */
+    'timestamp': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Neo4jCaptureDataChangeMeta
+     */
+    'txEventId': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Neo4jCaptureDataChangeMeta
+     */
+    'txEventsCount': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Neo4jCaptureDataChangeMeta
+     */
+    'txId': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeMeta
+     */
+    'username': string;
+}
+/**
+ * 
+ * @export
+ * @interface Neo4jCaptureDataChangeMetaSource
+ */
+export interface Neo4jCaptureDataChangeMetaSource {
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeMetaSource
+     */
+    'hostname': string;
+}
+/**
+ * 
+ * @export
+ * @interface Neo4jCaptureDataChangeNodePayload
+ */
+export interface Neo4jCaptureDataChangeNodePayload {
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeNodePayloadAfter}
+     * @memberof Neo4jCaptureDataChangeNodePayload
+     */
+    'after': Neo4jCaptureDataChangeNodePayloadAfter;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeNodePayload
+     */
+    'before': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeNodePayload
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeNodePayload
+     */
+    'type': string;
+}
+/**
+ * 
+ * @export
+ * @interface Neo4jCaptureDataChangeNodePayloadAfter
+ */
+export interface Neo4jCaptureDataChangeNodePayloadAfter {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof Neo4jCaptureDataChangeNodePayloadAfter
+     */
+    'labels': Array<string>;
+    /**
+     * 
+     * @type {{ [key: string]: any; }}
+     * @memberof Neo4jCaptureDataChangeNodePayloadAfter
+     */
+    'properties': { [key: string]: any; };
+}
+/**
+ * @type Neo4jCaptureDataChangePayload
+ * @export
+ */
+export type Neo4jCaptureDataChangePayload = Neo4jCaptureDataChangeNodePayload | Neo4jCaptureDataChangeRelationshipPayload;
+
+/**
+ * 
+ * @export
+ * @interface Neo4jCaptureDataChangeRelationshipPayload
+ */
+export interface Neo4jCaptureDataChangeRelationshipPayload {
+    /**
+     * 
+     * @type {object}
+     * @memberof Neo4jCaptureDataChangeRelationshipPayload
+     */
+    'after': object;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeRelationshipPayload
+     */
+    'before': string;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeRelationshipPayloadEnd}
+     * @memberof Neo4jCaptureDataChangeRelationshipPayload
+     */
+    'end': Neo4jCaptureDataChangeRelationshipPayloadEnd;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeRelationshipPayload
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeRelationshipPayload
+     */
+    'label': string;
+    /**
+     * 
+     * @type {Neo4jCaptureDataChangeRelationshipPayloadEnd}
+     * @memberof Neo4jCaptureDataChangeRelationshipPayload
+     */
+    'start': Neo4jCaptureDataChangeRelationshipPayloadEnd;
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeRelationshipPayload
+     */
+    'type': string;
+}
+/**
+ * 
+ * @export
+ * @interface Neo4jCaptureDataChangeRelationshipPayloadEnd
+ */
+export interface Neo4jCaptureDataChangeRelationshipPayloadEnd {
+    /**
+     * 
+     * @type {string}
+     * @memberof Neo4jCaptureDataChangeRelationshipPayloadEnd
+     */
+    'id': string;
+    /**
+     * 
+     * @type {{ [key: string]: any; }}
+     * @memberof Neo4jCaptureDataChangeRelationshipPayloadEnd
+     */
+    'ids': { [key: string]: any; };
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof Neo4jCaptureDataChangeRelationshipPayloadEnd
+     */
+    'labels': Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface Neo4jCaptureDataChangeSchema
+ */
+export interface Neo4jCaptureDataChangeSchema {
+    /**
+     * 
+     * @type {{ [key: string]: any; }}
+     * @memberof Neo4jCaptureDataChangeSchema
+     */
+    'constraints'?: { [key: string]: any; };
+    /**
+     * 
+     * @type {{ [key: string]: any; }}
+     * @memberof Neo4jCaptureDataChangeSchema
+     */
+    'properties'?: { [key: string]: any; };
 }
 /**
  * 

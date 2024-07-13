@@ -103,6 +103,49 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
+                        Value : in .Models.Neo4jCaptureDataChangeMetaSource_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Into.Write_Entity ("hostname", Value.Hostname);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Neo4jCaptureDataChangeMetaSource_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.Neo4jCaptureDataChangeMetaSource_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "hostname", Value.Hostname);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out Neo4jCaptureDataChangeMetaSource_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.Neo4jCaptureDataChangeMetaSource_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
                         Value : in .Models.TmuxPaneIoDocument_Type) is
    begin
       Into.Start_Entity (Name);
@@ -341,6 +384,138 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
+                        Value : in .Models.GraphRelationshipAllOfData_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Into.Write_Entity ("headers", Value.Headers);
+      Into.Write_Entity ("message_key", Value.Message_Key);
+      Serialize (Into, "meta", Value.Meta);
+      Into.Write_Entity ("offset", Value.Offset);
+      Into.Write_Entity ("partition", Value.Partition);
+      Into.Write_Entity ("source_type", Value.Source_Type);
+      Into.Write_Entity ("timestamp", Value.Timestamp);
+      Into.Write_Entity ("topic", Value.Topic);
+      Serialize (Into, "schema", Value.Schema);
+      Serialize (Into, "payload", Value.Payload);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in GraphRelationshipAllOfData_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.GraphRelationshipAllOfData_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "headers", Value.Headers);
+      Swagger.Streams.Deserialize (Object, "message_key", Value.Message_Key);
+      Deserialize (Object, "meta", Value.Meta);
+      Swagger.Streams.Deserialize (Object, "offset", Value.Offset);
+      Swagger.Streams.Deserialize (Object, "partition", Value.Partition);
+      Swagger.Streams.Deserialize (Object, "source_type", Value.Source_Type);
+      Swagger.Streams.Deserialize (Object, "timestamp", Value.Timestamp);
+      Swagger.Streams.Deserialize (Object, "topic", Value.Topic);
+      Deserialize (Object, "schema", Value.Schema);
+      Deserialize (Object, "payload", Value.Payload);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out GraphRelationshipAllOfData_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.GraphRelationshipAllOfData_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.GraphRelationship_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Into.Write_Entity ("id", Value.Id);
+      Into.Write_Entity ("source", Value.Source);
+      Into.Write_Entity ("specversion", Value.Specversion);
+      Into.Write_Entity ("type", Value.P_Type);
+      if not Value.Datacontenttype.Is_Null then
+         Into.Write_Entity ("datacontenttype", Value.Datacontenttype);
+      end if;
+      if not Value.Dataschema.Is_Null then
+         Into.Write_Entity ("dataschema", Value.Dataschema);
+      end if;
+      if not Value.Subject.Is_Null then
+         Into.Write_Entity ("subject", Value.Subject);
+      end if;
+      if not Value.Time.Is_Null then
+         Into.Write_Entity ("time", Value.Time);
+      end if;
+      Serialize (Into, "data", Value.Data);
+      if not Value.Data_Base_64.Is_Null then
+         Into.Write_Entity ("data_base64", Value.Data_Base_64);
+      end if;
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in GraphRelationship_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.GraphRelationship_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "id", Value.Id);
+      Swagger.Streams.Deserialize (Object, "source", Value.Source);
+      Swagger.Streams.Deserialize (Object, "specversion", Value.Specversion);
+      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
+      Swagger.Streams.Deserialize (Object, "datacontenttype", Value.Datacontenttype);
+      Swagger.Streams.Deserialize (Object, "dataschema", Value.Dataschema);
+      Swagger.Streams.Deserialize (Object, "subject", Value.Subject);
+      Swagger.Streams.Deserialize (Object, "time", Value.Time);
+      Deserialize (Object, "data", Value.Data);
+      Swagger.Streams.Deserialize (Object, "data_base64", Value.Data_Base_64);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out GraphRelationship_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.GraphRelationship_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
                         Value : in .Models.IoDocument_Type) is
    begin
       Into.Start_Entity (Name);
@@ -405,6 +580,550 @@ package body .Models is
                           Value : in out IoDocument_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
       Item : .Models.IoDocument_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.Neo4jCaptureDataChangeMeta_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Into.Write_Entity ("operation", Value.Operation);
+      Serialize (Into, "source", Value.Source);
+      Into.Write_Entity ("timestamp", Value.Timestamp);
+      Into.Write_Entity ("txEventId", Value.Tx_Event_Id);
+      Into.Write_Entity ("txEventsCount", Value.Tx_Events_Count);
+      Into.Write_Entity ("txId", Value.Tx_Id);
+      Into.Write_Entity ("username", Value.Username);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Neo4jCaptureDataChangeMeta_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.Neo4jCaptureDataChangeMeta_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "operation", Value.Operation);
+      Deserialize (Object, "source", Value.Source);
+      Swagger.Streams.Deserialize (Object, "timestamp", Value.Timestamp);
+      Swagger.Streams.Deserialize (Object, "txEventId", Value.Tx_Event_Id);
+      Swagger.Streams.Deserialize (Object, "txEventsCount", Value.Tx_Events_Count);
+      Swagger.Streams.Deserialize (Object, "txId", Value.Tx_Id);
+      Swagger.Streams.Deserialize (Object, "username", Value.Username);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out Neo4jCaptureDataChangeMeta_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.Neo4jCaptureDataChangeMeta_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.Neo4jCaptureDataChangeNodePayloadAfter_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Serialize (Into, "labels", Value.Labels);
+      Serialize (Into, "properties", Value.Properties);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Neo4jCaptureDataChangeNodePayloadAfter_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.Neo4jCaptureDataChangeNodePayloadAfter_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "labels", Value.Labels);
+      Deserialize (Object, "properties", Value.Properties);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out Neo4jCaptureDataChangeNodePayloadAfter_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.Neo4jCaptureDataChangeNodePayloadAfter_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.Neo4jCaptureDataChangeNodePayload_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Serialize (Into, "after", Value.After);
+      Into.Write_Entity ("before", Value.Before);
+      Into.Write_Entity ("id", Value.Id);
+      Into.Write_Entity ("type", Value.P_Type);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Neo4jCaptureDataChangeNodePayload_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.Neo4jCaptureDataChangeNodePayload_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Deserialize (Object, "after", Value.After);
+      Swagger.Streams.Deserialize (Object, "before", Value.Before);
+      Swagger.Streams.Deserialize (Object, "id", Value.Id);
+      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out Neo4jCaptureDataChangeNodePayload_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.Neo4jCaptureDataChangeNodePayload_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.Neo4jCaptureDataChangeRelationshipPayloadEnd_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Into.Write_Entity ("id", Value.Id);
+      Serialize (Into, "ids", Value.Ids);
+      Serialize (Into, "labels", Value.Labels);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Neo4jCaptureDataChangeRelationshipPayloadEnd_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.Neo4jCaptureDataChangeRelationshipPayloadEnd_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "id", Value.Id);
+      Deserialize (Object, "ids", Value.Ids);
+      Swagger.Streams.Deserialize (Object, "labels", Value.Labels);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out Neo4jCaptureDataChangeRelationshipPayloadEnd_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.Neo4jCaptureDataChangeRelationshipPayloadEnd_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.Neo4jCaptureDataChangePayload_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Into.Write_Entity ("after", Value.After);
+      Into.Write_Entity ("before", Value.Before);
+      Into.Write_Entity ("id", Value.Id);
+      Into.Write_Entity ("type", Value.P_Type);
+      Serialize (Into, "end", Value.P_End);
+      Into.Write_Entity ("label", Value.Label);
+      Serialize (Into, "start", Value.Start);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Neo4jCaptureDataChangePayload_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.Neo4jCaptureDataChangePayload_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "after", Value.After);
+      Swagger.Streams.Deserialize (Object, "before", Value.Before);
+      Swagger.Streams.Deserialize (Object, "id", Value.Id);
+      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
+      Deserialize (Object, "end", Value.P_End);
+      Swagger.Streams.Deserialize (Object, "label", Value.Label);
+      Deserialize (Object, "start", Value.Start);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out Neo4jCaptureDataChangePayload_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.Neo4jCaptureDataChangePayload_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.Neo4jCaptureDataChangeRelationshipPayload_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Into.Write_Entity ("after", Value.After);
+      Into.Write_Entity ("before", Value.Before);
+      Serialize (Into, "end", Value.P_End);
+      Into.Write_Entity ("id", Value.Id);
+      Into.Write_Entity ("label", Value.Label);
+      Serialize (Into, "start", Value.Start);
+      Into.Write_Entity ("type", Value.P_Type);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Neo4jCaptureDataChangeRelationshipPayload_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.Neo4jCaptureDataChangeRelationshipPayload_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "after", Value.After);
+      Swagger.Streams.Deserialize (Object, "before", Value.Before);
+      Deserialize (Object, "end", Value.P_End);
+      Swagger.Streams.Deserialize (Object, "id", Value.Id);
+      Swagger.Streams.Deserialize (Object, "label", Value.Label);
+      Deserialize (Object, "start", Value.Start);
+      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out Neo4jCaptureDataChangeRelationshipPayload_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.Neo4jCaptureDataChangeRelationshipPayload_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.Neo4jCaptureDataChangeSchema_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Serialize (Into, "constraints", Value.Constraints);
+      Serialize (Into, "properties", Value.Properties);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Neo4jCaptureDataChangeSchema_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.Neo4jCaptureDataChangeSchema_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Deserialize (Object, "constraints", Value.Constraints);
+      Deserialize (Object, "properties", Value.Properties);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out Neo4jCaptureDataChangeSchema_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.Neo4jCaptureDataChangeSchema_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.GraphNodeAllOfData_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Into.Write_Entity ("headers", Value.Headers);
+      Into.Write_Entity ("message_key", Value.Message_Key);
+      Serialize (Into, "meta", Value.Meta);
+      Into.Write_Entity ("offset", Value.Offset);
+      Into.Write_Entity ("partition", Value.Partition);
+      Into.Write_Entity ("source_type", Value.Source_Type);
+      Into.Write_Entity ("timestamp", Value.Timestamp);
+      Into.Write_Entity ("topic", Value.Topic);
+      Serialize (Into, "schema", Value.Schema);
+      Serialize (Into, "payload", Value.Payload);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in GraphNodeAllOfData_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.GraphNodeAllOfData_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "headers", Value.Headers);
+      Swagger.Streams.Deserialize (Object, "message_key", Value.Message_Key);
+      Deserialize (Object, "meta", Value.Meta);
+      Swagger.Streams.Deserialize (Object, "offset", Value.Offset);
+      Swagger.Streams.Deserialize (Object, "partition", Value.Partition);
+      Swagger.Streams.Deserialize (Object, "source_type", Value.Source_Type);
+      Swagger.Streams.Deserialize (Object, "timestamp", Value.Timestamp);
+      Swagger.Streams.Deserialize (Object, "topic", Value.Topic);
+      Deserialize (Object, "schema", Value.Schema);
+      Deserialize (Object, "payload", Value.Payload);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out GraphNodeAllOfData_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.GraphNodeAllOfData_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.GraphNode_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Into.Write_Entity ("id", Value.Id);
+      Into.Write_Entity ("source", Value.Source);
+      Into.Write_Entity ("specversion", Value.Specversion);
+      Into.Write_Entity ("type", Value.P_Type);
+      if not Value.Datacontenttype.Is_Null then
+         Into.Write_Entity ("datacontenttype", Value.Datacontenttype);
+      end if;
+      if not Value.Dataschema.Is_Null then
+         Into.Write_Entity ("dataschema", Value.Dataschema);
+      end if;
+      if not Value.Subject.Is_Null then
+         Into.Write_Entity ("subject", Value.Subject);
+      end if;
+      if not Value.Time.Is_Null then
+         Into.Write_Entity ("time", Value.Time);
+      end if;
+      Serialize (Into, "data", Value.Data);
+      if not Value.Data_Base_64.Is_Null then
+         Into.Write_Entity ("data_base64", Value.Data_Base_64);
+      end if;
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in GraphNode_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.GraphNode_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "id", Value.Id);
+      Swagger.Streams.Deserialize (Object, "source", Value.Source);
+      Swagger.Streams.Deserialize (Object, "specversion", Value.Specversion);
+      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
+      Swagger.Streams.Deserialize (Object, "datacontenttype", Value.Datacontenttype);
+      Swagger.Streams.Deserialize (Object, "dataschema", Value.Dataschema);
+      Swagger.Streams.Deserialize (Object, "subject", Value.Subject);
+      Swagger.Streams.Deserialize (Object, "time", Value.Time);
+      Deserialize (Object, "data", Value.Data);
+      Swagger.Streams.Deserialize (Object, "data_base64", Value.Data_Base_64);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out GraphNode_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.GraphNode_Type;
+   begin
+      Value.Clear;
+      Swagger.Streams.Deserialize (From, Name, List);
+      for Data of List loop
+         Deserialize (Data, "", Item);
+         Value.Append (Item);
+      end loop;
+   end Deserialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.Neo4jCaptureDataChange_Type) is
+   begin
+      Into.Start_Entity (Name);
+      Serialize (Into, "headers", Value.Headers);
+      Into.Write_Entity ("message_key", Value.Message_Key);
+      Serialize (Into, "meta", Value.Meta);
+      Into.Write_Entity ("offset", Value.Offset);
+      Into.Write_Entity ("partition", Value.Partition);
+      Into.Write_Entity ("source_type", Value.Source_Type);
+      Into.Write_Entity ("timestamp", Value.Timestamp);
+      Into.Write_Entity ("topic", Value.Topic);
+      Serialize (Into, "schema", Value.Schema);
+      Serialize (Into, "payload", Value.Payload);
+      Into.End_Entity (Name);
+   end Serialize;
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Neo4jCaptureDataChange_Type_Vectors.Vector) is
+   begin
+      Into.Start_Array (Name);
+      for Item of Value loop
+         Serialize (Into, "", Item);
+      end loop;
+      Into.End_Array (Name);
+   end Serialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.Neo4jCaptureDataChange_Type) is
+      Object : Swagger.Value_Type;
+   begin
+      Swagger.Streams.Deserialize (From, Name, Object);
+      Deserialize (Object, "headers", Value.Headers);
+      Swagger.Streams.Deserialize (Object, "message_key", Value.Message_Key);
+      Deserialize (Object, "meta", Value.Meta);
+      Swagger.Streams.Deserialize (Object, "offset", Value.Offset);
+      Swagger.Streams.Deserialize (Object, "partition", Value.Partition);
+      Swagger.Streams.Deserialize (Object, "source_type", Value.Source_Type);
+      Swagger.Streams.Deserialize (Object, "timestamp", Value.Timestamp);
+      Swagger.Streams.Deserialize (Object, "topic", Value.Topic);
+      Deserialize (Object, "schema", Value.Schema);
+      Deserialize (Object, "payload", Value.Payload);
+   end Deserialize;
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out Neo4jCaptureDataChange_Type_Vectors.Vector) is
+      List : Swagger.Value_Array_Type;
+      Item : .Models.Neo4jCaptureDataChange_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);

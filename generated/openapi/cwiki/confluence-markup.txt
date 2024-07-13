@@ -81,6 +81,78 @@ h2. Models
         
         ||Field Name||Required||Type||Description||Enum||Example||
          
+        {anchor:GraphNodeModelAnchor}
+        h3. GraphNode
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |id |(/) |{noformat:nopanel=true}String{noformat} | Identifies the event. |  | null
+         |source |(/) |{noformat:nopanel=true}String{noformat} |  |  [graph.node]  | null
+         |specversion |(/) |{noformat:nopanel=true}String{noformat} | The version of the CloudEvents specification which the event uses. |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} |  |  [created, updated, deleted]  | null
+         |datacontenttype |(x) |{noformat:nopanel=true}String{noformat} | Content type of the data value. Must adhere to RFC 2046 format. |  | null
+         |dataschema |(x) |{noformat:nopanel=true}URI{noformat} | Identifies the schema that data adheres to. |  | null
+         |subject |(x) |{noformat:nopanel=true}String{noformat} | Describes the subject of the event in the context of the event producer (identified by source). |  | null
+         |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
+         |data |(x) |{noformat:nopanel=true}GraphNode_allOf_data{noformat} |  |  | null
+         |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
+         
+        {anchor:GraphNodeAllOfDataModelAnchor}
+        h3. GraphNodeAllOfData
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |headers |(/) |{noformat:nopanel=true}Object{noformat} |  |  | null
+         |message_key |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |meta |(/) |{noformat:nopanel=true}Neo4jCaptureDataChange_meta{noformat} |  |  | null
+         |offset |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |partition |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |source_type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |timestamp |(/) |{noformat:nopanel=true}Date{noformat} |  |  | null
+         |topic |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |schema |(/) |{noformat:nopanel=true}Neo4jCaptureDataChange_schema{noformat} |  |  | null
+         |payload |(/) |{noformat:nopanel=true}Neo4jCaptureDataChangeNodePayload{noformat} |  |  | null
+         
+        {anchor:GraphRelationshipModelAnchor}
+        h3. GraphRelationship
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |id |(/) |{noformat:nopanel=true}String{noformat} | Identifies the event. |  | null
+         |source |(/) |{noformat:nopanel=true}String{noformat} |  |  [graph.relationship]  | null
+         |specversion |(/) |{noformat:nopanel=true}String{noformat} | The version of the CloudEvents specification which the event uses. |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} |  |  [created, updated, deleted]  | null
+         |datacontenttype |(x) |{noformat:nopanel=true}String{noformat} | Content type of the data value. Must adhere to RFC 2046 format. |  | null
+         |dataschema |(x) |{noformat:nopanel=true}URI{noformat} | Identifies the schema that data adheres to. |  | null
+         |subject |(x) |{noformat:nopanel=true}String{noformat} | Describes the subject of the event in the context of the event producer (identified by source). |  | null
+         |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
+         |data |(x) |{noformat:nopanel=true}GraphRelationship_allOf_data{noformat} |  |  | null
+         |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
+         
+        {anchor:GraphRelationshipAllOfDataModelAnchor}
+        h3. GraphRelationshipAllOfData
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |headers |(/) |{noformat:nopanel=true}Object{noformat} |  |  | null
+         |message_key |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |meta |(/) |{noformat:nopanel=true}Neo4jCaptureDataChange_meta{noformat} |  |  | null
+         |offset |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |partition |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |source_type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |timestamp |(/) |{noformat:nopanel=true}Date{noformat} |  |  | null
+         |topic |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |schema |(/) |{noformat:nopanel=true}Neo4jCaptureDataChange_schema{noformat} |  |  | null
+         |payload |(/) |{noformat:nopanel=true}Neo4jCaptureDataChangeRelationshipPayload{noformat} |  |  | null
+         
         {anchor:IoDocumentModelAnchor}
         h3. IoDocument
 
@@ -98,6 +170,121 @@ h2. Models
          |subject |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
          |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
          |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
+         
+        {anchor:Neo4jCaptureDataChangeModelAnchor}
+        h3. Neo4jCaptureDataChange
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |headers |(/) |{noformat:nopanel=true}map[String, oas_any_type_not_mapped]{noformat} |  |  | null
+         |message_key |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |meta |(/) |{noformat:nopanel=true}Neo4jCaptureDataChange_meta{noformat} |  |  | null
+         |offset |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |partition |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |source_type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |timestamp |(/) |{noformat:nopanel=true}Date{noformat} |  |  | null
+         |topic |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |schema |(/) |{noformat:nopanel=true}Neo4jCaptureDataChange_schema{noformat} |  |  | null
+         |payload |(/) |{noformat:nopanel=true}Neo4jCaptureDataChange_payload{noformat} |  |  | null
+         
+        {anchor:Neo4jCaptureDataChangeMetaModelAnchor}
+        h3. Neo4jCaptureDataChangeMeta
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |operation |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |source |(/) |{noformat:nopanel=true}Neo4jCaptureDataChange_meta_source{noformat} |  |  | null
+         |timestamp |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |txEventId |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |txEventsCount |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |txId |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |username |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         
+        {anchor:Neo4jCaptureDataChangeMetaSourceModelAnchor}
+        h3. Neo4jCaptureDataChangeMetaSource
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |hostname |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         
+        {anchor:Neo4jCaptureDataChangeNodePayloadModelAnchor}
+        h3. Neo4jCaptureDataChangeNodePayload
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |after |(/) |{noformat:nopanel=true}Neo4jCaptureDataChangeNodePayload_after{noformat} |  |  | null
+         |before |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |id |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         
+        {anchor:Neo4jCaptureDataChangeNodePayloadAfterModelAnchor}
+        h3. Neo4jCaptureDataChangeNodePayloadAfter
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |labels |(/) |{noformat:nopanel=true}array[String]{noformat} |  |  | null
+         |properties |(/) |{noformat:nopanel=true}map[String, oas_any_type_not_mapped]{noformat} |  |  | null
+         
+        {anchor:Neo4jCaptureDataChangePayloadModelAnchor}
+        h3. Neo4jCaptureDataChangePayload
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |after |(/) |{noformat:nopanel=true}Object{noformat} |  |  | null
+         |before |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |id |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |end |(/) |{noformat:nopanel=true}Neo4jCaptureDataChangeRelationshipPayload_end{noformat} |  |  | null
+         |label |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |start |(/) |{noformat:nopanel=true}Neo4jCaptureDataChangeRelationshipPayload_end{noformat} |  |  | null
+         
+        {anchor:Neo4jCaptureDataChangeRelationshipPayloadModelAnchor}
+        h3. Neo4jCaptureDataChangeRelationshipPayload
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |after |(/) |{noformat:nopanel=true}Object{noformat} |  |  | null
+         |before |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |end |(/) |{noformat:nopanel=true}Neo4jCaptureDataChangeRelationshipPayload_end{noformat} |  |  | null
+         |id |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |label |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |start |(/) |{noformat:nopanel=true}Neo4jCaptureDataChangeRelationshipPayload_end{noformat} |  |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         
+        {anchor:Neo4jCaptureDataChangeRelationshipPayloadEndModelAnchor}
+        h3. Neo4jCaptureDataChangeRelationshipPayloadEnd
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |id |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |ids |(/) |{noformat:nopanel=true}map[String, oas_any_type_not_mapped]{noformat} |  |  | null
+         |labels |(/) |{noformat:nopanel=true}array[String]{noformat} |  |  | null
+         
+        {anchor:Neo4jCaptureDataChangeSchemaModelAnchor}
+        h3. Neo4jCaptureDataChangeSchema
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |constraints |(x) |{noformat:nopanel=true}map[String, oas_any_type_not_mapped]{noformat} |  |  | null
+         |properties |(x) |{noformat:nopanel=true}map[String, oas_any_type_not_mapped]{noformat} |  |  | null
          
         {anchor:TmuxPaneIoDocumentModelAnchor}
         h3. TmuxPaneIoDocument

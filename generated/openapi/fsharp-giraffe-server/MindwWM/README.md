@@ -7,7 +7,20 @@ A [Giraffe](https://github.com/giraffe-fsharp/Giraffe) server stub for the Mindw
 The following models have been auto-generated from the provided OpenAPI schema:
 
 - model/TmuxPaneIoDocumentModel.fs
+- model/Neo4jCaptureDataChangeSchemaModel.fs
+- model/Neo4jCaptureDataChangeRelationshipPayloadEndModel.fs
+- model/Neo4jCaptureDataChangeRelationshipPayloadModel.fs
+- model/Neo4jCaptureDataChangeNodePayloadAfterModel.fs
+- model/Neo4jCaptureDataChangeNodePayloadModel.fs
+- model/Neo4jCaptureDataChangePayloadModel.fs
+- model/Neo4jCaptureDataChangeMetaSourceModel.fs
+- model/Neo4jCaptureDataChangeMetaModel.fs
+- model/Neo4jCaptureDataChangeModel.fs
 - model/IoDocumentModel.fs
+- model/GraphRelationshipAllOfDataModel.fs
+- model/GraphRelationshipModel.fs
+- model/GraphNodeAllOfDataModel.fs
+- model/GraphNodeModel.fs
 - model/CloudEventDataModel.fs
 - model/CloudEventModel.fs
 - model/ClipboardPayloadContextModel.fs

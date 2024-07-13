@@ -206,7 +206,20 @@ font-style: italic;
     <li><a href="#ClipboardPayload_context"><code>ClipboardPayload_context</code> - </a></li>
     <li><a href="#CloudEvent"><code>CloudEvent</code> - </a></li>
     <li><a href="#CloudEvent_data"><code>CloudEvent_data</code> - </a></li>
+    <li><a href="#GraphNode"><code>GraphNode</code> - </a></li>
+    <li><a href="#GraphNode_allOf_data"><code>GraphNode_allOf_data</code> - </a></li>
+    <li><a href="#GraphRelationship"><code>GraphRelationship</code> - </a></li>
+    <li><a href="#GraphRelationship_allOf_data"><code>GraphRelationship_allOf_data</code> - </a></li>
     <li><a href="#IoDocument"><code>IoDocument</code> - </a></li>
+    <li><a href="#Neo4jCaptureDataChange"><code>Neo4jCaptureDataChange</code> - </a></li>
+    <li><a href="#Neo4jCaptureDataChangeNodePayload"><code>Neo4jCaptureDataChangeNodePayload</code> - </a></li>
+    <li><a href="#Neo4jCaptureDataChangeNodePayload_after"><code>Neo4jCaptureDataChangeNodePayload_after</code> - </a></li>
+    <li><a href="#Neo4jCaptureDataChangeRelationshipPayload"><code>Neo4jCaptureDataChangeRelationshipPayload</code> - </a></li>
+    <li><a href="#Neo4jCaptureDataChangeRelationshipPayload_end"><code>Neo4jCaptureDataChangeRelationshipPayload_end</code> - </a></li>
+    <li><a href="#Neo4jCaptureDataChange_meta"><code>Neo4jCaptureDataChange_meta</code> - </a></li>
+    <li><a href="#Neo4jCaptureDataChange_meta_source"><code>Neo4jCaptureDataChange_meta_source</code> - </a></li>
+    <li><a href="#Neo4jCaptureDataChange_payload"><code>Neo4jCaptureDataChange_payload</code> - </a></li>
+    <li><a href="#Neo4jCaptureDataChange_schema"><code>Neo4jCaptureDataChange_schema</code> - </a></li>
     <li><a href="#TmuxPaneIoDocument"><code>TmuxPaneIoDocument</code> - </a></li>
   </ol>
 
@@ -269,6 +282,78 @@ font-style: italic;
           </div>  <!-- field-items -->
   </div>
   <div class="model">
+    <h3><a name="GraphNode"><code>GraphNode</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies the event. </div>
+<div class="param">source </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">graph.node</div>
+<div class="param">specversion </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the CloudEvents specification which the event uses. </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">created</div><div class="param-enum">updated</div><div class="param-enum">deleted</div>
+<div class="param">datacontenttype (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Content type of the data value. Must adhere to RFC 2046 format. </div>
+<div class="param">dataschema (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> Identifies the schema that data adheres to. format: uri</div>
+<div class="param">subject (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Describes the subject of the event in the context of the event producer (identified by source). </div>
+<div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Timestamp of when the occurrence happened. Must adhere to RFC 3339. format: date-time</div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#GraphNode_allOf_data">GraphNode_allOf_data</a></span>  </div>
+<div class="param">data_base64 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Base64 encoded event payload. Must adhere to RFC4648. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GraphNode_allOf_data"><code>GraphNode_allOf_data</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">headers </div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+<div class="param">message_key </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChange_meta">Neo4jCaptureDataChange_meta</a></span>  </div>
+<div class="param">offset </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">partition </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">source_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">topic </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">schema </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChange_schema">Neo4jCaptureDataChange_schema</a></span>  </div>
+<div class="param">payload </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChangeNodePayload">Neo4jCaptureDataChangeNodePayload</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GraphRelationship"><code>GraphRelationship</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies the event. </div>
+<div class="param">source </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">graph.relationship</div>
+<div class="param">specversion </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the CloudEvents specification which the event uses. </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">created</div><div class="param-enum">updated</div><div class="param-enum">deleted</div>
+<div class="param">datacontenttype (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Content type of the data value. Must adhere to RFC 2046 format. </div>
+<div class="param">dataschema (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> Identifies the schema that data adheres to. format: uri</div>
+<div class="param">subject (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Describes the subject of the event in the context of the event producer (identified by source). </div>
+<div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Timestamp of when the occurrence happened. Must adhere to RFC 3339. format: date-time</div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#GraphRelationship_allOf_data">GraphRelationship_allOf_data</a></span>  </div>
+<div class="param">data_base64 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Base64 encoded event payload. Must adhere to RFC4648. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GraphRelationship_allOf_data"><code>GraphRelationship_allOf_data</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">headers </div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+<div class="param">message_key </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChange_meta">Neo4jCaptureDataChange_meta</a></span>  </div>
+<div class="param">offset </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">partition </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">source_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">topic </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">schema </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChange_schema">Neo4jCaptureDataChange_schema</a></span>  </div>
+<div class="param">payload </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChangeRelationshipPayload">Neo4jCaptureDataChangeRelationshipPayload</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
     <h3><a name="IoDocument"><code>IoDocument</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
@@ -282,6 +367,103 @@ font-style: italic;
 <div class="param">subject (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Timestamp of when the occurrence happened. Must adhere to RFC 3339. format: date-time</div>
 <div class="param">data_base64 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Base64 encoded event payload. Must adhere to RFC4648. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jCaptureDataChange"><code>Neo4jCaptureDataChange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">headers </div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">message_key </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChange_meta">Neo4jCaptureDataChange_meta</a></span>  </div>
+<div class="param">offset </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">partition </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">source_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">topic </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">schema </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChange_schema">Neo4jCaptureDataChange_schema</a></span>  </div>
+<div class="param">payload </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChange_payload">Neo4jCaptureDataChange_payload</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jCaptureDataChangeNodePayload"><code>Neo4jCaptureDataChangeNodePayload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">after </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChangeNodePayload_after">Neo4jCaptureDataChangeNodePayload_after</a></span>  </div>
+<div class="param">before </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jCaptureDataChangeNodePayload_after"><code>Neo4jCaptureDataChangeNodePayload_after</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">labels </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">properties </div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jCaptureDataChangeRelationshipPayload"><code>Neo4jCaptureDataChangeRelationshipPayload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">after </div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+<div class="param">before </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">end </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChangeRelationshipPayload_end">Neo4jCaptureDataChangeRelationshipPayload_end</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">label </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">start </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChangeRelationshipPayload_end">Neo4jCaptureDataChangeRelationshipPayload_end</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jCaptureDataChangeRelationshipPayload_end"><code>Neo4jCaptureDataChangeRelationshipPayload_end</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ids </div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">labels </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jCaptureDataChange_meta"><code>Neo4jCaptureDataChange_meta</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">operation </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">source </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChange_meta_source">Neo4jCaptureDataChange_meta_source</a></span>  </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">txEventId </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">txEventsCount </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">txId </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">username </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jCaptureDataChange_meta_source"><code>Neo4jCaptureDataChange_meta_source</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">hostname </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jCaptureDataChange_payload"><code>Neo4jCaptureDataChange_payload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">after </div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+<div class="param">before </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">end </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChangeRelationshipPayload_end">Neo4jCaptureDataChangeRelationshipPayload_end</a></span>  </div>
+<div class="param">label </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">start </div><div class="param-desc"><span class="param-type"><a href="#Neo4jCaptureDataChangeRelationshipPayload_end">Neo4jCaptureDataChangeRelationshipPayload_end</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jCaptureDataChange_schema"><code>Neo4jCaptureDataChange_schema</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">constraints (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">properties (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">

@@ -29,7 +29,7 @@ import javax.annotation.Generated;
 @JsonPropertyOrder({
 })
 @JsonTypeName("CloudEvent_data")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-13T19:25:19.850732847Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-13T22:09:15.015126941Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class CloudEventData {
     public CloudEventData() {

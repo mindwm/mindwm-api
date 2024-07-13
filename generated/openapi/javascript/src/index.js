@@ -18,7 +18,20 @@ import ClipboardPayload from './model/ClipboardPayload';
 import ClipboardPayloadContext from './model/ClipboardPayloadContext';
 import CloudEvent from './model/CloudEvent';
 import CloudEventData from './model/CloudEventData';
+import GraphNode from './model/GraphNode';
+import GraphNodeAllOfData from './model/GraphNodeAllOfData';
+import GraphRelationship from './model/GraphRelationship';
+import GraphRelationshipAllOfData from './model/GraphRelationshipAllOfData';
 import IoDocument from './model/IoDocument';
+import Neo4jCaptureDataChange from './model/Neo4jCaptureDataChange';
+import Neo4jCaptureDataChangeMeta from './model/Neo4jCaptureDataChangeMeta';
+import Neo4jCaptureDataChangeMetaSource from './model/Neo4jCaptureDataChangeMetaSource';
+import Neo4jCaptureDataChangeNodePayload from './model/Neo4jCaptureDataChangeNodePayload';
+import Neo4jCaptureDataChangeNodePayloadAfter from './model/Neo4jCaptureDataChangeNodePayloadAfter';
+import Neo4jCaptureDataChangePayload from './model/Neo4jCaptureDataChangePayload';
+import Neo4jCaptureDataChangeRelationshipPayload from './model/Neo4jCaptureDataChangeRelationshipPayload';
+import Neo4jCaptureDataChangeRelationshipPayloadEnd from './model/Neo4jCaptureDataChangeRelationshipPayloadEnd';
+import Neo4jCaptureDataChangeSchema from './model/Neo4jCaptureDataChangeSchema';
 import TmuxPaneIoDocument from './model/TmuxPaneIoDocument';
 
 
@@ -91,10 +104,88 @@ export {
     CloudEventData,
 
     /**
+     * The GraphNode model constructor.
+     * @property {module:model/GraphNode}
+     */
+    GraphNode,
+
+    /**
+     * The GraphNodeAllOfData model constructor.
+     * @property {module:model/GraphNodeAllOfData}
+     */
+    GraphNodeAllOfData,
+
+    /**
+     * The GraphRelationship model constructor.
+     * @property {module:model/GraphRelationship}
+     */
+    GraphRelationship,
+
+    /**
+     * The GraphRelationshipAllOfData model constructor.
+     * @property {module:model/GraphRelationshipAllOfData}
+     */
+    GraphRelationshipAllOfData,
+
+    /**
      * The IoDocument model constructor.
      * @property {module:model/IoDocument}
      */
     IoDocument,
+
+    /**
+     * The Neo4jCaptureDataChange model constructor.
+     * @property {module:model/Neo4jCaptureDataChange}
+     */
+    Neo4jCaptureDataChange,
+
+    /**
+     * The Neo4jCaptureDataChangeMeta model constructor.
+     * @property {module:model/Neo4jCaptureDataChangeMeta}
+     */
+    Neo4jCaptureDataChangeMeta,
+
+    /**
+     * The Neo4jCaptureDataChangeMetaSource model constructor.
+     * @property {module:model/Neo4jCaptureDataChangeMetaSource}
+     */
+    Neo4jCaptureDataChangeMetaSource,
+
+    /**
+     * The Neo4jCaptureDataChangeNodePayload model constructor.
+     * @property {module:model/Neo4jCaptureDataChangeNodePayload}
+     */
+    Neo4jCaptureDataChangeNodePayload,
+
+    /**
+     * The Neo4jCaptureDataChangeNodePayloadAfter model constructor.
+     * @property {module:model/Neo4jCaptureDataChangeNodePayloadAfter}
+     */
+    Neo4jCaptureDataChangeNodePayloadAfter,
+
+    /**
+     * The Neo4jCaptureDataChangePayload model constructor.
+     * @property {module:model/Neo4jCaptureDataChangePayload}
+     */
+    Neo4jCaptureDataChangePayload,
+
+    /**
+     * The Neo4jCaptureDataChangeRelationshipPayload model constructor.
+     * @property {module:model/Neo4jCaptureDataChangeRelationshipPayload}
+     */
+    Neo4jCaptureDataChangeRelationshipPayload,
+
+    /**
+     * The Neo4jCaptureDataChangeRelationshipPayloadEnd model constructor.
+     * @property {module:model/Neo4jCaptureDataChangeRelationshipPayloadEnd}
+     */
+    Neo4jCaptureDataChangeRelationshipPayloadEnd,
+
+    /**
+     * The Neo4jCaptureDataChangeSchema model constructor.
+     * @property {module:model/Neo4jCaptureDataChangeSchema}
+     */
+    Neo4jCaptureDataChangeSchema,
 
     /**
      * The TmuxPaneIoDocument model constructor.

@@ -9,4 +9,12 @@ models/ClipboardPayload.gd
 models/ClipboardPayloadContext.gd
 models/CloudEvent.gd
 models/IoDocument.gd
+models/Neo4jCaptureDataChange.gd
+models/Neo4jCaptureDataChangeMeta.gd
+models/Neo4jCaptureDataChangeMetaSource.gd
+models/Neo4jCaptureDataChangeNodePayload.gd
+models/Neo4jCaptureDataChangeNodePayloadAfter.gd
+models/Neo4jCaptureDataChangeRelationshipPayload.gd
+models/Neo4jCaptureDataChangeRelationshipPayloadEnd.gd
+models/Neo4jCaptureDataChangeSchema.gd
 models/TmuxPaneIoDocument.gd

@@ -175,6 +175,74 @@ genCloudEventData n =
   
   pure CloudEventData
    
+instance Arbitrary GraphNode where
+  arbitrary = sized genGraphNode
+
+genGraphNode :: Int -> Gen GraphNode
+genGraphNode n =
+  GraphNode
+    <$> arbitrary -- graphNodeId :: Text
+    <*> arbitrary -- graphNodeSource :: E'Source
+    <*> arbitrary -- graphNodeSpecversion :: Text
+    <*> arbitrary -- graphNodeType :: E'Type2
+    <*> arbitraryReducedMaybe n -- graphNodeDatacontenttype :: Maybe Text
+    <*> arbitraryReducedMaybe n -- graphNodeDataschema :: Maybe Text
+    <*> arbitraryReducedMaybe n -- graphNodeSubject :: Maybe Text
+    <*> arbitraryReducedMaybe n -- graphNodeTime :: Maybe DateTime
+    <*> arbitraryReducedMaybe n -- graphNodeData :: Maybe GraphNodeAllOfData
+    <*> arbitraryReducedMaybe n -- graphNodeDataBase64 :: Maybe Text
+  
+instance Arbitrary GraphNodeAllOfData where
+  arbitrary = sized genGraphNodeAllOfData
+
+genGraphNodeAllOfData :: Int -> Gen GraphNodeAllOfData
+genGraphNodeAllOfData n =
+  GraphNodeAllOfData
+    <$> arbitraryReduced n -- graphNodeAllOfDataHeaders :: A.Value
+    <*> arbitrary -- graphNodeAllOfDataMessageKey :: Text
+    <*> arbitraryReduced n -- graphNodeAllOfDataMeta :: Neo4jCaptureDataChangeMeta
+    <*> arbitrary -- graphNodeAllOfDataOffset :: Int
+    <*> arbitrary -- graphNodeAllOfDataPartition :: Int
+    <*> arbitrary -- graphNodeAllOfDataSourceType :: Text
+    <*> arbitraryReduced n -- graphNodeAllOfDataTimestamp :: DateTime
+    <*> arbitrary -- graphNodeAllOfDataTopic :: Text
+    <*> arbitraryReduced n -- graphNodeAllOfDataSchema :: Neo4jCaptureDataChangeSchema
+    <*> arbitraryReduced n -- graphNodeAllOfDataPayload :: Neo4jCaptureDataChangeNodePayload
+  
+instance Arbitrary GraphRelationship where
+  arbitrary = sized genGraphRelationship
+
+genGraphRelationship :: Int -> Gen GraphRelationship
+genGraphRelationship n =
+  GraphRelationship
+    <$> arbitrary -- graphRelationshipId :: Text
+    <*> arbitrary -- graphRelationshipSource :: E'Source2
+    <*> arbitrary -- graphRelationshipSpecversion :: Text
+    <*> arbitrary -- graphRelationshipType :: E'Type2
+    <*> arbitraryReducedMaybe n -- graphRelationshipDatacontenttype :: Maybe Text
+    <*> arbitraryReducedMaybe n -- graphRelationshipDataschema :: Maybe Text
+    <*> arbitraryReducedMaybe n -- graphRelationshipSubject :: Maybe Text
+    <*> arbitraryReducedMaybe n -- graphRelationshipTime :: Maybe DateTime
+    <*> arbitraryReducedMaybe n -- graphRelationshipData :: Maybe GraphRelationshipAllOfData
+    <*> arbitraryReducedMaybe n -- graphRelationshipDataBase64 :: Maybe Text
+  
+instance Arbitrary GraphRelationshipAllOfData where
+  arbitrary = sized genGraphRelationshipAllOfData
+
+genGraphRelationshipAllOfData :: Int -> Gen GraphRelationshipAllOfData
+genGraphRelationshipAllOfData n =
+  GraphRelationshipAllOfData
+    <$> arbitraryReduced n -- graphRelationshipAllOfDataHeaders :: A.Value
+    <*> arbitrary -- graphRelationshipAllOfDataMessageKey :: Text
+    <*> arbitraryReduced n -- graphRelationshipAllOfDataMeta :: Neo4jCaptureDataChangeMeta
+    <*> arbitrary -- graphRelationshipAllOfDataOffset :: Int
+    <*> arbitrary -- graphRelationshipAllOfDataPartition :: Int
+    <*> arbitrary -- graphRelationshipAllOfDataSourceType :: Text
+    <*> arbitraryReduced n -- graphRelationshipAllOfDataTimestamp :: DateTime
+    <*> arbitrary -- graphRelationshipAllOfDataTopic :: Text
+    <*> arbitraryReduced n -- graphRelationshipAllOfDataSchema :: Neo4jCaptureDataChangeSchema
+    <*> arbitraryReduced n -- graphRelationshipAllOfDataPayload :: Neo4jCaptureDataChangeRelationshipPayload
+  
 instance Arbitrary IoDocument where
   arbitrary = sized genIoDocument
 
@@ -192,6 +260,112 @@ genIoDocument n =
     <*> arbitraryReducedMaybe n -- ioDocumentTime :: Maybe DateTime
     <*> arbitraryReducedMaybe n -- ioDocumentDataBase64 :: Maybe Text
   
+instance Arbitrary Neo4jCaptureDataChange where
+  arbitrary = sized genNeo4jCaptureDataChange
+
+genNeo4jCaptureDataChange :: Int -> Gen Neo4jCaptureDataChange
+genNeo4jCaptureDataChange n =
+  Neo4jCaptureDataChange
+    <$> arbitraryReduced n -- neo4jCaptureDataChangeHeaders :: (Map.Map String AnyType)
+    <*> arbitrary -- neo4jCaptureDataChangeMessageKey :: Text
+    <*> arbitraryReduced n -- neo4jCaptureDataChangeMeta :: Neo4jCaptureDataChangeMeta
+    <*> arbitrary -- neo4jCaptureDataChangeOffset :: Int
+    <*> arbitrary -- neo4jCaptureDataChangePartition :: Int
+    <*> arbitrary -- neo4jCaptureDataChangeSourceType :: Text
+    <*> arbitraryReduced n -- neo4jCaptureDataChangeTimestamp :: DateTime
+    <*> arbitrary -- neo4jCaptureDataChangeTopic :: Text
+    <*> arbitraryReduced n -- neo4jCaptureDataChangeSchema :: Neo4jCaptureDataChangeSchema
+    <*> arbitraryReduced n -- neo4jCaptureDataChangePayload :: Neo4jCaptureDataChangePayload
+  
+instance Arbitrary Neo4jCaptureDataChangeMeta where
+  arbitrary = sized genNeo4jCaptureDataChangeMeta
+
+genNeo4jCaptureDataChangeMeta :: Int -> Gen Neo4jCaptureDataChangeMeta
+genNeo4jCaptureDataChangeMeta n =
+  Neo4jCaptureDataChangeMeta
+    <$> arbitrary -- neo4jCaptureDataChangeMetaOperation :: Text
+    <*> arbitraryReduced n -- neo4jCaptureDataChangeMetaSource :: Neo4jCaptureDataChangeMetaSource
+    <*> arbitrary -- neo4jCaptureDataChangeMetaTimestamp :: Int
+    <*> arbitrary -- neo4jCaptureDataChangeMetaTxEventId :: Int
+    <*> arbitrary -- neo4jCaptureDataChangeMetaTxEventsCount :: Int
+    <*> arbitrary -- neo4jCaptureDataChangeMetaTxId :: Int
+    <*> arbitrary -- neo4jCaptureDataChangeMetaUsername :: Text
+  
+instance Arbitrary Neo4jCaptureDataChangeMetaSource where
+  arbitrary = sized genNeo4jCaptureDataChangeMetaSource
+
+genNeo4jCaptureDataChangeMetaSource :: Int -> Gen Neo4jCaptureDataChangeMetaSource
+genNeo4jCaptureDataChangeMetaSource n =
+  Neo4jCaptureDataChangeMetaSource
+    <$> arbitrary -- neo4jCaptureDataChangeMetaSourceHostname :: Text
+  
+instance Arbitrary Neo4jCaptureDataChangeNodePayload where
+  arbitrary = sized genNeo4jCaptureDataChangeNodePayload
+
+genNeo4jCaptureDataChangeNodePayload :: Int -> Gen Neo4jCaptureDataChangeNodePayload
+genNeo4jCaptureDataChangeNodePayload n =
+  Neo4jCaptureDataChangeNodePayload
+    <$> arbitraryReduced n -- neo4jCaptureDataChangeNodePayloadAfter :: Neo4jCaptureDataChangeNodePayloadAfter
+    <*> arbitrary -- neo4jCaptureDataChangeNodePayloadBefore :: Text
+    <*> arbitrary -- neo4jCaptureDataChangeNodePayloadId :: Text
+    <*> arbitrary -- neo4jCaptureDataChangeNodePayloadType :: Text
+  
+instance Arbitrary Neo4jCaptureDataChangeNodePayloadAfter where
+  arbitrary = sized genNeo4jCaptureDataChangeNodePayloadAfter
+
+genNeo4jCaptureDataChangeNodePayloadAfter :: Int -> Gen Neo4jCaptureDataChangeNodePayloadAfter
+genNeo4jCaptureDataChangeNodePayloadAfter n =
+  Neo4jCaptureDataChangeNodePayloadAfter
+    <$> arbitrary -- neo4jCaptureDataChangeNodePayloadAfterLabels :: [Text]
+    <*> arbitraryReduced n -- neo4jCaptureDataChangeNodePayloadAfterProperties :: (Map.Map String AnyType)
+  
+instance Arbitrary Neo4jCaptureDataChangePayload where
+  arbitrary = sized genNeo4jCaptureDataChangePayload
+
+genNeo4jCaptureDataChangePayload :: Int -> Gen Neo4jCaptureDataChangePayload
+genNeo4jCaptureDataChangePayload n =
+  Neo4jCaptureDataChangePayload
+    <$> arbitraryReduced n -- neo4jCaptureDataChangePayloadAfter :: A.Value
+    <*> arbitrary -- neo4jCaptureDataChangePayloadBefore :: Text
+    <*> arbitrary -- neo4jCaptureDataChangePayloadId :: Text
+    <*> arbitrary -- neo4jCaptureDataChangePayloadType :: Text
+    <*> arbitraryReduced n -- neo4jCaptureDataChangePayloadEnd :: Neo4jCaptureDataChangeRelationshipPayloadEnd
+    <*> arbitrary -- neo4jCaptureDataChangePayloadLabel :: Text
+    <*> arbitraryReduced n -- neo4jCaptureDataChangePayloadStart :: Neo4jCaptureDataChangeRelationshipPayloadEnd
+  
+instance Arbitrary Neo4jCaptureDataChangeRelationshipPayload where
+  arbitrary = sized genNeo4jCaptureDataChangeRelationshipPayload
+
+genNeo4jCaptureDataChangeRelationshipPayload :: Int -> Gen Neo4jCaptureDataChangeRelationshipPayload
+genNeo4jCaptureDataChangeRelationshipPayload n =
+  Neo4jCaptureDataChangeRelationshipPayload
+    <$> arbitraryReduced n -- neo4jCaptureDataChangeRelationshipPayloadAfter :: A.Value
+    <*> arbitrary -- neo4jCaptureDataChangeRelationshipPayloadBefore :: Text
+    <*> arbitraryReduced n -- neo4jCaptureDataChangeRelationshipPayloadEnd :: Neo4jCaptureDataChangeRelationshipPayloadEnd
+    <*> arbitrary -- neo4jCaptureDataChangeRelationshipPayloadId :: Text
+    <*> arbitrary -- neo4jCaptureDataChangeRelationshipPayloadLabel :: Text
+    <*> arbitraryReduced n -- neo4jCaptureDataChangeRelationshipPayloadStart :: Neo4jCaptureDataChangeRelationshipPayloadEnd
+    <*> arbitrary -- neo4jCaptureDataChangeRelationshipPayloadType :: Text
+  
+instance Arbitrary Neo4jCaptureDataChangeRelationshipPayloadEnd where
+  arbitrary = sized genNeo4jCaptureDataChangeRelationshipPayloadEnd
+
+genNeo4jCaptureDataChangeRelationshipPayloadEnd :: Int -> Gen Neo4jCaptureDataChangeRelationshipPayloadEnd
+genNeo4jCaptureDataChangeRelationshipPayloadEnd n =
+  Neo4jCaptureDataChangeRelationshipPayloadEnd
+    <$> arbitrary -- neo4jCaptureDataChangeRelationshipPayloadEndId :: Text
+    <*> arbitraryReduced n -- neo4jCaptureDataChangeRelationshipPayloadEndIds :: (Map.Map String AnyType)
+    <*> arbitrary -- neo4jCaptureDataChangeRelationshipPayloadEndLabels :: [Text]
+  
+instance Arbitrary Neo4jCaptureDataChangeSchema where
+  arbitrary = sized genNeo4jCaptureDataChangeSchema
+
+genNeo4jCaptureDataChangeSchema :: Int -> Gen Neo4jCaptureDataChangeSchema
+genNeo4jCaptureDataChangeSchema n =
+  Neo4jCaptureDataChangeSchema
+    <$> arbitraryReducedMaybe n -- neo4jCaptureDataChangeSchemaConstraints :: Maybe (Map.Map String AnyType)
+    <*> arbitraryReducedMaybe n -- neo4jCaptureDataChangeSchemaProperties :: Maybe (Map.Map String AnyType)
+  
 instance Arbitrary TmuxPaneIoDocument where
   arbitrary = sized genTmuxPaneIoDocument
 
@@ -205,6 +379,15 @@ genTmuxPaneIoDocument n =
 
 
 
+instance Arbitrary E'Source where
+  arbitrary = arbitraryBoundedEnum
+
+instance Arbitrary E'Source2 where
+  arbitrary = arbitraryBoundedEnum
+
 instance Arbitrary E'Type where
+  arbitrary = arbitraryBoundedEnum
+
+instance Arbitrary E'Type2 where
   arbitrary = arbitraryBoundedEnum
 

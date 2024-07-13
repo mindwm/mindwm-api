@@ -307,6 +307,290 @@ mkCloudEventData =
   { 
   }
 
+-- ** GraphNode
+-- | GraphNode
+data GraphNode = GraphNode
+  { graphNodeId :: !(Text) -- ^ /Required/ "id" - Identifies the event.
+  , graphNodeSource :: !(E'Source) -- ^ /Required/ "source"
+  , graphNodeSpecversion :: !(Text) -- ^ /Required/ "specversion" - The version of the CloudEvents specification which the event uses.
+  , graphNodeType :: !(E'Type2) -- ^ /Required/ "type"
+  , graphNodeDatacontenttype :: !(Maybe Text) -- ^ "datacontenttype" - Content type of the data value. Must adhere to RFC 2046 format.
+  , graphNodeDataschema :: !(Maybe Text) -- ^ "dataschema" - Identifies the schema that data adheres to.
+  , graphNodeSubject :: !(Maybe Text) -- ^ "subject" - Describes the subject of the event in the context of the event producer (identified by source).
+  , graphNodeTime :: !(Maybe DateTime) -- ^ "time" - Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+  , graphNodeData :: !(Maybe GraphNodeAllOfData) -- ^ "data"
+  , graphNodeDataBase64 :: !(Maybe Text) -- ^ "data_base64" - Base64 encoded event payload. Must adhere to RFC4648.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON GraphNode
+instance A.FromJSON GraphNode where
+  parseJSON = A.withObject "GraphNode" $ \o ->
+    GraphNode
+      <$> (o .:  "id")
+      <*> (o .:  "source")
+      <*> (o .:  "specversion")
+      <*> (o .:  "type")
+      <*> (o .:? "datacontenttype")
+      <*> (o .:? "dataschema")
+      <*> (o .:? "subject")
+      <*> (o .:? "time")
+      <*> (o .:? "data")
+      <*> (o .:? "data_base64")
+
+-- | ToJSON GraphNode
+instance A.ToJSON GraphNode where
+  toJSON GraphNode {..} =
+   _omitNulls
+      [ "id" .= graphNodeId
+      , "source" .= graphNodeSource
+      , "specversion" .= graphNodeSpecversion
+      , "type" .= graphNodeType
+      , "datacontenttype" .= graphNodeDatacontenttype
+      , "dataschema" .= graphNodeDataschema
+      , "subject" .= graphNodeSubject
+      , "time" .= graphNodeTime
+      , "data" .= graphNodeData
+      , "data_base64" .= graphNodeDataBase64
+      ]
+
+
+-- | Construct a value of type 'GraphNode' (by applying it's required fields, if any)
+mkGraphNode
+  :: Text -- ^ 'graphNodeId': Identifies the event.
+  -> E'Source -- ^ 'graphNodeSource' 
+  -> Text -- ^ 'graphNodeSpecversion': The version of the CloudEvents specification which the event uses.
+  -> E'Type2 -- ^ 'graphNodeType' 
+  -> GraphNode
+mkGraphNode graphNodeId graphNodeSource graphNodeSpecversion graphNodeType =
+  GraphNode
+  { graphNodeId
+  , graphNodeSource
+  , graphNodeSpecversion
+  , graphNodeType
+  , graphNodeDatacontenttype = Nothing
+  , graphNodeDataschema = Nothing
+  , graphNodeSubject = Nothing
+  , graphNodeTime = Nothing
+  , graphNodeData = Nothing
+  , graphNodeDataBase64 = Nothing
+  }
+
+-- ** GraphNodeAllOfData
+-- | GraphNodeAllOfData
+data GraphNodeAllOfData = GraphNodeAllOfData
+  { graphNodeAllOfDataHeaders :: !(A.Value) -- ^ /Required/ "headers"
+  , graphNodeAllOfDataMessageKey :: !(Text) -- ^ /Required/ "message_key"
+  , graphNodeAllOfDataMeta :: !(Neo4jCaptureDataChangeMeta) -- ^ /Required/ "meta"
+  , graphNodeAllOfDataOffset :: !(Int) -- ^ /Required/ "offset"
+  , graphNodeAllOfDataPartition :: !(Int) -- ^ /Required/ "partition"
+  , graphNodeAllOfDataSourceType :: !(Text) -- ^ /Required/ "source_type"
+  , graphNodeAllOfDataTimestamp :: !(DateTime) -- ^ /Required/ "timestamp"
+  , graphNodeAllOfDataTopic :: !(Text) -- ^ /Required/ "topic"
+  , graphNodeAllOfDataSchema :: !(Neo4jCaptureDataChangeSchema) -- ^ /Required/ "schema"
+  , graphNodeAllOfDataPayload :: !(Neo4jCaptureDataChangeNodePayload) -- ^ /Required/ "payload"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON GraphNodeAllOfData
+instance A.FromJSON GraphNodeAllOfData where
+  parseJSON = A.withObject "GraphNodeAllOfData" $ \o ->
+    GraphNodeAllOfData
+      <$> (o .:  "headers")
+      <*> (o .:  "message_key")
+      <*> (o .:  "meta")
+      <*> (o .:  "offset")
+      <*> (o .:  "partition")
+      <*> (o .:  "source_type")
+      <*> (o .:  "timestamp")
+      <*> (o .:  "topic")
+      <*> (o .:  "schema")
+      <*> (o .:  "payload")
+
+-- | ToJSON GraphNodeAllOfData
+instance A.ToJSON GraphNodeAllOfData where
+  toJSON GraphNodeAllOfData {..} =
+   _omitNulls
+      [ "headers" .= graphNodeAllOfDataHeaders
+      , "message_key" .= graphNodeAllOfDataMessageKey
+      , "meta" .= graphNodeAllOfDataMeta
+      , "offset" .= graphNodeAllOfDataOffset
+      , "partition" .= graphNodeAllOfDataPartition
+      , "source_type" .= graphNodeAllOfDataSourceType
+      , "timestamp" .= graphNodeAllOfDataTimestamp
+      , "topic" .= graphNodeAllOfDataTopic
+      , "schema" .= graphNodeAllOfDataSchema
+      , "payload" .= graphNodeAllOfDataPayload
+      ]
+
+
+-- | Construct a value of type 'GraphNodeAllOfData' (by applying it's required fields, if any)
+mkGraphNodeAllOfData
+  :: A.Value -- ^ 'graphNodeAllOfDataHeaders' 
+  -> Text -- ^ 'graphNodeAllOfDataMessageKey' 
+  -> Neo4jCaptureDataChangeMeta -- ^ 'graphNodeAllOfDataMeta' 
+  -> Int -- ^ 'graphNodeAllOfDataOffset' 
+  -> Int -- ^ 'graphNodeAllOfDataPartition' 
+  -> Text -- ^ 'graphNodeAllOfDataSourceType' 
+  -> DateTime -- ^ 'graphNodeAllOfDataTimestamp' 
+  -> Text -- ^ 'graphNodeAllOfDataTopic' 
+  -> Neo4jCaptureDataChangeSchema -- ^ 'graphNodeAllOfDataSchema' 
+  -> Neo4jCaptureDataChangeNodePayload -- ^ 'graphNodeAllOfDataPayload' 
+  -> GraphNodeAllOfData
+mkGraphNodeAllOfData graphNodeAllOfDataHeaders graphNodeAllOfDataMessageKey graphNodeAllOfDataMeta graphNodeAllOfDataOffset graphNodeAllOfDataPartition graphNodeAllOfDataSourceType graphNodeAllOfDataTimestamp graphNodeAllOfDataTopic graphNodeAllOfDataSchema graphNodeAllOfDataPayload =
+  GraphNodeAllOfData
+  { graphNodeAllOfDataHeaders
+  , graphNodeAllOfDataMessageKey
+  , graphNodeAllOfDataMeta
+  , graphNodeAllOfDataOffset
+  , graphNodeAllOfDataPartition
+  , graphNodeAllOfDataSourceType
+  , graphNodeAllOfDataTimestamp
+  , graphNodeAllOfDataTopic
+  , graphNodeAllOfDataSchema
+  , graphNodeAllOfDataPayload
+  }
+
+-- ** GraphRelationship
+-- | GraphRelationship
+data GraphRelationship = GraphRelationship
+  { graphRelationshipId :: !(Text) -- ^ /Required/ "id" - Identifies the event.
+  , graphRelationshipSource :: !(E'Source2) -- ^ /Required/ "source"
+  , graphRelationshipSpecversion :: !(Text) -- ^ /Required/ "specversion" - The version of the CloudEvents specification which the event uses.
+  , graphRelationshipType :: !(E'Type2) -- ^ /Required/ "type"
+  , graphRelationshipDatacontenttype :: !(Maybe Text) -- ^ "datacontenttype" - Content type of the data value. Must adhere to RFC 2046 format.
+  , graphRelationshipDataschema :: !(Maybe Text) -- ^ "dataschema" - Identifies the schema that data adheres to.
+  , graphRelationshipSubject :: !(Maybe Text) -- ^ "subject" - Describes the subject of the event in the context of the event producer (identified by source).
+  , graphRelationshipTime :: !(Maybe DateTime) -- ^ "time" - Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+  , graphRelationshipData :: !(Maybe GraphRelationshipAllOfData) -- ^ "data"
+  , graphRelationshipDataBase64 :: !(Maybe Text) -- ^ "data_base64" - Base64 encoded event payload. Must adhere to RFC4648.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON GraphRelationship
+instance A.FromJSON GraphRelationship where
+  parseJSON = A.withObject "GraphRelationship" $ \o ->
+    GraphRelationship
+      <$> (o .:  "id")
+      <*> (o .:  "source")
+      <*> (o .:  "specversion")
+      <*> (o .:  "type")
+      <*> (o .:? "datacontenttype")
+      <*> (o .:? "dataschema")
+      <*> (o .:? "subject")
+      <*> (o .:? "time")
+      <*> (o .:? "data")
+      <*> (o .:? "data_base64")
+
+-- | ToJSON GraphRelationship
+instance A.ToJSON GraphRelationship where
+  toJSON GraphRelationship {..} =
+   _omitNulls
+      [ "id" .= graphRelationshipId
+      , "source" .= graphRelationshipSource
+      , "specversion" .= graphRelationshipSpecversion
+      , "type" .= graphRelationshipType
+      , "datacontenttype" .= graphRelationshipDatacontenttype
+      , "dataschema" .= graphRelationshipDataschema
+      , "subject" .= graphRelationshipSubject
+      , "time" .= graphRelationshipTime
+      , "data" .= graphRelationshipData
+      , "data_base64" .= graphRelationshipDataBase64
+      ]
+
+
+-- | Construct a value of type 'GraphRelationship' (by applying it's required fields, if any)
+mkGraphRelationship
+  :: Text -- ^ 'graphRelationshipId': Identifies the event.
+  -> E'Source2 -- ^ 'graphRelationshipSource' 
+  -> Text -- ^ 'graphRelationshipSpecversion': The version of the CloudEvents specification which the event uses.
+  -> E'Type2 -- ^ 'graphRelationshipType' 
+  -> GraphRelationship
+mkGraphRelationship graphRelationshipId graphRelationshipSource graphRelationshipSpecversion graphRelationshipType =
+  GraphRelationship
+  { graphRelationshipId
+  , graphRelationshipSource
+  , graphRelationshipSpecversion
+  , graphRelationshipType
+  , graphRelationshipDatacontenttype = Nothing
+  , graphRelationshipDataschema = Nothing
+  , graphRelationshipSubject = Nothing
+  , graphRelationshipTime = Nothing
+  , graphRelationshipData = Nothing
+  , graphRelationshipDataBase64 = Nothing
+  }
+
+-- ** GraphRelationshipAllOfData
+-- | GraphRelationshipAllOfData
+data GraphRelationshipAllOfData = GraphRelationshipAllOfData
+  { graphRelationshipAllOfDataHeaders :: !(A.Value) -- ^ /Required/ "headers"
+  , graphRelationshipAllOfDataMessageKey :: !(Text) -- ^ /Required/ "message_key"
+  , graphRelationshipAllOfDataMeta :: !(Neo4jCaptureDataChangeMeta) -- ^ /Required/ "meta"
+  , graphRelationshipAllOfDataOffset :: !(Int) -- ^ /Required/ "offset"
+  , graphRelationshipAllOfDataPartition :: !(Int) -- ^ /Required/ "partition"
+  , graphRelationshipAllOfDataSourceType :: !(Text) -- ^ /Required/ "source_type"
+  , graphRelationshipAllOfDataTimestamp :: !(DateTime) -- ^ /Required/ "timestamp"
+  , graphRelationshipAllOfDataTopic :: !(Text) -- ^ /Required/ "topic"
+  , graphRelationshipAllOfDataSchema :: !(Neo4jCaptureDataChangeSchema) -- ^ /Required/ "schema"
+  , graphRelationshipAllOfDataPayload :: !(Neo4jCaptureDataChangeRelationshipPayload) -- ^ /Required/ "payload"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON GraphRelationshipAllOfData
+instance A.FromJSON GraphRelationshipAllOfData where
+  parseJSON = A.withObject "GraphRelationshipAllOfData" $ \o ->
+    GraphRelationshipAllOfData
+      <$> (o .:  "headers")
+      <*> (o .:  "message_key")
+      <*> (o .:  "meta")
+      <*> (o .:  "offset")
+      <*> (o .:  "partition")
+      <*> (o .:  "source_type")
+      <*> (o .:  "timestamp")
+      <*> (o .:  "topic")
+      <*> (o .:  "schema")
+      <*> (o .:  "payload")
+
+-- | ToJSON GraphRelationshipAllOfData
+instance A.ToJSON GraphRelationshipAllOfData where
+  toJSON GraphRelationshipAllOfData {..} =
+   _omitNulls
+      [ "headers" .= graphRelationshipAllOfDataHeaders
+      , "message_key" .= graphRelationshipAllOfDataMessageKey
+      , "meta" .= graphRelationshipAllOfDataMeta
+      , "offset" .= graphRelationshipAllOfDataOffset
+      , "partition" .= graphRelationshipAllOfDataPartition
+      , "source_type" .= graphRelationshipAllOfDataSourceType
+      , "timestamp" .= graphRelationshipAllOfDataTimestamp
+      , "topic" .= graphRelationshipAllOfDataTopic
+      , "schema" .= graphRelationshipAllOfDataSchema
+      , "payload" .= graphRelationshipAllOfDataPayload
+      ]
+
+
+-- | Construct a value of type 'GraphRelationshipAllOfData' (by applying it's required fields, if any)
+mkGraphRelationshipAllOfData
+  :: A.Value -- ^ 'graphRelationshipAllOfDataHeaders' 
+  -> Text -- ^ 'graphRelationshipAllOfDataMessageKey' 
+  -> Neo4jCaptureDataChangeMeta -- ^ 'graphRelationshipAllOfDataMeta' 
+  -> Int -- ^ 'graphRelationshipAllOfDataOffset' 
+  -> Int -- ^ 'graphRelationshipAllOfDataPartition' 
+  -> Text -- ^ 'graphRelationshipAllOfDataSourceType' 
+  -> DateTime -- ^ 'graphRelationshipAllOfDataTimestamp' 
+  -> Text -- ^ 'graphRelationshipAllOfDataTopic' 
+  -> Neo4jCaptureDataChangeSchema -- ^ 'graphRelationshipAllOfDataSchema' 
+  -> Neo4jCaptureDataChangeRelationshipPayload -- ^ 'graphRelationshipAllOfDataPayload' 
+  -> GraphRelationshipAllOfData
+mkGraphRelationshipAllOfData graphRelationshipAllOfDataHeaders graphRelationshipAllOfDataMessageKey graphRelationshipAllOfDataMeta graphRelationshipAllOfDataOffset graphRelationshipAllOfDataPartition graphRelationshipAllOfDataSourceType graphRelationshipAllOfDataTimestamp graphRelationshipAllOfDataTopic graphRelationshipAllOfDataSchema graphRelationshipAllOfDataPayload =
+  GraphRelationshipAllOfData
+  { graphRelationshipAllOfDataHeaders
+  , graphRelationshipAllOfDataMessageKey
+  , graphRelationshipAllOfDataMeta
+  , graphRelationshipAllOfDataOffset
+  , graphRelationshipAllOfDataPartition
+  , graphRelationshipAllOfDataSourceType
+  , graphRelationshipAllOfDataTimestamp
+  , graphRelationshipAllOfDataTopic
+  , graphRelationshipAllOfDataSchema
+  , graphRelationshipAllOfDataPayload
+  }
+
 -- ** IoDocument
 -- | IoDocument
 data IoDocument = IoDocument
@@ -373,6 +657,435 @@ mkIoDocument ioDocumentId ioDocumentSpecversion =
   , ioDocumentDataBase64 = Nothing
   }
 
+-- ** Neo4jCaptureDataChange
+-- | Neo4jCaptureDataChange
+data Neo4jCaptureDataChange = Neo4jCaptureDataChange
+  { neo4jCaptureDataChangeHeaders :: !((Map.Map String AnyType)) -- ^ /Required/ "headers"
+  , neo4jCaptureDataChangeMessageKey :: !(Text) -- ^ /Required/ "message_key"
+  , neo4jCaptureDataChangeMeta :: !(Neo4jCaptureDataChangeMeta) -- ^ /Required/ "meta"
+  , neo4jCaptureDataChangeOffset :: !(Int) -- ^ /Required/ "offset"
+  , neo4jCaptureDataChangePartition :: !(Int) -- ^ /Required/ "partition"
+  , neo4jCaptureDataChangeSourceType :: !(Text) -- ^ /Required/ "source_type"
+  , neo4jCaptureDataChangeTimestamp :: !(DateTime) -- ^ /Required/ "timestamp"
+  , neo4jCaptureDataChangeTopic :: !(Text) -- ^ /Required/ "topic"
+  , neo4jCaptureDataChangeSchema :: !(Neo4jCaptureDataChangeSchema) -- ^ /Required/ "schema"
+  , neo4jCaptureDataChangePayload :: !(Neo4jCaptureDataChangePayload) -- ^ /Required/ "payload"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON Neo4jCaptureDataChange
+instance A.FromJSON Neo4jCaptureDataChange where
+  parseJSON = A.withObject "Neo4jCaptureDataChange" $ \o ->
+    Neo4jCaptureDataChange
+      <$> (o .:  "headers")
+      <*> (o .:  "message_key")
+      <*> (o .:  "meta")
+      <*> (o .:  "offset")
+      <*> (o .:  "partition")
+      <*> (o .:  "source_type")
+      <*> (o .:  "timestamp")
+      <*> (o .:  "topic")
+      <*> (o .:  "schema")
+      <*> (o .:  "payload")
+
+-- | ToJSON Neo4jCaptureDataChange
+instance A.ToJSON Neo4jCaptureDataChange where
+  toJSON Neo4jCaptureDataChange {..} =
+   _omitNulls
+      [ "headers" .= neo4jCaptureDataChangeHeaders
+      , "message_key" .= neo4jCaptureDataChangeMessageKey
+      , "meta" .= neo4jCaptureDataChangeMeta
+      , "offset" .= neo4jCaptureDataChangeOffset
+      , "partition" .= neo4jCaptureDataChangePartition
+      , "source_type" .= neo4jCaptureDataChangeSourceType
+      , "timestamp" .= neo4jCaptureDataChangeTimestamp
+      , "topic" .= neo4jCaptureDataChangeTopic
+      , "schema" .= neo4jCaptureDataChangeSchema
+      , "payload" .= neo4jCaptureDataChangePayload
+      ]
+
+
+-- | Construct a value of type 'Neo4jCaptureDataChange' (by applying it's required fields, if any)
+mkNeo4jCaptureDataChange
+  :: (Map.Map String AnyType) -- ^ 'neo4jCaptureDataChangeHeaders' 
+  -> Text -- ^ 'neo4jCaptureDataChangeMessageKey' 
+  -> Neo4jCaptureDataChangeMeta -- ^ 'neo4jCaptureDataChangeMeta' 
+  -> Int -- ^ 'neo4jCaptureDataChangeOffset' 
+  -> Int -- ^ 'neo4jCaptureDataChangePartition' 
+  -> Text -- ^ 'neo4jCaptureDataChangeSourceType' 
+  -> DateTime -- ^ 'neo4jCaptureDataChangeTimestamp' 
+  -> Text -- ^ 'neo4jCaptureDataChangeTopic' 
+  -> Neo4jCaptureDataChangeSchema -- ^ 'neo4jCaptureDataChangeSchema' 
+  -> Neo4jCaptureDataChangePayload -- ^ 'neo4jCaptureDataChangePayload' 
+  -> Neo4jCaptureDataChange
+mkNeo4jCaptureDataChange neo4jCaptureDataChangeHeaders neo4jCaptureDataChangeMessageKey neo4jCaptureDataChangeMeta neo4jCaptureDataChangeOffset neo4jCaptureDataChangePartition neo4jCaptureDataChangeSourceType neo4jCaptureDataChangeTimestamp neo4jCaptureDataChangeTopic neo4jCaptureDataChangeSchema neo4jCaptureDataChangePayload =
+  Neo4jCaptureDataChange
+  { neo4jCaptureDataChangeHeaders
+  , neo4jCaptureDataChangeMessageKey
+  , neo4jCaptureDataChangeMeta
+  , neo4jCaptureDataChangeOffset
+  , neo4jCaptureDataChangePartition
+  , neo4jCaptureDataChangeSourceType
+  , neo4jCaptureDataChangeTimestamp
+  , neo4jCaptureDataChangeTopic
+  , neo4jCaptureDataChangeSchema
+  , neo4jCaptureDataChangePayload
+  }
+
+-- ** Neo4jCaptureDataChangeMeta
+-- | Neo4jCaptureDataChangeMeta
+data Neo4jCaptureDataChangeMeta = Neo4jCaptureDataChangeMeta
+  { neo4jCaptureDataChangeMetaOperation :: !(Text) -- ^ /Required/ "operation"
+  , neo4jCaptureDataChangeMetaSource :: !(Neo4jCaptureDataChangeMetaSource) -- ^ /Required/ "source"
+  , neo4jCaptureDataChangeMetaTimestamp :: !(Int) -- ^ /Required/ "timestamp"
+  , neo4jCaptureDataChangeMetaTxEventId :: !(Int) -- ^ /Required/ "txEventId"
+  , neo4jCaptureDataChangeMetaTxEventsCount :: !(Int) -- ^ /Required/ "txEventsCount"
+  , neo4jCaptureDataChangeMetaTxId :: !(Int) -- ^ /Required/ "txId"
+  , neo4jCaptureDataChangeMetaUsername :: !(Text) -- ^ /Required/ "username"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON Neo4jCaptureDataChangeMeta
+instance A.FromJSON Neo4jCaptureDataChangeMeta where
+  parseJSON = A.withObject "Neo4jCaptureDataChangeMeta" $ \o ->
+    Neo4jCaptureDataChangeMeta
+      <$> (o .:  "operation")
+      <*> (o .:  "source")
+      <*> (o .:  "timestamp")
+      <*> (o .:  "txEventId")
+      <*> (o .:  "txEventsCount")
+      <*> (o .:  "txId")
+      <*> (o .:  "username")
+
+-- | ToJSON Neo4jCaptureDataChangeMeta
+instance A.ToJSON Neo4jCaptureDataChangeMeta where
+  toJSON Neo4jCaptureDataChangeMeta {..} =
+   _omitNulls
+      [ "operation" .= neo4jCaptureDataChangeMetaOperation
+      , "source" .= neo4jCaptureDataChangeMetaSource
+      , "timestamp" .= neo4jCaptureDataChangeMetaTimestamp
+      , "txEventId" .= neo4jCaptureDataChangeMetaTxEventId
+      , "txEventsCount" .= neo4jCaptureDataChangeMetaTxEventsCount
+      , "txId" .= neo4jCaptureDataChangeMetaTxId
+      , "username" .= neo4jCaptureDataChangeMetaUsername
+      ]
+
+
+-- | Construct a value of type 'Neo4jCaptureDataChangeMeta' (by applying it's required fields, if any)
+mkNeo4jCaptureDataChangeMeta
+  :: Text -- ^ 'neo4jCaptureDataChangeMetaOperation' 
+  -> Neo4jCaptureDataChangeMetaSource -- ^ 'neo4jCaptureDataChangeMetaSource' 
+  -> Int -- ^ 'neo4jCaptureDataChangeMetaTimestamp' 
+  -> Int -- ^ 'neo4jCaptureDataChangeMetaTxEventId' 
+  -> Int -- ^ 'neo4jCaptureDataChangeMetaTxEventsCount' 
+  -> Int -- ^ 'neo4jCaptureDataChangeMetaTxId' 
+  -> Text -- ^ 'neo4jCaptureDataChangeMetaUsername' 
+  -> Neo4jCaptureDataChangeMeta
+mkNeo4jCaptureDataChangeMeta neo4jCaptureDataChangeMetaOperation neo4jCaptureDataChangeMetaSource neo4jCaptureDataChangeMetaTimestamp neo4jCaptureDataChangeMetaTxEventId neo4jCaptureDataChangeMetaTxEventsCount neo4jCaptureDataChangeMetaTxId neo4jCaptureDataChangeMetaUsername =
+  Neo4jCaptureDataChangeMeta
+  { neo4jCaptureDataChangeMetaOperation
+  , neo4jCaptureDataChangeMetaSource
+  , neo4jCaptureDataChangeMetaTimestamp
+  , neo4jCaptureDataChangeMetaTxEventId
+  , neo4jCaptureDataChangeMetaTxEventsCount
+  , neo4jCaptureDataChangeMetaTxId
+  , neo4jCaptureDataChangeMetaUsername
+  }
+
+-- ** Neo4jCaptureDataChangeMetaSource
+-- | Neo4jCaptureDataChangeMetaSource
+data Neo4jCaptureDataChangeMetaSource = Neo4jCaptureDataChangeMetaSource
+  { neo4jCaptureDataChangeMetaSourceHostname :: !(Text) -- ^ /Required/ "hostname"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON Neo4jCaptureDataChangeMetaSource
+instance A.FromJSON Neo4jCaptureDataChangeMetaSource where
+  parseJSON = A.withObject "Neo4jCaptureDataChangeMetaSource" $ \o ->
+    Neo4jCaptureDataChangeMetaSource
+      <$> (o .:  "hostname")
+
+-- | ToJSON Neo4jCaptureDataChangeMetaSource
+instance A.ToJSON Neo4jCaptureDataChangeMetaSource where
+  toJSON Neo4jCaptureDataChangeMetaSource {..} =
+   _omitNulls
+      [ "hostname" .= neo4jCaptureDataChangeMetaSourceHostname
+      ]
+
+
+-- | Construct a value of type 'Neo4jCaptureDataChangeMetaSource' (by applying it's required fields, if any)
+mkNeo4jCaptureDataChangeMetaSource
+  :: Text -- ^ 'neo4jCaptureDataChangeMetaSourceHostname' 
+  -> Neo4jCaptureDataChangeMetaSource
+mkNeo4jCaptureDataChangeMetaSource neo4jCaptureDataChangeMetaSourceHostname =
+  Neo4jCaptureDataChangeMetaSource
+  { neo4jCaptureDataChangeMetaSourceHostname
+  }
+
+-- ** Neo4jCaptureDataChangeNodePayload
+-- | Neo4jCaptureDataChangeNodePayload
+data Neo4jCaptureDataChangeNodePayload = Neo4jCaptureDataChangeNodePayload
+  { neo4jCaptureDataChangeNodePayloadAfter :: !(Neo4jCaptureDataChangeNodePayloadAfter) -- ^ /Required/ "after"
+  , neo4jCaptureDataChangeNodePayloadBefore :: !(Text) -- ^ /Required/ "before"
+  , neo4jCaptureDataChangeNodePayloadId :: !(Text) -- ^ /Required/ "id"
+  , neo4jCaptureDataChangeNodePayloadType :: !(Text) -- ^ /Required/ "type"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON Neo4jCaptureDataChangeNodePayload
+instance A.FromJSON Neo4jCaptureDataChangeNodePayload where
+  parseJSON = A.withObject "Neo4jCaptureDataChangeNodePayload" $ \o ->
+    Neo4jCaptureDataChangeNodePayload
+      <$> (o .:  "after")
+      <*> (o .:  "before")
+      <*> (o .:  "id")
+      <*> (o .:  "type")
+
+-- | ToJSON Neo4jCaptureDataChangeNodePayload
+instance A.ToJSON Neo4jCaptureDataChangeNodePayload where
+  toJSON Neo4jCaptureDataChangeNodePayload {..} =
+   _omitNulls
+      [ "after" .= neo4jCaptureDataChangeNodePayloadAfter
+      , "before" .= neo4jCaptureDataChangeNodePayloadBefore
+      , "id" .= neo4jCaptureDataChangeNodePayloadId
+      , "type" .= neo4jCaptureDataChangeNodePayloadType
+      ]
+
+
+-- | Construct a value of type 'Neo4jCaptureDataChangeNodePayload' (by applying it's required fields, if any)
+mkNeo4jCaptureDataChangeNodePayload
+  :: Neo4jCaptureDataChangeNodePayloadAfter -- ^ 'neo4jCaptureDataChangeNodePayloadAfter' 
+  -> Text -- ^ 'neo4jCaptureDataChangeNodePayloadBefore' 
+  -> Text -- ^ 'neo4jCaptureDataChangeNodePayloadId' 
+  -> Text -- ^ 'neo4jCaptureDataChangeNodePayloadType' 
+  -> Neo4jCaptureDataChangeNodePayload
+mkNeo4jCaptureDataChangeNodePayload neo4jCaptureDataChangeNodePayloadAfter neo4jCaptureDataChangeNodePayloadBefore neo4jCaptureDataChangeNodePayloadId neo4jCaptureDataChangeNodePayloadType =
+  Neo4jCaptureDataChangeNodePayload
+  { neo4jCaptureDataChangeNodePayloadAfter
+  , neo4jCaptureDataChangeNodePayloadBefore
+  , neo4jCaptureDataChangeNodePayloadId
+  , neo4jCaptureDataChangeNodePayloadType
+  }
+
+-- ** Neo4jCaptureDataChangeNodePayloadAfter
+-- | Neo4jCaptureDataChangeNodePayloadAfter
+data Neo4jCaptureDataChangeNodePayloadAfter = Neo4jCaptureDataChangeNodePayloadAfter
+  { neo4jCaptureDataChangeNodePayloadAfterLabels :: !([Text]) -- ^ /Required/ "labels"
+  , neo4jCaptureDataChangeNodePayloadAfterProperties :: !((Map.Map String AnyType)) -- ^ /Required/ "properties"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON Neo4jCaptureDataChangeNodePayloadAfter
+instance A.FromJSON Neo4jCaptureDataChangeNodePayloadAfter where
+  parseJSON = A.withObject "Neo4jCaptureDataChangeNodePayloadAfter" $ \o ->
+    Neo4jCaptureDataChangeNodePayloadAfter
+      <$> (o .:  "labels")
+      <*> (o .:  "properties")
+
+-- | ToJSON Neo4jCaptureDataChangeNodePayloadAfter
+instance A.ToJSON Neo4jCaptureDataChangeNodePayloadAfter where
+  toJSON Neo4jCaptureDataChangeNodePayloadAfter {..} =
+   _omitNulls
+      [ "labels" .= neo4jCaptureDataChangeNodePayloadAfterLabels
+      , "properties" .= neo4jCaptureDataChangeNodePayloadAfterProperties
+      ]
+
+
+-- | Construct a value of type 'Neo4jCaptureDataChangeNodePayloadAfter' (by applying it's required fields, if any)
+mkNeo4jCaptureDataChangeNodePayloadAfter
+  :: [Text] -- ^ 'neo4jCaptureDataChangeNodePayloadAfterLabels' 
+  -> (Map.Map String AnyType) -- ^ 'neo4jCaptureDataChangeNodePayloadAfterProperties' 
+  -> Neo4jCaptureDataChangeNodePayloadAfter
+mkNeo4jCaptureDataChangeNodePayloadAfter neo4jCaptureDataChangeNodePayloadAfterLabels neo4jCaptureDataChangeNodePayloadAfterProperties =
+  Neo4jCaptureDataChangeNodePayloadAfter
+  { neo4jCaptureDataChangeNodePayloadAfterLabels
+  , neo4jCaptureDataChangeNodePayloadAfterProperties
+  }
+
+-- ** Neo4jCaptureDataChangePayload
+-- | Neo4jCaptureDataChangePayload
+data Neo4jCaptureDataChangePayload = Neo4jCaptureDataChangePayload
+  { neo4jCaptureDataChangePayloadAfter :: !(A.Value) -- ^ /Required/ "after"
+  , neo4jCaptureDataChangePayloadBefore :: !(Text) -- ^ /Required/ "before"
+  , neo4jCaptureDataChangePayloadId :: !(Text) -- ^ /Required/ "id"
+  , neo4jCaptureDataChangePayloadType :: !(Text) -- ^ /Required/ "type"
+  , neo4jCaptureDataChangePayloadEnd :: !(Neo4jCaptureDataChangeRelationshipPayloadEnd) -- ^ /Required/ "end"
+  , neo4jCaptureDataChangePayloadLabel :: !(Text) -- ^ /Required/ "label"
+  , neo4jCaptureDataChangePayloadStart :: !(Neo4jCaptureDataChangeRelationshipPayloadEnd) -- ^ /Required/ "start"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON Neo4jCaptureDataChangePayload
+instance A.FromJSON Neo4jCaptureDataChangePayload where
+  parseJSON = A.withObject "Neo4jCaptureDataChangePayload" $ \o ->
+    Neo4jCaptureDataChangePayload
+      <$> (o .:  "after")
+      <*> (o .:  "before")
+      <*> (o .:  "id")
+      <*> (o .:  "type")
+      <*> (o .:  "end")
+      <*> (o .:  "label")
+      <*> (o .:  "start")
+
+-- | ToJSON Neo4jCaptureDataChangePayload
+instance A.ToJSON Neo4jCaptureDataChangePayload where
+  toJSON Neo4jCaptureDataChangePayload {..} =
+   _omitNulls
+      [ "after" .= neo4jCaptureDataChangePayloadAfter
+      , "before" .= neo4jCaptureDataChangePayloadBefore
+      , "id" .= neo4jCaptureDataChangePayloadId
+      , "type" .= neo4jCaptureDataChangePayloadType
+      , "end" .= neo4jCaptureDataChangePayloadEnd
+      , "label" .= neo4jCaptureDataChangePayloadLabel
+      , "start" .= neo4jCaptureDataChangePayloadStart
+      ]
+
+
+-- | Construct a value of type 'Neo4jCaptureDataChangePayload' (by applying it's required fields, if any)
+mkNeo4jCaptureDataChangePayload
+  :: A.Value -- ^ 'neo4jCaptureDataChangePayloadAfter' 
+  -> Text -- ^ 'neo4jCaptureDataChangePayloadBefore' 
+  -> Text -- ^ 'neo4jCaptureDataChangePayloadId' 
+  -> Text -- ^ 'neo4jCaptureDataChangePayloadType' 
+  -> Neo4jCaptureDataChangeRelationshipPayloadEnd -- ^ 'neo4jCaptureDataChangePayloadEnd' 
+  -> Text -- ^ 'neo4jCaptureDataChangePayloadLabel' 
+  -> Neo4jCaptureDataChangeRelationshipPayloadEnd -- ^ 'neo4jCaptureDataChangePayloadStart' 
+  -> Neo4jCaptureDataChangePayload
+mkNeo4jCaptureDataChangePayload neo4jCaptureDataChangePayloadAfter neo4jCaptureDataChangePayloadBefore neo4jCaptureDataChangePayloadId neo4jCaptureDataChangePayloadType neo4jCaptureDataChangePayloadEnd neo4jCaptureDataChangePayloadLabel neo4jCaptureDataChangePayloadStart =
+  Neo4jCaptureDataChangePayload
+  { neo4jCaptureDataChangePayloadAfter
+  , neo4jCaptureDataChangePayloadBefore
+  , neo4jCaptureDataChangePayloadId
+  , neo4jCaptureDataChangePayloadType
+  , neo4jCaptureDataChangePayloadEnd
+  , neo4jCaptureDataChangePayloadLabel
+  , neo4jCaptureDataChangePayloadStart
+  }
+
+-- ** Neo4jCaptureDataChangeRelationshipPayload
+-- | Neo4jCaptureDataChangeRelationshipPayload
+data Neo4jCaptureDataChangeRelationshipPayload = Neo4jCaptureDataChangeRelationshipPayload
+  { neo4jCaptureDataChangeRelationshipPayloadAfter :: !(A.Value) -- ^ /Required/ "after"
+  , neo4jCaptureDataChangeRelationshipPayloadBefore :: !(Text) -- ^ /Required/ "before"
+  , neo4jCaptureDataChangeRelationshipPayloadEnd :: !(Neo4jCaptureDataChangeRelationshipPayloadEnd) -- ^ /Required/ "end"
+  , neo4jCaptureDataChangeRelationshipPayloadId :: !(Text) -- ^ /Required/ "id"
+  , neo4jCaptureDataChangeRelationshipPayloadLabel :: !(Text) -- ^ /Required/ "label"
+  , neo4jCaptureDataChangeRelationshipPayloadStart :: !(Neo4jCaptureDataChangeRelationshipPayloadEnd) -- ^ /Required/ "start"
+  , neo4jCaptureDataChangeRelationshipPayloadType :: !(Text) -- ^ /Required/ "type"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON Neo4jCaptureDataChangeRelationshipPayload
+instance A.FromJSON Neo4jCaptureDataChangeRelationshipPayload where
+  parseJSON = A.withObject "Neo4jCaptureDataChangeRelationshipPayload" $ \o ->
+    Neo4jCaptureDataChangeRelationshipPayload
+      <$> (o .:  "after")
+      <*> (o .:  "before")
+      <*> (o .:  "end")
+      <*> (o .:  "id")
+      <*> (o .:  "label")
+      <*> (o .:  "start")
+      <*> (o .:  "type")
+
+-- | ToJSON Neo4jCaptureDataChangeRelationshipPayload
+instance A.ToJSON Neo4jCaptureDataChangeRelationshipPayload where
+  toJSON Neo4jCaptureDataChangeRelationshipPayload {..} =
+   _omitNulls
+      [ "after" .= neo4jCaptureDataChangeRelationshipPayloadAfter
+      , "before" .= neo4jCaptureDataChangeRelationshipPayloadBefore
+      , "end" .= neo4jCaptureDataChangeRelationshipPayloadEnd
+      , "id" .= neo4jCaptureDataChangeRelationshipPayloadId
+      , "label" .= neo4jCaptureDataChangeRelationshipPayloadLabel
+      , "start" .= neo4jCaptureDataChangeRelationshipPayloadStart
+      , "type" .= neo4jCaptureDataChangeRelationshipPayloadType
+      ]
+
+
+-- | Construct a value of type 'Neo4jCaptureDataChangeRelationshipPayload' (by applying it's required fields, if any)
+mkNeo4jCaptureDataChangeRelationshipPayload
+  :: A.Value -- ^ 'neo4jCaptureDataChangeRelationshipPayloadAfter' 
+  -> Text -- ^ 'neo4jCaptureDataChangeRelationshipPayloadBefore' 
+  -> Neo4jCaptureDataChangeRelationshipPayloadEnd -- ^ 'neo4jCaptureDataChangeRelationshipPayloadEnd' 
+  -> Text -- ^ 'neo4jCaptureDataChangeRelationshipPayloadId' 
+  -> Text -- ^ 'neo4jCaptureDataChangeRelationshipPayloadLabel' 
+  -> Neo4jCaptureDataChangeRelationshipPayloadEnd -- ^ 'neo4jCaptureDataChangeRelationshipPayloadStart' 
+  -> Text -- ^ 'neo4jCaptureDataChangeRelationshipPayloadType' 
+  -> Neo4jCaptureDataChangeRelationshipPayload
+mkNeo4jCaptureDataChangeRelationshipPayload neo4jCaptureDataChangeRelationshipPayloadAfter neo4jCaptureDataChangeRelationshipPayloadBefore neo4jCaptureDataChangeRelationshipPayloadEnd neo4jCaptureDataChangeRelationshipPayloadId neo4jCaptureDataChangeRelationshipPayloadLabel neo4jCaptureDataChangeRelationshipPayloadStart neo4jCaptureDataChangeRelationshipPayloadType =
+  Neo4jCaptureDataChangeRelationshipPayload
+  { neo4jCaptureDataChangeRelationshipPayloadAfter
+  , neo4jCaptureDataChangeRelationshipPayloadBefore
+  , neo4jCaptureDataChangeRelationshipPayloadEnd
+  , neo4jCaptureDataChangeRelationshipPayloadId
+  , neo4jCaptureDataChangeRelationshipPayloadLabel
+  , neo4jCaptureDataChangeRelationshipPayloadStart
+  , neo4jCaptureDataChangeRelationshipPayloadType
+  }
+
+-- ** Neo4jCaptureDataChangeRelationshipPayloadEnd
+-- | Neo4jCaptureDataChangeRelationshipPayloadEnd
+data Neo4jCaptureDataChangeRelationshipPayloadEnd = Neo4jCaptureDataChangeRelationshipPayloadEnd
+  { neo4jCaptureDataChangeRelationshipPayloadEndId :: !(Text) -- ^ /Required/ "id"
+  , neo4jCaptureDataChangeRelationshipPayloadEndIds :: !((Map.Map String AnyType)) -- ^ /Required/ "ids"
+  , neo4jCaptureDataChangeRelationshipPayloadEndLabels :: !([Text]) -- ^ /Required/ "labels"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON Neo4jCaptureDataChangeRelationshipPayloadEnd
+instance A.FromJSON Neo4jCaptureDataChangeRelationshipPayloadEnd where
+  parseJSON = A.withObject "Neo4jCaptureDataChangeRelationshipPayloadEnd" $ \o ->
+    Neo4jCaptureDataChangeRelationshipPayloadEnd
+      <$> (o .:  "id")
+      <*> (o .:  "ids")
+      <*> (o .:  "labels")
+
+-- | ToJSON Neo4jCaptureDataChangeRelationshipPayloadEnd
+instance A.ToJSON Neo4jCaptureDataChangeRelationshipPayloadEnd where
+  toJSON Neo4jCaptureDataChangeRelationshipPayloadEnd {..} =
+   _omitNulls
+      [ "id" .= neo4jCaptureDataChangeRelationshipPayloadEndId
+      , "ids" .= neo4jCaptureDataChangeRelationshipPayloadEndIds
+      , "labels" .= neo4jCaptureDataChangeRelationshipPayloadEndLabels
+      ]
+
+
+-- | Construct a value of type 'Neo4jCaptureDataChangeRelationshipPayloadEnd' (by applying it's required fields, if any)
+mkNeo4jCaptureDataChangeRelationshipPayloadEnd
+  :: Text -- ^ 'neo4jCaptureDataChangeRelationshipPayloadEndId' 
+  -> (Map.Map String AnyType) -- ^ 'neo4jCaptureDataChangeRelationshipPayloadEndIds' 
+  -> [Text] -- ^ 'neo4jCaptureDataChangeRelationshipPayloadEndLabels' 
+  -> Neo4jCaptureDataChangeRelationshipPayloadEnd
+mkNeo4jCaptureDataChangeRelationshipPayloadEnd neo4jCaptureDataChangeRelationshipPayloadEndId neo4jCaptureDataChangeRelationshipPayloadEndIds neo4jCaptureDataChangeRelationshipPayloadEndLabels =
+  Neo4jCaptureDataChangeRelationshipPayloadEnd
+  { neo4jCaptureDataChangeRelationshipPayloadEndId
+  , neo4jCaptureDataChangeRelationshipPayloadEndIds
+  , neo4jCaptureDataChangeRelationshipPayloadEndLabels
+  }
+
+-- ** Neo4jCaptureDataChangeSchema
+-- | Neo4jCaptureDataChangeSchema
+data Neo4jCaptureDataChangeSchema = Neo4jCaptureDataChangeSchema
+  { neo4jCaptureDataChangeSchemaConstraints :: !(Maybe (Map.Map String AnyType)) -- ^ "constraints"
+  , neo4jCaptureDataChangeSchemaProperties :: !(Maybe (Map.Map String AnyType)) -- ^ "properties"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON Neo4jCaptureDataChangeSchema
+instance A.FromJSON Neo4jCaptureDataChangeSchema where
+  parseJSON = A.withObject "Neo4jCaptureDataChangeSchema" $ \o ->
+    Neo4jCaptureDataChangeSchema
+      <$> (o .:? "constraints")
+      <*> (o .:? "properties")
+
+-- | ToJSON Neo4jCaptureDataChangeSchema
+instance A.ToJSON Neo4jCaptureDataChangeSchema where
+  toJSON Neo4jCaptureDataChangeSchema {..} =
+   _omitNulls
+      [ "constraints" .= neo4jCaptureDataChangeSchemaConstraints
+      , "properties" .= neo4jCaptureDataChangeSchemaProperties
+      ]
+
+
+-- | Construct a value of type 'Neo4jCaptureDataChangeSchema' (by applying it's required fields, if any)
+mkNeo4jCaptureDataChangeSchema
+  :: Neo4jCaptureDataChangeSchema
+mkNeo4jCaptureDataChangeSchema =
+  Neo4jCaptureDataChangeSchema
+  { neo4jCaptureDataChangeSchemaConstraints = Nothing
+  , neo4jCaptureDataChangeSchemaProperties = Nothing
+  }
+
 -- ** TmuxPaneIoDocument
 -- | TmuxPaneIoDocument
 data TmuxPaneIoDocument = TmuxPaneIoDocument
@@ -416,6 +1129,56 @@ mkTmuxPaneIoDocument tmuxPaneIoDocumentInput tmuxPaneIoDocumentOutput tmuxPaneIo
 -- * Enums
 
 
+-- ** E'Source
+
+-- | Enum of 'Text'
+data E'Source
+  = E'Source'Graph_node -- ^ @"graph.node"@
+  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+
+instance A.ToJSON E'Source where toJSON = A.toJSON . fromE'Source
+instance A.FromJSON E'Source where parseJSON o = P.either P.fail (pure . P.id) . toE'Source =<< A.parseJSON o
+instance WH.ToHttpApiData E'Source where toQueryParam = WH.toQueryParam . fromE'Source
+instance WH.FromHttpApiData E'Source where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'Source
+instance MimeRender MimeMultipartFormData E'Source where mimeRender _ = mimeRenderDefaultMultipartFormData
+
+-- | unwrap 'E'Source' enum
+fromE'Source :: E'Source -> Text
+fromE'Source = \case
+  E'Source'Graph_node -> "graph.node"
+
+-- | parse 'E'Source' enum
+toE'Source :: Text -> P.Either String E'Source
+toE'Source = \case
+  "graph.node" -> P.Right E'Source'Graph_node
+  s -> P.Left $ "toE'Source: enum parse failure: " P.++ P.show s
+
+
+-- ** E'Source2
+
+-- | Enum of 'Text'
+data E'Source2
+  = E'Source2'Graph_relationship -- ^ @"graph.relationship"@
+  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+
+instance A.ToJSON E'Source2 where toJSON = A.toJSON . fromE'Source2
+instance A.FromJSON E'Source2 where parseJSON o = P.either P.fail (pure . P.id) . toE'Source2 =<< A.parseJSON o
+instance WH.ToHttpApiData E'Source2 where toQueryParam = WH.toQueryParam . fromE'Source2
+instance WH.FromHttpApiData E'Source2 where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'Source2
+instance MimeRender MimeMultipartFormData E'Source2 where mimeRender _ = mimeRenderDefaultMultipartFormData
+
+-- | unwrap 'E'Source2' enum
+fromE'Source2 :: E'Source2 -> Text
+fromE'Source2 = \case
+  E'Source2'Graph_relationship -> "graph.relationship"
+
+-- | parse 'E'Source2' enum
+toE'Source2 :: Text -> P.Either String E'Source2
+toE'Source2 = \case
+  "graph.relationship" -> P.Right E'Source2'Graph_relationship
+  s -> P.Left $ "toE'Source2: enum parse failure: " P.++ P.show s
+
+
 -- ** E'Type
 
 -- | Enum of 'Text' .
@@ -446,6 +1209,37 @@ toE'Type = \case
   "secondary" -> P.Right E'Type'Secondary
   "clipboard" -> P.Right E'Type'Clipboard
   s -> P.Left $ "toE'Type: enum parse failure: " P.++ P.show s
+
+
+-- ** E'Type2
+
+-- | Enum of 'Text'
+data E'Type2
+  = E'Type2'Created -- ^ @"created"@
+  | E'Type2'Updated -- ^ @"updated"@
+  | E'Type2'Deleted -- ^ @"deleted"@
+  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+
+instance A.ToJSON E'Type2 where toJSON = A.toJSON . fromE'Type2
+instance A.FromJSON E'Type2 where parseJSON o = P.either P.fail (pure . P.id) . toE'Type2 =<< A.parseJSON o
+instance WH.ToHttpApiData E'Type2 where toQueryParam = WH.toQueryParam . fromE'Type2
+instance WH.FromHttpApiData E'Type2 where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'Type2
+instance MimeRender MimeMultipartFormData E'Type2 where mimeRender _ = mimeRenderDefaultMultipartFormData
+
+-- | unwrap 'E'Type2' enum
+fromE'Type2 :: E'Type2 -> Text
+fromE'Type2 = \case
+  E'Type2'Created -> "created"
+  E'Type2'Updated -> "updated"
+  E'Type2'Deleted -> "deleted"
+
+-- | parse 'E'Type2' enum
+toE'Type2 :: Text -> P.Either String E'Type2
+toE'Type2 = \case
+  "created" -> P.Right E'Type2'Created
+  "updated" -> P.Right E'Type2'Updated
+  "deleted" -> P.Right E'Type2'Deleted
+  s -> P.Left $ "toE'Type2: enum parse failure: " P.++ P.show s
 
 
 

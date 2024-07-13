@@ -36,6 +36,19 @@ All URIs are relative to https://mindwmw.iohttps://mindwmw.io/v1
 |*ClipboardPayload_context* | Selection context|
 |*CloudEvent* | CloudEvents Specification JSON Schema|
 |*CloudEvent_data* | The event payload.|
+|*GraphNode* | |
+|*GraphNode_allOf_data* | |
+|*GraphRelationship* | |
+|*GraphRelationship_allOf_data* | |
 |*IoDocument* | |
+|*Neo4jCaptureDataChange* | |
+|*Neo4jCaptureDataChangeNodePayload* | |
+|*Neo4jCaptureDataChangeNodePayload_after* | |
+|*Neo4jCaptureDataChangeRelationshipPayload* | |
+|*Neo4jCaptureDataChangeRelationshipPayload_end* | |
+|*Neo4jCaptureDataChange_meta* | |
+|*Neo4jCaptureDataChange_meta_source* | |
+|*Neo4jCaptureDataChange_payload* | |
+|*Neo4jCaptureDataChange_schema* | |
 |*TmuxPaneIoDocument* | |
 

@@ -22,7 +22,20 @@
 
   <ItemGroup>
     <Compile Include="src/model/TmuxPaneIoDocument.fs" />
+    <Compile Include="src/model/Neo4jCaptureDataChangeSchema.fs" />
+    <Compile Include="src/model/Neo4jCaptureDataChangeRelationshipPayloadEnd.fs" />
+    <Compile Include="src/model/Neo4jCaptureDataChangeRelationshipPayload.fs" />
+    <Compile Include="src/model/Neo4jCaptureDataChangeNodePayloadAfter.fs" />
+    <Compile Include="src/model/Neo4jCaptureDataChangeNodePayload.fs" />
+    <Compile Include="src/model/Neo4jCaptureDataChangePayload.fs" />
+    <Compile Include="src/model/Neo4jCaptureDataChangeMetaSource.fs" />
+    <Compile Include="src/model/Neo4jCaptureDataChangeMeta.fs" />
+    <Compile Include="src/model/Neo4jCaptureDataChange.fs" />
     <Compile Include="src/model/IoDocument.fs" />
+    <Compile Include="src/model/GraphRelationshipAllOfData.fs" />
+    <Compile Include="src/model/GraphRelationship.fs" />
+    <Compile Include="src/model/GraphNodeAllOfData.fs" />
+    <Compile Include="src/model/GraphNode.fs" />
     <Compile Include="src/model/CloudEventData.fs" />
     <Compile Include="src/model/CloudEvent.fs" />
     <Compile Include="src/model/ClipboardPayloadContext.fs" />

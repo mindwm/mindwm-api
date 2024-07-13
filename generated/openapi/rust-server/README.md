@@ -14,7 +14,7 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 0.1.0
-- Build date: 2024-07-13T19:27:06.157108640Z[Etc/UTC]
+- Build date: 2024-07-13T22:11:07.078519388Z[Etc/UTC]
 - Generator version: 7.7.0
 
 
@@ -104,7 +104,20 @@ Method | HTTP request | Description
  - [ClipboardPayloadContext](docs/ClipboardPayloadContext.md)
  - [CloudEvent](docs/CloudEvent.md)
  - [CloudEventData](docs/CloudEventData.md)
+ - [GraphNode](docs/GraphNode.md)
+ - [GraphNodeAllOfData](docs/GraphNodeAllOfData.md)
+ - [GraphRelationship](docs/GraphRelationship.md)
+ - [GraphRelationshipAllOfData](docs/GraphRelationshipAllOfData.md)
  - [IoDocument](docs/IoDocument.md)
+ - [Neo4jCaptureDataChange](docs/Neo4jCaptureDataChange.md)
+ - [Neo4jCaptureDataChangeMeta](docs/Neo4jCaptureDataChangeMeta.md)
+ - [Neo4jCaptureDataChangeMetaSource](docs/Neo4jCaptureDataChangeMetaSource.md)
+ - [Neo4jCaptureDataChangeNodePayload](docs/Neo4jCaptureDataChangeNodePayload.md)
+ - [Neo4jCaptureDataChangeNodePayloadAfter](docs/Neo4jCaptureDataChangeNodePayloadAfter.md)
+ - [Neo4jCaptureDataChangePayload](docs/Neo4jCaptureDataChangePayload.md)
+ - [Neo4jCaptureDataChangeRelationshipPayload](docs/Neo4jCaptureDataChangeRelationshipPayload.md)
+ - [Neo4jCaptureDataChangeRelationshipPayloadEnd](docs/Neo4jCaptureDataChangeRelationshipPayloadEnd.md)
+ - [Neo4jCaptureDataChangeSchema](docs/Neo4jCaptureDataChangeSchema.md)
  - [TmuxPaneIoDocument](docs/TmuxPaneIoDocument.md)
 
 

@@ -207,6 +207,178 @@
         <xs:sequence>
         </xs:sequence>
       </xs:complexType>
+      <xs:complexType name="GraphNode">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Identifies the event.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" name="source" type="schemas:Source" />
+          <xs:element minOccurs="1" name="specversion">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>The version of the CloudEvents specification which the event uses.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" name="type" type="schemas:Type" />
+          <xs:element minOccurs="0" name="datacontenttype">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Content type of the data value. Must adhere to RFC 2046 format.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="dataschema">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Identifies the schema that data adheres to.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="subject">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Describes the subject of the event in the context of the event producer (identified by source).</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="time">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Timestamp of when the occurrence happened. Must adhere to RFC 3339.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:long">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="data" type="schemas:GraphNode_allOf_data" />
+          <xs:element minOccurs="0" name="data_base64" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Base64 encoded event payload. Must adhere to RFC4648.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GraphNodeAllOfData">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="headers" type="xs:anyType" />
+          <xs:element minOccurs="1" name="message_key" type="xs:string" />
+          <xs:element minOccurs="1" name="meta" type="schemas:Neo4jCaptureDataChange_meta" />
+          <xs:element minOccurs="1" name="offset" type="xs:integer" />
+          <xs:element minOccurs="1" name="partition" type="xs:integer" />
+          <xs:element minOccurs="1" name="source_type" type="xs:string" />
+          <xs:element minOccurs="1" name="timestamp" type="xs:dateTime" />
+          <xs:element minOccurs="1" name="topic" type="xs:string" />
+          <xs:element minOccurs="1" name="schema" type="schemas:Neo4jCaptureDataChange_schema" />
+          <xs:element minOccurs="1" name="payload" type="schemas:Neo4jCaptureDataChangeNodePayload" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GraphRelationship">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Identifies the event.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" name="source" type="schemas:Source" />
+          <xs:element minOccurs="1" name="specversion">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>The version of the CloudEvents specification which the event uses.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" name="type" type="schemas:Type" />
+          <xs:element minOccurs="0" name="datacontenttype">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Content type of the data value. Must adhere to RFC 2046 format.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="dataschema">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Identifies the schema that data adheres to.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="subject">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Describes the subject of the event in the context of the event producer (identified by source).</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="time">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Timestamp of when the occurrence happened. Must adhere to RFC 3339.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:long">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="data" type="schemas:GraphRelationship_allOf_data" />
+          <xs:element minOccurs="0" name="data_base64" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Base64 encoded event payload. Must adhere to RFC4648.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GraphRelationshipAllOfData">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="headers" type="xs:anyType" />
+          <xs:element minOccurs="1" name="message_key" type="xs:string" />
+          <xs:element minOccurs="1" name="meta" type="schemas:Neo4jCaptureDataChange_meta" />
+          <xs:element minOccurs="1" name="offset" type="xs:integer" />
+          <xs:element minOccurs="1" name="partition" type="xs:integer" />
+          <xs:element minOccurs="1" name="source_type" type="xs:string" />
+          <xs:element minOccurs="1" name="timestamp" type="xs:dateTime" />
+          <xs:element minOccurs="1" name="topic" type="xs:string" />
+          <xs:element minOccurs="1" name="schema" type="schemas:Neo4jCaptureDataChange_schema" />
+          <xs:element minOccurs="1" name="payload" type="schemas:Neo4jCaptureDataChangeRelationshipPayload" />
+        </xs:sequence>
+      </xs:complexType>
       <xs:complexType name="IoDocument">
         <xs:sequence>
           <xs:element minOccurs="0" name="type" type="xs:string" />
@@ -268,6 +440,85 @@
               <xs:documentation>Base64 encoded event payload. Must adhere to RFC4648.</xs:documentation>
             </xs:annotation>
           </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Neo4jCaptureDataChange">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="unbounded" name="headers" type="schemas:" />
+          <xs:element minOccurs="1" name="message_key" type="xs:string" />
+          <xs:element minOccurs="1" name="meta" type="schemas:Neo4jCaptureDataChange_meta" />
+          <xs:element minOccurs="1" name="offset" type="xs:integer" />
+          <xs:element minOccurs="1" name="partition" type="xs:integer" />
+          <xs:element minOccurs="1" name="source_type" type="xs:string" />
+          <xs:element minOccurs="1" name="timestamp" type="xs:dateTime" />
+          <xs:element minOccurs="1" name="topic" type="xs:string" />
+          <xs:element minOccurs="1" name="schema" type="schemas:Neo4jCaptureDataChange_schema" />
+          <xs:element minOccurs="1" name="payload" type="schemas:Neo4jCaptureDataChange_payload" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Neo4jCaptureDataChangeMeta">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="operation" type="xs:string" />
+          <xs:element minOccurs="1" name="source" type="schemas:Neo4jCaptureDataChange_meta_source" />
+          <xs:element minOccurs="1" name="timestamp" type="xs:integer" />
+          <xs:element minOccurs="1" name="txEventId" type="xs:integer" />
+          <xs:element minOccurs="1" name="txEventsCount" type="xs:integer" />
+          <xs:element minOccurs="1" name="txId" type="xs:integer" />
+          <xs:element minOccurs="1" name="username" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Neo4jCaptureDataChangeMetaSource">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="hostname" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Neo4jCaptureDataChangeNodePayload">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="after" type="schemas:Neo4jCaptureDataChangeNodePayload_after" />
+          <xs:element minOccurs="1" name="before" type="xs:string" />
+          <xs:element minOccurs="1" name="id" type="xs:string" />
+          <xs:element minOccurs="1" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Neo4jCaptureDataChangeNodePayloadAfter">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="unbounded" name="labels" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="unbounded" name="properties" type="schemas:" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Neo4jCaptureDataChangePayload">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="after" type="xs:anyType" />
+          <xs:element minOccurs="1" name="before" type="xs:string" />
+          <xs:element minOccurs="1" name="id" type="xs:string" />
+          <xs:element minOccurs="1" name="type" type="xs:string" />
+          <xs:element minOccurs="1" name="end" type="schemas:Neo4jCaptureDataChangeRelationshipPayload_end" />
+          <xs:element minOccurs="1" name="label" type="xs:string" />
+          <xs:element minOccurs="1" name="start" type="schemas:Neo4jCaptureDataChangeRelationshipPayload_end" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Neo4jCaptureDataChangeRelationshipPayload">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="after" type="xs:anyType" />
+          <xs:element minOccurs="1" name="before" type="xs:string" />
+          <xs:element minOccurs="1" name="end" type="schemas:Neo4jCaptureDataChangeRelationshipPayload_end" />
+          <xs:element minOccurs="1" name="id" type="xs:string" />
+          <xs:element minOccurs="1" name="label" type="xs:string" />
+          <xs:element minOccurs="1" name="start" type="schemas:Neo4jCaptureDataChangeRelationshipPayload_end" />
+          <xs:element minOccurs="1" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Neo4jCaptureDataChangeRelationshipPayloadEnd">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="unbounded" name="ids" type="schemas:" />
+          <xs:element minOccurs="1" maxOccurs="unbounded" name="labels" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Neo4jCaptureDataChangeSchema">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="constraints" type="schemas:" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="properties" type="schemas:" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="TmuxPaneIoDocument">

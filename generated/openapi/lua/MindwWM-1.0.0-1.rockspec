@@ -28,7 +28,20 @@ build = {
 		["MindwWM.model.clipboard_payload_context"] = "MindwWM/model/clipboard_payload_context.lua";
 		["MindwWM.model.cloud_event"] = "MindwWM/model/cloud_event.lua";
 		["MindwWM.model.cloud_event_data"] = "MindwWM/model/cloud_event_data.lua";
+		["MindwWM.model.graph_node"] = "MindwWM/model/graph_node.lua";
+		["MindwWM.model.graph_node_all_of_data"] = "MindwWM/model/graph_node_all_of_data.lua";
+		["MindwWM.model.graph_relationship"] = "MindwWM/model/graph_relationship.lua";
+		["MindwWM.model.graph_relationship_all_of_data"] = "MindwWM/model/graph_relationship_all_of_data.lua";
 		["MindwWM.model.io_document"] = "MindwWM/model/io_document.lua";
+		["MindwWM.model.neo4j_capture_data_change"] = "MindwWM/model/neo4j_capture_data_change.lua";
+		["MindwWM.model.neo4j_capture_data_change_meta"] = "MindwWM/model/neo4j_capture_data_change_meta.lua";
+		["MindwWM.model.neo4j_capture_data_change_meta_source"] = "MindwWM/model/neo4j_capture_data_change_meta_source.lua";
+		["MindwWM.model.neo4j_capture_data_change_node_payload"] = "MindwWM/model/neo4j_capture_data_change_node_payload.lua";
+		["MindwWM.model.neo4j_capture_data_change_node_payload_after"] = "MindwWM/model/neo4j_capture_data_change_node_payload_after.lua";
+		["MindwWM.model.neo4j_capture_data_change_payload"] = "MindwWM/model/neo4j_capture_data_change_payload.lua";
+		["MindwWM.model.neo4j_capture_data_change_relationship_payload"] = "MindwWM/model/neo4j_capture_data_change_relationship_payload.lua";
+		["MindwWM.model.neo4j_capture_data_change_relationship_payload_end"] = "MindwWM/model/neo4j_capture_data_change_relationship_payload_end.lua";
+		["MindwWM.model.neo4j_capture_data_change_schema"] = "MindwWM/model/neo4j_capture_data_change_schema.lua";
 		["MindwWM.model.tmux_pane_io_document"] = "MindwWM/model/tmux_pane_io_document.lua";
 	}
 }

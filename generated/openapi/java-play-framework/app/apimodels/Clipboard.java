@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * Clipboard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-13T19:25:27.174547200Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-13T22:09:22.926672300Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class Clipboard extends HashMap<String, Object>  {
   @JsonProperty("type")

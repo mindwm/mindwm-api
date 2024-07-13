@@ -19,21 +19,60 @@ module Api.Data exposing
     , ClipboardPayloadContext
     , CloudEvent
     , CloudEventData
+    , GraphNode, GraphNodeSource(..), graphNodeSourceVariants, GraphNodeType(..), graphNodeTypeVariants
+    , GraphNodeAllOfData
+    , GraphRelationship, GraphRelationshipSource(..), graphRelationshipSourceVariants, GraphRelationshipType(..), graphRelationshipTypeVariants
+    , GraphRelationshipAllOfData
     , IoDocument
+    , Neo4jCaptureDataChange
+    , Neo4jCaptureDataChangeMeta
+    , Neo4jCaptureDataChangeMetaSource
+    , Neo4jCaptureDataChangeNodePayload
+    , Neo4jCaptureDataChangeNodePayloadAfter
+    , Neo4jCaptureDataChangePayload(..)
+    , Neo4jCaptureDataChangeRelationshipPayload
+    , Neo4jCaptureDataChangeRelationshipPayloadEnd
+    , Neo4jCaptureDataChangeSchema
     , TmuxPaneIoDocument
     , encodeClipboard
     , encodeClipboardPayload
     , encodeClipboardPayloadContext
     , encodeCloudEvent
     , encodeCloudEventData
+    , encodeGraphNode
+    , encodeGraphNodeAllOfData
+    , encodeGraphRelationship
+    , encodeGraphRelationshipAllOfData
     , encodeIoDocument
+    , encodeNeo4jCaptureDataChange
+    , encodeNeo4jCaptureDataChangeMeta
+    , encodeNeo4jCaptureDataChangeMetaSource
+    , encodeNeo4jCaptureDataChangeNodePayload
+    , encodeNeo4jCaptureDataChangeNodePayloadAfter
+    , encodeNeo4jCaptureDataChangePayload
+    , encodeNeo4jCaptureDataChangeRelationshipPayload
+    , encodeNeo4jCaptureDataChangeRelationshipPayloadEnd
+    , encodeNeo4jCaptureDataChangeSchema
     , encodeTmuxPaneIoDocument
     , clipboardDecoder
     , clipboardPayloadDecoder
     , clipboardPayloadContextDecoder
     , cloudEventDecoder
     , cloudEventDataDecoder
+    , graphNodeDecoder
+    , graphNodeAllOfDataDecoder
+    , graphRelationshipDecoder
+    , graphRelationshipAllOfDataDecoder
     , ioDocumentDecoder
+    , neo4jCaptureDataChangeDecoder
+    , neo4jCaptureDataChangeMetaDecoder
+    , neo4jCaptureDataChangeMetaSourceDecoder
+    , neo4jCaptureDataChangeNodePayloadDecoder
+    , neo4jCaptureDataChangeNodePayloadAfterDecoder
+    , neo4jCaptureDataChangePayloadDecoder
+    , neo4jCaptureDataChangeRelationshipPayloadDecoder
+    , neo4jCaptureDataChangeRelationshipPayloadEndDecoder
+    , neo4jCaptureDataChangeSchemaDecoder
     , tmuxPaneIoDocumentDecoder
     )
 
@@ -113,6 +152,110 @@ type alias CloudEventData =
     { }
 
 
+type alias GraphNode =
+    { id : String
+    , source : GraphNodeSource
+    , specversion : String
+    , type_ : GraphNodeType
+    , datacontenttype : Maybe String
+    , dataschema : Maybe String
+    , subject : Maybe String
+    , time : Maybe Posix
+    , data : Maybe GraphNodeAllOfData
+    , dataBase64 : Maybe String
+    }
+
+
+type GraphNodeSource
+    = GraphNodeSourceGraphNode
+
+
+graphNodeSourceVariants : List GraphNodeSource
+graphNodeSourceVariants =
+    [ GraphNodeSourceGraphNode
+    ]
+
+
+type GraphNodeType
+    = GraphNodeTypeCreated
+    | GraphNodeTypeUpdated
+    | GraphNodeTypeDeleted
+
+
+graphNodeTypeVariants : List GraphNodeType
+graphNodeTypeVariants =
+    [ GraphNodeTypeCreated
+    , GraphNodeTypeUpdated
+    , GraphNodeTypeDeleted
+    ]
+
+
+type alias GraphNodeAllOfData =
+    { headers : Object
+    , messageKey : String
+    , meta : Neo4jCaptureDataChangeMeta
+    , offset : Int
+    , partition : Int
+    , sourceType : String
+    , timestamp : Posix
+    , topic : String
+    , schema : Neo4jCaptureDataChangeSchema
+    , payload : Neo4jCaptureDataChangeNodePayload
+    }
+
+
+type alias GraphRelationship =
+    { id : String
+    , source : GraphRelationshipSource
+    , specversion : String
+    , type_ : GraphRelationshipType
+    , datacontenttype : Maybe String
+    , dataschema : Maybe String
+    , subject : Maybe String
+    , time : Maybe Posix
+    , data : Maybe GraphRelationshipAllOfData
+    , dataBase64 : Maybe String
+    }
+
+
+type GraphRelationshipSource
+    = GraphRelationshipSourceGraphRelationship
+
+
+graphRelationshipSourceVariants : List GraphRelationshipSource
+graphRelationshipSourceVariants =
+    [ GraphRelationshipSourceGraphRelationship
+    ]
+
+
+type GraphRelationshipType
+    = GraphRelationshipTypeCreated
+    | GraphRelationshipTypeUpdated
+    | GraphRelationshipTypeDeleted
+
+
+graphRelationshipTypeVariants : List GraphRelationshipType
+graphRelationshipTypeVariants =
+    [ GraphRelationshipTypeCreated
+    , GraphRelationshipTypeUpdated
+    , GraphRelationshipTypeDeleted
+    ]
+
+
+type alias GraphRelationshipAllOfData =
+    { headers : Object
+    , messageKey : String
+    , meta : Neo4jCaptureDataChangeMeta
+    , offset : Int
+    , partition : Int
+    , sourceType : String
+    , timestamp : Posix
+    , topic : String
+    , schema : Neo4jCaptureDataChangeSchema
+    , payload : Neo4jCaptureDataChangeRelationshipPayload
+    }
+
+
 type alias IoDocument =
     { type_ : Maybe String
     , source : Maybe String
@@ -124,6 +267,80 @@ type alias IoDocument =
     , subject : Maybe String
     , time : Maybe Posix
     , dataBase64 : Maybe String
+    }
+
+
+type alias Neo4jCaptureDataChange =
+    { headers : Dict.Dict String Maybe AnyType
+    , messageKey : String
+    , meta : Neo4jCaptureDataChangeMeta
+    , offset : Int
+    , partition : Int
+    , sourceType : String
+    , timestamp : Posix
+    , topic : String
+    , schema : Neo4jCaptureDataChangeSchema
+    , payload : Neo4jCaptureDataChangePayload
+    }
+
+
+type alias Neo4jCaptureDataChangeMeta =
+    { operation : String
+    , source : Neo4jCaptureDataChangeMetaSource
+    , timestamp : Int
+    , txEventId : Int
+    , txEventsCount : Int
+    , txId : Int
+    , username : String
+    }
+
+
+type alias Neo4jCaptureDataChangeMetaSource =
+    { hostname : String
+    }
+
+
+type alias Neo4jCaptureDataChangeNodePayload =
+    { after : Neo4jCaptureDataChangeNodePayloadAfter
+    , before : String
+    , id : String
+    , type_ : String
+    }
+
+
+type alias Neo4jCaptureDataChangeNodePayloadAfter =
+    { labels : List String
+    , properties : Dict.Dict String Maybe AnyType
+    }
+
+
+type Neo4jCaptureDataChangePayload
+    = Neo4jCaptureDataChangePayloadNeo4jCaptureDataChangeNodePayload Neo4jCaptureDataChangeNodePayload
+    | Neo4jCaptureDataChangePayloadNeo4jCaptureDataChangeRelationshipPayload Neo4jCaptureDataChangeRelationshipPayload
+
+
+
+type alias Neo4jCaptureDataChangeRelationshipPayload =
+    { after : Object
+    , before : String
+    , end : Neo4jCaptureDataChangeRelationshipPayloadEnd
+    , id : String
+    , label : String
+    , start : Neo4jCaptureDataChangeRelationshipPayloadEnd
+    , type_ : String
+    }
+
+
+type alias Neo4jCaptureDataChangeRelationshipPayloadEnd =
+    { id : String
+    , ids : Dict.Dict String Maybe AnyType
+    , labels : List String
+    }
+
+
+type alias Neo4jCaptureDataChangeSchema =
+    { constraints : Maybe ( Dict.Dict String Maybe AnyType )
+    , properties : Maybe ( Dict.Dict String Maybe AnyType )
     }
 
 
@@ -276,6 +493,182 @@ encodeCloudEventDataPairs model =
     pairs
 
 
+encodeGraphNode : GraphNode -> Json.Encode.Value
+encodeGraphNode =
+    encodeObject << encodeGraphNodePairs
+
+
+encodeGraphNodeWithTag : ( String, String ) -> GraphNode -> Json.Encode.Value
+encodeGraphNodeWithTag (tagField, tag) model =
+    encodeObject (encodeGraphNodePairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeGraphNodePairs : GraphNode -> List EncodedField
+encodeGraphNodePairs model =
+    let
+        pairs =
+            [ encode "id" Json.Encode.string model.id
+            , encode "source" encodeGraphNodeSource model.source
+            , encode "specversion" Json.Encode.string model.specversion
+            , encode "type" encodeGraphNodeType model.type_
+            , maybeEncode "datacontenttype" Json.Encode.string model.datacontenttype
+            , maybeEncode "dataschema" Json.Encode.string model.dataschema
+            , maybeEncode "subject" Json.Encode.string model.subject
+            , maybeEncode "time" Api.Time.encodeDateTime model.time
+            , maybeEncode "data" encodeGraphNodeAllOfData model.data
+            , maybeEncode "data_base64" Json.Encode.string model.dataBase64
+            ]
+    in
+    pairs
+
+stringFromGraphNodeSource : GraphNodeSource -> String
+stringFromGraphNodeSource model =
+    case model of
+        GraphNodeSourceGraphNode ->
+            "graph.node"
+
+
+encodeGraphNodeSource : GraphNodeSource -> Json.Encode.Value
+encodeGraphNodeSource =
+    Json.Encode.string << stringFromGraphNodeSource
+
+
+stringFromGraphNodeType : GraphNodeType -> String
+stringFromGraphNodeType model =
+    case model of
+        GraphNodeTypeCreated ->
+            "created"
+
+        GraphNodeTypeUpdated ->
+            "updated"
+
+        GraphNodeTypeDeleted ->
+            "deleted"
+
+
+encodeGraphNodeType : GraphNodeType -> Json.Encode.Value
+encodeGraphNodeType =
+    Json.Encode.string << stringFromGraphNodeType
+
+
+
+encodeGraphNodeAllOfData : GraphNodeAllOfData -> Json.Encode.Value
+encodeGraphNodeAllOfData =
+    encodeObject << encodeGraphNodeAllOfDataPairs
+
+
+encodeGraphNodeAllOfDataWithTag : ( String, String ) -> GraphNodeAllOfData -> Json.Encode.Value
+encodeGraphNodeAllOfDataWithTag (tagField, tag) model =
+    encodeObject (encodeGraphNodeAllOfDataPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeGraphNodeAllOfDataPairs : GraphNodeAllOfData -> List EncodedField
+encodeGraphNodeAllOfDataPairs model =
+    let
+        pairs =
+            [ encode "headers" encodeObject model.headers
+            , encode "message_key" Json.Encode.string model.messageKey
+            , encode "meta" encodeNeo4jCaptureDataChangeMeta model.meta
+            , encode "offset" Json.Encode.int model.offset
+            , encode "partition" Json.Encode.int model.partition
+            , encode "source_type" Json.Encode.string model.sourceType
+            , encode "timestamp" Api.Time.encodeDateTime model.timestamp
+            , encode "topic" Json.Encode.string model.topic
+            , encode "schema" encodeNeo4jCaptureDataChangeSchema model.schema
+            , encode "payload" encodeNeo4jCaptureDataChangeNodePayload model.payload
+            ]
+    in
+    pairs
+
+
+encodeGraphRelationship : GraphRelationship -> Json.Encode.Value
+encodeGraphRelationship =
+    encodeObject << encodeGraphRelationshipPairs
+
+
+encodeGraphRelationshipWithTag : ( String, String ) -> GraphRelationship -> Json.Encode.Value
+encodeGraphRelationshipWithTag (tagField, tag) model =
+    encodeObject (encodeGraphRelationshipPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeGraphRelationshipPairs : GraphRelationship -> List EncodedField
+encodeGraphRelationshipPairs model =
+    let
+        pairs =
+            [ encode "id" Json.Encode.string model.id
+            , encode "source" encodeGraphRelationshipSource model.source
+            , encode "specversion" Json.Encode.string model.specversion
+            , encode "type" encodeGraphRelationshipType model.type_
+            , maybeEncode "datacontenttype" Json.Encode.string model.datacontenttype
+            , maybeEncode "dataschema" Json.Encode.string model.dataschema
+            , maybeEncode "subject" Json.Encode.string model.subject
+            , maybeEncode "time" Api.Time.encodeDateTime model.time
+            , maybeEncode "data" encodeGraphRelationshipAllOfData model.data
+            , maybeEncode "data_base64" Json.Encode.string model.dataBase64
+            ]
+    in
+    pairs
+
+stringFromGraphRelationshipSource : GraphRelationshipSource -> String
+stringFromGraphRelationshipSource model =
+    case model of
+        GraphRelationshipSourceGraphRelationship ->
+            "graph.relationship"
+
+
+encodeGraphRelationshipSource : GraphRelationshipSource -> Json.Encode.Value
+encodeGraphRelationshipSource =
+    Json.Encode.string << stringFromGraphRelationshipSource
+
+
+stringFromGraphRelationshipType : GraphRelationshipType -> String
+stringFromGraphRelationshipType model =
+    case model of
+        GraphRelationshipTypeCreated ->
+            "created"
+
+        GraphRelationshipTypeUpdated ->
+            "updated"
+
+        GraphRelationshipTypeDeleted ->
+            "deleted"
+
+
+encodeGraphRelationshipType : GraphRelationshipType -> Json.Encode.Value
+encodeGraphRelationshipType =
+    Json.Encode.string << stringFromGraphRelationshipType
+
+
+
+encodeGraphRelationshipAllOfData : GraphRelationshipAllOfData -> Json.Encode.Value
+encodeGraphRelationshipAllOfData =
+    encodeObject << encodeGraphRelationshipAllOfDataPairs
+
+
+encodeGraphRelationshipAllOfDataWithTag : ( String, String ) -> GraphRelationshipAllOfData -> Json.Encode.Value
+encodeGraphRelationshipAllOfDataWithTag (tagField, tag) model =
+    encodeObject (encodeGraphRelationshipAllOfDataPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeGraphRelationshipAllOfDataPairs : GraphRelationshipAllOfData -> List EncodedField
+encodeGraphRelationshipAllOfDataPairs model =
+    let
+        pairs =
+            [ encode "headers" encodeObject model.headers
+            , encode "message_key" Json.Encode.string model.messageKey
+            , encode "meta" encodeNeo4jCaptureDataChangeMeta model.meta
+            , encode "offset" Json.Encode.int model.offset
+            , encode "partition" Json.Encode.int model.partition
+            , encode "source_type" Json.Encode.string model.sourceType
+            , encode "timestamp" Api.Time.encodeDateTime model.timestamp
+            , encode "topic" Json.Encode.string model.topic
+            , encode "schema" encodeNeo4jCaptureDataChangeSchema model.schema
+            , encode "payload" encodeNeo4jCaptureDataChangeRelationshipPayload model.payload
+            ]
+    in
+    pairs
+
+
 encodeIoDocument : IoDocument -> Json.Encode.Value
 encodeIoDocument =
     encodeObject << encodeIoDocumentPairs
@@ -300,6 +693,207 @@ encodeIoDocumentPairs model =
             , maybeEncode "subject" Json.Encode.string model.subject
             , maybeEncode "time" Api.Time.encodeDateTime model.time
             , maybeEncode "data_base64" Json.Encode.string model.dataBase64
+            ]
+    in
+    pairs
+
+
+encodeNeo4jCaptureDataChange : Neo4jCaptureDataChange -> Json.Encode.Value
+encodeNeo4jCaptureDataChange =
+    encodeObject << encodeNeo4jCaptureDataChangePairs
+
+
+encodeNeo4jCaptureDataChangeWithTag : ( String, String ) -> Neo4jCaptureDataChange -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeWithTag (tagField, tag) model =
+    encodeObject (encodeNeo4jCaptureDataChangePairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeNeo4jCaptureDataChangePairs : Neo4jCaptureDataChange -> List EncodedField
+encodeNeo4jCaptureDataChangePairs model =
+    let
+        pairs =
+            [ encode "headers" (Json.Encode.dict identity encodeAnyType) model.headers
+            , encode "message_key" Json.Encode.string model.messageKey
+            , encode "meta" encodeNeo4jCaptureDataChangeMeta model.meta
+            , encode "offset" Json.Encode.int model.offset
+            , encode "partition" Json.Encode.int model.partition
+            , encode "source_type" Json.Encode.string model.sourceType
+            , encode "timestamp" Api.Time.encodeDateTime model.timestamp
+            , encode "topic" Json.Encode.string model.topic
+            , encode "schema" encodeNeo4jCaptureDataChangeSchema model.schema
+            , encode "payload" encodeNeo4jCaptureDataChangePayload model.payload
+            ]
+    in
+    pairs
+
+
+encodeNeo4jCaptureDataChangeMeta : Neo4jCaptureDataChangeMeta -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeMeta =
+    encodeObject << encodeNeo4jCaptureDataChangeMetaPairs
+
+
+encodeNeo4jCaptureDataChangeMetaWithTag : ( String, String ) -> Neo4jCaptureDataChangeMeta -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeMetaWithTag (tagField, tag) model =
+    encodeObject (encodeNeo4jCaptureDataChangeMetaPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeNeo4jCaptureDataChangeMetaPairs : Neo4jCaptureDataChangeMeta -> List EncodedField
+encodeNeo4jCaptureDataChangeMetaPairs model =
+    let
+        pairs =
+            [ encode "operation" Json.Encode.string model.operation
+            , encode "source" encodeNeo4jCaptureDataChangeMetaSource model.source
+            , encode "timestamp" Json.Encode.int model.timestamp
+            , encode "txEventId" Json.Encode.int model.txEventId
+            , encode "txEventsCount" Json.Encode.int model.txEventsCount
+            , encode "txId" Json.Encode.int model.txId
+            , encode "username" Json.Encode.string model.username
+            ]
+    in
+    pairs
+
+
+encodeNeo4jCaptureDataChangeMetaSource : Neo4jCaptureDataChangeMetaSource -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeMetaSource =
+    encodeObject << encodeNeo4jCaptureDataChangeMetaSourcePairs
+
+
+encodeNeo4jCaptureDataChangeMetaSourceWithTag : ( String, String ) -> Neo4jCaptureDataChangeMetaSource -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeMetaSourceWithTag (tagField, tag) model =
+    encodeObject (encodeNeo4jCaptureDataChangeMetaSourcePairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeNeo4jCaptureDataChangeMetaSourcePairs : Neo4jCaptureDataChangeMetaSource -> List EncodedField
+encodeNeo4jCaptureDataChangeMetaSourcePairs model =
+    let
+        pairs =
+            [ encode "hostname" Json.Encode.string model.hostname
+            ]
+    in
+    pairs
+
+
+encodeNeo4jCaptureDataChangeNodePayload : Neo4jCaptureDataChangeNodePayload -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeNodePayload =
+    encodeObject << encodeNeo4jCaptureDataChangeNodePayloadPairs
+
+
+encodeNeo4jCaptureDataChangeNodePayloadWithTag : ( String, String ) -> Neo4jCaptureDataChangeNodePayload -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeNodePayloadWithTag (tagField, tag) model =
+    encodeObject (encodeNeo4jCaptureDataChangeNodePayloadPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeNeo4jCaptureDataChangeNodePayloadPairs : Neo4jCaptureDataChangeNodePayload -> List EncodedField
+encodeNeo4jCaptureDataChangeNodePayloadPairs model =
+    let
+        pairs =
+            [ encode "after" encodeNeo4jCaptureDataChangeNodePayloadAfter model.after
+            , encode "before" Json.Encode.string model.before
+            , encode "id" Json.Encode.string model.id
+            , encode "type" Json.Encode.string model.type_
+            ]
+    in
+    pairs
+
+
+encodeNeo4jCaptureDataChangeNodePayloadAfter : Neo4jCaptureDataChangeNodePayloadAfter -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeNodePayloadAfter =
+    encodeObject << encodeNeo4jCaptureDataChangeNodePayloadAfterPairs
+
+
+encodeNeo4jCaptureDataChangeNodePayloadAfterWithTag : ( String, String ) -> Neo4jCaptureDataChangeNodePayloadAfter -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeNodePayloadAfterWithTag (tagField, tag) model =
+    encodeObject (encodeNeo4jCaptureDataChangeNodePayloadAfterPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeNeo4jCaptureDataChangeNodePayloadAfterPairs : Neo4jCaptureDataChangeNodePayloadAfter -> List EncodedField
+encodeNeo4jCaptureDataChangeNodePayloadAfterPairs model =
+    let
+        pairs =
+            [ encode "labels" (Json.Encode.list Json.Encode.string) model.labels
+            , encode "properties" (Json.Encode.dict identity encodeAnyType) model.properties
+            ]
+    in
+    pairs
+
+
+encodeNeo4jCaptureDataChangePayload : Neo4jCaptureDataChangePayload -> Json.Encode.Value
+encodeNeo4jCaptureDataChangePayload model =
+    case model of
+        Neo4jCaptureDataChangePayloadNeo4jCaptureDataChangeNodePayload subModel ->
+            encodeNeo4jCaptureDataChangeNodePayload subModel
+
+
+        Neo4jCaptureDataChangePayloadNeo4jCaptureDataChangeRelationshipPayload subModel ->
+            encodeNeo4jCaptureDataChangeRelationshipPayload subModel
+
+
+
+
+encodeNeo4jCaptureDataChangeRelationshipPayload : Neo4jCaptureDataChangeRelationshipPayload -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeRelationshipPayload =
+    encodeObject << encodeNeo4jCaptureDataChangeRelationshipPayloadPairs
+
+
+encodeNeo4jCaptureDataChangeRelationshipPayloadWithTag : ( String, String ) -> Neo4jCaptureDataChangeRelationshipPayload -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeRelationshipPayloadWithTag (tagField, tag) model =
+    encodeObject (encodeNeo4jCaptureDataChangeRelationshipPayloadPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeNeo4jCaptureDataChangeRelationshipPayloadPairs : Neo4jCaptureDataChangeRelationshipPayload -> List EncodedField
+encodeNeo4jCaptureDataChangeRelationshipPayloadPairs model =
+    let
+        pairs =
+            [ encode "after" encodeObject model.after
+            , encode "before" Json.Encode.string model.before
+            , encode "end" encodeNeo4jCaptureDataChangeRelationshipPayloadEnd model.end
+            , encode "id" Json.Encode.string model.id
+            , encode "label" Json.Encode.string model.label
+            , encode "start" encodeNeo4jCaptureDataChangeRelationshipPayloadEnd model.start
+            , encode "type" Json.Encode.string model.type_
+            ]
+    in
+    pairs
+
+
+encodeNeo4jCaptureDataChangeRelationshipPayloadEnd : Neo4jCaptureDataChangeRelationshipPayloadEnd -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeRelationshipPayloadEnd =
+    encodeObject << encodeNeo4jCaptureDataChangeRelationshipPayloadEndPairs
+
+
+encodeNeo4jCaptureDataChangeRelationshipPayloadEndWithTag : ( String, String ) -> Neo4jCaptureDataChangeRelationshipPayloadEnd -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeRelationshipPayloadEndWithTag (tagField, tag) model =
+    encodeObject (encodeNeo4jCaptureDataChangeRelationshipPayloadEndPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeNeo4jCaptureDataChangeRelationshipPayloadEndPairs : Neo4jCaptureDataChangeRelationshipPayloadEnd -> List EncodedField
+encodeNeo4jCaptureDataChangeRelationshipPayloadEndPairs model =
+    let
+        pairs =
+            [ encode "id" Json.Encode.string model.id
+            , encode "ids" (Json.Encode.dict identity encodeAnyType) model.ids
+            , encode "labels" (Json.Encode.list Json.Encode.string) model.labels
+            ]
+    in
+    pairs
+
+
+encodeNeo4jCaptureDataChangeSchema : Neo4jCaptureDataChangeSchema -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeSchema =
+    encodeObject << encodeNeo4jCaptureDataChangeSchemaPairs
+
+
+encodeNeo4jCaptureDataChangeSchemaWithTag : ( String, String ) -> Neo4jCaptureDataChangeSchema -> Json.Encode.Value
+encodeNeo4jCaptureDataChangeSchemaWithTag (tagField, tag) model =
+    encodeObject (encodeNeo4jCaptureDataChangeSchemaPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeNeo4jCaptureDataChangeSchemaPairs : Neo4jCaptureDataChangeSchema -> List EncodedField
+encodeNeo4jCaptureDataChangeSchemaPairs model =
+    let
+        pairs =
+            [ maybeEncode "constraints" (Json.Encode.dict identity encodeAnyType) model.constraints
+            , maybeEncode "properties" (Json.Encode.dict identity encodeAnyType) model.properties
             ]
     in
     pairs
@@ -402,6 +996,138 @@ cloudEventDataDecoder =
     Json.Decode.succeed CloudEventData
 
 
+graphNodeDecoder : Json.Decode.Decoder GraphNode
+graphNodeDecoder =
+    Json.Decode.succeed GraphNode
+        |> decode "id" Json.Decode.string 
+        |> decode "source" graphNodeSourceDecoder 
+        |> decode "specversion" Json.Decode.string 
+        |> decode "type" graphNodeTypeDecoder 
+        |> maybeDecode "datacontenttype" Json.Decode.string Nothing
+        |> maybeDecode "dataschema" Json.Decode.string Nothing
+        |> maybeDecode "subject" Json.Decode.string Nothing
+        |> maybeDecode "time" Api.Time.dateTimeDecoder Nothing
+        |> maybeDecode "data" graphNodeAllOfDataDecoder Nothing
+        |> maybeDecode "data_base64" Json.Decode.string Nothing
+
+
+graphNodeSourceDecoder : Json.Decode.Decoder GraphNodeSource
+graphNodeSourceDecoder =
+    Json.Decode.string
+        |> Json.Decode.andThen
+            (\value ->
+                case value of
+                    "graph.node" ->
+                        Json.Decode.succeed GraphNodeSourceGraphNode
+
+                    other ->
+                        Json.Decode.fail <| "Unknown type: " ++ other
+            )
+
+
+
+graphNodeTypeDecoder : Json.Decode.Decoder GraphNodeType
+graphNodeTypeDecoder =
+    Json.Decode.string
+        |> Json.Decode.andThen
+            (\value ->
+                case value of
+                    "created" ->
+                        Json.Decode.succeed GraphNodeTypeCreated
+
+                    "updated" ->
+                        Json.Decode.succeed GraphNodeTypeUpdated
+
+                    "deleted" ->
+                        Json.Decode.succeed GraphNodeTypeDeleted
+
+                    other ->
+                        Json.Decode.fail <| "Unknown type: " ++ other
+            )
+
+
+
+graphNodeAllOfDataDecoder : Json.Decode.Decoder GraphNodeAllOfData
+graphNodeAllOfDataDecoder =
+    Json.Decode.succeed GraphNodeAllOfData
+        |> decode "headers" objectDecoder 
+        |> decode "message_key" Json.Decode.string 
+        |> decode "meta" neo4jCaptureDataChangeMetaDecoder 
+        |> decode "offset" Json.Decode.int 
+        |> decode "partition" Json.Decode.int 
+        |> decode "source_type" Json.Decode.string 
+        |> decode "timestamp" Api.Time.dateTimeDecoder 
+        |> decode "topic" Json.Decode.string 
+        |> decode "schema" neo4jCaptureDataChangeSchemaDecoder 
+        |> decode "payload" neo4jCaptureDataChangeNodePayloadDecoder 
+
+
+graphRelationshipDecoder : Json.Decode.Decoder GraphRelationship
+graphRelationshipDecoder =
+    Json.Decode.succeed GraphRelationship
+        |> decode "id" Json.Decode.string 
+        |> decode "source" graphRelationshipSourceDecoder 
+        |> decode "specversion" Json.Decode.string 
+        |> decode "type" graphRelationshipTypeDecoder 
+        |> maybeDecode "datacontenttype" Json.Decode.string Nothing
+        |> maybeDecode "dataschema" Json.Decode.string Nothing
+        |> maybeDecode "subject" Json.Decode.string Nothing
+        |> maybeDecode "time" Api.Time.dateTimeDecoder Nothing
+        |> maybeDecode "data" graphRelationshipAllOfDataDecoder Nothing
+        |> maybeDecode "data_base64" Json.Decode.string Nothing
+
+
+graphRelationshipSourceDecoder : Json.Decode.Decoder GraphRelationshipSource
+graphRelationshipSourceDecoder =
+    Json.Decode.string
+        |> Json.Decode.andThen
+            (\value ->
+                case value of
+                    "graph.relationship" ->
+                        Json.Decode.succeed GraphRelationshipSourceGraphRelationship
+
+                    other ->
+                        Json.Decode.fail <| "Unknown type: " ++ other
+            )
+
+
+
+graphRelationshipTypeDecoder : Json.Decode.Decoder GraphRelationshipType
+graphRelationshipTypeDecoder =
+    Json.Decode.string
+        |> Json.Decode.andThen
+            (\value ->
+                case value of
+                    "created" ->
+                        Json.Decode.succeed GraphRelationshipTypeCreated
+
+                    "updated" ->
+                        Json.Decode.succeed GraphRelationshipTypeUpdated
+
+                    "deleted" ->
+                        Json.Decode.succeed GraphRelationshipTypeDeleted
+
+                    other ->
+                        Json.Decode.fail <| "Unknown type: " ++ other
+            )
+
+
+
+graphRelationshipAllOfDataDecoder : Json.Decode.Decoder GraphRelationshipAllOfData
+graphRelationshipAllOfDataDecoder =
+    Json.Decode.succeed GraphRelationshipAllOfData
+        |> decode "headers" objectDecoder 
+        |> decode "message_key" Json.Decode.string 
+        |> decode "meta" neo4jCaptureDataChangeMetaDecoder 
+        |> decode "offset" Json.Decode.int 
+        |> decode "partition" Json.Decode.int 
+        |> decode "source_type" Json.Decode.string 
+        |> decode "timestamp" Api.Time.dateTimeDecoder 
+        |> decode "topic" Json.Decode.string 
+        |> decode "schema" neo4jCaptureDataChangeSchemaDecoder 
+        |> decode "payload" neo4jCaptureDataChangeRelationshipPayloadDecoder 
+
+
 ioDocumentDecoder : Json.Decode.Decoder IoDocument
 ioDocumentDecoder =
     Json.Decode.succeed IoDocument
@@ -415,6 +1141,91 @@ ioDocumentDecoder =
         |> maybeDecode "subject" Json.Decode.string (Just "IoDocument")
         |> maybeDecode "time" Api.Time.dateTimeDecoder Nothing
         |> maybeDecode "data_base64" Json.Decode.string Nothing
+
+
+neo4jCaptureDataChangeDecoder : Json.Decode.Decoder Neo4jCaptureDataChange
+neo4jCaptureDataChangeDecoder =
+    Json.Decode.succeed Neo4jCaptureDataChange
+        |> decode "headers" (Json.Decode.dict anyTypeDecoder) 
+        |> decode "message_key" Json.Decode.string 
+        |> decode "meta" neo4jCaptureDataChangeMetaDecoder 
+        |> decode "offset" Json.Decode.int 
+        |> decode "partition" Json.Decode.int 
+        |> decode "source_type" Json.Decode.string 
+        |> decode "timestamp" Api.Time.dateTimeDecoder 
+        |> decode "topic" Json.Decode.string 
+        |> decode "schema" neo4jCaptureDataChangeSchemaDecoder 
+        |> decode "payload" neo4jCaptureDataChangePayloadDecoder 
+
+
+neo4jCaptureDataChangeMetaDecoder : Json.Decode.Decoder Neo4jCaptureDataChangeMeta
+neo4jCaptureDataChangeMetaDecoder =
+    Json.Decode.succeed Neo4jCaptureDataChangeMeta
+        |> decode "operation" Json.Decode.string 
+        |> decode "source" neo4jCaptureDataChangeMetaSourceDecoder 
+        |> decode "timestamp" Json.Decode.int 
+        |> decode "txEventId" Json.Decode.int 
+        |> decode "txEventsCount" Json.Decode.int 
+        |> decode "txId" Json.Decode.int 
+        |> decode "username" Json.Decode.string 
+
+
+neo4jCaptureDataChangeMetaSourceDecoder : Json.Decode.Decoder Neo4jCaptureDataChangeMetaSource
+neo4jCaptureDataChangeMetaSourceDecoder =
+    Json.Decode.succeed Neo4jCaptureDataChangeMetaSource
+        |> decode "hostname" Json.Decode.string 
+
+
+neo4jCaptureDataChangeNodePayloadDecoder : Json.Decode.Decoder Neo4jCaptureDataChangeNodePayload
+neo4jCaptureDataChangeNodePayloadDecoder =
+    Json.Decode.succeed Neo4jCaptureDataChangeNodePayload
+        |> decode "after" neo4jCaptureDataChangeNodePayloadAfterDecoder 
+        |> decode "before" Json.Decode.string 
+        |> decode "id" Json.Decode.string 
+        |> decode "type" Json.Decode.string 
+
+
+neo4jCaptureDataChangeNodePayloadAfterDecoder : Json.Decode.Decoder Neo4jCaptureDataChangeNodePayloadAfter
+neo4jCaptureDataChangeNodePayloadAfterDecoder =
+    Json.Decode.succeed Neo4jCaptureDataChangeNodePayloadAfter
+        |> decode "labels" (Json.Decode.list Json.Decode.string) 
+        |> decode "properties" (Json.Decode.dict anyTypeDecoder) 
+
+
+neo4jCaptureDataChangePayloadDecoder : Json.Decode.Decoder Neo4jCaptureDataChangePayload
+neo4jCaptureDataChangePayloadDecoder =
+    Json.Decode.oneOf
+        [ Json.Decode.map Neo4jCaptureDataChangePayloadNeo4jCaptureDataChangeNodePayload neo4jCaptureDataChangeNodePayloadDecoder
+        , Json.Decode.map Neo4jCaptureDataChangePayloadNeo4jCaptureDataChangeRelationshipPayload neo4jCaptureDataChangeRelationshipPayloadDecoder
+        ]
+
+
+
+neo4jCaptureDataChangeRelationshipPayloadDecoder : Json.Decode.Decoder Neo4jCaptureDataChangeRelationshipPayload
+neo4jCaptureDataChangeRelationshipPayloadDecoder =
+    Json.Decode.succeed Neo4jCaptureDataChangeRelationshipPayload
+        |> decode "after" objectDecoder 
+        |> decode "before" Json.Decode.string 
+        |> decode "end" neo4jCaptureDataChangeRelationshipPayloadEndDecoder 
+        |> decode "id" Json.Decode.string 
+        |> decode "label" Json.Decode.string 
+        |> decode "start" neo4jCaptureDataChangeRelationshipPayloadEndDecoder 
+        |> decode "type" Json.Decode.string 
+
+
+neo4jCaptureDataChangeRelationshipPayloadEndDecoder : Json.Decode.Decoder Neo4jCaptureDataChangeRelationshipPayloadEnd
+neo4jCaptureDataChangeRelationshipPayloadEndDecoder =
+    Json.Decode.succeed Neo4jCaptureDataChangeRelationshipPayloadEnd
+        |> decode "id" Json.Decode.string 
+        |> decode "ids" (Json.Decode.dict anyTypeDecoder) 
+        |> decode "labels" (Json.Decode.list Json.Decode.string) 
+
+
+neo4jCaptureDataChangeSchemaDecoder : Json.Decode.Decoder Neo4jCaptureDataChangeSchema
+neo4jCaptureDataChangeSchemaDecoder =
+    Json.Decode.succeed Neo4jCaptureDataChangeSchema
+        |> maybeDecode "constraints" (Json.Decode.dict anyTypeDecoder) Nothing
+        |> maybeDecode "properties" (Json.Decode.dict anyTypeDecoder) Nothing
 
 
 tmuxPaneIoDocumentDecoder : Json.Decode.Decoder TmuxPaneIoDocument

@@ -61,6 +61,66 @@ class InitTables < ActiveRecord::Migration
       t.timestamps
     end
 
+    create_table "graph_node".pluralize.to_sym, id: false do |t|
+      t.string :id
+      t.string :source
+      t.string :specversion
+      t.string :type
+      t.string :datacontenttype
+      t.String :dataschema
+      t.string :subject
+      t.datetime :time
+      t.string :data
+      t.string :data_base64
+
+      t.timestamps
+    end
+
+    create_table "graph_node_all_of_data".pluralize.to_sym, id: false do |t|
+      t.Object :headers
+      t.string :message_key
+      t.string :meta
+      t.integer :offset
+      t.integer :partition
+      t.string :source_type
+      t.datetime :timestamp
+      t.string :topic
+      t.string :schema
+      t.string :payload
+
+      t.timestamps
+    end
+
+    create_table "graph_relationship".pluralize.to_sym, id: false do |t|
+      t.string :id
+      t.string :source
+      t.string :specversion
+      t.string :type
+      t.string :datacontenttype
+      t.String :dataschema
+      t.string :subject
+      t.datetime :time
+      t.string :data
+      t.string :data_base64
+
+      t.timestamps
+    end
+
+    create_table "graph_relationship_all_of_data".pluralize.to_sym, id: false do |t|
+      t.Object :headers
+      t.string :message_key
+      t.string :meta
+      t.integer :offset
+      t.integer :partition
+      t.string :source_type
+      t.datetime :timestamp
+      t.string :topic
+      t.string :schema
+      t.string :payload
+
+      t.timestamps
+    end
+
     create_table "io_document".pluralize.to_sym, id: false do |t|
       t.string :type
       t.string :source
@@ -72,6 +132,94 @@ class InitTables < ActiveRecord::Migration
       t.string :subject
       t.datetime :time
       t.string :data_base64
+
+      t.timestamps
+    end
+
+    create_table "neo4j_capture_data_change".pluralize.to_sym, id: false do |t|
+      t.string :headers
+      t.string :message_key
+      t.string :meta
+      t.integer :offset
+      t.integer :partition
+      t.string :source_type
+      t.datetime :timestamp
+      t.string :topic
+      t.string :schema
+      t.string :payload
+
+      t.timestamps
+    end
+
+    create_table "neo4j_capture_data_change_meta".pluralize.to_sym, id: false do |t|
+      t.string :operation
+      t.string :source
+      t.integer :timestamp
+      t.integer :tx_event_id
+      t.integer :tx_events_count
+      t.integer :tx_id
+      t.string :username
+
+      t.timestamps
+    end
+
+    create_table "neo4j_capture_data_change_meta_source".pluralize.to_sym, id: false do |t|
+      t.string :hostname
+
+      t.timestamps
+    end
+
+    create_table "neo4j_capture_data_change_node_payload".pluralize.to_sym, id: false do |t|
+      t.string :after
+      t.string :before
+      t.string :id
+      t.string :type
+
+      t.timestamps
+    end
+
+    create_table "neo4j_capture_data_change_node_payload_after".pluralize.to_sym, id: false do |t|
+      t.string :labels
+      t.string :properties
+
+      t.timestamps
+    end
+
+    create_table "neo4j_capture_data_change_payload".pluralize.to_sym, id: false do |t|
+      t.Object :after
+      t.string :before
+      t.string :id
+      t.string :type
+      t.string :_end
+      t.string :label
+      t.string :start
+
+      t.timestamps
+    end
+
+    create_table "neo4j_capture_data_change_relationship_payload".pluralize.to_sym, id: false do |t|
+      t.Object :after
+      t.string :before
+      t.string :_end
+      t.string :id
+      t.string :label
+      t.string :start
+      t.string :type
+
+      t.timestamps
+    end
+
+    create_table "neo4j_capture_data_change_relationship_payload_end".pluralize.to_sym, id: false do |t|
+      t.string :id
+      t.string :ids
+      t.string :labels
+
+      t.timestamps
+    end
+
+    create_table "neo4j_capture_data_change_schema".pluralize.to_sym, id: false do |t|
+      t.string :constraints
+      t.string :properties
 
       t.timestamps
     end

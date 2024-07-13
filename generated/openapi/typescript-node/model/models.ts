@@ -5,7 +5,20 @@ export * from './clipboardPayload';
 export * from './clipboardPayloadContext';
 export * from './cloudEvent';
 export * from './cloudEventData';
+export * from './graphNode';
+export * from './graphNodeAllOfData';
+export * from './graphRelationship';
+export * from './graphRelationshipAllOfData';
 export * from './ioDocument';
+export * from './neo4jCaptureDataChange';
+export * from './neo4jCaptureDataChangeMeta';
+export * from './neo4jCaptureDataChangeMetaSource';
+export * from './neo4jCaptureDataChangeNodePayload';
+export * from './neo4jCaptureDataChangeNodePayloadAfter';
+export * from './neo4jCaptureDataChangePayload';
+export * from './neo4jCaptureDataChangeRelationshipPayload';
+export * from './neo4jCaptureDataChangeRelationshipPayloadEnd';
+export * from './neo4jCaptureDataChangeSchema';
 export * from './tmuxPaneIoDocument';
 
 import * as fs from 'fs';
@@ -26,7 +39,20 @@ import { ClipboardPayload } from './clipboardPayload';
 import { ClipboardPayloadContext } from './clipboardPayloadContext';
 import { CloudEvent } from './cloudEvent';
 import { CloudEventData } from './cloudEventData';
+import { GraphNode } from './graphNode';
+import { GraphNodeAllOfData } from './graphNodeAllOfData';
+import { GraphRelationship } from './graphRelationship';
+import { GraphRelationshipAllOfData } from './graphRelationshipAllOfData';
 import { IoDocument } from './ioDocument';
+import { Neo4jCaptureDataChange } from './neo4jCaptureDataChange';
+import { Neo4jCaptureDataChangeMeta } from './neo4jCaptureDataChangeMeta';
+import { Neo4jCaptureDataChangeMetaSource } from './neo4jCaptureDataChangeMetaSource';
+import { Neo4jCaptureDataChangeNodePayload } from './neo4jCaptureDataChangeNodePayload';
+import { Neo4jCaptureDataChangeNodePayloadAfter } from './neo4jCaptureDataChangeNodePayloadAfter';
+import { Neo4jCaptureDataChangePayload } from './neo4jCaptureDataChangePayload';
+import { Neo4jCaptureDataChangeRelationshipPayload } from './neo4jCaptureDataChangeRelationshipPayload';
+import { Neo4jCaptureDataChangeRelationshipPayloadEnd } from './neo4jCaptureDataChangeRelationshipPayloadEnd';
+import { Neo4jCaptureDataChangeSchema } from './neo4jCaptureDataChangeSchema';
 import { TmuxPaneIoDocument } from './tmuxPaneIoDocument';
 
 /* tslint:disable:no-unused-variable */
@@ -43,6 +69,10 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "ClipboardPayload.TypeEnum": ClipboardPayload.TypeEnum,
+        "GraphNode.SourceEnum": GraphNode.SourceEnum,
+        "GraphNode.TypeEnum": GraphNode.TypeEnum,
+        "GraphRelationship.SourceEnum": GraphRelationship.SourceEnum,
+        "GraphRelationship.TypeEnum": GraphRelationship.TypeEnum,
 }
 
 let typeMap: {[index: string]: any} = {
@@ -51,7 +81,20 @@ let typeMap: {[index: string]: any} = {
     "ClipboardPayloadContext": ClipboardPayloadContext,
     "CloudEvent": CloudEvent,
     "CloudEventData": CloudEventData,
+    "GraphNode": GraphNode,
+    "GraphNodeAllOfData": GraphNodeAllOfData,
+    "GraphRelationship": GraphRelationship,
+    "GraphRelationshipAllOfData": GraphRelationshipAllOfData,
     "IoDocument": IoDocument,
+    "Neo4jCaptureDataChange": Neo4jCaptureDataChange,
+    "Neo4jCaptureDataChangeMeta": Neo4jCaptureDataChangeMeta,
+    "Neo4jCaptureDataChangeMetaSource": Neo4jCaptureDataChangeMetaSource,
+    "Neo4jCaptureDataChangeNodePayload": Neo4jCaptureDataChangeNodePayload,
+    "Neo4jCaptureDataChangeNodePayloadAfter": Neo4jCaptureDataChangeNodePayloadAfter,
+    "Neo4jCaptureDataChangePayload": Neo4jCaptureDataChangePayload,
+    "Neo4jCaptureDataChangeRelationshipPayload": Neo4jCaptureDataChangeRelationshipPayload,
+    "Neo4jCaptureDataChangeRelationshipPayloadEnd": Neo4jCaptureDataChangeRelationshipPayloadEnd,
+    "Neo4jCaptureDataChangeSchema": Neo4jCaptureDataChangeSchema,
     "TmuxPaneIoDocument": TmuxPaneIoDocument,
 }
 

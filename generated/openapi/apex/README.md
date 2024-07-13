@@ -59,7 +59,18 @@ Class | Method | HTTP request | Description
  - [OASClipboardPayloadContext](OASClipboardPayloadContext.md)
  - [OASCloudEvent](OASCloudEvent.md)
  - [OASCloudEventData](OASCloudEventData.md)
+ - [OASGraphNode](OASGraphNode.md)
+ - [OASGraphNodeAllOfData](OASGraphNodeAllOfData.md)
+ - [OASGraphRelationship](OASGraphRelationship.md)
+ - [OASGraphRelationshipAllOfData](OASGraphRelationshipAllOfData.md)
  - [OASIoDocument](OASIoDocument.md)
+ - [OASNeo4jCaptureDataChange](OASNeo4jCaptureDataChange.md)
+ - [OASNeo4jCaptureDataChangeMeta](OASNeo4jCaptureDataChangeMeta.md)
+ - [OASNeo4jCaptureDataChangeMetaSource](OASNeo4jCaptureDataChangeMetaSource.md)
+ - [OASNeo4jCaptureDataChangeNodePayload](OASNeo4jCaptureDataChangeNodePayload.md)
+ - [OASNeo4jCaptureDataChangePayload](OASNeo4jCaptureDataChangePayload.md)
+ - [OASNeo4jCaptureDataChangeRelationshi](OASNeo4jCaptureDataChangeRelationshi.md)
+ - [OASNeo4jCaptureDataChangeSchema](OASNeo4jCaptureDataChangeSchema.md)
  - [OASTmuxPaneIoDocument](OASTmuxPaneIoDocument.md)
 
 

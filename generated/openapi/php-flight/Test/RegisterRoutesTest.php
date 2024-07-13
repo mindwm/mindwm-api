@@ -28,4 +28,28 @@ class RegisterRoutesTest extends \PHPUnit\Framework\TestCase {
             \OpenAPIServer\Model\ClipboardPayloadType::PRIMARY
         );
     }
+    public function testParseParamsEnumGraphNodeAllOfSource(): void
+    {
+        $value = 'graph.node';
+        $this->assertEquals(
+            parseParam($value, '\\OpenAPIServer\\Model\\GraphNodeAllOfSource'),
+            \OpenAPIServer\Model\GraphNodeAllOfSource::GRAPH_NODE
+        );
+    }
+    public function testParseParamsEnumGraphNodeAllOfType(): void
+    {
+        $value = 'created';
+        $this->assertEquals(
+            parseParam($value, '\\OpenAPIServer\\Model\\GraphNodeAllOfType'),
+            \OpenAPIServer\Model\GraphNodeAllOfType::CREATED
+        );
+    }
+    public function testParseParamsEnumGraphRelationshipAllOfSource(): void
+    {
+        $value = 'graph.relationship';
+        $this->assertEquals(
+            parseParam($value, '\\OpenAPIServer\\Model\\GraphRelationshipAllOfSource'),
+            \OpenAPIServer\Model\GraphRelationshipAllOfSource::GRAPH_RELATIONSHIP
+        );
+    }
 }

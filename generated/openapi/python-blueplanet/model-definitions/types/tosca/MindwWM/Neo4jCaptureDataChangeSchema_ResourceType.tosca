@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "MindwWM Neo4jCaptureDataChangeSchema"
+package     = MindwWM
+version     = "1.0"
+description = "Defines a Neo4jCaptureDataChangeSchema"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  Neo4jCaptureDataChangeSchema {
+    title = Neo4jCaptureDataChangeSchema
+    description = Neo4jCaptureDataChangeSchema
+    derivedFrom = Root
+    properties {
+        constraints {
+          # TODO
+          description = ""
+          optional = false
+        }
+        properties {
+          # TODO
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  Neo4jCaptureDataChangeSchema {
+    title = Neo4jCaptureDataChangeSchema
+    description = Neo4jCaptureDataChangeSchema
+    implements = MindwWM.resourceTypes.Neo4jCaptureDataChangeSchema
+
+  }
+}

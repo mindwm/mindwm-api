@@ -18,7 +18,11 @@ import scala.reflect.ClassTag
 object EnumsSerializers {
 
   def all: Seq[Serializer[_]] = Seq[Serializer[_]]() :+
-    new EnumNameSerializer(ClipboardPayloadEnums.`Type`)
+    new EnumNameSerializer(ClipboardPayloadEnums.`Type`) :+
+    new EnumNameSerializer(GraphNodeEnums.Source) :+
+    new EnumNameSerializer(GraphNodeEnums.`Type`) :+
+    new EnumNameSerializer(GraphRelationshipEnums.Source) :+
+    new EnumNameSerializer(GraphRelationshipEnums.`Type`)
 
   private class EnumNameSerializer[E <: Enumeration: ClassTag](enum: E)
     extends Serializer[E#Value] {

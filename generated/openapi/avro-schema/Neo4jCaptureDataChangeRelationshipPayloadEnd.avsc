@@ -1,0 +1,30 @@
+{
+  "namespace": "MindwWM",
+  "type": "record",
+  "doc": "",
+  "name": "Neo4jCaptureDataChangeRelationshipPayloadEnd",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "ids",
+      "type": {
+        "type": "map",
+        "items": "MindwWM.AnyType"
+      },
+      "doc": ""
+    },
+    {
+      "name": "labels",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "doc": ""
+    }
+  ]
+
+}

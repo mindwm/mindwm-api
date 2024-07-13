@@ -1,0 +1,66 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "MindwWM Neo4jCaptureDataChangeRelationshipPayload"
+package     = MindwWM
+version     = "1.0"
+description = "Defines a Neo4jCaptureDataChangeRelationshipPayload"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  Neo4jCaptureDataChangeRelationshipPayloadEnd = MindwWM.resourceTypes.Neo4jCaptureDataChangeRelationshipPayloadEnd
+}
+resourceTypes {
+
+  Neo4jCaptureDataChangeRelationshipPayload {
+    title = Neo4jCaptureDataChangeRelationshipPayload
+    description = Neo4jCaptureDataChangeRelationshipPayload
+    derivedFrom = Root
+    properties {
+        after {
+          type =  
+          description = ""
+          optional = true
+        }
+        before {
+          type =  string
+          description = ""
+          optional = true
+        }
+        end {
+          type = Neo4jCaptureDataChangeRelationshipPayloadEnd
+          description = ""
+          optional = true
+        }
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        label {
+          type =  string
+          description = ""
+          optional = true
+        }
+        start {
+          type = Neo4jCaptureDataChangeRelationshipPayloadEnd
+          description = ""
+          optional = true
+        }
+        type {
+          type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  Neo4jCaptureDataChangeRelationshipPayload {
+    title = Neo4jCaptureDataChangeRelationshipPayload
+    description = Neo4jCaptureDataChangeRelationshipPayload
+    implements = MindwWM.resourceTypes.Neo4jCaptureDataChangeRelationshipPayload
+
+  }
+}

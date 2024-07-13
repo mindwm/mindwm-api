@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  **/
 
 @ApiModel(description = "Selection context")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-13T19:25:18.082310608Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-13T22:09:13.100205107Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardPayloadContext   {
   @JsonProperty("window")
   private String window;

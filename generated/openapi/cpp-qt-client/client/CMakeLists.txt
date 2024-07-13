@@ -16,7 +16,20 @@ add_library(${PROJECT_NAME}
   OAIClipboardPayload_context.h
   OAICloudEvent.h
   OAICloudEvent_data.h
+  OAIGraphNode.h
+  OAIGraphNode_allOf_data.h
+  OAIGraphRelationship.h
+  OAIGraphRelationship_allOf_data.h
   OAIIoDocument.h
+  OAINeo4jCaptureDataChange.h
+  OAINeo4jCaptureDataChangeNodePayload.h
+  OAINeo4jCaptureDataChangeNodePayload_after.h
+  OAINeo4jCaptureDataChangeRelationshipPayload.h
+  OAINeo4jCaptureDataChangeRelationshipPayload_end.h
+  OAINeo4jCaptureDataChange_meta.h
+  OAINeo4jCaptureDataChange_meta_source.h
+  OAINeo4jCaptureDataChange_payload.h
+  OAINeo4jCaptureDataChange_schema.h
   OAITmuxPaneIoDocument.h
   OAIHelpers.h
   OAIHttpRequest.h
@@ -31,7 +44,20 @@ add_library(${PROJECT_NAME}
   OAIClipboardPayload_context.cpp
   OAICloudEvent.cpp
   OAICloudEvent_data.cpp
+  OAIGraphNode.cpp
+  OAIGraphNode_allOf_data.cpp
+  OAIGraphRelationship.cpp
+  OAIGraphRelationship_allOf_data.cpp
   OAIIoDocument.cpp
+  OAINeo4jCaptureDataChange.cpp
+  OAINeo4jCaptureDataChangeNodePayload.cpp
+  OAINeo4jCaptureDataChangeNodePayload_after.cpp
+  OAINeo4jCaptureDataChangeRelationshipPayload.cpp
+  OAINeo4jCaptureDataChangeRelationshipPayload_end.cpp
+  OAINeo4jCaptureDataChange_meta.cpp
+  OAINeo4jCaptureDataChange_meta_source.cpp
+  OAINeo4jCaptureDataChange_payload.cpp
+  OAINeo4jCaptureDataChange_schema.cpp
   OAITmuxPaneIoDocument.cpp
   OAIHelpers.cpp
   OAIHttpRequest.cpp

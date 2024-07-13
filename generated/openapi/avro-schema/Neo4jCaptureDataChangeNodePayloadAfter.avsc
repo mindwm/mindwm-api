@@ -1,0 +1,25 @@
+{
+  "namespace": "MindwWM",
+  "type": "record",
+  "doc": "",
+  "name": "Neo4jCaptureDataChangeNodePayloadAfter",
+  "fields": [
+    {
+      "name": "labels",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "doc": ""
+    },
+    {
+      "name": "properties",
+      "type": {
+        "type": "map",
+        "items": "MindwWM.AnyType"
+      },
+      "doc": ""
+    }
+  ]
+
+}

@@ -9,7 +9,20 @@ ClipboardPayload : org.openapitools.model.ClipboardPayload
 ClipboardPayloadContext : org.openapitools.model.ClipboardPayloadContext
 CloudEvent : org.openapitools.model.CloudEvent
 CloudEventData : org.openapitools.model.CloudEventData
+GraphNode : org.openapitools.model.GraphNode
+GraphNodeAllOfData : org.openapitools.model.GraphNodeAllOfData
+GraphRelationship : org.openapitools.model.GraphRelationship
+GraphRelationshipAllOfData : org.openapitools.model.GraphRelationshipAllOfData
 IoDocument : org.openapitools.model.IoDocument
+Neo4jCaptureDataChange : org.openapitools.model.Neo4jCaptureDataChange
+Neo4jCaptureDataChangeMeta : org.openapitools.model.Neo4jCaptureDataChangeMeta
+Neo4jCaptureDataChangeMetaSource : org.openapitools.model.Neo4jCaptureDataChangeMetaSource
+Neo4jCaptureDataChangeNodePayload : org.openapitools.model.Neo4jCaptureDataChangeNodePayload
+Neo4jCaptureDataChangeNodePayloadAfter : org.openapitools.model.Neo4jCaptureDataChangeNodePayloadAfter
+Neo4jCaptureDataChangePayload : org.openapitools.model.Neo4jCaptureDataChangePayload
+Neo4jCaptureDataChangeRelationshipPayload : org.openapitools.model.Neo4jCaptureDataChangeRelationshipPayload
+Neo4jCaptureDataChangeRelationshipPayloadEnd : org.openapitools.model.Neo4jCaptureDataChangeRelationshipPayloadEnd
+Neo4jCaptureDataChangeSchema : org.openapitools.model.Neo4jCaptureDataChangeSchema
 TmuxPaneIoDocument : org.openapitools.model.TmuxPaneIoDocument
 
 entityProcessors:

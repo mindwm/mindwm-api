@@ -49,6 +49,14 @@ Class | Method | HTTP request | Description
 - [ClipboardPayloadContext](models/ClipboardPayloadContext.md)
 - [CloudEvent](models/CloudEvent.md)
 - [IoDocument](models/IoDocument.md)
+- [Neo4jCaptureDataChange](models/Neo4jCaptureDataChange.md)
+- [Neo4jCaptureDataChangeMeta](models/Neo4jCaptureDataChangeMeta.md)
+- [Neo4jCaptureDataChangeMetaSource](models/Neo4jCaptureDataChangeMetaSource.md)
+- [Neo4jCaptureDataChangeNodePayload](models/Neo4jCaptureDataChangeNodePayload.md)
+- [Neo4jCaptureDataChangeNodePayloadAfter](models/Neo4jCaptureDataChangeNodePayloadAfter.md)
+- [Neo4jCaptureDataChangeRelationshipPayload](models/Neo4jCaptureDataChangeRelationshipPayload.md)
+- [Neo4jCaptureDataChangeRelationshipPayloadEnd](models/Neo4jCaptureDataChangeRelationshipPayloadEnd.md)
+- [Neo4jCaptureDataChangeSchema](models/Neo4jCaptureDataChangeSchema.md)
 - [TmuxPaneIoDocument](models/TmuxPaneIoDocument.md)
 
 
