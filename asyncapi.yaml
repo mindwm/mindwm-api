@@ -17,6 +17,20 @@ components:
     IoDocument:
       allOf:
       - $ref: '#/components/schemas/CloudEvent'
+      - properties:
+          type:
+            type: string
+            const: IoDocument
+            default: IoDocument
+          subject:
+            type: string
+            const: IoDocument
+            default: IoDocument
+          source:
+            type: string
+            pattern: '[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$'
+          data:
+            $ref: '#/components/schemas/TmuxPaneIoDocument'
       properties:
         type:
           type: string
@@ -27,6 +41,14 @@ components:
         data:
           $ref: '#/components/schemas/TmuxPaneIoDocument'
       additionalProperties: false
+      examples:
+      - source: mindwm.alice.laptop.tmux.L3RtcC90bXV4LTEwMDAvZGVmYXVsdA==.1c41f0ca-4056-11ef-a365-5b2236197e08.0.15.iodocument
+        subject: IoDocument
+        type: IoDocument
+        id: '2f3ad8a4-4056-11ef-86f8-9f634df7447b'
+        specversion: '1.0.0'
+        data:
+          $ref: '#/components/schemas/TmuxPaneIoDocument/examples/0'
     Clipboard:
       allOf:
       - $ref: '#/components/schemas/CloudEvent'
@@ -61,7 +83,7 @@ components:
         id: d0c13e76-3f79-11ef-8f1d-4be6bb85b216
         specversion: '1.0.0'
         data:
-          $ref: '#/components/schemas/ClipboardPayload'
+          $ref: '#/components/schemas/ClipboardPayload/examples/0'
     ClipboardPayload:
       type: object
       properties:
@@ -132,3 +154,63 @@ components:
       - input: uptime
         output: '16:37:51 up 19 days,  2:15, 71 users,  load average: 2.01, 2.85, 2.95'
         ps1: user@mindwm-dev1:~/rnd/asyncapi$
+    Neo4jCaptureDataChange:
+      type: object
+      properties:
+        headers:
+          type: object
+          additionalProperties: true
+        message_key:
+          type: string
+        meta:
+          type: object
+          properties:
+            operation:
+              type: string
+            source:
+              type: object
+              properties:
+                hostname:
+                  type: string
+              required:
+              - hostname
+            timestamp:
+              type: integer
+            txEventId:
+              type: integer
+            txEventsCount:
+              type: integer
+            txId:
+              type: integer
+            username:
+              type: string
+          required:
+          - operation
+          - source
+          - timestamp
+          - txEventId
+          - txEventsCount
+          - txId
+          - username
+        offset:
+          type: integer
+        partition:
+          type: integer
+        source_type:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        topic:
+          type: string
+      required:
+      - headers
+      - message_key
+      - meta
+      - offset
+      - partition
+      - payload
+      - schema
+      - source_type
+      - timestamp
+      - topic

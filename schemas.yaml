@@ -125,4 +125,72 @@ TmuxPaneIoDocument:
     - input: uptime
       output: "16:37:51 up 19 days,  2:15, 71 users,  load average: 2.01, 2.85, 2.95"
       ps1: "user@mindwm-dev1:~/rnd/asyncapi$"
-
+Neo4jCaptureDataChange:
+  type: object
+  properties:
+    headers:
+      type: object
+      additionalProperties: true
+    message_key:
+      type: string
+    meta:
+      type: object
+      properties:
+        operation:
+          type: string
+        source:
+          type: object
+          properties:
+            hostname:
+              type: string
+          required:
+            - hostname
+        timestamp:
+          type: integer
+        txEventId:
+          type: integer
+        txEventsCount:
+          type: integer
+        txId:
+          type: integer
+        username:
+          type: string
+      required:
+        - operation
+        - source
+        - timestamp
+        - txEventId
+        - txEventsCount
+        - txId
+        - username
+    offset:
+      type: integer
+    partition:
+      type: integer
+    source_type:
+      type: string
+    timestamp:
+      type: string
+      format: date-time
+    topic:
+      type: string
+    schema:
+      type: object
+      properties:
+        constraints:
+          type: object
+          additionalProperties: true
+        properties:
+          type: object
+          additionalProperties: true
+  required:
+    - headers
+    - message_key
+    - meta
+    - offset
+    - partition
+    - payload
+    - schema
+    - source_type
+    - timestamp
+    - topic
