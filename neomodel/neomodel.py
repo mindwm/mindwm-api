@@ -18,6 +18,7 @@ class MindwmUser(StructuredNode):
 class MindwmHost(StructuredNode):
     hostname = StringProperty(required = True)
     tmux = RelationshipTo('Tmux', 'HAS_TMUX', cardinality=OneOrMore)
+    clipboard = RelationshipTo('ClipBoard', 'HAS_CLIPBOARD', cardinality=OneOrMore)
 
 class Tmux(StructuredNode):
     socket_path = StringProperty(required = True)
@@ -46,3 +47,9 @@ class IoDocument(StructuredNode):
     ps1 = StringProperty(required = True)
     time = DateTimeProperty(default_now = True)
     tmux_pane = Relationship('TmuxPane', 'HAS_IO_DOCUMENT')
+    
+class ClipBoard(StructuredNode):
+    uuid = StringProperty(unique_index=True, required = True)
+    time = DateTimeProperty(default_now = True)
+    data = StringProperty(required = True)
+    host = RelationshipFrom('MindwmHost', 'HAS_CLIPBOARD', cardinality=One)
