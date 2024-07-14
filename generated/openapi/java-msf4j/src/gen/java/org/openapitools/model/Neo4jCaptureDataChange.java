@@ -15,7 +15,7 @@ import org.openapitools.model.Neo4jCaptureDataChangeSchema;
 /**
  * Neo4jCaptureDataChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-14T08:10:42.979963911Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-14T10:08:52.328654528Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChange   {
   @JsonProperty("headers")
   private Map<String, Object> headers = new HashMap<>();

@@ -43,7 +43,7 @@ import javax.annotation.Generated;
   Neo4jCaptureDataChange.JSON_PROPERTY_PAYLOAD
 })
 @JsonTypeName("Neo4jCaptureDataChange")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-14T08:10:38.605864366Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-14T10:08:48.040170806Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Neo4jCaptureDataChange {
     public static final String JSON_PROPERTY_HEADERS = "headers";

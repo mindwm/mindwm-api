@@ -36,7 +36,7 @@ import javax.validation.Valid;
   Neo4jCaptureDataChangeMeta.JSON_PROPERTY_TX_ID,
   Neo4jCaptureDataChangeMeta.JSON_PROPERTY_USERNAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-14T08:11:00.912585041Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-14T10:09:10.277456772Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangeMeta   {
   public static final String JSON_PROPERTY_OPERATION = "operation";
   @JsonProperty(JSON_PROPERTY_OPERATION)

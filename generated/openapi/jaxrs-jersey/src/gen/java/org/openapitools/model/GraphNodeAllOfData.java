@@ -42,7 +42,7 @@ import javax.validation.Valid;
   GraphNodeAllOfData.JSON_PROPERTY_SCHEMA,
   GraphNodeAllOfData.JSON_PROPERTY_PAYLOAD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-14T08:11:00.912585041Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-14T10:09:10.277456772Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphNodeAllOfData   {
   public static final String JSON_PROPERTY_HEADERS = "headers";
   @JsonProperty(JSON_PROPERTY_HEADERS)

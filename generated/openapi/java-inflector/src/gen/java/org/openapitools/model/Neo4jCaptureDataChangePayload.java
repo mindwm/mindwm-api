@@ -14,7 +14,7 @@ import org.openapitools.model.Neo4jCaptureDataChangeRelationshipPayloadEnd;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-14T08:10:36.635831400Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-14T10:08:46.080646775Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangePayload   {
   @JsonProperty("after")
   private Object after;
