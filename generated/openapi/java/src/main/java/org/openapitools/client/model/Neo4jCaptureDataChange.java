@@ -55,7 +55,7 @@ import org.openapitools.client.JSON;
 /**
  * Neo4jCaptureDataChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-14T10:08:36.294765672Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-14T12:11:34.554887924Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChange {
   public static final String SERIALIZED_NAME_HEADERS = "headers";
   @SerializedName(SERIALIZED_NAME_HEADERS)

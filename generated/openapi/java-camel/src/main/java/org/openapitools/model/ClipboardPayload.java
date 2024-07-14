@@ -23,7 +23,7 @@ import javax.annotation.Generated;
  * ClipboardPayload
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-14T10:09:02.160291331Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-14T12:11:59.584915981Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardPayload {
 
   @Valid

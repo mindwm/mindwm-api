@@ -27,7 +27,7 @@ import javax.validation.Valid;
 @ApiModel(description = "The event payload.")
 @JsonPropertyOrder({
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-14T10:09:10.277456772Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-14T12:12:07.388853331Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEventData   {
 
   @Override

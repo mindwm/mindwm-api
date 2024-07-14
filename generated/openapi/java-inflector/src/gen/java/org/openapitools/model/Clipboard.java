@@ -15,7 +15,7 @@ import org.openapitools.model.ClipboardPayload;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-14T10:08:46.080646775Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-14T12:11:43.764762192Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Clipboard extends HashMap<String, Object>  {
   @JsonProperty("type")
   private String type;

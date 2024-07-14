@@ -12,7 +12,7 @@ import javax.validation.Valid;
 /**
  * Neo4jCaptureDataChangeSchema
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-14T10:08:56.234850658Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-14T12:11:53.728202129Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class Neo4jCaptureDataChangeSchema   {
   @JsonProperty("constraints")

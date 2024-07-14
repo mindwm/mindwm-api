@@ -14,7 +14,7 @@ import java.time.OffsetDateTime
   * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
   * @param additionalProperties Any additional properties this model may have.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-14T10:11:02.018711342Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-14T12:13:56.862725603Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 case class Clipboard(
   `type`: Option[String],
   source: Option[String],

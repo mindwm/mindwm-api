@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-07-14T10:09:14.122579580Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-07-14T12:12:11.233012147Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphRelationshipAllOfData   {
   
   private Object headers;

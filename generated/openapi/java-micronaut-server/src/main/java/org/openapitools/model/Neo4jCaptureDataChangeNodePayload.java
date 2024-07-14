@@ -33,7 +33,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   Neo4jCaptureDataChangeNodePayload.JSON_PROPERTY_TYPE
 })
 @JsonTypeName("Neo4jCaptureDataChangeNodePayload")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-14T10:08:50.187341729Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-14T12:11:47.737873360Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Neo4jCaptureDataChangeNodePayload {
     public static final String JSON_PROPERTY_AFTER = "after";
