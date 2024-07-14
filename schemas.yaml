@@ -69,7 +69,7 @@ GraphNode:
           enum: ["created", "updated", "deleted"]
         source:
           type: string
-          enum: ["graph.node"]
+          enum: ["graph.node", "graph.relationship"]
         data:
           allOf: 
             - $ref: '#/components/schemas/Neo4jCaptureDataChange'
@@ -77,15 +77,15 @@ GraphNode:
                 payload: 
                   "$ref": "#/components/schemas/Neo4jCaptureDataChangeNodePayload"
   additionalProperties: false
-#  examples:
-#    - source: "graph.node"
-#      subject: "IoDocument"
-#      type: created
-#      id: "5ea0d0c6-4155-11ef-90d8-6f5a5689b5ac"
-#      specversion: "1.0.0"
-#      data: 
-#        $ref: '#/components/schemas/ClipboardPayload/examples/0'
-#
+  examples:
+    - source: "graph.node"
+      subject: "IoDocument"
+      type: created
+      id: "5ea0d0c6-4155-11ef-90d8-6f5a5689b5ac"
+      specversion: "1.0.0"
+      data: 
+        $ref: '#/components/schemas/Neo4jCaptureDataChangeNodePayload/examples/0'
+
 GraphRelationship:
   allOf:
     - $ref: '#/components/schemas/CloudEvent'
@@ -270,6 +270,46 @@ Neo4jCaptureDataChangeNodePayload:
     - before
     - id
     - type
+  examples:
+    - headers: {}
+      message_key: '"45-0"'
+      meta:
+        operation: created
+        source:
+          hostname: team-a-neo4j-0
+        timestamp: 1718125560033
+        txEventId: 0
+        txEventsCount: 1
+        txId: 45
+        username: neo4j
+      offset: 9
+      partition: 0
+      payload:
+        after:
+          labels:
+            - IoDocument
+          properties:
+            output: |2
+              17:05:52 up 1 day, 23:03,  2 users,  load average: 1.23, 1.71, 2.16
+            ps1: bebebeko@mcmp6:~/poc-mindwm-dev$
+            time: 1718125560.028501
+            user_input: uptime
+            uuid: dcb8deaf-8f00-4b77-a8f2-77ec7d20a429
+        before: ""
+        id: "9"
+        type: node
+      schema:
+        constraints: {}
+        properties:
+          output: String
+          ps1: String
+          time: Double
+          user_input: String
+          uuid: String
+      source_type: kafka
+      timestamp: "2024-06-11T17:06:00.428Z"
+      topic: team-a-cdc-topic
+
 
 Neo4jCaptureDataChangeRelationshipPayload:
   type: object
