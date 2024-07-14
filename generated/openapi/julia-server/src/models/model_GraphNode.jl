@@ -71,7 +71,7 @@ function OpenAPI.validate_property(::Type{ GraphNode }, name::Symbol, val)
         OpenAPI.validate_param(name, "GraphNode", :minLength, val, 1)
     end
     if name === Symbol("source")
-        OpenAPI.validate_param(name, "GraphNode", :enum, val, ["graph.node"])
+        OpenAPI.validate_param(name, "GraphNode", :enum, val, ["graph.node", "graph.relationship"])
     end
     if name === Symbol("specversion")
         OpenAPI.validate_param(name, "GraphNode", :minLength, val, 1)

@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindwWM", "src\MindwWM\MindwWM.csproj", "{11586B25-FB62-4068-AF34-4E751B2B67CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindwWM", "src\MindwWM\MindwWM.csproj", "{2E8CE5BF-369B-4450-88E9-F31A307D9FC8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindwWM.Test", "src\MindwWM.Test\MindwWM.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{11586B25-FB62-4068-AF34-4E751B2B67CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11586B25-FB62-4068-AF34-4E751B2B67CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11586B25-FB62-4068-AF34-4E751B2B67CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11586B25-FB62-4068-AF34-4E751B2B67CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E8CE5BF-369B-4450-88E9-F31A307D9FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E8CE5BF-369B-4450-88E9-F31A307D9FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E8CE5BF-369B-4450-88E9-F31A307D9FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E8CE5BF-369B-4450-88E9-F31A307D9FC8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -13,7 +13,8 @@ import AnyCodable
 public struct GraphNode: Codable, JSONEncodable, Hashable {
 
     public enum Source: String, Codable, CaseIterable {
-        case graphPeriodNode = "graph.node"
+        case node = "graph.node"
+        case relationship = "graph.relationship"
     }
     public enum ModelType: String, Codable, CaseIterable {
         case created = "created"

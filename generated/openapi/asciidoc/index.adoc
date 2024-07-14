@@ -308,7 +308,7 @@ The event payload.
 | 
 |  <<String>>  
 | 
-|  _Enum:_ graph.node,  
+|  _Enum:_ graph.node, graph.relationship,  
 
 | specversion
 | X

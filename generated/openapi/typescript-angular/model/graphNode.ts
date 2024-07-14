@@ -49,9 +49,10 @@ export interface GraphNode {
     data_base64?: string;
 }
 export namespace GraphNode {
-    export type SourceEnum = 'graph.node';
+    export type SourceEnum = 'graph.node' | 'graph.relationship';
     export const SourceEnum = {
-        GraphNode: 'graph.node' as SourceEnum
+        Node: 'graph.node' as SourceEnum,
+        Relationship: 'graph.relationship' as SourceEnum
     };
     export type TypeEnum = 'created' | 'updated' | 'deleted';
     export const TypeEnum = {

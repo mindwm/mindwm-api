@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import io.swagger.annotations.*;
 import javax.validation.Valid;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-13T22:09:38.467017342Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-14T08:11:02.940046601Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardPayload   {
   
   private List<Integer> start = new ArrayList<>();

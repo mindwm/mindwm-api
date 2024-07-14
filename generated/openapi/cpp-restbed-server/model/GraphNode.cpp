@@ -111,8 +111,8 @@ std::string GraphNode::getSource() const
 
 void GraphNode::setSource(std::string value)
 {
-    static const std::array<std::string, 1> allowedValues = {
-        "graph.node"
+    static const std::array<std::string, 2> allowedValues = {
+        "graph.node", "graph.relationship"
     };
 
     if (std::find(allowedValues.begin(), allowedValues.end(), value) != allowedValues.end()) {

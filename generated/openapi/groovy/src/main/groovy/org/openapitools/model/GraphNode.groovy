@@ -14,7 +14,9 @@ class GraphNode {
 
     enum SourceEnum {
     
-        GRAPH_NODE("graph.node")
+        NODE("graph.node"),
+        
+        RELATIONSHIP("graph.relationship")
     
         private final String value
     

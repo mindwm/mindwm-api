@@ -40,6 +40,7 @@ object GraphNodeEnums {
   type `Type` = `Type`.Value
   object Source extends Enumeration {
     val GraphNode = Value("graph.node")
+    val GraphRelationship = Value("graph.relationship")
   }
 
   object `Type` extends Enumeration {

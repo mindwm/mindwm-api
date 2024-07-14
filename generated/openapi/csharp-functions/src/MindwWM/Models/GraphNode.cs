@@ -45,10 +45,16 @@ namespace MindwWM.Models
         {
             
             /// <summary>
-            /// Enum GraphNodeEnum for graph.node
+            /// Enum NodeEnum for graph.node
             /// </summary>
             [EnumMember(Value = "graph.node")]
-            GraphNodeEnum = 1
+            NodeEnum = 1,
+            
+            /// <summary>
+            /// Enum RelationshipEnum for graph.relationship
+            /// </summary>
+            [EnumMember(Value = "graph.relationship")]
+            RelationshipEnum = 2
         }
 
         /// <summary>

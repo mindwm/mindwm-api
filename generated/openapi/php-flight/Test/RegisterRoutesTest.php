@@ -33,7 +33,7 @@ class RegisterRoutesTest extends \PHPUnit\Framework\TestCase {
         $value = 'graph.node';
         $this->assertEquals(
             parseParam($value, '\\OpenAPIServer\\Model\\GraphNodeAllOfSource'),
-            \OpenAPIServer\Model\GraphNodeAllOfSource::GRAPH_NODE
+            \OpenAPIServer\Model\GraphNodeAllOfSource::NODE
         );
     }
     public function testParseParamsEnumGraphNodeAllOfType(): void

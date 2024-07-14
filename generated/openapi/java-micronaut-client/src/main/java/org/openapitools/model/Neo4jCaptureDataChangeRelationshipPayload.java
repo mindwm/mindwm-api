@@ -35,7 +35,7 @@ import javax.annotation.Generated;
   Neo4jCaptureDataChangeRelationshipPayload.JSON_PROPERTY_TYPE
 })
 @JsonTypeName("Neo4jCaptureDataChangeRelationshipPayload")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-13T22:09:15.015126941Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-14T08:10:38.605864366Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Neo4jCaptureDataChangeRelationshipPayload {
     public static final String JSON_PROPERTY_AFTER = "after";

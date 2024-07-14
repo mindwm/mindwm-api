@@ -168,7 +168,7 @@ export interface GraphNode extends any {
 /**
  * Enum for the source property.
  */
-export type GraphNodeSourceEnum = 'graph.node';
+export type GraphNodeSourceEnum = 'graph.node' | 'graph.relationship';
 
 /**
  * Enum for the type property.

@@ -24,7 +24,7 @@ resourceTypes {
         source {
           type =  string
           description = ""
-          enum = ["graph.node"]
+          enum = ["graph.node", "graph.relationship"]
           optional = true
         }
         specversion {

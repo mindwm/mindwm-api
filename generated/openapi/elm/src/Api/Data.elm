@@ -167,12 +167,14 @@ type alias GraphNode =
 
 
 type GraphNodeSource
-    = GraphNodeSourceGraphNode
+    = GraphNodeSourceNode
+    | GraphNodeSourceRelationship
 
 
 graphNodeSourceVariants : List GraphNodeSource
 graphNodeSourceVariants =
-    [ GraphNodeSourceGraphNode
+    [ GraphNodeSourceNode
+    , GraphNodeSourceRelationship
     ]
 
 
@@ -524,8 +526,11 @@ encodeGraphNodePairs model =
 stringFromGraphNodeSource : GraphNodeSource -> String
 stringFromGraphNodeSource model =
     case model of
-        GraphNodeSourceGraphNode ->
+        GraphNodeSourceNode ->
             "graph.node"
+
+        GraphNodeSourceRelationship ->
+            "graph.relationship"
 
 
 encodeGraphNodeSource : GraphNodeSource -> Json.Encode.Value
@@ -1018,7 +1023,10 @@ graphNodeSourceDecoder =
             (\value ->
                 case value of
                     "graph.node" ->
-                        Json.Decode.succeed GraphNodeSourceGraphNode
+                        Json.Decode.succeed GraphNodeSourceNode
+
+                    "graph.relationship" ->
+                        Json.Decode.succeed GraphNodeSourceRelationship
 
                     other ->
                         Json.Decode.fail <| "Unknown type: " ++ other

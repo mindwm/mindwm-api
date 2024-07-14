@@ -51,8 +51,8 @@ class GraphNode(object):
     @field_validator('source')
     def source_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('graph.node'):
-            raise ValueError("must be one of enum values ('graph.node')")
+        if value not in ('graph.node', 'graph.relationship'):
+            raise ValueError("must be one of enum values ('graph.node', 'graph.relationship')")
         return value
 
     @field_validator('type')

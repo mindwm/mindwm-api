@@ -17,7 +17,8 @@ public class GraphNode extends HashMap<String, Object>  {
 
 
   public enum SourceEnum {
-    GRAPH_NODE("graph.node");
+    NODE("graph.node"),
+    RELATIONSHIP("graph.relationship");
 
     private String value;
 

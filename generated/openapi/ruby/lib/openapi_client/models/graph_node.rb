@@ -233,7 +233,7 @@ module OpenapiClient
       return false if @id.nil?
       return false if @id.to_s.length < 1
       return false if @source.nil?
-      source_validator = EnumAttributeValidator.new('String', ["graph.node"])
+      source_validator = EnumAttributeValidator.new('String', ["graph.node", "graph.relationship"])
       return false unless source_validator.valid?(@source)
       return false if @specversion.nil?
       return false if @specversion.to_s.length < 1
@@ -264,7 +264,7 @@ module OpenapiClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] source Object to be assigned
     def source=(source)
-      validator = EnumAttributeValidator.new('String', ["graph.node"])
+      validator = EnumAttributeValidator.new('String', ["graph.node", "graph.relationship"])
       unless validator.valid?(source)
         fail ArgumentError, "invalid value for \"source\", must be one of #{validator.allowable_values}."
       end

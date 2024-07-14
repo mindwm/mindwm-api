@@ -20,7 +20,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "CloudEvent_data", description = "The event payload.")
 @JsonTypeName("CloudEvent_data")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-13T22:09:28.668148392Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-14T08:10:52.783521476Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEventData {
 
   @Override

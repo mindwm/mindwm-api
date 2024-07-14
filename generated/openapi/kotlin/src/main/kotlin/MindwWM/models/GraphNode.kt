@@ -80,11 +80,12 @@ data class GraphNode (
     /**
      * 
      *
-     * Values: graphPeriodNode
+     * Values: node,relationship
      */
     @JsonClass(generateAdapter = false)
     enum class Source(val value: kotlin.String) {
-        @Json(name = "graph.node") graphPeriodNode("graph.node");
+        @Json(name = "graph.node") node("graph.node"),
+        @Json(name = "graph.relationship") relationship("graph.relationship");
     }
     /**
      * 

@@ -24,7 +24,8 @@ public class OASGraphNode extends Map<String, oas_any_type_not_mapped> implement
      * Gets or Sets source
      */
     public enum SourceEnum {
-        GRAPH_NODE
+        NODE,
+        RELATIONSHIP
     }
 
     /**

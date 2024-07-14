@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 
 ## Enum: Source
-Allowed values: [graph.node]
+Allowed values: [graph.node, graph.relationship]
 
 
 

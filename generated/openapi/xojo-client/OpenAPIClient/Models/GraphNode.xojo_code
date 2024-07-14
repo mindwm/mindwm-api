@@ -74,7 +74,8 @@ Protected Class GraphNode
 
     #tag Enum, Name = SourceEnum, Type = Integer, Flags = &h0
         
-        GraphPeriodNode
+        Node
+        Relationship
         
     #tag EndEnum
 
@@ -91,8 +92,10 @@ Protected Class GraphNode
 		Shared Function SourceEnumToString(value As SourceEnum) As String
 		  Select Case value
 		    
-		    Case SourceEnum.GraphPeriodNode
+		    Case SourceEnum.Node
 		      Return "graph.node"
+		    Case SourceEnum.Relationship
+		      Return "graph.relationship"
 		    
 		  End Select
 		  Return ""

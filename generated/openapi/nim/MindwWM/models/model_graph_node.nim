@@ -14,7 +14,8 @@ import model_any_type
 import model_graph_node_all_of_data
 
 type Source* {.pure.} = enum
-  GraphNode
+  Node
+  Relationship
 
 type `Type`* {.pure.} = enum
   Created
@@ -36,13 +37,15 @@ type GraphNode* = object
 
 func `%`*(v: Source): JsonNode =
   let str = case v:
-    of Source.GraphNode: "graph.node"
+    of Source.Node: "graph.node"
+    of Source.Relationship: "graph.relationship"
 
   JsonNode(kind: JString, str: str)
 
 func `$`*(v: Source): string =
   result = case v:
-    of Source.GraphNode: "graph.node"
+    of Source.Node: "graph.node"
+    of Source.Relationship: "graph.relationship"
 
 func `%`*(v: `Type`): JsonNode =
   let str = case v:

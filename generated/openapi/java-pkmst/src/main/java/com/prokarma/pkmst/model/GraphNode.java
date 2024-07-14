@@ -20,7 +20,7 @@ import java.util.Map;
  * GraphNode
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-13T22:09:21.004464926Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-14T08:10:44.976376375Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphNode extends HashMap<String, Object>  {
   @JsonProperty("id")
   private String id;
@@ -29,7 +29,9 @@ public class GraphNode extends HashMap<String, Object>  {
    * Gets or Sets source
    */
   public enum SourceEnum {
-    GRAPH_NODE("graph.node");
+    NODE("graph.node"),
+    
+    RELATIONSHIP("graph.relationship");
 
     private String value;
 

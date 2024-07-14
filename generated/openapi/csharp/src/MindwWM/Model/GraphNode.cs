@@ -38,10 +38,16 @@ namespace MindwWM.Model
         public enum SourceEnum
         {
             /// <summary>
-            /// Enum GraphNode for value: graph.node
+            /// Enum Node for value: graph.node
             /// </summary>
             [EnumMember(Value = "graph.node")]
-            GraphNode = 1
+            Node = 1,
+
+            /// <summary>
+            /// Enum Relationship for value: graph.relationship
+            /// </summary>
+            [EnumMember(Value = "graph.relationship")]
+            Relationship = 2
         }
 
 

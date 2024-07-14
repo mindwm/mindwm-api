@@ -21,7 +21,8 @@ message GraphNode {
   string id = 3355;
 
   enum SourceEnum {
-    SourceEnum_GRAPH_NODE = 0;
+    SourceEnum_NODE = 0;
+    SourceEnum_RELATIONSHIP = 1;
   }
 
   SourceEnum source = 359634918;

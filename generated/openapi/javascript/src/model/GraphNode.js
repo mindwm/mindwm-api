@@ -276,7 +276,13 @@ GraphNode['SourceEnum'] = {
      * value: "graph.node"
      * @const
      */
-    "graph.node": "graph.node"
+    "node": "graph.node",
+
+    /**
+     * value: "graph.relationship"
+     * @const
+     */
+    "relationship": "graph.relationship"
 };
 
 

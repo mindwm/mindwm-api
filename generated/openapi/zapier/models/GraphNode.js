@@ -19,6 +19,7 @@ module.exports = {
                 type: 'string',
                 choices: [
                     'graph.node',
+                    'graph.relationship',
                 ],
             },
             {

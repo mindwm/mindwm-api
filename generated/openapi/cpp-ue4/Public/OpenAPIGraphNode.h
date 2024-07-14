@@ -35,7 +35,8 @@ public:
 	FString Id;
 	enum class SourceEnum
 	{
-		GraphNode,
+		Node,
+		Relationship,
   	};
 
 	static FString EnumToString(const SourceEnum& EnumValue);

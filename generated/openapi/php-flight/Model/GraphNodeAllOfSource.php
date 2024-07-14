@@ -32,7 +32,8 @@ namespace OpenAPIServer\Model;
  */
 enum GraphNodeAllOfSource: string
 {
-        case GRAPH_NODE = 'graph.node';
+        case NODE = 'graph.node';
+        case RELATIONSHIP = 'graph.relationship';
 }
 
 

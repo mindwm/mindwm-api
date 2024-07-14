@@ -41,7 +41,7 @@ implicit val format: Format[GraphNode] = Json.format
 }
 
 object GraphNodeSourceEnum extends Enumeration {
-  val   graph.node = Value
+  val   graph.node, graph.relationship = Value
   type GraphNodeSourceEnum = Value
   implicit val format: Format[Value] = Format(Reads.enumNameReads(this), Writes.enumNameWrites[GraphNodeSourceEnum.type])
 }

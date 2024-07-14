@@ -282,7 +282,8 @@ class GraphNode implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const SOURCE_GRAPH_NODE = 'graph.node';
+    public const SOURCE_NODE = 'graph.node';
+    public const SOURCE_RELATIONSHIP = 'graph.relationship';
     public const TYPE_CREATED = 'created';
     public const TYPE_UPDATED = 'updated';
     public const TYPE_DELETED = 'deleted';
@@ -295,7 +296,8 @@ class GraphNode implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getSourceAllowableValues()
     {
         return [
-            self::SOURCE_GRAPH_NODE,
+            self::SOURCE_NODE,
+            self::SOURCE_RELATIONSHIP,
         ];
     }
 

@@ -46,7 +46,7 @@ function Initialize-GraphNode {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("graph.node")]
+        [ValidateSet("graph.node", "graph.relationship")]
         [String]
         ${Source},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

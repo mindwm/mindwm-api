@@ -120,7 +120,8 @@ export class GraphNode {
 
 
 export enum GraphNodeSourceEnum {
-    GraphNode = 'graph.node'
+    Node = 'graph.node',
+    Relationship = 'graph.relationship'
 }
 export enum GraphNodeTypeEnum {
     Created = 'created',

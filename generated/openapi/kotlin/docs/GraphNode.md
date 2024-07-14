@@ -20,7 +20,7 @@
 ## Enum: source
 | Name | Value |
 | ---- | ----- |
-| source | graph.node |
+| source | graph.node, graph.relationship |
 
 
 <a id="Type"></a>

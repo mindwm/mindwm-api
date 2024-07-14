@@ -42,7 +42,7 @@ import javax.annotation.Generated;
   GraphNode.JSON_PROPERTY_DATA_BASE64
 })
 @JsonTypeName("GraphNode")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-13T22:09:15.015126941Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-14T08:10:38.605864366Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class GraphNode extends HashMap<String, Object> {
     public static final String JSON_PROPERTY_ID = "id";
@@ -52,7 +52,8 @@ public class GraphNode extends HashMap<String, Object> {
      * Gets or Sets source
      */
     public enum SourceEnum {
-        GRAPH_NODE("graph.node");
+        NODE("graph.node"),
+        RELATIONSHIP("graph.relationship");
 
         private String value;
 

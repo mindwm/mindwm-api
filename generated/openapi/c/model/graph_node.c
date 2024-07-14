@@ -5,13 +5,13 @@
 
 
 char* graph_node_source_ToString(mindwm_api_graph_node_SOURCE_e source) {
-    char* sourceArray[] =  { "NULL", "graph.node" };
+    char* sourceArray[] =  { "NULL", "graph.node", "graph.relationship" };
     return sourceArray[source];
 }
 
 mindwm_api_graph_node_SOURCE_e graph_node_source_FromString(char* source){
     int stringToReturn = 0;
-    char *sourceArray[] =  { "NULL", "graph.node" };
+    char *sourceArray[] =  { "NULL", "graph.node", "graph.relationship" };
     size_t sizeofArray = sizeof(sourceArray) / sizeof(sourceArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(source, sourceArray[stringToReturn]) == 0) {

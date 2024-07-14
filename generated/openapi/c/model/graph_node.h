@@ -20,7 +20,7 @@ typedef struct graph_node_t graph_node_t;
 
 // Enum SOURCE for graph_node
 
-typedef enum  { mindwm_api_graph_node_SOURCE_NULL = 0, mindwm_api_graph_node_SOURCE_graph.node } mindwm_api_graph_node_SOURCE_e;
+typedef enum  { mindwm_api_graph_node_SOURCE_NULL = 0, mindwm_api_graph_node_SOURCE_graph.node, mindwm_api_graph_node_SOURCE_graph.relationship } mindwm_api_graph_node_SOURCE_e;
 
 char* graph_node_source_ToString(mindwm_api_graph_node_SOURCE_e source);
 

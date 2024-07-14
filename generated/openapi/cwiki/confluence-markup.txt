@@ -89,7 +89,7 @@ h2. Models
         
         ||Field Name||Required||Type||Description||Enum||Example||
          |id |(/) |{noformat:nopanel=true}String{noformat} | Identifies the event. |  | null
-         |source |(/) |{noformat:nopanel=true}String{noformat} |  |  [graph.node]  | null
+         |source |(/) |{noformat:nopanel=true}String{noformat} |  |  [graph.node, graph.relationship]  | null
          |specversion |(/) |{noformat:nopanel=true}String{noformat} | The version of the CloudEvents specification which the event uses. |  | null
          |type |(/) |{noformat:nopanel=true}String{noformat} |  |  [created, updated, deleted]  | null
          |datacontenttype |(x) |{noformat:nopanel=true}String{noformat} | Content type of the data value. Must adhere to RFC 2046 format. |  | null

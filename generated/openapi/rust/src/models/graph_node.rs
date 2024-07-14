@@ -62,12 +62,14 @@ impl GraphNode {
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Source {
     #[serde(rename = "graph.node")]
-    GraphPeriodNode,
+    Node,
+    #[serde(rename = "graph.relationship")]
+    Relationship,
 }
 
 impl Default for Source {
     fn default() -> Source {
-        Self::GraphPeriodNode
+        Self::Node
     }
 }
 /// 

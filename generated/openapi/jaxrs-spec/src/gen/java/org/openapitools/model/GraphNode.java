@@ -20,12 +20,12 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 @JsonTypeName("GraphNode")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-13T22:09:42.239536658Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-14T08:11:06.817692523Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphNode extends HashMap<String, Object>  {
   private String id;
   public enum SourceEnum {
 
-    GRAPH_NODE(String.valueOf("graph.node"));
+    NODE(String.valueOf("graph.node")), RELATIONSHIP(String.valueOf("graph.relationship"));
 
 
     private String value;

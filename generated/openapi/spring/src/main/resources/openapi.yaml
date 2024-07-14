@@ -169,6 +169,7 @@ components:
           source:
             enum:
             - graph.node
+            - graph.relationship
           data:
             $ref: '#/components/schemas/GraphNode_allOf_data'
     GraphRelationship:

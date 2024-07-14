@@ -37,15 +37,18 @@ object GraphNode {
   import DateTimeCodecs._
   sealed trait Source
   case object GraphNode extends Source
+  case object GraphRelationship extends Source
 
   object Source {
     def toSource(s: String): Option[Source] = s match {
       case "GraphNode" => Some(GraphNode)
+      case "GraphRelationship" => Some(GraphRelationship)
       case _ => None
     }
 
     def fromSource(x: Source): String = x match {
       case GraphNode => "GraphNode"
+      case GraphRelationship => "GraphRelationship"
     }
   }
 

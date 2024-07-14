@@ -61,7 +61,7 @@ class GraphNode
      * @Type("string")
     */
     #[Assert\NotNull]
-    #[Assert\Choice(["graph.node"])]
+    #[Assert\Choice(["graph.node", "graph.relationship"])]
     #[Assert\Type("string")]
     protected ?string $source = null;
 

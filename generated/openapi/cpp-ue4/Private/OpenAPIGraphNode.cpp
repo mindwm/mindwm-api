@@ -24,8 +24,10 @@ inline FString ToString(const OpenAPIGraphNode::SourceEnum& Value)
 {
 	switch (Value)
 	{
-	case OpenAPIGraphNode::SourceEnum::GraphNode:
+	case OpenAPIGraphNode::SourceEnum::Node:
 		return TEXT("graph.node");
+	case OpenAPIGraphNode::SourceEnum::Relationship:
+		return TEXT("graph.relationship");
 	}
 
 	UE_LOG(LogOpenAPI, Error, TEXT("Invalid OpenAPIGraphNode::SourceEnum Value (%d)"), (int)Value);
@@ -40,7 +42,8 @@ FString OpenAPIGraphNode::EnumToString(const OpenAPIGraphNode::SourceEnum& EnumV
 inline bool FromString(const FString& EnumAsString, OpenAPIGraphNode::SourceEnum& Value)
 {
 	static TMap<FString, OpenAPIGraphNode::SourceEnum> StringToEnum = { 
-		{ TEXT("graph.node"), OpenAPIGraphNode::SourceEnum::GraphNode }, };
+		{ TEXT("graph.node"), OpenAPIGraphNode::SourceEnum::Node },
+		{ TEXT("graph.relationship"), OpenAPIGraphNode::SourceEnum::Relationship }, };
 
 	const auto Found = StringToEnum.Find(EnumAsString);
 	if(Found)

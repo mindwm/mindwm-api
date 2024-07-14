@@ -125,7 +125,7 @@ module OpenAPIClient
     # @return true if the model is valid
     def valid?
       return false if @id.to_s.size < 1
-      source_validator = EnumAttributeValidator.new("String", ["graph.node"])
+      source_validator = EnumAttributeValidator.new("String", ["graph.node", "graph.relationship"])
       return false unless source_validator.valid?(@source)
       return false if @specversion.to_s.size < 1
       _type_validator = EnumAttributeValidator.new("String", ["created", "updated", "deleted"])
@@ -150,7 +150,7 @@ module OpenAPIClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] source Object to be assigned
     def source=(source)
-      validator = EnumAttributeValidator.new("String", ["graph.node"])
+      validator = EnumAttributeValidator.new("String", ["graph.node", "graph.relationship"])
       unless validator.valid?(source)
         raise ArgumentError.new("invalid value for \"source\", must be one of #{validator.allowable_values}.")
       end

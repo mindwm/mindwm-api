@@ -53,7 +53,7 @@ class GraphNode extends BaseModel
         "enum" : [ "created", "updated", "deleted" ]
       },
       "source" : {
-        "enum" : [ "graph.node" ]
+        "enum" : [ "graph.node", "graph.relationship" ]
       },
       "data" : {
         "$ref" : "#/components/schemas/GraphNode_allOf_data"

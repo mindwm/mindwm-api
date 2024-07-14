@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **character** | Identifies the event. | [Min. length: 1] 
-**source** | **character** |  | [Enum: [graph.node]] 
+**source** | **character** |  | [Enum: [graph.node, graph.relationship]] 
 **specversion** | **character** | The version of the CloudEvents specification which the event uses. | [Min. length: 1] 
 **type** | **character** |  | [Enum: [created, updated, deleted]] 
 **datacontenttype** | **character** | Content type of the data value. Must adhere to RFC 2046 format. | [optional] [Min. length: 1] 

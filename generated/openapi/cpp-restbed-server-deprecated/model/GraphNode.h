@@ -136,8 +136,8 @@ protected:
     std::string m_Time = "";
     std::shared_ptr<GraphNode_allOf_data> m_Data;
     std::string m_Data_base64 = "";
-    const std::array<std::string, 1> m_SourceEnum = {
-          "graph.node"
+    const std::array<std::string, 2> m_SourceEnum = {
+          "graph.node","graph.relationship"
     };
 
     const std::array<std::string, 3> m_TypeEnum = {

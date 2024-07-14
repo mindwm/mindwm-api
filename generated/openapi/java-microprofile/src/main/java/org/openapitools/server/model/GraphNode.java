@@ -41,7 +41,7 @@ public class GraphNode extends HashMap<String, Object> {
   @JsonbTypeDeserializer(SourceEnum.Deserializer.class)
   public enum SourceEnum {
 
-    GRAPH_NODE(String.valueOf("graph.node"));
+    NODE(String.valueOf("graph.node")), RELATIONSHIP(String.valueOf("graph.relationship"));
 
 
     String value;

@@ -107,7 +107,8 @@ export class GraphNode extends any {
 
 export namespace GraphNode {
     export enum SourceEnum {
-        GraphNode = <any> 'graph.node'
+        Node = <any> 'graph.node',
+        Relationship = <any> 'graph.relationship'
     }
     export enum TypeEnum {
         Created = <any> 'created',

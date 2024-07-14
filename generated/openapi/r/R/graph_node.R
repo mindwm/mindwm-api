@@ -64,8 +64,8 @@ GraphNode <- R6::R6Class(
         self$`id` <- `id`
       }
       if (!missing(`source`)) {
-        if (!(`source` %in% c("graph.node"))) {
-          stop(paste("Error! \"", `source`, "\" cannot be assigned to `source`. Must be \"graph.node\".", sep = ""))
+        if (!(`source` %in% c("graph.node", "graph.relationship"))) {
+          stop(paste("Error! \"", `source`, "\" cannot be assigned to `source`. Must be \"graph.node\", \"graph.relationship\".", sep = ""))
         }
         if (!(is.character(`source`) && length(`source`) == 1)) {
           stop(paste("Error! Invalid data for `source`. Must be a string:", `source`))
@@ -200,8 +200,8 @@ GraphNode <- R6::R6Class(
         self$`id` <- this_object$`id`
       }
       if (!is.null(this_object$`source`)) {
-        if (!is.null(this_object$`source`) && !(this_object$`source` %in% c("graph.node"))) {
-          stop(paste("Error! \"", this_object$`source`, "\" cannot be assigned to `source`. Must be \"graph.node\".", sep = ""))
+        if (!is.null(this_object$`source`) && !(this_object$`source` %in% c("graph.node", "graph.relationship"))) {
+          stop(paste("Error! \"", this_object$`source`, "\" cannot be assigned to `source`. Must be \"graph.node\", \"graph.relationship\".", sep = ""))
         }
         self$`source` <- this_object$`source`
       }
@@ -356,8 +356,8 @@ GraphNode <- R6::R6Class(
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       self$`id` <- this_object$`id`
-      if (!is.null(this_object$`source`) && !(this_object$`source` %in% c("graph.node"))) {
-        stop(paste("Error! \"", this_object$`source`, "\" cannot be assigned to `source`. Must be \"graph.node\".", sep = ""))
+      if (!is.null(this_object$`source`) && !(this_object$`source` %in% c("graph.node", "graph.relationship"))) {
+        stop(paste("Error! \"", this_object$`source`, "\" cannot be assigned to `source`. Must be \"graph.node\", \"graph.relationship\".", sep = ""))
       }
       self$`source` <- this_object$`source`
       self$`specversion` <- this_object$`specversion`

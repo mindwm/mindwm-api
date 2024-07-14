@@ -54,11 +54,13 @@ data class GraphNode (
 
     /**
     * 
-    * Values: graphPeriodNode
+    * Values: node,relationship
     */
     enum class Source(val value: kotlin.String){
     
-        graphPeriodNode("graph.node");
+        node("graph.node"),
+    
+        relationship("graph.relationship");
     
     }
 

@@ -75,6 +75,7 @@ API.Client.GraphNode.prototype.dataBase64;
 /** @enum {string} */
 API.Client.GraphNode.SourceEnum = { 
   graph.node: 'graph.node',
+  graph.relationship: 'graph.relationship',
 }
 /** @enum {string} */
 API.Client.GraphNode.TypeEnum = { 

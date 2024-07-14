@@ -1133,7 +1133,8 @@ mkTmuxPaneIoDocument tmuxPaneIoDocumentInput tmuxPaneIoDocumentOutput tmuxPaneIo
 
 -- | Enum of 'Text'
 data E'Source
-  = E'Source'Graph_node -- ^ @"graph.node"@
+  = E'Source'Node -- ^ @"graph.node"@
+  | E'Source'Relationship -- ^ @"graph.relationship"@
   deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
 
 instance A.ToJSON E'Source where toJSON = A.toJSON . fromE'Source
@@ -1145,12 +1146,14 @@ instance MimeRender MimeMultipartFormData E'Source where mimeRender _ = mimeRend
 -- | unwrap 'E'Source' enum
 fromE'Source :: E'Source -> Text
 fromE'Source = \case
-  E'Source'Graph_node -> "graph.node"
+  E'Source'Node -> "graph.node"
+  E'Source'Relationship -> "graph.relationship"
 
 -- | parse 'E'Source' enum
 toE'Source :: Text -> P.Either String E'Source
 toE'Source = \case
-  "graph.node" -> P.Right E'Source'Graph_node
+  "graph.node" -> P.Right E'Source'Node
+  "graph.relationship" -> P.Right E'Source'Relationship
   s -> P.Left $ "toE'Source: enum parse failure: " P.++ P.show s
 
 

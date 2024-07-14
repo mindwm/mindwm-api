@@ -24,7 +24,8 @@
 
 | Name | Value |
 |---- | -----|
-| GRAPH_NODE | &quot;graph.node&quot; |
+| NODE | &quot;graph.node&quot; |
+| RELATIONSHIP | &quot;graph.relationship&quot; |
 
 
 

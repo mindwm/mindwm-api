@@ -93,6 +93,7 @@ object GraphNode{
         // nameInCamelCase = source
         enum SourceEnum derives ReadWriter {
             case graph.node
+            case graph.relationship
         }
         // baseName=type
         // nameInCamelCase = `type`

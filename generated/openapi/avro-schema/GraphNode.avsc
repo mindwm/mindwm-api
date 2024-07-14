@@ -15,7 +15,8 @@
         "type": "enum",
         "name": "GraphNode_source",
         "symbols": [
-          "graph.node"
+          "graph.node",
+          "graph.relationship"
         ]
       },
       "doc": ""

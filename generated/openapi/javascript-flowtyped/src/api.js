@@ -264,7 +264,7 @@ export type CloudEventData = {
 }
 
 
-            export type GraphNodeSourceEnum = 'graph.node';
+            export type GraphNodeSourceEnum = 'graph.node' | 'graph.relationship';
 
             export type GraphNodeTypeEnum = 'created' | 'updated' | 'deleted';
 /**

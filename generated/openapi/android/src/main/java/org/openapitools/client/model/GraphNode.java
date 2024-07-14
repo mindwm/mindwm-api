@@ -27,7 +27,7 @@ public class GraphNode extends HashMap<String, OasAnyTypeNotMapped> {
   @SerializedName("id")
   private String id = null;
   public enum SourceEnum {
-     graph.node, 
+     graph.node,  graph.relationship, 
   };
   @SerializedName("source")
   private SourceEnum source = null;

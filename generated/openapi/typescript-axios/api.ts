@@ -296,7 +296,8 @@ export interface GraphNode {
 }
 
 export const GraphNodeSourceEnum = {
-    GraphNode: 'graph.node'
+    Node: 'graph.node',
+    Relationship: 'graph.relationship'
 } as const;
 
 export type GraphNodeSourceEnum = typeof GraphNodeSourceEnum[keyof typeof GraphNodeSourceEnum];

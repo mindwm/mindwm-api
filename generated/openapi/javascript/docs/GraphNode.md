@@ -20,7 +20,9 @@ Name | Type | Description | Notes
 ## Enum: SourceEnum
 
 
-* `graph.node` (value: `"graph.node"`)
+* `node` (value: `"graph.node"`)
+
+* `relationship` (value: `"graph.relationship"`)
 
 
 

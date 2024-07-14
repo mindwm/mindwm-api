@@ -32,7 +32,7 @@ describe OpenAPIClient::GraphNode do
   describe "test attribute 'source'" do
     it "should work" do
       # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new("String", ["graph.node"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new("String", ["graph.node", "graph.relationship"])
       # validator.allowable_values.each do |value|
       #   expect { instance.source = value }.not_to raise_error
       # end

@@ -133,7 +133,7 @@ class GraphNode(Model):
         :param source: The source of this GraphNode.
         :type source: str
         """
-        allowed_values = ["graph.node"]  # noqa: E501
+        allowed_values = ["graph.node", "graph.relationship"]  # noqa: E501
         if source not in allowed_values:
             raise ValueError(
                 "Invalid value for `source` ({0}), must be one of {1}"

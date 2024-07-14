@@ -24,7 +24,8 @@ Name | Type | Description | Notes
 
 Name | Value
 ---- | -----
-GRAPH_NODE | `"graph.node"`
+NODE | `"graph.node"`
+RELATIONSHIP | `"graph.relationship"`
 
 
 ## TypeEnum

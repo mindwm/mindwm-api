@@ -21,7 +21,7 @@ public class GraphNode extends HashMap<String, Object> {
 
 public enum SourceEnum {
 
-GRAPH_NODE(String.valueOf("graph.node"));
+NODE(String.valueOf("graph.node")), RELATIONSHIP(String.valueOf("graph.relationship"));
 
 
     private String value;

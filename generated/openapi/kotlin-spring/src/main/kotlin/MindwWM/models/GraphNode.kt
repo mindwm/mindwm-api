@@ -71,11 +71,12 @@ data class GraphNode(
 
     /**
     * 
-    * Values: graphPeriodNode
+    * Values: node,relationship
     */
     enum class Source(val value: kotlin.String) {
 
-        @JsonProperty("graph.node") graphPeriodNode("graph.node")
+        @JsonProperty("graph.node") node("graph.node"),
+        @JsonProperty("graph.relationship") relationship("graph.relationship")
     }
 
     /**

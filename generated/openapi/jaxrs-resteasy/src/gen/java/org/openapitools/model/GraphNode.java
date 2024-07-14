@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import io.swagger.annotations.*;
 import javax.validation.Valid;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-13T22:09:38.467017342Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-14T08:11:02.940046601Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphNode extends HashMap<String, Object>  {
   
   private String id;
@@ -26,7 +26,9 @@ public class GraphNode extends HashMap<String, Object>  {
    * Gets or Sets source
    */
   public enum SourceEnum {
-    GRAPH_NODE("graph.node");
+    NODE("graph.node"),
+
+        RELATIONSHIP("graph.relationship");
     private String value;
 
     SourceEnum(String value) {

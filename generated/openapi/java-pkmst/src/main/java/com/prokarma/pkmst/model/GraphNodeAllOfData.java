@@ -19,7 +19,7 @@ import java.time.OffsetDateTime;
  * GraphNodeAllOfData
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-13T22:09:21.004464926Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-14T08:10:44.976376375Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphNodeAllOfData   {
   @JsonProperty("headers")
   private Object headers;

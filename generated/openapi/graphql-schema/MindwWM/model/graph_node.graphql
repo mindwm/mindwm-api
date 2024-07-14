@@ -37,6 +37,7 @@ type GraphNode {
 
 enum Source {
   graph.node
+  graph.relationship
 }
 
 enum Type {

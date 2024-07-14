@@ -27,7 +27,7 @@ MindwWM_graph_node() ->
 
 MindwWM_graph_node(Fields) ->
   Default = [ {'id', binary(1) }
-            , {'source', elements([<<"graph.node">>]) }
+            , {'source', elements([<<"graph.node">>, <<"graph.relationship">>]) }
             , {'specversion', binary(1) }
             , {'type', elements([<<"created">>, <<"updated">>, <<"deleted">>]) }
             , {'datacontenttype', binary(1) }

@@ -11,7 +11,7 @@ module GraphNode =
   //#region GraphNode
 
   //#region enums
-  type SourceEnum = GraphNodeEnum of string  
+  type SourceEnum = NodeEnum of string  |  RelationshipEnum of string  
   //#endregion
   //#region enums
   type TypeEnum = CreatedEnum of string  |  UpdatedEnum of string  |  DeletedEnum of string  

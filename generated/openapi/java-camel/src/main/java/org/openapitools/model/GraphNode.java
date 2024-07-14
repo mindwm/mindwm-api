@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * GraphNode
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-13T22:09:28.668148392Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-14T08:10:52.783521476Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphNode {
 
   private String id;
@@ -36,7 +36,9 @@ public class GraphNode {
    * Gets or Sets source
    */
   public enum SourceEnum {
-    GRAPH_NODE("graph.node");
+    NODE("graph.node"),
+    
+    RELATIONSHIP("graph.relationship");
 
     private String value;
 

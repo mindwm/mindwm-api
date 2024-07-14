@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `CloudEvent` (
 
 CREATE TABLE IF NOT EXISTS `GraphNode` (
   `id` TEXT NOT NULL COMMENT 'Identifies the event.',
-  `source` ENUM('graph.node') NOT NULL,
+  `source` ENUM('graph.node', 'graph.relationship') NOT NULL,
   `specversion` TEXT NOT NULL COMMENT 'The version of the CloudEvents specification which the event uses.',
   `type` ENUM('created', 'updated', 'deleted') NOT NULL,
   `datacontenttype` TEXT DEFAULT NULL COMMENT 'Content type of the data value. Must adhere to RFC 2046 format.',
