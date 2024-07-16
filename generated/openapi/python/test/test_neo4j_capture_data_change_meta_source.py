@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.neo4j_capture_data_change_meta_source import Neo4jCaptureDataChangeMetaSource
+from MindWM.models.neo4j_capture_data_change_meta_source import Neo4jCaptureDataChangeMetaSource
 
 class TestNeo4jCaptureDataChangeMetaSource(unittest.TestCase):
     """Neo4jCaptureDataChangeMetaSource unit test stubs"""

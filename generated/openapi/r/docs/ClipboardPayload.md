@@ -1,4 +1,4 @@
-# MindwWM::ClipboardPayload
+# MindWM::ClipboardPayload
 
 
 ## Properties

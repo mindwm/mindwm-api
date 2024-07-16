@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GraphNode = Initialize-MindwWMGraphNode  -Id null `
+$GraphNode = Initialize-MindWMGraphNode  -Id null `
  -Source null `
  -Specversion null `
  -Type null `

@@ -11,7 +11,7 @@ import httpclient
 import logging
 import options
 
-import MindwWM
+import MindWM
 
 import config
 

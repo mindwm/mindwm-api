@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
-@ComponentScan(basePackages = ["org.openapitools", "MindwWM.apis", "MindwWM.models"])
+@ComponentScan(basePackages = ["org.openapitools", "MindWM.apis", "MindWM.models"])
 class Application
 
 fun main(args: Array<String>) {

@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-#include "MindwWM/Object.h"
+#include "MindWM/Object.h"
 
 namespace org {
 namespace openapitools {

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.neo4j_capture_data_change_node_payload import Neo4jCaptureDataChangeNodePayload  # noqa: E501
+from MindWM.models.neo4j_capture_data_change_node_payload import Neo4jCaptureDataChangeNodePayload  # noqa: E501
 
 class TestNeo4jCaptureDataChangeNodePayload(unittest.TestCase):
     """Neo4jCaptureDataChangeNodePayload unit test stubs"""
@@ -36,7 +36,7 @@ class TestNeo4jCaptureDataChangeNodePayload(unittest.TestCase):
         model = Neo4jCaptureDataChangeNodePayload()  # noqa: E501
         if include_optional:
             return Neo4jCaptureDataChangeNodePayload(
-                after = MindwWM.models.neo4j_capture_data_change_node_payload_after.Neo4jCaptureDataChangeNodePayload_after(
+                after = MindWM.models.neo4j_capture_data_change_node_payload_after.Neo4jCaptureDataChangeNodePayload_after(
                     labels = [
                         ''
                         ], 
@@ -49,7 +49,7 @@ class TestNeo4jCaptureDataChangeNodePayload(unittest.TestCase):
             )
         else:
             return Neo4jCaptureDataChangeNodePayload(
-                after = MindwWM.models.neo4j_capture_data_change_node_payload_after.Neo4jCaptureDataChangeNodePayload_after(
+                after = MindWM.models.neo4j_capture_data_change_node_payload_after.Neo4jCaptureDataChangeNodePayload_after(
                     labels = [
                         ''
                         ], 

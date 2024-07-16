@@ -9,9 +9,9 @@
  * Do not edit the class manually.
  */
 
-#include "MindwWM/ApiClient.h"
-#include "MindwWM/MultipartFormData.h"
-#include "MindwWM/ModelBase.h"
+#include "MindWM/ApiClient.h"
+#include "MindWM/MultipartFormData.h"
+#include "MindWM/ModelBase.h"
 
 #include <sstream>
 #include <limits>

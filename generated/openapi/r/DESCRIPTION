@@ -1,4 +1,4 @@
-Package: MindwWM
+Package: MindWM
 Title: R Package Client for Mindwm API
 Version: 1.0.0
 Author: person("OpenAPI Generator community", email = "team@openapitools.org", role = c("aut", "cre"))

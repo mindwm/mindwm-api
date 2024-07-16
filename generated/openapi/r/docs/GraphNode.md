@@ -1,4 +1,4 @@
-# MindwWM::GraphNode
+# MindWM::GraphNode
 
 
 ## Properties

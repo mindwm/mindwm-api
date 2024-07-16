@@ -1,0 +1,83 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "MindWM GraphNode"
+package     = MindWM
+version     = "1.0"
+description = "Defines a GraphNode"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  GraphNodeAllOfData = MindWM.resourceTypes.GraphNodeAllOfData
+}
+resourceTypes {
+
+  GraphNode {
+    title = GraphNode
+    description = GraphNode
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = "Identifies the event."
+          optional = true
+        }
+        source {
+          type =  string
+          description = ""
+          enum = ["graph.node", "graph.relationship"]
+          optional = true
+        }
+        specversion {
+          type =  string
+          description = "The version of the CloudEvents specification which the event uses."
+          optional = true
+        }
+        type {
+          type =  string
+          description = ""
+          enum = ["created", "updated", "deleted"]
+          optional = true
+        }
+        datacontenttype {
+          type =  string
+          description = "Content type of the data value. Must adhere to RFC 2046 format."
+          optional = false
+        }
+        dataschema {
+          type =  string
+          description = "Identifies the schema that data adheres to."
+          optional = false
+        }
+        subject {
+          type =  string
+          description = "Describes the subject of the event in the context of the event producer (identified by source)."
+          optional = false
+        }
+        time {
+          type =  string
+          description = "Timestamp of when the occurrence happened. Must adhere to RFC 3339."
+          optional = false
+        }
+        data {
+          type = GraphNodeAllOfData
+          description = ""
+          optional = false
+        }
+        data_base64 {
+          type =  string
+          description = "Base64 encoded event payload. Must adhere to RFC4648."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  GraphNode {
+    title = GraphNode
+    description = GraphNode
+    implements = MindWM.resourceTypes.GraphNode
+
+  }
+}

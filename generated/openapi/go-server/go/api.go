@@ -8,7 +8,7 @@
  * API version: 0.1.0
  */
 
-package MindwWM
+package MindWM
 
 import (
 	"context"

@@ -1,12 +1,12 @@
 {
-  "namespace": "MindwWM",
+  "namespace": "MindWM",
   "type": "record",
   "doc": "",
   "name": "Neo4jCaptureDataChangeNodePayload",
   "fields": [
     {
       "name": "after",
-      "type": "MindwWM.Neo4jCaptureDataChangeNodePayloadAfter",
+      "type": "MindWM.Neo4jCaptureDataChangeNodePayloadAfter",
       "doc": ""
     },
     {

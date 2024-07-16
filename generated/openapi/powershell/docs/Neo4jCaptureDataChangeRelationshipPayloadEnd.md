@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Neo4jCaptureDataChangeRelationshipPayloadEnd = Initialize-MindwWMNeo4jCaptureDataChangeRelationshipPayloadEnd  -Id null `
+$Neo4jCaptureDataChangeRelationshipPayloadEnd = Initialize-MindWMNeo4jCaptureDataChangeRelationshipPayloadEnd  -Id null `
  -Ids null `
  -Labels null
 ```

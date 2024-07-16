@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.neo4j_capture_data_change_meta_source import Neo4jCaptureDataChangeMetaSource  # noqa: E501
+from MindWM.models.neo4j_capture_data_change_meta_source import Neo4jCaptureDataChangeMetaSource  # noqa: E501
 
 class TestNeo4jCaptureDataChangeMetaSource(unittest.TestCase):
     """Neo4jCaptureDataChangeMetaSource unit test stubs"""

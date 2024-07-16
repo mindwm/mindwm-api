@@ -1,12 +1,12 @@
 {
-  "namespace": "MindwWM",
+  "namespace": "MindWM",
   "type": "record",
   "doc": "",
   "name": "Neo4jCaptureDataChangePayload",
   "fields": [
     {
       "name": "after",
-      "type": "MindwWM.object",
+      "type": "MindWM.object",
       "doc": ""
     },
     {
@@ -26,7 +26,7 @@
     },
     {
       "name": "end",
-      "type": "MindwWM.Neo4jCaptureDataChangeRelationshipPayloadEnd",
+      "type": "MindWM.Neo4jCaptureDataChangeRelationshipPayloadEnd",
       "doc": ""
     },
     {
@@ -36,7 +36,7 @@
     },
     {
       "name": "start",
-      "type": "MindwWM.Neo4jCaptureDataChangeRelationshipPayloadEnd",
+      "type": "MindWM.Neo4jCaptureDataChangeRelationshipPayloadEnd",
       "doc": ""
     }
   ]

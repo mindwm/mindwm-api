@@ -1,4 +1,4 @@
-# MindwWM.Model.GraphRelationship
+# MindWM.Model.GraphRelationship
 
 ## Properties
 

@@ -1,0 +1,81 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "MindWM CloudEvent"
+package     = MindWM
+version     = "1.0"
+description = "Defines a CloudEvent"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  CloudEventData = MindWM.resourceTypes.CloudEventData
+}
+resourceTypes {
+
+  CloudEvent {
+    title = CloudEvent
+    description = CloudEvent
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = "Identifies the event."
+          optional = true
+        }
+        source {
+          type =  string
+          description = "Identifies the context in which an event happened."
+          optional = true
+        }
+        specversion {
+          type =  string
+          description = "The version of the CloudEvents specification which the event uses."
+          optional = true
+        }
+        type {
+          type =  string
+          description = "Describes the type of event related to the originating occurrence."
+          optional = true
+        }
+        datacontenttype {
+          type =  string
+          description = "Content type of the data value. Must adhere to RFC 2046 format."
+          optional = false
+        }
+        dataschema {
+          type =  string
+          description = "Identifies the schema that data adheres to."
+          optional = false
+        }
+        subject {
+          type =  string
+          description = "Describes the subject of the event in the context of the event producer (identified by source)."
+          optional = false
+        }
+        time {
+          type =  string
+          description = "Timestamp of when the occurrence happened. Must adhere to RFC 3339."
+          optional = false
+        }
+        data {
+          type = CloudEventData
+          description = ""
+          optional = false
+        }
+        data_base64 {
+          type =  string
+          description = "Base64 encoded event payload. Must adhere to RFC4648."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  CloudEvent {
+    title = CloudEvent
+    description = CloudEvent
+    implements = MindWM.resourceTypes.CloudEvent
+
+  }
+}

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.io_document import IoDocument  # noqa: E501
+from MindWM.models.io_document import IoDocument  # noqa: E501
 
 class TestIoDocument(unittest.TestCase):
     """IoDocument unit test stubs"""

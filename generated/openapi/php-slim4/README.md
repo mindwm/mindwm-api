@@ -1,4 +1,4 @@
-# MindwWM - PHP Slim 4 Server library for Mindwm API
+# MindWM - PHP Slim 4 Server library for Mindwm API
 
 * [OpenAPI Generator](https://openapi-generator.tech)
 * [Slim 4 Documentation](https://www.slimframework.com/docs/v4/)

@@ -1,5 +1,5 @@
 {
-  "namespace": "MindwWM",
+  "namespace": "MindWM",
   "type": "record",
   "doc": "",
   "name": "IoDocument",
@@ -18,7 +18,7 @@
     },
     {
       "name": "data",
-      "type": ["null", "MindwWM.TmuxPaneIoDocument"],
+      "type": ["null", "MindWM.TmuxPaneIoDocument"],
       "doc": "",
       "default": null
     },
@@ -40,7 +40,7 @@
     },
     {
       "name": "dataschema",
-      "type": ["null", "MindwWM.URI"],
+      "type": ["null", "MindWM.URI"],
       "doc": "Identifies the schema that data adheres to.",
       "default": null
     },

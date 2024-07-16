@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.neo4j_capture_data_change_schema import Neo4jCaptureDataChangeSchema
+from MindWM.models.neo4j_capture_data_change_schema import Neo4jCaptureDataChangeSchema
 
 class TestNeo4jCaptureDataChangeSchema(unittest.TestCase):
     """Neo4jCaptureDataChangeSchema unit test stubs"""

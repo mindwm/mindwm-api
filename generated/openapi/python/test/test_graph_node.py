@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.graph_node import GraphNode
+from MindWM.models.graph_node import GraphNode
 
 class TestGraphNode(unittest.TestCase):
     """GraphNode unit test stubs"""

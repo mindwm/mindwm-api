@@ -25,7 +25,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("GraphNode_allOf_data")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T18:20:22.233398261Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T19:21:29.437307440Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphNodeAllOfData {
 
   private Object headers;

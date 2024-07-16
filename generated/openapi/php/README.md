@@ -1,4 +1,4 @@
-# MindwWM
+# MindWM
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
 
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/MindwWM/vendor/autoload.php');
+require_once('/path/to/MindWM/vendor/autoload.php');
 ```
 
 ## Getting Started

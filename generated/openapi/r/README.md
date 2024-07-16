@@ -1,4 +1,4 @@
-# R API client for MindwWM
+# R API client for MindWM
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
 
@@ -28,14 +28,14 @@ install.packages("base64enc")
 git clone https://github.com/GIT_USER_ID/GIT_REPO_ID
 cd GIT_REPO_ID
 R CMD build .
-R CMD check MindwWM_1.0.0.tar.gz --no-manual
-R CMD INSTALL --preclean MindwWM_1.0.0.tar.gz
+R CMD check MindWM_1.0.0.tar.gz --no-manual
+R CMD INSTALL --preclean MindWM_1.0.0.tar.gz
 ```
 
 ### Install the package
 
 ```R
-install.packages("MindwWM")
+install.packages("MindWM")
 ```
 
 To install directly from Github, use `devtools`:
@@ -47,13 +47,13 @@ install_github("GIT_USER_ID/GIT_REPO_ID")
 
 To install the package from a local file:
 ```R
-install.packages("MindwWM_1.0.0.tar.gz", repos = NULL, type = "source")
+install.packages("MindWM_1.0.0.tar.gz", repos = NULL, type = "source")
 ```
 
 ### Usage
 
 ```R
-library(MindwWM)
+library(MindWM)
 ```
 
 ### Reformat code

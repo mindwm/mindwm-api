@@ -108,10 +108,10 @@ ClipboardPayload <- R6::R6Class(
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`start`)) {
-        self$`start` <- ApiClient$new()$deserializeObj(this_object$`start`, "array[integer]", loadNamespace("MindwWM"))
+        self$`start` <- ApiClient$new()$deserializeObj(this_object$`start`, "array[integer]", loadNamespace("MindWM"))
       }
       if (!is.null(this_object$`stop`)) {
-        self$`stop` <- ApiClient$new()$deserializeObj(this_object$`stop`, "array[integer]", loadNamespace("MindwWM"))
+        self$`stop` <- ApiClient$new()$deserializeObj(this_object$`stop`, "array[integer]", loadNamespace("MindWM"))
       }
       if (!is.null(this_object$`data`)) {
         self$`data` <- this_object$`data`
@@ -192,8 +192,8 @@ ClipboardPayload <- R6::R6Class(
     #' @export
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
-      self$`start` <- ApiClient$new()$deserializeObj(this_object$`start`, "array[integer]", loadNamespace("MindwWM"))
-      self$`stop` <- ApiClient$new()$deserializeObj(this_object$`stop`, "array[integer]", loadNamespace("MindwWM"))
+      self$`start` <- ApiClient$new()$deserializeObj(this_object$`start`, "array[integer]", loadNamespace("MindWM"))
+      self$`stop` <- ApiClient$new()$deserializeObj(this_object$`stop`, "array[integer]", loadNamespace("MindWM"))
       self$`data` <- this_object$`data`
       if (!is.null(this_object$`type`) && !(this_object$`type` %in% c("primary", "secondary", "clipboard"))) {
         stop(paste("Error! \"", this_object$`type`, "\" cannot be assigned to `type`. Must be \"primary\", \"secondary\", \"clipboard\".", sep = ""))

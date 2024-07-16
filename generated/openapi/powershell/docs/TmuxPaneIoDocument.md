@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TmuxPaneIoDocument = Initialize-MindwWMTmuxPaneIoDocument  -VarInput null `
+$TmuxPaneIoDocument = Initialize-MindWMTmuxPaneIoDocument  -VarInput null `
  -Output null `
  -Ps1 null
 ```

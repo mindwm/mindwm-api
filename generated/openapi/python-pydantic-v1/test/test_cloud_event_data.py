@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.cloud_event_data import CloudEventData  # noqa: E501
+from MindWM.models.cloud_event_data import CloudEventData  # noqa: E501
 
 class TestCloudEventData(unittest.TestCase):
     """CloudEventData unit test stubs"""

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from MindwWM.models.cloud_event_data import CloudEventData
+from MindWM.models.cloud_event_data import CloudEventData
 
 # TODO update the JSON string below
 json = "{}"

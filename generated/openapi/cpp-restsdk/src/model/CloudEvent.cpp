@@ -11,7 +11,7 @@
 
 
 
-#include "MindwWM/model/CloudEvent.h"
+#include "MindWM/model/CloudEvent.h"
 
 namespace org {
 namespace openapitools {

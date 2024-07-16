@@ -1,4 +1,4 @@
-# MindwWM::GraphNodeAllOfData
+# MindWM::GraphNodeAllOfData
 
 
 ## Properties

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Clipboard = Initialize-MindwWMClipboard  -Type null `
+$Clipboard = Initialize-MindWMClipboard  -Type null `
  -Source null `
  -VarData null `
  -Id null `

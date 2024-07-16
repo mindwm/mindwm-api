@@ -1,4 +1,4 @@
-# MindwWM - the C# library for the Mindwm API
+# MindWM - the C# library for the Mindwm API
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
 
@@ -39,9 +39,9 @@ Run the following command to generate the DLL
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 ```csharp
-using MindwWM.Api;
-using MindwWM.Client;
-using MindwWM.Model;
+using MindWM.Api;
+using MindWM.Client;
+using MindWM.Model;
 ```
 <a id="packaging"></a>
 ## Packaging
@@ -51,7 +51,7 @@ A `.nuspec` is included with the project. You can follow the Nuget quickstart to
 This `.nuspec` uses placeholders from the `.csproj`, so build the `.csproj` directly:
 
 ```
-nuget pack -Build -OutputDirectory out MindwWM.csproj
+nuget pack -Build -OutputDirectory out MindWM.csproj
 ```
 
 Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
@@ -73,9 +73,9 @@ c.Proxy = webProxy;
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using MindwWM.Api;
-using MindwWM.Client;
-using MindwWM.Model;
+using MindWM.Api;
+using MindWM.Client;
+using MindWM.Model;
 
 namespace Example
 {

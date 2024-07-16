@@ -1,5 +1,5 @@
 {
-  "namespace": "MindwWM",
+  "namespace": "MindWM",
   "type": "record",
   "doc": "",
   "name": "Neo4jCaptureDataChangeMetaSource",

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from MindwWM.models.neo4j_capture_data_change_meta_source import Neo4jCaptureDataChangeMetaSource
+from MindWM.models.neo4j_capture_data_change_meta_source import Neo4jCaptureDataChangeMetaSource
 
 # TODO update the JSON string below
 json = "{}"

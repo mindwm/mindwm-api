@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.graph_node_all_of_data import GraphNodeAllOfData
+from MindWM.models.graph_node_all_of_data import GraphNodeAllOfData
 
 class TestGraphNodeAllOfData(unittest.TestCase):
     """GraphNodeAllOfData unit test stubs"""
@@ -35,11 +35,11 @@ class TestGraphNodeAllOfData(unittest.TestCase):
         model = GraphNodeAllOfData()
         if include_optional:
             return GraphNodeAllOfData(
-                headers = MindwWM.models.headers.headers(),
+                headers = MindWM.models.headers.headers(),
                 message_key = '',
-                meta = MindwWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
+                meta = MindWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
                     operation = '', 
-                    source = MindwWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
+                    source = MindWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
                         hostname = '', ), 
                     timestamp = 56, 
                     tx_event_id = 56, 
@@ -51,15 +51,15 @@ class TestGraphNodeAllOfData(unittest.TestCase):
                 source_type = '',
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 topic = '',
-                var_schema = MindwWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
+                var_schema = MindWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
                     constraints = {
                         'key' : null
                         }, 
                     properties = {
                         'key' : null
                         }, ),
-                payload = MindwWM.models.neo4j_capture_data_change_node_payload.Neo4jCaptureDataChangeNodePayload(
-                    after = MindwWM.models.neo4j_capture_data_change_node_payload_after.Neo4jCaptureDataChangeNodePayload_after(
+                payload = MindWM.models.neo4j_capture_data_change_node_payload.Neo4jCaptureDataChangeNodePayload(
+                    after = MindWM.models.neo4j_capture_data_change_node_payload_after.Neo4jCaptureDataChangeNodePayload_after(
                         labels = [
                             ''
                             ], 
@@ -72,11 +72,11 @@ class TestGraphNodeAllOfData(unittest.TestCase):
             )
         else:
             return GraphNodeAllOfData(
-                headers = MindwWM.models.headers.headers(),
+                headers = MindWM.models.headers.headers(),
                 message_key = '',
-                meta = MindwWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
+                meta = MindWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
                     operation = '', 
-                    source = MindwWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
+                    source = MindWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
                         hostname = '', ), 
                     timestamp = 56, 
                     tx_event_id = 56, 
@@ -88,15 +88,15 @@ class TestGraphNodeAllOfData(unittest.TestCase):
                 source_type = '',
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 topic = '',
-                var_schema = MindwWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
+                var_schema = MindWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
                     constraints = {
                         'key' : null
                         }, 
                     properties = {
                         'key' : null
                         }, ),
-                payload = MindwWM.models.neo4j_capture_data_change_node_payload.Neo4jCaptureDataChangeNodePayload(
-                    after = MindwWM.models.neo4j_capture_data_change_node_payload_after.Neo4jCaptureDataChangeNodePayload_after(
+                payload = MindWM.models.neo4j_capture_data_change_node_payload.Neo4jCaptureDataChangeNodePayload(
+                    after = MindWM.models.neo4j_capture_data_change_node_payload_after.Neo4jCaptureDataChangeNodePayload_after(
                         labels = [
                             ''
                             ], 

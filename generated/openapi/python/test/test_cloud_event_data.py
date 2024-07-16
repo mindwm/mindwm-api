@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.cloud_event_data import CloudEventData
+from MindWM.models.cloud_event_data import CloudEventData
 
 class TestCloudEventData(unittest.TestCase):
     """CloudEventData unit test stubs"""

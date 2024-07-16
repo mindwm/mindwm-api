@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from MindwWM.models.graph_node import GraphNode
+from MindWM.models.graph_node import GraphNode
 
 # TODO update the JSON string below
 json = "{}"

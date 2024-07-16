@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from MindwWM.models.graph_relationship_all_of_data import GraphRelationshipAllOfData
+from MindWM.models.graph_relationship_all_of_data import GraphRelationshipAllOfData
 
 # TODO update the JSON string below
 json = "{}"

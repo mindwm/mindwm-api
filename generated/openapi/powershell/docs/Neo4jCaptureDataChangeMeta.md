@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Neo4jCaptureDataChangeMeta = Initialize-MindwWMNeo4jCaptureDataChangeMeta  -Operation null `
+$Neo4jCaptureDataChangeMeta = Initialize-MindWMNeo4jCaptureDataChangeMeta  -Operation null `
  -Source null `
  -Timestamp null `
  -TxEventId null `

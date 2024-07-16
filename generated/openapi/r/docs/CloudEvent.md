@@ -1,4 +1,4 @@
-# MindwWM::CloudEvent
+# MindWM::CloudEvent
 
 CloudEvents Specification JSON Schema
 

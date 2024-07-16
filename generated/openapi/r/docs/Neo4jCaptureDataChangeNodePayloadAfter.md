@@ -1,4 +1,4 @@
-# MindwWM::Neo4jCaptureDataChangeNodePayloadAfter
+# MindWM::Neo4jCaptureDataChangeNodePayloadAfter
 
 
 ## Properties

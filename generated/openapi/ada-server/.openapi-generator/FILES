@@ -2,7 +2,7 @@
 .properties
 README.md
 config.gpr
-mindwwm.gpr
+mindwm.gpr
 src/-server.adb
 src/-servers.adb
 src/-servers.ads

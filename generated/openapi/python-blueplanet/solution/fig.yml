@@ -21,7 +21,7 @@ __version__: 1
 docker_registry: registry.blueplanet.com
 
 # this name is read by the Makefile and used to build various paths
-solution_name: MindwWM
+solution_name: MindWM
 
 # version is not read from this file, but coded in the Makefile
 # the vendor and tag are provided by the Makefile as arguments to solmaker
@@ -35,17 +35,17 @@ solution_version: 1.0.0
 
 apps:
   tapi-swagger:
-    # https://..../MindwWM
-    image: registry.blueplanet.com/blueplanet/MindwWM:1.0.0
+    # https://..../MindWM
+    image: registry.blueplanet.com/blueplanet/MindWM:1.0.0
     volumes:
       - /dev/log:/dev/log
     environment:
-      - NBI_MindwWM_type=http
-      - NBI_MindwWM_port=8080
+      - NBI_MindWM_type=http
+      - NBI_MindWM_port=8080
 app_bar:
   System:
     Documentation:
-      'MindwWM Swagger':
-        description: 'MindwWM Swagger UI'
+      'MindWM Swagger':
+        description: 'MindWM Swagger UI'
         icon: 'orchestrate'
-        url: '/MindwWM/ui/#'
+        url: '/MindWM/ui/#'

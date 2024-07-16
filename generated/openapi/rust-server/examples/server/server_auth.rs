@@ -3,7 +3,7 @@ use swagger::{
     auth::{Basic, Bearer},
     Has, 
     XSpanIdString};
-use MindwWM::{AuthenticationApi, Claims};
+use MindWM::{AuthenticationApi, Claims};
 use crate::server::Server;
 use jsonwebtoken::{decode, errors as JwtError, decode_header, DecodingKey, TokenData, Validation};
 use swagger::auth::Authorization;

@@ -11,7 +11,7 @@
 
 
 
-#include "MindwWM/model/GraphRelationship_allOf_data.h"
+#include "MindWM/model/GraphRelationship_allOf_data.h"
 
 namespace org {
 namespace openapitools {

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.graph_relationship import GraphRelationship  # noqa: E501
+from MindWM.models.graph_relationship import GraphRelationship  # noqa: E501
 
 class TestGraphRelationship(unittest.TestCase):
     """GraphRelationship unit test stubs"""

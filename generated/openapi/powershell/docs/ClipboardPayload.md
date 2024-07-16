@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClipboardPayload = Initialize-MindwWMClipboardPayload  -Start null `
+$ClipboardPayload = Initialize-MindWMClipboardPayload  -Start null `
  -Stop null `
  -VarData null `
  -Type null `

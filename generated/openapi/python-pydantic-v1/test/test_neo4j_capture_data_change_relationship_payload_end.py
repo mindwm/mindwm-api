@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.neo4j_capture_data_change_relationship_payload_end import Neo4jCaptureDataChangeRelationshipPayloadEnd  # noqa: E501
+from MindWM.models.neo4j_capture_data_change_relationship_payload_end import Neo4jCaptureDataChangeRelationshipPayloadEnd  # noqa: E501
 
 class TestNeo4jCaptureDataChangeRelationshipPayloadEnd(unittest.TestCase):
     """Neo4jCaptureDataChangeRelationshipPayloadEnd unit test stubs"""

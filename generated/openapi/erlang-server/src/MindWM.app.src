@@ -1,0 +1,19 @@
+{application, MindWM, [
+    {description, "This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads"},
+    {vsn, "1.0.0"},
+    {registered, []},
+    {applications, [
+        kernel,
+        stdlib,
+        ssl,
+        inets,
+        jsx,
+        jesse,
+        cowboy
+    ]},
+    {env, [
+    ]},
+    {modules, []},
+    {licenses, ["Apache 2.0"]},
+    {links, []}
+]}.

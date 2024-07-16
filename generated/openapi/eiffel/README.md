@@ -1,4 +1,4 @@
-# Eiffel API client for MindwWM
+# Eiffel API client for MindWM
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
 

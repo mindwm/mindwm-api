@@ -1,4 +1,4 @@
-# MindwWM.Model.GraphRelationshipAllOfData
+# MindWM.Model.GraphRelationshipAllOfData
 
 ## Properties
 

@@ -1,5 +1,5 @@
 {
-  "namespace": "MindwWM",
+  "namespace": "MindWM",
   "type": "record",
   "doc": "",
   "name": "ClipboardPayload",
@@ -44,7 +44,7 @@
     },
     {
       "name": "context",
-      "type": ["null", "MindwWM.ClipboardPayloadContext"],
+      "type": ["null", "MindWM.ClipboardPayloadContext"],
       "doc": "",
       "default": null
     }

@@ -1,4 +1,4 @@
-# gPRC for MindwWM
+# gPRC for MindWM
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
 
@@ -17,15 +17,15 @@ Below are some usage examples for Go and Ruby. For other languages, please refer
 ### Go
 ```
 # assuming `protoc-gen-go` has been installed with `go get -u github.com/golang/protobuf/protoc-gen-go`
-mkdir /var/tmp/go/MindwWM
-protoc --go_out=/var/tmp/go/MindwWM services/*
-protoc --go_out=/var/tmp/go/MindwWM models/*
+mkdir /var/tmp/go/MindWM
+protoc --go_out=/var/tmp/go/MindWM services/*
+protoc --go_out=/var/tmp/go/MindWM models/*
 ```
 
 ### Ruby
 ```
 # assuming `grpc_tools_ruby_protoc` has been installed via `gem install grpc-tools`
-RUBY_OUTPUT_DIR="/var/tmp/ruby/MindwWM"
+RUBY_OUTPUT_DIR="/var/tmp/ruby/MindWM"
 mkdir $RUBY_OUTPUT_DIR
 grpc_tools_ruby_protoc --ruby_out=$RUBY_OUTPUT_DIR --grpc_out=$RUBY_OUTPUT_DIR/lib services/*
 grpc_tools_ruby_protoc --ruby_out=$RUBY_OUTPUT_DIR --grpc_out=$RUBY_OUTPUT_DIR/lib models/*

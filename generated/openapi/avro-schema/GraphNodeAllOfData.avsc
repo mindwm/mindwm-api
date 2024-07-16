@@ -1,12 +1,12 @@
 {
-  "namespace": "MindwWM",
+  "namespace": "MindWM",
   "type": "record",
   "doc": "",
   "name": "GraphNodeAllOfData",
   "fields": [
     {
       "name": "headers",
-      "type": "MindwWM.object",
+      "type": "MindWM.object",
       "doc": ""
     },
     {
@@ -16,7 +16,7 @@
     },
     {
       "name": "meta",
-      "type": "MindwWM.Neo4jCaptureDataChangeMeta",
+      "type": "MindWM.Neo4jCaptureDataChangeMeta",
       "doc": ""
     },
     {
@@ -46,12 +46,12 @@
     },
     {
       "name": "schema",
-      "type": "MindwWM.Neo4jCaptureDataChangeSchema",
+      "type": "MindWM.Neo4jCaptureDataChangeSchema",
       "doc": ""
     },
     {
       "name": "payload",
-      "type": "MindwWM.Neo4jCaptureDataChangeNodePayload",
+      "type": "MindWM.Neo4jCaptureDataChangeNodePayload",
       "doc": ""
     }
   ]

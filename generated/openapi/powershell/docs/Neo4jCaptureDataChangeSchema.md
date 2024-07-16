@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Neo4jCaptureDataChangeSchema = Initialize-MindwWMNeo4jCaptureDataChangeSchema  -Constraints null `
+$Neo4jCaptureDataChangeSchema = Initialize-MindWMNeo4jCaptureDataChangeSchema  -Constraints null `
  -Properties null
 ```
 

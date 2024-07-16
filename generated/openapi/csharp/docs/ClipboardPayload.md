@@ -1,4 +1,4 @@
-# MindwWM.Model.ClipboardPayload
+# MindWM.Model.ClipboardPayload
 
 ## Properties
 

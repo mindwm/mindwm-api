@@ -1,7 +1,7 @@
 with Servlet.Server.Web;
-with MindwWM.Server;
-procedure MindwWM_AWS is
+with MindWM.Server;
+procedure MindWM_AWS is
    Container : Servlet.Server.Web.AWS_Container;
 begin
-   MindwWM.Server (Container);
-end MindwWM_AWS;
+   MindWM.Server (Container);
+end MindWM_AWS;

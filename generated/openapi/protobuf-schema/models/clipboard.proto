@@ -10,7 +10,7 @@
 
 syntax = "proto3";
 
-package mindwwm;
+package mindwm;
 
 import public "models/any_type.proto";
 import public "models/clipboard_payload.proto";

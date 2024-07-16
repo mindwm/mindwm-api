@@ -1,4 +1,4 @@
-# MindwWM - Azure Functions v4 Server
+# MindWM - Azure Functions v4 Server
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
 
@@ -18,7 +18,7 @@ build.bat
 ## Run in Docker
 
 ```
-cd src/MindwWM
-docker build -t mindwwm .
-docker run -p 5000:8080 mindwwm
+cd src/MindWM
+docker build -t mindwm .
+docker run -p 5000:8080 mindwm
 ```

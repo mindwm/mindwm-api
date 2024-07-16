@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.neo4j_capture_data_change_node_payload_after import Neo4jCaptureDataChangeNodePayloadAfter
+from MindWM.models.neo4j_capture_data_change_node_payload_after import Neo4jCaptureDataChangeNodePayloadAfter
 
 class TestNeo4jCaptureDataChangeNodePayloadAfter(unittest.TestCase):
     """Neo4jCaptureDataChangeNodePayloadAfter unit test stubs"""

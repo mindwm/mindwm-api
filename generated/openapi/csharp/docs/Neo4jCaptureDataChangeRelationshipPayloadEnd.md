@@ -1,4 +1,4 @@
-# MindwWM.Model.Neo4jCaptureDataChangeRelationshipPayloadEnd
+# MindWM.Model.Neo4jCaptureDataChangeRelationshipPayloadEnd
 
 ## Properties
 

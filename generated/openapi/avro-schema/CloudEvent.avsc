@@ -1,5 +1,5 @@
 {
-  "namespace": "MindwWM",
+  "namespace": "MindWM",
   "type": "record",
   "doc": "CloudEvents Specification JSON Schema",
   "name": "CloudEvent",
@@ -32,7 +32,7 @@
     },
     {
       "name": "dataschema",
-      "type": ["null", "MindwWM.URI"],
+      "type": ["null", "MindWM.URI"],
       "doc": "Identifies the schema that data adheres to.",
       "default": null
     },
@@ -50,7 +50,7 @@
     },
     {
       "name": "data",
-      "type": ["null", "MindwWM.CloudEventData"],
+      "type": ["null", "MindWM.CloudEventData"],
       "doc": "",
       "default": null
     },

@@ -68,10 +68,10 @@ Neo4jCaptureDataChangeNodePayloadAfter <- R6::R6Class(
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`labels`)) {
-        self$`labels` <- ApiClient$new()$deserializeObj(this_object$`labels`, "array[character]", loadNamespace("MindwWM"))
+        self$`labels` <- ApiClient$new()$deserializeObj(this_object$`labels`, "array[character]", loadNamespace("MindWM"))
       }
       if (!is.null(this_object$`properties`)) {
-        self$`properties` <- ApiClient$new()$deserializeObj(this_object$`properties`, "map(AnyType)", loadNamespace("MindwWM"))
+        self$`properties` <- ApiClient$new()$deserializeObj(this_object$`properties`, "map(AnyType)", loadNamespace("MindWM"))
       }
       self
     },
@@ -114,8 +114,8 @@ Neo4jCaptureDataChangeNodePayloadAfter <- R6::R6Class(
     #' @export
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
-      self$`labels` <- ApiClient$new()$deserializeObj(this_object$`labels`, "array[character]", loadNamespace("MindwWM"))
-      self$`properties` <- ApiClient$new()$deserializeObj(this_object$`properties`, "map(AnyType)", loadNamespace("MindwWM"))
+      self$`labels` <- ApiClient$new()$deserializeObj(this_object$`labels`, "array[character]", loadNamespace("MindWM"))
+      self$`properties` <- ApiClient$new()$deserializeObj(this_object$`properties`, "map(AnyType)", loadNamespace("MindWM"))
       self
     },
     #' Validate JSON input with respect to Neo4jCaptureDataChangeNodePayloadAfter

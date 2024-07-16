@@ -1,4 +1,4 @@
-# MindwWM.Model.GraphNode
+# MindWM.Model.GraphNode
 
 ## Properties
 

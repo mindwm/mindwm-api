@@ -15,7 +15,7 @@ To run the server, please execute the following from the root directory:
 
 ```
 pip3 install -r requirements.txt
-python3 -m MindwWM
+python3 -m MindWM
 ```
 
 and open your browser to here:

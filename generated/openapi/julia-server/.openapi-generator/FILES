@@ -20,7 +20,7 @@ docs/Neo4jCaptureDataChangeRelationshipPayload.md
 docs/Neo4jCaptureDataChangeRelationshipPayloadEnd.md
 docs/Neo4jCaptureDataChangeSchema.md
 docs/TmuxPaneIoDocument.md
-src/MindwWM.jl
+src/MindWM.jl
 src/modelincludes.jl
 src/models/model_Clipboard.jl
 src/models/model_ClipboardPayload.jl

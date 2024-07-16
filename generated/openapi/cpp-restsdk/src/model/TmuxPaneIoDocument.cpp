@@ -11,7 +11,7 @@
 
 
 
-#include "MindwWM/model/TmuxPaneIoDocument.h"
+#include "MindWM/model/TmuxPaneIoDocument.h"
 
 namespace org {
 namespace openapitools {

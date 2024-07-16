@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-#include "MindwWM/HttpContent.h"
+#include "MindWM/HttpContent.h"
 
 namespace org {
 namespace openapitools {

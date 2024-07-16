@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from MindwWM.models.clipboard_payload_context import ClipboardPayloadContext
+from MindWM.models.clipboard_payload_context import ClipboardPayloadContext
 
 # TODO update the JSON string below
 json = "{}"

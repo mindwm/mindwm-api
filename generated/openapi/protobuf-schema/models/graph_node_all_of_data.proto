@@ -10,7 +10,7 @@
 
 syntax = "proto3";
 
-package mindwwm;
+package mindwm;
 
 import public "models/neo4j_capture_data_change_meta.proto";
 import public "models/neo4j_capture_data_change_node_payload.proto";

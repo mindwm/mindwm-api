@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClipboardPayloadContext = Initialize-MindwWMClipboardPayloadContext  -Window null
+$ClipboardPayloadContext = Initialize-MindWMClipboardPayloadContext  -Window null
 ```
 
 - Convert the resource to JSON

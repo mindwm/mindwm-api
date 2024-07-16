@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.clipboard_payload_context import ClipboardPayloadContext
+from MindWM.models.clipboard_payload_context import ClipboardPayloadContext
 
 class TestClipboardPayloadContext(unittest.TestCase):
     """ClipboardPayloadContext unit test stubs"""

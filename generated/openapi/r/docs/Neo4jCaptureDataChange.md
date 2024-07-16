@@ -1,4 +1,4 @@
-# MindwWM::Neo4jCaptureDataChange
+# MindWM::Neo4jCaptureDataChange
 
 
 ## Properties

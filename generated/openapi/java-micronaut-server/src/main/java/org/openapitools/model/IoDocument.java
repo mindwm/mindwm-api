@@ -43,7 +43,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   IoDocument.JSON_PROPERTY_DATA_BASE64
 })
 @JsonTypeName("IoDocument")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-16T18:17:56.495282623Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-16T19:19:10.426459082Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class IoDocument extends HashMap<String, Object> {
     public static final String JSON_PROPERTY_TYPE = "type";

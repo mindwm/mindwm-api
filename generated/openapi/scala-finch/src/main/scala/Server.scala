@@ -1,4 +1,4 @@
-package MindwWM
+package MindWM
 
 import io.finch._
 import io.finch.circe._
@@ -14,7 +14,7 @@ import com.twitter.util.{Await, Future}
 
 class Server {
 
-  // Loads implementation defined in resources/META-INF/services/MindwWM.DataAccessor
+  // Loads implementation defined in resources/META-INF/services/MindWM.DataAccessor
   val impls: Seq[DataAccessor] = LoadService[DataAccessor]()
   val db = if (impls.isEmpty) new DataAccessor { } else impls.head
 

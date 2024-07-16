@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GraphRelationship = Initialize-MindwWMGraphRelationship  -Id null `
+$GraphRelationship = Initialize-MindWMGraphRelationship  -Id null `
  -Source null `
  -Specversion null `
  -Type null `

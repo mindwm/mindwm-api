@@ -1,4 +1,4 @@
-# MindwWM.Model.CloudEventData
+# MindWM.Model.CloudEventData
 The event payload.
 
 ## Properties

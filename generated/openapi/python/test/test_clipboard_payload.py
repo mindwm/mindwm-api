@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.clipboard_payload import ClipboardPayload
+from MindWM.models.clipboard_payload import ClipboardPayload
 
 class TestClipboardPayload(unittest.TestCase):
     """ClipboardPayload unit test stubs"""
@@ -43,7 +43,7 @@ class TestClipboardPayload(unittest.TestCase):
                     ],
                 data = '0',
                 type = 'primary',
-                context = MindwWM.models.clipboard_payload_context.ClipboardPayload_context(
+                context = MindWM.models.clipboard_payload_context.ClipboardPayload_context(
                     window = '', )
             )
         else:

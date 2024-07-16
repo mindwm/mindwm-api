@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CloudEventData = Initialize-MindwWMCloudEventData 
+$CloudEventData = Initialize-MindWMCloudEventData 
 ```
 
 - Convert the resource to JSON

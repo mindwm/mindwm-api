@@ -14,13 +14,13 @@ import (
 	"log"
 	"net/http"
 
-	MindwWM "github.com/GIT_USER_ID/GIT_REPO_ID/go"
+	MindWM "github.com/GIT_USER_ID/GIT_REPO_ID/go"
 )
 
 func main() {
 	log.Printf("Server started")
 
-	router := MindwWM.NewRouter()
+	router := MindWM.NewRouter()
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 }

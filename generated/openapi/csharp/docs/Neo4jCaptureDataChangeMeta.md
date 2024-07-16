@@ -1,4 +1,4 @@
-# MindwWM.Model.Neo4jCaptureDataChangeMeta
+# MindWM.Model.Neo4jCaptureDataChangeMeta
 
 ## Properties
 

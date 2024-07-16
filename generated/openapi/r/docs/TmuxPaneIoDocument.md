@@ -1,4 +1,4 @@
-# MindwWM::TmuxPaneIoDocument
+# MindWM::TmuxPaneIoDocument
 
 
 ## Properties

@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.neo4j_capture_data_change import Neo4jCaptureDataChange
+from MindWM.models.neo4j_capture_data_change import Neo4jCaptureDataChange
 
 class TestNeo4jCaptureDataChange(unittest.TestCase):
     """Neo4jCaptureDataChange unit test stubs"""
@@ -39,9 +39,9 @@ class TestNeo4jCaptureDataChange(unittest.TestCase):
                     'key' : null
                     },
                 message_key = '',
-                meta = MindwWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
+                meta = MindWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
                     operation = '', 
-                    source = MindwWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
+                    source = MindWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
                         hostname = '', ), 
                     timestamp = 56, 
                     tx_event_id = 56, 
@@ -53,14 +53,14 @@ class TestNeo4jCaptureDataChange(unittest.TestCase):
                 source_type = '',
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 topic = '',
-                var_schema = MindwWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
+                var_schema = MindWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
                     constraints = {
                         'key' : null
                         }, 
                     properties = {
                         'key' : null
                         }, ),
-                payload = MindwWM.models.neo4j_capture_data_change_payload.Neo4jCaptureDataChange_payload()
+                payload = MindWM.models.neo4j_capture_data_change_payload.Neo4jCaptureDataChange_payload()
             )
         else:
             return Neo4jCaptureDataChange(
@@ -68,9 +68,9 @@ class TestNeo4jCaptureDataChange(unittest.TestCase):
                     'key' : null
                     },
                 message_key = '',
-                meta = MindwWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
+                meta = MindWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
                     operation = '', 
-                    source = MindwWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
+                    source = MindWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
                         hostname = '', ), 
                     timestamp = 56, 
                     tx_event_id = 56, 
@@ -82,14 +82,14 @@ class TestNeo4jCaptureDataChange(unittest.TestCase):
                 source_type = '',
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 topic = '',
-                var_schema = MindwWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
+                var_schema = MindWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
                     constraints = {
                         'key' : null
                         }, 
                     properties = {
                         'key' : null
                         }, ),
-                payload = MindwWM.models.neo4j_capture_data_change_payload.Neo4jCaptureDataChange_payload(),
+                payload = MindWM.models.neo4j_capture_data_change_payload.Neo4jCaptureDataChange_payload(),
         )
         """
 

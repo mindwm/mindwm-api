@@ -1,5 +1,5 @@
 {
-  "namespace": "MindwWM",
+  "namespace": "MindWM",
   "type": "record",
   "doc": "",
   "name": "GraphRelationship",
@@ -46,7 +46,7 @@
     },
     {
       "name": "dataschema",
-      "type": ["null", "MindwWM.URI"],
+      "type": ["null", "MindWM.URI"],
       "doc": "Identifies the schema that data adheres to.",
       "default": null
     },
@@ -64,7 +64,7 @@
     },
     {
       "name": "data",
-      "type": ["null", "MindwWM.GraphRelationshipAllOfData"],
+      "type": ["null", "MindWM.GraphRelationshipAllOfData"],
       "doc": "",
       "default": null
     },

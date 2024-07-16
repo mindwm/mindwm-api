@@ -1,4 +1,4 @@
-# MindwWM::ClipboardPayloadContext
+# MindWM::ClipboardPayloadContext
 
 Selection context
 

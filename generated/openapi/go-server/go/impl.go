@@ -8,7 +8,7 @@
  * API version: 0.1.0
  */
 
-package MindwWM
+package MindWM
 
 // ImplResponse defines an implementation response with error code and the associated body
 type ImplResponse struct {

@@ -1,4 +1,4 @@
-use MindwWM::Claims;
+use MindWM::Claims;
 use jsonwebtoken::{encode, errors::Error as JwtError, Algorithm, EncodingKey, Header};
 use log::debug;
 

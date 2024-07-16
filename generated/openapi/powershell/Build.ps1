@@ -46,20 +46,20 @@ function Get-FunctionsToExport {
 
 $ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
 $FunctionPath = 'Api', 'Model', 'Client' | Where-Object {
-    Join-Path "$ScriptDir\src\MindwWM\" $_ | Test-Path
-} | ForEach-Object { Join-Path "$ScriptDir\src\MindwWM\" $_ }
+    Join-Path "$ScriptDir\src\MindWM\" $_ | Test-Path
+} | ForEach-Object { Join-Path "$ScriptDir\src\MindWM\" $_ }
 
 $Manifest = @{
-    Path = "$ScriptDir\src\MindwWM\MindwWM.psd1"
+    Path = "$ScriptDir\src\MindWM\MindWM.psd1"
 
     Author = 'OpenAPI Generator Team'
     CompanyName = 'openapitools.org'
-    Description = 'MindwWM - the PowerShell module for Mindwm API'
+    Description = 'MindWM - the PowerShell module for Mindwm API'
 
     ModuleVersion = '0.1.2'
 
-    RootModule = 'MindwWM.psm1'
-    Guid = '{9F51B209-BDDA-4FC6-A757-820C8FBA0785}' # Has to be static, otherwise each new build will be considered different module
+    RootModule = 'MindWM.psm1'
+    Guid = '{F29AA1BA-4F89-46BE-B258-CC6129E32996}' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '6.2'
 

@@ -1,4 +1,4 @@
-# MindwWM::CloudEventData
+# MindWM::CloudEventData
 
 The event payload.
 

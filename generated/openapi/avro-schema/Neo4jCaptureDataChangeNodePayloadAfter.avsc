@@ -1,5 +1,5 @@
 {
-  "namespace": "MindwWM",
+  "namespace": "MindWM",
   "type": "record",
   "doc": "",
   "name": "Neo4jCaptureDataChangeNodePayloadAfter",
@@ -16,7 +16,7 @@
       "name": "properties",
       "type": {
         "type": "map",
-        "items": "MindwWM.AnyType"
+        "items": "MindWM.AnyType"
       },
       "doc": ""
     }

@@ -1,4 +1,4 @@
-# MindwWM
+# MindWM
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
 
@@ -6,7 +6,7 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 0.1.0
 - Package version: 0.1.0
-- Build date: 2024-07-16T18:17:23.436690221Z[Etc/UTC]
+- Build date: 2024-07-16T19:18:38.762198857Z[Etc/UTC]
 - Generator version: 7.7.0
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 

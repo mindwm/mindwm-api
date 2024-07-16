@@ -3,7 +3,7 @@ defmodule MindwmAPI.Mixfile do
 
   def project do
     [
-      app: :mindw_wm,
+      app: :mind_wm,
       version: "0.1.0",
       elixir: "~> 1.10",
       build_embedded: Mix.env() == :prod,
@@ -44,7 +44,7 @@ defmodule MindwmAPI.Mixfile do
 
    defp package do
       [
-        name: "mindw_wm",
+        name: "mind_wm",
         files: ~w(.formatter.exs config lib mix.exs README* LICENSE*),
       ]
   end

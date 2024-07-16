@@ -7,6 +7,6 @@ import Config
 # any compile-time configuration in here, as it won't be applied.
 # The block below contains prod specific runtime configuration.
 
-if base_url = System.get_env("MINDW_WM_BASE_URI") do
-  config :mindw_wm, base_url: base_url
+if base_url = System.get_env("MIND_WM_BASE_URI") do
+  config :mind_wm, base_url: base_url
 end

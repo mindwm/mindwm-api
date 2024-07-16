@@ -167,7 +167,7 @@ Neo4jCaptureDataChange <- R6::R6Class(
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`headers`)) {
-        self$`headers` <- ApiClient$new()$deserializeObj(this_object$`headers`, "map(AnyType)", loadNamespace("MindwWM"))
+        self$`headers` <- ApiClient$new()$deserializeObj(this_object$`headers`, "map(AnyType)", loadNamespace("MindWM"))
       }
       if (!is.null(this_object$`message_key`)) {
         self$`message_key` <- this_object$`message_key`
@@ -307,7 +307,7 @@ Neo4jCaptureDataChange <- R6::R6Class(
     #' @export
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
-      self$`headers` <- ApiClient$new()$deserializeObj(this_object$`headers`, "map(AnyType)", loadNamespace("MindwWM"))
+      self$`headers` <- ApiClient$new()$deserializeObj(this_object$`headers`, "map(AnyType)", loadNamespace("MindWM"))
       self$`message_key` <- this_object$`message_key`
       self$`meta` <- Neo4jCaptureDataChangeMeta$new()$fromJSON(jsonlite::toJSON(this_object$`meta`, auto_unbox = TRUE, digits = NA))
       self$`offset` <- this_object$`offset`

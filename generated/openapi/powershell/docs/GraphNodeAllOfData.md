@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GraphNodeAllOfData = Initialize-MindwWMGraphNodeAllOfData  -Headers null `
+$GraphNodeAllOfData = Initialize-MindWMGraphNodeAllOfData  -Headers null `
  -MessageKey null `
  -Meta null `
  -Offset null `

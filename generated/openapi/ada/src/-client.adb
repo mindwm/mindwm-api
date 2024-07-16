@@ -30,7 +30,7 @@ procedure .Client is
 
    procedure Usage is
    begin
-      Put_Line ("Usage: MindwWM {params}...");
+      Put_Line ("Usage: MindWM {params}...");
    end Usage;
 
 begin

@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.graph_relationship import GraphRelationship
+from MindWM.models.graph_relationship import GraphRelationship
 
 class TestGraphRelationship(unittest.TestCase):
     """GraphRelationship unit test stubs"""

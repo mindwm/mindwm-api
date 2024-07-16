@@ -7,9 +7,9 @@ COPY go.mod .
 
 ENV CGO_ENABLED=0
 
-RUN go build -o MindwWM .
+RUN go build -o MindWM .
 
 FROM scratch AS runtime
-COPY --from=build /go/src/MindwWM ./
+COPY --from=build /go/src/MindWM ./
 EXPOSE 8080/tcp
-ENTRYPOINT ["./MindwWM"]
+ENTRYPOINT ["./MindWM"]

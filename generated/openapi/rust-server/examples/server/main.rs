@@ -1,4 +1,4 @@
-//! Main binary entry point for MindwWM implementation.
+//! Main binary entry point for MindWM implementation.
 // This is the amended version that adds Authorization via Inversion of Control.
 
 #![allow(missing_docs)]

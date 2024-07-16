@@ -1,5 +1,5 @@
 [package]
-name = "MindwWM"
+name = "MindWM"
 version = "0.1.0"
 authors = ["OpenAPI Generator team and contributors"]
 description = "This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads"

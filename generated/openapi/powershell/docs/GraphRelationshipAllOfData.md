@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GraphRelationshipAllOfData = Initialize-MindwWMGraphRelationshipAllOfData  -Headers null `
+$GraphRelationshipAllOfData = Initialize-MindWMGraphRelationshipAllOfData  -Headers null `
  -MessageKey null `
  -Meta null `
  -Offset null `

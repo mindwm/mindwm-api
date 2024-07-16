@@ -1,5 +1,5 @@
 HIDE ?= @
-PACKAGE := MindwWM
+PACKAGE := MindWM
 RELEASE := 1.0.0
 VENV := env
 PYPI ?= 'https://pypi.blueplanet.com/simple'

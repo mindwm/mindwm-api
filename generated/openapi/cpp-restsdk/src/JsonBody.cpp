@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-#include "MindwWM/JsonBody.h"
+#include "MindWM/JsonBody.h"
 
 namespace org {
 namespace openapitools {

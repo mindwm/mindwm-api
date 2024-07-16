@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.neo4j_capture_data_change_schema import Neo4jCaptureDataChangeSchema  # noqa: E501
+from MindWM.models.neo4j_capture_data_change_schema import Neo4jCaptureDataChangeSchema  # noqa: E501
 
 class TestNeo4jCaptureDataChangeSchema(unittest.TestCase):
     """Neo4jCaptureDataChangeSchema unit test stubs"""

@@ -1,7 +1,7 @@
 with Servlet.Server.EWS;
-with MindwWM.Server;
-procedure MindwWM_EWS is
+with MindWM.Server;
+procedure MindWM_EWS is
    Container : Servlet.Server.EWS.EWS_Container;
 begin
-   MindwWM.Server (Container);
-end MindwWM_EWS;
+   MindWM.Server (Container);
+end MindWM_EWS;

@@ -1,4 +1,4 @@
-# MindwWM::Clipboard
+# MindWM::Clipboard
 
 
 ## Properties

@@ -11,7 +11,7 @@
 
 
 
-#include "MindwWM/model/Neo4jCaptureDataChange_schema.h"
+#include "MindWM/model/Neo4jCaptureDataChange_schema.h"
 
 namespace org {
 namespace openapitools {

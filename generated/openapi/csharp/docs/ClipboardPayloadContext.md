@@ -1,4 +1,4 @@
-# MindwWM.Model.ClipboardPayloadContext
+# MindWM.Model.ClipboardPayloadContext
 Selection context
 
 ## Properties

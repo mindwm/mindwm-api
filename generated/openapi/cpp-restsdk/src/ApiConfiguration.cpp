@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-#include "MindwWM/ApiConfiguration.h"
+#include "MindWM/ApiConfiguration.h"
 
 namespace org {
 namespace openapitools {

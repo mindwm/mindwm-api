@@ -1,4 +1,4 @@
-# MindwWM.Model.GraphNodeAllOfData
+# MindWM.Model.GraphNodeAllOfData
 
 ## Properties
 

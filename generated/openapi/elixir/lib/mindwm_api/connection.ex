@@ -13,12 +13,12 @@ defmodule MindwmAPI.Connection do
 
   The default base URL can also be set as:
 
-      config :mindw_wm,
+      config :mind_wm,
         :base_url, "https://mindwmw.io/v1"
   """
 
   @default_base_url Application.compile_env(
-                      :mindw_wm,
+                      :mind_wm,
                       :base_url,
                       "https://mindwmw.io/v1"
                     )
@@ -82,7 +82,7 @@ defmodule MindwmAPI.Connection do
       Keyword.get(
         options,
         :base_url,
-        Application.get_env(:mindw_wm, :base_url, @default_base_url)
+        Application.get_env(:mind_wm, :base_url, @default_base_url)
       )
 
     tesla_options = Application.get_env(:tesla, __MODULE__, [])

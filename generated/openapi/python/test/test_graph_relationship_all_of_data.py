@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.graph_relationship_all_of_data import GraphRelationshipAllOfData
+from MindWM.models.graph_relationship_all_of_data import GraphRelationshipAllOfData
 
 class TestGraphRelationshipAllOfData(unittest.TestCase):
     """GraphRelationshipAllOfData unit test stubs"""
@@ -35,11 +35,11 @@ class TestGraphRelationshipAllOfData(unittest.TestCase):
         model = GraphRelationshipAllOfData()
         if include_optional:
             return GraphRelationshipAllOfData(
-                headers = MindwWM.models.headers.headers(),
+                headers = MindWM.models.headers.headers(),
                 message_key = '',
-                meta = MindwWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
+                meta = MindWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
                     operation = '', 
-                    source = MindwWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
+                    source = MindWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
                         hostname = '', ), 
                     timestamp = 56, 
                     tx_event_id = 56, 
@@ -51,17 +51,17 @@ class TestGraphRelationshipAllOfData(unittest.TestCase):
                 source_type = '',
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 topic = '',
-                var_schema = MindwWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
+                var_schema = MindWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
                     constraints = {
                         'key' : null
                         }, 
                     properties = {
                         'key' : null
                         }, ),
-                payload = MindwWM.models.neo4j_capture_data_change_relationship_payload.Neo4jCaptureDataChangeRelationshipPayload(
-                    after = MindwWM.models.after.after(), 
+                payload = MindWM.models.neo4j_capture_data_change_relationship_payload.Neo4jCaptureDataChangeRelationshipPayload(
+                    after = MindWM.models.after.after(), 
                     before = '', 
-                    end = MindwWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
+                    end = MindWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
                         id = '', 
                         ids = {
                             'key' : null
@@ -71,7 +71,7 @@ class TestGraphRelationshipAllOfData(unittest.TestCase):
                             ], ), 
                     id = '', 
                     label = '', 
-                    start = MindwWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
+                    start = MindWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
                         id = '', 
                         ids = {
                             'key' : null
@@ -83,11 +83,11 @@ class TestGraphRelationshipAllOfData(unittest.TestCase):
             )
         else:
             return GraphRelationshipAllOfData(
-                headers = MindwWM.models.headers.headers(),
+                headers = MindWM.models.headers.headers(),
                 message_key = '',
-                meta = MindwWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
+                meta = MindWM.models.neo4j_capture_data_change_meta.Neo4jCaptureDataChange_meta(
                     operation = '', 
-                    source = MindwWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
+                    source = MindWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
                         hostname = '', ), 
                     timestamp = 56, 
                     tx_event_id = 56, 
@@ -99,17 +99,17 @@ class TestGraphRelationshipAllOfData(unittest.TestCase):
                 source_type = '',
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 topic = '',
-                var_schema = MindwWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
+                var_schema = MindWM.models.neo4j_capture_data_change_schema.Neo4jCaptureDataChange_schema(
                     constraints = {
                         'key' : null
                         }, 
                     properties = {
                         'key' : null
                         }, ),
-                payload = MindwWM.models.neo4j_capture_data_change_relationship_payload.Neo4jCaptureDataChangeRelationshipPayload(
-                    after = MindwWM.models.after.after(), 
+                payload = MindWM.models.neo4j_capture_data_change_relationship_payload.Neo4jCaptureDataChangeRelationshipPayload(
+                    after = MindWM.models.after.after(), 
                     before = '', 
-                    end = MindwWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
+                    end = MindWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
                         id = '', 
                         ids = {
                             'key' : null
@@ -119,7 +119,7 @@ class TestGraphRelationshipAllOfData(unittest.TestCase):
                             ], ), 
                     id = '', 
                     label = '', 
-                    start = MindwWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
+                    start = MindWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
                         id = '', 
                         ids = {
                             'key' : null

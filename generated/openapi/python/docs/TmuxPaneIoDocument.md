@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from MindwWM.models.tmux_pane_io_document import TmuxPaneIoDocument
+from MindWM.models.tmux_pane_io_document import TmuxPaneIoDocument
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,4 +1,4 @@
-# MindwWM.Model.IoDocument
+# MindWM.Model.IoDocument
 
 ## Properties
 

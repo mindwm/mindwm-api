@@ -14,7 +14,7 @@ import java.time.OffsetDateTime
   * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
   * @param additionalProperties Any additional properties this model may have.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-16T18:20:14.122957721Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-16T19:21:21.540878690Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 case class IoDocument(
   `type`: Option[String],
   source: Option[String],

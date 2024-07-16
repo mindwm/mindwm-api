@@ -11,7 +11,7 @@ import javax.validation.Valid;
 /**
  * TmuxPaneIoDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-16T18:18:02.788007463Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-16T19:19:16.519861287Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class TmuxPaneIoDocument extends HashMap<String, Object>  {
   @JsonProperty("input")

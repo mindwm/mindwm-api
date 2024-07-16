@@ -11,7 +11,7 @@
 
 
 
-#include "MindwWM/model/IoDocument.h"
+#include "MindWM/model/IoDocument.h"
 
 namespace org {
 namespace openapitools {

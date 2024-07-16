@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.cloud_event import CloudEvent  # noqa: E501
+from MindWM.models.cloud_event import CloudEvent  # noqa: E501
 
 class TestCloudEvent(unittest.TestCase):
     """CloudEvent unit test stubs"""
@@ -44,7 +44,7 @@ class TestCloudEvent(unittest.TestCase):
                 dataschema = '0',
                 subject = '0',
                 time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                data = MindwWM.models.cloud_event_data.CloudEvent_data(),
+                data = MindWM.models.cloud_event_data.CloudEvent_data(),
                 data_base64 = ''
             )
         else:

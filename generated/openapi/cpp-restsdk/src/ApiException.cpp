@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-#include "MindwWM/ApiException.h"
+#include "MindWM/ApiException.h"
 
 namespace org {
 namespace openapitools {

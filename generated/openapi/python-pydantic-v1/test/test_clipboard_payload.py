@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.clipboard_payload import ClipboardPayload  # noqa: E501
+from MindWM.models.clipboard_payload import ClipboardPayload  # noqa: E501
 
 class TestClipboardPayload(unittest.TestCase):
     """ClipboardPayload unit test stubs"""
@@ -44,7 +44,7 @@ class TestClipboardPayload(unittest.TestCase):
                     ],
                 data = '0',
                 type = 'primary',
-                context = MindwWM.models.clipboard_payload_context.ClipboardPayload_context(
+                context = MindWM.models.clipboard_payload_context.ClipboardPayload_context(
                     window = '', )
             )
         else:

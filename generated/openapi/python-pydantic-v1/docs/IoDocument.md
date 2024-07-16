@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from MindwWM.models.io_document import IoDocument
+from MindWM.models.io_document import IoDocument
 
 # TODO update the JSON string below
 json = "{}"

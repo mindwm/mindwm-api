@@ -1,4 +1,4 @@
-# Go API Server for MindwWM
+# Go API Server for MindWM
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
 
@@ -13,7 +13,7 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 0.1.0
-- Build date: 2024-07-16T18:17:16.076914880Z[Etc/UTC]
+- Build date: 2024-07-16T19:18:31.681537780Z[Etc/UTC]
 - Generator version: 7.7.0
 
 
@@ -26,10 +26,10 @@ go run main.go
 
 To run the server in a docker container
 ```
-docker build --network=host -t MindwWM .
+docker build --network=host -t MindWM .
 ```
 
 Once image is built use
 ```
-docker run --rm -it MindwWM
+docker run --rm -it MindWM
 ```

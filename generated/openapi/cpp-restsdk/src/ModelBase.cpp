@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-#include "MindwWM/ModelBase.h"
+#include "MindWM/ModelBase.h"
 
 namespace org {
 namespace openapitools {

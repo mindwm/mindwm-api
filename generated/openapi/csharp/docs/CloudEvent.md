@@ -1,4 +1,4 @@
-# MindwWM.Model.CloudEvent
+# MindWM.Model.CloudEvent
 CloudEvents Specification JSON Schema
 
 ## Properties

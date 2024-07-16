@@ -1,4 +1,4 @@
-package MindwWM
+package MindWM
 
 import com.twitter.finagle.Service
 import com.twitter.finagle.http.{Request, Response}

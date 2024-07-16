@@ -25,7 +25,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("GraphRelationship_allOf_data")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-16T18:18:08.797544910Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-16T19:19:22.317989189Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphRelationshipAllOfData {
 
   private Object headers;

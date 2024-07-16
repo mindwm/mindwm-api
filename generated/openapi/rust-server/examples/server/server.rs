@@ -1,4 +1,4 @@
-//! Main library entry point for MindwWM implementation.
+//! Main library entry point for MindWM implementation.
 
 #![allow(unused_imports)]
 
@@ -20,7 +20,7 @@ use tokio::net::TcpListener;
 #[cfg(not(any(target_os = "macos", target_os = "windows", target_os = "ios")))]
 use openssl::ssl::{Ssl, SslAcceptor, SslAcceptorBuilder, SslFiletype, SslMethod};
 
-use MindwWM::models;
+use MindWM::models;
 
 /// Builds an SSL implementation for Simple HTTPS from some hard-coded file names
 pub async fn create(addr: &str, https: bool) {
@@ -36,7 +36,7 @@ pub async fn create(addr: &str, https: bool) {
 
     #[allow(unused_mut)]
     let mut service =
-        MindwWM::server::context::MakeAddContext::<_, EmptyContext>::new(
+        MindWM::server::context::MakeAddContext::<_, EmptyContext>::new(
             service
         );
 
@@ -102,10 +102,10 @@ use swagger::auth::Authorization;
 use crate::server_auth;
 
 
-use MindwWM::{
+use MindWM::{
     Api,
 };
-use MindwWM::server::MakeService;
+use MindWM::server::MakeService;
 use std::error::Error;
 use swagger::ApiError;
 

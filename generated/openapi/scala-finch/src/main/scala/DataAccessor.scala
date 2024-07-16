@@ -1,4 +1,4 @@
-package MindwWM
+package MindWM
 
 // TODO: properly handle custom imports
 import java.io._

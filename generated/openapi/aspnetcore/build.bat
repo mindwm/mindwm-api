@@ -3,7 +3,7 @@
 
 @echo off
 
-dotnet restore src\MindwWM
-dotnet build src\MindwWM
-echo Now, run the following to start the project: dotnet run -p src\MindwWM\MindwWM.csproj --launch-profile web.
+dotnet restore src\MindWM
+dotnet build src\MindWM
+echo Now, run the following to start the project: dotnet run -p src\MindWM\MindWM.csproj --launch-profile web.
 echo.

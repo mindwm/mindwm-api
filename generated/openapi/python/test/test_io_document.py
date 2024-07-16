@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.io_document import IoDocument
+from MindWM.models.io_document import IoDocument
 
 class TestIoDocument(unittest.TestCase):
     """IoDocument unit test stubs"""

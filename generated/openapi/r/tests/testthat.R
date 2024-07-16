@@ -1,4 +1,4 @@
 library(testthat)
-library(MindwWM)
+library(MindWM)
 
-test_check("MindwWM")
+test_check("MindWM")

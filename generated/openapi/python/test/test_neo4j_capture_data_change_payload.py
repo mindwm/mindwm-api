@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.neo4j_capture_data_change_payload import Neo4jCaptureDataChangePayload
+from MindWM.models.neo4j_capture_data_change_payload import Neo4jCaptureDataChangePayload
 
 class TestNeo4jCaptureDataChangePayload(unittest.TestCase):
     """Neo4jCaptureDataChangePayload unit test stubs"""
@@ -35,11 +35,11 @@ class TestNeo4jCaptureDataChangePayload(unittest.TestCase):
         model = Neo4jCaptureDataChangePayload()
         if include_optional:
             return Neo4jCaptureDataChangePayload(
-                after = MindwWM.models.after.after(),
+                after = MindWM.models.after.after(),
                 before = '',
                 id = '',
                 type = '',
-                end = MindwWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
+                end = MindWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
                     id = '', 
                     ids = {
                         'key' : null
@@ -48,7 +48,7 @@ class TestNeo4jCaptureDataChangePayload(unittest.TestCase):
                         ''
                         ], ),
                 label = '',
-                start = MindwWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
+                start = MindWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
                     id = '', 
                     ids = {
                         'key' : null
@@ -59,11 +59,11 @@ class TestNeo4jCaptureDataChangePayload(unittest.TestCase):
             )
         else:
             return Neo4jCaptureDataChangePayload(
-                after = MindwWM.models.after.after(),
+                after = MindWM.models.after.after(),
                 before = '',
                 id = '',
                 type = '',
-                end = MindwWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
+                end = MindWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
                     id = '', 
                     ids = {
                         'key' : null
@@ -72,7 +72,7 @@ class TestNeo4jCaptureDataChangePayload(unittest.TestCase):
                         ''
                         ], ),
                 label = '',
-                start = MindwWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
+                start = MindWM.models.neo4j_capture_data_change_relationship_payload_end.Neo4jCaptureDataChangeRelationshipPayload_end(
                     id = '', 
                     ids = {
                         'key' : null

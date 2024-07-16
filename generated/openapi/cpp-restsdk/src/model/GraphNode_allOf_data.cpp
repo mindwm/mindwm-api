@@ -11,7 +11,7 @@
 
 
 
-#include "MindwWM/model/GraphNode_allOf_data.h"
+#include "MindWM/model/GraphNode_allOf_data.h"
 
 namespace org {
 namespace openapitools {

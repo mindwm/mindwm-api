@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.neo4j_capture_data_change_meta import Neo4jCaptureDataChangeMeta
+from MindWM.models.neo4j_capture_data_change_meta import Neo4jCaptureDataChangeMeta
 
 class TestNeo4jCaptureDataChangeMeta(unittest.TestCase):
     """Neo4jCaptureDataChangeMeta unit test stubs"""
@@ -36,7 +36,7 @@ class TestNeo4jCaptureDataChangeMeta(unittest.TestCase):
         if include_optional:
             return Neo4jCaptureDataChangeMeta(
                 operation = '',
-                source = MindwWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
+                source = MindWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
                     hostname = '', ),
                 timestamp = 56,
                 tx_event_id = 56,
@@ -47,7 +47,7 @@ class TestNeo4jCaptureDataChangeMeta(unittest.TestCase):
         else:
             return Neo4jCaptureDataChangeMeta(
                 operation = '',
-                source = MindwWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
+                source = MindWM.models.neo4j_capture_data_change_meta_source.Neo4jCaptureDataChange_meta_source(
                     hostname = '', ),
                 timestamp = 56,
                 tx_event_id = 56,

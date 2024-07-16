@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CloudEvent = Initialize-MindwWMCloudEvent  -Id null `
+$CloudEvent = Initialize-MindWMCloudEvent  -Id null `
  -Source null `
  -Specversion null `
  -Type null `

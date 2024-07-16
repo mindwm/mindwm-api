@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from MindwWM.models.neo4j_capture_data_change import Neo4jCaptureDataChange
+from MindWM.models.neo4j_capture_data_change import Neo4jCaptureDataChange
 
 # TODO update the JSON string below
 json = "{}"

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from MindwWM.models.clipboard_payload import ClipboardPayload
+from MindWM.models.clipboard_payload import ClipboardPayload
 
 # TODO update the JSON string below
 json = "{}"

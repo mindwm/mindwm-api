@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-#include "MindwWM/AnyType.h"
+#include "MindWM/AnyType.h"
 
 namespace org {
 namespace openapitools {

@@ -19,7 +19,7 @@ import java.util.Map;
  * IoDocument
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-16T18:18:00.787702112Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-16T19:19:14.524628303Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument extends HashMap<String, Object>  {
   @JsonProperty("type")
   private String type;

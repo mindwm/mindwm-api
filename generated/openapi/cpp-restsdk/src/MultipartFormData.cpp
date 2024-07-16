@@ -9,8 +9,8 @@
  * Do not edit the class manually.
  */
 
-#include "MindwWM/MultipartFormData.h"
-#include "MindwWM/ModelBase.h"
+#include "MindWM/MultipartFormData.h"
+#include "MindWM/ModelBase.h"
 
 #include <boost/uuid/random_generator.hpp>
 #include <boost/uuid/uuid_io.hpp>

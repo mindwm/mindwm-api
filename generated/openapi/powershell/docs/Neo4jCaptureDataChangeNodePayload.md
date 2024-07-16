@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Neo4jCaptureDataChangeNodePayload = Initialize-MindwWMNeo4jCaptureDataChangeNodePayload  -After null `
+$Neo4jCaptureDataChangeNodePayload = Initialize-MindWMNeo4jCaptureDataChangeNodePayload  -After null `
  -Before null `
  -Id null `
  -Type null

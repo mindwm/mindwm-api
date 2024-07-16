@@ -1,6 +1,6 @@
 .openapi-generator-ignore
 config.gpr
-mindwwm.gpr
+mindwm.gpr
 src/-client.adb
 src/.ads
 src/client/-clients.adb

@@ -40,9 +40,9 @@
 */
 package app
 
-import MindwWM.BaseApp
-import MindwWM.api.*
-import MindwWM.model.*
+import MindWM.BaseApp
+import MindWM.api.*
+import MindWM.model.*
 
 import java.io.File
 

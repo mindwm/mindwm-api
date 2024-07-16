@@ -1,4 +1,4 @@
-# MindwWM::IoDocument
+# MindWM::IoDocument
 
 
 ## Properties

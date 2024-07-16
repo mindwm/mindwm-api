@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.neo4j_capture_data_change_node_payload_after import Neo4jCaptureDataChangeNodePayloadAfter  # noqa: E501
+from MindWM.models.neo4j_capture_data_change_node_payload_after import Neo4jCaptureDataChangeNodePayloadAfter  # noqa: E501
 
 class TestNeo4jCaptureDataChangeNodePayloadAfter(unittest.TestCase):
     """Neo4jCaptureDataChangeNodePayloadAfter unit test stubs"""

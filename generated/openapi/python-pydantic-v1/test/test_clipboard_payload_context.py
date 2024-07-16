@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.clipboard_payload_context import ClipboardPayloadContext  # noqa: E501
+from MindWM.models.clipboard_payload_context import ClipboardPayloadContext  # noqa: E501
 
 class TestClipboardPayloadContext(unittest.TestCase):
     """ClipboardPayloadContext unit test stubs"""

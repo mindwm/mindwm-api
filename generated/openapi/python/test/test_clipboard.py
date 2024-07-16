@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.clipboard import Clipboard
+from MindWM.models.clipboard import Clipboard
 
 class TestClipboard(unittest.TestCase):
     """Clipboard unit test stubs"""
@@ -37,7 +37,7 @@ class TestClipboard(unittest.TestCase):
             return Clipboard(
                 type = '',
                 source = 'eBAMDTMv2D2ylmgd10Z3UB6UkJSISSB5\\'qKX7HzKpul80FcVjSkp5IHYCm6w-v0dZfUofvKERjsmInY9s-EmMH6kw8gsnz',
-                data = MindwWM.models.clipboard_payload.ClipboardPayload(
+                data = MindWM.models.clipboard_payload.ClipboardPayload(
                     start = [
                         56
                         ], 
@@ -46,7 +46,7 @@ class TestClipboard(unittest.TestCase):
                         ], 
                     data = '0', 
                     type = 'primary', 
-                    context = MindwWM.models.clipboard_payload_context.ClipboardPayload_context(
+                    context = MindWM.models.clipboard_payload_context.ClipboardPayload_context(
                         window = '', ), ),
                 id = '0',
                 specversion = '0',

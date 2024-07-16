@@ -25,4 +25,4 @@ EXPOSE 8080
 
 ENTRYPOINT ["python3"]
 
-CMD ["-B", "-m", "MindwWM"]
+CMD ["-B", "-m", "MindWM"]

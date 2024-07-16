@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.tmux_pane_io_document import TmuxPaneIoDocument  # noqa: E501
+from MindWM.models.tmux_pane_io_document import TmuxPaneIoDocument  # noqa: E501
 
 class TestTmuxPaneIoDocument(unittest.TestCase):
     """TmuxPaneIoDocument unit test stubs"""

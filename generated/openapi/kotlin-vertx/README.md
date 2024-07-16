@@ -1,4 +1,4 @@
-# MindwWM - Kotlin Server library for Mindwm API
+# MindWM - Kotlin Server library for Mindwm API
 
 ## Requires
 
@@ -31,26 +31,26 @@ Class | Method | HTTP request | Description
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
- - [MindwWM.models.Clipboard](docs/Clipboard.md)
- - [MindwWM.models.ClipboardPayload](docs/ClipboardPayload.md)
- - [MindwWM.models.ClipboardPayloadContext](docs/ClipboardPayloadContext.md)
- - [MindwWM.models.CloudEvent](docs/CloudEvent.md)
- - [MindwWM.models.CloudEventData](docs/CloudEventData.md)
- - [MindwWM.models.GraphNode](docs/GraphNode.md)
- - [MindwWM.models.GraphNodeAllOfData](docs/GraphNodeAllOfData.md)
- - [MindwWM.models.GraphRelationship](docs/GraphRelationship.md)
- - [MindwWM.models.GraphRelationshipAllOfData](docs/GraphRelationshipAllOfData.md)
- - [MindwWM.models.IoDocument](docs/IoDocument.md)
- - [MindwWM.models.Neo4jCaptureDataChange](docs/Neo4jCaptureDataChange.md)
- - [MindwWM.models.Neo4jCaptureDataChangeMeta](docs/Neo4jCaptureDataChangeMeta.md)
- - [MindwWM.models.Neo4jCaptureDataChangeMetaSource](docs/Neo4jCaptureDataChangeMetaSource.md)
- - [MindwWM.models.Neo4jCaptureDataChangeNodePayload](docs/Neo4jCaptureDataChangeNodePayload.md)
- - [MindwWM.models.Neo4jCaptureDataChangeNodePayloadAfter](docs/Neo4jCaptureDataChangeNodePayloadAfter.md)
- - [MindwWM.models.Neo4jCaptureDataChangePayload](docs/Neo4jCaptureDataChangePayload.md)
- - [MindwWM.models.Neo4jCaptureDataChangeRelationshipPayload](docs/Neo4jCaptureDataChangeRelationshipPayload.md)
- - [MindwWM.models.Neo4jCaptureDataChangeRelationshipPayloadEnd](docs/Neo4jCaptureDataChangeRelationshipPayloadEnd.md)
- - [MindwWM.models.Neo4jCaptureDataChangeSchema](docs/Neo4jCaptureDataChangeSchema.md)
- - [MindwWM.models.TmuxPaneIoDocument](docs/TmuxPaneIoDocument.md)
+ - [MindWM.models.Clipboard](docs/Clipboard.md)
+ - [MindWM.models.ClipboardPayload](docs/ClipboardPayload.md)
+ - [MindWM.models.ClipboardPayloadContext](docs/ClipboardPayloadContext.md)
+ - [MindWM.models.CloudEvent](docs/CloudEvent.md)
+ - [MindWM.models.CloudEventData](docs/CloudEventData.md)
+ - [MindWM.models.GraphNode](docs/GraphNode.md)
+ - [MindWM.models.GraphNodeAllOfData](docs/GraphNodeAllOfData.md)
+ - [MindWM.models.GraphRelationship](docs/GraphRelationship.md)
+ - [MindWM.models.GraphRelationshipAllOfData](docs/GraphRelationshipAllOfData.md)
+ - [MindWM.models.IoDocument](docs/IoDocument.md)
+ - [MindWM.models.Neo4jCaptureDataChange](docs/Neo4jCaptureDataChange.md)
+ - [MindWM.models.Neo4jCaptureDataChangeMeta](docs/Neo4jCaptureDataChangeMeta.md)
+ - [MindWM.models.Neo4jCaptureDataChangeMetaSource](docs/Neo4jCaptureDataChangeMetaSource.md)
+ - [MindWM.models.Neo4jCaptureDataChangeNodePayload](docs/Neo4jCaptureDataChangeNodePayload.md)
+ - [MindWM.models.Neo4jCaptureDataChangeNodePayloadAfter](docs/Neo4jCaptureDataChangeNodePayloadAfter.md)
+ - [MindWM.models.Neo4jCaptureDataChangePayload](docs/Neo4jCaptureDataChangePayload.md)
+ - [MindWM.models.Neo4jCaptureDataChangeRelationshipPayload](docs/Neo4jCaptureDataChangeRelationshipPayload.md)
+ - [MindWM.models.Neo4jCaptureDataChangeRelationshipPayloadEnd](docs/Neo4jCaptureDataChangeRelationshipPayloadEnd.md)
+ - [MindWM.models.Neo4jCaptureDataChangeSchema](docs/Neo4jCaptureDataChangeSchema.md)
+ - [MindWM.models.TmuxPaneIoDocument](docs/TmuxPaneIoDocument.md)
 
 
 <a id="documentation-for-authorization"></a>

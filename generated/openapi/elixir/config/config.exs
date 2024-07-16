@@ -7,7 +7,7 @@
 # General application configuration
 import Config
 
-config :mindw_wm, base_url: "https://mindwmw.io/v1"
+config :mind_wm, base_url: "https://mindwmw.io/v1"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

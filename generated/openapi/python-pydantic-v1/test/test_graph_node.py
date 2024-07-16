@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from MindwWM.models.graph_node import GraphNode  # noqa: E501
+from MindWM.models.graph_node import GraphNode  # noqa: E501
 
 class TestGraphNode(unittest.TestCase):
     """GraphNode unit test stubs"""

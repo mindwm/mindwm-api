@@ -1,0 +1,83 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "MindWM Neo4jCaptureDataChange"
+package     = MindWM
+version     = "1.0"
+description = "Defines a Neo4jCaptureDataChange"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  Neo4jCaptureDataChangeMeta = MindWM.resourceTypes.Neo4jCaptureDataChangeMeta
+  Neo4jCaptureDataChangePayload = MindWM.resourceTypes.Neo4jCaptureDataChangePayload
+  Neo4jCaptureDataChangeSchema = MindWM.resourceTypes.Neo4jCaptureDataChangeSchema
+}
+resourceTypes {
+
+  Neo4jCaptureDataChange {
+    title = Neo4jCaptureDataChange
+    description = Neo4jCaptureDataChange
+    derivedFrom = Root
+    properties {
+        headers {
+          # TODO
+          description = ""
+          optional = true
+        }
+        message_key {
+          type =  string
+          description = ""
+          optional = true
+        }
+        meta {
+          type = Neo4jCaptureDataChangeMeta
+          description = ""
+          optional = true
+        }
+        offset {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        partition {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        source_type {
+          type =  string
+          description = ""
+          optional = true
+        }
+        timestamp {
+          type =  string
+          description = ""
+          optional = true
+        }
+        topic {
+          type =  string
+          description = ""
+          optional = true
+        }
+        _schema {
+          type = Neo4jCaptureDataChangeSchema
+          description = ""
+          optional = true
+        }
+        payload {
+          type = Neo4jCaptureDataChangePayload
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  Neo4jCaptureDataChange {
+    title = Neo4jCaptureDataChange
+    description = Neo4jCaptureDataChange
+    implements = MindWM.resourceTypes.Neo4jCaptureDataChange
+
+  }
+}

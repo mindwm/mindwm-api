@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IoDocument = Initialize-MindwWMIoDocument  -Type null `
+$IoDocument = Initialize-MindWMIoDocument  -Type null `
  -Source null `
  -VarData null `
  -Id null `

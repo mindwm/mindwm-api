@@ -11,7 +11,7 @@
 
 
 
-#include "MindwWM/model/Clipboard.h"
+#include "MindWM/model/Clipboard.h"
 
 namespace org {
 namespace openapitools {

@@ -1,4 +1,4 @@
-# MindwWM::GraphRelationshipAllOfData
+# MindWM::GraphRelationshipAllOfData
 
 
 ## Properties

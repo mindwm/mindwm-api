@@ -4,7 +4,7 @@
 #[allow(unused_imports)]
 use futures::{future, Stream, stream};
 #[allow(unused_imports)]
-use MindwWM::{Api, ApiNoContext, Claims, Client, ContextWrapperExt, models,
+use MindWM::{Api, ApiNoContext, Claims, Client, ContextWrapperExt, models,
                      };
 use clap::{App, Arg};
 

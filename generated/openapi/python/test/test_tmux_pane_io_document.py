@@ -14,7 +14,7 @@
 
 import unittest
 
-from MindwWM.models.tmux_pane_io_document import TmuxPaneIoDocument
+from MindWM.models.tmux_pane_io_document import TmuxPaneIoDocument
 
 class TestTmuxPaneIoDocument(unittest.TestCase):
     """TmuxPaneIoDocument unit test stubs"""

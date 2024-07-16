@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from MindwWM.models.neo4j_capture_data_change_payload import Neo4jCaptureDataChangePayload
+from MindWM.models.neo4j_capture_data_change_payload import Neo4jCaptureDataChangePayload
 
 # TODO update the JSON string below
 json = "{}"
