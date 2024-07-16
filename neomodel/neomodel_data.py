@@ -1,8 +1,13 @@
+import os
+
 from neomodel import (config, StructuredNode, StringProperty, IntegerProperty,
 	UniqueIdProperty, RelationshipTo, RelationshipFrom, Relationship, One, OneOrMore,
     DateTimeProperty)
 from neomodel.properties import JSONProperty
 from neomodel import db
+
+from neomodel import config
+from neo4j import GraphDatabase
 
 neo4j_url = os.getenv("NEO4J_URL")
 neo4j_username = os.getenv("NEO4J_USERNAME")
