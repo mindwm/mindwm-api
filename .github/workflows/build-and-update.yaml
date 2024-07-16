@@ -59,7 +59,7 @@ jobs:
         run: | 
           cd /github/workspace/
           for lang in `docker-entrypoint.sh list -s | sed 's/,/ /g'`; do 
-            docker-entrypoint.sh generate -i generated/openapi/openapi.yaml -p packageName=MindwWM -g ${lang} -o generated/openapi/${lang}; 
+            docker-entrypoint.sh generate -i generated/openapi/openapi.yaml -p packageName=MindWM -g ${lang} -o generated/openapi/${lang}; 
           done
 
     - name: openapi generate gdscript
@@ -70,7 +70,7 @@ jobs:
         shell: /bin/sh
         run: | 
           cd /github/workspace/
-          docker-entrypoint.sh generate -i generated/openapi/openapi_gdscript.yaml -p packageName=MindwWM -g gdscript -o generated/openapi/gdscript; 
+          docker-entrypoint.sh generate -i generated/openapi/openapi_gdscript.yaml -p packageName=MindWM -g gdscript -o generated/openapi/gdscript; 
           rm -v generated/openapi/openapi_gdscript.yaml
 
     - name: Commit changes
