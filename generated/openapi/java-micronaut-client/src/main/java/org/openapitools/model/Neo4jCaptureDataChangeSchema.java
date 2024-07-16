@@ -32,7 +32,7 @@ import javax.annotation.Generated;
   Neo4jCaptureDataChangeSchema.JSON_PROPERTY_PROPERTIES
 })
 @JsonTypeName("Neo4jCaptureDataChange_schema")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-14T12:11:45.607314551Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-16T18:17:54.265793865Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Neo4jCaptureDataChangeSchema {
     public static final String JSON_PROPERTY_CONSTRAINTS = "constraints";

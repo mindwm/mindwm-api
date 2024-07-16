@@ -42,7 +42,7 @@ import javax.annotation.Generated;
   GraphNodeAllOfData.JSON_PROPERTY_PAYLOAD
 })
 @JsonTypeName("GraphNode_allOf_data")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-14T12:11:45.607314551Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-16T18:17:54.265793865Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class GraphNodeAllOfData {
     public static final String JSON_PROPERTY_HEADERS = "headers";

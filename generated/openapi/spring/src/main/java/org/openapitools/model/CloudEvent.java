@@ -26,7 +26,7 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "CloudEvent", description = "CloudEvents Specification JSON Schema")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-14T12:14:04.552058714Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T18:20:22.233398261Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEvent {
 
   private String id;

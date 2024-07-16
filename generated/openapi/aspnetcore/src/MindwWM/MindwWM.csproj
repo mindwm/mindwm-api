@@ -9,7 +9,7 @@
     <Version>1.0.0</Version>
     <AssemblyName>MindwWM</AssemblyName>
     <PackageId>MindwWM</PackageId>
-    <UserSecretsId>a14304d0-0ca3-489c-b5c9-2a156d0a690e</UserSecretsId>
+    <UserSecretsId>0dc051ef-19cd-445c-89f6-0d233b97746a</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
