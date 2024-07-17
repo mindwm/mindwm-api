@@ -30,7 +30,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   Neo4jCaptureDataChangeMetaSource.JSON_PROPERTY_HOSTNAME
 })
 @JsonTypeName("Neo4jCaptureDataChange_meta_source")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-17T13:48:20.822639261Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-17T14:05:01.774271688Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Neo4jCaptureDataChangeMetaSource {
     public static final String JSON_PROPERTY_HOSTNAME = "hostname";

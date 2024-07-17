@@ -43,7 +43,7 @@ import javax.validation.Valid;
   GraphNode.JSON_PROPERTY_DATA,
   GraphNode.JSON_PROPERTY_DATA_BASE64
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-17T13:48:41.039616187Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-17T14:05:24.762057614Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphNode extends HashMap<String, Object>  {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)

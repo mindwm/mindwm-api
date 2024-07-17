@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
  **/
 @ApiModel(description = "CloudEvents Specification JSON Schema")
 @JsonTypeName("CloudEvent")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-17T13:48:47.053203477Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-17T14:05:31.360932918Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEvent   {
   private String id;
   private String source;

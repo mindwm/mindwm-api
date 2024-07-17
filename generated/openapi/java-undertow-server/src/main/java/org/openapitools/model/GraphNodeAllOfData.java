@@ -24,7 +24,7 @@ import org.openapitools.model.Neo4jCaptureDataChangeSchema;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-17T13:48:28.958190303Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-17T14:05:10.943134242Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphNodeAllOfData   {
   
   private Object headers;

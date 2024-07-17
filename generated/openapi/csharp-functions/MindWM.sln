@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindWM", "src\MindWM\MindWM.csproj", "{28FC46A2-9600-4515-B069-A6C5FFA7A4DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindWM", "src\MindWM\MindWM.csproj", "{0C31F894-EE5D-47FB-9F51-1F692969F62E}"
 EndProject
 Global
     GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
         Release|Any CPU = Release|Any CPU
     EndGlobalSection
     GlobalSection(ProjectConfigurationPlatforms) = postSolution
-        {28FC46A2-9600-4515-B069-A6C5FFA7A4DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-        {28FC46A2-9600-4515-B069-A6C5FFA7A4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-        {28FC46A2-9600-4515-B069-A6C5FFA7A4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-        {28FC46A2-9600-4515-B069-A6C5FFA7A4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+        {0C31F894-EE5D-47FB-9F51-1F692969F62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {0C31F894-EE5D-47FB-9F51-1F692969F62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {0C31F894-EE5D-47FB-9F51-1F692969F62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {0C31F894-EE5D-47FB-9F51-1F692969F62E}.Release|Any CPU.Build.0 = Release|Any CPU
     EndGlobalSection
     GlobalSection(SolutionProperties) = preSolution
         HideSolutionNode = FALSE

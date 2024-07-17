@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * Clipboard
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-17T13:48:32.911351553Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-17T14:05:15.396646975Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Clipboard {
 
   private String type;

@@ -368,7 +368,7 @@ object IoDocument {
 case class IoDocumentAllOf(
   _type: Option[String],
   subject: Option[String],
-  source: Option[Refined[String, MatchesRegex["[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+\/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$"]]],
+  source: Option[String],
   data: Option[TmuxPaneIoDocument]
 )
 object IoDocumentAllOf {

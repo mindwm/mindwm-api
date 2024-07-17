@@ -10,7 +10,7 @@
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
     <AssemblyName>MindWM</AssemblyName>
     <PackageId>MindWM</PackageId>
-    <UserSecretsId>6b385f9e-f5cf-4d99-b54d-c3c2bd936880</UserSecretsId>
+    <UserSecretsId>ce6a1205-48cf-422e-bab3-e84da6c8d89c</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>

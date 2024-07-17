@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Neo4jCaptureDataChangeNodePayload
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-17T13:48:25.018972668Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-17T14:05:06.442732795Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangeNodePayload   {
   @JsonProperty("after")
   private Neo4jCaptureDataChangeNodePayloadAfter after;

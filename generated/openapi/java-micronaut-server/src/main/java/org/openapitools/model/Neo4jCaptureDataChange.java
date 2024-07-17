@@ -44,7 +44,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   Neo4jCaptureDataChange.JSON_PROPERTY_PAYLOAD
 })
 @JsonTypeName("Neo4jCaptureDataChange")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-17T13:48:20.822639261Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-17T14:05:01.774271688Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Neo4jCaptureDataChange {
     public static final String JSON_PROPERTY_HEADERS = "headers";

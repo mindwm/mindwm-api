@@ -15,7 +15,7 @@ import org.openapitools.model.GraphRelationshipAllOfData;
 /**
  * GraphRelationship
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-17T13:48:23.049224705Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-17T14:05:04.217749254Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphRelationship extends HashMap<String, Object>  {
   @JsonProperty("id")
   private String id;

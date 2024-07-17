@@ -33,7 +33,6 @@ data class IoDocument(
     @Schema(example = "null", required = true, description = "Identifies the event.")
     @get:JsonProperty("id", required = true) val id: kotlin.String,
 
-    @get:Pattern(regexp="[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$")
     @Schema(example = "null", required = true, description = "")
     @get:JsonProperty("source", required = true) val source: kotlin.String,
 
