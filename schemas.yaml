@@ -45,9 +45,8 @@ Clipboard:
           defaullt: Clipboard
         source:
           type: string
-          # mindwm.bebebeko.mcmp6.tmux.L3RtcC90bXV4LTkyOTYwMDAwNS9kZWZhdWx0LDE2MzczOTQsMA==.505eec90-266c-11ef-bc96-2fde980ed4b5.0.0.iodocument
-          #                     username                           hostname                  tmux   base64_tmux socket path                    UUID                                      TMUX_SESS  PANE_ID  iodocument topic 
-          pattern: 'mindwm.[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-).clipboard$'
+          # mindwm.bebebeko.mcmp6.clipbaord
+          pattern: '^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$'
         data:
           $ref: '#/components/schemas/ClipboardPayload'
   additionalProperties: false
