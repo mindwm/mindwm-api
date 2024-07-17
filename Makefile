@@ -14,7 +14,7 @@ generated_dir:
 	test -d $(GENERATED_DIR) || (mkdir -p $(GENERATED_DIR) && chmod a+rwx $(GENERATED_DIR))
 	
 kcl:
-	kcl run ./mindwm_asyncapi.k > asyncapi2.yaml
+	kcl run ./mindwm_asyncapi.k > asyncapi.yaml
 	kcl run ./mindwm_openapi > openapi.yaml
 
 .PHONY: openapi-generator-docker
@@ -40,10 +40,10 @@ openapi-generator-gdscript: generated_dir
     		-o /local/$(GENERATED_DIR)/gdscript
 
 
-	#cp ./openapi.yaml openapi-generator/modules
-	#cd openapi-generator && \
-	#./run-in-docker.sh generate -i modules/openapi.yaml  -g gdscript -o /gen/$(GENERATED_DIR)/gdscript-mindwm -p packageName=$(PACKAGE_NAME) && \
-	#cp -vr $(GENERATED_DIR)/gdscript-mindwm/* ../$(GENERATED_DIR)/gdscript/
+	# cp ./openapi.yaml openapi-generator/modules
+	# cd openapi-generator && \
+	# ./run-in-docker.sh generate -i modules/openapi.yaml  -g gdscript -o /gen/$(GENERATED_DIR)/gdscript-mindwm -p packageName=$(PACKAGE_NAME) && \
+	# cp -vr $(GENERATED_DIR)/gdscript-mindwm/* ../$(GENERATED_DIR)/gdscript/
 
 asyncapi-generate:
 	docker run --rm -it \
