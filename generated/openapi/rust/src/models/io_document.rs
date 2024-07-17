@@ -13,18 +13,16 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct IoDocument {
-    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub r#type: Option<String>,
-    #[serde(rename = "source", skip_serializing_if = "Option::is_none")]
-    pub source: Option<String>,
-    #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
-    pub data: Option<models::TmuxPaneIoDocument>,
     /// Identifies the event.
     #[serde(rename = "id")]
     pub id: String,
+    #[serde(rename = "source")]
+    pub source: String,
     /// The version of the CloudEvents specification which the event uses.
     #[serde(rename = "specversion")]
     pub specversion: String,
+    #[serde(rename = "type")]
+    pub r#type: String,
     /// Content type of the data value. Must adhere to RFC 2046 format.
     #[serde(rename = "datacontenttype", skip_serializing_if = "Option::is_none")]
     pub datacontenttype: Option<String>,
@@ -36,23 +34,25 @@ pub struct IoDocument {
     /// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     #[serde(rename = "time", skip_serializing_if = "Option::is_none")]
     pub time: Option<String>,
+    #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
+    pub data: Option<models::TmuxPaneIoDocument>,
     /// Base64 encoded event payload. Must adhere to RFC4648.
     #[serde(rename = "data_base64", skip_serializing_if = "Option::is_none")]
     pub data_base64: Option<String>,
 }
 
 impl IoDocument {
-    pub fn new(id: String, specversion: String) -> IoDocument {
+    pub fn new(id: String, source: String, specversion: String, r#type: String) -> IoDocument {
         IoDocument {
-            r#type: None,
-            source: None,
-            data: None,
             id,
+            source,
             specversion,
+            r#type,
             datacontenttype: None,
             dataschema: None,
             subject: None,
             time: None,
+            data: None,
             data_base64: None,
         }
     }

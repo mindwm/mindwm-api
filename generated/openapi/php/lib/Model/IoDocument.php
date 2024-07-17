@@ -57,15 +57,15 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'source' => 'string',
-        'data' => '\OpenAPI\Client\Model\TmuxPaneIoDocument',
         'id' => 'string',
+        'source' => 'string',
         'specversion' => 'string',
+        'type' => 'string',
         'datacontenttype' => 'string',
         'dataschema' => 'string',
         'subject' => 'string',
         'time' => '\DateTime',
+        'data' => '\OpenAPI\Client\Model\TmuxPaneIoDocument',
         'data_base64' => 'string'
     ];
 
@@ -77,15 +77,15 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'source' => null,
-        'data' => null,
         'id' => null,
+        'source' => null,
         'specversion' => null,
+        'type' => null,
         'datacontenttype' => null,
         'dataschema' => 'uri',
         'subject' => null,
         'time' => 'date-time',
+        'data' => null,
         'data_base64' => null
     ];
 
@@ -95,15 +95,15 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'source' => false,
-        'data' => false,
         'id' => false,
+        'source' => false,
         'specversion' => false,
+        'type' => false,
         'datacontenttype' => false,
         'dataschema' => false,
         'subject' => false,
         'time' => false,
+        'data' => false,
         'data_base64' => false
     ];
 
@@ -193,15 +193,15 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'source' => 'source',
-        'data' => 'data',
         'id' => 'id',
+        'source' => 'source',
         'specversion' => 'specversion',
+        'type' => 'type',
         'datacontenttype' => 'datacontenttype',
         'dataschema' => 'dataschema',
         'subject' => 'subject',
         'time' => 'time',
+        'data' => 'data',
         'data_base64' => 'data_base64'
     ];
 
@@ -211,15 +211,15 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'source' => 'setSource',
-        'data' => 'setData',
         'id' => 'setId',
+        'source' => 'setSource',
         'specversion' => 'setSpecversion',
+        'type' => 'setType',
         'datacontenttype' => 'setDatacontenttype',
         'dataschema' => 'setDataschema',
         'subject' => 'setSubject',
         'time' => 'setTime',
+        'data' => 'setData',
         'data_base64' => 'setDataBase64'
     ];
 
@@ -229,15 +229,15 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'source' => 'getSource',
-        'data' => 'getData',
         'id' => 'getId',
+        'source' => 'getSource',
         'specversion' => 'getSpecversion',
+        'type' => 'getType',
         'datacontenttype' => 'getDatacontenttype',
         'dataschema' => 'getDataschema',
         'subject' => 'getSubject',
         'time' => 'getTime',
+        'data' => 'getData',
         'data_base64' => 'getDataBase64'
     ];
 
@@ -298,15 +298,15 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('source', $data ?? [], null);
         $this->setIfExists('specversion', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], 'IoDocument');
         $this->setIfExists('datacontenttype', $data ?? [], null);
         $this->setIfExists('dataschema', $data ?? [], null);
         $this->setIfExists('subject', $data ?? [], 'IoDocument');
         $this->setIfExists('time', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('data_base64', $data ?? [], null);
     }
 
@@ -337,10 +337,6 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['source']) && !preg_match("/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+\/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$/", $this->container['source'])) {
-            $invalidProperties[] = "invalid value for 'source', must be conform to the pattern /[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+\/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$/.";
-        }
-
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
@@ -348,6 +344,9 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'id', the character length must be bigger than or equal to 1.";
         }
 
+        if ($this->container['source'] === null) {
+            $invalidProperties[] = "'source' can't be null";
+        }
         if ($this->container['specversion'] === null) {
             $invalidProperties[] = "'specversion' can't be null";
         }
@@ -355,6 +354,9 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'specversion', the character length must be bigger than or equal to 1.";
         }
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         if (!is_null($this->container['datacontenttype']) && (mb_strlen($this->container['datacontenttype']) < 1)) {
             $invalidProperties[] = "invalid value for 'datacontenttype', the character length must be bigger than or equal to 1.";
         }
@@ -381,92 +383,6 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string|null $source source
-     *
-     * @return self
-     */
-    public function setSource($source)
-    {
-        if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
-        }
-
-        if ((!preg_match("/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+\/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$/", ObjectSerializer::toString($source)))) {
-            throw new \InvalidArgumentException("invalid value for \$source when calling IoDocument., must conform to the pattern /[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+\/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$/.");
-        }
-
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \OpenAPI\Client\Model\TmuxPaneIoDocument|null
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \OpenAPI\Client\Model\TmuxPaneIoDocument|null $data data
-     *
-     * @return self
-     */
-    public function setData($data)
-    {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
-        }
-        $this->container['data'] = $data;
-
-        return $this;
-    }
 
     /**
      * Gets id
@@ -501,6 +417,33 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return self
+     */
+    public function setSource($source)
+    {
+        if (is_null($source)) {
+            throw new \InvalidArgumentException('non-nullable source cannot be null');
+        }
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
      * Gets specversion
      *
      * @return string
@@ -528,6 +471,33 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['specversion'] = $specversion;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -651,6 +621,33 @@ class IoDocument implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['time'] = $time;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return \OpenAPI\Client\Model\TmuxPaneIoDocument|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \OpenAPI\Client\Model\TmuxPaneIoDocument|null $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        }
+        $this->container['data'] = $data;
 
         return $this;
     }

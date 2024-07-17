@@ -6,15 +6,15 @@ using namespace Tiny;
 
 Clipboard::Clipboard()
 {
-	type = std::string();
-	source = std::string();
-	data = ClipboardPayload();
 	id = std::string();
+	source = std::string();
 	specversion = std::string();
+	type = std::string();
 	datacontenttype = std::string();
 	dataschema = std::string();
 	subject = std::string();
 	time = std::string();
+	data = ClipboardPayload();
 	data_base64 = std::string();
 }
 
@@ -33,15 +33,15 @@ Clipboard::fromJson(std::string jsonObj)
 {
     bourne::json object = bourne::json::parse(jsonObj);
 
-    const char *typeKey = "type";
+    const char *idKey = "id";
 
-    if(object.has_key(typeKey))
+    if(object.has_key(idKey))
     {
-        bourne::json value = object[typeKey];
+        bourne::json value = object[idKey];
 
 
 
-        jsonToValue(&type, value, "std::string");
+        jsonToValue(&id, value, "std::string");
 
 
     }
@@ -59,33 +59,6 @@ Clipboard::fromJson(std::string jsonObj)
 
     }
 
-    const char *dataKey = "data";
-
-    if(object.has_key(dataKey))
-    {
-        bourne::json value = object[dataKey];
-
-
-
-
-        ClipboardPayload* obj = &data;
-		obj->fromJson(value.dump());
-
-    }
-
-    const char *idKey = "id";
-
-    if(object.has_key(idKey))
-    {
-        bourne::json value = object[idKey];
-
-
-
-        jsonToValue(&id, value, "std::string");
-
-
-    }
-
     const char *specversionKey = "specversion";
 
     if(object.has_key(specversionKey))
@@ -95,6 +68,19 @@ Clipboard::fromJson(std::string jsonObj)
 
 
         jsonToValue(&specversion, value, "std::string");
+
+
+    }
+
+    const char *typeKey = "type";
+
+    if(object.has_key(typeKey))
+    {
+        bourne::json value = object[typeKey];
+
+
+
+        jsonToValue(&type, value, "std::string");
 
 
     }
@@ -151,6 +137,20 @@ Clipboard::fromJson(std::string jsonObj)
 
     }
 
+    const char *dataKey = "data";
+
+    if(object.has_key(dataKey))
+    {
+        bourne::json value = object[dataKey];
+
+
+
+
+        ClipboardPayload* obj = &data;
+		obj->fromJson(value.dump());
+
+    }
+
     const char *data_base64Key = "data_base64";
 
     if(object.has_key(data_base64Key))
@@ -176,7 +176,7 @@ Clipboard::toJson()
 
 
 
-    object["type"] = getType();
+    object["id"] = getId();
 
 
 
@@ -190,21 +190,14 @@ Clipboard::toJson()
 
 
 
-
-	object["data"] = getData().toJson();
-
-
-
-
-
-    object["id"] = getId();
-
-
-
-
-
-
     object["specversion"] = getSpecversion();
+
+
+
+
+
+
+    object["type"] = getType();
 
 
 
@@ -239,48 +232,19 @@ Clipboard::toJson()
 
 
 
+
+	object["data"] = getData().toJson();
+
+
+
+
+
     object["data_base64"] = getDataBase64();
 
 
 
     return object;
 
-}
-
-std::string
-Clipboard::getType()
-{
-	return type;
-}
-
-void
-Clipboard::setType(std::string  type)
-{
-	this->type = type;
-}
-
-std::string
-Clipboard::getSource()
-{
-	return source;
-}
-
-void
-Clipboard::setSource(std::string  source)
-{
-	this->source = source;
-}
-
-ClipboardPayload
-Clipboard::getData()
-{
-	return data;
-}
-
-void
-Clipboard::setData(ClipboardPayload  data)
-{
-	this->data = data;
 }
 
 std::string
@@ -296,6 +260,18 @@ Clipboard::setId(std::string  id)
 }
 
 std::string
+Clipboard::getSource()
+{
+	return source;
+}
+
+void
+Clipboard::setSource(std::string  source)
+{
+	this->source = source;
+}
+
+std::string
 Clipboard::getSpecversion()
 {
 	return specversion;
@@ -305,6 +281,18 @@ void
 Clipboard::setSpecversion(std::string  specversion)
 {
 	this->specversion = specversion;
+}
+
+std::string
+Clipboard::getType()
+{
+	return type;
+}
+
+void
+Clipboard::setType(std::string  type)
+{
+	this->type = type;
 }
 
 std::string
@@ -353,6 +341,18 @@ void
 Clipboard::setTime(std::string  time)
 {
 	this->time = time;
+}
+
+ClipboardPayload
+Clipboard::getData()
+{
+	return data;
+}
+
+void
+Clipboard::setData(ClipboardPayload  data)
+{
+	this->data = data;
 }
 
 std::string

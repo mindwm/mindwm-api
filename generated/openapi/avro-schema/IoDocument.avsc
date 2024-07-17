@@ -5,32 +5,24 @@
   "name": "IoDocument",
   "fields": [
     {
-      "name": "type",
-      "type": ["null", "string"],
-      "doc": "",
-      "default": null
-    },
-    {
-      "name": "source",
-      "type": ["null", "string"],
-      "doc": "",
-      "default": null
-    },
-    {
-      "name": "data",
-      "type": ["null", "MindWM.TmuxPaneIoDocument"],
-      "doc": "",
-      "default": null
-    },
-    {
       "name": "id",
       "type": "string",
       "doc": "Identifies the event."
     },
     {
+      "name": "source",
+      "type": "string",
+      "doc": ""
+    },
+    {
       "name": "specversion",
       "type": "string",
       "doc": "The version of the CloudEvents specification which the event uses."
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "doc": ""
     },
     {
       "name": "datacontenttype",
@@ -54,6 +46,12 @@
       "name": "time",
       "type": ["null", "string"],
       "doc": "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
+      "default": null
+    },
+    {
+      "name": "data",
+      "type": ["null", "MindWM.TmuxPaneIoDocument"],
+      "doc": "",
       "default": null
     },
     {

@@ -16,55 +16,55 @@ class Clipboard(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, type: str=None, source: str=None, data: ClipboardPayload=None, id: str=None, specversion: str=None, datacontenttype: str=None, dataschema: str=None, subject: str=None, time: datetime=None, data_base64: str=None):
+    def __init__(self, id: str=None, source: str=None, specversion: str=None, type: str=None, datacontenttype: str=None, dataschema: str=None, subject: str=None, time: datetime=None, data: ClipboardPayload=None, data_base64: str=None):
         """Clipboard - a model defined in OpenAPI
 
-        :param type: The type of this Clipboard.
-        :param source: The source of this Clipboard.
-        :param data: The data of this Clipboard.
         :param id: The id of this Clipboard.
+        :param source: The source of this Clipboard.
         :param specversion: The specversion of this Clipboard.
+        :param type: The type of this Clipboard.
         :param datacontenttype: The datacontenttype of this Clipboard.
         :param dataschema: The dataschema of this Clipboard.
         :param subject: The subject of this Clipboard.
         :param time: The time of this Clipboard.
+        :param data: The data of this Clipboard.
         :param data_base64: The data_base64 of this Clipboard.
         """
         self.openapi_types = {
-            'type': str,
-            'source': str,
-            'data': ClipboardPayload,
             'id': str,
+            'source': str,
             'specversion': str,
+            'type': str,
             'datacontenttype': str,
             'dataschema': str,
             'subject': str,
             'time': datetime,
+            'data': ClipboardPayload,
             'data_base64': str
         }
 
         self.attribute_map = {
-            'type': 'type',
-            'source': 'source',
-            'data': 'data',
             'id': 'id',
+            'source': 'source',
             'specversion': 'specversion',
+            'type': 'type',
             'datacontenttype': 'datacontenttype',
             'dataschema': 'dataschema',
             'subject': 'subject',
             'time': 'time',
+            'data': 'data',
             'data_base64': 'data_base64'
         }
 
-        self._type = type
-        self._source = source
-        self._data = data
         self._id = id
+        self._source = source
         self._specversion = specversion
+        self._type = type
         self._datacontenttype = datacontenttype
         self._dataschema = dataschema
         self._subject = subject
         self._time = time
+        self._data = data
         self._data_base64 = data_base64
 
     @classmethod
@@ -75,71 +75,6 @@ class Clipboard(Model):
         :return: The Clipboard of this Clipboard.
         """
         return util.deserialize_model(dikt, cls)
-
-    @property
-    def type(self):
-        """Gets the type of this Clipboard.
-
-
-        :return: The type of this Clipboard.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this Clipboard.
-
-
-        :param type: The type of this Clipboard.
-        :type type: str
-        """
-
-        self._type = type
-
-    @property
-    def source(self):
-        """Gets the source of this Clipboard.
-
-
-        :return: The source of this Clipboard.
-        :rtype: str
-        """
-        return self._source
-
-    @source.setter
-    def source(self, source):
-        """Sets the source of this Clipboard.
-
-
-        :param source: The source of this Clipboard.
-        :type source: str
-        """
-        if source is not None and not re.search(r'[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$', source):
-            raise ValueError("Invalid value for `source`, must be a follow pattern or equal to `/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$/`")
-
-        self._source = source
-
-    @property
-    def data(self):
-        """Gets the data of this Clipboard.
-
-
-        :return: The data of this Clipboard.
-        :rtype: ClipboardPayload
-        """
-        return self._data
-
-    @data.setter
-    def data(self, data):
-        """Sets the data of this Clipboard.
-
-
-        :param data: The data of this Clipboard.
-        :type data: ClipboardPayload
-        """
-
-        self._data = data
 
     @property
     def id(self):
@@ -169,6 +104,31 @@ class Clipboard(Model):
         self._id = id
 
     @property
+    def source(self):
+        """Gets the source of this Clipboard.
+
+
+        :return: The source of this Clipboard.
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this Clipboard.
+
+
+        :param source: The source of this Clipboard.
+        :type source: str
+        """
+        if source is None:
+            raise ValueError("Invalid value for `source`, must not be `None`")
+        if source is not None and not re.search(r'^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$', source):
+            raise ValueError("Invalid value for `source`, must be a follow pattern or equal to `/^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$/`")
+
+        self._source = source
+
+    @property
     def specversion(self):
         """Gets the specversion of this Clipboard.
 
@@ -194,6 +154,29 @@ class Clipboard(Model):
             raise ValueError("Invalid value for `specversion`, length must be greater than or equal to `1`")
 
         self._specversion = specversion
+
+    @property
+    def type(self):
+        """Gets the type of this Clipboard.
+
+
+        :return: The type of this Clipboard.
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this Clipboard.
+
+
+        :param type: The type of this Clipboard.
+        :type type: str
+        """
+        if type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")
+
+        self._type = type
 
     @property
     def datacontenttype(self):
@@ -290,6 +273,27 @@ class Clipboard(Model):
             raise ValueError("Invalid value for `time`, length must be greater than or equal to `1`")
 
         self._time = time
+
+    @property
+    def data(self):
+        """Gets the data of this Clipboard.
+
+
+        :return: The data of this Clipboard.
+        :rtype: ClipboardPayload
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this Clipboard.
+
+
+        :param data: The data of this Clipboard.
+        :type data: ClipboardPayload
+        """
+
+        self._data = data
 
     @property
     def data_base64(self):

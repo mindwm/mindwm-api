@@ -8,28 +8,28 @@ defmodule MindwmAPI.Model.Clipboard do
 
   @derive Jason.Encoder
   defstruct [
-    :type,
-    :source,
-    :data,
     :id,
+    :source,
     :specversion,
+    :type,
     :datacontenttype,
     :dataschema,
     :subject,
     :time,
+    :data,
     :data_base64
   ]
 
   @type t :: %__MODULE__{
-    :type => String.t | nil,
-    :source => String.t | nil,
-    :data => MindwmAPI.Model.ClipboardPayload.t | nil,
     :id => String.t,
+    :source => String.t,
     :specversion => String.t,
+    :type => String.t,
     :datacontenttype => String.t | nil,
     :dataschema => String.t | nil,
     :subject => String.t | nil,
     :time => DateTime.t | nil,
+    :data => MindwmAPI.Model.ClipboardPayload.t | nil,
     :data_base64 => String.t | nil
   }
 
@@ -37,8 +37,8 @@ defmodule MindwmAPI.Model.Clipboard do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :struct, MindwmAPI.Model.ClipboardPayload)
      |> Deserializer.deserialize(:time, :datetime, nil)
+     |> Deserializer.deserialize(:data, :struct, MindwmAPI.Model.ClipboardPayload)
   end
 end
 

@@ -6,6 +6,7 @@
   self = [super init];
   if (self) {
     // initialize property's default value, if any
+    self.type = @"IoDocument";
     self.subject = @"IoDocument";
     
   }
@@ -18,7 +19,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"type": @"type", @"source": @"source", @"data": @"data", @"_id": @"id", @"specversion": @"specversion", @"datacontenttype": @"datacontenttype", @"dataschema": @"dataschema", @"subject": @"subject", @"time": @"time", @"dataBase64": @"data_base64" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"source": @"source", @"specversion": @"specversion", @"type": @"type", @"datacontenttype": @"datacontenttype", @"dataschema": @"dataschema", @"subject": @"subject", @"time": @"time", @"data": @"data", @"dataBase64": @"data_base64" }];
 }
 
 /**
@@ -28,7 +29,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"type", @"source", @"data", @"datacontenttype", @"dataschema", @"subject", @"time", @"dataBase64"];
+  NSArray *optionalProperties = @[@"datacontenttype", @"dataschema", @"subject", @"time", @"data", @"dataBase64"];
   return [optionalProperties containsObject:propertyName];
 }
 

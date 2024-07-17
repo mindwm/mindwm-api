@@ -9,16 +9,14 @@ import org.openapitools.model.TmuxPaneIoDocument;
 
 @Canonical
 class IoDocument {
-    
-    String type
-    
-    String source
-    
-    TmuxPaneIoDocument data
     /* Identifies the event. */
     String id
+    
+    String source
     /* The version of the CloudEvents specification which the event uses. */
     String specversion
+    
+    String type = "IoDocument"
     /* Content type of the data value. Must adhere to RFC 2046 format. */
     String datacontenttype
     /* Identifies the schema that data adheres to. */
@@ -27,6 +25,8 @@ class IoDocument {
     String subject = "IoDocument"
     /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
     Date time
+    
+    TmuxPaneIoDocument data
     /* Base64 encoded event payload. Must adhere to RFC4648. */
     String dataBase64
 }

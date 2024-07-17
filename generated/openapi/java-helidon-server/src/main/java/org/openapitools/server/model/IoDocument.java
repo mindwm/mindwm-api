@@ -12,15 +12,15 @@ import jakarta.validation.Valid;
 
 public class IoDocument extends HashMap<String, Object>  {
 
-    private String type;
-    private String source;
-    private TmuxPaneIoDocument data;
     private String id;
+    private String source;
     private String specversion;
+    private String type = "IoDocument";
     private String datacontenttype;
     private URI dataschema;
     private String subject = "IoDocument";
     private OffsetDateTime time;
+    private TmuxPaneIoDocument data;
     private String dataBase64;
 
     /**
@@ -33,53 +33,53 @@ public class IoDocument extends HashMap<String, Object>  {
     /**
      * Create IoDocument.
      *
-     * @param type type
-     * @param source source
-     * @param data data
      * @param id Identifies the event.
+     * @param source source
      * @param specversion The version of the CloudEvents specification which the event uses.
+     * @param type type
      * @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
      * @param dataschema Identifies the schema that data adheres to.
      * @param subject subject
      * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+     * @param data data
      * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
      */
     public IoDocument(
-        String type, 
-        String source, 
-        TmuxPaneIoDocument data, 
         String id, 
+        String source, 
         String specversion, 
+        String type, 
         String datacontenttype, 
         URI dataschema, 
         String subject, 
         OffsetDateTime time, 
+        TmuxPaneIoDocument data, 
         String dataBase64
     ) {
-        this.type = type;
-        this.source = source;
-        this.data = data;
         this.id = id;
+        this.source = source;
         this.specversion = specversion;
+        this.type = type;
         this.datacontenttype = datacontenttype;
         this.dataschema = dataschema;
         this.subject = subject;
         this.time = time;
+        this.data = data;
         this.dataBase64 = dataBase64;
     }
 
 
 
     /**
-     * Get type
-     * @return type
+     * Identifies the event.
+     * @return id
      */
-    public String getType() {
-        return type;
+    public String getId() {
+        return id;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**
@@ -95,30 +95,6 @@ public class IoDocument extends HashMap<String, Object>  {
     }
 
     /**
-     * Get data
-     * @return data
-     */
-    public TmuxPaneIoDocument getData() {
-        return data;
-    }
-
-    public void setData(TmuxPaneIoDocument data) {
-        this.data = data;
-    }
-
-    /**
-     * Identifies the event.
-     * @return id
-     */
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
      * The version of the CloudEvents specification which the event uses.
      * @return specversion
      */
@@ -128,6 +104,18 @@ public class IoDocument extends HashMap<String, Object>  {
 
     public void setSpecversion(String specversion) {
         this.specversion = specversion;
+    }
+
+    /**
+     * Get type
+     * @return type
+     */
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     /**
@@ -179,6 +167,18 @@ public class IoDocument extends HashMap<String, Object>  {
     }
 
     /**
+     * Get data
+     * @return data
+     */
+    public TmuxPaneIoDocument getData() {
+        return data;
+    }
+
+    public void setData(TmuxPaneIoDocument data) {
+        this.data = data;
+    }
+
+    /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      * @return dataBase64
      */
@@ -198,15 +198,15 @@ public class IoDocument extends HashMap<String, Object>  {
         StringBuilder sb = new StringBuilder();
         sb.append("class IoDocument {\n");
         sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    source: ").append(toIndentedString(source)).append("\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    specversion: ").append(toIndentedString(specversion)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    datacontenttype: ").append(toIndentedString(datacontenttype)).append("\n");
         sb.append("    dataschema: ").append(toIndentedString(dataschema)).append("\n");
         sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
         sb.append("    time: ").append(toIndentedString(time)).append("\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
         sb.append("}");
         return sb.toString();

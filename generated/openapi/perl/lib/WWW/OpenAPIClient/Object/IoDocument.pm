@@ -220,10 +220,10 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'type' => {
+    'id' => {
         datatype => 'string',
-        base_name => 'type',
-        description => '',
+        base_name => 'id',
+        description => 'Identifies the event.',
         format => '',
         read_only => '',
             },
@@ -234,24 +234,17 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'data' => {
-        datatype => 'TmuxPaneIoDocument',
-        base_name => 'data',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'id' => {
-        datatype => 'string',
-        base_name => 'id',
-        description => 'Identifies the event.',
-        format => '',
-        read_only => '',
-            },
     'specversion' => {
         datatype => 'string',
         base_name => 'specversion',
         description => 'The version of the CloudEvents specification which the event uses.',
+        format => '',
+        read_only => '',
+            },
+    'type' => {
+        datatype => 'string',
+        base_name => 'type',
+        description => '',
         format => '',
         read_only => '',
             },
@@ -283,6 +276,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'data' => {
+        datatype => 'TmuxPaneIoDocument',
+        base_name => 'data',
+        description => '',
+        format => '',
+        read_only => '',
+            },
     'data_base64' => {
         datatype => 'string',
         base_name => 'data_base64',
@@ -293,28 +293,28 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'type' => 'string',
-    'source' => 'string',
-    'data' => 'TmuxPaneIoDocument',
     'id' => 'string',
+    'source' => 'string',
     'specversion' => 'string',
+    'type' => 'string',
     'datacontenttype' => 'string',
     'dataschema' => 'string',
     'subject' => 'string',
     'time' => 'DATE_TIME',
+    'data' => 'TmuxPaneIoDocument',
     'data_base64' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'type' => 'type',
-    'source' => 'source',
-    'data' => 'data',
     'id' => 'id',
+    'source' => 'source',
     'specversion' => 'specversion',
+    'type' => 'type',
     'datacontenttype' => 'datacontenttype',
     'dataschema' => 'dataschema',
     'subject' => 'subject',
     'time' => 'time',
+    'data' => 'data',
     'data_base64' => 'data_base64'
 } );
 

@@ -15,10 +15,10 @@
  */
 public class OASClipboard extends Map<String, oas_any_type_not_mapped> implements OASCloudEvent, OAS.MappedProperties {
     /**
-     * Get type
-     * @return type
+     * Identifies the event.
+     * @return id
      */
-    public String type { get; set; }
+    public String id { get; set; }
 
     /**
      * Get source
@@ -27,22 +27,16 @@ public class OASClipboard extends Map<String, oas_any_type_not_mapped> implement
     public String source { get; set; }
 
     /**
-     * Get data
-     * @return data
-     */
-    public OASClipboardPayload data { get; set; }
-
-    /**
-     * Identifies the event.
-     * @return id
-     */
-    public String id { get; set; }
-
-    /**
      * The version of the CloudEvents specification which the event uses.
      * @return specversion
      */
     public String specversion { get; set; }
+
+    /**
+     * Get type
+     * @return type
+     */
+    public String type { get; set; }
 
     /**
      * Content type of the data value. Must adhere to RFC 2046 format.
@@ -67,6 +61,12 @@ public class OASClipboard extends Map<String, oas_any_type_not_mapped> implement
      * @return r_time
      */
     public Datetime r_time { get; set; }
+
+    /**
+     * Get data
+     * @return data
+     */
+    public OASClipboardPayload data { get; set; }
 
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
@@ -94,15 +94,15 @@ public class OASClipboard extends Map<String, oas_any_type_not_mapped> implement
 
     public static OASClipboard getExample() {
         OASClipboard clipboard = new OASClipboard();
-          clipboard.type = '';
-          clipboard.source = '';
-          clipboard.data = OASClipboardPayload.getExample();
           clipboard.id = '';
+          clipboard.source = '';
           clipboard.specversion = '';
+          clipboard.type = '';
           clipboard.datacontenttype = '';
           clipboard.dataschema = '';
           clipboard.subject = '';
           clipboard.r_time = Datetime.newInstanceGmt(2000, 1, 23, 4, 56, 7);
+          clipboard.data = OASClipboardPayload.getExample();
           clipboard.dataBase64 = '';
         return clipboard;
     }
@@ -110,15 +110,15 @@ public class OASClipboard extends Map<String, oas_any_type_not_mapped> implement
     public Boolean equals(Object obj) {
         if (obj instanceof OASClipboard) {           
             OASClipboard clipboard = (OASClipboard) obj;
-            return this.type == clipboard.type
+            return this.id == clipboard.id
                 && this.source == clipboard.source
-                && this.data == clipboard.data
-                && this.id == clipboard.id
                 && this.specversion == clipboard.specversion
+                && this.type == clipboard.type
                 && this.datacontenttype == clipboard.datacontenttype
                 && this.dataschema == clipboard.dataschema
                 && this.subject == clipboard.subject
                 && this.r_time == clipboard.r_time
+                && this.data == clipboard.data
                 && this.dataBase64 == clipboard.dataBase64;
         }
         return false;
@@ -126,15 +126,15 @@ public class OASClipboard extends Map<String, oas_any_type_not_mapped> implement
 
     public Integer hashCode() {
         Integer hashCode = 43;
-        hashCode = (17 * hashCode) + (type == null ? 0 : System.hashCode(type));
-        hashCode = (17 * hashCode) + (source == null ? 0 : System.hashCode(source));
-        hashCode = (17 * hashCode) + (data == null ? 0 : System.hashCode(data));
         hashCode = (17 * hashCode) + (id == null ? 0 : System.hashCode(id));
+        hashCode = (17 * hashCode) + (source == null ? 0 : System.hashCode(source));
         hashCode = (17 * hashCode) + (specversion == null ? 0 : System.hashCode(specversion));
+        hashCode = (17 * hashCode) + (type == null ? 0 : System.hashCode(type));
         hashCode = (17 * hashCode) + (datacontenttype == null ? 0 : System.hashCode(datacontenttype));
         hashCode = (17 * hashCode) + (dataschema == null ? 0 : System.hashCode(dataschema));
         hashCode = (17 * hashCode) + (subject == null ? 0 : System.hashCode(subject));
         hashCode = (17 * hashCode) + (r_time == null ? 0 : System.hashCode(r_time));
+        hashCode = (17 * hashCode) + (data == null ? 0 : System.hashCode(data));
         hashCode = (17 * hashCode) + (dataBase64 == null ? 0 : System.hashCode(dataBase64));
         return hashCode;
     }

@@ -17,17 +17,15 @@ import public "models/tmux_pane_io_document.proto";
 
 message IoDocument {
 
-  string type = 3575610;
-
-  string source = 359634918;
-
-  TmuxPaneIoDocument data = 3076010;
-
   // Identifies the event.
   string id = 3355;
 
+  string source = 359634918;
+
   // The version of the CloudEvents specification which the event uses.
   string specversion = 488174406;
+
+  string type = 3575610;
 
   // Content type of the data value. Must adhere to RFC 2046 format.
   string datacontenttype = 179674810;
@@ -39,6 +37,8 @@ message IoDocument {
 
   // Timestamp of when the occurrence happened. Must adhere to RFC 3339.
   string time = 3560141;
+
+  TmuxPaneIoDocument data = 3076010;
 
   // Base64 encoded event payload. Must adhere to RFC4648.
   string data_base64 = 222980223;

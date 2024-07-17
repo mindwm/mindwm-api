@@ -15,17 +15,15 @@ import java.time.OffsetDateTime
 import java.util.HashMap
 
 case class Clipboard(
-  `type`: Option[String],
-
-  source: Option[String],
-
-  data: Option[ClipboardPayload],
-
   /* Identifies the event. */
   id: String,
 
+  source: String,
+
   /* The version of the CloudEvents specification which the event uses. */
   specversion: String,
+
+  `type`: String,
 
   /* Content type of the data value. Must adhere to RFC 2046 format. */
   datacontenttype: Option[String],
@@ -37,6 +35,8 @@ case class Clipboard(
 
   /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
   time: Option[OffsetDateTime],
+
+  data: Option[ClipboardPayload],
 
   /* Base64 encoded event payload. Must adhere to RFC4648. */
   dataBase64: Option[String]

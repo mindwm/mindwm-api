@@ -22,15 +22,14 @@ namespace model {
 
 IoDocument::IoDocument()
 {
-    m_Type = utility::conversions::to_string_t("");
-    m_TypeIsSet = false;
-    m_Source = utility::conversions::to_string_t("");
-    m_SourceIsSet = false;
-    m_DataIsSet = false;
     m_Id = utility::conversions::to_string_t("");
     m_IdIsSet = false;
+    m_Source = utility::conversions::to_string_t("");
+    m_SourceIsSet = false;
     m_Specversion = utility::conversions::to_string_t("");
     m_SpecversionIsSet = false;
+    m_Type = utility::conversions::to_string_t("");
+    m_TypeIsSet = false;
     m_Datacontenttype = utility::conversions::to_string_t("");
     m_DatacontenttypeIsSet = false;
     m_Dataschema = utility::conversions::to_string_t("");
@@ -39,6 +38,7 @@ IoDocument::IoDocument()
     m_SubjectIsSet = false;
     m_Time = utility::datetime();
     m_TimeIsSet = false;
+    m_DataIsSet = false;
     m_Data_base64 = utility::conversions::to_string_t("");
     m_Data_base64IsSet = false;
 }
@@ -57,25 +57,21 @@ web::json::value IoDocument::toJson() const
 
     web::json::value val = web::json::value::object();
     
-    if(m_TypeIsSet)
+    if(m_IdIsSet)
     {
-        val[utility::conversions::to_string_t(U("type"))] = ModelBase::toJson(m_Type);
+        val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
     }
     if(m_SourceIsSet)
     {
         val[utility::conversions::to_string_t(U("source"))] = ModelBase::toJson(m_Source);
     }
-    if(m_DataIsSet)
-    {
-        val[utility::conversions::to_string_t(U("data"))] = ModelBase::toJson(m_Data);
-    }
-    if(m_IdIsSet)
-    {
-        val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
-    }
     if(m_SpecversionIsSet)
     {
         val[utility::conversions::to_string_t(U("specversion"))] = ModelBase::toJson(m_Specversion);
+    }
+    if(m_TypeIsSet)
+    {
+        val[utility::conversions::to_string_t(U("type"))] = ModelBase::toJson(m_Type);
     }
     if(m_DatacontenttypeIsSet)
     {
@@ -93,6 +89,10 @@ web::json::value IoDocument::toJson() const
     {
         val[utility::conversions::to_string_t(U("time"))] = ModelBase::toJson(m_Time);
     }
+    if(m_DataIsSet)
+    {
+        val[utility::conversions::to_string_t(U("data"))] = ModelBase::toJson(m_Data);
+    }
     if(m_Data_base64IsSet)
     {
         val[utility::conversions::to_string_t(U("data_base64"))] = ModelBase::toJson(m_Data_base64);
@@ -105,14 +105,14 @@ bool IoDocument::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
-    if(val.has_field(utility::conversions::to_string_t(U("type"))))
+    if(val.has_field(utility::conversions::to_string_t(U("id"))))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("type")));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("id")));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_setType;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setType);
-            setType(refVal_setType);
+            utility::string_t refVal_setId;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setId);
+            setId(refVal_setId);
         }
     }
     if(val.has_field(utility::conversions::to_string_t(U("source"))))
@@ -125,26 +125,6 @@ bool IoDocument::fromJson(const web::json::value& val)
             setSource(refVal_setSource);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(U("data"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("data")));
-        if(!fieldValue.is_null())
-        {
-            std::shared_ptr<TmuxPaneIoDocument> refVal_setData;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setData);
-            setData(refVal_setData);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("id")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setId);
-            setId(refVal_setId);
-        }
-    }
     if(val.has_field(utility::conversions::to_string_t(U("specversion"))))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("specversion")));
@@ -153,6 +133,16 @@ bool IoDocument::fromJson(const web::json::value& val)
             utility::string_t refVal_setSpecversion;
             ok &= ModelBase::fromJson(fieldValue, refVal_setSpecversion);
             setSpecversion(refVal_setSpecversion);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(U("type"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("type")));
+        if(!fieldValue.is_null())
+        {
+            utility::string_t refVal_setType;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setType);
+            setType(refVal_setType);
         }
     }
     if(val.has_field(utility::conversions::to_string_t(U("datacontenttype"))))
@@ -195,6 +185,16 @@ bool IoDocument::fromJson(const web::json::value& val)
             setTime(refVal_setTime);
         }
     }
+    if(val.has_field(utility::conversions::to_string_t(U("data"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("data")));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<TmuxPaneIoDocument> refVal_setData;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setData);
+            setData(refVal_setData);
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t(U("data_base64"))))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("data_base64")));
@@ -215,25 +215,21 @@ void IoDocument::toMultipart(std::shared_ptr<MultipartFormData> multipart, const
     {
         namePrefix += utility::conversions::to_string_t(U("."));
     }
-    if(m_TypeIsSet)
+    if(m_IdIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("type")), m_Type));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
     }
     if(m_SourceIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("source")), m_Source));
     }
-    if(m_DataIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("data")), m_Data));
-    }
-    if(m_IdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
-    }
     if(m_SpecversionIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("specversion")), m_Specversion));
+    }
+    if(m_TypeIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("type")), m_Type));
     }
     if(m_DatacontenttypeIsSet)
     {
@@ -251,6 +247,10 @@ void IoDocument::toMultipart(std::shared_ptr<MultipartFormData> multipart, const
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("time")), m_Time));
     }
+    if(m_DataIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("data")), m_Data));
+    }
     if(m_Data_base64IsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("data_base64")), m_Data_base64));
@@ -266,11 +266,11 @@ bool IoDocument::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, con
         namePrefix += utility::conversions::to_string_t(U("."));
     }
 
-    if(multipart->hasContent(utility::conversions::to_string_t(U("type"))))
+    if(multipart->hasContent(utility::conversions::to_string_t(U("id"))))
     {
-        utility::string_t refVal_setType;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("type"))), refVal_setType );
-        setType(refVal_setType);
+        utility::string_t refVal_setId;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))), refVal_setId );
+        setId(refVal_setId);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("source"))))
     {
@@ -278,23 +278,17 @@ bool IoDocument::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, con
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("source"))), refVal_setSource );
         setSource(refVal_setSource);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("data"))))
-    {
-        std::shared_ptr<TmuxPaneIoDocument> refVal_setData;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("data"))), refVal_setData );
-        setData(refVal_setData);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("id"))))
-    {
-        utility::string_t refVal_setId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))), refVal_setId );
-        setId(refVal_setId);
-    }
     if(multipart->hasContent(utility::conversions::to_string_t(U("specversion"))))
     {
         utility::string_t refVal_setSpecversion;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("specversion"))), refVal_setSpecversion );
         setSpecversion(refVal_setSpecversion);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(U("type"))))
+    {
+        utility::string_t refVal_setType;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("type"))), refVal_setType );
+        setType(refVal_setType);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("datacontenttype"))))
     {
@@ -320,6 +314,12 @@ bool IoDocument::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, con
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("time"))), refVal_setTime );
         setTime(refVal_setTime);
     }
+    if(multipart->hasContent(utility::conversions::to_string_t(U("data"))))
+    {
+        std::shared_ptr<TmuxPaneIoDocument> refVal_setData;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("data"))), refVal_setData );
+        setData(refVal_setData);
+    }
     if(multipart->hasContent(utility::conversions::to_string_t(U("data_base64"))))
     {
         utility::string_t refVal_setDataBase64;
@@ -329,25 +329,25 @@ bool IoDocument::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, con
     return ok;
 }
 
-utility::string_t IoDocument::getType() const
+utility::string_t IoDocument::getId() const
 {
-    return m_Type;
+    return m_Id;
 }
 
-void IoDocument::setType(const utility::string_t& value)
+void IoDocument::setId(const utility::string_t& value)
 {
-    m_Type = value;
-    m_TypeIsSet = true;
+    m_Id = value;
+    m_IdIsSet = true;
 }
 
-bool IoDocument::typeIsSet() const
+bool IoDocument::idIsSet() const
 {
-    return m_TypeIsSet;
+    return m_IdIsSet;
 }
 
-void IoDocument::unsetType()
+void IoDocument::unsetId()
 {
-    m_TypeIsSet = false;
+    m_IdIsSet = false;
 }
 utility::string_t IoDocument::getSource() const
 {
@@ -369,46 +369,6 @@ void IoDocument::unsetSource()
 {
     m_SourceIsSet = false;
 }
-std::shared_ptr<TmuxPaneIoDocument> IoDocument::getData() const
-{
-    return m_Data;
-}
-
-void IoDocument::setData(const std::shared_ptr<TmuxPaneIoDocument>& value)
-{
-    m_Data = value;
-    m_DataIsSet = true;
-}
-
-bool IoDocument::dataIsSet() const
-{
-    return m_DataIsSet;
-}
-
-void IoDocument::unsetData()
-{
-    m_DataIsSet = false;
-}
-utility::string_t IoDocument::getId() const
-{
-    return m_Id;
-}
-
-void IoDocument::setId(const utility::string_t& value)
-{
-    m_Id = value;
-    m_IdIsSet = true;
-}
-
-bool IoDocument::idIsSet() const
-{
-    return m_IdIsSet;
-}
-
-void IoDocument::unsetId()
-{
-    m_IdIsSet = false;
-}
 utility::string_t IoDocument::getSpecversion() const
 {
     return m_Specversion;
@@ -428,6 +388,26 @@ bool IoDocument::specversionIsSet() const
 void IoDocument::unsetSpecversion()
 {
     m_SpecversionIsSet = false;
+}
+utility::string_t IoDocument::getType() const
+{
+    return m_Type;
+}
+
+void IoDocument::setType(const utility::string_t& value)
+{
+    m_Type = value;
+    m_TypeIsSet = true;
+}
+
+bool IoDocument::typeIsSet() const
+{
+    return m_TypeIsSet;
+}
+
+void IoDocument::unsetType()
+{
+    m_TypeIsSet = false;
 }
 utility::string_t IoDocument::getDatacontenttype() const
 {
@@ -508,6 +488,26 @@ bool IoDocument::timeIsSet() const
 void IoDocument::unsetTime()
 {
     m_TimeIsSet = false;
+}
+std::shared_ptr<TmuxPaneIoDocument> IoDocument::getData() const
+{
+    return m_Data;
+}
+
+void IoDocument::setData(const std::shared_ptr<TmuxPaneIoDocument>& value)
+{
+    m_Data = value;
+    m_DataIsSet = true;
+}
+
+bool IoDocument::dataIsSet() const
+{
+    return m_DataIsSet;
+}
+
+void IoDocument::unsetData()
+{
+    m_DataIsSet = false;
 }
 utility::string_t IoDocument::getDataBase64() const
 {

@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** |  | [optional] 
-**Source** | Pointer to **string** |  | [optional] 
-**Data** | Pointer to [**TmuxPaneIoDocument**](TmuxPaneIoDocument.md) |  | [optional] 
 **Id** | **string** | Identifies the event. | 
+**Source** | **string** |  | 
 **Specversion** | **string** | The version of the CloudEvents specification which the event uses. | 
+**Type** | **string** |  | [default to "IoDocument"]
 **Datacontenttype** | Pointer to **string** | Content type of the data value. Must adhere to RFC 2046 format. | [optional] 
 **Dataschema** | Pointer to **string** | Identifies the schema that data adheres to. | [optional] 
 **Subject** | Pointer to **string** |  | [optional] [default to "IoDocument"]
 **Time** | Pointer to **time.Time** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
+**Data** | Pointer to [**TmuxPaneIoDocument**](TmuxPaneIoDocument.md) |  | [optional] 
 **DataBase64** | Pointer to **string** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
 ## Methods
 
 ### NewIoDocument
 
-`func NewIoDocument(id string, specversion string, ) *IoDocument`
+`func NewIoDocument(id string, source string, specversion string, type_ string, ) *IoDocument`
 
 NewIoDocument instantiates a new IoDocument object
 This constructor will assign default values to properties that have it defined,
@@ -33,81 +33,6 @@ will change when the set of required properties is changed
 NewIoDocumentWithDefaults instantiates a new IoDocument object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetType
-
-`func (o *IoDocument) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *IoDocument) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *IoDocument) SetType(v string)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *IoDocument) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### GetSource
-
-`func (o *IoDocument) GetSource() string`
-
-GetSource returns the Source field if non-nil, zero value otherwise.
-
-### GetSourceOk
-
-`func (o *IoDocument) GetSourceOk() (*string, bool)`
-
-GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSource
-
-`func (o *IoDocument) SetSource(v string)`
-
-SetSource sets Source field to given value.
-
-### HasSource
-
-`func (o *IoDocument) HasSource() bool`
-
-HasSource returns a boolean if a field has been set.
-
-### GetData
-
-`func (o *IoDocument) GetData() TmuxPaneIoDocument`
-
-GetData returns the Data field if non-nil, zero value otherwise.
-
-### GetDataOk
-
-`func (o *IoDocument) GetDataOk() (*TmuxPaneIoDocument, bool)`
-
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetData
-
-`func (o *IoDocument) SetData(v TmuxPaneIoDocument)`
-
-SetData sets Data field to given value.
-
-### HasData
-
-`func (o *IoDocument) HasData() bool`
-
-HasData returns a boolean if a field has been set.
 
 ### GetId
 
@@ -129,6 +54,26 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetSource
+
+`func (o *IoDocument) GetSource() string`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *IoDocument) GetSourceOk() (*string, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *IoDocument) SetSource(v string)`
+
+SetSource sets Source field to given value.
+
+
 ### GetSpecversion
 
 `func (o *IoDocument) GetSpecversion() string`
@@ -147,6 +92,26 @@ and a boolean to check if the value has been set.
 `func (o *IoDocument) SetSpecversion(v string)`
 
 SetSpecversion sets Specversion field to given value.
+
+
+### GetType
+
+`func (o *IoDocument) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *IoDocument) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *IoDocument) SetType(v string)`
+
+SetType sets Type field to given value.
 
 
 ### GetDatacontenttype
@@ -248,6 +213,31 @@ SetTime sets Time field to given value.
 `func (o *IoDocument) HasTime() bool`
 
 HasTime returns a boolean if a field has been set.
+
+### GetData
+
+`func (o *IoDocument) GetData() TmuxPaneIoDocument`
+
+GetData returns the Data field if non-nil, zero value otherwise.
+
+### GetDataOk
+
+`func (o *IoDocument) GetDataOk() (*TmuxPaneIoDocument, bool)`
+
+GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetData
+
+`func (o *IoDocument) SetData(v TmuxPaneIoDocument)`
+
+SetData sets Data field to given value.
+
+### HasData
+
+`func (o *IoDocument) HasData() bool`
+
+HasData returns a boolean if a field has been set.
 
 ### GetDataBase64
 

@@ -15,10 +15,10 @@
  */
 public class OASIoDocument extends Map<String, oas_any_type_not_mapped> implements OASCloudEvent, OAS.MappedProperties {
     /**
-     * Get type
-     * @return type
+     * Identifies the event.
+     * @return id
      */
-    public String type { get; set; }
+    public String id { get; set; }
 
     /**
      * Get source
@@ -27,22 +27,16 @@ public class OASIoDocument extends Map<String, oas_any_type_not_mapped> implemen
     public String source { get; set; }
 
     /**
-     * Get data
-     * @return data
-     */
-    public OASTmuxPaneIoDocument data { get; set; }
-
-    /**
-     * Identifies the event.
-     * @return id
-     */
-    public String id { get; set; }
-
-    /**
      * The version of the CloudEvents specification which the event uses.
      * @return specversion
      */
     public String specversion { get; set; }
+
+    /**
+     * Get type
+     * @return type
+     */
+    public String type { get; set; }
 
     /**
      * Content type of the data value. Must adhere to RFC 2046 format.
@@ -69,6 +63,12 @@ public class OASIoDocument extends Map<String, oas_any_type_not_mapped> implemen
     public Datetime r_time { get; set; }
 
     /**
+     * Get data
+     * @return data
+     */
+    public OASTmuxPaneIoDocument data { get; set; }
+
+    /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      * @return dataBase64
      */
@@ -93,20 +93,21 @@ public class OASIoDocument extends Map<String, oas_any_type_not_mapped> implemen
     }
 
     public OASIoDocument() {
+        type = 'IoDocument';
         subject = 'IoDocument';
     }
 
     public static OASIoDocument getExample() {
         OASIoDocument ioDocument = new OASIoDocument();
-          ioDocument.type = '';
-          ioDocument.source = '';
-          ioDocument.data = OASTmuxPaneIoDocument.getExample();
           ioDocument.id = '';
+          ioDocument.source = '';
           ioDocument.specversion = '';
+          ioDocument.type = '';
           ioDocument.datacontenttype = '';
           ioDocument.dataschema = '';
           ioDocument.subject = '';
           ioDocument.r_time = Datetime.newInstanceGmt(2000, 1, 23, 4, 56, 7);
+          ioDocument.data = OASTmuxPaneIoDocument.getExample();
           ioDocument.dataBase64 = '';
         return ioDocument;
     }
@@ -114,15 +115,15 @@ public class OASIoDocument extends Map<String, oas_any_type_not_mapped> implemen
     public Boolean equals(Object obj) {
         if (obj instanceof OASIoDocument) {           
             OASIoDocument ioDocument = (OASIoDocument) obj;
-            return this.type == ioDocument.type
+            return this.id == ioDocument.id
                 && this.source == ioDocument.source
-                && this.data == ioDocument.data
-                && this.id == ioDocument.id
                 && this.specversion == ioDocument.specversion
+                && this.type == ioDocument.type
                 && this.datacontenttype == ioDocument.datacontenttype
                 && this.dataschema == ioDocument.dataschema
                 && this.subject == ioDocument.subject
                 && this.r_time == ioDocument.r_time
+                && this.data == ioDocument.data
                 && this.dataBase64 == ioDocument.dataBase64;
         }
         return false;
@@ -130,15 +131,15 @@ public class OASIoDocument extends Map<String, oas_any_type_not_mapped> implemen
 
     public Integer hashCode() {
         Integer hashCode = 43;
-        hashCode = (17 * hashCode) + (type == null ? 0 : System.hashCode(type));
-        hashCode = (17 * hashCode) + (source == null ? 0 : System.hashCode(source));
-        hashCode = (17 * hashCode) + (data == null ? 0 : System.hashCode(data));
         hashCode = (17 * hashCode) + (id == null ? 0 : System.hashCode(id));
+        hashCode = (17 * hashCode) + (source == null ? 0 : System.hashCode(source));
         hashCode = (17 * hashCode) + (specversion == null ? 0 : System.hashCode(specversion));
+        hashCode = (17 * hashCode) + (type == null ? 0 : System.hashCode(type));
         hashCode = (17 * hashCode) + (datacontenttype == null ? 0 : System.hashCode(datacontenttype));
         hashCode = (17 * hashCode) + (dataschema == null ? 0 : System.hashCode(dataschema));
         hashCode = (17 * hashCode) + (subject == null ? 0 : System.hashCode(subject));
         hashCode = (17 * hashCode) + (r_time == null ? 0 : System.hashCode(r_time));
+        hashCode = (17 * hashCode) + (data == null ? 0 : System.hashCode(data));
         hashCode = (17 * hashCode) + (dataBase64 == null ? 0 : System.hashCode(dataBase64));
         return hashCode;
     }

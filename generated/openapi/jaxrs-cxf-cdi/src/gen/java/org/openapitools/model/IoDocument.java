@@ -19,15 +19,13 @@ import java.util.Objects;
 
 public class IoDocument extends HashMap<String, Object>  {
   
-  private String type;
+  private String id;
 
   private String source;
 
-  private TmuxPaneIoDocument data;
-
-  private String id;
-
   private String specversion;
+
+  private String type = "IoDocument";
 
   private String datacontenttype;
 
@@ -37,61 +35,9 @@ public class IoDocument extends HashMap<String, Object>  {
 
   private java.util.Date time;
 
+  private TmuxPaneIoDocument data;
+
   private String dataBase64;
-
-  /**
-   **/
-  public IoDocument type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("type")
-  public String getType() {
-    return type;
-  }
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  /**
-   **/
-  public IoDocument source(String source) {
-    this.source = source;
-    return this;
-  }
-
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("source")
- @Pattern(regexp="[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$")  public String getSource() {
-    return source;
-  }
-  public void setSource(String source) {
-    this.source = source;
-  }
-
-
-  /**
-   **/
-  public IoDocument data(TmuxPaneIoDocument data) {
-    this.data = data;
-    return this;
-  }
-
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("data")
-  public TmuxPaneIoDocument getData() {
-    return data;
-  }
-  public void setData(TmuxPaneIoDocument data) {
-    this.data = data;
-  }
-
 
   /**
    * Identifies the event.
@@ -114,6 +60,25 @@ public class IoDocument extends HashMap<String, Object>  {
 
 
   /**
+   **/
+  public IoDocument source(String source) {
+    this.source = source;
+    return this;
+  }
+
+  
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("source")
+  @NotNull
+  public String getSource() {
+    return source;
+  }
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+
+  /**
    * The version of the CloudEvents specification which the event uses.
    **/
   public IoDocument specversion(String specversion) {
@@ -130,6 +95,25 @@ public class IoDocument extends HashMap<String, Object>  {
   }
   public void setSpecversion(String specversion) {
     this.specversion = specversion;
+  }
+
+
+  /**
+   **/
+  public IoDocument type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("type")
+  @NotNull
+  public String getType() {
+    return type;
+  }
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -209,6 +193,24 @@ public class IoDocument extends HashMap<String, Object>  {
 
 
   /**
+   **/
+  public IoDocument data(TmuxPaneIoDocument data) {
+    this.data = data;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("data")
+  public TmuxPaneIoDocument getData() {
+    return data;
+  }
+  public void setData(TmuxPaneIoDocument data) {
+    this.data = data;
+  }
+
+
+  /**
    * Base64 encoded event payload. Must adhere to RFC4648.
    **/
   public IoDocument dataBase64(String dataBase64) {
@@ -237,21 +239,21 @@ public class IoDocument extends HashMap<String, Object>  {
       return false;
     }
     IoDocument ioDocument = (IoDocument) o;
-    return super.equals(o) && Objects.equals(this.type, ioDocument.type) &&
+    return super.equals(o) && Objects.equals(this.id, ioDocument.id) &&
         Objects.equals(this.source, ioDocument.source) &&
-        Objects.equals(this.data, ioDocument.data) &&
-        Objects.equals(this.id, ioDocument.id) &&
         Objects.equals(this.specversion, ioDocument.specversion) &&
+        Objects.equals(this.type, ioDocument.type) &&
         Objects.equals(this.datacontenttype, ioDocument.datacontenttype) &&
         Objects.equals(this.dataschema, ioDocument.dataschema) &&
         Objects.equals(this.subject, ioDocument.subject) &&
         Objects.equals(this.time, ioDocument.time) &&
+        Objects.equals(this.data, ioDocument.data) &&
         Objects.equals(this.dataBase64, ioDocument.dataBase64);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode(), type, super.hashCode(), source, super.hashCode(), data, super.hashCode(), id, super.hashCode(), specversion, super.hashCode(), datacontenttype, super.hashCode(), dataschema, super.hashCode(), subject, super.hashCode(), time, super.hashCode(), dataBase64);
+    return Objects.hash(super.hashCode(), id, super.hashCode(), source, super.hashCode(), specversion, super.hashCode(), type, super.hashCode(), datacontenttype, super.hashCode(), dataschema, super.hashCode(), subject, super.hashCode(), time, super.hashCode(), data, super.hashCode(), dataBase64);
   }
 
   @Override
@@ -259,15 +261,15 @@ public class IoDocument extends HashMap<String, Object>  {
     StringBuilder sb = new StringBuilder();
     sb.append("class IoDocument {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    specversion: ").append(toIndentedString(specversion)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    datacontenttype: ").append(toIndentedString(datacontenttype)).append("\n");
     sb.append("    dataschema: ").append(toIndentedString(dataschema)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
     sb.append("}");
     return sb.toString();

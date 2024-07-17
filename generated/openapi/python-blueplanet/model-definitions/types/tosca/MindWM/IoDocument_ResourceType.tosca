@@ -8,7 +8,6 @@ authors     = ["F. Bar (foo@bar.baz)"]
 imports {
   Root = tosca.resourceTypes.Root
   TmuxPaneIoDocument = MindWM.resourceTypes.TmuxPaneIoDocument
-  import re = MindWM.resourceTypes.import re
 }
 resourceTypes {
 
@@ -17,29 +16,24 @@ resourceTypes {
     description = IoDocument
     derivedFrom = Root
     properties {
-        type {
-          type =  string
-          description = ""
-          optional = false
-        }
-        source {
-          type =  string
-          description = ""
-          optional = false
-        }
-        data {
-          type = TmuxPaneIoDocument
-          description = ""
-          optional = false
-        }
         id {
           type =  string
           description = "Identifies the event."
           optional = true
         }
+        source {
+          type =  string
+          description = ""
+          optional = true
+        }
         specversion {
           type =  string
           description = "The version of the CloudEvents specification which the event uses."
+          optional = true
+        }
+        type {
+          type =  string
+          description = ""
           optional = true
         }
         datacontenttype {
@@ -60,6 +54,11 @@ resourceTypes {
         time {
           type =  string
           description = "Timestamp of when the occurrence happened. Must adhere to RFC 3339."
+          optional = false
+        }
+        data {
+          type = TmuxPaneIoDocument
+          description = ""
           optional = false
         }
         data_base64 {

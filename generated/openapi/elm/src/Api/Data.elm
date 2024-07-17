@@ -87,15 +87,15 @@ import Json.Encode
 
 
 type alias Clipboard =
-    { type_ : Maybe String
-    , source : Maybe String
-    , data : Maybe ClipboardPayload
-    , id : String
+    { id : String
+    , source : String
     , specversion : String
+    , type_ : String
     , datacontenttype : Maybe String
     , dataschema : Maybe String
     , subject : Maybe String
     , time : Maybe Posix
+    , data : Maybe ClipboardPayload
     , dataBase64 : Maybe String
     }
 
@@ -259,15 +259,15 @@ type alias GraphRelationshipAllOfData =
 
 
 type alias IoDocument =
-    { type_ : Maybe String
-    , source : Maybe String
-    , data : Maybe TmuxPaneIoDocument
-    , id : String
+    { id : String
+    , source : String
     , specversion : String
+    , type_ : String
     , datacontenttype : Maybe String
     , dataschema : Maybe String
     , subject : Maybe String
     , time : Maybe Posix
+    , data : Maybe TmuxPaneIoDocument
     , dataBase64 : Maybe String
     }
 
@@ -370,15 +370,15 @@ encodeClipboardPairs : Clipboard -> List EncodedField
 encodeClipboardPairs model =
     let
         pairs =
-            [ maybeEncode "type" Json.Encode.string model.type_
-            , maybeEncode "source" Json.Encode.string model.source
-            , maybeEncode "data" encodeClipboardPayload model.data
-            , encode "id" Json.Encode.string model.id
+            [ encode "id" Json.Encode.string model.id
+            , encode "source" Json.Encode.string model.source
             , encode "specversion" Json.Encode.string model.specversion
+            , encode "type" Json.Encode.string model.type_
             , maybeEncode "datacontenttype" Json.Encode.string model.datacontenttype
             , maybeEncode "dataschema" Json.Encode.string model.dataschema
             , maybeEncode "subject" Json.Encode.string model.subject
             , maybeEncode "time" Api.Time.encodeDateTime model.time
+            , maybeEncode "data" encodeClipboardPayload model.data
             , maybeEncode "data_base64" Json.Encode.string model.dataBase64
             ]
     in
@@ -688,15 +688,15 @@ encodeIoDocumentPairs : IoDocument -> List EncodedField
 encodeIoDocumentPairs model =
     let
         pairs =
-            [ maybeEncode "type" Json.Encode.string model.type_
-            , maybeEncode "source" Json.Encode.string model.source
-            , maybeEncode "data" encodeTmuxPaneIoDocument model.data
-            , encode "id" Json.Encode.string model.id
+            [ encode "id" Json.Encode.string model.id
+            , encode "source" Json.Encode.string model.source
             , encode "specversion" Json.Encode.string model.specversion
+            , encode "type" Json.Encode.string model.type_
             , maybeEncode "datacontenttype" Json.Encode.string model.datacontenttype
             , maybeEncode "dataschema" Json.Encode.string model.dataschema
             , maybeEncode "subject" Json.Encode.string model.subject
             , maybeEncode "time" Api.Time.encodeDateTime model.time
+            , maybeEncode "data" encodeTmuxPaneIoDocument model.data
             , maybeEncode "data_base64" Json.Encode.string model.dataBase64
             ]
     in
@@ -932,15 +932,15 @@ encodeTmuxPaneIoDocumentPairs model =
 clipboardDecoder : Json.Decode.Decoder Clipboard
 clipboardDecoder =
     Json.Decode.succeed Clipboard
-        |> maybeDecode "type" Json.Decode.string Nothing
-        |> maybeDecode "source" Json.Decode.string Nothing
-        |> maybeDecode "data" clipboardPayloadDecoder Nothing
         |> decode "id" Json.Decode.string 
+        |> decode "source" Json.Decode.string 
         |> decode "specversion" Json.Decode.string 
+        |> decode "type" Json.Decode.string 
         |> maybeDecode "datacontenttype" Json.Decode.string Nothing
         |> maybeDecode "dataschema" Json.Decode.string Nothing
         |> maybeDecode "subject" Json.Decode.string Nothing
         |> maybeDecode "time" Api.Time.dateTimeDecoder Nothing
+        |> maybeDecode "data" clipboardPayloadDecoder Nothing
         |> maybeDecode "data_base64" Json.Decode.string Nothing
 
 
@@ -1139,15 +1139,15 @@ graphRelationshipAllOfDataDecoder =
 ioDocumentDecoder : Json.Decode.Decoder IoDocument
 ioDocumentDecoder =
     Json.Decode.succeed IoDocument
-        |> maybeDecode "type" Json.Decode.string Nothing
-        |> maybeDecode "source" Json.Decode.string Nothing
-        |> maybeDecode "data" tmuxPaneIoDocumentDecoder Nothing
         |> decode "id" Json.Decode.string 
+        |> decode "source" Json.Decode.string 
         |> decode "specversion" Json.Decode.string 
+        |> decode "type" Json.Decode.string 
         |> maybeDecode "datacontenttype" Json.Decode.string Nothing
         |> maybeDecode "dataschema" Json.Decode.string Nothing
         |> maybeDecode "subject" Json.Decode.string (Just "IoDocument")
         |> maybeDecode "time" Api.Time.dateTimeDecoder Nothing
+        |> maybeDecode "data" tmuxPaneIoDocumentDecoder Nothing
         |> maybeDecode "data_base64" Json.Decode.string Nothing
 
 

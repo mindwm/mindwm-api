@@ -32,15 +32,6 @@ module OpenAPIClient
     property _type : String
 
     # Optional properties
-    @[JSON::Field(key: "type", type: String?, nillable: true, emit_null: false)]
-    property _type : String?
-
-    @[JSON::Field(key: "source", type: String?, nillable: true, emit_null: false)]
-    property source : String?
-
-    @[JSON::Field(key: "data", type: TmuxPaneIoDocument?, nillable: true, emit_null: false)]
-    property data : TmuxPaneIoDocument?
-
     # Content type of the data value. Must adhere to RFC 2046 format.
     @[JSON::Field(key: "datacontenttype", type: String?, nillable: true, emit_null: false)]
     property datacontenttype : String?
@@ -56,6 +47,9 @@ module OpenAPIClient
     @[JSON::Field(key: "time", type: Time?, nillable: true, emit_null: false)]
     property time : Time?
 
+    @[JSON::Field(key: "data", type: TmuxPaneIoDocument?, nillable: true, emit_null: false)]
+    property data : TmuxPaneIoDocument?
+
     # Base64 encoded event payload. Must adhere to RFC4648.
     @[JSON::Field(key: "data_base64", type: String?, nillable: true, emit_null: false)]
     property data_base64 : String?
@@ -69,18 +63,13 @@ module OpenAPIClient
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(@id : String, @source : String, @specversion : String, @_type : String, @_type : String?, @source : String?, @data : TmuxPaneIoDocument?, @datacontenttype : String?, @dataschema : String?, @subject : String?, @time : Time?, @data_base64 : String?)
+    def initialize(@id : String, @source : String, @specversion : String, @_type : String, @datacontenttype : String?, @dataschema : String?, @subject : String?, @time : Time?, @data : TmuxPaneIoDocument?, @data_base64 : String?)
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array(String).new
-      pattern = Regexp.new(/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+\/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$/)
-      if !@source.nil? && @source !~ pattern
-        invalid_properties.push("invalid value for \"source\", must conform to the pattern #{pattern}.")
-      end
-
       if @id.to_s.size < 1
         invalid_properties.push("invalid value for \"id\", the character length must be great than or equal to 1.")
       end
@@ -107,24 +96,12 @@ module OpenAPIClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@source.nil? && @source !~ Regexp.new(/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+\/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$/)
       return false if @id.to_s.size < 1
       return false if @specversion.to_s.size < 1
       return false if !@datacontenttype.nil? && @datacontenttype.to_s.size < 1
       return false if !@dataschema.nil? && @dataschema.to_s.size < 1
       return false if !@time.nil? && @time.to_s.size < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] source Value to be assigned
-    def source=(source)
-      pattern = Regexp.new(/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+\/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$/)
-      if !source.nil? && source !~ pattern
-        raise ArgumentError.new("invalid value for \"source\", must conform to the pattern #{pattern}.")
-      end
-
-      @source = source
     end
 
     # Custom attribute writer method with validation
@@ -182,15 +159,15 @@ module OpenAPIClient
     def ==(o)
       return true if self.same?(o)
       self.class == o.class &&
-          _type == o._type &&
-          source == o.source &&
-          data == o.data &&
           id == o.id &&
+          source == o.source &&
           specversion == o.specversion &&
+          _type == o._type &&
           datacontenttype == o.datacontenttype &&
           dataschema == o.dataschema &&
           subject == o.subject &&
           time == o.time &&
+          data == o.data &&
           data_base64 == o.data_base64
     end
 
@@ -203,7 +180,7 @@ module OpenAPIClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_type, source, data, id, specversion, datacontenttype, dataschema, subject, time, data_base64].hash
+      [id, source, specversion, _type, datacontenttype, dataschema, subject, time, data, data_base64].hash
     end
 
     # Builds the object from hash

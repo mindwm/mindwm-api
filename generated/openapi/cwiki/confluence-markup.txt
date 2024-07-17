@@ -22,15 +22,15 @@ h2. Models
 
         
         ||Field Name||Required||Type||Description||Enum||Example||
-         |type |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
-         |source |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
-         |data |(x) |{noformat:nopanel=true}ClipboardPayload{noformat} |  |  | null
          |id |(/) |{noformat:nopanel=true}String{noformat} | Identifies the event. |  | null
+         |source |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
          |specversion |(/) |{noformat:nopanel=true}String{noformat} | The version of the CloudEvents specification which the event uses. |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
          |datacontenttype |(x) |{noformat:nopanel=true}String{noformat} | Content type of the data value. Must adhere to RFC 2046 format. |  | null
          |dataschema |(x) |{noformat:nopanel=true}URI{noformat} | Identifies the schema that data adheres to. |  | null
          |subject |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
          |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
+         |data |(x) |{noformat:nopanel=true}ClipboardPayload{noformat} |  |  | null
          |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
          
         {anchor:ClipboardPayloadModelAnchor}
@@ -160,15 +160,15 @@ h2. Models
 
         
         ||Field Name||Required||Type||Description||Enum||Example||
-         |type |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
-         |source |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
-         |data |(x) |{noformat:nopanel=true}TmuxPaneIoDocument{noformat} |  |  | null
          |id |(/) |{noformat:nopanel=true}String{noformat} | Identifies the event. |  | null
+         |source |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
          |specversion |(/) |{noformat:nopanel=true}String{noformat} | The version of the CloudEvents specification which the event uses. |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
          |datacontenttype |(x) |{noformat:nopanel=true}String{noformat} | Content type of the data value. Must adhere to RFC 2046 format. |  | null
          |dataschema |(x) |{noformat:nopanel=true}URI{noformat} | Identifies the schema that data adheres to. |  | null
          |subject |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
          |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
+         |data |(x) |{noformat:nopanel=true}TmuxPaneIoDocument{noformat} |  |  | null
          |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
          
         {anchor:Neo4jCaptureDataChangeModelAnchor}

@@ -845,15 +845,6 @@ ul.nav-tabs {
     // Script section to load models into a JS Var
     var defs = {}
     defs["Clipboard"] = {
-  "properties" : {
-    "type" : { },
-    "source" : {
-      "pattern" : "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$"
-    },
-    "data" : {
-      "$ref" : "#/components/schemas/ClipboardPayload"
-    }
-  },
   "additionalProperties" : { },
   "allOf" : [ {
     "$ref" : "#/components/schemas/CloudEvent"
@@ -1050,15 +1041,6 @@ ul.nav-tabs {
   } ]
 };
     defs["IoDocument"] = {
-  "properties" : {
-    "type" : { },
-    "source" : {
-      "pattern" : "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$"
-    },
-    "data" : {
-      "$ref" : "#/components/schemas/TmuxPaneIoDocument"
-    }
-  },
   "additionalProperties" : { },
   "allOf" : [ {
     "$ref" : "#/components/schemas/CloudEvent"

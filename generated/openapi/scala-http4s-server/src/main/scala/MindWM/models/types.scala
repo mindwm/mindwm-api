@@ -18,28 +18,28 @@ import scala.collection.immutable.HashMap
 
 /**
 * 
-* @param _type 
-* @param source 
-* @param data 
 * @param id Identifies the event.
+* @param source 
 * @param specversion The version of the CloudEvents specification which the event uses.
+* @param _type 
 * @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
 * @param dataschema Identifies the schema that data adheres to.
 * @param subject 
 * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+* @param data 
 * @param dataUnderscorebase64 Base64 encoded event payload. Must adhere to RFC4648.
 */
 
 case class Clipboard(
-  _type: Option[String],
-  source: Option[Refined[String, MatchesRegex["[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$"]]],
-  data: Option[ClipboardPayload],
   id: Refined[String, MinSize[1]],
+  source: Refined[String, MatchesRegex["^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$"]],
   specversion: Refined[String, MinSize[1]],
+  _type: String,
   datacontenttype: Option[Refined[String, MinSize[1]]],
   dataschema: Option[Refined[URI, MinSize[1]]],
   subject: Option[String],
   time: Option[ZonedDateTime],
+  data: Option[ClipboardPayload],
   dataUnderscorebase64: Option[String]
 )
 object Clipboard {
@@ -328,28 +328,28 @@ object GraphRelationshipAllOfDataAllOf {
 
 /**
 * 
-* @param _type 
-* @param source 
-* @param data 
 * @param id Identifies the event.
+* @param source 
 * @param specversion The version of the CloudEvents specification which the event uses.
+* @param _type 
 * @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
 * @param dataschema Identifies the schema that data adheres to.
 * @param subject 
 * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+* @param data 
 * @param dataUnderscorebase64 Base64 encoded event payload. Must adhere to RFC4648.
 */
 
 case class IoDocument(
-  _type: Option[String],
-  source: Option[Refined[String, MatchesRegex["[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+\/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$"]]],
-  data: Option[TmuxPaneIoDocument],
   id: Refined[String, MinSize[1]],
+  source: String,
   specversion: Refined[String, MinSize[1]],
+  _type: String,
   datacontenttype: Option[Refined[String, MinSize[1]]],
   dataschema: Option[Refined[URI, MinSize[1]]],
   subject: Option[String],
   time: Option[ZonedDateTime],
+  data: Option[TmuxPaneIoDocument],
   dataUnderscorebase64: Option[String]
 )
 object IoDocument {

@@ -43,30 +43,25 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QString getType() const;
-    void setType(const QString &type);
-    bool is_type_Set() const;
-    bool is_type_Valid() const;
+    QString getId() const;
+    void setId(const QString &id);
+    bool is_id_Set() const;
+    bool is_id_Valid() const;
 
     QString getSource() const;
     void setSource(const QString &source);
     bool is_source_Set() const;
     bool is_source_Valid() const;
 
-    OAIClipboardPayload getData() const;
-    void setData(const OAIClipboardPayload &data);
-    bool is_data_Set() const;
-    bool is_data_Valid() const;
-
-    QString getId() const;
-    void setId(const QString &id);
-    bool is_id_Set() const;
-    bool is_id_Valid() const;
-
     QString getSpecversion() const;
     void setSpecversion(const QString &specversion);
     bool is_specversion_Set() const;
     bool is_specversion_Valid() const;
+
+    QString getType() const;
+    void setType(const QString &type);
+    bool is_type_Set() const;
+    bool is_type_Valid() const;
 
     QString getDatacontenttype() const;
     void setDatacontenttype(const QString &datacontenttype);
@@ -88,6 +83,11 @@ public:
     bool is_time_Set() const;
     bool is_time_Valid() const;
 
+    OAIClipboardPayload getData() const;
+    void setData(const OAIClipboardPayload &data);
+    bool is_data_Set() const;
+    bool is_data_Valid() const;
+
     QString getDataBase64() const;
     void setDataBase64(const QString &data_base64);
     bool is_data_base64_Set() const;
@@ -99,25 +99,21 @@ public:
 private:
     void initializeModel();
 
-    QString m_type;
-    bool m_type_isSet;
-    bool m_type_isValid;
+    QString m_id;
+    bool m_id_isSet;
+    bool m_id_isValid;
 
     QString m_source;
     bool m_source_isSet;
     bool m_source_isValid;
 
-    OAIClipboardPayload m_data;
-    bool m_data_isSet;
-    bool m_data_isValid;
-
-    QString m_id;
-    bool m_id_isSet;
-    bool m_id_isValid;
-
     QString m_specversion;
     bool m_specversion_isSet;
     bool m_specversion_isValid;
+
+    QString m_type;
+    bool m_type_isSet;
+    bool m_type_isValid;
 
     QString m_datacontenttype;
     bool m_datacontenttype_isSet;
@@ -134,6 +130,10 @@ private:
     QDateTime m_time;
     bool m_time_isSet;
     bool m_time_isValid;
+
+    OAIClipboardPayload m_data;
+    bool m_data_isSet;
+    bool m_data_isValid;
 
     QString m_data_base64;
     bool m_data_base64_isSet;

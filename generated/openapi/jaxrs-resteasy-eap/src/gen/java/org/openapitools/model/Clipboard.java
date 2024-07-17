@@ -15,55 +15,19 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-07-17T14:05:29.253728482Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-07-17T16:08:12.149251176Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Clipboard extends HashMap<String, Object>  {
   
-  private String type;
-  private String source;
-  private ClipboardPayload data;
   private String id;
+  private String source;
   private String specversion;
+  private String type;
   private String datacontenttype;
   private URI dataschema;
   private String subject;
   private Date time;
+  private ClipboardPayload data;
   private String dataBase64;
-
-  /**
-   **/
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("type")
-  public String getType() {
-    return type;
-  }
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  /**
-   **/
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("source")
- @Pattern(regexp="[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$")  public String getSource() {
-    return source;
-  }
-  public void setSource(String source) {
-    this.source = source;
-  }
-
-  /**
-   **/
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("data")
-  public ClipboardPayload getData() {
-    return data;
-  }
-  public void setData(ClipboardPayload data) {
-    this.data = data;
-  }
 
   /**
    * Identifies the event.
@@ -80,6 +44,19 @@ public class Clipboard extends HashMap<String, Object>  {
   }
 
   /**
+   **/
+  
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("source")
+  @NotNull
+ @Pattern(regexp="^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$")  public String getSource() {
+    return source;
+  }
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+  /**
    * The version of the CloudEvents specification which the event uses.
    **/
   
@@ -91,6 +68,19 @@ public class Clipboard extends HashMap<String, Object>  {
   }
   public void setSpecversion(String specversion) {
     this.specversion = specversion;
+  }
+
+  /**
+   **/
+  
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("type")
+  @NotNull
+  public String getType() {
+    return type;
+  }
+  public void setType(String type) {
+    this.type = type;
   }
 
   /**
@@ -145,6 +135,18 @@ public class Clipboard extends HashMap<String, Object>  {
   }
 
   /**
+   **/
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("data")
+  public ClipboardPayload getData() {
+    return data;
+  }
+  public void setData(ClipboardPayload data) {
+    this.data = data;
+  }
+
+  /**
    * Base64 encoded event payload. Must adhere to RFC4648.
    **/
   
@@ -167,21 +169,21 @@ public class Clipboard extends HashMap<String, Object>  {
       return false;
     }
     Clipboard clipboard = (Clipboard) o;
-    return super.equals(o) && Objects.equals(this.type, clipboard.type) &&
+    return super.equals(o) && Objects.equals(this.id, clipboard.id) &&
         Objects.equals(this.source, clipboard.source) &&
-        Objects.equals(this.data, clipboard.data) &&
-        Objects.equals(this.id, clipboard.id) &&
         Objects.equals(this.specversion, clipboard.specversion) &&
+        Objects.equals(this.type, clipboard.type) &&
         Objects.equals(this.datacontenttype, clipboard.datacontenttype) &&
         Objects.equals(this.dataschema, clipboard.dataschema) &&
         Objects.equals(this.subject, clipboard.subject) &&
         Objects.equals(this.time, clipboard.time) &&
+        Objects.equals(this.data, clipboard.data) &&
         Objects.equals(this.dataBase64, clipboard.dataBase64);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode(), type, super.hashCode(), source, super.hashCode(), data, super.hashCode(), id, super.hashCode(), specversion, super.hashCode(), datacontenttype, super.hashCode(), dataschema, super.hashCode(), subject, super.hashCode(), time, super.hashCode(), dataBase64);
+    return Objects.hash(super.hashCode(), id, super.hashCode(), source, super.hashCode(), specversion, super.hashCode(), type, super.hashCode(), datacontenttype, super.hashCode(), dataschema, super.hashCode(), subject, super.hashCode(), time, super.hashCode(), data, super.hashCode(), dataBase64);
   }
 
   @Override
@@ -189,15 +191,15 @@ public class Clipboard extends HashMap<String, Object>  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Clipboard {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    specversion: ").append(toIndentedString(specversion)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    datacontenttype: ").append(toIndentedString(datacontenttype)).append("\n");
     sb.append("    dataschema: ").append(toIndentedString(dataschema)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
     sb.append("}");
     return sb.toString();

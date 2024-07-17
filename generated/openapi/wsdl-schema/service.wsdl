@@ -4,9 +4,6 @@
     <xs:schema xmlns:tns="http://localhost/soap/ServiceV1/model" targetNamespace="http://localhost/soap/ServiceV1/model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="Clipboard">
         <xs:sequence>
-          <xs:element minOccurs="0" name="type" type="xs:string" />
-          <xs:element minOccurs="0" name="source" type="xs:string" />
-          <xs:element minOccurs="0" name="data" type="schemas:ClipboardPayload" />
           <xs:element minOccurs="1" name="id">
             <xs:simpleType>
               <xs:annotation>
@@ -17,6 +14,7 @@
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
+          <xs:element minOccurs="1" name="source" type="xs:string" />
           <xs:element minOccurs="1" name="specversion">
             <xs:simpleType>
               <xs:annotation>
@@ -27,6 +25,7 @@
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
+          <xs:element minOccurs="1" name="type" type="xs:string" />
           <xs:element minOccurs="0" name="datacontenttype">
             <xs:simpleType>
               <xs:annotation>
@@ -58,6 +57,7 @@
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
+          <xs:element minOccurs="0" name="data" type="schemas:ClipboardPayload" />
           <xs:element minOccurs="0" name="data_base64" type="xs:string">
             <xs:annotation>
               <xs:documentation>Base64 encoded event payload. Must adhere to RFC4648.</xs:documentation>
@@ -381,9 +381,6 @@
       </xs:complexType>
       <xs:complexType name="IoDocument">
         <xs:sequence>
-          <xs:element minOccurs="0" name="type" type="xs:string" />
-          <xs:element minOccurs="0" name="source" type="xs:string" />
-          <xs:element minOccurs="0" name="data" type="xs:TmuxPaneIoDocument" />
           <xs:element minOccurs="1" name="id">
             <xs:simpleType>
               <xs:annotation>
@@ -394,6 +391,7 @@
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
+          <xs:element minOccurs="1" name="source" type="xs:string" />
           <xs:element minOccurs="1" name="specversion">
             <xs:simpleType>
               <xs:annotation>
@@ -404,6 +402,7 @@
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
+          <xs:element minOccurs="1" default="IoDocument" name="type" type="xs:string" />
           <xs:element minOccurs="0" name="datacontenttype">
             <xs:simpleType>
               <xs:annotation>
@@ -435,6 +434,7 @@
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
+          <xs:element minOccurs="0" name="data" type="xs:TmuxPaneIoDocument" />
           <xs:element minOccurs="0" name="data_base64" type="xs:string">
             <xs:annotation>
               <xs:documentation>Base64 encoded event payload. Must adhere to RFC4648.</xs:documentation>

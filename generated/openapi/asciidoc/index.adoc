@@ -39,27 +39,6 @@ This document describes the documentation, a collection of JSON schemas and exam
 |===
 | Field Name| Required| Nullable | Type| Description | Format
 
-| type
-| 
-| 
-|   String  
-| 
-|     
-
-| source
-| 
-| 
-|   String  
-| 
-|     
-
-| data
-| 
-| 
-| <<ClipboardPayload>>    
-| 
-|     
-
 | id
 | X
 | 
@@ -67,11 +46,25 @@ This document describes the documentation, a collection of JSON schemas and exam
 | Identifies the event.
 |     
 
+| source
+| X
+| 
+|   String  
+| 
+|     
+
 | specversion
 | X
 | 
 |   String  
 | The version of the CloudEvents specification which the event uses.
+|     
+
+| type
+| X
+| 
+|   String  
+| 
 |     
 
 | datacontenttype
@@ -101,6 +94,13 @@ This document describes the documentation, a collection of JSON schemas and exam
 |   Date  
 | Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 | date-time    
+
+| data
+| 
+| 
+| <<ClipboardPayload>>    
+| 
+|     
 
 | data_base64
 | 
@@ -636,27 +636,6 @@ The event payload.
 |===
 | Field Name| Required| Nullable | Type| Description | Format
 
-| type
-| 
-| 
-|   String  
-| 
-|     
-
-| source
-| 
-| 
-|   String  
-| 
-|     
-
-| data
-| 
-| 
-|   TmuxPaneIoDocument  
-| 
-|     
-
 | id
 | X
 | 
@@ -664,11 +643,25 @@ The event payload.
 | Identifies the event.
 |     
 
+| source
+| X
+| 
+|   String  
+| 
+|     
+
 | specversion
 | X
 | 
 |   String  
 | The version of the CloudEvents specification which the event uses.
+|     
+
+| type
+| X
+| 
+|   String  
+| 
 |     
 
 | datacontenttype
@@ -698,6 +691,13 @@ The event payload.
 |   Date  
 | Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 | date-time    
+
+| data
+| 
+| 
+|   TmuxPaneIoDocument  
+| 
+|     
 
 | data_base64
 | 

@@ -31,13 +31,12 @@ public:
 	bool FromJson(const TSharedPtr<FJsonValue>& JsonValue) final;
 	void WriteJson(JsonWriter& Writer) const final;
 
-	TOptional<FString> Type;
-	TOptional<FString> Source;
-	TOptional<OpenAPITmuxPaneIoDocument> Data;
 	/* Identifies the event. */
 	FString Id;
+	FString Source;
 	/* The version of the CloudEvents specification which the event uses. */
 	FString Specversion;
+	FString Type = TEXT("IoDocument");
 	/* Content type of the data value. Must adhere to RFC 2046 format. */
 	TOptional<FString> Datacontenttype;
 	/* Identifies the schema that data adheres to. */
@@ -45,6 +44,7 @@ public:
 	TOptional<FString> Subject;
 	/* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
 	TOptional<FDateTime> Time;
+	TOptional<OpenAPITmuxPaneIoDocument> Data;
 	/* Base64 encoded event payload. Must adhere to RFC4648. */
 	TOptional<FString> DataBase64;
 };

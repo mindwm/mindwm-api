@@ -15,13 +15,13 @@ import model_tmux_pane_io_document
 
 type IoDocument* = object
   ## 
-  `type`*: string
-  source*: string
-  data*: TmuxPaneIoDocument
   id*: string ## Identifies the event.
+  source*: string
   specversion*: string ## The version of the CloudEvents specification which the event uses.
+  `type`*: string
   datacontenttype*: string ## Content type of the data value. Must adhere to RFC 2046 format.
   dataschema*: string ## Identifies the schema that data adheres to.
   subject*: string
   time*: string ## Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+  data*: TmuxPaneIoDocument
   dataBase64*: string ## Base64 encoded event payload. Must adhere to RFC4648.

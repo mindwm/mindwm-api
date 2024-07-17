@@ -62,10 +62,10 @@ public:
     /// Clipboard members
 
     /// <summary>
-    /// 
+    /// Identifies the event.
     /// </summary>
-    std::string getType() const;
-    void setType(std::string value);
+    std::string getId() const;
+    void setId(std::string value);
 
     /// <summary>
     /// 
@@ -74,22 +74,16 @@ public:
     void setSource(std::string value);
 
     /// <summary>
-    /// 
-    /// </summary>
-    ClipboardPayload getData() const;
-    void setData(ClipboardPayload value);
-
-    /// <summary>
-    /// Identifies the event.
-    /// </summary>
-    std::string getId() const;
-    void setId(std::string value);
-
-    /// <summary>
     /// The version of the CloudEvents specification which the event uses.
     /// </summary>
     std::string getSpecversion() const;
     void setSpecversion(std::string value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    std::string getType() const;
+    void setType(std::string value);
 
     /// <summary>
     /// Content type of the data value. Must adhere to RFC 2046 format.
@@ -116,21 +110,27 @@ public:
     void setTime(std::string value);
 
     /// <summary>
+    /// 
+    /// </summary>
+    ClipboardPayload getData() const;
+    void setData(ClipboardPayload value);
+
+    /// <summary>
     /// Base64 encoded event payload. Must adhere to RFC4648.
     /// </summary>
     std::string getDataBase64() const;
     void setDataBase64(std::string value);
 
 protected:
-    std::string m_Type = "";
-    std::string m_Source = "";
-    ClipboardPayload m_Data;
     std::string m_Id = "";
+    std::string m_Source = "";
     std::string m_Specversion = "";
+    std::string m_Type = "";
     std::string m_Datacontenttype = "";
     std::string m_Dataschema = "";
     std::string m_Subject = "";
     std::string m_Time = "";
+    ClipboardPayload m_Data;
     std::string m_Data_base64 = "";
 };
 

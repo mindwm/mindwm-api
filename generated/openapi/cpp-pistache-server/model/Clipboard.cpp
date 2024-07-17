@@ -21,13 +21,10 @@ namespace org::openapitools::server::model
 
 Clipboard::Clipboard()
 {
-    m_Type = "";
-    m_TypeIsSet = false;
-    m_Source = "";
-    m_SourceIsSet = false;
-    m_DataIsSet = false;
     m_Id = "";
+    m_Source = "";
     m_Specversion = "";
+    m_Type = "";
     m_Datacontenttype = "";
     m_DatacontenttypeIsSet = false;
     m_Dataschema = "";
@@ -36,6 +33,7 @@ Clipboard::Clipboard()
     m_SubjectIsSet = false;
     m_Time = "";
     m_TimeIsSet = false;
+    m_DataIsSet = false;
     m_Data_base64 = "";
     m_Data_base64IsSet = false;
     
@@ -60,16 +58,7 @@ bool Clipboard::validate(std::stringstream& msg, const std::string& pathPrefix) 
     bool success = true;
     const std::string _pathPrefix = pathPrefix.empty() ? "Clipboard" : pathPrefix;
 
-             
-    if (sourceIsSet())
-    {
-        const std::string& value = m_Source;
-        const std::string currentValuePath = _pathPrefix + ".source";
-                
-        
-
-    }
-             
+         
     
     /* Id */ {
         const std::string& value = m_Id;
@@ -81,6 +70,15 @@ bool Clipboard::validate(std::stringstream& msg, const std::string& pathPrefix) 
             success = false;
             msg << currentValuePath << ": must be at least 1 characters long;";
         }
+
+    }
+         
+    
+    /* Source */ {
+        const std::string& value = m_Source;
+        const std::string currentValuePath = _pathPrefix + ".source";
+                
+        
 
     }
          
@@ -97,7 +95,7 @@ bool Clipboard::validate(std::stringstream& msg, const std::string& pathPrefix) 
         }
 
     }
-         
+             
     if (datacontenttypeIsSet())
     {
         const std::string& value = m_Datacontenttype;
@@ -139,7 +137,7 @@ bool Clipboard::validate(std::stringstream& msg, const std::string& pathPrefix) 
         }
 
     }
-        
+            
     return success;
 }
 
@@ -148,19 +146,16 @@ bool Clipboard::operator==(const Clipboard& rhs) const
     return
     
     
-    
-    ((!typeIsSet() && !rhs.typeIsSet()) || (typeIsSet() && rhs.typeIsSet() && getType() == rhs.getType())) &&
-    
-    
-    ((!sourceIsSet() && !rhs.sourceIsSet()) || (sourceIsSet() && rhs.sourceIsSet() && getSource() == rhs.getSource())) &&
-    
-    
-    ((!dataIsSet() && !rhs.dataIsSet()) || (dataIsSet() && rhs.dataIsSet() && getData() == rhs.getData())) &&
-    
     (getId() == rhs.getId())
      &&
     
+    (getSource() == rhs.getSource())
+     &&
+    
     (getSpecversion() == rhs.getSpecversion())
+     &&
+    
+    (getType() == rhs.getType())
      &&
     
     
@@ -176,6 +171,9 @@ bool Clipboard::operator==(const Clipboard& rhs) const
     ((!timeIsSet() && !rhs.timeIsSet()) || (timeIsSet() && rhs.timeIsSet() && getTime() == rhs.getTime())) &&
     
     
+    ((!dataIsSet() && !rhs.dataIsSet()) || (dataIsSet() && rhs.dataIsSet() && getData() == rhs.getData())) &&
+    
+    
     ((!dataBase64IsSet() && !rhs.dataBase64IsSet()) || (dataBase64IsSet() && rhs.dataBase64IsSet() && getDataBase64() == rhs.getDataBase64()))
     
     ;
@@ -189,14 +187,10 @@ bool Clipboard::operator!=(const Clipboard& rhs) const
 void to_json(nlohmann::json& j, const Clipboard& o)
 {
     j = nlohmann::json::object();
-    if(o.typeIsSet())
-        j["type"] = o.m_Type;
-    if(o.sourceIsSet())
-        j["source"] = o.m_Source;
-    if(o.dataIsSet())
-        j["data"] = o.m_Data;
     j["id"] = o.m_Id;
+    j["source"] = o.m_Source;
     j["specversion"] = o.m_Specversion;
+    j["type"] = o.m_Type;
     if(o.datacontenttypeIsSet())
         j["datacontenttype"] = o.m_Datacontenttype;
     if(o.dataschemaIsSet())
@@ -205,6 +199,8 @@ void to_json(nlohmann::json& j, const Clipboard& o)
         j["subject"] = o.m_Subject;
     if(o.timeIsSet())
         j["time"] = o.m_Time;
+    if(o.dataIsSet())
+        j["data"] = o.m_Data;
     if(o.dataBase64IsSet())
         j["data_base64"] = o.m_Data_base64;
     
@@ -212,23 +208,10 @@ void to_json(nlohmann::json& j, const Clipboard& o)
 
 void from_json(const nlohmann::json& j, Clipboard& o)
 {
-    if(j.find("type") != j.end())
-    {
-        j.at("type").get_to(o.m_Type);
-        o.m_TypeIsSet = true;
-    } 
-    if(j.find("source") != j.end())
-    {
-        j.at("source").get_to(o.m_Source);
-        o.m_SourceIsSet = true;
-    } 
-    if(j.find("data") != j.end())
-    {
-        j.at("data").get_to(o.m_Data);
-        o.m_DataIsSet = true;
-    } 
     j.at("id").get_to(o.m_Id);
+    j.at("source").get_to(o.m_Source);
     j.at("specversion").get_to(o.m_Specversion);
+    j.at("type").get_to(o.m_Type);
     if(j.find("datacontenttype") != j.end())
     {
         j.at("datacontenttype").get_to(o.m_Datacontenttype);
@@ -249,6 +232,11 @@ void from_json(const nlohmann::json& j, Clipboard& o)
         j.at("time").get_to(o.m_Time);
         o.m_TimeIsSet = true;
     } 
+    if(j.find("data") != j.end())
+    {
+        j.at("data").get_to(o.m_Data);
+        o.m_DataIsSet = true;
+    } 
     if(j.find("data_base64") != j.end())
     {
         j.at("data_base64").get_to(o.m_Data_base64);
@@ -257,57 +245,6 @@ void from_json(const nlohmann::json& j, Clipboard& o)
     
 }
 
-std::string Clipboard::getType() const
-{
-    return m_Type;
-}
-void Clipboard::setType(std::string const& value)
-{
-    m_Type = value;
-    m_TypeIsSet = true;
-}
-bool Clipboard::typeIsSet() const
-{
-    return m_TypeIsSet;
-}
-void Clipboard::unsetType()
-{
-    m_TypeIsSet = false;
-}
-std::string Clipboard::getSource() const
-{
-    return m_Source;
-}
-void Clipboard::setSource(std::string const& value)
-{
-    m_Source = value;
-    m_SourceIsSet = true;
-}
-bool Clipboard::sourceIsSet() const
-{
-    return m_SourceIsSet;
-}
-void Clipboard::unsetSource()
-{
-    m_SourceIsSet = false;
-}
-org::openapitools::server::model::ClipboardPayload Clipboard::getData() const
-{
-    return m_Data;
-}
-void Clipboard::setData(org::openapitools::server::model::ClipboardPayload const& value)
-{
-    m_Data = value;
-    m_DataIsSet = true;
-}
-bool Clipboard::dataIsSet() const
-{
-    return m_DataIsSet;
-}
-void Clipboard::unsetData()
-{
-    m_DataIsSet = false;
-}
 std::string Clipboard::getId() const
 {
     return m_Id;
@@ -316,6 +253,14 @@ void Clipboard::setId(std::string const& value)
 {
     m_Id = value;
 }
+std::string Clipboard::getSource() const
+{
+    return m_Source;
+}
+void Clipboard::setSource(std::string const& value)
+{
+    m_Source = value;
+}
 std::string Clipboard::getSpecversion() const
 {
     return m_Specversion;
@@ -323,6 +268,14 @@ std::string Clipboard::getSpecversion() const
 void Clipboard::setSpecversion(std::string const& value)
 {
     m_Specversion = value;
+}
+std::string Clipboard::getType() const
+{
+    return m_Type;
+}
+void Clipboard::setType(std::string const& value)
+{
+    m_Type = value;
 }
 std::string Clipboard::getDatacontenttype() const
 {
@@ -391,6 +344,23 @@ bool Clipboard::timeIsSet() const
 void Clipboard::unsetTime()
 {
     m_TimeIsSet = false;
+}
+org::openapitools::server::model::ClipboardPayload Clipboard::getData() const
+{
+    return m_Data;
+}
+void Clipboard::setData(org::openapitools::server::model::ClipboardPayload const& value)
+{
+    m_Data = value;
+    m_DataIsSet = true;
+}
+bool Clipboard::dataIsSet() const
+{
+    return m_DataIsSet;
+}
+void Clipboard::unsetData()
+{
+    m_DataIsSet = false;
 }
 std::string Clipboard::getDataBase64() const
 {

@@ -7,17 +7,17 @@
 --
 -- SELECT template for table `Clipboard`
 --
-SELECT `type`, `source`, `data`, `id`, `specversion`, `datacontenttype`, `dataschema`, `subject`, `time`, `data_base64` FROM `Clipboard` WHERE 1;
+SELECT `id`, `source`, `specversion`, `type`, `datacontenttype`, `dataschema`, `subject`, `time`, `data`, `data_base64` FROM `Clipboard` WHERE 1;
 
 --
 -- INSERT template for table `Clipboard`
 --
-INSERT INTO `Clipboard`(`type`, `source`, `data`, `id`, `specversion`, `datacontenttype`, `dataschema`, `subject`, `time`, `data_base64`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+INSERT INTO `Clipboard`(`id`, `source`, `specversion`, `type`, `datacontenttype`, `dataschema`, `subject`, `time`, `data`, `data_base64`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 --
 -- UPDATE template for table `Clipboard`
 --
-UPDATE `Clipboard` SET `type` = ?, `source` = ?, `data` = ?, `id` = ?, `specversion` = ?, `datacontenttype` = ?, `dataschema` = ?, `subject` = ?, `time` = ?, `data_base64` = ? WHERE 1;
+UPDATE `Clipboard` SET `id` = ?, `source` = ?, `specversion` = ?, `type` = ?, `datacontenttype` = ?, `dataschema` = ?, `subject` = ?, `time` = ?, `data` = ?, `data_base64` = ? WHERE 1;
 
 --
 -- DELETE template for table `Clipboard`

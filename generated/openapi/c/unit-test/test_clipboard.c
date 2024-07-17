@@ -25,27 +25,27 @@ clipboard_t* instantiate_clipboard(int include_optional) {
     clipboard = clipboard_create(
       "0",
       "a",
-       // false, not to have infinite recursion
-      instantiate_clipboard_payload(0),
       "0",
       "0",
       "0",
       "0",
       "0",
       "2013-10-20T19:20:30+01:00",
+       // false, not to have infinite recursion
+      instantiate_clipboard_payload(0),
       "0"
     );
   } else {
     clipboard = clipboard_create(
       "0",
       "a",
-      NULL,
       "0",
       "0",
       "0",
       "0",
       "0",
       "2013-10-20T19:20:30+01:00",
+      NULL,
       "0"
     );
   }

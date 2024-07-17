@@ -2,21 +2,6 @@
 Protected Class IoDocument
 
 	#tag Property, Flags = &h0
-		type As Xoson.O.OptionalString
-	#tag EndProperty
-
-
-	#tag Property, Flags = &h0
-		source As Xoson.O.OptionalString
-	#tag EndProperty
-
-
-	#tag Property, Flags = &h0
-		data As Xoson.O.OptionalTmuxPaneIoDocument
-	#tag EndProperty
-
-
-	#tag Property, Flags = &h0
 		#tag Note
 			Identifies the event.
 		#tag EndNote
@@ -25,10 +10,20 @@ Protected Class IoDocument
 
 
 	#tag Property, Flags = &h0
+		source As String
+	#tag EndProperty
+
+
+	#tag Property, Flags = &h0
 		#tag Note
 			The version of the CloudEvents specification which the event uses.
 		#tag EndNote
 		specversion As String
+	#tag EndProperty
+
+
+	#tag Property, Flags = &h0
+		type As String
 	#tag EndProperty
 
 
@@ -58,6 +53,11 @@ Protected Class IoDocument
 			Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 		#tag EndNote
 		time As Date
+	#tag EndProperty
+
+
+	#tag Property, Flags = &h0
+		data As Xoson.O.OptionalTmuxPaneIoDocument
 	#tag EndProperty
 
 
@@ -106,7 +106,7 @@ Protected Class IoDocument
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="type"
+			Name="id"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
@@ -122,15 +122,7 @@ Protected Class IoDocument
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="data"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="TmuxPaneIoDocument"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="id"
+			Name="specversion"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
@@ -138,7 +130,7 @@ Protected Class IoDocument
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="specversion"
+			Name="type"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
@@ -175,6 +167,14 @@ Protected Class IoDocument
 			Group="Behavior"
 			InitialValue=""
 			Type="Date"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="data"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="TmuxPaneIoDocument"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

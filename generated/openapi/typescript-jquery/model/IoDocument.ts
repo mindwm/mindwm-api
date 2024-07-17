@@ -15,21 +15,19 @@ import * as models from './models';
 export interface IoDocument {
     [key: string]: any | any;
 
-    type?: string;
-
-    source?: string;
-
-    data?: models.TmuxPaneIoDocument;
-
     /**
      * Identifies the event.
      */
     id: string;
 
+    source: string;
+
     /**
      * The version of the CloudEvents specification which the event uses.
      */
     specversion: string;
+
+    type: string;
 
     /**
      * Content type of the data value. Must adhere to RFC 2046 format.
@@ -47,6 +45,8 @@ export interface IoDocument {
      * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
      */
     time?: string;
+
+    data?: models.TmuxPaneIoDocument;
 
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.

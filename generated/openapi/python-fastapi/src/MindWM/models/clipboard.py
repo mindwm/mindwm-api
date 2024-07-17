@@ -35,27 +35,24 @@ class Clipboard(object):
     """
     Clipboard
     """ # noqa: E501
-    type: Optional[StrictStr] = None
-    source: Optional[Annotated[str, Field(strict=True)]] = None
-    data: Optional[ClipboardPayload] = None
     id: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Identifies the event.")
+    source: Annotated[str, Field(strict=True)]
     specversion: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The version of the CloudEvents specification which the event uses.")
+    type: StrictStr
     datacontenttype: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Content type of the data value. Must adhere to RFC 2046 format.")
     dataschema: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Identifies the schema that data adheres to.")
     subject: Optional[StrictStr] = None
     time: Optional[datetime] = Field(default=None, description="Timestamp of when the occurrence happened. Must adhere to RFC 3339.")
+    data: Optional[ClipboardPayload] = None
     data_base64: Optional[StrictStr] = Field(default=None, description="Base64 encoded event payload. Must adhere to RFC4648.")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["type", "source", "data", "id", "specversion", "datacontenttype", "dataschema", "subject", "time", "data_base64"]
+    __properties: ClassVar[List[str]] = ["id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64"]
 
     @field_validator('source')
     def source_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$", value):
-            raise ValueError(r"must validate the regular expression /[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$/")
+        if not re.match(r"^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$", value):
+            raise ValueError(r"must validate the regular expression /^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$/")
         return value
 
     model_config = {
@@ -117,15 +114,15 @@ class Clipboard(object):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "source": obj.get("source"),
-            "data": ClipboardPayload.from_dict(obj.get("data")) if obj.get("data") is not None else None,
             "id": obj.get("id"),
+            "source": obj.get("source"),
             "specversion": obj.get("specversion"),
+            "type": obj.get("type"),
             "datacontenttype": obj.get("datacontenttype"),
             "dataschema": obj.get("dataschema"),
             "subject": obj.get("subject"),
             "time": obj.get("time"),
+            "data": ClipboardPayload.from_dict(obj.get("data")) if obj.get("data") is not None else None,
             "data_base64": obj.get("data_base64")
         })
         # store additional fields in additional_properties

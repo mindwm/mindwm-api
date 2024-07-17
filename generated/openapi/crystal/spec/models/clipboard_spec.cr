@@ -23,7 +23,7 @@ describe OpenAPIClient::Clipboard do
       #expect(instance).to be_instance_of(OpenAPIClient::Clipboard)
     end
   end
-  describe "test attribute '_type'" do
+  describe "test attribute 'id'" do
     it "should work" do
       # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
     end
@@ -35,19 +35,13 @@ describe OpenAPIClient::Clipboard do
     end
   end
 
-  describe "test attribute 'data'" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
-    end
-  end
-
-  describe "test attribute 'id'" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
-    end
-  end
-
   describe "test attribute 'specversion'" do
+    it "should work" do
+      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    end
+  end
+
+  describe "test attribute '_type'" do
     it "should work" do
       # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
     end
@@ -72,6 +66,12 @@ describe OpenAPIClient::Clipboard do
   end
 
   describe "test attribute 'time'" do
+    it "should work" do
+      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    end
+  end
+
+  describe "test attribute 'data'" do
     it "should work" do
       # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
     end

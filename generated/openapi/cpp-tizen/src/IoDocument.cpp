@@ -23,45 +23,40 @@ IoDocument::~IoDocument()
 void
 IoDocument::__init()
 {
-	//type = std::string();
-	//source = std::string();
-	//data = new TmuxPaneIoDocument();
 	//id = std::string();
+	//source = std::string();
 	//specversion = std::string();
+	//type = std::string();
 	//datacontenttype = std::string();
 	//dataschema = std::string();
 	//subject = std::string();
 	//time = null;
+	//data = new TmuxPaneIoDocument();
 	//data_base64 = std::string();
 }
 
 void
 IoDocument::__cleanup()
 {
-	//if(type != NULL) {
+	//if(id != NULL) {
 	//
-	//delete type;
-	//type = NULL;
+	//delete id;
+	//id = NULL;
 	//}
 	//if(source != NULL) {
 	//
 	//delete source;
 	//source = NULL;
 	//}
-	//if(data != NULL) {
-	//
-	//delete data;
-	//data = NULL;
-	//}
-	//if(id != NULL) {
-	//
-	//delete id;
-	//id = NULL;
-	//}
 	//if(specversion != NULL) {
 	//
 	//delete specversion;
 	//specversion = NULL;
+	//}
+	//if(type != NULL) {
+	//
+	//delete type;
+	//type = NULL;
 	//}
 	//if(datacontenttype != NULL) {
 	//
@@ -83,6 +78,11 @@ IoDocument::__cleanup()
 	//delete time;
 	//time = NULL;
 	//}
+	//if(data != NULL) {
+	//
+	//delete data;
+	//data = NULL;
+	//}
 	//if(data_base64 != NULL) {
 	//
 	//delete data_base64;
@@ -96,13 +96,13 @@ IoDocument::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
-	const gchar *typeKey = "type";
-	node = json_object_get_member(pJsonObject, typeKey);
+	const gchar *idKey = "id";
+	node = json_object_get_member(pJsonObject, idKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("std::string")) {
-			jsonToValue(&type, node, "std::string", "");
+			jsonToValue(&id, node, "std::string", "");
 		} else {
 			
 		}
@@ -118,31 +118,6 @@ IoDocument::fromJson(char* jsonStr)
 			
 		}
 	}
-	const gchar *dataKey = "data";
-	node = json_object_get_member(pJsonObject, dataKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("TmuxPaneIoDocument")) {
-			jsonToValue(&data, node, "TmuxPaneIoDocument", "TmuxPaneIoDocument");
-		} else {
-			
-			TmuxPaneIoDocument* obj = static_cast<TmuxPaneIoDocument*> (&data);
-			obj->fromJson(json_to_string(node, false));
-			
-		}
-	}
-	const gchar *idKey = "id";
-	node = json_object_get_member(pJsonObject, idKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("std::string")) {
-			jsonToValue(&id, node, "std::string", "");
-		} else {
-			
-		}
-	}
 	const gchar *specversionKey = "specversion";
 	node = json_object_get_member(pJsonObject, specversionKey);
 	if (node !=NULL) {
@@ -150,6 +125,17 @@ IoDocument::fromJson(char* jsonStr)
 
 		if (isprimitive("std::string")) {
 			jsonToValue(&specversion, node, "std::string", "");
+		} else {
+			
+		}
+	}
+	const gchar *typeKey = "type";
+	node = json_object_get_member(pJsonObject, typeKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("std::string")) {
+			jsonToValue(&type, node, "std::string", "");
 		} else {
 			
 		}
@@ -198,6 +184,20 @@ IoDocument::fromJson(char* jsonStr)
 			
 		}
 	}
+	const gchar *dataKey = "data";
+	node = json_object_get_member(pJsonObject, dataKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("TmuxPaneIoDocument")) {
+			jsonToValue(&data, node, "TmuxPaneIoDocument", "TmuxPaneIoDocument");
+		} else {
+			
+			TmuxPaneIoDocument* obj = static_cast<TmuxPaneIoDocument*> (&data);
+			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
 	const gchar *data_base64Key = "data_base64";
 	node = json_object_get_member(pJsonObject, data_base64Key);
 	if (node !=NULL) {
@@ -222,38 +222,6 @@ IoDocument::toJson()
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
 	if (isprimitive("std::string")) {
-		std::string obj = getType();
-		node = converttoJson(&obj, "std::string", "");
-	}
-	else {
-		
-	}
-	const gchar *typeKey = "type";
-	json_object_set_member(pJsonObject, typeKey, node);
-	if (isprimitive("std::string")) {
-		std::string obj = getSource();
-		node = converttoJson(&obj, "std::string", "");
-	}
-	else {
-		
-	}
-	const gchar *sourceKey = "source";
-	json_object_set_member(pJsonObject, sourceKey, node);
-	if (isprimitive("TmuxPaneIoDocument")) {
-		TmuxPaneIoDocument obj = getData();
-		node = converttoJson(&obj, "TmuxPaneIoDocument", "");
-	}
-	else {
-		
-		TmuxPaneIoDocument obj = static_cast<TmuxPaneIoDocument> (getData());
-		GError *mygerror;
-		mygerror = NULL;
-		node = json_from_string(obj.toJson(), &mygerror);
-		
-	}
-	const gchar *dataKey = "data";
-	json_object_set_member(pJsonObject, dataKey, node);
-	if (isprimitive("std::string")) {
 		std::string obj = getId();
 		node = converttoJson(&obj, "std::string", "");
 	}
@@ -263,6 +231,15 @@ IoDocument::toJson()
 	const gchar *idKey = "id";
 	json_object_set_member(pJsonObject, idKey, node);
 	if (isprimitive("std::string")) {
+		std::string obj = getSource();
+		node = converttoJson(&obj, "std::string", "");
+	}
+	else {
+		
+	}
+	const gchar *sourceKey = "source";
+	json_object_set_member(pJsonObject, sourceKey, node);
+	if (isprimitive("std::string")) {
 		std::string obj = getSpecversion();
 		node = converttoJson(&obj, "std::string", "");
 	}
@@ -271,6 +248,15 @@ IoDocument::toJson()
 	}
 	const gchar *specversionKey = "specversion";
 	json_object_set_member(pJsonObject, specversionKey, node);
+	if (isprimitive("std::string")) {
+		std::string obj = getType();
+		node = converttoJson(&obj, "std::string", "");
+	}
+	else {
+		
+	}
+	const gchar *typeKey = "type";
+	json_object_set_member(pJsonObject, typeKey, node);
 	if (isprimitive("std::string")) {
 		std::string obj = getDatacontenttype();
 		node = converttoJson(&obj, "std::string", "");
@@ -307,6 +293,20 @@ IoDocument::toJson()
 	}
 	const gchar *timeKey = "time";
 	json_object_set_member(pJsonObject, timeKey, node);
+	if (isprimitive("TmuxPaneIoDocument")) {
+		TmuxPaneIoDocument obj = getData();
+		node = converttoJson(&obj, "TmuxPaneIoDocument", "");
+	}
+	else {
+		
+		TmuxPaneIoDocument obj = static_cast<TmuxPaneIoDocument> (getData());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *dataKey = "data";
+	json_object_set_member(pJsonObject, dataKey, node);
 	if (isprimitive("std::string")) {
 		std::string obj = getDataBase64();
 		node = converttoJson(&obj, "std::string", "");
@@ -325,15 +325,15 @@ IoDocument::toJson()
 }
 
 std::string
-IoDocument::getType()
+IoDocument::getId()
 {
-	return type;
+	return id;
 }
 
 void
-IoDocument::setType(std::string  type)
+IoDocument::setId(std::string  id)
 {
-	this->type = type;
+	this->id = id;
 }
 
 std::string
@@ -348,30 +348,6 @@ IoDocument::setSource(std::string  source)
 	this->source = source;
 }
 
-TmuxPaneIoDocument
-IoDocument::getData()
-{
-	return data;
-}
-
-void
-IoDocument::setData(TmuxPaneIoDocument  data)
-{
-	this->data = data;
-}
-
-std::string
-IoDocument::getId()
-{
-	return id;
-}
-
-void
-IoDocument::setId(std::string  id)
-{
-	this->id = id;
-}
-
 std::string
 IoDocument::getSpecversion()
 {
@@ -382,6 +358,18 @@ void
 IoDocument::setSpecversion(std::string  specversion)
 {
 	this->specversion = specversion;
+}
+
+std::string
+IoDocument::getType()
+{
+	return type;
+}
+
+void
+IoDocument::setType(std::string  type)
+{
+	this->type = type;
 }
 
 std::string
@@ -430,6 +418,18 @@ void
 IoDocument::setTime(std::string  time)
 {
 	this->time = time;
+}
+
+TmuxPaneIoDocument
+IoDocument::getData()
+{
+	return data;
+}
+
+void
+IoDocument::setData(TmuxPaneIoDocument  data)
+{
+	this->data = data;
 }
 
 std::string

@@ -6,7 +6,6 @@ from typing import List, Dict, Type
 
 from MindWM.models.base_model import Model
 from MindWM.models.tmux_pane_io_document import TmuxPaneIoDocument
-import re
 from MindWM import util
 
 
@@ -16,55 +15,55 @@ class IoDocument(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, type: str=None, source: str=None, data: TmuxPaneIoDocument=None, id: str=None, specversion: str=None, datacontenttype: str=None, dataschema: str=None, subject: str='IoDocument', time: datetime=None, data_base64: str=None):
+    def __init__(self, id: str=None, source: str=None, specversion: str=None, type: str='IoDocument', datacontenttype: str=None, dataschema: str=None, subject: str='IoDocument', time: datetime=None, data: TmuxPaneIoDocument=None, data_base64: str=None):
         """IoDocument - a model defined in OpenAPI
 
-        :param type: The type of this IoDocument.
-        :param source: The source of this IoDocument.
-        :param data: The data of this IoDocument.
         :param id: The id of this IoDocument.
+        :param source: The source of this IoDocument.
         :param specversion: The specversion of this IoDocument.
+        :param type: The type of this IoDocument.
         :param datacontenttype: The datacontenttype of this IoDocument.
         :param dataschema: The dataschema of this IoDocument.
         :param subject: The subject of this IoDocument.
         :param time: The time of this IoDocument.
+        :param data: The data of this IoDocument.
         :param data_base64: The data_base64 of this IoDocument.
         """
         self.openapi_types = {
-            'type': str,
-            'source': str,
-            'data': TmuxPaneIoDocument,
             'id': str,
+            'source': str,
             'specversion': str,
+            'type': str,
             'datacontenttype': str,
             'dataschema': str,
             'subject': str,
             'time': datetime,
+            'data': TmuxPaneIoDocument,
             'data_base64': str
         }
 
         self.attribute_map = {
-            'type': 'type',
-            'source': 'source',
-            'data': 'data',
             'id': 'id',
+            'source': 'source',
             'specversion': 'specversion',
+            'type': 'type',
             'datacontenttype': 'datacontenttype',
             'dataschema': 'dataschema',
             'subject': 'subject',
             'time': 'time',
+            'data': 'data',
             'data_base64': 'data_base64'
         }
 
-        self._type = type
-        self._source = source
-        self._data = data
         self._id = id
+        self._source = source
         self._specversion = specversion
+        self._type = type
         self._datacontenttype = datacontenttype
         self._dataschema = dataschema
         self._subject = subject
         self._time = time
+        self._data = data
         self._data_base64 = data_base64
 
     @classmethod
@@ -75,71 +74,6 @@ class IoDocument(Model):
         :return: The IoDocument of this IoDocument.
         """
         return util.deserialize_model(dikt, cls)
-
-    @property
-    def type(self):
-        """Gets the type of this IoDocument.
-
-
-        :return: The type of this IoDocument.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this IoDocument.
-
-
-        :param type: The type of this IoDocument.
-        :type type: str
-        """
-
-        self._type = type
-
-    @property
-    def source(self):
-        """Gets the source of this IoDocument.
-
-
-        :return: The source of this IoDocument.
-        :rtype: str
-        """
-        return self._source
-
-    @source.setter
-    def source(self, source):
-        """Sets the source of this IoDocument.
-
-
-        :param source: The source of this IoDocument.
-        :type source: str
-        """
-        if source is not None and not re.search(r'[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+\/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$', source):
-            raise ValueError("Invalid value for `source`, must be a follow pattern or equal to `/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+\/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$/`")
-
-        self._source = source
-
-    @property
-    def data(self):
-        """Gets the data of this IoDocument.
-
-
-        :return: The data of this IoDocument.
-        :rtype: TmuxPaneIoDocument
-        """
-        return self._data
-
-    @data.setter
-    def data(self, data):
-        """Sets the data of this IoDocument.
-
-
-        :param data: The data of this IoDocument.
-        :type data: TmuxPaneIoDocument
-        """
-
-        self._data = data
 
     @property
     def id(self):
@@ -169,6 +103,29 @@ class IoDocument(Model):
         self._id = id
 
     @property
+    def source(self):
+        """Gets the source of this IoDocument.
+
+
+        :return: The source of this IoDocument.
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this IoDocument.
+
+
+        :param source: The source of this IoDocument.
+        :type source: str
+        """
+        if source is None:
+            raise ValueError("Invalid value for `source`, must not be `None`")
+
+        self._source = source
+
+    @property
     def specversion(self):
         """Gets the specversion of this IoDocument.
 
@@ -194,6 +151,29 @@ class IoDocument(Model):
             raise ValueError("Invalid value for `specversion`, length must be greater than or equal to `1`")
 
         self._specversion = specversion
+
+    @property
+    def type(self):
+        """Gets the type of this IoDocument.
+
+
+        :return: The type of this IoDocument.
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this IoDocument.
+
+
+        :param type: The type of this IoDocument.
+        :type type: str
+        """
+        if type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")
+
+        self._type = type
 
     @property
     def datacontenttype(self):
@@ -290,6 +270,27 @@ class IoDocument(Model):
             raise ValueError("Invalid value for `time`, length must be greater than or equal to `1`")
 
         self._time = time
+
+    @property
+    def data(self):
+        """Gets the data of this IoDocument.
+
+
+        :return: The data of this IoDocument.
+        :rtype: TmuxPaneIoDocument
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this IoDocument.
+
+
+        :param data: The data of this IoDocument.
+        :type data: TmuxPaneIoDocument
+        """
+
+        self._data = data
 
     @property
     def data_base64(self):

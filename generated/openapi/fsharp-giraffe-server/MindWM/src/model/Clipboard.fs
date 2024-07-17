@@ -12,15 +12,15 @@ module Clipboard =
 
 
   type Clipboard = {
-    Type : string;
-    Source : string;
-    Data : ClipboardPayload;
     Id : string;
+    Source : string;
     Specversion : string;
+    Type : string;
     Datacontenttype : string;
     Dataschema : string;
     Subject : string;
     Time : Nullable<DateTime>;
+    Data : ClipboardPayload;
     DataBase64 : string;
   }
   //#endregion

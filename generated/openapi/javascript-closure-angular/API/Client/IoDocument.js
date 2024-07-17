@@ -6,10 +6,11 @@ goog.provide('API.Client.IoDocument');
 API.Client.IoDocument = function() {}
 
 /**
+ * Identifies the event.
  * @type {!string}
  * @export
  */
-API.Client.IoDocument.prototype.type;
+API.Client.IoDocument.prototype.id;
 
 /**
  * @type {!string}
@@ -18,24 +19,17 @@ API.Client.IoDocument.prototype.type;
 API.Client.IoDocument.prototype.source;
 
 /**
- * @type {!API.Client.TmuxPaneIoDocument}
- * @export
- */
-API.Client.IoDocument.prototype.data;
-
-/**
- * Identifies the event.
- * @type {!string}
- * @export
- */
-API.Client.IoDocument.prototype.id;
-
-/**
  * The version of the CloudEvents specification which the event uses.
  * @type {!string}
  * @export
  */
 API.Client.IoDocument.prototype.specversion;
+
+/**
+ * @type {!string}
+ * @export
+ */
+API.Client.IoDocument.prototype.type;
 
 /**
  * Content type of the data value. Must adhere to RFC 2046 format.
@@ -63,6 +57,12 @@ API.Client.IoDocument.prototype.subject;
  * @export
  */
 API.Client.IoDocument.prototype.time;
+
+/**
+ * @type {!API.Client.TmuxPaneIoDocument}
+ * @export
+ */
+API.Client.IoDocument.prototype.data;
 
 /**
  * Base64 encoded event payload. Must adhere to RFC4648.

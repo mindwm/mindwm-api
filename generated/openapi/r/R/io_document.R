@@ -7,15 +7,15 @@
 #' @title IoDocument
 #' @description IoDocument Class
 #' @format An \code{R6Class} generator object
-#' @field type  character [optional]
-#' @field source  character [optional]
-#' @field data  \link{TmuxPaneIoDocument} [optional]
 #' @field id Identifies the event. character
+#' @field source  character
 #' @field specversion The version of the CloudEvents specification which the event uses. character
+#' @field type  character
 #' @field datacontenttype Content type of the data value. Must adhere to RFC 2046 format. character [optional]
 #' @field dataschema Identifies the schema that data adheres to. character [optional]
 #' @field subject  character [optional]
 #' @field time Timestamp of when the occurrence happened. Must adhere to RFC 3339. character [optional]
+#' @field data  \link{TmuxPaneIoDocument} [optional]
 #' @field data_base64 Base64 encoded event payload. Must adhere to RFC4648. character [optional]
 #' @field _field_list a list of fields list(character)
 #' @field additional_properties additional properties list(character) [optional]
@@ -26,17 +26,17 @@ IoDocument <- R6::R6Class(
   "IoDocument",
   inherit = AnyType,
   public = list(
-    `type` = NULL,
-    `source` = NULL,
-    `data` = NULL,
     `id` = NULL,
+    `source` = NULL,
     `specversion` = NULL,
+    `type` = NULL,
     `datacontenttype` = NULL,
     `dataschema` = NULL,
     `subject` = NULL,
     `time` = NULL,
+    `data` = NULL,
     `data_base64` = NULL,
-    `_field_list` = c("type", "source", "data", "id", "specversion", "datacontenttype", "dataschema", "subject", "time", "data_base64"),
+    `_field_list` = c("id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64"),
     `additional_properties` = list(),
     #' Initialize a new IoDocument class.
     #'
@@ -44,24 +44,30 @@ IoDocument <- R6::R6Class(
     #' Initialize a new IoDocument class.
     #'
     #' @param id Identifies the event.
+    #' @param source source
     #' @param specversion The version of the CloudEvents specification which the event uses.
     #' @param type type
-    #' @param source source
-    #' @param data data
     #' @param datacontenttype Content type of the data value. Must adhere to RFC 2046 format.
     #' @param dataschema Identifies the schema that data adheres to.
     #' @param subject subject. Default to "IoDocument".
     #' @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+    #' @param data data
     #' @param data_base64 Base64 encoded event payload. Must adhere to RFC4648.
     #' @param additional_properties additional properties (optional)
     #' @param ... Other optional arguments.
     #' @export
-    initialize = function(`id`, `specversion`, `type` = NULL, `source` = NULL, `data` = NULL, `datacontenttype` = NULL, `dataschema` = NULL, `subject` = "IoDocument", `time` = NULL, `data_base64` = NULL, additional_properties = NULL, ...) {
+    initialize = function(`id`, `source`, `specversion`, `type`, `datacontenttype` = NULL, `dataschema` = NULL, `subject` = "IoDocument", `time` = NULL, `data` = NULL, `data_base64` = NULL, additional_properties = NULL, ...) {
       if (!missing(`id`)) {
         if (!(is.character(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be a string:", `id`))
         }
         self$`id` <- `id`
+      }
+      if (!missing(`source`)) {
+        if (!(is.character(`source`) && length(`source`) == 1)) {
+          stop(paste("Error! Invalid data for `source`. Must be a string:", `source`))
+        }
+        self$`source` <- `source`
       }
       if (!missing(`specversion`)) {
         if (!(is.character(`specversion`) && length(`specversion`) == 1)) {
@@ -69,21 +75,11 @@ IoDocument <- R6::R6Class(
         }
         self$`specversion` <- `specversion`
       }
-      if (!is.null(`type`)) {
+      if (!missing(`type`)) {
         if (!(is.character(`type`) && length(`type`) == 1)) {
           stop(paste("Error! Invalid data for `type`. Must be a string:", `type`))
         }
         self$`type` <- `type`
-      }
-      if (!is.null(`source`)) {
-        if (!(is.character(`source`) && length(`source`) == 1)) {
-          stop(paste("Error! Invalid data for `source`. Must be a string:", `source`))
-        }
-        self$`source` <- `source`
-      }
-      if (!is.null(`data`)) {
-        stopifnot(R6::is.R6(`data`))
-        self$`data` <- `data`
       }
       if (!is.null(`datacontenttype`)) {
         if (!(is.character(`datacontenttype`) && length(`datacontenttype`) == 1)) {
@@ -113,6 +109,10 @@ IoDocument <- R6::R6Class(
         }
         self$`time` <- `time`
       }
+      if (!is.null(`data`)) {
+        stopifnot(R6::is.R6(`data`))
+        self$`data` <- `data`
+      }
       if (!is.null(`data_base64`)) {
         if (!(is.character(`data_base64`) && length(`data_base64`) == 1)) {
           stop(paste("Error! Invalid data for `data_base64`. Must be a string:", `data_base64`))
@@ -134,25 +134,21 @@ IoDocument <- R6::R6Class(
     #' @export
     toJSON = function() {
       IoDocumentObject <- list()
-      if (!is.null(self$`type`)) {
-        IoDocumentObject[["type"]] <-
-          self$`type`
+      if (!is.null(self$`id`)) {
+        IoDocumentObject[["id"]] <-
+          self$`id`
       }
       if (!is.null(self$`source`)) {
         IoDocumentObject[["source"]] <-
           self$`source`
       }
-      if (!is.null(self$`data`)) {
-        IoDocumentObject[["data"]] <-
-          self$`data`$toJSON()
-      }
-      if (!is.null(self$`id`)) {
-        IoDocumentObject[["id"]] <-
-          self$`id`
-      }
       if (!is.null(self$`specversion`)) {
         IoDocumentObject[["specversion"]] <-
           self$`specversion`
+      }
+      if (!is.null(self$`type`)) {
+        IoDocumentObject[["type"]] <-
+          self$`type`
       }
       if (!is.null(self$`datacontenttype`)) {
         IoDocumentObject[["datacontenttype"]] <-
@@ -169,6 +165,10 @@ IoDocument <- R6::R6Class(
       if (!is.null(self$`time`)) {
         IoDocumentObject[["time"]] <-
           self$`time`
+      }
+      if (!is.null(self$`data`)) {
+        IoDocumentObject[["data"]] <-
+          self$`data`$toJSON()
       }
       if (!is.null(self$`data_base64`)) {
         IoDocumentObject[["data_base64"]] <-
@@ -190,22 +190,17 @@ IoDocument <- R6::R6Class(
     #' @export
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
-      if (!is.null(this_object$`type`)) {
-        self$`type` <- this_object$`type`
+      if (!is.null(this_object$`id`)) {
+        self$`id` <- this_object$`id`
       }
       if (!is.null(this_object$`source`)) {
         self$`source` <- this_object$`source`
       }
-      if (!is.null(this_object$`data`)) {
-        `data_object` <- TmuxPaneIoDocument$new()
-        `data_object`$fromJSON(jsonlite::toJSON(this_object$`data`, auto_unbox = TRUE, digits = NA))
-        self$`data` <- `data_object`
-      }
-      if (!is.null(this_object$`id`)) {
-        self$`id` <- this_object$`id`
-      }
       if (!is.null(this_object$`specversion`)) {
         self$`specversion` <- this_object$`specversion`
+      }
+      if (!is.null(this_object$`type`)) {
+        self$`type` <- this_object$`type`
       }
       if (!is.null(this_object$`datacontenttype`)) {
         self$`datacontenttype` <- this_object$`datacontenttype`
@@ -222,6 +217,11 @@ IoDocument <- R6::R6Class(
       }
       if (!is.null(this_object$`time`)) {
         self$`time` <- this_object$`time`
+      }
+      if (!is.null(this_object$`data`)) {
+        `data_object` <- TmuxPaneIoDocument$new()
+        `data_object`$fromJSON(jsonlite::toJSON(this_object$`data`, auto_unbox = TRUE, digits = NA))
+        self$`data` <- `data_object`
       }
       if (!is.null(this_object$`data_base64`)) {
         self$`data_base64` <- this_object$`data_base64`
@@ -244,12 +244,12 @@ IoDocument <- R6::R6Class(
     #' @export
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`type`)) {
+        if (!is.null(self$`id`)) {
           sprintf(
-          '"type":
+          '"id":
             "%s"
                     ',
-          self$`type`
+          self$`id`
           )
         },
         if (!is.null(self$`source`)) {
@@ -260,28 +260,20 @@ IoDocument <- R6::R6Class(
           self$`source`
           )
         },
-        if (!is.null(self$`data`)) {
-          sprintf(
-          '"data":
-          %s
-          ',
-          jsonlite::toJSON(self$`data`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`id`)) {
-          sprintf(
-          '"id":
-            "%s"
-                    ',
-          self$`id`
-          )
-        },
         if (!is.null(self$`specversion`)) {
           sprintf(
           '"specversion":
             "%s"
                     ',
           self$`specversion`
+          )
+        },
+        if (!is.null(self$`type`)) {
+          sprintf(
+          '"type":
+            "%s"
+                    ',
+          self$`type`
           )
         },
         if (!is.null(self$`datacontenttype`)) {
@@ -316,6 +308,14 @@ IoDocument <- R6::R6Class(
           self$`time`
           )
         },
+        if (!is.null(self$`data`)) {
+          sprintf(
+          '"data":
+          %s
+          ',
+          jsonlite::toJSON(self$`data`$toJSON(), auto_unbox = TRUE, digits = NA)
+          )
+        },
         if (!is.null(self$`data_base64`)) {
           sprintf(
           '"data_base64":
@@ -343,11 +343,10 @@ IoDocument <- R6::R6Class(
     #' @export
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
-      self$`type` <- this_object$`type`
-      self$`source` <- this_object$`source`
-      self$`data` <- TmuxPaneIoDocument$new()$fromJSON(jsonlite::toJSON(this_object$`data`, auto_unbox = TRUE, digits = NA))
       self$`id` <- this_object$`id`
+      self$`source` <- this_object$`source`
       self$`specversion` <- this_object$`specversion`
+      self$`type` <- this_object$`type`
       self$`datacontenttype` <- this_object$`datacontenttype`
       # to validate URL. ref: https://stackoverflow.com/questions/73952024/url-validation-in-r
       if (!stringr::str_detect(this_object$`dataschema`, "(https?|ftp)://[^ /$.?#].[^\\s]*")) {
@@ -356,6 +355,7 @@ IoDocument <- R6::R6Class(
       self$`dataschema` <- this_object$`dataschema`
       self$`subject` <- this_object$`subject`
       self$`time` <- this_object$`time`
+      self$`data` <- TmuxPaneIoDocument$new()$fromJSON(jsonlite::toJSON(this_object$`data`, auto_unbox = TRUE, digits = NA))
       self$`data_base64` <- this_object$`data_base64`
       # process additional properties/fields in the payload
       for (key in names(this_object)) {
@@ -383,6 +383,14 @@ IoDocument <- R6::R6Class(
       } else {
         stop(paste("The JSON input `", input, "` is invalid for IoDocument: the required field `id` is missing."))
       }
+      # check the required field `source`
+      if (!is.null(input_json$`source`)) {
+        if (!(is.character(input_json$`source`) && length(input_json$`source`) == 1)) {
+          stop(paste("Error! Invalid data for `source`. Must be a string:", input_json$`source`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for IoDocument: the required field `source` is missing."))
+      }
       # check the required field `specversion`
       if (!is.null(input_json$`specversion`)) {
         if (!(is.character(input_json$`specversion`) && length(input_json$`specversion`) == 1)) {
@@ -390,6 +398,14 @@ IoDocument <- R6::R6Class(
         }
       } else {
         stop(paste("The JSON input `", input, "` is invalid for IoDocument: the required field `specversion` is missing."))
+      }
+      # check the required field `type`
+      if (!is.null(input_json$`type`)) {
+        if (!(is.character(input_json$`type`) && length(input_json$`type`) == 1)) {
+          stop(paste("Error! Invalid data for `type`. Must be a string:", input_json$`type`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for IoDocument: the required field `type` is missing."))
       }
     },
     #' To string (JSON format)
@@ -410,10 +426,6 @@ IoDocument <- R6::R6Class(
     #' @return true if the values in all fields are valid.
     #' @export
     isValid = function() {
-      if (!str_detect(self$`source`, "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$")) {
-        return(FALSE)
-      }
-
       # check if the required `id` is null
       if (is.null(self$`id`)) {
         return(FALSE)
@@ -423,12 +435,22 @@ IoDocument <- R6::R6Class(
         return(FALSE)
       }
 
+      # check if the required `source` is null
+      if (is.null(self$`source`)) {
+        return(FALSE)
+      }
+
       # check if the required `specversion` is null
       if (is.null(self$`specversion`)) {
         return(FALSE)
       }
 
       if (nchar(self$`specversion`) < 1) {
+        return(FALSE)
+      }
+
+      # check if the required `type` is null
+      if (is.null(self$`type`)) {
         return(FALSE)
       }
 
@@ -459,10 +481,6 @@ IoDocument <- R6::R6Class(
     #' @export
     getInvalidFields = function() {
       invalid_fields <- list()
-      if (!str_detect(self$`source`, "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$")) {
-        invalid_fields["source"] <- "Invalid value for `source`, must conform to the pattern [a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$."
-      }
-
       # check if the required `id` is null
       if (is.null(self$`id`)) {
         invalid_fields["id"] <- "Non-nullable required field `id` cannot be null."
@@ -472,6 +490,11 @@ IoDocument <- R6::R6Class(
         invalid_fields["id"] <- "Invalid length for `id`, must be bigger than or equal to 1."
       }
 
+      # check if the required `source` is null
+      if (is.null(self$`source`)) {
+        invalid_fields["source"] <- "Non-nullable required field `source` cannot be null."
+      }
+
       # check if the required `specversion` is null
       if (is.null(self$`specversion`)) {
         invalid_fields["specversion"] <- "Non-nullable required field `specversion` cannot be null."
@@ -479,6 +502,11 @@ IoDocument <- R6::R6Class(
 
       if (nchar(self$`specversion`) < 1) {
         invalid_fields["specversion"] <- "Invalid length for `specversion`, must be bigger than or equal to 1."
+      }
+
+      # check if the required `type` is null
+      if (is.null(self$`type`)) {
+        invalid_fields["type"] <- "Non-nullable required field `type` cannot be null."
       }
 
       if (nchar(self$`datacontenttype`) < 1) {

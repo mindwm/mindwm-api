@@ -28,17 +28,15 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class ClipboardData(
-  `type`: String = "" ,
-
-    source: String = "" ,
-
-    data: ClipboardPayloadData = null ,
-
-  /* Identifies the event. */
+/* Identifies the event. */
   id: String,
+
+    source: String,
 
   /* The version of the CloudEvents specification which the event uses. */
   specversion: String,
+
+    `type`: String,
 
   /* Content type of the data value. Must adhere to RFC 2046 format. */
   datacontenttype: String = "" ,
@@ -51,6 +49,8 @@ case class ClipboardData(
   /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
   time: OffsetDateTime = null ,
 
+    data: ClipboardPayloadData = null ,
+
   /* Base64 encoded event payload. Must adhere to RFC4648. */
   dataBase64: String = "" 
 
@@ -60,70 +60,6 @@ case class ClipboardData(
 
   def validationErrors(path : Seq[Field], failFast : Boolean) : Seq[ValidationError] = {
     val errors = scala.collection.mutable.ListBuffer[ValidationError]()
-        // ==================
-        // `type`
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-
-        // ==================
-        // source
-        // validate against pattern '[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$'
-        if (errors.isEmpty || !failFast) {
-           val regex = """[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$"""
-           if source == null || !regex.r.matches(source) then
-              errors += ValidationError(path :+ Clipboard.Fields.source, s"value '$source' doesn't match pattern $regex")
-        }
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-
-        // ==================
-        // data
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-        // validating data
-        if (errors.isEmpty || !failFast) {
-            if data != null then errors ++= data.validationErrors(path :+ Clipboard.Fields.data, failFast)
-        }
-
         // ==================
         // id
 
@@ -150,6 +86,30 @@ case class ClipboardData(
         
 
         // ==================
+        // source
+        // validate against pattern '^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$'
+        if (errors.isEmpty || !failFast) {
+           val regex = """^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$"""
+           if source == null || !regex.r.matches(source) then
+              errors += ValidationError(path :+ Clipboard.Fields.source, s"value '$source' doesn't match pattern $regex")
+        }
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
         // specversion
 
 
@@ -161,6 +121,24 @@ case class ClipboardData(
                errors += ValidationError(path :+ Clipboard.Fields.specversion, s"length $len is shorter than the min length 1")
             }
         }
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // `type`
+
+
+
 
 
 
@@ -268,6 +246,28 @@ case class ClipboardData(
         
 
         // ==================
+        // data
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+        // validating data
+        if (errors.isEmpty || !failFast) {
+            if data != null then errors ++= data.validationErrors(path :+ Clipboard.Fields.data, failFast)
+        }
+
+        // ==================
         // dataBase64
 
 
@@ -298,24 +298,20 @@ case class ClipboardData(
   /** use 'validated' to check validation */
   def asModel : Clipboard = {
     Clipboard(
-        `type` = Option(
-        `type`
-        )
-        ,
-        source = Option(
-        source
-        )
-        ,
-        data = Option(
-        data
-        )
-        .map(_.asModel),
         id = 
         id
         
         ,
+        source = 
+        source
+        
+        ,
         specversion = 
         specversion
+        
+        ,
+        `type` = 
+        `type`
         
         ,
         datacontenttype = Option(
@@ -334,6 +330,10 @@ case class ClipboardData(
         time
         )
         ,
+        data = Option(
+        data
+        )
+        .map(_.asModel),
         dataBase64 = Option(
         dataBase64
         )

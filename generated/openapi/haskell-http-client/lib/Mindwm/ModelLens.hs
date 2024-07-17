@@ -38,30 +38,25 @@ import Mindwm.Core
 
 -- * Clipboard
 
--- | 'clipboardType' Lens
-clipboardTypeL :: Lens_' Clipboard (Maybe Text)
-clipboardTypeL f Clipboard{..} = (\clipboardType -> Clipboard { clipboardType, ..} ) <$> f clipboardType
-{-# INLINE clipboardTypeL #-}
-
--- | 'clipboardSource' Lens
-clipboardSourceL :: Lens_' Clipboard (Maybe Text)
-clipboardSourceL f Clipboard{..} = (\clipboardSource -> Clipboard { clipboardSource, ..} ) <$> f clipboardSource
-{-# INLINE clipboardSourceL #-}
-
--- | 'clipboardData' Lens
-clipboardDataL :: Lens_' Clipboard (Maybe ClipboardPayload)
-clipboardDataL f Clipboard{..} = (\clipboardData -> Clipboard { clipboardData, ..} ) <$> f clipboardData
-{-# INLINE clipboardDataL #-}
-
 -- | 'clipboardId' Lens
 clipboardIdL :: Lens_' Clipboard (Text)
 clipboardIdL f Clipboard{..} = (\clipboardId -> Clipboard { clipboardId, ..} ) <$> f clipboardId
 {-# INLINE clipboardIdL #-}
 
+-- | 'clipboardSource' Lens
+clipboardSourceL :: Lens_' Clipboard (Text)
+clipboardSourceL f Clipboard{..} = (\clipboardSource -> Clipboard { clipboardSource, ..} ) <$> f clipboardSource
+{-# INLINE clipboardSourceL #-}
+
 -- | 'clipboardSpecversion' Lens
 clipboardSpecversionL :: Lens_' Clipboard (Text)
 clipboardSpecversionL f Clipboard{..} = (\clipboardSpecversion -> Clipboard { clipboardSpecversion, ..} ) <$> f clipboardSpecversion
 {-# INLINE clipboardSpecversionL #-}
+
+-- | 'clipboardType' Lens
+clipboardTypeL :: Lens_' Clipboard (Text)
+clipboardTypeL f Clipboard{..} = (\clipboardType -> Clipboard { clipboardType, ..} ) <$> f clipboardType
+{-# INLINE clipboardTypeL #-}
 
 -- | 'clipboardDatacontenttype' Lens
 clipboardDatacontenttypeL :: Lens_' Clipboard (Maybe Text)
@@ -82,6 +77,11 @@ clipboardSubjectL f Clipboard{..} = (\clipboardSubject -> Clipboard { clipboardS
 clipboardTimeL :: Lens_' Clipboard (Maybe DateTime)
 clipboardTimeL f Clipboard{..} = (\clipboardTime -> Clipboard { clipboardTime, ..} ) <$> f clipboardTime
 {-# INLINE clipboardTimeL #-}
+
+-- | 'clipboardData' Lens
+clipboardDataL :: Lens_' Clipboard (Maybe ClipboardPayload)
+clipboardDataL f Clipboard{..} = (\clipboardData -> Clipboard { clipboardData, ..} ) <$> f clipboardData
+{-# INLINE clipboardDataL #-}
 
 -- | 'clipboardDataBase64' Lens
 clipboardDataBase64L :: Lens_' Clipboard (Maybe Text)
@@ -108,7 +108,7 @@ clipboardPayloadDataL f ClipboardPayload{..} = (\clipboardPayloadData -> Clipboa
 {-# INLINE clipboardPayloadDataL #-}
 
 -- | 'clipboardPayloadType' Lens
-clipboardPayloadTypeL :: Lens_' ClipboardPayload (Maybe E'Type)
+clipboardPayloadTypeL :: Lens_' ClipboardPayload (Maybe E'Type2)
 clipboardPayloadTypeL f ClipboardPayload{..} = (\clipboardPayloadType -> ClipboardPayload { clipboardPayloadType, ..} ) <$> f clipboardPayloadType
 {-# INLINE clipboardPayloadTypeL #-}
 
@@ -204,7 +204,7 @@ graphNodeSpecversionL f GraphNode{..} = (\graphNodeSpecversion -> GraphNode { gr
 {-# INLINE graphNodeSpecversionL #-}
 
 -- | 'graphNodeType' Lens
-graphNodeTypeL :: Lens_' GraphNode (E'Type2)
+graphNodeTypeL :: Lens_' GraphNode (E'Type)
 graphNodeTypeL f GraphNode{..} = (\graphNodeType -> GraphNode { graphNodeType, ..} ) <$> f graphNodeType
 {-# INLINE graphNodeTypeL #-}
 
@@ -312,7 +312,7 @@ graphRelationshipSpecversionL f GraphRelationship{..} = (\graphRelationshipSpecv
 {-# INLINE graphRelationshipSpecversionL #-}
 
 -- | 'graphRelationshipType' Lens
-graphRelationshipTypeL :: Lens_' GraphRelationship (E'Type2)
+graphRelationshipTypeL :: Lens_' GraphRelationship (E'Type)
 graphRelationshipTypeL f GraphRelationship{..} = (\graphRelationshipType -> GraphRelationship { graphRelationshipType, ..} ) <$> f graphRelationshipType
 {-# INLINE graphRelationshipTypeL #-}
 
@@ -404,30 +404,25 @@ graphRelationshipAllOfDataPayloadL f GraphRelationshipAllOfData{..} = (\graphRel
 
 -- * IoDocument
 
--- | 'ioDocumentType' Lens
-ioDocumentTypeL :: Lens_' IoDocument (Maybe Text)
-ioDocumentTypeL f IoDocument{..} = (\ioDocumentType -> IoDocument { ioDocumentType, ..} ) <$> f ioDocumentType
-{-# INLINE ioDocumentTypeL #-}
-
--- | 'ioDocumentSource' Lens
-ioDocumentSourceL :: Lens_' IoDocument (Maybe Text)
-ioDocumentSourceL f IoDocument{..} = (\ioDocumentSource -> IoDocument { ioDocumentSource, ..} ) <$> f ioDocumentSource
-{-# INLINE ioDocumentSourceL #-}
-
--- | 'ioDocumentData' Lens
-ioDocumentDataL :: Lens_' IoDocument (Maybe TmuxPaneIoDocument)
-ioDocumentDataL f IoDocument{..} = (\ioDocumentData -> IoDocument { ioDocumentData, ..} ) <$> f ioDocumentData
-{-# INLINE ioDocumentDataL #-}
-
 -- | 'ioDocumentId' Lens
 ioDocumentIdL :: Lens_' IoDocument (Text)
 ioDocumentIdL f IoDocument{..} = (\ioDocumentId -> IoDocument { ioDocumentId, ..} ) <$> f ioDocumentId
 {-# INLINE ioDocumentIdL #-}
 
+-- | 'ioDocumentSource' Lens
+ioDocumentSourceL :: Lens_' IoDocument (Text)
+ioDocumentSourceL f IoDocument{..} = (\ioDocumentSource -> IoDocument { ioDocumentSource, ..} ) <$> f ioDocumentSource
+{-# INLINE ioDocumentSourceL #-}
+
 -- | 'ioDocumentSpecversion' Lens
 ioDocumentSpecversionL :: Lens_' IoDocument (Text)
 ioDocumentSpecversionL f IoDocument{..} = (\ioDocumentSpecversion -> IoDocument { ioDocumentSpecversion, ..} ) <$> f ioDocumentSpecversion
 {-# INLINE ioDocumentSpecversionL #-}
+
+-- | 'ioDocumentType' Lens
+ioDocumentTypeL :: Lens_' IoDocument (Text)
+ioDocumentTypeL f IoDocument{..} = (\ioDocumentType -> IoDocument { ioDocumentType, ..} ) <$> f ioDocumentType
+{-# INLINE ioDocumentTypeL #-}
 
 -- | 'ioDocumentDatacontenttype' Lens
 ioDocumentDatacontenttypeL :: Lens_' IoDocument (Maybe Text)
@@ -448,6 +443,11 @@ ioDocumentSubjectL f IoDocument{..} = (\ioDocumentSubject -> IoDocument { ioDocu
 ioDocumentTimeL :: Lens_' IoDocument (Maybe DateTime)
 ioDocumentTimeL f IoDocument{..} = (\ioDocumentTime -> IoDocument { ioDocumentTime, ..} ) <$> f ioDocumentTime
 {-# INLINE ioDocumentTimeL #-}
+
+-- | 'ioDocumentData' Lens
+ioDocumentDataL :: Lens_' IoDocument (Maybe TmuxPaneIoDocument)
+ioDocumentDataL f IoDocument{..} = (\ioDocumentData -> IoDocument { ioDocumentData, ..} ) <$> f ioDocumentData
+{-# INLINE ioDocumentDataL #-}
 
 -- | 'ioDocumentDataBase64' Lens
 ioDocumentDataBase64L :: Lens_' IoDocument (Maybe Text)

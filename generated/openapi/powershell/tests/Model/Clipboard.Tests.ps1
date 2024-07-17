@@ -9,7 +9,7 @@ Describe -tag 'MindWM' -name 'Clipboard' {
     Context 'Clipboard' {
         It 'Initialize-Clipboard' {
             # a simple test to create an object
-            #$NewObject = Initialize-Clipboard -Type "TEST_VALUE" -Source "TEST_VALUE" -VarData "TEST_VALUE" -Id "TEST_VALUE" -Specversion "TEST_VALUE" -Datacontenttype "TEST_VALUE" -Dataschema "TEST_VALUE" -Subject "TEST_VALUE" -Time "TEST_VALUE" -DataBase64 "TEST_VALUE"
+            #$NewObject = Initialize-Clipboard -Id "TEST_VALUE" -Source "TEST_VALUE" -Specversion "TEST_VALUE" -Type "TEST_VALUE" -Datacontenttype "TEST_VALUE" -Dataschema "TEST_VALUE" -Subject "TEST_VALUE" -Time "TEST_VALUE" -VarData "TEST_VALUE" -DataBase64 "TEST_VALUE"
             #$NewObject | Should -BeOfType Clipboard
             #$NewObject.property | Should -Be 0
         }

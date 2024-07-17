@@ -15,13 +15,13 @@ import model_clipboard_payload
 
 type Clipboard* = object
   ## 
-  `type`*: string
-  source*: string
-  data*: ClipboardPayload
   id*: string ## Identifies the event.
+  source*: string
   specversion*: string ## The version of the CloudEvents specification which the event uses.
+  `type`*: string
   datacontenttype*: string ## Content type of the data value. Must adhere to RFC 2046 format.
   dataschema*: string ## Identifies the schema that data adheres to.
   subject*: string
   time*: string ## Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+  data*: ClipboardPayload
   dataBase64*: string ## Base64 encoded event payload. Must adhere to RFC4648.

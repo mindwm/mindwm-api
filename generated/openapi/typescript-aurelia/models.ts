@@ -12,17 +12,16 @@
 
 
 export interface Clipboard extends any {
-  type?: string;
-  source?: string;
-  data?: ClipboardPayload;
   /**
    * Identifies the event.
    */
   id: string;
+  source: string;
   /**
    * The version of the CloudEvents specification which the event uses.
    */
   specversion: string;
+  type: string;
   /**
    * Content type of the data value. Must adhere to RFC 2046 format.
    */
@@ -36,6 +35,7 @@ export interface Clipboard extends any {
    * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
    */
   time?: string;
+  data?: ClipboardPayload;
   /**
    * Base64 encoded event payload. Must adhere to RFC4648.
    */
@@ -250,17 +250,16 @@ export interface GraphRelationshipAllOfData {
 
 
 export interface IoDocument extends any {
-  type?: string;
-  source?: string;
-  data?: TmuxPaneIoDocument;
   /**
    * Identifies the event.
    */
   id: string;
+  source: string;
   /**
    * The version of the CloudEvents specification which the event uses.
    */
   specversion: string;
+  type: string;
   /**
    * Content type of the data value. Must adhere to RFC 2046 format.
    */
@@ -274,6 +273,7 @@ export interface IoDocument extends any {
    * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
    */
   time?: string;
+  data?: TmuxPaneIoDocument;
   /**
    * Base64 encoded event payload. Must adhere to RFC4648.
    */

@@ -21,16 +21,14 @@ inherit
 
 feature --Access
 
-    type: detachable STRING_32
-      
-    source: detachable STRING_32
-      
-    data: detachable CLIPBOARD_PAYLOAD
-      
     id: detachable STRING_32
       -- Identifies the event.
+    source: detachable STRING_32
+      
     specversion: detachable STRING_32
       -- The version of the CloudEvents specification which the event uses.
+    type: detachable STRING_32
+      
     datacontenttype: detachable STRING_32
       -- Content type of the data value. Must adhere to RFC 2046 format.
     dataschema: detachable STRING
@@ -39,17 +37,19 @@ feature --Access
       
     time: detachable DATE_TIME
       -- Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+    data: detachable CLIPBOARD_PAYLOAD
+      
     data_base64: detachable STRING_32
       -- Base64 encoded event payload. Must adhere to RFC4648.
 
 feature -- Change Element
 
-    set_type (a_name: like type)
-        -- Set 'type' with 'a_name'.
+    set_id (a_name: like id)
+        -- Set 'id' with 'a_name'.
       do
-        type := a_name
+        id := a_name
       ensure
-        type_set: type = a_name
+        id_set: id = a_name
       end
 
     set_source (a_name: like source)
@@ -60,28 +60,20 @@ feature -- Change Element
         source_set: source = a_name
       end
 
-    set_data (a_name: like data)
-        -- Set 'data' with 'a_name'.
-      do
-        data := a_name
-      ensure
-        data_set: data = a_name
-      end
-
-    set_id (a_name: like id)
-        -- Set 'id' with 'a_name'.
-      do
-        id := a_name
-      ensure
-        id_set: id = a_name
-      end
-
     set_specversion (a_name: like specversion)
         -- Set 'specversion' with 'a_name'.
       do
         specversion := a_name
       ensure
         specversion_set: specversion = a_name
+      end
+
+    set_type (a_name: like type)
+        -- Set 'type' with 'a_name'.
+      do
+        type := a_name
+      ensure
+        type_set: type = a_name
       end
 
     set_datacontenttype (a_name: like datacontenttype)
@@ -116,6 +108,14 @@ feature -- Change Element
         time_set: time = a_name
       end
 
+    set_data (a_name: like data)
+        -- Set 'data' with 'a_name'.
+      do
+        data := a_name
+      ensure
+        data_set: data = a_name
+      end
+
     set_data_base64 (a_name: like data_base64)
         -- Set 'data_base64' with 'a_name'.
       do
@@ -133,9 +133,9 @@ feature -- Change Element
         create Result.make_empty
         Result.append(out_)
         Result.append("%Nclass CLIPBOARD%N")
-        if attached type as l_type then
-          Result.append ("%Ntype:")
-          Result.append (l_type.out)
+        if attached id as l_id then
+          Result.append ("%Nid:")
+          Result.append (l_id.out)
           Result.append ("%N")
         end
         if attached source as l_source then
@@ -143,19 +143,14 @@ feature -- Change Element
           Result.append (l_source.out)
           Result.append ("%N")
         end
-        if attached data as l_data then
-          Result.append ("%Ndata:")
-          Result.append (l_data.out)
-          Result.append ("%N")
-        end
-        if attached id as l_id then
-          Result.append ("%Nid:")
-          Result.append (l_id.out)
-          Result.append ("%N")
-        end
         if attached specversion as l_specversion then
           Result.append ("%Nspecversion:")
           Result.append (l_specversion.out)
+          Result.append ("%N")
+        end
+        if attached type as l_type then
+          Result.append ("%Ntype:")
+          Result.append (l_type.out)
           Result.append ("%N")
         end
         if attached datacontenttype as l_datacontenttype then
@@ -176,6 +171,11 @@ feature -- Change Element
         if attached time as l_time then
           Result.append ("%Ntime:")
           Result.append (l_time.out)
+          Result.append ("%N")
+        end
+        if attached data as l_data then
+          Result.append ("%Ndata:")
+          Result.append (l_data.out)
           Result.append ("%N")
         end
         if attached data_base64 as l_data_base64 then

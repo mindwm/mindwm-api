@@ -44,15 +44,6 @@ class Clipboard extends BaseModel
      */
     protected const MODEL_SCHEMA = <<<'SCHEMA'
 {
-  "properties" : {
-    "type" : { },
-    "source" : {
-      "pattern" : "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$"
-    },
-    "data" : {
-      "$ref" : "#/components/schemas/ClipboardPayload"
-    }
-  },
   "additionalProperties" : { },
   "allOf" : [ {
     "$ref" : "#/components/schemas/CloudEvent"

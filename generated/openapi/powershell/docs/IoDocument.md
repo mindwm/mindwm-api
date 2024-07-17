@@ -3,30 +3,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** |  | [optional] 
-**Source** | **String** |  | [optional] 
-**VarData** | [**TmuxPaneIoDocument**](TmuxPaneIoDocument.md) |  | [optional] 
 **Id** | **String** | Identifies the event. | 
+**Source** | **String** |  | 
 **Specversion** | **String** | The version of the CloudEvents specification which the event uses. | 
+**Type** | **String** |  | [default to "IoDocument"]
 **Datacontenttype** | **String** | Content type of the data value. Must adhere to RFC 2046 format. | [optional] 
 **Dataschema** | **String** | Identifies the schema that data adheres to. | [optional] 
 **Subject** | **String** |  | [optional] [default to "IoDocument"]
 **Time** | **System.DateTime** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
+**VarData** | [**TmuxPaneIoDocument**](TmuxPaneIoDocument.md) |  | [optional] 
 **DataBase64** | **String** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$IoDocument = Initialize-MindWMIoDocument  -Type null `
+$IoDocument = Initialize-MindWMIoDocument  -Id null `
  -Source null `
- -VarData null `
- -Id null `
  -Specversion null `
+ -Type null `
  -Datacontenttype null `
  -Dataschema null `
  -Subject null `
  -Time null `
+ -VarData null `
  -DataBase64 null
 ```
 

@@ -62,15 +62,15 @@ ptree Clipboard::toPropertyTree() const
 {
 	ptree pt;
 	ptree tmp_node;
-	pt.put("type", m_Type);
-	pt.put("source", m_Source);
-	pt.add_child("data", m_Data.toPropertyTree());
 	pt.put("id", m_Id);
+	pt.put("source", m_Source);
 	pt.put("specversion", m_Specversion);
+	pt.put("type", m_Type);
 	pt.put("datacontenttype", m_Datacontenttype);
 	pt.put("dataschema", m_Dataschema);
 	pt.put("subject", m_Subject);
 	pt.put("time", m_Time);
+	pt.add_child("data", m_Data.toPropertyTree());
 	pt.put("data_base64", m_Data_base64);
 	return pt;
 }
@@ -78,28 +78,28 @@ ptree Clipboard::toPropertyTree() const
 void Clipboard::fromPropertyTree(ptree const &pt)
 {
 	ptree tmp_node;
-	m_Type = pt.get("type", "");
-	m_Source = pt.get("source", "");
-	if (pt.get_child_optional("data")) {
-        m_Data = fromPt<ClipboardPayload>(pt.get_child("data"));
-	}
 	m_Id = pt.get("id", "");
+	m_Source = pt.get("source", "");
 	m_Specversion = pt.get("specversion", "");
+	m_Type = pt.get("type", "");
 	m_Datacontenttype = pt.get("datacontenttype", "");
 	m_Dataschema = pt.get("dataschema", "");
 	m_Subject = pt.get("subject", "");
 	m_Time = pt.get("time", "");
+	if (pt.get_child_optional("data")) {
+        m_Data = fromPt<ClipboardPayload>(pt.get_child("data"));
+	}
 	m_Data_base64 = pt.get("data_base64", "");
 }
 
-std::string Clipboard::getType() const
+std::string Clipboard::getId() const
 {
-    return m_Type;
+    return m_Id;
 }
 
-void Clipboard::setType(std::string value)
+void Clipboard::setId(std::string value)
 {
-    m_Type = value;
+    m_Id = value;
 }
 
 
@@ -114,28 +114,6 @@ void Clipboard::setSource(std::string value)
 }
 
 
-ClipboardPayload Clipboard::getData() const
-{
-    return m_Data;
-}
-
-void Clipboard::setData(ClipboardPayload value)
-{
-    m_Data = value;
-}
-
-
-std::string Clipboard::getId() const
-{
-    return m_Id;
-}
-
-void Clipboard::setId(std::string value)
-{
-    m_Id = value;
-}
-
-
 std::string Clipboard::getSpecversion() const
 {
     return m_Specversion;
@@ -144,6 +122,17 @@ std::string Clipboard::getSpecversion() const
 void Clipboard::setSpecversion(std::string value)
 {
     m_Specversion = value;
+}
+
+
+std::string Clipboard::getType() const
+{
+    return m_Type;
+}
+
+void Clipboard::setType(std::string value)
+{
+    m_Type = value;
 }
 
 
@@ -188,6 +177,17 @@ std::string Clipboard::getTime() const
 void Clipboard::setTime(std::string value)
 {
     m_Time = value;
+}
+
+
+ClipboardPayload Clipboard::getData() const
+{
+    return m_Data;
+}
+
+void Clipboard::setData(ClipboardPayload value)
+{
+    m_Data = value;
 }
 
 

@@ -42,17 +42,17 @@ namespace MindWM.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Clipboard" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
-        /// <param name="source">source.</param>
-        /// <param name="data">data.</param>
         /// <param name="id">Identifies the event. (required).</param>
+        /// <param name="source">source (required).</param>
         /// <param name="specversion">The version of the CloudEvents specification which the event uses. (required).</param>
+        /// <param name="type">type (required).</param>
         /// <param name="datacontenttype">Content type of the data value. Must adhere to RFC 2046 format..</param>
         /// <param name="dataschema">Identifies the schema that data adheres to..</param>
         /// <param name="subject">subject.</param>
         /// <param name="time">Timestamp of when the occurrence happened. Must adhere to RFC 3339..</param>
+        /// <param name="data">data.</param>
         /// <param name="dataBase64">Base64 encoded event payload. Must adhere to RFC4648..</param>
-        public Clipboard(string type = default(string), string source = default(string), ClipboardPayload data = default(ClipboardPayload), string id = default(string), string specversion = default(string), string datacontenttype = default(string), string dataschema = default(string), string subject = default(string), DateTime time = default(DateTime), string dataBase64 = default(string))
+        public Clipboard(string id = default(string), string source = default(string), string specversion = default(string), string type = default(string), string datacontenttype = default(string), string dataschema = default(string), string subject = default(string), DateTime time = default(DateTime), ClipboardPayload data = default(ClipboardPayload), string dataBase64 = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -60,40 +60,32 @@ namespace MindWM.Model
                 throw new ArgumentNullException("id is a required property for Clipboard and cannot be null");
             }
             this.Id = id;
+            // to ensure "source" is required (not null)
+            if (source == null)
+            {
+                throw new ArgumentNullException("source is a required property for Clipboard and cannot be null");
+            }
+            this.Source = source;
             // to ensure "specversion" is required (not null)
             if (specversion == null)
             {
                 throw new ArgumentNullException("specversion is a required property for Clipboard and cannot be null");
             }
             this.Specversion = specversion;
+            // to ensure "type" is required (not null)
+            if (type == null)
+            {
+                throw new ArgumentNullException("type is a required property for Clipboard and cannot be null");
+            }
             this.Type = type;
-            this.Source = source;
-            this.Data = data;
             this.Datacontenttype = datacontenttype;
             this.Dataschema = dataschema;
             this.Subject = subject;
             this.Time = time;
+            this.Data = data;
             this.DataBase64 = dataBase64;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Source
-        /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = false)]
-        public string Source { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Data
-        /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        public ClipboardPayload Data { get; set; }
 
         /// <summary>
         /// Identifies the event.
@@ -103,11 +95,23 @@ namespace MindWM.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = true)]
+        public string Source { get; set; }
+
+        /// <summary>
         /// The version of the CloudEvents specification which the event uses.
         /// </summary>
         /// <value>The version of the CloudEvents specification which the event uses.</value>
         [DataMember(Name = "specversion", IsRequired = true, EmitDefaultValue = true)]
         public string Specversion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Content type of the data value. Must adhere to RFC 2046 format.
@@ -137,6 +141,12 @@ namespace MindWM.Model
         public DateTime Time { get; set; }
 
         /// <summary>
+        /// Gets or Sets Data
+        /// </summary>
+        [DataMember(Name = "data", EmitDefaultValue = false)]
+        public ClipboardPayload Data { get; set; }
+
+        /// <summary>
         /// Base64 encoded event payload. Must adhere to RFC4648.
         /// </summary>
         /// <value>Base64 encoded event payload. Must adhere to RFC4648.</value>
@@ -157,15 +167,15 @@ namespace MindWM.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Clipboard {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Specversion: ").Append(Specversion).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Datacontenttype: ").Append(Datacontenttype).Append("\n");
             sb.Append("  Dataschema: ").Append(Dataschema).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  Time: ").Append(Time).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  DataBase64: ").Append(DataBase64).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
@@ -188,19 +198,19 @@ namespace MindWM.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            if (this.Source != null) {
-                // Source (string) pattern
-                Regex regexSource = new Regex(@"[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$", RegexOptions.CultureInvariant);
-                if (!regexSource.Match(this.Source).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Source, must match a pattern of " + regexSource, new [] { "Source" });
-                }
-            }
-
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
                 yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+            }
+
+            if (this.Source != null) {
+                // Source (string) pattern
+                Regex regexSource = new Regex(@"^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$", RegexOptions.CultureInvariant);
+                if (!regexSource.Match(this.Source).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Source, must match a pattern of " + regexSource, new [] { "Source" });
+                }
             }
 
             // Specversion (string) minLength

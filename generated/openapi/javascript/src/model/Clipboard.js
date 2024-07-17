@@ -43,7 +43,9 @@ class Clipboard {
      */
     static initialize(obj, id, source, specversion, type) { 
         obj['id'] = id;
+        obj['source'] = source;
         obj['specversion'] = specversion;
+        obj['type'] = type;
     }
 
     /**
@@ -61,20 +63,17 @@ class Clipboard {
             
             CloudEvent.constructFromObject(data, obj);
 
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = ApiClient.convertToType(data['type'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('source')) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('data')) {
-                obj['data'] = ClipboardPayload.constructFromObject(data['data']);
-            }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
             if (data.hasOwnProperty('specversion')) {
                 obj['specversion'] = ApiClient.convertToType(data['specversion'], 'String');
+            }
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
             if (data.hasOwnProperty('datacontenttype')) {
                 obj['datacontenttype'] = ApiClient.convertToType(data['datacontenttype'], 'String');
@@ -87,6 +86,9 @@ class Clipboard {
             }
             if (data.hasOwnProperty('time')) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
+            }
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = ClipboardPayload.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('data_base64')) {
                 obj['data_base64'] = ApiClient.convertToType(data['data_base64'], 'String');
@@ -108,24 +110,20 @@ class Clipboard {
             }
         }
         // ensure the json data is a string
-        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
-            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
         }
         // ensure the json data is a string
         if (data['source'] && !(typeof data['source'] === 'string' || data['source'] instanceof String)) {
             throw new Error("Expected the field `source` to be a primitive type in the JSON string but got " + data['source']);
         }
-        // validate the optional field `data`
-        if (data['data']) { // data not null
-          ClipboardPayload.validateJSON(data['data']);
-        }
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
-        }
         // ensure the json data is a string
         if (data['specversion'] && !(typeof data['specversion'] === 'string' || data['specversion'] instanceof String)) {
             throw new Error("Expected the field `specversion` to be a primitive type in the JSON string but got " + data['specversion']);
+        }
+        // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
         }
         // ensure the json data is a string
         if (data['datacontenttype'] && !(typeof data['datacontenttype'] === 'string' || data['datacontenttype'] instanceof String)) {
@@ -138,6 +136,10 @@ class Clipboard {
         // ensure the json data is a string
         if (data['subject'] && !(typeof data['subject'] === 'string' || data['subject'] instanceof String)) {
             throw new Error("Expected the field `subject` to be a primitive type in the JSON string but got " + data['subject']);
+        }
+        // validate the optional field `data`
+        if (data['data']) { // data not null
+          ClipboardPayload.validateJSON(data['data']);
         }
         // ensure the json data is a string
         if (data['data_base64'] && !(typeof data['data_base64'] === 'string' || data['data_base64'] instanceof String)) {
@@ -153,9 +155,10 @@ class Clipboard {
 Clipboard.RequiredProperties = ["id", "source", "specversion", "type"];
 
 /**
- * @member {String} type
+ * Identifies the event.
+ * @member {String} id
  */
-Clipboard.prototype['type'] = undefined;
+Clipboard.prototype['id'] = undefined;
 
 /**
  * @member {String} source
@@ -163,21 +166,15 @@ Clipboard.prototype['type'] = undefined;
 Clipboard.prototype['source'] = undefined;
 
 /**
- * @member {module:model/ClipboardPayload} data
- */
-Clipboard.prototype['data'] = undefined;
-
-/**
- * Identifies the event.
- * @member {String} id
- */
-Clipboard.prototype['id'] = undefined;
-
-/**
  * The version of the CloudEvents specification which the event uses.
  * @member {String} specversion
  */
 Clipboard.prototype['specversion'] = undefined;
+
+/**
+ * @member {String} type
+ */
+Clipboard.prototype['type'] = undefined;
 
 /**
  * Content type of the data value. Must adhere to RFC 2046 format.
@@ -201,6 +198,11 @@ Clipboard.prototype['subject'] = undefined;
  * @member {Date} time
  */
 Clipboard.prototype['time'] = undefined;
+
+/**
+ * @member {module:model/ClipboardPayload} data
+ */
+Clipboard.prototype['data'] = undefined;
 
 /**
  * Base64 encoded event payload. Must adhere to RFC4648.

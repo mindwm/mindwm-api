@@ -5,11 +5,12 @@ context("Test IoDocument")
 
 model_instance <- IoDocument$new()
 
-test_that("type", {
-  # tests for the property `type` (character)
+test_that("id", {
+  # tests for the property `id` (character)
+  # Identifies the event.
 
   # uncomment below to test the property
-  #expect_equal(model.instance$`type`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
 })
 
 test_that("source", {
@@ -19,27 +20,19 @@ test_that("source", {
   #expect_equal(model.instance$`source`, "EXPECTED_RESULT")
 })
 
-test_that("data", {
-  # tests for the property `data` (TmuxPaneIoDocument)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`data`, "EXPECTED_RESULT")
-})
-
-test_that("id", {
-  # tests for the property `id` (character)
-  # Identifies the event.
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})
-
 test_that("specversion", {
   # tests for the property `specversion` (character)
   # The version of the CloudEvents specification which the event uses.
 
   # uncomment below to test the property
   #expect_equal(model.instance$`specversion`, "EXPECTED_RESULT")
+})
+
+test_that("type", {
+  # tests for the property `type` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`type`, "EXPECTED_RESULT")
 })
 
 test_that("datacontenttype", {
@@ -71,6 +64,13 @@ test_that("time", {
 
   # uncomment below to test the property
   #expect_equal(model.instance$`time`, "EXPECTED_RESULT")
+})
+
+test_that("data", {
+  # tests for the property `data` (TmuxPaneIoDocument)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`data`, "EXPECTED_RESULT")
 })
 
 test_that("data_base64", {

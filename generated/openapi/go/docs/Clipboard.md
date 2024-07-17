@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** |  | [optional] 
-**Source** | Pointer to **string** |  | [optional] 
-**Data** | Pointer to [**ClipboardPayload**](ClipboardPayload.md) |  | [optional] 
 **Id** | **string** | Identifies the event. | 
+**Source** | **string** |  | 
 **Specversion** | **string** | The version of the CloudEvents specification which the event uses. | 
+**Type** | **string** |  | 
 **Datacontenttype** | Pointer to **string** | Content type of the data value. Must adhere to RFC 2046 format. | [optional] 
 **Dataschema** | Pointer to **string** | Identifies the schema that data adheres to. | [optional] 
 **Subject** | Pointer to **string** |  | [optional] 
 **Time** | Pointer to **time.Time** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
+**Data** | Pointer to [**ClipboardPayload**](ClipboardPayload.md) |  | [optional] 
 **DataBase64** | Pointer to **string** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
 ## Methods
 
 ### NewClipboard
 
-`func NewClipboard(id string, specversion string, ) *Clipboard`
+`func NewClipboard(id string, source string, specversion string, type_ string, ) *Clipboard`
 
 NewClipboard instantiates a new Clipboard object
 This constructor will assign default values to properties that have it defined,
@@ -33,81 +33,6 @@ will change when the set of required properties is changed
 NewClipboardWithDefaults instantiates a new Clipboard object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetType
-
-`func (o *Clipboard) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *Clipboard) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *Clipboard) SetType(v string)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *Clipboard) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### GetSource
-
-`func (o *Clipboard) GetSource() string`
-
-GetSource returns the Source field if non-nil, zero value otherwise.
-
-### GetSourceOk
-
-`func (o *Clipboard) GetSourceOk() (*string, bool)`
-
-GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSource
-
-`func (o *Clipboard) SetSource(v string)`
-
-SetSource sets Source field to given value.
-
-### HasSource
-
-`func (o *Clipboard) HasSource() bool`
-
-HasSource returns a boolean if a field has been set.
-
-### GetData
-
-`func (o *Clipboard) GetData() ClipboardPayload`
-
-GetData returns the Data field if non-nil, zero value otherwise.
-
-### GetDataOk
-
-`func (o *Clipboard) GetDataOk() (*ClipboardPayload, bool)`
-
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetData
-
-`func (o *Clipboard) SetData(v ClipboardPayload)`
-
-SetData sets Data field to given value.
-
-### HasData
-
-`func (o *Clipboard) HasData() bool`
-
-HasData returns a boolean if a field has been set.
 
 ### GetId
 
@@ -129,6 +54,26 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetSource
+
+`func (o *Clipboard) GetSource() string`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *Clipboard) GetSourceOk() (*string, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *Clipboard) SetSource(v string)`
+
+SetSource sets Source field to given value.
+
+
 ### GetSpecversion
 
 `func (o *Clipboard) GetSpecversion() string`
@@ -147,6 +92,26 @@ and a boolean to check if the value has been set.
 `func (o *Clipboard) SetSpecversion(v string)`
 
 SetSpecversion sets Specversion field to given value.
+
+
+### GetType
+
+`func (o *Clipboard) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *Clipboard) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *Clipboard) SetType(v string)`
+
+SetType sets Type field to given value.
 
 
 ### GetDatacontenttype
@@ -248,6 +213,31 @@ SetTime sets Time field to given value.
 `func (o *Clipboard) HasTime() bool`
 
 HasTime returns a boolean if a field has been set.
+
+### GetData
+
+`func (o *Clipboard) GetData() ClipboardPayload`
+
+GetData returns the Data field if non-nil, zero value otherwise.
+
+### GetDataOk
+
+`func (o *Clipboard) GetDataOk() (*ClipboardPayload, bool)`
+
+GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetData
+
+`func (o *Clipboard) SetData(v ClipboardPayload)`
+
+SetData sets Data field to given value.
+
+### HasData
+
+`func (o *Clipboard) HasData() bool`
+
+HasData returns a boolean if a field has been set.
 
 ### GetDataBase64
 

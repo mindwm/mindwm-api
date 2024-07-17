@@ -28,18 +28,16 @@
 
 @interface OAIClipboard : NSMutableDictionary
 
-
-@property(nonatomic) NSString* type;
-
-@property(nonatomic) NSString* source;
-
-@property(nonatomic) OAIClipboardPayload* data;
 /* Identifies the event. 
  */
 @property(nonatomic) NSString* _id;
+
+@property(nonatomic) NSString* source;
 /* The version of the CloudEvents specification which the event uses. 
  */
 @property(nonatomic) NSString* specversion;
+
+@property(nonatomic) NSString* type;
 /* Content type of the data value. Must adhere to RFC 2046 format. [optional]
  */
 @property(nonatomic) NSString* datacontenttype;
@@ -51,6 +49,8 @@
 /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. [optional]
  */
 @property(nonatomic) NSDate* time;
+
+@property(nonatomic) OAIClipboardPayload* data;
 /* Base64 encoded event payload. Must adhere to RFC4648. [optional]
  */
 @property(nonatomic) NSString* dataBase64;

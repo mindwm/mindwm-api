@@ -9,7 +9,7 @@ Describe -tag 'MindWM' -name 'IoDocument' {
     Context 'IoDocument' {
         It 'Initialize-IoDocument' {
             # a simple test to create an object
-            #$NewObject = Initialize-IoDocument -Type "TEST_VALUE" -Source "TEST_VALUE" -VarData "TEST_VALUE" -Id "TEST_VALUE" -Specversion "TEST_VALUE" -Datacontenttype "TEST_VALUE" -Dataschema "TEST_VALUE" -Subject "TEST_VALUE" -Time "TEST_VALUE" -DataBase64 "TEST_VALUE"
+            #$NewObject = Initialize-IoDocument -Id "TEST_VALUE" -Source "TEST_VALUE" -Specversion "TEST_VALUE" -Type "TEST_VALUE" -Datacontenttype "TEST_VALUE" -Dataschema "TEST_VALUE" -Subject "TEST_VALUE" -Time "TEST_VALUE" -VarData "TEST_VALUE" -DataBase64 "TEST_VALUE"
             #$NewObject | Should -BeOfType IoDocument
             #$NewObject.property | Should -Be 0
         }

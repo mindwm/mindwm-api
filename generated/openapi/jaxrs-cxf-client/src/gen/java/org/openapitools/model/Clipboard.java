@@ -13,26 +13,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Clipboard extends HashMap<String, Object> {
   
-  @ApiModelProperty(value = "")
-  private String type;
-
-  @ApiModelProperty(value = "")
-  private String source;
-
-  @ApiModelProperty(value = "")
-  private ClipboardPayload data;
-
   @ApiModelProperty(required = true, value = "Identifies the event.")
  /**
    * Identifies the event.
   **/
   private String id;
 
+  @ApiModelProperty(required = true, value = "")
+  private String source;
+
   @ApiModelProperty(required = true, value = "The version of the CloudEvents specification which the event uses.")
  /**
    * The version of the CloudEvents specification which the event uses.
   **/
   private String specversion;
+
+  @ApiModelProperty(required = true, value = "")
+  private String type;
 
   @ApiModelProperty(value = "Content type of the data value. Must adhere to RFC 2046 format.")
  /**
@@ -55,26 +52,29 @@ public class Clipboard extends HashMap<String, Object> {
   **/
   private Date time;
 
+  @ApiModelProperty(value = "")
+  private ClipboardPayload data;
+
   @ApiModelProperty(value = "Base64 encoded event payload. Must adhere to RFC4648.")
  /**
    * Base64 encoded event payload. Must adhere to RFC4648.
   **/
   private String dataBase64;
  /**
-   * Get type
-   * @return type
+   * Identifies the event.
+   * @return id
   **/
-  @JsonProperty("type")
-  public String getType() {
-    return type;
+  @JsonProperty("id")
+  public String getId() {
+    return id;
   }
 
-  public void setType(String type) {
-    this.type = type;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public Clipboard type(String type) {
-    this.type = type;
+  public Clipboard id(String id) {
+    this.id = id;
     return this;
   }
 
@@ -97,42 +97,6 @@ public class Clipboard extends HashMap<String, Object> {
   }
 
  /**
-   * Get data
-   * @return data
-  **/
-  @JsonProperty("data")
-  public ClipboardPayload getData() {
-    return data;
-  }
-
-  public void setData(ClipboardPayload data) {
-    this.data = data;
-  }
-
-  public Clipboard data(ClipboardPayload data) {
-    this.data = data;
-    return this;
-  }
-
- /**
-   * Identifies the event.
-   * @return id
-  **/
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Clipboard id(String id) {
-    this.id = id;
-    return this;
-  }
-
- /**
    * The version of the CloudEvents specification which the event uses.
    * @return specversion
   **/
@@ -147,6 +111,24 @@ public class Clipboard extends HashMap<String, Object> {
 
   public Clipboard specversion(String specversion) {
     this.specversion = specversion;
+    return this;
+  }
+
+ /**
+   * Get type
+   * @return type
+  **/
+  @JsonProperty("type")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Clipboard type(String type) {
+    this.type = type;
     return this;
   }
 
@@ -223,6 +205,24 @@ public class Clipboard extends HashMap<String, Object> {
   }
 
  /**
+   * Get data
+   * @return data
+  **/
+  @JsonProperty("data")
+  public ClipboardPayload getData() {
+    return data;
+  }
+
+  public void setData(ClipboardPayload data) {
+    this.data = data;
+  }
+
+  public Clipboard data(ClipboardPayload data) {
+    this.data = data;
+    return this;
+  }
+
+ /**
    * Base64 encoded event payload. Must adhere to RFC4648.
    * @return dataBase64
   **/
@@ -249,22 +249,22 @@ public class Clipboard extends HashMap<String, Object> {
       return false;
     }
     Clipboard clipboard = (Clipboard) o;
-    return Objects.equals(this.type, clipboard.type) &&
+    return Objects.equals(this.id, clipboard.id) &&
         Objects.equals(this.source, clipboard.source) &&
-        Objects.equals(this.data, clipboard.data) &&
-        Objects.equals(this.id, clipboard.id) &&
         Objects.equals(this.specversion, clipboard.specversion) &&
+        Objects.equals(this.type, clipboard.type) &&
         Objects.equals(this.datacontenttype, clipboard.datacontenttype) &&
         Objects.equals(this.dataschema, clipboard.dataschema) &&
         Objects.equals(this.subject, clipboard.subject) &&
         Objects.equals(this.time, clipboard.time) &&
+        Objects.equals(this.data, clipboard.data) &&
         Objects.equals(this.dataBase64, clipboard.dataBase64) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, source, data, id, specversion, datacontenttype, dataschema, subject, time, dataBase64, super.hashCode());
+    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64, super.hashCode());
   }
 
   @Override
@@ -272,15 +272,15 @@ public class Clipboard extends HashMap<String, Object> {
     StringBuilder sb = new StringBuilder();
     sb.append("class Clipboard {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    specversion: ").append(toIndentedString(specversion)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    datacontenttype: ").append(toIndentedString(datacontenttype)).append("\n");
     sb.append("    dataschema: ").append(toIndentedString(dataschema)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
     sb.append("}");
     return sb.toString();

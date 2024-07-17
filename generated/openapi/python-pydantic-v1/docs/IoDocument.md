@@ -4,15 +4,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | [optional] 
-**source** | **str** |  | [optional] 
-**data** | [**TmuxPaneIoDocument**](TmuxPaneIoDocument.md) |  | [optional] 
 **id** | **str** | Identifies the event. | 
+**source** | **str** |  | 
 **specversion** | **str** | The version of the CloudEvents specification which the event uses. | 
+**type** | **str** |  | [default to 'IoDocument']
 **datacontenttype** | **str** | Content type of the data value. Must adhere to RFC 2046 format. | [optional] 
 **dataschema** | **str** | Identifies the schema that data adheres to. | [optional] 
 **subject** | **str** |  | [optional] [default to 'IoDocument']
 **time** | **datetime** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
+**data** | [**TmuxPaneIoDocument**](TmuxPaneIoDocument.md) |  | [optional] 
 **data_base64** | **str** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
 ## Example

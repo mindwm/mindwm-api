@@ -91,14 +91,6 @@ components:
           source: {}
           data:
             $ref: '#/components/schemas/TmuxPaneIoDocument'
-      properties:
-        type: {}
-        source:
-          pattern: "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\
-            \\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\
-            \\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$"
-        data:
-          $ref: '#/components/schemas/TmuxPaneIoDocument'
     Clipboard:
       additionalProperties: {}
       allOf:
@@ -112,12 +104,37 @@ components:
             pattern: "^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$"
           data:
             $ref: '#/components/schemas/ClipboardPayload'
-      properties:
-        type: {}
-        source:
-          pattern: "[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$"
-        data:
-          $ref: '#/components/schemas/ClipboardPayload'
+    GraphNode:
+      additionalProperties: {}
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      - properties:
+          type:
+            enum:
+            - created
+            - updated
+            - deleted
+          source:
+            enum:
+            - graph.node
+            - graph.relationship
+          data:
+            $ref: '#/components/schemas/GraphNode_allOf_data'
+    GraphRelationship:
+      additionalProperties: {}
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      - properties:
+          type:
+            enum:
+            - created
+            - updated
+            - deleted
+          source:
+            enum:
+            - graph.relationship
+          data:
+            $ref: '#/components/schemas/GraphRelationship_allOf_data'
     ClipboardPayload:
       properties:
         start:
@@ -169,37 +186,6 @@ components:
       - output
       - ps1
       title: TmuxPaneIoDocument
-    GraphNode:
-      additionalProperties: {}
-      allOf:
-      - $ref: '#/components/schemas/CloudEvent'
-      - properties:
-          type:
-            enum:
-            - created
-            - updated
-            - deleted
-          source:
-            enum:
-            - graph.node
-            - graph.relationship
-          data:
-            $ref: '#/components/schemas/GraphNode_allOf_data'
-    GraphRelationship:
-      additionalProperties: {}
-      allOf:
-      - $ref: '#/components/schemas/CloudEvent'
-      - properties:
-          type:
-            enum:
-            - created
-            - updated
-            - deleted
-          source:
-            enum:
-            - graph.relationship
-          data:
-            $ref: '#/components/schemas/GraphRelationship_allOf_data'
     Neo4jCaptureDataChange:
       properties:
         headers:
@@ -299,14 +285,6 @@ components:
       description: The event payload.
       nullable: true
       title: CloudEvent_data
-    ClipboardPayload_context:
-      description: Selection context
-      properties:
-        window:
-          description: window id
-          title: window
-          type: string
-      title: ClipboardPayload_context
     GraphNode_allOf_data:
       allOf:
       - $ref: '#/components/schemas/Neo4jCaptureDataChange'
@@ -321,6 +299,14 @@ components:
           payload:
             $ref: '#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload'
       title: GraphRelationship_allOf_data
+    ClipboardPayload_context:
+      description: Selection context
+      properties:
+        window:
+          description: window id
+          title: window
+          type: string
+      title: ClipboardPayload_context
     Neo4jCaptureDataChange_meta_source:
       properties:
         hostname:

@@ -62,10 +62,10 @@ ptree IoDocument::toPropertyTree() const
 {
 	ptree pt;
 	ptree tmp_node;
-	pt.put("type", m_Type);
-	pt.put("source", m_Source);
 	pt.put("id", m_Id);
+	pt.put("source", m_Source);
 	pt.put("specversion", m_Specversion);
+	pt.put("type", m_Type);
 	pt.put("datacontenttype", m_Datacontenttype);
 	pt.put("dataschema", m_Dataschema);
 	pt.put("subject", m_Subject);
@@ -77,10 +77,10 @@ ptree IoDocument::toPropertyTree() const
 void IoDocument::fromPropertyTree(ptree const &pt)
 {
 	ptree tmp_node;
-	m_Type = pt.get("type", "");
-	m_Source = pt.get("source", "");
 	m_Id = pt.get("id", "");
+	m_Source = pt.get("source", "");
 	m_Specversion = pt.get("specversion", "");
+	m_Type = pt.get("type", "IoDocument");
 	m_Datacontenttype = pt.get("datacontenttype", "");
 	m_Dataschema = pt.get("dataschema", "");
 	m_Subject = pt.get("subject", "IoDocument");
@@ -88,14 +88,14 @@ void IoDocument::fromPropertyTree(ptree const &pt)
 	m_Data_base64 = pt.get("data_base64", "");
 }
 
-std::string IoDocument::getType() const
+std::string IoDocument::getId() const
 {
-    return m_Type;
+    return m_Id;
 }
 
-void IoDocument::setType(std::string value)
+void IoDocument::setId(std::string value)
 {
-    m_Type = value;
+    m_Id = value;
 }
 
 
@@ -110,28 +110,6 @@ void IoDocument::setSource(std::string value)
 }
 
 
-TmuxPaneIoDocument IoDocument::getData() const
-{
-    return m_Data;
-}
-
-void IoDocument::setData(TmuxPaneIoDocument value)
-{
-    m_Data = value;
-}
-
-
-std::string IoDocument::getId() const
-{
-    return m_Id;
-}
-
-void IoDocument::setId(std::string value)
-{
-    m_Id = value;
-}
-
-
 std::string IoDocument::getSpecversion() const
 {
     return m_Specversion;
@@ -140,6 +118,17 @@ std::string IoDocument::getSpecversion() const
 void IoDocument::setSpecversion(std::string value)
 {
     m_Specversion = value;
+}
+
+
+std::string IoDocument::getType() const
+{
+    return m_Type;
+}
+
+void IoDocument::setType(std::string value)
+{
+    m_Type = value;
 }
 
 
@@ -184,6 +173,17 @@ std::string IoDocument::getTime() const
 void IoDocument::setTime(std::string value)
 {
     m_Time = value;
+}
+
+
+TmuxPaneIoDocument IoDocument::getData() const
+{
+    return m_Data;
+}
+
+void IoDocument::setData(TmuxPaneIoDocument value)
+{
+    m_Data = value;
 }
 
 

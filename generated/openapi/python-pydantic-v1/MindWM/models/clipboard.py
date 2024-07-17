@@ -26,15 +26,15 @@ class Clipboard(BaseModel):
     """
     Clipboard
     """
-    type: Optional[StrictStr] = None
-    source: Optional[constr(strict=True)] = None
-    data: Optional[ClipboardPayload] = None
     id: constr(strict=True, min_length=1) = Field(default=..., description="Identifies the event.")
+    source: constr(strict=True) = Field(...)
     specversion: constr(strict=True, min_length=1) = Field(default=..., description="The version of the CloudEvents specification which the event uses.")
+    type: StrictStr = Field(...)
     datacontenttype: Optional[constr(strict=True, min_length=1)] = Field(default=None, description="Content type of the data value. Must adhere to RFC 2046 format.")
     dataschema: Optional[constr(strict=True, min_length=1)] = Field(default=None, description="Identifies the schema that data adheres to.")
     subject: Optional[StrictStr] = None
     time: Optional[datetime] = Field(default=None, description="Timestamp of when the occurrence happened. Must adhere to RFC 3339.")
+    data: Optional[ClipboardPayload] = None
     data_base64: Optional[StrictStr] = Field(default=None, description="Base64 encoded event payload. Must adhere to RFC4648.")
     additional_properties: Dict[str, Any] = {}
     __properties = ["id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64"]
@@ -42,11 +42,8 @@ class Clipboard(BaseModel):
     @validator('source')
     def source_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$", value):
-            raise ValueError(r"must validate the regular expression /[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$/")
+        if not re.match(r"^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$", value):
+            raise ValueError(r"must validate the regular expression /^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$/")
         return value
 
     class Config:

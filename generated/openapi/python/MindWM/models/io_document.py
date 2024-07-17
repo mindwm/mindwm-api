@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from MindWM.models.tmux_pane_io_document import TmuxPaneIoDocument
@@ -29,28 +29,18 @@ class IoDocument(BaseModel):
     """
     IoDocument
     """ # noqa: E501
-    type: Optional[StrictStr] = None
-    source: Optional[Annotated[str, Field(strict=True)]] = None
-    data: Optional[TmuxPaneIoDocument] = None
     id: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Identifies the event.")
+    source: StrictStr
     specversion: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The version of the CloudEvents specification which the event uses.")
+    type: StrictStr
     datacontenttype: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Content type of the data value. Must adhere to RFC 2046 format.")
     dataschema: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Identifies the schema that data adheres to.")
     subject: Optional[StrictStr] = 'IoDocument'
     time: Optional[datetime] = Field(default=None, description="Timestamp of when the occurrence happened. Must adhere to RFC 3339.")
+    data: Optional[TmuxPaneIoDocument] = None
     data_base64: Optional[StrictStr] = Field(default=None, description="Base64 encoded event payload. Must adhere to RFC4648.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64"]
-
-    @field_validator('source')
-    def source_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+\/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$", value):
-            raise ValueError(r"must validate the regular expression /[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.tmux\\.[A-Za-z0-9+\/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.[0-9]+?\\.[0-9]+?\\.tiodocument$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -25,70 +25,19 @@ import org.openapitools.model.TmuxPaneIoDocument;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-17T14:05:10.943134242Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-17T16:07:56.019889082Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument extends HashMap<String, Object>  {
   
-  private String type;
-  private String source;
-  private TmuxPaneIoDocument data;
   private String id;
+  private String source;
   private String specversion;
+  private String type = "IoDocument";
   private String datacontenttype;
   private URI dataschema;
   private String subject = "IoDocument";
   private Date time;
+  private TmuxPaneIoDocument data;
   private String dataBase64;
-
-  /**
-   */
-  public IoDocument type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("type")
-  public String getType() {
-    return type;
-  }
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  /**
-   */
-  public IoDocument source(String source) {
-    this.source = source;
-    return this;
-  }
-
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("source")
-  public String getSource() {
-    return source;
-  }
-  public void setSource(String source) {
-    this.source = source;
-  }
-
-  /**
-   */
-  public IoDocument data(TmuxPaneIoDocument data) {
-    this.data = data;
-    return this;
-  }
-
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("data")
-  public TmuxPaneIoDocument getData() {
-    return data;
-  }
-  public void setData(TmuxPaneIoDocument data) {
-    this.data = data;
-  }
 
   /**
    * Identifies the event.
@@ -109,6 +58,23 @@ public class IoDocument extends HashMap<String, Object>  {
   }
 
   /**
+   */
+  public IoDocument source(String source) {
+    this.source = source;
+    return this;
+  }
+
+  
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("source")
+  public String getSource() {
+    return source;
+  }
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+  /**
    * The version of the CloudEvents specification which the event uses.
    */
   public IoDocument specversion(String specversion) {
@@ -124,6 +90,23 @@ public class IoDocument extends HashMap<String, Object>  {
   }
   public void setSpecversion(String specversion) {
     this.specversion = specversion;
+  }
+
+  /**
+   */
+  public IoDocument type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("type")
+  public String getType() {
+    return type;
+  }
+  public void setType(String type) {
+    this.type = type;
   }
 
   /**
@@ -198,6 +181,23 @@ public class IoDocument extends HashMap<String, Object>  {
   }
 
   /**
+   */
+  public IoDocument data(TmuxPaneIoDocument data) {
+    this.data = data;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("data")
+  public TmuxPaneIoDocument getData() {
+    return data;
+  }
+  public void setData(TmuxPaneIoDocument data) {
+    this.data = data;
+  }
+
+  /**
    * Base64 encoded event payload. Must adhere to RFC4648.
    */
   public IoDocument dataBase64(String dataBase64) {
@@ -225,21 +225,21 @@ public class IoDocument extends HashMap<String, Object>  {
       return false;
     }
     IoDocument ioDocument = (IoDocument) o;
-    return Objects.equals(type, ioDocument.type) &&
+    return Objects.equals(id, ioDocument.id) &&
         Objects.equals(source, ioDocument.source) &&
-        Objects.equals(data, ioDocument.data) &&
-        Objects.equals(id, ioDocument.id) &&
         Objects.equals(specversion, ioDocument.specversion) &&
+        Objects.equals(type, ioDocument.type) &&
         Objects.equals(datacontenttype, ioDocument.datacontenttype) &&
         Objects.equals(dataschema, ioDocument.dataschema) &&
         Objects.equals(subject, ioDocument.subject) &&
         Objects.equals(time, ioDocument.time) &&
+        Objects.equals(data, ioDocument.data) &&
         Objects.equals(dataBase64, ioDocument.dataBase64);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, source, data, id, specversion, datacontenttype, dataschema, subject, time, dataBase64);
+    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64);
   }
 
   @Override
@@ -247,15 +247,15 @@ public class IoDocument extends HashMap<String, Object>  {
     StringBuilder sb = new StringBuilder();
     sb.append("class IoDocument {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    specversion: ").append(toIndentedString(specversion)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    datacontenttype: ").append(toIndentedString(datacontenttype)).append("\n");
     sb.append("    dataschema: ").append(toIndentedString(dataschema)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -31,35 +31,32 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Clipboard
  */
 @JsonPropertyOrder({
-  Clipboard.JSON_PROPERTY_TYPE,
-  Clipboard.JSON_PROPERTY_SOURCE,
-  Clipboard.JSON_PROPERTY_DATA,
   Clipboard.JSON_PROPERTY_ID,
+  Clipboard.JSON_PROPERTY_SOURCE,
   Clipboard.JSON_PROPERTY_SPECVERSION,
+  Clipboard.JSON_PROPERTY_TYPE,
   Clipboard.JSON_PROPERTY_DATACONTENTTYPE,
   Clipboard.JSON_PROPERTY_DATASCHEMA,
   Clipboard.JSON_PROPERTY_SUBJECT,
   Clipboard.JSON_PROPERTY_TIME,
+  Clipboard.JSON_PROPERTY_DATA,
   Clipboard.JSON_PROPERTY_DATA_BASE64
 })
 @JsonTypeName("Clipboard")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-17T14:05:01.774271688Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-17T16:07:47.810085790Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Clipboard extends HashMap<String, Object> {
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private String type;
+    public static final String JSON_PROPERTY_ID = "id";
+    private String id;
 
     public static final String JSON_PROPERTY_SOURCE = "source";
     private String source;
 
-    public static final String JSON_PROPERTY_DATA = "data";
-    private ClipboardPayload data;
-
-    public static final String JSON_PROPERTY_ID = "id";
-    private String id;
-
     public static final String JSON_PROPERTY_SPECVERSION = "specversion";
     private String specversion;
+
+    public static final String JSON_PROPERTY_TYPE = "type";
+    private String type;
 
     public static final String JSON_PROPERTY_DATACONTENTTYPE = "datacontenttype";
     private String datacontenttype;
@@ -73,84 +70,18 @@ public class Clipboard extends HashMap<String, Object> {
     public static final String JSON_PROPERTY_TIME = "time";
     private OffsetDateTime time;
 
+    public static final String JSON_PROPERTY_DATA = "data";
+    private ClipboardPayload data;
+
     public static final String JSON_PROPERTY_DATA_BASE64 = "data_base64";
     private String dataBase64;
 
     public Clipboard(String id, String source, String specversion, String type) {
         super();
         this.id = id;
+        this.source = source;
         this.specversion = specversion;
-    }
-
-    public Clipboard type(String type) {
         this.type = type;
-        return this;
-    }
-
-    /**
-     * Get type
-     * @return type
-     */
-    @Nullable
-    @Schema(name = "type", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getType() {
-        return type;
-    }
-
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Clipboard source(String source) {
-        this.source = source;
-        return this;
-    }
-
-    /**
-     * Get source
-     * @return source
-     */
-    @Nullable
-    @Pattern(regexp="[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$")
-    @Schema(name = "source", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty(JSON_PROPERTY_SOURCE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getSource() {
-        return source;
-    }
-
-    @JsonProperty(JSON_PROPERTY_SOURCE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public Clipboard data(ClipboardPayload data) {
-        this.data = data;
-        return this;
-    }
-
-    /**
-     * Get data
-     * @return data
-     */
-    @Valid
-    @Nullable
-    @Schema(name = "data", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty(JSON_PROPERTY_DATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public ClipboardPayload getData() {
-        return data;
-    }
-
-    @JsonProperty(JSON_PROPERTY_DATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setData(ClipboardPayload data) {
-        this.data = data;
     }
 
     public Clipboard id(String id) {
@@ -177,6 +108,30 @@ public class Clipboard extends HashMap<String, Object> {
         this.id = id;
     }
 
+    public Clipboard source(String source) {
+        this.source = source;
+        return this;
+    }
+
+    /**
+     * Get source
+     * @return source
+     */
+    @NotNull
+    @Pattern(regexp="^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$")
+    @Schema(name = "source", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty(JSON_PROPERTY_SOURCE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getSource() {
+        return source;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SOURCE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setSource(String source) {
+        this.source = source;
+    }
+
     public Clipboard specversion(String specversion) {
         this.specversion = specversion;
         return this;
@@ -199,6 +154,29 @@ public class Clipboard extends HashMap<String, Object> {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSpecversion(String specversion) {
         this.specversion = specversion;
+    }
+
+    public Clipboard type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Get type
+     * @return type
+     */
+    @NotNull
+    @Schema(name = "type", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getType() {
+        return type;
+    }
+
+    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Clipboard datacontenttype(String datacontenttype) {
@@ -298,6 +276,30 @@ public class Clipboard extends HashMap<String, Object> {
         this.time = time;
     }
 
+    public Clipboard data(ClipboardPayload data) {
+        this.data = data;
+        return this;
+    }
+
+    /**
+     * Get data
+     * @return data
+     */
+    @Valid
+    @Nullable
+    @Schema(name = "data", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty(JSON_PROPERTY_DATA)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public ClipboardPayload getData() {
+        return data;
+    }
+
+    @JsonProperty(JSON_PROPERTY_DATA)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setData(ClipboardPayload data) {
+        this.data = data;
+    }
+
     public Clipboard dataBase64(String dataBase64) {
         this.dataBase64 = dataBase64;
         return this;
@@ -330,22 +332,22 @@ public class Clipboard extends HashMap<String, Object> {
             return false;
         }
         Clipboard clipboard = (Clipboard) o;
-        return Objects.equals(this.type, clipboard.type) &&
+        return Objects.equals(this.id, clipboard.id) &&
             Objects.equals(this.source, clipboard.source) &&
-            Objects.equals(this.data, clipboard.data) &&
-            Objects.equals(this.id, clipboard.id) &&
             Objects.equals(this.specversion, clipboard.specversion) &&
+            Objects.equals(this.type, clipboard.type) &&
             Objects.equals(this.datacontenttype, clipboard.datacontenttype) &&
             Objects.equals(this.dataschema, clipboard.dataschema) &&
             Objects.equals(this.subject, clipboard.subject) &&
             Objects.equals(this.time, clipboard.time) &&
+            Objects.equals(this.data, clipboard.data) &&
             Objects.equals(this.dataBase64, clipboard.dataBase64) &&
             super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, source, data, id, specversion, datacontenttype, dataschema, subject, time, dataBase64, super.hashCode());
+        return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64, super.hashCode());
     }
 
     @Override
@@ -353,15 +355,15 @@ public class Clipboard extends HashMap<String, Object> {
         StringBuilder sb = new StringBuilder();
         sb.append("class Clipboard {\n");
         sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    source: ").append(toIndentedString(source)).append("\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    specversion: ").append(toIndentedString(specversion)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    datacontenttype: ").append(toIndentedString(datacontenttype)).append("\n");
         sb.append("    dataschema: ").append(toIndentedString(dataschema)).append("\n");
         sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
         sb.append("    time: ").append(toIndentedString(time)).append("\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
         sb.append("}");
         return sb.toString();

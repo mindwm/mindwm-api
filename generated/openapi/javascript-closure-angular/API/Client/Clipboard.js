@@ -6,10 +6,11 @@ goog.provide('API.Client.Clipboard');
 API.Client.Clipboard = function() {}
 
 /**
+ * Identifies the event.
  * @type {!string}
  * @export
  */
-API.Client.Clipboard.prototype.type;
+API.Client.Clipboard.prototype.id;
 
 /**
  * @type {!string}
@@ -18,24 +19,17 @@ API.Client.Clipboard.prototype.type;
 API.Client.Clipboard.prototype.source;
 
 /**
- * @type {!API.Client.ClipboardPayload}
- * @export
- */
-API.Client.Clipboard.prototype.data;
-
-/**
- * Identifies the event.
- * @type {!string}
- * @export
- */
-API.Client.Clipboard.prototype.id;
-
-/**
  * The version of the CloudEvents specification which the event uses.
  * @type {!string}
  * @export
  */
 API.Client.Clipboard.prototype.specversion;
+
+/**
+ * @type {!string}
+ * @export
+ */
+API.Client.Clipboard.prototype.type;
 
 /**
  * Content type of the data value. Must adhere to RFC 2046 format.
@@ -63,6 +57,12 @@ API.Client.Clipboard.prototype.subject;
  * @export
  */
 API.Client.Clipboard.prototype.time;
+
+/**
+ * @type {!API.Client.ClipboardPayload}
+ * @export
+ */
+API.Client.Clipboard.prototype.data;
 
 /**
  * Base64 encoded event payload. Must adhere to RFC4648.

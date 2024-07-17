@@ -24,16 +24,14 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class IoDocument extends HashMap<String, OasAnyTypeNotMapped> {
   
-  @SerializedName("type")
-  private String type = null;
-  @SerializedName("source")
-  private String source = null;
-  @SerializedName("data")
-  private TmuxPaneIoDocument data = null;
   @SerializedName("id")
   private String id = null;
+  @SerializedName("source")
+  private String source = null;
   @SerializedName("specversion")
   private String specversion = null;
+  @SerializedName("type")
+  private String type = IoDocument;
   @SerializedName("datacontenttype")
   private String datacontenttype = null;
   @SerializedName("dataschema")
@@ -42,38 +40,10 @@ public class IoDocument extends HashMap<String, OasAnyTypeNotMapped> {
   private String subject = IoDocument;
   @SerializedName("time")
   private Date time = null;
+  @SerializedName("data")
+  private TmuxPaneIoDocument data = null;
   @SerializedName("data_base64")
   private String dataBase64 = null;
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
-  }
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public String getSource() {
-    return source;
-  }
-  public void setSource(String source) {
-    this.source = source;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public TmuxPaneIoDocument getData() {
-    return data;
-  }
-  public void setData(TmuxPaneIoDocument data) {
-    this.data = data;
-  }
 
   /**
    * Identifies the event.
@@ -87,6 +57,16 @@ public class IoDocument extends HashMap<String, OasAnyTypeNotMapped> {
   }
 
   /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public String getSource() {
+    return source;
+  }
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+  /**
    * The version of the CloudEvents specification which the event uses.
    **/
   @ApiModelProperty(required = true, value = "The version of the CloudEvents specification which the event uses.")
@@ -95,6 +75,16 @@ public class IoDocument extends HashMap<String, OasAnyTypeNotMapped> {
   }
   public void setSpecversion(String specversion) {
     this.specversion = specversion;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public String getType() {
+    return type;
+  }
+  public void setType(String type) {
+    this.type = type;
   }
 
   /**
@@ -141,6 +131,16 @@ public class IoDocument extends HashMap<String, OasAnyTypeNotMapped> {
   }
 
   /**
+   **/
+  @ApiModelProperty(value = "")
+  public TmuxPaneIoDocument getData() {
+    return data;
+  }
+  public void setData(TmuxPaneIoDocument data) {
+    this.data = data;
+  }
+
+  /**
    * Base64 encoded event payload. Must adhere to RFC4648.
    **/
   @ApiModelProperty(value = "Base64 encoded event payload. Must adhere to RFC4648.")
@@ -161,30 +161,30 @@ public class IoDocument extends HashMap<String, OasAnyTypeNotMapped> {
       return false;
     }
     IoDocument ioDocument = (IoDocument) o;
-    return (this.type == null ? ioDocument.type == null : this.type.equals(ioDocument.type)) &&
+    return (this.id == null ? ioDocument.id == null : this.id.equals(ioDocument.id)) &&
         (this.source == null ? ioDocument.source == null : this.source.equals(ioDocument.source)) &&
-        (this.data == null ? ioDocument.data == null : this.data.equals(ioDocument.data)) &&
-        (this.id == null ? ioDocument.id == null : this.id.equals(ioDocument.id)) &&
         (this.specversion == null ? ioDocument.specversion == null : this.specversion.equals(ioDocument.specversion)) &&
+        (this.type == null ? ioDocument.type == null : this.type.equals(ioDocument.type)) &&
         (this.datacontenttype == null ? ioDocument.datacontenttype == null : this.datacontenttype.equals(ioDocument.datacontenttype)) &&
         (this.dataschema == null ? ioDocument.dataschema == null : this.dataschema.equals(ioDocument.dataschema)) &&
         (this.subject == null ? ioDocument.subject == null : this.subject.equals(ioDocument.subject)) &&
         (this.time == null ? ioDocument.time == null : this.time.equals(ioDocument.time)) &&
+        (this.data == null ? ioDocument.data == null : this.data.equals(ioDocument.data)) &&
         (this.dataBase64 == null ? ioDocument.dataBase64 == null : this.dataBase64.equals(ioDocument.dataBase64));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.type == null ? 0: this.type.hashCode());
-    result = 31 * result + (this.source == null ? 0: this.source.hashCode());
-    result = 31 * result + (this.data == null ? 0: this.data.hashCode());
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
+    result = 31 * result + (this.source == null ? 0: this.source.hashCode());
     result = 31 * result + (this.specversion == null ? 0: this.specversion.hashCode());
+    result = 31 * result + (this.type == null ? 0: this.type.hashCode());
     result = 31 * result + (this.datacontenttype == null ? 0: this.datacontenttype.hashCode());
     result = 31 * result + (this.dataschema == null ? 0: this.dataschema.hashCode());
     result = 31 * result + (this.subject == null ? 0: this.subject.hashCode());
     result = 31 * result + (this.time == null ? 0: this.time.hashCode());
+    result = 31 * result + (this.data == null ? 0: this.data.hashCode());
     result = 31 * result + (this.dataBase64 == null ? 0: this.dataBase64.hashCode());
     return result;
   }
@@ -194,15 +194,15 @@ public class IoDocument extends HashMap<String, OasAnyTypeNotMapped> {
     StringBuilder sb = new StringBuilder();
     sb.append("class IoDocument {\n");
     sb.append("  " + super.toString()).append("\n");
-    sb.append("  type: ").append(type).append("\n");
-    sb.append("  source: ").append(source).append("\n");
-    sb.append("  data: ").append(data).append("\n");
     sb.append("  id: ").append(id).append("\n");
+    sb.append("  source: ").append(source).append("\n");
     sb.append("  specversion: ").append(specversion).append("\n");
+    sb.append("  type: ").append(type).append("\n");
     sb.append("  datacontenttype: ").append(datacontenttype).append("\n");
     sb.append("  dataschema: ").append(dataschema).append("\n");
     sb.append("  subject: ").append(subject).append("\n");
     sb.append("  time: ").append(time).append("\n");
+    sb.append("  data: ").append(data).append("\n");
     sb.append("  dataBase64: ").append(dataBase64).append("\n");
     sb.append("}\n");
     return sb.toString();

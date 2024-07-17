@@ -119,15 +119,15 @@ instance Arbitrary Clipboard where
 genClipboard :: Int -> Gen Clipboard
 genClipboard n =
   Clipboard
-    <$> arbitraryReducedMaybe n -- clipboardType :: Maybe Text
-    <*> arbitraryReducedMaybe n -- clipboardSource :: Maybe Text
-    <*> arbitraryReducedMaybe n -- clipboardData :: Maybe ClipboardPayload
-    <*> arbitrary -- clipboardId :: Text
+    <$> arbitrary -- clipboardId :: Text
+    <*> arbitrary -- clipboardSource :: Text
     <*> arbitrary -- clipboardSpecversion :: Text
+    <*> arbitrary -- clipboardType :: Text
     <*> arbitraryReducedMaybe n -- clipboardDatacontenttype :: Maybe Text
     <*> arbitraryReducedMaybe n -- clipboardDataschema :: Maybe Text
     <*> arbitraryReducedMaybe n -- clipboardSubject :: Maybe Text
     <*> arbitraryReducedMaybe n -- clipboardTime :: Maybe DateTime
+    <*> arbitraryReducedMaybe n -- clipboardData :: Maybe ClipboardPayload
     <*> arbitraryReducedMaybe n -- clipboardDataBase64 :: Maybe Text
   
 instance Arbitrary ClipboardPayload where
@@ -139,7 +139,7 @@ genClipboardPayload n =
     <$> arbitraryReducedMaybe n -- clipboardPayloadStart :: Maybe [Int]
     <*> arbitraryReducedMaybe n -- clipboardPayloadStop :: Maybe [Int]
     <*> arbitraryReducedMaybe n -- clipboardPayloadData :: Maybe Text
-    <*> arbitraryReducedMaybe n -- clipboardPayloadType :: Maybe E'Type
+    <*> arbitraryReducedMaybe n -- clipboardPayloadType :: Maybe E'Type2
     <*> arbitraryReducedMaybe n -- clipboardPayloadContext :: Maybe ClipboardPayloadContext
   
 instance Arbitrary ClipboardPayloadContext where
@@ -184,7 +184,7 @@ genGraphNode n =
     <$> arbitrary -- graphNodeId :: Text
     <*> arbitrary -- graphNodeSource :: E'Source
     <*> arbitrary -- graphNodeSpecversion :: Text
-    <*> arbitrary -- graphNodeType :: E'Type2
+    <*> arbitrary -- graphNodeType :: E'Type
     <*> arbitraryReducedMaybe n -- graphNodeDatacontenttype :: Maybe Text
     <*> arbitraryReducedMaybe n -- graphNodeDataschema :: Maybe Text
     <*> arbitraryReducedMaybe n -- graphNodeSubject :: Maybe Text
@@ -218,7 +218,7 @@ genGraphRelationship n =
     <$> arbitrary -- graphRelationshipId :: Text
     <*> arbitrary -- graphRelationshipSource :: E'Source2
     <*> arbitrary -- graphRelationshipSpecversion :: Text
-    <*> arbitrary -- graphRelationshipType :: E'Type2
+    <*> arbitrary -- graphRelationshipType :: E'Type
     <*> arbitraryReducedMaybe n -- graphRelationshipDatacontenttype :: Maybe Text
     <*> arbitraryReducedMaybe n -- graphRelationshipDataschema :: Maybe Text
     <*> arbitraryReducedMaybe n -- graphRelationshipSubject :: Maybe Text
@@ -249,15 +249,15 @@ instance Arbitrary IoDocument where
 genIoDocument :: Int -> Gen IoDocument
 genIoDocument n =
   IoDocument
-    <$> arbitraryReducedMaybe n -- ioDocumentType :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ioDocumentSource :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ioDocumentData :: Maybe TmuxPaneIoDocument
-    <*> arbitrary -- ioDocumentId :: Text
+    <$> arbitrary -- ioDocumentId :: Text
+    <*> arbitrary -- ioDocumentSource :: Text
     <*> arbitrary -- ioDocumentSpecversion :: Text
+    <*> arbitrary -- ioDocumentType :: Text
     <*> arbitraryReducedMaybe n -- ioDocumentDatacontenttype :: Maybe Text
     <*> arbitraryReducedMaybe n -- ioDocumentDataschema :: Maybe Text
     <*> arbitraryReducedMaybe n -- ioDocumentSubject :: Maybe Text
     <*> arbitraryReducedMaybe n -- ioDocumentTime :: Maybe DateTime
+    <*> arbitraryReducedMaybe n -- ioDocumentData :: Maybe TmuxPaneIoDocument
     <*> arbitraryReducedMaybe n -- ioDocumentDataBase64 :: Maybe Text
   
 instance Arbitrary Neo4jCaptureDataChange where

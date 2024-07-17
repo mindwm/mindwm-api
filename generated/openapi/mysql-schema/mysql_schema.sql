@@ -10,15 +10,15 @@
 --
 
 CREATE TABLE IF NOT EXISTS `Clipboard` (
-  `type` TEXT DEFAULT NULL,
-  `source` TEXT DEFAULT NULL,
-  `data` TEXT DEFAULT NULL,
   `id` TEXT NOT NULL COMMENT 'Identifies the event.',
+  `source` TEXT NOT NULL,
   `specversion` TEXT NOT NULL COMMENT 'The version of the CloudEvents specification which the event uses.',
+  `type` TEXT NOT NULL,
   `datacontenttype` TEXT DEFAULT NULL COMMENT 'Content type of the data value. Must adhere to RFC 2046 format.',
   `dataschema` TEXT DEFAULT NULL COMMENT 'Identifies the schema that data adheres to.',
   `subject` TEXT DEFAULT NULL,
   `time` DATETIME DEFAULT NULL COMMENT 'Timestamp of when the occurrence happened. Must adhere to RFC 3339.',
+  `data` TEXT DEFAULT NULL,
   `data_base64` TEXT DEFAULT NULL COMMENT 'Base64 encoded event payload. Must adhere to RFC4648.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -134,15 +134,15 @@ CREATE TABLE IF NOT EXISTS `GraphRelationship_allOf_data` (
 --
 
 CREATE TABLE IF NOT EXISTS `IoDocument` (
-  `type` TEXT DEFAULT NULL,
-  `source` TEXT DEFAULT NULL,
-  `data` TEXT DEFAULT NULL,
   `id` TEXT NOT NULL COMMENT 'Identifies the event.',
+  `source` TEXT NOT NULL,
   `specversion` TEXT NOT NULL COMMENT 'The version of the CloudEvents specification which the event uses.',
+  `type` TEXT NOT NULL,
   `datacontenttype` TEXT DEFAULT NULL COMMENT 'Content type of the data value. Must adhere to RFC 2046 format.',
   `dataschema` TEXT DEFAULT NULL COMMENT 'Identifies the schema that data adheres to.',
   `subject` TEXT,
   `time` DATETIME DEFAULT NULL COMMENT 'Timestamp of when the occurrence happened. Must adhere to RFC 3339.',
+  `data` TEXT DEFAULT NULL,
   `data_base64` TEXT DEFAULT NULL COMMENT 'Base64 encoded event payload. Must adhere to RFC4648.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

@@ -58,13 +58,13 @@ public:
     /// IoDocument members
 
     /// <summary>
-    /// 
+    /// Identifies the event.
     /// </summary>
-    utility::string_t getType() const;
-    bool typeIsSet() const;
-    void unsetType();
+    utility::string_t getId() const;
+    bool idIsSet() const;
+    void unsetId();
 
-    void setType(const utility::string_t& value);
+    void setId(const utility::string_t& value);
 
     /// <summary>
     /// 
@@ -76,24 +76,6 @@ public:
     void setSource(const utility::string_t& value);
 
     /// <summary>
-    /// 
-    /// </summary>
-    std::shared_ptr<TmuxPaneIoDocument> getData() const;
-    bool dataIsSet() const;
-    void unsetData();
-
-    void setData(const std::shared_ptr<TmuxPaneIoDocument>& value);
-
-    /// <summary>
-    /// Identifies the event.
-    /// </summary>
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-
-    void setId(const utility::string_t& value);
-
-    /// <summary>
     /// The version of the CloudEvents specification which the event uses.
     /// </summary>
     utility::string_t getSpecversion() const;
@@ -101,6 +83,15 @@ public:
     void unsetSpecversion();
 
     void setSpecversion(const utility::string_t& value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    utility::string_t getType() const;
+    bool typeIsSet() const;
+    void unsetType();
+
+    void setType(const utility::string_t& value);
 
     /// <summary>
     /// Content type of the data value. Must adhere to RFC 2046 format.
@@ -139,6 +130,15 @@ public:
     void setTime(const utility::datetime& value);
 
     /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<TmuxPaneIoDocument> getData() const;
+    bool dataIsSet() const;
+    void unsetData();
+
+    void setData(const std::shared_ptr<TmuxPaneIoDocument>& value);
+
+    /// <summary>
     /// Base64 encoded event payload. Must adhere to RFC4648.
     /// </summary>
     utility::string_t getDataBase64() const;
@@ -149,16 +149,14 @@ public:
 
 
 protected:
-    utility::string_t m_Type;
-    bool m_TypeIsSet;
-    utility::string_t m_Source;
-    bool m_SourceIsSet;
-    std::shared_ptr<TmuxPaneIoDocument> m_Data;
-    bool m_DataIsSet;
     utility::string_t m_Id;
     bool m_IdIsSet;
+    utility::string_t m_Source;
+    bool m_SourceIsSet;
     utility::string_t m_Specversion;
     bool m_SpecversionIsSet;
+    utility::string_t m_Type;
+    bool m_TypeIsSet;
     utility::string_t m_Datacontenttype;
     bool m_DatacontenttypeIsSet;
     utility::string_t m_Dataschema;
@@ -167,6 +165,8 @@ protected:
     bool m_SubjectIsSet;
     utility::datetime m_Time;
     bool m_TimeIsSet;
+    std::shared_ptr<TmuxPaneIoDocument> m_Data;
+    bool m_DataIsSet;
     utility::string_t m_Data_base64;
     bool m_Data_base64IsSet;
 };

@@ -145,15 +145,15 @@ package .Models is
 
    type Clipboard_Type is
      record
-       P_Type : Swagger.Nullable_UString;
-       Source : Swagger.Nullable_UString;
-       Data : .Models.ClipboardPayload_Type;
        Id : Swagger.UString;
+       Source : Swagger.UString;
        Specversion : Swagger.UString;
+       P_Type : Swagger.UString;
        Datacontenttype : Swagger.Nullable_UString;
        Dataschema : Swagger.Nullable_UString;
        Subject : Swagger.Nullable_UString;
        Time : Swagger.Nullable_Date;
+       Data : .Models.ClipboardPayload_Type;
        Data_Base_64 : Swagger.Nullable_UString;
      end record;
 
@@ -281,15 +281,15 @@ package .Models is
 
    type IoDocument_Type is
      record
-       P_Type : Swagger.Nullable_UString;
-       Source : Swagger.Nullable_UString;
-       Data : .Models.TmuxPaneIoDocument_Type;
        Id : Swagger.UString;
+       Source : Swagger.UString;
        Specversion : Swagger.UString;
+       P_Type : Swagger.UString;
        Datacontenttype : Swagger.Nullable_UString;
        Dataschema : Swagger.Nullable_UString;
        Subject : Swagger.Nullable_UString;
        Time : Swagger.Nullable_Date;
+       Data : .Models.TmuxPaneIoDocument_Type;
        Data_Base_64 : Swagger.Nullable_UString;
      end record;
 

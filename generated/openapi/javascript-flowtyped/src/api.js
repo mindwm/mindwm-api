@@ -76,35 +76,29 @@ export type Clipboard = {
     [key: string]: AnyType | any;
 
     /**
-     * 
-     * @type {string}
-     * @memberof Clipboard
-     */
-    type?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Clipboard
-     */
-    source?: string;
-    /**
-     * 
-     * @type {ClipboardPayload}
-     * @memberof Clipboard
-     */
-    data?: ClipboardPayload;
-    /**
      * Identifies the event.
      * @type {string}
      * @memberof Clipboard
      */
     id: string;
     /**
+     * 
+     * @type {string}
+     * @memberof Clipboard
+     */
+    source: string;
+    /**
      * The version of the CloudEvents specification which the event uses.
      * @type {string}
      * @memberof Clipboard
      */
     specversion: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Clipboard
+     */
+    type: string;
     /**
      * Content type of the data value. Must adhere to RFC 2046 format.
      * @type {string}
@@ -129,6 +123,12 @@ export type Clipboard = {
      * @memberof Clipboard
      */
     time?: Date;
+    /**
+     * 
+     * @type {ClipboardPayload}
+     * @memberof Clipboard
+     */
+    data?: ClipboardPayload;
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      * @type {string}
@@ -551,35 +551,29 @@ export type IoDocument = {
     [key: string]: AnyType | any;
 
     /**
-     * 
-     * @type {string}
-     * @memberof IoDocument
-     */
-    type?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IoDocument
-     */
-    source?: string;
-    /**
-     * 
-     * @type {TmuxPaneIoDocument}
-     * @memberof IoDocument
-     */
-    data?: TmuxPaneIoDocument;
-    /**
      * Identifies the event.
      * @type {string}
      * @memberof IoDocument
      */
     id: string;
     /**
+     * 
+     * @type {string}
+     * @memberof IoDocument
+     */
+    source: string;
+    /**
      * The version of the CloudEvents specification which the event uses.
      * @type {string}
      * @memberof IoDocument
      */
     specversion: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof IoDocument
+     */
+    type: string;
     /**
      * Content type of the data value. Must adhere to RFC 2046 format.
      * @type {string}
@@ -604,6 +598,12 @@ export type IoDocument = {
      * @memberof IoDocument
      */
     time?: Date;
+    /**
+     * 
+     * @type {TmuxPaneIoDocument}
+     * @memberof IoDocument
+     */
+    data?: TmuxPaneIoDocument;
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      * @type {string}

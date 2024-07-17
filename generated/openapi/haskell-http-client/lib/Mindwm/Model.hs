@@ -73,15 +73,15 @@ import qualified Prelude as P
 -- ** Clipboard
 -- | Clipboard
 data Clipboard = Clipboard
-  { clipboardType :: !(Maybe Text) -- ^ "type"
-  , clipboardSource :: !(Maybe Text) -- ^ "source"
-  , clipboardData :: !(Maybe ClipboardPayload) -- ^ "data"
-  , clipboardId :: !(Text) -- ^ /Required/ "id" - Identifies the event.
+  { clipboardId :: !(Text) -- ^ /Required/ "id" - Identifies the event.
+  , clipboardSource :: !(Text) -- ^ /Required/ "source"
   , clipboardSpecversion :: !(Text) -- ^ /Required/ "specversion" - The version of the CloudEvents specification which the event uses.
+  , clipboardType :: !(Text) -- ^ /Required/ "type"
   , clipboardDatacontenttype :: !(Maybe Text) -- ^ "datacontenttype" - Content type of the data value. Must adhere to RFC 2046 format.
   , clipboardDataschema :: !(Maybe Text) -- ^ "dataschema" - Identifies the schema that data adheres to.
   , clipboardSubject :: !(Maybe Text) -- ^ "subject"
   , clipboardTime :: !(Maybe DateTime) -- ^ "time" - Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+  , clipboardData :: !(Maybe ClipboardPayload) -- ^ "data"
   , clipboardDataBase64 :: !(Maybe Text) -- ^ "data_base64" - Base64 encoded event payload. Must adhere to RFC4648.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -89,30 +89,30 @@ data Clipboard = Clipboard
 instance A.FromJSON Clipboard where
   parseJSON = A.withObject "Clipboard" $ \o ->
     Clipboard
-      <$> (o .:? "type")
-      <*> (o .:? "source")
-      <*> (o .:? "data")
-      <*> (o .:  "id")
+      <$> (o .:  "id")
+      <*> (o .:  "source")
       <*> (o .:  "specversion")
+      <*> (o .:  "type")
       <*> (o .:? "datacontenttype")
       <*> (o .:? "dataschema")
       <*> (o .:? "subject")
       <*> (o .:? "time")
+      <*> (o .:? "data")
       <*> (o .:? "data_base64")
 
 -- | ToJSON Clipboard
 instance A.ToJSON Clipboard where
   toJSON Clipboard {..} =
    _omitNulls
-      [ "type" .= clipboardType
+      [ "id" .= clipboardId
       , "source" .= clipboardSource
-      , "data" .= clipboardData
-      , "id" .= clipboardId
       , "specversion" .= clipboardSpecversion
+      , "type" .= clipboardType
       , "datacontenttype" .= clipboardDatacontenttype
       , "dataschema" .= clipboardDataschema
       , "subject" .= clipboardSubject
       , "time" .= clipboardTime
+      , "data" .= clipboardData
       , "data_base64" .= clipboardDataBase64
       ]
 
@@ -120,19 +120,21 @@ instance A.ToJSON Clipboard where
 -- | Construct a value of type 'Clipboard' (by applying it's required fields, if any)
 mkClipboard
   :: Text -- ^ 'clipboardId': Identifies the event.
+  -> Text -- ^ 'clipboardSource' 
   -> Text -- ^ 'clipboardSpecversion': The version of the CloudEvents specification which the event uses.
+  -> Text -- ^ 'clipboardType' 
   -> Clipboard
-mkClipboard clipboardId clipboardSpecversion =
+mkClipboard clipboardId clipboardSource clipboardSpecversion clipboardType =
   Clipboard
-  { clipboardType = Nothing
-  , clipboardSource = Nothing
-  , clipboardData = Nothing
-  , clipboardId
+  { clipboardId
+  , clipboardSource
   , clipboardSpecversion
+  , clipboardType
   , clipboardDatacontenttype = Nothing
   , clipboardDataschema = Nothing
   , clipboardSubject = Nothing
   , clipboardTime = Nothing
+  , clipboardData = Nothing
   , clipboardDataBase64 = Nothing
   }
 
@@ -142,7 +144,7 @@ data ClipboardPayload = ClipboardPayload
   { clipboardPayloadStart :: !(Maybe [Int]) -- ^ "start" - Starting position of clipboard selection [x,y]
   , clipboardPayloadStop :: !(Maybe [Int]) -- ^ "stop" - Ending position of clipboard selection [x,y]
   , clipboardPayloadData :: !(Maybe Text) -- ^ "data" - Clipboard data
-  , clipboardPayloadType :: !(Maybe E'Type) -- ^ "type" - Clipboard type
+  , clipboardPayloadType :: !(Maybe E'Type2) -- ^ "type" - Clipboard type
   , clipboardPayloadContext :: !(Maybe ClipboardPayloadContext) -- ^ "context"
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -313,7 +315,7 @@ data GraphNode = GraphNode
   { graphNodeId :: !(Text) -- ^ /Required/ "id" - Identifies the event.
   , graphNodeSource :: !(E'Source) -- ^ /Required/ "source"
   , graphNodeSpecversion :: !(Text) -- ^ /Required/ "specversion" - The version of the CloudEvents specification which the event uses.
-  , graphNodeType :: !(E'Type2) -- ^ /Required/ "type"
+  , graphNodeType :: !(E'Type) -- ^ /Required/ "type"
   , graphNodeDatacontenttype :: !(Maybe Text) -- ^ "datacontenttype" - Content type of the data value. Must adhere to RFC 2046 format.
   , graphNodeDataschema :: !(Maybe Text) -- ^ "dataschema" - Identifies the schema that data adheres to.
   , graphNodeSubject :: !(Maybe Text) -- ^ "subject" - Describes the subject of the event in the context of the event producer (identified by source).
@@ -359,7 +361,7 @@ mkGraphNode
   :: Text -- ^ 'graphNodeId': Identifies the event.
   -> E'Source -- ^ 'graphNodeSource' 
   -> Text -- ^ 'graphNodeSpecversion': The version of the CloudEvents specification which the event uses.
-  -> E'Type2 -- ^ 'graphNodeType' 
+  -> E'Type -- ^ 'graphNodeType' 
   -> GraphNode
 mkGraphNode graphNodeId graphNodeSource graphNodeSpecversion graphNodeType =
   GraphNode
@@ -455,7 +457,7 @@ data GraphRelationship = GraphRelationship
   { graphRelationshipId :: !(Text) -- ^ /Required/ "id" - Identifies the event.
   , graphRelationshipSource :: !(E'Source2) -- ^ /Required/ "source"
   , graphRelationshipSpecversion :: !(Text) -- ^ /Required/ "specversion" - The version of the CloudEvents specification which the event uses.
-  , graphRelationshipType :: !(E'Type2) -- ^ /Required/ "type"
+  , graphRelationshipType :: !(E'Type) -- ^ /Required/ "type"
   , graphRelationshipDatacontenttype :: !(Maybe Text) -- ^ "datacontenttype" - Content type of the data value. Must adhere to RFC 2046 format.
   , graphRelationshipDataschema :: !(Maybe Text) -- ^ "dataschema" - Identifies the schema that data adheres to.
   , graphRelationshipSubject :: !(Maybe Text) -- ^ "subject" - Describes the subject of the event in the context of the event producer (identified by source).
@@ -501,7 +503,7 @@ mkGraphRelationship
   :: Text -- ^ 'graphRelationshipId': Identifies the event.
   -> E'Source2 -- ^ 'graphRelationshipSource' 
   -> Text -- ^ 'graphRelationshipSpecversion': The version of the CloudEvents specification which the event uses.
-  -> E'Type2 -- ^ 'graphRelationshipType' 
+  -> E'Type -- ^ 'graphRelationshipType' 
   -> GraphRelationship
 mkGraphRelationship graphRelationshipId graphRelationshipSource graphRelationshipSpecversion graphRelationshipType =
   GraphRelationship
@@ -594,15 +596,15 @@ mkGraphRelationshipAllOfData graphRelationshipAllOfDataHeaders graphRelationship
 -- ** IoDocument
 -- | IoDocument
 data IoDocument = IoDocument
-  { ioDocumentType :: !(Maybe Text) -- ^ "type"
-  , ioDocumentSource :: !(Maybe Text) -- ^ "source"
-  , ioDocumentData :: !(Maybe TmuxPaneIoDocument) -- ^ "data"
-  , ioDocumentId :: !(Text) -- ^ /Required/ "id" - Identifies the event.
+  { ioDocumentId :: !(Text) -- ^ /Required/ "id" - Identifies the event.
+  , ioDocumentSource :: !(Text) -- ^ /Required/ "source"
   , ioDocumentSpecversion :: !(Text) -- ^ /Required/ "specversion" - The version of the CloudEvents specification which the event uses.
+  , ioDocumentType :: !(Text) -- ^ /Required/ "type"
   , ioDocumentDatacontenttype :: !(Maybe Text) -- ^ "datacontenttype" - Content type of the data value. Must adhere to RFC 2046 format.
   , ioDocumentDataschema :: !(Maybe Text) -- ^ "dataschema" - Identifies the schema that data adheres to.
   , ioDocumentSubject :: !(Maybe Text) -- ^ "subject"
   , ioDocumentTime :: !(Maybe DateTime) -- ^ "time" - Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+  , ioDocumentData :: !(Maybe TmuxPaneIoDocument) -- ^ "data"
   , ioDocumentDataBase64 :: !(Maybe Text) -- ^ "data_base64" - Base64 encoded event payload. Must adhere to RFC4648.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -610,30 +612,30 @@ data IoDocument = IoDocument
 instance A.FromJSON IoDocument where
   parseJSON = A.withObject "IoDocument" $ \o ->
     IoDocument
-      <$> (o .:? "type")
-      <*> (o .:? "source")
-      <*> (o .:? "data")
-      <*> (o .:  "id")
+      <$> (o .:  "id")
+      <*> (o .:  "source")
       <*> (o .:  "specversion")
+      <*> (o .:  "type")
       <*> (o .:? "datacontenttype")
       <*> (o .:? "dataschema")
       <*> (o .:? "subject")
       <*> (o .:? "time")
+      <*> (o .:? "data")
       <*> (o .:? "data_base64")
 
 -- | ToJSON IoDocument
 instance A.ToJSON IoDocument where
   toJSON IoDocument {..} =
    _omitNulls
-      [ "type" .= ioDocumentType
+      [ "id" .= ioDocumentId
       , "source" .= ioDocumentSource
-      , "data" .= ioDocumentData
-      , "id" .= ioDocumentId
       , "specversion" .= ioDocumentSpecversion
+      , "type" .= ioDocumentType
       , "datacontenttype" .= ioDocumentDatacontenttype
       , "dataschema" .= ioDocumentDataschema
       , "subject" .= ioDocumentSubject
       , "time" .= ioDocumentTime
+      , "data" .= ioDocumentData
       , "data_base64" .= ioDocumentDataBase64
       ]
 
@@ -641,19 +643,21 @@ instance A.ToJSON IoDocument where
 -- | Construct a value of type 'IoDocument' (by applying it's required fields, if any)
 mkIoDocument
   :: Text -- ^ 'ioDocumentId': Identifies the event.
+  -> Text -- ^ 'ioDocumentSource' 
   -> Text -- ^ 'ioDocumentSpecversion': The version of the CloudEvents specification which the event uses.
+  -> Text -- ^ 'ioDocumentType' 
   -> IoDocument
-mkIoDocument ioDocumentId ioDocumentSpecversion =
+mkIoDocument ioDocumentId ioDocumentSource ioDocumentSpecversion ioDocumentType =
   IoDocument
-  { ioDocumentType = Nothing
-  , ioDocumentSource = Nothing
-  , ioDocumentData = Nothing
-  , ioDocumentId
+  { ioDocumentId
+  , ioDocumentSource
   , ioDocumentSpecversion
+  , ioDocumentType
   , ioDocumentDatacontenttype = Nothing
   , ioDocumentDataschema = Nothing
   , ioDocumentSubject = Nothing
   , ioDocumentTime = Nothing
+  , ioDocumentData = Nothing
   , ioDocumentDataBase64 = Nothing
   }
 
@@ -1184,12 +1188,11 @@ toE'Source2 = \case
 
 -- ** E'Type
 
--- | Enum of 'Text' .
--- Clipboard type
+-- | Enum of 'Text'
 data E'Type
-  = E'Type'Primary -- ^ @"primary"@
-  | E'Type'Secondary -- ^ @"secondary"@
-  | E'Type'Clipboard -- ^ @"clipboard"@
+  = E'Type'Created -- ^ @"created"@
+  | E'Type'Updated -- ^ @"updated"@
+  | E'Type'Deleted -- ^ @"deleted"@
   deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
 
 instance A.ToJSON E'Type where toJSON = A.toJSON . fromE'Type
@@ -1201,26 +1204,27 @@ instance MimeRender MimeMultipartFormData E'Type where mimeRender _ = mimeRender
 -- | unwrap 'E'Type' enum
 fromE'Type :: E'Type -> Text
 fromE'Type = \case
-  E'Type'Primary -> "primary"
-  E'Type'Secondary -> "secondary"
-  E'Type'Clipboard -> "clipboard"
+  E'Type'Created -> "created"
+  E'Type'Updated -> "updated"
+  E'Type'Deleted -> "deleted"
 
 -- | parse 'E'Type' enum
 toE'Type :: Text -> P.Either String E'Type
 toE'Type = \case
-  "primary" -> P.Right E'Type'Primary
-  "secondary" -> P.Right E'Type'Secondary
-  "clipboard" -> P.Right E'Type'Clipboard
+  "created" -> P.Right E'Type'Created
+  "updated" -> P.Right E'Type'Updated
+  "deleted" -> P.Right E'Type'Deleted
   s -> P.Left $ "toE'Type: enum parse failure: " P.++ P.show s
 
 
 -- ** E'Type2
 
--- | Enum of 'Text'
+-- | Enum of 'Text' .
+-- Clipboard type
 data E'Type2
-  = E'Type2'Created -- ^ @"created"@
-  | E'Type2'Updated -- ^ @"updated"@
-  | E'Type2'Deleted -- ^ @"deleted"@
+  = E'Type2'Primary -- ^ @"primary"@
+  | E'Type2'Secondary -- ^ @"secondary"@
+  | E'Type2'Clipboard -- ^ @"clipboard"@
   deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
 
 instance A.ToJSON E'Type2 where toJSON = A.toJSON . fromE'Type2
@@ -1232,16 +1236,16 @@ instance MimeRender MimeMultipartFormData E'Type2 where mimeRender _ = mimeRende
 -- | unwrap 'E'Type2' enum
 fromE'Type2 :: E'Type2 -> Text
 fromE'Type2 = \case
-  E'Type2'Created -> "created"
-  E'Type2'Updated -> "updated"
-  E'Type2'Deleted -> "deleted"
+  E'Type2'Primary -> "primary"
+  E'Type2'Secondary -> "secondary"
+  E'Type2'Clipboard -> "clipboard"
 
 -- | parse 'E'Type2' enum
 toE'Type2 :: Text -> P.Either String E'Type2
 toE'Type2 = \case
-  "created" -> P.Right E'Type2'Created
-  "updated" -> P.Right E'Type2'Updated
-  "deleted" -> P.Right E'Type2'Deleted
+  "primary" -> P.Right E'Type2'Primary
+  "secondary" -> P.Right E'Type2'Secondary
+  "clipboard" -> P.Right E'Type2'Clipboard
   s -> P.Left $ "toE'Type2: enum parse failure: " P.++ P.show s
 
 

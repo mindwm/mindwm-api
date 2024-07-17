@@ -35,8 +35,14 @@ class TestClipboard(unittest.TestCase):
         model = Clipboard()
         if include_optional:
             return Clipboard(
+                id = '0',
+                source = 'mindwm/qXzyCBw3_uufVPIPFhB9JcGRYnua_cdy\\qKX7HzKpul80FcVjSkp5IHYCm6w-v0dZfUofvKERjsmInY9s-EmMH6kw8gsn.clipboard',
+                specversion = '0',
                 type = '',
-                source = 'eBAMDTMv2D2ylmgd10Z3UB6UkJSISSB5\\'qKX7HzKpul80FcVjSkp5IHYCm6w-v0dZfUofvKERjsmInY9s-EmMH6kw8gsnz',
+                datacontenttype = '0',
+                dataschema = '0',
+                subject = '',
+                time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 data = MindWM.models.clipboard_payload.ClipboardPayload(
                     start = [
                         56
@@ -48,18 +54,14 @@ class TestClipboard(unittest.TestCase):
                     type = 'primary', 
                     context = MindWM.models.clipboard_payload_context.ClipboardPayload_context(
                         window = '', ), ),
-                id = '0',
-                specversion = '0',
-                datacontenttype = '0',
-                dataschema = '0',
-                subject = '',
-                time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 data_base64 = ''
             )
         else:
             return Clipboard(
                 id = '0',
+                source = 'mindwm/qXzyCBw3_uufVPIPFhB9JcGRYnua_cdy\\qKX7HzKpul80FcVjSkp5IHYCm6w-v0dZfUofvKERjsmInY9s-EmMH6kw8gsn.clipboard',
                 specversion = '0',
+                type = '',
         )
         """
 

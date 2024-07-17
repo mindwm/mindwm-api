@@ -5,37 +5,37 @@
 -export_type([MindWM_clipboard/0]).
 
 -type MindWM_clipboard() ::
-    #{ 'type' => binary(),
-       'source' => binary(),
-       'data' => MindWM_clipboard_payload:MindWM_clipboard_payload(),
-       'id' := binary(),
+    #{ 'id' := binary(),
+       'source' := binary(),
        'specversion' := binary(),
+       'type' := binary(),
        'datacontenttype' => binary(),
        'dataschema' => MindWM_u_ri:MindWM_u_ri(),
        'subject' => binary(),
        'time' => MindWM_date_time:MindWM_date_time(),
+       'data' => MindWM_clipboard_payload:MindWM_clipboard_payload(),
        'data_base64' => binary()
      }.
 
-encode(#{ 'type' := Type,
+encode(#{ 'id' := Id,
           'source' := Source,
-          'data' := Data,
-          'id' := Id,
           'specversion' := Specversion,
+          'type' := Type,
           'datacontenttype' := Datacontenttype,
           'dataschema' := Dataschema,
           'subject' := Subject,
           'time' := Time,
+          'data' := Data,
           'data_base64' := DataBase64
         }) ->
-    #{ 'type' => Type,
+    #{ 'id' => Id,
        'source' => Source,
-       'data' => Data,
-       'id' => Id,
        'specversion' => Specversion,
+       'type' => Type,
        'datacontenttype' => Datacontenttype,
        'dataschema' => Dataschema,
        'subject' => Subject,
        'time' => Time,
+       'data' => Data,
        'data_base64' => DataBase64
      }.

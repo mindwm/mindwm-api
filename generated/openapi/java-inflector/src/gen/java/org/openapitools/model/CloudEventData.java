@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  **/
 
 @ApiModel(description = "The event payload.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-17T14:04:57.305115648Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-17T16:07:43.630284849Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEventData   {
 
   @Override

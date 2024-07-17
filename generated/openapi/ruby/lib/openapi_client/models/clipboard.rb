@@ -15,17 +15,15 @@ require 'time'
 
 module OpenapiClient
   class Clipboard
-    attr_accessor :type
-
-    attr_accessor :source
-
-    attr_accessor :data
-
     # Identifies the event.
     attr_accessor :id
 
+    attr_accessor :source
+
     # The version of the CloudEvents specification which the event uses.
     attr_accessor :specversion
+
+    attr_accessor :type
 
     # Content type of the data value. Must adhere to RFC 2046 format.
     attr_accessor :datacontenttype
@@ -38,21 +36,23 @@ module OpenapiClient
     # Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     attr_accessor :time
 
+    attr_accessor :data
+
     # Base64 encoded event payload. Must adhere to RFC4648.
     attr_accessor :data_base64
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
-        :'source' => :'source',
-        :'data' => :'data',
         :'id' => :'id',
+        :'source' => :'source',
         :'specversion' => :'specversion',
+        :'type' => :'type',
         :'datacontenttype' => :'datacontenttype',
         :'dataschema' => :'dataschema',
         :'subject' => :'subject',
         :'time' => :'time',
+        :'data' => :'data',
         :'data_base64' => :'data_base64'
       }
     end
@@ -65,15 +65,15 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type' => :'String',
-        :'source' => :'String',
-        :'data' => :'ClipboardPayload',
         :'id' => :'String',
+        :'source' => :'String',
         :'specversion' => :'String',
+        :'type' => :'String',
         :'datacontenttype' => :'String',
         :'dataschema' => :'String',
         :'subject' => :'String',
         :'time' => :'Time',
+        :'data' => :'ClipboardPayload',
         :'data_base64' => :'String'
       }
     end
@@ -106,28 +106,28 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'source')
-        self.source = attributes[:'source']
-      end
-
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       else
         self.id = nil
       end
 
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
+      else
+        self.source = nil
+      end
+
       if attributes.key?(:'specversion')
         self.specversion = attributes[:'specversion']
       else
         self.specversion = nil
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = nil
       end
 
       if attributes.key?(:'datacontenttype')
@@ -146,6 +146,10 @@ module OpenapiClient
         self.time = attributes[:'time']
       end
 
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
+      end
+
       if attributes.key?(:'data_base64')
         self.data_base64 = attributes[:'data_base64']
       end
@@ -156,11 +160,6 @@ module OpenapiClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      pattern = Regexp.new(/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$/)
-      if !@source.nil? && @source !~ pattern
-        invalid_properties.push("invalid value for \"source\", must conform to the pattern #{pattern}.")
-      end
-
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
@@ -169,12 +168,25 @@ module OpenapiClient
         invalid_properties.push('invalid value for "id", the character length must be great than or equal to 1.')
       end
 
+      if @source.nil?
+        invalid_properties.push('invalid value for "source", source cannot be nil.')
+      end
+
+      pattern = Regexp.new(/^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$/)
+      if @source !~ pattern
+        invalid_properties.push("invalid value for \"source\", must conform to the pattern #{pattern}.")
+      end
+
       if @specversion.nil?
         invalid_properties.push('invalid value for "specversion", specversion cannot be nil.')
       end
 
       if @specversion.to_s.length < 1
         invalid_properties.push('invalid value for "specversion", the character length must be great than or equal to 1.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       if !@datacontenttype.nil? && @datacontenttype.to_s.length < 1
@@ -196,30 +208,17 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@source.nil? && @source !~ Regexp.new(/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$/)
       return false if @id.nil?
       return false if @id.to_s.length < 1
+      return false if @source.nil?
+      return false if @source !~ Regexp.new(/^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$/)
       return false if @specversion.nil?
       return false if @specversion.to_s.length < 1
+      return false if @type.nil?
       return false if !@datacontenttype.nil? && @datacontenttype.to_s.length < 1
       return false if !@dataschema.nil? && @dataschema.to_s.length < 1
       return false if !@time.nil? && @time.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] source Value to be assigned
-    def source=(source)
-      if source.nil?
-        fail ArgumentError, 'source cannot be nil'
-      end
-
-      pattern = Regexp.new(/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$/)
-      if source !~ pattern
-        fail ArgumentError, "invalid value for \"source\", must conform to the pattern #{pattern}."
-      end
-
-      @source = source
     end
 
     # Custom attribute writer method with validation
@@ -234,6 +233,21 @@ module OpenapiClient
       end
 
       @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] source Value to be assigned
+    def source=(source)
+      if source.nil?
+        fail ArgumentError, 'source cannot be nil'
+      end
+
+      pattern = Regexp.new(/^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$/)
+      if source !~ pattern
+        fail ArgumentError, "invalid value for \"source\", must conform to the pattern #{pattern}."
+      end
+
+      @source = source
     end
 
     # Custom attribute writer method with validation
@@ -297,15 +311,15 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
-          source == o.source &&
-          data == o.data &&
           id == o.id &&
+          source == o.source &&
           specversion == o.specversion &&
+          type == o.type &&
           datacontenttype == o.datacontenttype &&
           dataschema == o.dataschema &&
           subject == o.subject &&
           time == o.time &&
+          data == o.data &&
           data_base64 == o.data_base64
     end
 
@@ -318,7 +332,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, source, data, id, specversion, datacontenttype, dataschema, subject, time, data_base64].hash
+      [id, source, specversion, type, datacontenttype, dataschema, subject, time, data, data_base64].hash
     end
 
     # Builds the object from hash

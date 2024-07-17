@@ -53,10 +53,10 @@ public:
     /// IoDocument members
 
     /// <summary>
-    /// 
+    /// Identifies the event.
     /// </summary>
-    std::string getType() const;
-    void setType(std::string value);
+    std::string getId() const;
+    void setId(std::string value);
 
     /// <summary>
     /// 
@@ -65,22 +65,16 @@ public:
     void setSource(std::string value);
 
     /// <summary>
-    /// 
-    /// </summary>
-    std::shared_ptr<TmuxPaneIoDocument> getData() const;
-    void setData(std::shared_ptr<TmuxPaneIoDocument> value);
-
-    /// <summary>
-    /// Identifies the event.
-    /// </summary>
-    std::string getId() const;
-    void setId(std::string value);
-
-    /// <summary>
     /// The version of the CloudEvents specification which the event uses.
     /// </summary>
     std::string getSpecversion() const;
     void setSpecversion(std::string value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    std::string getType() const;
+    void setType(std::string value);
 
     /// <summary>
     /// Content type of the data value. Must adhere to RFC 2046 format.
@@ -107,6 +101,12 @@ public:
     void setTime(std::string value);
 
     /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<TmuxPaneIoDocument> getData() const;
+    void setData(std::shared_ptr<TmuxPaneIoDocument> value);
+
+    /// <summary>
     /// Base64 encoded event payload. Must adhere to RFC4648.
     /// </summary>
     std::string getDataBase64() const;
@@ -124,15 +124,15 @@ protected:
 
 
 protected:
-    std::string m_Type = "";
-    std::string m_Source = "";
-    std::shared_ptr<TmuxPaneIoDocument> m_Data = std::make_shared<TmuxPaneIoDocument>();
     std::string m_Id = "";
+    std::string m_Source = "";
     std::string m_Specversion = "";
+    std::string m_Type = "IoDocument";
     std::string m_Datacontenttype = "";
     std::string m_Dataschema = "";
     std::string m_Subject = "IoDocument";
     std::string m_Time = "";
+    std::shared_ptr<TmuxPaneIoDocument> m_Data = std::make_shared<TmuxPaneIoDocument>();
     std::string m_Data_base64 = "";
 };
 

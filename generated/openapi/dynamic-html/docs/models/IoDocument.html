@@ -1,28 +1,23 @@
 
 <h2>IoDocument</h2>
 <ul class="parameter">
-  <li class="param-required-false">type : String
-    <br/>
-  </li>
-</ul>
-<ul class="parameter">
-  <li class="param-required-false">source : String
-    <br/>
-  </li>
-</ul>
-<ul class="parameter">
-  <li class="param-required-false">data : TmuxPaneIoDocument
-    <br/>
-  </li>
-</ul>
-<ul class="parameter">
   <li class="param-required-true">id : String
     <br/>Identifies the event.
   </li>
 </ul>
 <ul class="parameter">
+  <li class="param-required-true">source : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
   <li class="param-required-true">specversion : String
     <br/>The version of the CloudEvents specification which the event uses.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">type : String
+    <br/>
   </li>
 </ul>
 <ul class="parameter">
@@ -43,6 +38,11 @@
 <ul class="parameter">
   <li class="param-required-false">time : Date
     <br/>Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">data : TmuxPaneIoDocument
+    <br/>
   </li>
 </ul>
 <ul class="parameter">

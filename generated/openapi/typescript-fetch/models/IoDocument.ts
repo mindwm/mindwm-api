@@ -28,35 +28,29 @@ import {
 export interface IoDocument {
     [key: string]: any | any;
     /**
-     * 
-     * @type {string}
-     * @memberof IoDocument
-     */
-    type?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IoDocument
-     */
-    source?: string;
-    /**
-     * 
-     * @type {TmuxPaneIoDocument}
-     * @memberof IoDocument
-     */
-    data?: TmuxPaneIoDocument;
-    /**
      * Identifies the event.
      * @type {string}
      * @memberof IoDocument
      */
     id: string;
     /**
+     * 
+     * @type {string}
+     * @memberof IoDocument
+     */
+    source: string;
+    /**
      * The version of the CloudEvents specification which the event uses.
      * @type {string}
      * @memberof IoDocument
      */
     specversion: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof IoDocument
+     */
+    type: string;
     /**
      * Content type of the data value. Must adhere to RFC 2046 format.
      * @type {string}
@@ -82,6 +76,12 @@ export interface IoDocument {
      */
     time?: Date;
     /**
+     * 
+     * @type {TmuxPaneIoDocument}
+     * @memberof IoDocument
+     */
+    data?: TmuxPaneIoDocument;
+    /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      * @type {string}
      * @memberof IoDocument
@@ -94,7 +94,9 @@ export interface IoDocument {
  */
 export function instanceOfIoDocument(value: object): value is IoDocument {
     if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('source' in value) || value['source'] === undefined) return false;
     if (!('specversion' in value) || value['specversion'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
     return true;
 }
 
@@ -109,15 +111,15 @@ export function IoDocumentFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return {
         
             ...json,
-        'type': json['type'] == null ? undefined : json['type'],
-        'source': json['source'] == null ? undefined : json['source'],
-        'data': json['data'] == null ? undefined : TmuxPaneIoDocumentFromJSON(json['data']),
         'id': json['id'],
+        'source': json['source'],
         'specversion': json['specversion'],
+        'type': json['type'],
         'datacontenttype': json['datacontenttype'] == null ? undefined : json['datacontenttype'],
         'dataschema': json['dataschema'] == null ? undefined : json['dataschema'],
         'subject': json['subject'] == null ? undefined : json['subject'],
         'time': json['time'] == null ? undefined : (new Date(json['time'])),
+        'data': json['data'] == null ? undefined : TmuxPaneIoDocumentFromJSON(json['data']),
         'dataBase64': json['data_base64'] == null ? undefined : json['data_base64'],
     };
 }
@@ -129,15 +131,15 @@ export function IoDocumentToJSON(value?: IoDocument | null): any {
     return {
         
             ...value,
-        'type': value['type'],
-        'source': value['source'],
-        'data': TmuxPaneIoDocumentToJSON(value['data']),
         'id': value['id'],
+        'source': value['source'],
         'specversion': value['specversion'],
+        'type': value['type'],
         'datacontenttype': value['datacontenttype'],
         'dataschema': value['dataschema'],
         'subject': value['subject'],
         'time': value['time'] == null ? undefined : ((value['time']).toISOString()),
+        'data': TmuxPaneIoDocumentToJSON(value['data']),
         'data_base64': value['dataBase64'],
     };
 }

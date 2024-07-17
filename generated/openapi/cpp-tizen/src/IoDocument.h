@@ -48,27 +48,6 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
-	 */
-	std::string getType();
-
-	/*! \brief Set 
-	 */
-	void setType(std::string  type);
-	/*! \brief Get 
-	 */
-	std::string getSource();
-
-	/*! \brief Set 
-	 */
-	void setSource(std::string  source);
-	/*! \brief Get 
-	 */
-	TmuxPaneIoDocument getData();
-
-	/*! \brief Set 
-	 */
-	void setData(TmuxPaneIoDocument  data);
 	/*! \brief Get Identifies the event.
 	 */
 	std::string getId();
@@ -76,6 +55,13 @@ public:
 	/*! \brief Set Identifies the event.
 	 */
 	void setId(std::string  id);
+	/*! \brief Get 
+	 */
+	std::string getSource();
+
+	/*! \brief Set 
+	 */
+	void setSource(std::string  source);
 	/*! \brief Get The version of the CloudEvents specification which the event uses.
 	 */
 	std::string getSpecversion();
@@ -83,6 +69,13 @@ public:
 	/*! \brief Set The version of the CloudEvents specification which the event uses.
 	 */
 	void setSpecversion(std::string  specversion);
+	/*! \brief Get 
+	 */
+	std::string getType();
+
+	/*! \brief Set 
+	 */
+	void setType(std::string  type);
 	/*! \brief Get Content type of the data value. Must adhere to RFC 2046 format.
 	 */
 	std::string getDatacontenttype();
@@ -111,6 +104,13 @@ public:
 	/*! \brief Set Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 	 */
 	void setTime(std::string  time);
+	/*! \brief Get 
+	 */
+	TmuxPaneIoDocument getData();
+
+	/*! \brief Set 
+	 */
+	void setData(TmuxPaneIoDocument  data);
 	/*! \brief Get Base64 encoded event payload. Must adhere to RFC4648.
 	 */
 	std::string getDataBase64();
@@ -120,15 +120,15 @@ public:
 	void setDataBase64(std::string  data_base64);
 
 private:
-	std::string type;
-	std::string source;
-	TmuxPaneIoDocument data;
 	std::string id;
+	std::string source;
 	std::string specversion;
+	std::string type;
 	std::string datacontenttype;
 	std::string dataschema;
 	std::string subject;
 	std::string time;
+	TmuxPaneIoDocument data;
 	std::string data_base64;
 	void __init();
 	void __cleanup();

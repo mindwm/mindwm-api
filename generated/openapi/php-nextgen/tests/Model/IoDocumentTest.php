@@ -78,9 +78,9 @@ class IoDocumentTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "id"
      */
-    public function testPropertyType()
+    public function testPropertyId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -96,27 +96,18 @@ class IoDocumentTest extends TestCase
     }
 
     /**
-     * Test attribute "data"
-     */
-    public function testPropertyData()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "specversion"
      */
     public function testPropertySpecversion()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -153,6 +144,15 @@ class IoDocumentTest extends TestCase
      * Test attribute "time"
      */
     public function testPropertyTime()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "data"
+     */
+    public function testPropertyData()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

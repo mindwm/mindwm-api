@@ -13,16 +13,14 @@ module Clipboard =
 
   [<CLIMutable>]
   type Clipboard = {
-    [<JsonProperty(PropertyName = "type")>]
-    Type : string;
-    [<JsonProperty(PropertyName = "source")>]
-    Source : string;
-    [<JsonProperty(PropertyName = "data")>]
-    Data : ClipboardPayload;
     [<JsonProperty(PropertyName = "id")>]
     Id : string;
+    [<JsonProperty(PropertyName = "source")>]
+    Source : string;
     [<JsonProperty(PropertyName = "specversion")>]
     Specversion : string;
+    [<JsonProperty(PropertyName = "type")>]
+    Type : string;
     [<JsonProperty(PropertyName = "datacontenttype")>]
     Datacontenttype : string;
     [<JsonProperty(PropertyName = "dataschema")>]
@@ -31,6 +29,8 @@ module Clipboard =
     Subject : string;
     [<JsonProperty(PropertyName = "time")>]
     Time : Nullable<DateTime>;
+    [<JsonProperty(PropertyName = "data")>]
+    Data : ClipboardPayload;
     [<JsonProperty(PropertyName = "data_base64")>]
     DataBase64 : string;
   }

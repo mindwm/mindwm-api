@@ -21,29 +21,29 @@ typedef struct io_document_t io_document_t;
 
 
 typedef struct io_document_t {
-    char *type; // string
-    char *source; // string
-    tmux_pane_io_document_t *data; // custom
     char *id; // string
+    char *source; // string
     char *specversion; // string
+    char *type; // string
     char *datacontenttype; // string
     char *dataschema; // string
     char *subject; // string
     char *time; //date time
+    tmux_pane_io_document_t *data; // custom
     char *data_base64; // string
 
 } io_document_t;
 
 io_document_t *io_document_create(
-    char *type,
-    char *source,
-    tmux_pane_io_document_t *data,
     char *id,
+    char *source,
     char *specversion,
+    char *type,
     char *datacontenttype,
     char *dataschema,
     char *subject,
     char *time,
+    tmux_pane_io_document_t *data,
     char *data_base64
 );
 

@@ -12,18 +12,17 @@ import AnyCodable
 
 public struct Clipboard: Codable, JSONEncodable, Hashable {
 
-    static let sourceRule = StringRule(minLength: nil, maxLength: nil, pattern: "/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$/")
     static let idRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    static let sourceRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$/")
     static let specversionRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     static let datacontenttypeRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     static let dataschemaRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    public var type: String?
-    public var source: String?
-    public var data: ClipboardPayload?
     /** Identifies the event. */
     public var id: String
+    public var source: String
     /** The version of the CloudEvents specification which the event uses. */
     public var specversion: String
+    public var type: String
     /** Content type of the data value. Must adhere to RFC 2046 format. */
     public var datacontenttype: String?
     /** Identifies the schema that data adheres to. */
@@ -31,32 +30,33 @@ public struct Clipboard: Codable, JSONEncodable, Hashable {
     public var subject: String?
     /** Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
     public var time: Date?
+    public var data: ClipboardPayload?
     /** Base64 encoded event payload. Must adhere to RFC4648. */
     public var dataBase64: String?
 
-    public init(type: String? = nil, source: String? = nil, data: ClipboardPayload? = nil, id: String, specversion: String, datacontenttype: String? = nil, dataschema: String? = nil, subject: String? = nil, time: Date? = nil, dataBase64: String? = nil) {
-        self.type = type
-        self.source = source
-        self.data = data
+    public init(id: String, source: String, specversion: String, type: String, datacontenttype: String? = nil, dataschema: String? = nil, subject: String? = nil, time: Date? = nil, data: ClipboardPayload? = nil, dataBase64: String? = nil) {
         self.id = id
+        self.source = source
         self.specversion = specversion
+        self.type = type
         self.datacontenttype = datacontenttype
         self.dataschema = dataschema
         self.subject = subject
         self.time = time
+        self.data = data
         self.dataBase64 = dataBase64
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case type
-        case source
-        case data
         case id
+        case source
         case specversion
+        case type
         case datacontenttype
         case dataschema
         case subject
         case time
+        case data
         case dataBase64 = "data_base64"
     }
 
@@ -79,15 +79,15 @@ public struct Clipboard: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(type, forKey: .type)
-        try container.encodeIfPresent(source, forKey: .source)
-        try container.encodeIfPresent(data, forKey: .data)
         try container.encode(id, forKey: .id)
+        try container.encode(source, forKey: .source)
         try container.encode(specversion, forKey: .specversion)
+        try container.encode(type, forKey: .type)
         try container.encodeIfPresent(datacontenttype, forKey: .datacontenttype)
         try container.encodeIfPresent(dataschema, forKey: .dataschema)
         try container.encodeIfPresent(subject, forKey: .subject)
         try container.encodeIfPresent(time, forKey: .time)
+        try container.encodeIfPresent(data, forKey: .data)
         try container.encodeIfPresent(dataBase64, forKey: .dataBase64)
         var additionalPropertiesContainer = encoder.container(keyedBy: String.self)
         try additionalPropertiesContainer.encodeMap(additionalProperties)
@@ -98,26 +98,26 @@ public struct Clipboard: Codable, JSONEncodable, Hashable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        type = try container.decodeIfPresent(String.self, forKey: .type)
-        source = try container.decodeIfPresent(String.self, forKey: .source)
-        data = try container.decodeIfPresent(ClipboardPayload.self, forKey: .data)
         id = try container.decode(String.self, forKey: .id)
+        source = try container.decode(String.self, forKey: .source)
         specversion = try container.decode(String.self, forKey: .specversion)
+        type = try container.decode(String.self, forKey: .type)
         datacontenttype = try container.decodeIfPresent(String.self, forKey: .datacontenttype)
         dataschema = try container.decodeIfPresent(String.self, forKey: .dataschema)
         subject = try container.decodeIfPresent(String.self, forKey: .subject)
         time = try container.decodeIfPresent(Date.self, forKey: .time)
+        data = try container.decodeIfPresent(ClipboardPayload.self, forKey: .data)
         dataBase64 = try container.decodeIfPresent(String.self, forKey: .dataBase64)
         var nonAdditionalPropertyKeys = Set<String>()
-        nonAdditionalPropertyKeys.insert("type")
-        nonAdditionalPropertyKeys.insert("source")
-        nonAdditionalPropertyKeys.insert("data")
         nonAdditionalPropertyKeys.insert("id")
+        nonAdditionalPropertyKeys.insert("source")
         nonAdditionalPropertyKeys.insert("specversion")
+        nonAdditionalPropertyKeys.insert("type")
         nonAdditionalPropertyKeys.insert("datacontenttype")
         nonAdditionalPropertyKeys.insert("dataschema")
         nonAdditionalPropertyKeys.insert("subject")
         nonAdditionalPropertyKeys.insert("time")
+        nonAdditionalPropertyKeys.insert("data")
         nonAdditionalPropertyKeys.insert("data_base64")
         let additionalPropertiesContainer = try decoder.container(keyedBy: String.self)
         additionalProperties = try additionalPropertiesContainer.decodeMap(AnyCodable.self, excludedKeys: nonAdditionalPropertyKeys)

@@ -80,15 +80,15 @@ private class OASIoDocumentTest {
     @isTest
     private static void defaultValuesPopulated() {
         OASIoDocument ioDocument = new OASIoDocument();
+        System.assertEquals('IoDocument', ioDocument.type);
         System.assertEquals('IoDocument', ioDocument.subject);
-        System.assertEquals(null, ioDocument.type);
-        System.assertEquals(null, ioDocument.source);
-        System.assertEquals(null, ioDocument.data);
         System.assertEquals(null, ioDocument.id);
+        System.assertEquals(null, ioDocument.source);
         System.assertEquals(null, ioDocument.specversion);
         System.assertEquals(null, ioDocument.datacontenttype);
         System.assertEquals(null, ioDocument.dataschema);
         System.assertEquals(null, ioDocument.r_time);
+        System.assertEquals(null, ioDocument.data);
         System.assertEquals(null, ioDocument.dataBase64);
     }
 }

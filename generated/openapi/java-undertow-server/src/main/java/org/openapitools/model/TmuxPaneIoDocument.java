@@ -22,7 +22,7 @@ import java.util.Map;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-17T14:05:10.943134242Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-17T16:07:56.019889082Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class TmuxPaneIoDocument extends HashMap<String, Object>  {
   
   private String input;

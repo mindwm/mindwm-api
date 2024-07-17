@@ -21,13 +21,12 @@ var _ MappedNullable = &Clipboard{}
 
 // Clipboard struct for Clipboard
 type Clipboard struct {
-	Type *string `json:"type,omitempty"`
-	Source *string `json:"source,omitempty" validate:"regexp=[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$"`
-	Data *ClipboardPayload `json:"data,omitempty"`
 	// Identifies the event.
 	Id string `json:"id"`
+	Source string `json:"source" validate:"regexp=^mindwm\\\\\\\\.[a-zA-Z0-9_]{1,32}\\\\\\\\.[a-zA-Z0-9-]{1,63}\\\\.clipboard$"`
 	// The version of the CloudEvents specification which the event uses.
 	Specversion string `json:"specversion"`
+	Type string `json:"type"`
 	// Content type of the data value. Must adhere to RFC 2046 format.
 	Datacontenttype *string `json:"datacontenttype,omitempty"`
 	// Identifies the schema that data adheres to.
@@ -35,6 +34,7 @@ type Clipboard struct {
 	Subject *string `json:"subject,omitempty"`
 	// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 	Time *time.Time `json:"time,omitempty"`
+	Data *ClipboardPayload `json:"data,omitempty"`
 	// Base64 encoded event payload. Must adhere to RFC4648.
 	DataBase64 *string `json:"data_base64,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -63,102 +63,6 @@ func NewClipboardWithDefaults() *Clipboard {
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *Clipboard) GetType() string {
-	if o == nil || IsNil(o.Type) {
-		var ret string
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Clipboard) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *Clipboard) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given string and assigns it to the Type field.
-func (o *Clipboard) SetType(v string) {
-	o.Type = &v
-}
-
-// GetSource returns the Source field value if set, zero value otherwise.
-func (o *Clipboard) GetSource() string {
-	if o == nil || IsNil(o.Source) {
-		var ret string
-		return ret
-	}
-	return *o.Source
-}
-
-// GetSourceOk returns a tuple with the Source field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Clipboard) GetSourceOk() (*string, bool) {
-	if o == nil || IsNil(o.Source) {
-		return nil, false
-	}
-	return o.Source, true
-}
-
-// HasSource returns a boolean if a field has been set.
-func (o *Clipboard) HasSource() bool {
-	if o != nil && !IsNil(o.Source) {
-		return true
-	}
-
-	return false
-}
-
-// SetSource gets a reference to the given string and assigns it to the Source field.
-func (o *Clipboard) SetSource(v string) {
-	o.Source = &v
-}
-
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *Clipboard) GetData() ClipboardPayload {
-	if o == nil || IsNil(o.Data) {
-		var ret ClipboardPayload
-		return ret
-	}
-	return *o.Data
-}
-
-// GetDataOk returns a tuple with the Data field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Clipboard) GetDataOk() (*ClipboardPayload, bool) {
-	if o == nil || IsNil(o.Data) {
-		return nil, false
-	}
-	return o.Data, true
-}
-
-// HasData returns a boolean if a field has been set.
-func (o *Clipboard) HasData() bool {
-	if o != nil && !IsNil(o.Data) {
-		return true
-	}
-
-	return false
-}
-
-// SetData gets a reference to the given ClipboardPayload and assigns it to the Data field.
-func (o *Clipboard) SetData(v ClipboardPayload) {
-	o.Data = &v
-}
-
 // GetId returns the Id field value
 func (o *Clipboard) GetId() string {
 	if o == nil {
@@ -183,6 +87,30 @@ func (o *Clipboard) SetId(v string) {
 	o.Id = v
 }
 
+// GetSource returns the Source field value
+func (o *Clipboard) GetSource() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Source
+}
+
+// GetSourceOk returns a tuple with the Source field value
+// and a boolean to check if the value has been set.
+func (o *Clipboard) GetSourceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Source, true
+}
+
+// SetSource sets field value
+func (o *Clipboard) SetSource(v string) {
+	o.Source = v
+}
+
 // GetSpecversion returns the Specversion field value
 func (o *Clipboard) GetSpecversion() string {
 	if o == nil {
@@ -205,6 +133,30 @@ func (o *Clipboard) GetSpecversionOk() (*string, bool) {
 // SetSpecversion sets field value
 func (o *Clipboard) SetSpecversion(v string) {
 	o.Specversion = v
+}
+
+// GetType returns the Type field value
+func (o *Clipboard) GetType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *Clipboard) GetTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *Clipboard) SetType(v string) {
+	o.Type = v
 }
 
 // GetDatacontenttype returns the Datacontenttype field value if set, zero value otherwise.
@@ -335,6 +287,38 @@ func (o *Clipboard) SetTime(v time.Time) {
 	o.Time = &v
 }
 
+// GetData returns the Data field value if set, zero value otherwise.
+func (o *Clipboard) GetData() ClipboardPayload {
+	if o == nil || IsNil(o.Data) {
+		var ret ClipboardPayload
+		return ret
+	}
+	return *o.Data
+}
+
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Clipboard) GetDataOk() (*ClipboardPayload, bool) {
+	if o == nil || IsNil(o.Data) {
+		return nil, false
+	}
+	return o.Data, true
+}
+
+// HasData returns a boolean if a field has been set.
+func (o *Clipboard) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given ClipboardPayload and assigns it to the Data field.
+func (o *Clipboard) SetData(v ClipboardPayload) {
+	o.Data = &v
+}
+
 // GetDataBase64 returns the DataBase64 field value if set, zero value otherwise.
 func (o *Clipboard) GetDataBase64() string {
 	if o == nil || IsNil(o.DataBase64) {
@@ -377,17 +361,10 @@ func (o Clipboard) MarshalJSON() ([]byte, error) {
 
 func (o Clipboard) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
-	if !IsNil(o.Source) {
-		toSerialize["source"] = o.Source
-	}
-	if !IsNil(o.Data) {
-		toSerialize["data"] = o.Data
-	}
 	toSerialize["id"] = o.Id
+	toSerialize["source"] = o.Source
 	toSerialize["specversion"] = o.Specversion
+	toSerialize["type"] = o.Type
 	if !IsNil(o.Datacontenttype) {
 		toSerialize["datacontenttype"] = o.Datacontenttype
 	}
@@ -399,6 +376,9 @@ func (o Clipboard) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Time) {
 		toSerialize["time"] = o.Time
+	}
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
 	}
 	if !IsNil(o.DataBase64) {
 		toSerialize["data_base64"] = o.DataBase64
@@ -449,15 +429,15 @@ func (o *Clipboard) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "type")
-		delete(additionalProperties, "source")
-		delete(additionalProperties, "data")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "source")
 		delete(additionalProperties, "specversion")
+		delete(additionalProperties, "type")
 		delete(additionalProperties, "datacontenttype")
 		delete(additionalProperties, "dataschema")
 		delete(additionalProperties, "subject")
 		delete(additionalProperties, "time")
+		delete(additionalProperties, "data")
 		delete(additionalProperties, "data_base64")
 		o.AdditionalProperties = additionalProperties
 	}

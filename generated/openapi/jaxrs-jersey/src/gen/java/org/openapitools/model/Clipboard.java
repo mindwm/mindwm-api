@@ -31,38 +31,34 @@ import javax.validation.Valid;
  * Clipboard
  */
 @JsonPropertyOrder({
-  Clipboard.JSON_PROPERTY_TYPE,
-  Clipboard.JSON_PROPERTY_SOURCE,
-  Clipboard.JSON_PROPERTY_DATA,
   Clipboard.JSON_PROPERTY_ID,
+  Clipboard.JSON_PROPERTY_SOURCE,
   Clipboard.JSON_PROPERTY_SPECVERSION,
+  Clipboard.JSON_PROPERTY_TYPE,
   Clipboard.JSON_PROPERTY_DATACONTENTTYPE,
   Clipboard.JSON_PROPERTY_DATASCHEMA,
   Clipboard.JSON_PROPERTY_SUBJECT,
   Clipboard.JSON_PROPERTY_TIME,
+  Clipboard.JSON_PROPERTY_DATA,
   Clipboard.JSON_PROPERTY_DATA_BASE64
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-17T14:05:24.762057614Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-17T16:08:08.177013334Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Clipboard extends HashMap<String, Object>  {
-  public static final String JSON_PROPERTY_TYPE = "type";
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  private String type;
+  public static final String JSON_PROPERTY_ID = "id";
+  @JsonProperty(JSON_PROPERTY_ID)
+  private String id;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
   @JsonProperty(JSON_PROPERTY_SOURCE)
   private String source;
 
-  public static final String JSON_PROPERTY_DATA = "data";
-  @JsonProperty(JSON_PROPERTY_DATA)
-  private ClipboardPayload data;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  @JsonProperty(JSON_PROPERTY_ID)
-  private String id;
-
   public static final String JSON_PROPERTY_SPECVERSION = "specversion";
   @JsonProperty(JSON_PROPERTY_SPECVERSION)
   private String specversion;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  private String type;
 
   public static final String JSON_PROPERTY_DATACONTENTTYPE = "datacontenttype";
   @JsonProperty(JSON_PROPERTY_DATACONTENTTYPE)
@@ -80,69 +76,13 @@ public class Clipboard extends HashMap<String, Object>  {
   @JsonProperty(JSON_PROPERTY_TIME)
   private Date time;
 
+  public static final String JSON_PROPERTY_DATA = "data";
+  @JsonProperty(JSON_PROPERTY_DATA)
+  private ClipboardPayload data;
+
   public static final String JSON_PROPERTY_DATA_BASE64 = "data_base64";
   @JsonProperty(JSON_PROPERTY_DATA_BASE64)
   private String dataBase64;
-
-  public Clipboard type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   **/
-  @JsonProperty(value = "type")
-  @ApiModelProperty(value = "")
-  
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public Clipboard source(String source) {
-    this.source = source;
-    return this;
-  }
-
-  /**
-   * Get source
-   * @return source
-   **/
-  @JsonProperty(value = "source")
-  @ApiModelProperty(value = "")
-   @Pattern(regexp="[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$")
-  public String getSource() {
-    return source;
-  }
-
-  public void setSource(String source) {
-    this.source = source;
-  }
-
-  public Clipboard data(ClipboardPayload data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Get data
-   * @return data
-   **/
-  @JsonProperty(value = "data")
-  @ApiModelProperty(value = "")
-  @Valid 
-  public ClipboardPayload getData() {
-    return data;
-  }
-
-  public void setData(ClipboardPayload data) {
-    this.data = data;
-  }
 
   public Clipboard id(String id) {
     this.id = id;
@@ -164,6 +104,26 @@ public class Clipboard extends HashMap<String, Object>  {
     this.id = id;
   }
 
+  public Clipboard source(String source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * Get source
+   * @return source
+   **/
+  @JsonProperty(value = "source")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull  @Pattern(regexp="^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
   public Clipboard specversion(String specversion) {
     this.specversion = specversion;
     return this;
@@ -182,6 +142,26 @@ public class Clipboard extends HashMap<String, Object>  {
 
   public void setSpecversion(String specversion) {
     this.specversion = specversion;
+  }
+
+  public Clipboard type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   **/
+  @JsonProperty(value = "type")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull 
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   public Clipboard datacontenttype(String datacontenttype) {
@@ -264,6 +244,26 @@ public class Clipboard extends HashMap<String, Object>  {
     this.time = time;
   }
 
+  public Clipboard data(ClipboardPayload data) {
+    this.data = data;
+    return this;
+  }
+
+  /**
+   * Get data
+   * @return data
+   **/
+  @JsonProperty(value = "data")
+  @ApiModelProperty(value = "")
+  @Valid 
+  public ClipboardPayload getData() {
+    return data;
+  }
+
+  public void setData(ClipboardPayload data) {
+    this.data = data;
+  }
+
   public Clipboard dataBase64(String dataBase64) {
     this.dataBase64 = dataBase64;
     return this;
@@ -294,21 +294,21 @@ public class Clipboard extends HashMap<String, Object>  {
       return false;
     }
     Clipboard clipboard = (Clipboard) o;
-    return super.equals(o) && Objects.equals(this.type, clipboard.type) &&
+    return super.equals(o) && Objects.equals(this.id, clipboard.id) &&
         Objects.equals(this.source, clipboard.source) &&
-        Objects.equals(this.data, clipboard.data) &&
-        Objects.equals(this.id, clipboard.id) &&
         Objects.equals(this.specversion, clipboard.specversion) &&
+        Objects.equals(this.type, clipboard.type) &&
         Objects.equals(this.datacontenttype, clipboard.datacontenttype) &&
         Objects.equals(this.dataschema, clipboard.dataschema) &&
         Objects.equals(this.subject, clipboard.subject) &&
         Objects.equals(this.time, clipboard.time) &&
+        Objects.equals(this.data, clipboard.data) &&
         Objects.equals(this.dataBase64, clipboard.dataBase64);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode(), type, super.hashCode(), source, super.hashCode(), data, super.hashCode(), id, super.hashCode(), specversion, super.hashCode(), datacontenttype, super.hashCode(), dataschema, super.hashCode(), subject, super.hashCode(), time, super.hashCode(), dataBase64);
+    return Objects.hash(super.hashCode(), id, super.hashCode(), source, super.hashCode(), specversion, super.hashCode(), type, super.hashCode(), datacontenttype, super.hashCode(), dataschema, super.hashCode(), subject, super.hashCode(), time, super.hashCode(), data, super.hashCode(), dataBase64);
   }
 
   @Override
@@ -316,15 +316,15 @@ public class Clipboard extends HashMap<String, Object>  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Clipboard {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    specversion: ").append(toIndentedString(specversion)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    datacontenttype: ").append(toIndentedString(datacontenttype)).append("\n");
     sb.append("    dataschema: ").append(toIndentedString(dataschema)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
     sb.append("}");
     return sb.toString();

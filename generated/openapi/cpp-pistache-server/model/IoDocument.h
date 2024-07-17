@@ -62,36 +62,25 @@ public:
     /// IoDocument members
 
     /// <summary>
-    /// 
-    /// </summary>
-    std::string getType() const;
-    void setType(std::string const& value);
-    bool typeIsSet() const;
-    void unsetType();
-    /// <summary>
-    /// 
-    /// </summary>
-    std::string getSource() const;
-    void setSource(std::string const& value);
-    bool sourceIsSet() const;
-    void unsetSource();
-    /// <summary>
-    /// 
-    /// </summary>
-    org::openapitools::server::model::TmuxPaneIoDocument getData() const;
-    void setData(org::openapitools::server::model::TmuxPaneIoDocument const& value);
-    bool dataIsSet() const;
-    void unsetData();
-    /// <summary>
     /// Identifies the event.
     /// </summary>
     std::string getId() const;
     void setId(std::string const& value);
     /// <summary>
+    /// 
+    /// </summary>
+    std::string getSource() const;
+    void setSource(std::string const& value);
+    /// <summary>
     /// The version of the CloudEvents specification which the event uses.
     /// </summary>
     std::string getSpecversion() const;
     void setSpecversion(std::string const& value);
+    /// <summary>
+    /// 
+    /// </summary>
+    std::string getType() const;
+    void setType(std::string const& value);
     /// <summary>
     /// Content type of the data value. Must adhere to RFC 2046 format.
     /// </summary>
@@ -121,6 +110,13 @@ public:
     bool timeIsSet() const;
     void unsetTime();
     /// <summary>
+    /// 
+    /// </summary>
+    org::openapitools::server::model::TmuxPaneIoDocument getData() const;
+    void setData(org::openapitools::server::model::TmuxPaneIoDocument const& value);
+    bool dataIsSet() const;
+    void unsetData();
+    /// <summary>
     /// Base64 encoded event payload. Must adhere to RFC4648.
     /// </summary>
     std::string getDataBase64() const;
@@ -131,15 +127,13 @@ public:
     friend  void to_json(nlohmann::json& j, const IoDocument& o);
     friend  void from_json(const nlohmann::json& j, IoDocument& o);
 protected:
-    std::string m_Type;
-    bool m_TypeIsSet;
-    std::string m_Source;
-    bool m_SourceIsSet;
-    org::openapitools::server::model::TmuxPaneIoDocument m_Data;
-    bool m_DataIsSet;
     std::string m_Id;
 
+    std::string m_Source;
+
     std::string m_Specversion;
+
+    std::string m_Type;
 
     std::string m_Datacontenttype;
     bool m_DatacontenttypeIsSet;
@@ -149,6 +143,8 @@ protected:
     bool m_SubjectIsSet;
     std::string m_Time;
     bool m_TimeIsSet;
+    org::openapitools::server::model::TmuxPaneIoDocument m_Data;
+    bool m_DataIsSet;
     std::string m_Data_base64;
     bool m_Data_base64IsSet;
     

@@ -43,7 +43,9 @@ class IoDocument {
      */
     static initialize(obj, id, source, specversion, type) { 
         obj['id'] = id;
+        obj['source'] = source;
         obj['specversion'] = specversion;
+        obj['type'] = type || 'IoDocument';
     }
 
     /**
@@ -61,20 +63,17 @@ class IoDocument {
             
             CloudEvent.constructFromObject(data, obj);
 
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = ApiClient.convertToType(data['type'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('source')) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('data')) {
-                obj['data'] = TmuxPaneIoDocument.constructFromObject(data['data']);
-            }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
             if (data.hasOwnProperty('specversion')) {
                 obj['specversion'] = ApiClient.convertToType(data['specversion'], 'String');
+            }
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
             if (data.hasOwnProperty('datacontenttype')) {
                 obj['datacontenttype'] = ApiClient.convertToType(data['datacontenttype'], 'String');
@@ -87,6 +86,9 @@ class IoDocument {
             }
             if (data.hasOwnProperty('time')) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
+            }
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = TmuxPaneIoDocument.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('data_base64')) {
                 obj['data_base64'] = ApiClient.convertToType(data['data_base64'], 'String');
@@ -108,20 +110,20 @@ class IoDocument {
             }
         }
         // ensure the json data is a string
-        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
-            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
         }
         // ensure the json data is a string
         if (data['source'] && !(typeof data['source'] === 'string' || data['source'] instanceof String)) {
             throw new Error("Expected the field `source` to be a primitive type in the JSON string but got " + data['source']);
         }
         // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
-        }
-        // ensure the json data is a string
         if (data['specversion'] && !(typeof data['specversion'] === 'string' || data['specversion'] instanceof String)) {
             throw new Error("Expected the field `specversion` to be a primitive type in the JSON string but got " + data['specversion']);
+        }
+        // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
         }
         // ensure the json data is a string
         if (data['datacontenttype'] && !(typeof data['datacontenttype'] === 'string' || data['datacontenttype'] instanceof String)) {
@@ -149,9 +151,10 @@ class IoDocument {
 IoDocument.RequiredProperties = ["id", "source", "specversion", "type"];
 
 /**
- * @member {String} type
+ * Identifies the event.
+ * @member {String} id
  */
-IoDocument.prototype['type'] = undefined;
+IoDocument.prototype['id'] = undefined;
 
 /**
  * @member {String} source
@@ -159,21 +162,16 @@ IoDocument.prototype['type'] = undefined;
 IoDocument.prototype['source'] = undefined;
 
 /**
- * @member {module:model/TmuxPaneIoDocument} data
- */
-IoDocument.prototype['data'] = undefined;
-
-/**
- * Identifies the event.
- * @member {String} id
- */
-IoDocument.prototype['id'] = undefined;
-
-/**
  * The version of the CloudEvents specification which the event uses.
  * @member {String} specversion
  */
 IoDocument.prototype['specversion'] = undefined;
+
+/**
+ * @member {String} type
+ * @default 'IoDocument'
+ */
+IoDocument.prototype['type'] = 'IoDocument';
 
 /**
  * Content type of the data value. Must adhere to RFC 2046 format.
@@ -198,6 +196,11 @@ IoDocument.prototype['subject'] = 'IoDocument';
  * @member {Date} time
  */
 IoDocument.prototype['time'] = undefined;
+
+/**
+ * @member {module:model/TmuxPaneIoDocument} data
+ */
+IoDocument.prototype['data'] = undefined;
 
 /**
  * Base64 encoded event payload. Must adhere to RFC4648.

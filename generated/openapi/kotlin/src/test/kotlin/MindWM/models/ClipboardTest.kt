@@ -32,6 +32,12 @@ class ClipboardTest : ShouldSpec() {
             //modelInstance.id shouldBe ("TODO")
         }
 
+        // to test the property `source`
+        should("test source") {
+            // uncomment below to test the property
+            //modelInstance.source shouldBe ("TODO")
+        }
+
         // to test the property `specversion` - The version of the CloudEvents specification which the event uses.
         should("test specversion") {
             // uncomment below to test the property
@@ -42,18 +48,6 @@ class ClipboardTest : ShouldSpec() {
         should("test type") {
             // uncomment below to test the property
             //modelInstance.type shouldBe ("TODO")
-        }
-
-        // to test the property `source`
-        should("test source") {
-            // uncomment below to test the property
-            //modelInstance.source shouldBe ("TODO")
-        }
-
-        // to test the property ``data``
-        should("test `data`") {
-            // uncomment below to test the property
-            //modelInstance.`data` shouldBe ("TODO")
         }
 
         // to test the property `datacontenttype` - Content type of the data value. Must adhere to RFC 2046 format.
@@ -78,6 +72,12 @@ class ClipboardTest : ShouldSpec() {
         should("test time") {
             // uncomment below to test the property
             //modelInstance.time shouldBe ("TODO")
+        }
+
+        // to test the property ``data``
+        should("test `data`") {
+            // uncomment below to test the property
+            //modelInstance.`data` shouldBe ("TODO")
         }
 
         // to test the property `dataBase64` - Base64 encoded event payload. Must adhere to RFC4648.

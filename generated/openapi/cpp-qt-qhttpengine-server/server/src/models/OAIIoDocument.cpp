@@ -33,20 +33,17 @@ OAIIoDocument::~OAIIoDocument() {}
 
 void OAIIoDocument::initializeModel() {
 
-    m_type_isSet = false;
-    m_type_isValid = false;
+    m_id_isSet = false;
+    m_id_isValid = false;
 
     m_source_isSet = false;
     m_source_isValid = false;
 
-    m_data_isSet = false;
-    m_data_isValid = false;
-
-    m_id_isSet = false;
-    m_id_isValid = false;
-
     m_specversion_isSet = false;
     m_specversion_isValid = false;
+
+    m_type_isSet = false;
+    m_type_isValid = false;
 
     m_datacontenttype_isSet = false;
     m_datacontenttype_isValid = false;
@@ -59,6 +56,9 @@ void OAIIoDocument::initializeModel() {
 
     m_time_isSet = false;
     m_time_isValid = false;
+
+    m_data_isSet = false;
+    m_data_isValid = false;
 
     m_data_base64_isSet = false;
     m_data_base64_isValid = false;
@@ -73,20 +73,17 @@ void OAIIoDocument::fromJson(QString jsonString) {
 
 void OAIIoDocument::fromJsonObject(QJsonObject json) {
 
-    m_type_isValid = ::OpenAPI::fromJsonValue(type, json[QString("type")]);
-    m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
+    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
+    m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
 
     m_source_isValid = ::OpenAPI::fromJsonValue(source, json[QString("source")]);
     m_source_isSet = !json[QString("source")].isNull() && m_source_isValid;
 
-    m_data_isValid = ::OpenAPI::fromJsonValue(data, json[QString("data")]);
-    m_data_isSet = !json[QString("data")].isNull() && m_data_isValid;
-
-    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
-    m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
-
     m_specversion_isValid = ::OpenAPI::fromJsonValue(specversion, json[QString("specversion")]);
     m_specversion_isSet = !json[QString("specversion")].isNull() && m_specversion_isValid;
+
+    m_type_isValid = ::OpenAPI::fromJsonValue(type, json[QString("type")]);
+    m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
 
     m_datacontenttype_isValid = ::OpenAPI::fromJsonValue(datacontenttype, json[QString("datacontenttype")]);
     m_datacontenttype_isSet = !json[QString("datacontenttype")].isNull() && m_datacontenttype_isValid;
@@ -99,6 +96,9 @@ void OAIIoDocument::fromJsonObject(QJsonObject json) {
 
     m_time_isValid = ::OpenAPI::fromJsonValue(time, json[QString("time")]);
     m_time_isSet = !json[QString("time")].isNull() && m_time_isValid;
+
+    m_data_isValid = ::OpenAPI::fromJsonValue(data, json[QString("data")]);
+    m_data_isSet = !json[QString("data")].isNull() && m_data_isValid;
 
     m_data_base64_isValid = ::OpenAPI::fromJsonValue(data_base64, json[QString("data_base64")]);
     m_data_base64_isSet = !json[QString("data_base64")].isNull() && m_data_base64_isValid;
@@ -113,20 +113,17 @@ QString OAIIoDocument::asJson() const {
 
 QJsonObject OAIIoDocument::asJsonObject() const {
     QJsonObject obj;
-    if (m_type_isSet) {
-        obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
+    if (m_id_isSet) {
+        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
     if (m_source_isSet) {
         obj.insert(QString("source"), ::OpenAPI::toJsonValue(source));
     }
-    if (data.isSet()) {
-        obj.insert(QString("data"), ::OpenAPI::toJsonValue(data));
-    }
-    if (m_id_isSet) {
-        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
-    }
     if (m_specversion_isSet) {
         obj.insert(QString("specversion"), ::OpenAPI::toJsonValue(specversion));
+    }
+    if (m_type_isSet) {
+        obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
     if (m_datacontenttype_isSet) {
         obj.insert(QString("datacontenttype"), ::OpenAPI::toJsonValue(datacontenttype));
@@ -140,58 +137,13 @@ QJsonObject OAIIoDocument::asJsonObject() const {
     if (m_time_isSet) {
         obj.insert(QString("time"), ::OpenAPI::toJsonValue(time));
     }
+    if (data.isSet()) {
+        obj.insert(QString("data"), ::OpenAPI::toJsonValue(data));
+    }
     if (m_data_base64_isSet) {
         obj.insert(QString("data_base64"), ::OpenAPI::toJsonValue(data_base64));
     }
     return obj;
-}
-
-QString OAIIoDocument::getType() const {
-    return type;
-}
-void OAIIoDocument::setType(const QString &type) {
-    this->type = type;
-    this->m_type_isSet = true;
-}
-
-bool OAIIoDocument::is_type_Set() const{
-    return m_type_isSet;
-}
-
-bool OAIIoDocument::is_type_Valid() const{
-    return m_type_isValid;
-}
-
-QString OAIIoDocument::getSource() const {
-    return source;
-}
-void OAIIoDocument::setSource(const QString &source) {
-    this->source = source;
-    this->m_source_isSet = true;
-}
-
-bool OAIIoDocument::is_source_Set() const{
-    return m_source_isSet;
-}
-
-bool OAIIoDocument::is_source_Valid() const{
-    return m_source_isValid;
-}
-
-OAITmuxPaneIoDocument OAIIoDocument::getData() const {
-    return data;
-}
-void OAIIoDocument::setData(const OAITmuxPaneIoDocument &data) {
-    this->data = data;
-    this->m_data_isSet = true;
-}
-
-bool OAIIoDocument::is_data_Set() const{
-    return m_data_isSet;
-}
-
-bool OAIIoDocument::is_data_Valid() const{
-    return m_data_isValid;
 }
 
 QString OAIIoDocument::getId() const {
@@ -210,6 +162,22 @@ bool OAIIoDocument::is_id_Valid() const{
     return m_id_isValid;
 }
 
+QString OAIIoDocument::getSource() const {
+    return source;
+}
+void OAIIoDocument::setSource(const QString &source) {
+    this->source = source;
+    this->m_source_isSet = true;
+}
+
+bool OAIIoDocument::is_source_Set() const{
+    return m_source_isSet;
+}
+
+bool OAIIoDocument::is_source_Valid() const{
+    return m_source_isValid;
+}
+
 QString OAIIoDocument::getSpecversion() const {
     return specversion;
 }
@@ -224,6 +192,22 @@ bool OAIIoDocument::is_specversion_Set() const{
 
 bool OAIIoDocument::is_specversion_Valid() const{
     return m_specversion_isValid;
+}
+
+QString OAIIoDocument::getType() const {
+    return type;
+}
+void OAIIoDocument::setType(const QString &type) {
+    this->type = type;
+    this->m_type_isSet = true;
+}
+
+bool OAIIoDocument::is_type_Set() const{
+    return m_type_isSet;
+}
+
+bool OAIIoDocument::is_type_Valid() const{
+    return m_type_isValid;
 }
 
 QString OAIIoDocument::getDatacontenttype() const {
@@ -290,6 +274,22 @@ bool OAIIoDocument::is_time_Valid() const{
     return m_time_isValid;
 }
 
+OAITmuxPaneIoDocument OAIIoDocument::getData() const {
+    return data;
+}
+void OAIIoDocument::setData(const OAITmuxPaneIoDocument &data) {
+    this->data = data;
+    this->m_data_isSet = true;
+}
+
+bool OAIIoDocument::is_data_Set() const{
+    return m_data_isSet;
+}
+
+bool OAIIoDocument::is_data_Valid() const{
+    return m_data_isValid;
+}
+
 QString OAIIoDocument::getDataBase64() const {
     return data_base64;
 }
@@ -309,7 +309,7 @@ bool OAIIoDocument::is_data_base64_Valid() const{
 bool OAIIoDocument::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_type_isSet) {
+        if (m_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -319,17 +319,12 @@ bool OAIIoDocument::isSet() const {
             break;
         }
 
-        if (data.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_id_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_specversion_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_type_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -354,6 +349,11 @@ bool OAIIoDocument::isSet() const {
             break;
         }
 
+        if (data.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_data_base64_isSet) {
             isObjectUpdated = true;
             break;
@@ -364,7 +364,7 @@ bool OAIIoDocument::isSet() const {
 
 bool OAIIoDocument::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_id_isValid && m_specversion_isValid && true;
+    return m_id_isValid && m_source_isValid && m_specversion_isValid && m_type_isValid && true;
 }
 
 } // namespace OpenAPI

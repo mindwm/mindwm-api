@@ -87,14 +87,14 @@ class ClipboardTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "id"
      *
      * @group unit
      * @small
      */
-    public function testPropertyType(): void
+    public function testPropertyId(): void
     {
-        $this->markTestSkipped('Test for property type not implemented');
+        $this->markTestSkipped('Test for property id not implemented');
     }
 
     /**
@@ -109,28 +109,6 @@ class ClipboardTest extends TestCase
     }
 
     /**
-     * Test attribute "data"
-     *
-     * @group unit
-     * @small
-     */
-    public function testPropertyData(): void
-    {
-        $this->markTestSkipped('Test for property data not implemented');
-    }
-
-    /**
-     * Test attribute "id"
-     *
-     * @group unit
-     * @small
-     */
-    public function testPropertyId(): void
-    {
-        $this->markTestSkipped('Test for property id not implemented');
-    }
-
-    /**
      * Test attribute "specversion"
      *
      * @group unit
@@ -139,6 +117,17 @@ class ClipboardTest extends TestCase
     public function testPropertySpecversion(): void
     {
         $this->markTestSkipped('Test for property specversion not implemented');
+    }
+
+    /**
+     * Test attribute "type"
+     *
+     * @group unit
+     * @small
+     */
+    public function testPropertyType(): void
+    {
+        $this->markTestSkipped('Test for property type not implemented');
     }
 
     /**
@@ -183,6 +172,17 @@ class ClipboardTest extends TestCase
     public function testPropertyTime(): void
     {
         $this->markTestSkipped('Test for property time not implemented');
+    }
+
+    /**
+     * Test attribute "data"
+     *
+     * @group unit
+     * @small
+     */
+    public function testPropertyData(): void
+    {
+        $this->markTestSkipped('Test for property data not implemented');
     }
 
     /**

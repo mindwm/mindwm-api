@@ -6,30 +6,30 @@
 
 
 clipboard_t *clipboard_create(
-    char *type,
-    char *source,
-    clipboard_payload_t *data,
     char *id,
+    char *source,
     char *specversion,
+    char *type,
     char *datacontenttype,
     char *dataschema,
     char *subject,
     char *time,
+    clipboard_payload_t *data,
     char *data_base64
     ) {
     clipboard_t *clipboard_local_var = malloc(sizeof(clipboard_t));
     if (!clipboard_local_var) {
         return NULL;
     }
-    clipboard_local_var->type = type;
-    clipboard_local_var->source = source;
-    clipboard_local_var->data = data;
     clipboard_local_var->id = id;
+    clipboard_local_var->source = source;
     clipboard_local_var->specversion = specversion;
+    clipboard_local_var->type = type;
     clipboard_local_var->datacontenttype = datacontenttype;
     clipboard_local_var->dataschema = dataschema;
     clipboard_local_var->subject = subject;
     clipboard_local_var->time = time;
+    clipboard_local_var->data = data;
     clipboard_local_var->data_base64 = data_base64;
 
     return clipboard_local_var;
@@ -41,25 +41,21 @@ void clipboard_free(clipboard_t *clipboard) {
         return ;
     }
     listEntry_t *listEntry;
-    if (clipboard->type) {
-        free(clipboard->type);
-        clipboard->type = NULL;
+    if (clipboard->id) {
+        free(clipboard->id);
+        clipboard->id = NULL;
     }
     if (clipboard->source) {
         free(clipboard->source);
         clipboard->source = NULL;
     }
-    if (clipboard->data) {
-        clipboard_payload_free(clipboard->data);
-        clipboard->data = NULL;
-    }
-    if (clipboard->id) {
-        free(clipboard->id);
-        clipboard->id = NULL;
-    }
     if (clipboard->specversion) {
         free(clipboard->specversion);
         clipboard->specversion = NULL;
+    }
+    if (clipboard->type) {
+        free(clipboard->type);
+        clipboard->type = NULL;
     }
     if (clipboard->datacontenttype) {
         free(clipboard->datacontenttype);
@@ -77,6 +73,10 @@ void clipboard_free(clipboard_t *clipboard) {
         free(clipboard->time);
         clipboard->time = NULL;
     }
+    if (clipboard->data) {
+        clipboard_payload_free(clipboard->data);
+        clipboard->data = NULL;
+    }
     if (clipboard->data_base64) {
         free(clipboard->data_base64);
         clipboard->data_base64 = NULL;
@@ -87,35 +87,6 @@ void clipboard_free(clipboard_t *clipboard) {
 cJSON *clipboard_convertToJSON(clipboard_t *clipboard) {
     cJSON *item = cJSON_CreateObject();
 
-    // clipboard->type
-    if(clipboard->type) {
-    if(cJSON_AddStringToObject(item, "type", clipboard->type) == NULL) {
-    goto fail; //String
-    }
-    }
-
-
-    // clipboard->source
-    if(clipboard->source) {
-    if(cJSON_AddStringToObject(item, "source", clipboard->source) == NULL) {
-    goto fail; //String
-    }
-    }
-
-
-    // clipboard->data
-    if(clipboard->data) {
-    cJSON *data_local_JSON = clipboard_payload_convertToJSON(clipboard->data);
-    if(data_local_JSON == NULL) {
-    goto fail; //model
-    }
-    cJSON_AddItemToObject(item, "data", data_local_JSON);
-    if(item->child == NULL) {
-    goto fail;
-    }
-    }
-
-
     // clipboard->id
     if (!clipboard->id) {
         goto fail;
@@ -125,11 +96,29 @@ cJSON *clipboard_convertToJSON(clipboard_t *clipboard) {
     }
 
 
+    // clipboard->source
+    if (!clipboard->source) {
+        goto fail;
+    }
+    if(cJSON_AddStringToObject(item, "source", clipboard->source) == NULL) {
+    goto fail; //String
+    }
+
+
     // clipboard->specversion
     if (!clipboard->specversion) {
         goto fail;
     }
     if(cJSON_AddStringToObject(item, "specversion", clipboard->specversion) == NULL) {
+    goto fail; //String
+    }
+
+
+    // clipboard->type
+    if (!clipboard->type) {
+        goto fail;
+    }
+    if(cJSON_AddStringToObject(item, "type", clipboard->type) == NULL) {
     goto fail; //String
     }
 
@@ -166,6 +155,19 @@ cJSON *clipboard_convertToJSON(clipboard_t *clipboard) {
     }
 
 
+    // clipboard->data
+    if(clipboard->data) {
+    cJSON *data_local_JSON = clipboard_payload_convertToJSON(clipboard->data);
+    if(data_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "data", data_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
+    }
+
+
     // clipboard->data_base64
     if(clipboard->data_base64) {
     if(cJSON_AddStringToObject(item, "data_base64", clipboard->data_base64) == NULL) {
@@ -188,30 +190,6 @@ clipboard_t *clipboard_parseFromJSON(cJSON *clipboardJSON){
     // define the local variable for clipboard->data
     clipboard_payload_t *data_local_nonprim = NULL;
 
-    // clipboard->type
-    cJSON *type = cJSON_GetObjectItemCaseSensitive(clipboardJSON, "type");
-    if (type) { 
-    if(!cJSON_IsString(type) && !cJSON_IsNull(type))
-    {
-    goto end; //String
-    }
-    }
-
-    // clipboard->source
-    cJSON *source = cJSON_GetObjectItemCaseSensitive(clipboardJSON, "source");
-    if (source) { 
-    if(!cJSON_IsString(source) && !cJSON_IsNull(source))
-    {
-    goto end; //String
-    }
-    }
-
-    // clipboard->data
-    cJSON *data = cJSON_GetObjectItemCaseSensitive(clipboardJSON, "data");
-    if (data) { 
-    data_local_nonprim = clipboard_payload_parseFromJSON(data); //nonprimitive
-    }
-
     // clipboard->id
     cJSON *id = cJSON_GetObjectItemCaseSensitive(clipboardJSON, "id");
     if (!id) {
@@ -224,6 +202,18 @@ clipboard_t *clipboard_parseFromJSON(cJSON *clipboardJSON){
     goto end; //String
     }
 
+    // clipboard->source
+    cJSON *source = cJSON_GetObjectItemCaseSensitive(clipboardJSON, "source");
+    if (!source) {
+        goto end;
+    }
+
+    
+    if(!cJSON_IsString(source))
+    {
+    goto end; //String
+    }
+
     // clipboard->specversion
     cJSON *specversion = cJSON_GetObjectItemCaseSensitive(clipboardJSON, "specversion");
     if (!specversion) {
@@ -232,6 +222,18 @@ clipboard_t *clipboard_parseFromJSON(cJSON *clipboardJSON){
 
     
     if(!cJSON_IsString(specversion))
+    {
+    goto end; //String
+    }
+
+    // clipboard->type
+    cJSON *type = cJSON_GetObjectItemCaseSensitive(clipboardJSON, "type");
+    if (!type) {
+        goto end;
+    }
+
+    
+    if(!cJSON_IsString(type))
     {
     goto end; //String
     }
@@ -272,6 +274,12 @@ clipboard_t *clipboard_parseFromJSON(cJSON *clipboardJSON){
     }
     }
 
+    // clipboard->data
+    cJSON *data = cJSON_GetObjectItemCaseSensitive(clipboardJSON, "data");
+    if (data) { 
+    data_local_nonprim = clipboard_payload_parseFromJSON(data); //nonprimitive
+    }
+
     // clipboard->data_base64
     cJSON *data_base64 = cJSON_GetObjectItemCaseSensitive(clipboardJSON, "data_base64");
     if (data_base64) { 
@@ -283,15 +291,15 @@ clipboard_t *clipboard_parseFromJSON(cJSON *clipboardJSON){
 
 
     clipboard_local_var = clipboard_create (
-        type && !cJSON_IsNull(type) ? strdup(type->valuestring) : NULL,
-        source && !cJSON_IsNull(source) ? strdup(source->valuestring) : NULL,
-        data ? data_local_nonprim : NULL,
         strdup(id->valuestring),
+        strdup(source->valuestring),
         strdup(specversion->valuestring),
+        strdup(type->valuestring),
         datacontenttype && !cJSON_IsNull(datacontenttype) ? strdup(datacontenttype->valuestring) : NULL,
         dataschema && !cJSON_IsNull(dataschema) ? strdup(dataschema->valuestring) : NULL,
         subject && !cJSON_IsNull(subject) ? strdup(subject->valuestring) : NULL,
         time && !cJSON_IsNull(time) ? strdup(time->valuestring) : NULL,
+        data ? data_local_nonprim : NULL,
         data_base64 && !cJSON_IsNull(data_base64) ? strdup(data_base64->valuestring) : NULL
         );
 

@@ -5,69 +5,68 @@
 @doc raw"""IoDocument
 
     IoDocument(;
-        type=nothing,
-        source=nothing,
-        data=nothing,
         id=nothing,
+        source=nothing,
         specversion=nothing,
+        type="IoDocument",
         datacontenttype=nothing,
         dataschema=nothing,
         subject="IoDocument",
         time=nothing,
+        data=nothing,
         data_base64=nothing,
     )
 
-    - type::String
-    - source::String
-    - data::TmuxPaneIoDocument
     - id::String : Identifies the event.
+    - source::String
     - specversion::String : The version of the CloudEvents specification which the event uses.
+    - type::String
     - datacontenttype::String : Content type of the data value. Must adhere to RFC 2046 format.
     - dataschema::String : Identifies the schema that data adheres to.
     - subject::String
     - time::ZonedDateTime : Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+    - data::TmuxPaneIoDocument
     - data_base64::String : Base64 encoded event payload. Must adhere to RFC4648.
 """
 Base.@kwdef mutable struct IoDocument <: OpenAPI.APIModel
-    type::Union{Nothing, String} = nothing
-    source::Union{Nothing, String} = nothing
-    data = nothing # spec type: Union{ Nothing, TmuxPaneIoDocument }
     id::Union{Nothing, String} = nothing
+    source::Union{Nothing, String} = nothing
     specversion::Union{Nothing, String} = nothing
+    type::Union{Nothing, String} = "IoDocument"
     datacontenttype::Union{Nothing, String} = nothing
     dataschema::Union{Nothing, String} = nothing
     subject::Union{Nothing, String} = "IoDocument"
     time::Union{Nothing, ZonedDateTime} = nothing
+    data = nothing # spec type: Union{ Nothing, TmuxPaneIoDocument }
     data_base64::Union{Nothing, String} = nothing
 
-    function IoDocument(type, source, data, id, specversion, datacontenttype, dataschema, subject, time, data_base64, )
-        OpenAPI.validate_property(IoDocument, Symbol("type"), type)
-        OpenAPI.validate_property(IoDocument, Symbol("source"), source)
-        OpenAPI.validate_property(IoDocument, Symbol("data"), data)
+    function IoDocument(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, data_base64, )
         OpenAPI.validate_property(IoDocument, Symbol("id"), id)
+        OpenAPI.validate_property(IoDocument, Symbol("source"), source)
         OpenAPI.validate_property(IoDocument, Symbol("specversion"), specversion)
+        OpenAPI.validate_property(IoDocument, Symbol("type"), type)
         OpenAPI.validate_property(IoDocument, Symbol("datacontenttype"), datacontenttype)
         OpenAPI.validate_property(IoDocument, Symbol("dataschema"), dataschema)
         OpenAPI.validate_property(IoDocument, Symbol("subject"), subject)
         OpenAPI.validate_property(IoDocument, Symbol("time"), time)
+        OpenAPI.validate_property(IoDocument, Symbol("data"), data)
         OpenAPI.validate_property(IoDocument, Symbol("data_base64"), data_base64)
-        return new(type, source, data, id, specversion, datacontenttype, dataschema, subject, time, data_base64, )
+        return new(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, data_base64, )
     end
 end # type IoDocument
 
-const _property_types_IoDocument = Dict{Symbol,String}(Symbol("type")=>"String", Symbol("source")=>"String", Symbol("data")=>"TmuxPaneIoDocument", Symbol("id")=>"String", Symbol("specversion")=>"String", Symbol("datacontenttype")=>"String", Symbol("dataschema")=>"String", Symbol("subject")=>"String", Symbol("time")=>"ZonedDateTime", Symbol("data_base64")=>"String", )
+const _property_types_IoDocument = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("source")=>"String", Symbol("specversion")=>"String", Symbol("type")=>"String", Symbol("datacontenttype")=>"String", Symbol("dataschema")=>"String", Symbol("subject")=>"String", Symbol("time")=>"ZonedDateTime", Symbol("data")=>"TmuxPaneIoDocument", Symbol("data_base64")=>"String", )
 OpenAPI.property_type(::Type{ IoDocument }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_IoDocument[name]))}
 
 function check_required(o::IoDocument)
     o.id === nothing && (return false)
+    o.source === nothing && (return false)
     o.specversion === nothing && (return false)
+    o.type === nothing && (return false)
     true
 end
 
 function OpenAPI.validate_property(::Type{ IoDocument }, name::Symbol, val)
-    if name === Symbol("source")
-        OpenAPI.validate_param(name, "IoDocument", :pattern, val, r"[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.tmux\.[A-Za-z0-9+\/]*={0,2}\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.[0-9]+?\.[0-9]+?\.tiodocument$")
-    end
     if name === Symbol("id")
         OpenAPI.validate_param(name, "IoDocument", :minLength, val, 1)
     end

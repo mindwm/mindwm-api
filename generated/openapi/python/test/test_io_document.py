@@ -35,23 +35,25 @@ class TestIoDocument(unittest.TestCase):
         model = IoDocument()
         if include_optional:
             return IoDocument(
-                type = '',
-                source = 'eBAMDTMv2D2ylmgd10Z3UB6UkJSISSB5\\'qKX7HzKpul80FcVjSkp5IHYCm6w-v0dZfUofvKERjsmInY9s-EmMH6kw8gsnz\\ftmux\\uJFMWgxKGoOID+ZeUrdIMcX8BKxXxAbcfRIWWYFRBE6dB+lRX+6YlPIKV0ZFMc==.5c13353f-0aef-e481-d4ba-c008ee97abec\\Y64428489671318576363915338224935163074506805\\627935706\\Wtiodocument',
-                data = {
-                    'key' : null
-                    },
                 id = '0',
+                source = '',
                 specversion = '0',
+                type = 'IoDocument',
                 datacontenttype = '0',
                 dataschema = '0',
                 subject = 'IoDocument',
                 time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                data = {
+                    'key' : null
+                    },
                 data_base64 = ''
             )
         else:
             return IoDocument(
                 id = '0',
+                source = '',
                 specversion = '0',
+                type = 'IoDocument',
         )
         """
 

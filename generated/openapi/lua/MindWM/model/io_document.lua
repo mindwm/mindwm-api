@@ -19,17 +19,17 @@ local function cast_io_document(t)
 	return setmetatable(t, io_document_mt)
 end
 
-local function new_io_document(type, source, data, id, specversion, datacontenttype, dataschema, subject, time, data_base64)
+local function new_io_document(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, data_base64)
 	return cast_io_document({
-		["type"] = type;
-		["source"] = source;
-		["data"] = data;
 		["id"] = id;
+		["source"] = source;
 		["specversion"] = specversion;
+		["type"] = type;
 		["datacontenttype"] = datacontenttype;
 		["dataschema"] = dataschema;
 		["subject"] = subject;
 		["time"] = time;
+		["data"] = data;
 		["data_base64"] = data_base64;
 	})
 end

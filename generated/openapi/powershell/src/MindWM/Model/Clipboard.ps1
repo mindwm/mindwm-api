@@ -14,16 +14,14 @@ No summary available.
 
 No description available.
 
-.PARAMETER Type
-No description available.
-.PARAMETER Source
-No description available.
-.PARAMETER VarData
-No description available.
 .PARAMETER Id
 Identifies the event.
+.PARAMETER Source
+No description available.
 .PARAMETER Specversion
 The version of the CloudEvents specification which the event uses.
+.PARAMETER Type
+No description available.
 .PARAMETER Datacontenttype
 Content type of the data value. Must adhere to RFC 2046 format.
 .PARAMETER Dataschema
@@ -32,6 +30,8 @@ Identifies the schema that data adheres to.
 No description available.
 .PARAMETER Time
 Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+.PARAMETER VarData
+No description available.
 .PARAMETER DataBase64
 Base64 encoded event payload. Must adhere to RFC4648.
 .OUTPUTS
@@ -44,32 +44,32 @@ function Initialize-Clipboard {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Type},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [ValidatePattern("[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$")]
+        [ValidatePattern("^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$")]
         [String]
         ${Source},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${VarData},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Specversion},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Type},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Datacontenttype},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Dataschema},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Subject},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Time},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${VarData},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DataBase64}
@@ -87,12 +87,20 @@ function Initialize-Clipboard {
             throw "invalid value for 'Id', the character length must be great than or equal to 1."
         }
 
+        if ($null -eq $Source) {
+            throw "invalid value for 'Source', 'Source' cannot be null."
+        }
+
         if ($null -eq $Specversion) {
             throw "invalid value for 'Specversion', 'Specversion' cannot be null."
         }
 
         if ($Specversion.length -lt 1) {
             throw "invalid value for 'Specversion', the character length must be great than or equal to 1."
+        }
+
+        if ($null -eq $Type) {
+            throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
         if (!$Datacontenttype -and $Datacontenttype.length -lt 1) {
@@ -109,15 +117,15 @@ function Initialize-Clipboard {
 
 
         $PSO = [PSCustomObject]@{
-            "type" = ${Type}
-            "source" = ${Source}
-            "data" = ${VarData}
             "id" = ${Id}
+            "source" = ${Source}
             "specversion" = ${Specversion}
+            "type" = ${Type}
             "datacontenttype" = ${Datacontenttype}
             "dataschema" = ${Dataschema}
             "subject" = ${Subject}
             "time" = ${Time}
+            "data" = ${VarData}
             "data_base64" = ${DataBase64}
         }
 
@@ -157,7 +165,7 @@ function ConvertFrom-JsonToClipboard {
         $ClipboardAdditionalProperties = @{}
 
         # check if Json contains properties not defined in Clipboard
-        $AllProperties = ("type", "source", "data", "id", "specversion", "datacontenttype", "dataschema", "subject", "time", "data_base64")
+        $AllProperties = ("id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             # store undefined properties in additionalProperties
             if (!($AllProperties.Contains($name))) {
@@ -175,28 +183,22 @@ function ConvertFrom-JsonToClipboard {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "source"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'source' missing."
+        } else {
+            $Source = $JsonParameters.PSobject.Properties["source"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "specversion"))) {
             throw "Error! JSON cannot be serialized due to the required property 'specversion' missing."
         } else {
             $Specversion = $JsonParameters.PSobject.Properties["specversion"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'type' missing."
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "source"))) { #optional property not found
-            $Source = $null
-        } else {
-            $Source = $JsonParameters.PSobject.Properties["source"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "data"))) { #optional property not found
-            $VarData = $null
-        } else {
-            $VarData = $JsonParameters.PSobject.Properties["data"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "datacontenttype"))) { #optional property not found
@@ -223,6 +225,12 @@ function ConvertFrom-JsonToClipboard {
             $Time = $JsonParameters.PSobject.Properties["time"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "data"))) { #optional property not found
+            $VarData = $null
+        } else {
+            $VarData = $JsonParameters.PSobject.Properties["data"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "data_base64"))) { #optional property not found
             $DataBase64 = $null
         } else {
@@ -230,15 +238,15 @@ function ConvertFrom-JsonToClipboard {
         }
 
         $PSO = [PSCustomObject]@{
-            "type" = ${Type}
-            "source" = ${Source}
-            "data" = ${VarData}
             "id" = ${Id}
+            "source" = ${Source}
             "specversion" = ${Specversion}
+            "type" = ${Type}
             "datacontenttype" = ${Datacontenttype}
             "dataschema" = ${Dataschema}
             "subject" = ${Subject}
             "time" = ${Time}
+            "data" = ${VarData}
             "data_base64" = ${DataBase64}
             "AdditionalProperties" = $ClipboardAdditionalProperties
         }

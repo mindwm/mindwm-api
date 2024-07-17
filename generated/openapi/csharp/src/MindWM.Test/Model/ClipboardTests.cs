@@ -55,12 +55,12 @@ namespace MindWM.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Type'
+        /// Test the property 'Id'
         /// </summary>
         [Fact]
-        public void TypeTest()
+        public void IdTest()
         {
-            // TODO unit test for the property 'Type'
+            // TODO unit test for the property 'Id'
         }
 
         /// <summary>
@@ -73,30 +73,21 @@ namespace MindWM.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Data'
-        /// </summary>
-        [Fact]
-        public void DataTest()
-        {
-            // TODO unit test for the property 'Data'
-        }
-
-        /// <summary>
-        /// Test the property 'Id'
-        /// </summary>
-        [Fact]
-        public void IdTest()
-        {
-            // TODO unit test for the property 'Id'
-        }
-
-        /// <summary>
         /// Test the property 'Specversion'
         /// </summary>
         [Fact]
         public void SpecversionTest()
         {
             // TODO unit test for the property 'Specversion'
+        }
+
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Fact]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
         }
 
         /// <summary>
@@ -133,6 +124,15 @@ namespace MindWM.Test.Model
         public void TimeTest()
         {
             // TODO unit test for the property 'Time'
+        }
+
+        /// <summary>
+        /// Test the property 'Data'
+        /// </summary>
+        [Fact]
+        public void DataTest()
+        {
+            // TODO unit test for the property 'Data'
         }
 
         /// <summary>

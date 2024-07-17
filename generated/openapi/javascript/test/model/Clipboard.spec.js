@@ -54,8 +54,8 @@
       //expect(instance).to.be.a(MindwmApi.Clipboard);
     });
 
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
       //var instance = new MindwmApi.Clipboard();
       //expect(instance).to.be();
     });
@@ -66,20 +66,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property data (base name: "data")', function() {
-      // uncomment below and update the code to test the property data
-      //var instance = new MindwmApi.Clipboard();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new MindwmApi.Clipboard();
-      //expect(instance).to.be();
-    });
-
     it('should have the property specversion (base name: "specversion")', function() {
       // uncomment below and update the code to test the property specversion
+      //var instance = new MindwmApi.Clipboard();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
       //var instance = new MindwmApi.Clipboard();
       //expect(instance).to.be();
     });
@@ -104,6 +98,12 @@
 
     it('should have the property time (base name: "time")', function() {
       // uncomment below and update the code to test the property time
+      //var instance = new MindwmApi.Clipboard();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
       //var instance = new MindwmApi.Clipboard();
       //expect(instance).to.be();
     });

@@ -6,30 +6,30 @@
 
 
 io_document_t *io_document_create(
-    char *type,
-    char *source,
-    tmux_pane_io_document_t *data,
     char *id,
+    char *source,
     char *specversion,
+    char *type,
     char *datacontenttype,
     char *dataschema,
     char *subject,
     char *time,
+    tmux_pane_io_document_t *data,
     char *data_base64
     ) {
     io_document_t *io_document_local_var = malloc(sizeof(io_document_t));
     if (!io_document_local_var) {
         return NULL;
     }
-    io_document_local_var->type = type;
-    io_document_local_var->source = source;
-    io_document_local_var->data = data;
     io_document_local_var->id = id;
+    io_document_local_var->source = source;
     io_document_local_var->specversion = specversion;
+    io_document_local_var->type = type;
     io_document_local_var->datacontenttype = datacontenttype;
     io_document_local_var->dataschema = dataschema;
     io_document_local_var->subject = subject;
     io_document_local_var->time = time;
+    io_document_local_var->data = data;
     io_document_local_var->data_base64 = data_base64;
 
     return io_document_local_var;
@@ -41,25 +41,21 @@ void io_document_free(io_document_t *io_document) {
         return ;
     }
     listEntry_t *listEntry;
-    if (io_document->type) {
-        free(io_document->type);
-        io_document->type = NULL;
+    if (io_document->id) {
+        free(io_document->id);
+        io_document->id = NULL;
     }
     if (io_document->source) {
         free(io_document->source);
         io_document->source = NULL;
     }
-    if (io_document->data) {
-        tmux_pane_io_document_free(io_document->data);
-        io_document->data = NULL;
-    }
-    if (io_document->id) {
-        free(io_document->id);
-        io_document->id = NULL;
-    }
     if (io_document->specversion) {
         free(io_document->specversion);
         io_document->specversion = NULL;
+    }
+    if (io_document->type) {
+        free(io_document->type);
+        io_document->type = NULL;
     }
     if (io_document->datacontenttype) {
         free(io_document->datacontenttype);
@@ -77,6 +73,10 @@ void io_document_free(io_document_t *io_document) {
         free(io_document->time);
         io_document->time = NULL;
     }
+    if (io_document->data) {
+        tmux_pane_io_document_free(io_document->data);
+        io_document->data = NULL;
+    }
     if (io_document->data_base64) {
         free(io_document->data_base64);
         io_document->data_base64 = NULL;
@@ -87,35 +87,6 @@ void io_document_free(io_document_t *io_document) {
 cJSON *io_document_convertToJSON(io_document_t *io_document) {
     cJSON *item = cJSON_CreateObject();
 
-    // io_document->type
-    if(io_document->type) {
-    if(cJSON_AddStringToObject(item, "type", io_document->type) == NULL) {
-    goto fail; //String
-    }
-    }
-
-
-    // io_document->source
-    if(io_document->source) {
-    if(cJSON_AddStringToObject(item, "source", io_document->source) == NULL) {
-    goto fail; //String
-    }
-    }
-
-
-    // io_document->data
-    if(io_document->data) {
-    cJSON *data_local_JSON = tmux_pane_io_document_convertToJSON(io_document->data);
-    if(data_local_JSON == NULL) {
-        goto fail; // custom
-    }
-    cJSON_AddItemToObject(item, "data", data_local_JSON);
-    if(item->child == NULL) {
-        goto fail;
-    }
-    }
-
-
     // io_document->id
     if (!io_document->id) {
         goto fail;
@@ -125,11 +96,29 @@ cJSON *io_document_convertToJSON(io_document_t *io_document) {
     }
 
 
+    // io_document->source
+    if (!io_document->source) {
+        goto fail;
+    }
+    if(cJSON_AddStringToObject(item, "source", io_document->source) == NULL) {
+    goto fail; //String
+    }
+
+
     // io_document->specversion
     if (!io_document->specversion) {
         goto fail;
     }
     if(cJSON_AddStringToObject(item, "specversion", io_document->specversion) == NULL) {
+    goto fail; //String
+    }
+
+
+    // io_document->type
+    if (!io_document->type) {
+        goto fail;
+    }
+    if(cJSON_AddStringToObject(item, "type", io_document->type) == NULL) {
     goto fail; //String
     }
 
@@ -166,6 +155,19 @@ cJSON *io_document_convertToJSON(io_document_t *io_document) {
     }
 
 
+    // io_document->data
+    if(io_document->data) {
+    cJSON *data_local_JSON = tmux_pane_io_document_convertToJSON(io_document->data);
+    if(data_local_JSON == NULL) {
+        goto fail; // custom
+    }
+    cJSON_AddItemToObject(item, "data", data_local_JSON);
+    if(item->child == NULL) {
+        goto fail;
+    }
+    }
+
+
     // io_document->data_base64
     if(io_document->data_base64) {
     if(cJSON_AddStringToObject(item, "data_base64", io_document->data_base64) == NULL) {
@@ -188,30 +190,6 @@ io_document_t *io_document_parseFromJSON(cJSON *io_documentJSON){
     // define the local variable for io_document->data
     tmux_pane_io_document_t *data_local_nonprim = NULL;
 
-    // io_document->type
-    cJSON *type = cJSON_GetObjectItemCaseSensitive(io_documentJSON, "type");
-    if (type) { 
-    if(!cJSON_IsString(type) && !cJSON_IsNull(type))
-    {
-    goto end; //String
-    }
-    }
-
-    // io_document->source
-    cJSON *source = cJSON_GetObjectItemCaseSensitive(io_documentJSON, "source");
-    if (source) { 
-    if(!cJSON_IsString(source) && !cJSON_IsNull(source))
-    {
-    goto end; //String
-    }
-    }
-
-    // io_document->data
-    cJSON *data = cJSON_GetObjectItemCaseSensitive(io_documentJSON, "data");
-    if (data) { 
-    data_local_nonprim = tmux_pane_io_document_parseFromJSON(data); //custom
-    }
-
     // io_document->id
     cJSON *id = cJSON_GetObjectItemCaseSensitive(io_documentJSON, "id");
     if (!id) {
@@ -224,6 +202,18 @@ io_document_t *io_document_parseFromJSON(cJSON *io_documentJSON){
     goto end; //String
     }
 
+    // io_document->source
+    cJSON *source = cJSON_GetObjectItemCaseSensitive(io_documentJSON, "source");
+    if (!source) {
+        goto end;
+    }
+
+    
+    if(!cJSON_IsString(source))
+    {
+    goto end; //String
+    }
+
     // io_document->specversion
     cJSON *specversion = cJSON_GetObjectItemCaseSensitive(io_documentJSON, "specversion");
     if (!specversion) {
@@ -232,6 +222,18 @@ io_document_t *io_document_parseFromJSON(cJSON *io_documentJSON){
 
     
     if(!cJSON_IsString(specversion))
+    {
+    goto end; //String
+    }
+
+    // io_document->type
+    cJSON *type = cJSON_GetObjectItemCaseSensitive(io_documentJSON, "type");
+    if (!type) {
+        goto end;
+    }
+
+    
+    if(!cJSON_IsString(type))
     {
     goto end; //String
     }
@@ -272,6 +274,12 @@ io_document_t *io_document_parseFromJSON(cJSON *io_documentJSON){
     }
     }
 
+    // io_document->data
+    cJSON *data = cJSON_GetObjectItemCaseSensitive(io_documentJSON, "data");
+    if (data) { 
+    data_local_nonprim = tmux_pane_io_document_parseFromJSON(data); //custom
+    }
+
     // io_document->data_base64
     cJSON *data_base64 = cJSON_GetObjectItemCaseSensitive(io_documentJSON, "data_base64");
     if (data_base64) { 
@@ -283,15 +291,15 @@ io_document_t *io_document_parseFromJSON(cJSON *io_documentJSON){
 
 
     io_document_local_var = io_document_create (
-        type && !cJSON_IsNull(type) ? strdup(type->valuestring) : NULL,
-        source && !cJSON_IsNull(source) ? strdup(source->valuestring) : NULL,
-        data ? data_local_nonprim : NULL,
         strdup(id->valuestring),
+        strdup(source->valuestring),
         strdup(specversion->valuestring),
+        strdup(type->valuestring),
         datacontenttype && !cJSON_IsNull(datacontenttype) ? strdup(datacontenttype->valuestring) : NULL,
         dataschema && !cJSON_IsNull(dataschema) ? strdup(dataschema->valuestring) : NULL,
         subject && !cJSON_IsNull(subject) ? strdup(subject->valuestring) : NULL,
         time && !cJSON_IsNull(time) ? strdup(time->valuestring) : NULL,
+        data ? data_local_nonprim : NULL,
         data_base64 && !cJSON_IsNull(data_base64) ? strdup(data_base64->valuestring) : NULL
         );
 

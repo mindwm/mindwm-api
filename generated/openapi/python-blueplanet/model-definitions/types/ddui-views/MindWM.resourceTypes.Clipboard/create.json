@@ -11,15 +11,15 @@
     "label": "Details",
     "model": "properties",
     "children": [
-      {"model": "type" },
-      {"model": "source" },
-      {"model": "data" },
       {"model": "id" },
+      {"model": "source" },
       {"model": "specversion" },
+      {"model": "type" },
       {"model": "datacontenttype" },
       {"model": "dataschema" },
       {"model": "subject" },
       {"model": "time" },
+      {"model": "data" },
       {"model": "data_base64" },
     ]
   }]

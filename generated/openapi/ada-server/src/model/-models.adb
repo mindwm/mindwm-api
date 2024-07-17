@@ -251,15 +251,10 @@ package body .Models is
                         Value : in .Models.Clipboard_Type) is
    begin
       Into.Start_Entity (Name);
-      if not Value.P_Type.Is_Null then
-         Into.Write_Entity ("type", Value.P_Type);
-      end if;
-      if not Value.Source.Is_Null then
-         Into.Write_Entity ("source", Value.Source);
-      end if;
-      Serialize (Into, "data", Value.Data);
       Into.Write_Entity ("id", Value.Id);
+      Into.Write_Entity ("source", Value.Source);
       Into.Write_Entity ("specversion", Value.Specversion);
+      Into.Write_Entity ("type", Value.P_Type);
       if not Value.Datacontenttype.Is_Null then
          Into.Write_Entity ("datacontenttype", Value.Datacontenttype);
       end if;
@@ -272,6 +267,7 @@ package body .Models is
       if not Value.Time.Is_Null then
          Into.Write_Entity ("time", Value.Time);
       end if;
+      Serialize (Into, "data", Value.Data);
       if not Value.Data_Base_64.Is_Null then
          Into.Write_Entity ("data_base64", Value.Data_Base_64);
       end if;
@@ -295,15 +291,15 @@ package body .Models is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
-      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
-      Swagger.Streams.Deserialize (Object, "source", Value.Source);
-      Deserialize (Object, "data", Value.Data);
       Swagger.Streams.Deserialize (Object, "id", Value.Id);
+      Swagger.Streams.Deserialize (Object, "source", Value.Source);
       Swagger.Streams.Deserialize (Object, "specversion", Value.Specversion);
+      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
       Swagger.Streams.Deserialize (Object, "datacontenttype", Value.Datacontenttype);
       Swagger.Streams.Deserialize (Object, "dataschema", Value.Dataschema);
       Swagger.Streams.Deserialize (Object, "subject", Value.Subject);
       Swagger.Streams.Deserialize (Object, "time", Value.Time);
+      Deserialize (Object, "data", Value.Data);
       Swagger.Streams.Deserialize (Object, "data_base64", Value.Data_Base_64);
    end Deserialize;
 
@@ -519,15 +515,10 @@ package body .Models is
                         Value : in .Models.IoDocument_Type) is
    begin
       Into.Start_Entity (Name);
-      if not Value.P_Type.Is_Null then
-         Into.Write_Entity ("type", Value.P_Type);
-      end if;
-      if not Value.Source.Is_Null then
-         Into.Write_Entity ("source", Value.Source);
-      end if;
-      Serialize (Into, "data", Value.Data);
       Into.Write_Entity ("id", Value.Id);
+      Into.Write_Entity ("source", Value.Source);
       Into.Write_Entity ("specversion", Value.Specversion);
+      Into.Write_Entity ("type", Value.P_Type);
       if not Value.Datacontenttype.Is_Null then
          Into.Write_Entity ("datacontenttype", Value.Datacontenttype);
       end if;
@@ -540,6 +531,7 @@ package body .Models is
       if not Value.Time.Is_Null then
          Into.Write_Entity ("time", Value.Time);
       end if;
+      Serialize (Into, "data", Value.Data);
       if not Value.Data_Base_64.Is_Null then
          Into.Write_Entity ("data_base64", Value.Data_Base_64);
       end if;
@@ -563,15 +555,15 @@ package body .Models is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
-      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
-      Swagger.Streams.Deserialize (Object, "source", Value.Source);
-      Deserialize (Object, "data", Value.Data);
       Swagger.Streams.Deserialize (Object, "id", Value.Id);
+      Swagger.Streams.Deserialize (Object, "source", Value.Source);
       Swagger.Streams.Deserialize (Object, "specversion", Value.Specversion);
+      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
       Swagger.Streams.Deserialize (Object, "datacontenttype", Value.Datacontenttype);
       Swagger.Streams.Deserialize (Object, "dataschema", Value.Dataschema);
       Swagger.Streams.Deserialize (Object, "subject", Value.Subject);
       Swagger.Streams.Deserialize (Object, "time", Value.Time);
+      Deserialize (Object, "data", Value.Data);
       Swagger.Streams.Deserialize (Object, "data_base64", Value.Data_Base_64);
    end Deserialize;
 

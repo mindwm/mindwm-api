@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   Neo4jCaptureDataChangeMeta.JSON_PROPERTY_USERNAME
 })
 @JsonTypeName("Neo4jCaptureDataChange_meta")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-17T14:05:01.774271688Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-17T16:07:47.810085790Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Neo4jCaptureDataChangeMeta {
     public static final String JSON_PROPERTY_OPERATION = "operation";

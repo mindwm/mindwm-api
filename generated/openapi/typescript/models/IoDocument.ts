@@ -14,17 +14,16 @@ import { TmuxPaneIoDocument } from '../models/TmuxPaneIoDocument';
 import { HttpFile } from '../http/http';
 
 export class IoDocument {
-    'type'?: string;
-    'source'?: string;
-    'data'?: TmuxPaneIoDocument;
     /**
     * Identifies the event.
     */
     'id': string;
+    'source': string;
     /**
     * The version of the CloudEvents specification which the event uses.
     */
     'specversion': string;
+    'type': string;
     /**
     * Content type of the data value. Must adhere to RFC 2046 format.
     */
@@ -38,6 +37,7 @@ export class IoDocument {
     * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     */
     'time'?: Date;
+    'data'?: TmuxPaneIoDocument;
     /**
     * Base64 encoded event payload. Must adhere to RFC4648.
     */
@@ -47,8 +47,8 @@ export class IoDocument {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "type",
-            "baseName": "type",
+            "name": "id",
+            "baseName": "id",
             "type": "string",
             "format": ""
         },
@@ -59,20 +59,14 @@ export class IoDocument {
             "format": ""
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "TmuxPaneIoDocument",
-            "format": ""
-        },
-        {
-            "name": "id",
-            "baseName": "id",
+            "name": "specversion",
+            "baseName": "specversion",
             "type": "string",
             "format": ""
         },
         {
-            "name": "specversion",
-            "baseName": "specversion",
+            "name": "type",
+            "baseName": "type",
             "type": "string",
             "format": ""
         },
@@ -99,6 +93,12 @@ export class IoDocument {
             "baseName": "time",
             "type": "Date",
             "format": "date-time"
+        },
+        {
+            "name": "data",
+            "baseName": "data",
+            "type": "TmuxPaneIoDocument",
+            "format": ""
         },
         {
             "name": "dataBase64",

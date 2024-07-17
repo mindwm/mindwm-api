@@ -83,12 +83,12 @@ class IoDocumentTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "id"
      */
-    public function testPropertyType()
+    public function testPropertyId()
     {
         self::markTestIncomplete(
-            'Test of "type" property in "IoDocument" model has not been implemented yet.'
+            'Test of "id" property in "IoDocument" model has not been implemented yet.'
         );
     }
 
@@ -103,32 +103,22 @@ class IoDocumentTest extends TestCase
     }
 
     /**
-     * Test attribute "data"
-     */
-    public function testPropertyData()
-    {
-        self::markTestIncomplete(
-            'Test of "data" property in "IoDocument" model has not been implemented yet.'
-        );
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        self::markTestIncomplete(
-            'Test of "id" property in "IoDocument" model has not been implemented yet.'
-        );
-    }
-
-    /**
      * Test attribute "specversion"
      */
     public function testPropertySpecversion()
     {
         self::markTestIncomplete(
             'Test of "specversion" property in "IoDocument" model has not been implemented yet.'
+        );
+    }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+        self::markTestIncomplete(
+            'Test of "type" property in "IoDocument" model has not been implemented yet.'
         );
     }
 
@@ -169,6 +159,16 @@ class IoDocumentTest extends TestCase
     {
         self::markTestIncomplete(
             'Test of "time" property in "IoDocument" model has not been implemented yet.'
+        );
+    }
+
+    /**
+     * Test attribute "data"
+     */
+    public function testPropertyData()
+    {
+        self::markTestIncomplete(
+            'Test of "data" property in "IoDocument" model has not been implemented yet.'
         );
     }
 

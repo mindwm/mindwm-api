@@ -34,31 +34,6 @@ namespace OpenAPIServer\Model;
 class IoDocument  implements \JsonSerializable
 {
         /**
-     * @var string|null
-     * @SerializedName("type")
-     * @Assert\Type("string")
-     * @Type("string")
-     */
-    public ?string $type;
-
-    /**
-     * @var string|null
-     * @SerializedName("source")
-     * @Assert\Type("string")
-     * @Type("string")
-     * @Assert\Regex("//[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?&lt;!-)\\\\.tmux\\\\.[A-Za-z0-9+\/]*&#x3D;{0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$//")
-     */
-    public ?string $source;
-
-    /**
-     * @var TmuxPaneIoDocument|null
-     * @SerializedName("data")
-     * @Assert\Type("\OpenAPIServer\Model\TmuxPaneIoDocument")
-     * @Type("\OpenAPIServer\Model\TmuxPaneIoDocument")
-     */
-    public ?TmuxPaneIoDocument $data;
-
-    /**
      * Identifies the event.
      *
      * @var string
@@ -73,6 +48,15 @@ class IoDocument  implements \JsonSerializable
     public string $id;
 
     /**
+     * @var string
+     * @SerializedName("source")
+     * @Assert\NotNull()
+     * @Assert\Type("string")
+     * @Type("string")
+     */
+    public string $source;
+
+    /**
      * The version of the CloudEvents specification which the event uses.
      *
      * @var string
@@ -85,6 +69,15 @@ class IoDocument  implements \JsonSerializable
      * )
      */
     public string $specversion;
+
+    /**
+     * @var string
+     * @SerializedName("type")
+     * @Assert\NotNull()
+     * @Assert\Type("string")
+     * @Type("string")
+     */
+    public string $type = 'IoDocument';
 
     /**
      * Content type of the data value. Must adhere to RFC 2046 format.
@@ -134,6 +127,14 @@ class IoDocument  implements \JsonSerializable
     public ?\DateTime $time;
 
     /**
+     * @var TmuxPaneIoDocument|null
+     * @SerializedName("data")
+     * @Assert\Type("\OpenAPIServer\Model\TmuxPaneIoDocument")
+     * @Type("\OpenAPIServer\Model\TmuxPaneIoDocument")
+     */
+    public ?TmuxPaneIoDocument $data;
+
+    /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      *
      * @var string|null
@@ -146,58 +147,58 @@ class IoDocument  implements \JsonSerializable
     /**
      * Constructor
      *
-     * @param string|null $type
-     * @param string|null $source
-     * @param TmuxPaneIoDocument|null $data
      * @param string $id
+     * @param string $source
      * @param string $specversion
+     * @param string $type
      * @param string|null $datacontenttype
      * @param string|null $dataschema
      * @param string|null $subject
      * @param \DateTime|null $time
+     * @param TmuxPaneIoDocument|null $data
      * @param string|null $dataBase64
      */
-    public function __construct(?string $type, ?string $source, ?TmuxPaneIoDocument $data, string $id, string $specversion, ?string $datacontenttype, ?string $dataschema, ?string $subject, ?\DateTime $time, ?string $dataBase64)
+    public function __construct(string $id, string $source, string $specversion, string $type, ?string $datacontenttype, ?string $dataschema, ?string $subject, ?\DateTime $time, ?TmuxPaneIoDocument $data, ?string $dataBase64)
     {
-        $this->type = $type;
-        $this->source = $source;
-        $this->data = $data;
         $this->id = $id;
+        $this->source = $source;
         $this->specversion = $specversion;
+        $this->type = $type;
         $this->datacontenttype = $datacontenttype;
         $this->dataschema = $dataschema;
         $this->subject = $subject;
         $this->time = $time;
+        $this->data = $data;
         $this->dataBase64 = $dataBase64;
     }
 
     public static function fromArray(array $data): self
     {
         return new self(
-            $data['type'] ?? null, 
-            $data['source'] ?? null, 
-            $data['data'] ?? null, 
             $data['id'] ?? null, 
+            $data['source'] ?? null, 
             $data['specversion'] ?? null, 
+            $data['type'] ?? null, 
             $data['datacontenttype'] ?? null, 
             $data['dataschema'] ?? null, 
             $data['subject'] ?? null, 
             isset($data['time']) ? new \DateTime($data['time']) : null, 
+            $data['data'] ?? null, 
             $data['data_base64'] ?? null, 
         );
     }
 
     public function jsonSerialize(): mixed {
         return [
-            'type' => $this->type, 
-            'source' => $this->source, 
-            'data' => $this->data, 
             'id' => $this->id, 
+            'source' => $this->source, 
             'specversion' => $this->specversion, 
+            'type' => $this->type, 
             'datacontenttype' => $this->datacontenttype, 
             'dataschema' => $this->dataschema, 
             'subject' => $this->subject, 
             'time' => $this->time?->format('c'), 
+            'data' => $this->data, 
             'data_base64' => $this->dataBase64, 
         ];
     }

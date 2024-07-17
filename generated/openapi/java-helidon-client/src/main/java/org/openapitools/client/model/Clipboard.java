@@ -28,21 +28,19 @@ import org.openapitools.client.model.ClipboardPayload;
 
 public class Clipboard extends HashMap<String, Object> {
   
-  private String type;
-
-  private String source;
-
-  private ClipboardPayload data;
-
  /**
    * Identifies the event.
   **/
   private String id;
 
+  private String source;
+
  /**
    * The version of the CloudEvents specification which the event uses.
   **/
   private String specversion;
+
+  private String type;
 
  /**
    * Content type of the data value. Must adhere to RFC 2046 format.
@@ -61,28 +59,30 @@ public class Clipboard extends HashMap<String, Object> {
   **/
   private OffsetDateTime time;
 
+  private ClipboardPayload data;
+
  /**
    * Base64 encoded event payload. Must adhere to RFC4648.
   **/
   private String dataBase64;
 
  /**
-   * Get type
-   * @return type
+   * Identifies the event.
+   * @return id
   **/
-  public String getType() {
-    return type;
+  public String getId() {
+    return id;
   }
 
   /**
-    * Set type
+    * Set id
   **/
-  public void setType(String type) {
-    this.type = type;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public Clipboard type(String type) {
-    this.type = type;
+  public Clipboard id(String id) {
+    this.id = id;
     return this;
   }
 
@@ -107,46 +107,6 @@ public class Clipboard extends HashMap<String, Object> {
   }
 
  /**
-   * Get data
-   * @return data
-  **/
-  public ClipboardPayload getData() {
-    return data;
-  }
-
-  /**
-    * Set data
-  **/
-  public void setData(ClipboardPayload data) {
-    this.data = data;
-  }
-
-  public Clipboard data(ClipboardPayload data) {
-    this.data = data;
-    return this;
-  }
-
- /**
-   * Identifies the event.
-   * @return id
-  **/
-  public String getId() {
-    return id;
-  }
-
-  /**
-    * Set id
-  **/
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Clipboard id(String id) {
-    this.id = id;
-    return this;
-  }
-
- /**
    * The version of the CloudEvents specification which the event uses.
    * @return specversion
   **/
@@ -163,6 +123,26 @@ public class Clipboard extends HashMap<String, Object> {
 
   public Clipboard specversion(String specversion) {
     this.specversion = specversion;
+    return this;
+  }
+
+ /**
+   * Get type
+   * @return type
+  **/
+  public String getType() {
+    return type;
+  }
+
+  /**
+    * Set type
+  **/
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Clipboard type(String type) {
+    this.type = type;
     return this;
   }
 
@@ -247,6 +227,26 @@ public class Clipboard extends HashMap<String, Object> {
   }
 
  /**
+   * Get data
+   * @return data
+  **/
+  public ClipboardPayload getData() {
+    return data;
+  }
+
+  /**
+    * Set data
+  **/
+  public void setData(ClipboardPayload data) {
+    this.data = data;
+  }
+
+  public Clipboard data(ClipboardPayload data) {
+    this.data = data;
+    return this;
+  }
+
+ /**
    * Base64 encoded event payload. Must adhere to RFC4648.
    * @return dataBase64
   **/
@@ -275,15 +275,15 @@ public class Clipboard extends HashMap<String, Object> {
     StringBuilder sb = new StringBuilder();
     sb.append("class Clipboard {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    specversion: ").append(toIndentedString(specversion)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    datacontenttype: ").append(toIndentedString(datacontenttype)).append("\n");
     sb.append("    dataschema: ").append(toIndentedString(dataschema)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
     sb.append("}");
     return sb.toString();

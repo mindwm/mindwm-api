@@ -24,17 +24,15 @@ import upickle.default.{ReadWriter => RW, macroRW}
 import upickle.default.*
 
 case class IoDocument(
-  `type`: Option[String] = None ,
-
-    source: Option[String] = None ,
-
-    data: Option[TmuxPaneIoDocument] = None ,
-
-  /* Identifies the event. */
+/* Identifies the event. */
   id: String,
+
+    source: String,
 
   /* The version of the CloudEvents specification which the event uses. */
   specversion: String,
+
+    `type`: String,
 
   /* Content type of the data value. Must adhere to RFC 2046 format. */
   datacontenttype: Option[String] = None ,
@@ -47,6 +45,8 @@ case class IoDocument(
   /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
   time: Option[OffsetDateTime] = None ,
 
+    data: Option[TmuxPaneIoDocument] = None ,
+
   /* Base64 encoded event payload. Must adhere to RFC4648. */
   dataBase64: Option[String] = None 
 
@@ -56,15 +56,15 @@ case class IoDocument(
 
   def asData : IoDocumentData = {
     IoDocumentData(
-            `type` = `type`.getOrElse(""),
-            source = source.getOrElse(""),
-            data = data.getOrElse(),
             id = id,
+            source = source,
             specversion = specversion,
+            `type` = `type`,
             datacontenttype = datacontenttype.getOrElse(""),
             dataschema = dataschema.getOrElse(""),
             subject = subject.getOrElse(IoDocument),
             time = time.getOrElse(null),
+            data = data.getOrElse(),
             dataBase64 = dataBase64.getOrElse("")
     )
   }
@@ -76,15 +76,15 @@ object IoDocument{
     given RW[IoDocument] = IoDocumentData.readWriter.bimap[IoDocument](_.asData, _.asModel)
 
     enum Fields(fieldName : String) extends Field(fieldName) {
-            case `type` extends Fields("`type`")
-            case source extends Fields("source")
-            case data extends Fields("data")
             case id extends Fields("id")
+            case source extends Fields("source")
             case specversion extends Fields("specversion")
+            case `type` extends Fields("`type`")
             case datacontenttype extends Fields("datacontenttype")
             case dataschema extends Fields("dataschema")
             case subject extends Fields("subject")
             case time extends Fields("time")
+            case data extends Fields("data")
             case dataBase64 extends Fields("dataBase64")
     }
 

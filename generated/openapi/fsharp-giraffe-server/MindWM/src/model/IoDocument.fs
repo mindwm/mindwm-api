@@ -12,15 +12,15 @@ module IoDocument =
 
 
   type IoDocument = {
-    Type : string;
-    Source : string;
-    Data : TmuxPaneIoDocument;
     Id : string;
+    Source : string;
     Specversion : string;
+    Type : string;
     Datacontenttype : string;
     Dataschema : string;
     Subject : string;
     Time : Nullable<DateTime>;
+    Data : TmuxPaneIoDocument;
     DataBase64 : string;
   }
   //#endregion

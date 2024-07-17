@@ -16,8 +16,8 @@ Please update as you see appropriate
 describe("io_document", function()
   local MindWM_io_document = require "MindWM.model.io_document"
 
-  -- unit tests for the property 'type'
-  describe("property type test", function()
+  -- unit tests for the property 'id'
+  describe("property id test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)
@@ -30,22 +30,15 @@ describe("io_document", function()
     end)
   end)
 
-  -- unit tests for the property 'data'
-  describe("property data test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
-  -- unit tests for the property 'id'
-  describe("property id test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
   -- unit tests for the property 'specversion'
   describe("property specversion test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'type'
+  describe("property type test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)
@@ -74,6 +67,13 @@ describe("io_document", function()
 
   -- unit tests for the property 'time'
   describe("property time test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'data'
+  describe("property data test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

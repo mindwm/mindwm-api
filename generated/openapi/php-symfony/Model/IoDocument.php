@@ -44,31 +44,6 @@ use JMS\Serializer\Annotation\SerializedName;
 class IoDocument 
 {
         /**
-     * @var string|null
-     * @SerializedName("type")
-     * @Type("string")
-    */
-    #[Assert\Type("string")]
-    protected ?string $type = null;
-
-    /**
-     * @var string|null
-     * @SerializedName("source")
-     * @Type("string")
-    */
-    #[Assert\Type("string")]
-    #[Assert\Regex("/[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?&lt;!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*&#x3D;{0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$/")]
-    protected ?string $source = null;
-
-    /**
-     * @var TmuxPaneIoDocument|null
-     * @SerializedName("data")
-     * @Type("OpenAPI\Server\Model\TmuxPaneIoDocument")
-    */
-    #[Assert\Type("OpenAPI\Server\Model\TmuxPaneIoDocument")]
-    protected ?TmuxPaneIoDocument $data = null;
-
-    /**
      * Identifies the event.
      *
      * @var string|null
@@ -81,6 +56,15 @@ class IoDocument
     protected ?string $id = null;
 
     /**
+     * @var string|null
+     * @SerializedName("source")
+     * @Type("string")
+    */
+    #[Assert\NotNull]
+    #[Assert\Type("string")]
+    protected ?string $source = null;
+
+    /**
      * The version of the CloudEvents specification which the event uses.
      *
      * @var string|null
@@ -91,6 +75,15 @@ class IoDocument
     #[Assert\Type("string")]
     #[Assert\Length(min: 1)]
     protected ?string $specversion = null;
+
+    /**
+     * @var string|null
+     * @SerializedName("type")
+     * @Type("string")
+    */
+    #[Assert\NotNull]
+    #[Assert\Type("string")]
+    protected ?string $type = 'IoDocument';
 
     /**
      * Content type of the data value. Must adhere to RFC 2046 format.
@@ -134,6 +127,14 @@ class IoDocument
     protected ?\DateTime $time = null;
 
     /**
+     * @var TmuxPaneIoDocument|null
+     * @SerializedName("data")
+     * @Type("OpenAPI\Server\Model\TmuxPaneIoDocument")
+    */
+    #[Assert\Type("OpenAPI\Server\Model\TmuxPaneIoDocument")]
+    protected ?TmuxPaneIoDocument $data = null;
+
+    /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      *
      * @var string|null
@@ -150,99 +151,18 @@ class IoDocument
     public function __construct(array $data = null)
     {
         if (is_array($data)) {
-            $this->type = array_key_exists('type', $data) ? $data['type'] : $this->type;
-            $this->source = array_key_exists('source', $data) ? $data['source'] : $this->source;
-            $this->data = array_key_exists('data', $data) ? $data['data'] : $this->data;
             $this->id = array_key_exists('id', $data) ? $data['id'] : $this->id;
+            $this->source = array_key_exists('source', $data) ? $data['source'] : $this->source;
             $this->specversion = array_key_exists('specversion', $data) ? $data['specversion'] : $this->specversion;
+            $this->type = array_key_exists('type', $data) ? $data['type'] : $this->type;
             $this->datacontenttype = array_key_exists('datacontenttype', $data) ? $data['datacontenttype'] : $this->datacontenttype;
             $this->dataschema = array_key_exists('dataschema', $data) ? $data['dataschema'] : $this->dataschema;
             $this->subject = array_key_exists('subject', $data) ? $data['subject'] : $this->subject;
             $this->time = array_key_exists('time', $data) ? $data['time'] : $this->time;
+            $this->data = array_key_exists('data', $data) ? $data['data'] : $this->data;
             $this->dataBase64 = array_key_exists('dataBase64', $data) ? $data['dataBase64'] : $this->dataBase64;
         }
     }
-
-    /**
-     * Gets type.
-     *
-     * @return string|null
-     */
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    /**
-    * Sets type.
-    *
-    * @param string|null $type
-    *
-    * @return $this
-    */
-    public function setType(?string $type = null): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-
-
-
-    /**
-     * Gets source.
-     *
-     * @return string|null
-     */
-    public function getSource(): ?string
-    {
-        return $this->source;
-    }
-
-    /**
-    * Sets source.
-    *
-    * @param string|null $source
-    *
-    * @return $this
-    */
-    public function setSource(?string $source = null): self
-    {
-        $this->source = $source;
-
-        return $this;
-    }
-
-
-
-
-    /**
-     * Gets data.
-     *
-     * @return TmuxPaneIoDocument|null
-     */
-    public function getData(): ?TmuxPaneIoDocument
-    {
-        return $this->data;
-    }
-
-    /**
-    * Sets data.
-    *
-    * @param TmuxPaneIoDocument|null $data
-    *
-    * @return $this
-    */
-    public function setData(?TmuxPaneIoDocument $data = null): self
-    {
-        $this->data = $data;
-
-        return $this;
-    }
-
-
-
 
     /**
      * Gets id.
@@ -272,6 +192,33 @@ class IoDocument
 
 
     /**
+     * Gets source.
+     *
+     * @return string|null
+     */
+    public function getSource(): ?string
+    {
+        return $this->source;
+    }
+
+    /**
+    * Sets source.
+    *
+    * @param string|null $source
+    *
+    * @return $this
+    */
+    public function setSource(?string $source): self
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+
+
+
+    /**
      * Gets specversion.
      *
      * @return string|null
@@ -291,6 +238,33 @@ class IoDocument
     public function setSpecversion(?string $specversion): self
     {
         $this->specversion = $specversion;
+
+        return $this;
+    }
+
+
+
+
+    /**
+     * Gets type.
+     *
+     * @return string|null
+     */
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+    * Sets type.
+    *
+    * @param string|null $type
+    *
+    * @return $this
+    */
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
@@ -399,6 +373,33 @@ class IoDocument
     public function setTime(?\DateTime $time = null): self
     {
         $this->time = $time;
+
+        return $this;
+    }
+
+
+
+
+    /**
+     * Gets data.
+     *
+     * @return TmuxPaneIoDocument|null
+     */
+    public function getData(): ?TmuxPaneIoDocument
+    {
+        return $this->data;
+    }
+
+    /**
+    * Sets data.
+    *
+    * @param TmuxPaneIoDocument|null $data
+    *
+    * @return $this
+    */
+    public function setData(?TmuxPaneIoDocument $data = null): self
+    {
+        $this->data = $data;
 
         return $this;
     }

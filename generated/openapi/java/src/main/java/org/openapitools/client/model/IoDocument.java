@@ -52,27 +52,23 @@ import org.openapitools.client.JSON;
 /**
  * IoDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T14:04:46.903715856Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T16:07:34.486843044Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private String source;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private TmuxPaneIoDocument data;
-
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
   public static final String SERIALIZED_NAME_SPECVERSION = "specversion";
   @SerializedName(SERIALIZED_NAME_SPECVERSION)
   private String specversion;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type = "IoDocument";
 
   public static final String SERIALIZED_NAME_DATACONTENTTYPE = "datacontenttype";
   @SerializedName(SERIALIZED_NAME_DATACONTENTTYPE)
@@ -90,69 +86,16 @@ public class IoDocument {
   @SerializedName(SERIALIZED_NAME_TIME)
   private OffsetDateTime time;
 
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private TmuxPaneIoDocument data;
+
   public static final String SERIALIZED_NAME_DATA_BASE64 = "data_base64";
   @SerializedName(SERIALIZED_NAME_DATA_BASE64)
   private String dataBase64;
 
   public IoDocument() {
   }
-
-  public IoDocument type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nullable
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public IoDocument source(String source) {
-    this.source = source;
-    return this;
-  }
-
-  /**
-   * Get source
-   * @return source
-   */
-  @javax.annotation.Nullable
-  public String getSource() {
-    return source;
-  }
-
-  public void setSource(String source) {
-    this.source = source;
-  }
-
-
-  public IoDocument data(TmuxPaneIoDocument data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Get data
-   * @return data
-   */
-  @javax.annotation.Nullable
-  public TmuxPaneIoDocument getData() {
-    return data;
-  }
-
-  public void setData(TmuxPaneIoDocument data) {
-    this.data = data;
-  }
-
 
   public IoDocument id(String id) {
     this.id = id;
@@ -173,6 +116,25 @@ public class IoDocument {
   }
 
 
+  public IoDocument source(String source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * Get source
+   * @return source
+   */
+  @javax.annotation.Nonnull
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+
   public IoDocument specversion(String specversion) {
     this.specversion = specversion;
     return this;
@@ -189,6 +151,25 @@ public class IoDocument {
 
   public void setSpecversion(String specversion) {
     this.specversion = specversion;
+  }
+
+
+  public IoDocument type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -268,6 +249,25 @@ public class IoDocument {
   }
 
 
+  public IoDocument data(TmuxPaneIoDocument data) {
+    this.data = data;
+    return this;
+  }
+
+  /**
+   * Get data
+   * @return data
+   */
+  @javax.annotation.Nullable
+  public TmuxPaneIoDocument getData() {
+    return data;
+  }
+
+  public void setData(TmuxPaneIoDocument data) {
+    this.data = data;
+  }
+
+
   public IoDocument dataBase64(String dataBase64) {
     this.dataBase64 = dataBase64;
     return this;
@@ -341,37 +341,37 @@ public class IoDocument {
       return false;
     }
     IoDocument ioDocument = (IoDocument) o;
-    return Objects.equals(this.type, ioDocument.type) &&
+    return Objects.equals(this.id, ioDocument.id) &&
         Objects.equals(this.source, ioDocument.source) &&
-        Objects.equals(this.data, ioDocument.data) &&
-        Objects.equals(this.id, ioDocument.id) &&
         Objects.equals(this.specversion, ioDocument.specversion) &&
+        Objects.equals(this.type, ioDocument.type) &&
         Objects.equals(this.datacontenttype, ioDocument.datacontenttype) &&
         Objects.equals(this.dataschema, ioDocument.dataschema) &&
         Objects.equals(this.subject, ioDocument.subject) &&
         Objects.equals(this.time, ioDocument.time) &&
+        Objects.equals(this.data, ioDocument.data) &&
         Objects.equals(this.dataBase64, ioDocument.dataBase64)&&
         Objects.equals(this.additionalProperties, ioDocument.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, source, data, id, specversion, datacontenttype, dataschema, subject, time, dataBase64, additionalProperties);
+    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IoDocument {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    specversion: ").append(toIndentedString(specversion)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    datacontenttype: ").append(toIndentedString(datacontenttype)).append("\n");
     sb.append("    dataschema: ").append(toIndentedString(dataschema)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -435,17 +435,17 @@ public class IoDocument {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) && !jsonObj.get("source").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
-      }
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
+      if (!jsonObj.get("source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
+      }
       if (!jsonObj.get("specversion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `specversion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("specversion").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       if ((jsonObj.get("datacontenttype") != null && !jsonObj.get("datacontenttype").isJsonNull()) && !jsonObj.get("datacontenttype").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `datacontenttype` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datacontenttype").toString()));

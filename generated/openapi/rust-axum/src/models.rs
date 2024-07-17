@@ -15,21 +15,6 @@ use crate::{models, types::*};
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Clipboard {
-    #[serde(rename = "type")]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub r#type: Option<String>,
-
-    #[serde(rename = "source")]
-    #[validate(
-            regex(path = *RE_CLIPBOARD_SOURCE),
-        )]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub source: Option<String>,
-
-    #[serde(rename = "data")]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub data: Option<models::ClipboardPayload>,
-
 /// Identifies the event.
     #[serde(rename = "id")]
     #[validate(
@@ -37,12 +22,21 @@ pub struct Clipboard {
         )]
     pub id: String,
 
+    #[serde(rename = "source")]
+    #[validate(
+            regex(path = *RE_CLIPBOARD_SOURCE),
+        )]
+    pub source: String,
+
 /// The version of the CloudEvents specification which the event uses.
     #[serde(rename = "specversion")]
     #[validate(
             length(min = 1),
         )]
     pub specversion: String,
+
+    #[serde(rename = "type")]
+    pub r#type: String,
 
 /// Content type of the data value. Must adhere to RFC 2046 format.
     #[serde(rename = "datacontenttype")]
@@ -72,6 +66,10 @@ pub struct Clipboard {
     #[serde(skip_serializing_if="Option::is_none")]
     pub time: Option<chrono::DateTime::<chrono::Utc>>,
 
+    #[serde(rename = "data")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub data: Option<models::ClipboardPayload>,
+
 /// Base64 encoded event payload. Must adhere to RFC4648.
     #[serde(rename = "data_base64")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -80,22 +78,22 @@ pub struct Clipboard {
 }
 
 lazy_static::lazy_static! {
-    static ref RE_CLIPBOARD_SOURCE: regex::Regex = regex::Regex::new(r"[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?&lt;!-)$").unwrap();
+    static ref RE_CLIPBOARD_SOURCE: regex::Regex = regex::Regex::new(r"^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$").unwrap();
 }
 
 impl Clipboard {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new(id: String, specversion: String, ) -> Clipboard {
+    pub fn new(id: String, source: String, specversion: String, r#type: String, ) -> Clipboard {
         Clipboard {
-            r#type: None,
-            source: None,
-            data: None,
             id,
+            source,
             specversion,
+            r#type,
             datacontenttype: None,
             dataschema: None,
             subject: None,
             time: None,
+            data: None,
             data_base64: None,
         }
     }
@@ -108,30 +106,20 @@ impl std::fmt::Display for Clipboard {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
 
-            self.r#type.as_ref().map(|r#type| {
-                [
-                    "type".to_string(),
-                    r#type.to_string(),
-                ].join(",")
-            }),
-
-
-            self.source.as_ref().map(|source| {
-                [
-                    "source".to_string(),
-                    source.to_string(),
-                ].join(",")
-            }),
-
-            // Skipping data in query parameter serialization
-
-
             Some("id".to_string()),
             Some(self.id.to_string()),
 
 
+            Some("source".to_string()),
+            Some(self.source.to_string()),
+
+
             Some("specversion".to_string()),
             Some(self.specversion.to_string()),
+
+
+            Some("type".to_string()),
+            Some(self.r#type.to_string()),
 
 
             self.datacontenttype.as_ref().map(|datacontenttype| {
@@ -159,6 +147,8 @@ impl std::fmt::Display for Clipboard {
 
             // Skipping time in query parameter serialization
 
+            // Skipping data in query parameter serialization
+
 
             self.data_base64.as_ref().map(|data_base64| {
                 [
@@ -184,15 +174,15 @@ impl std::str::FromStr for Clipboard {
         #[derive(Default)]
         #[allow(dead_code)]
         struct IntermediateRep {
-            pub r#type: Vec<String>,
-            pub source: Vec<String>,
-            pub data: Vec<models::ClipboardPayload>,
             pub id: Vec<String>,
+            pub source: Vec<String>,
             pub specversion: Vec<String>,
+            pub r#type: Vec<String>,
             pub datacontenttype: Vec<String>,
             pub dataschema: Vec<String>,
             pub subject: Vec<String>,
             pub time: Vec<chrono::DateTime::<chrono::Utc>>,
+            pub data: Vec<models::ClipboardPayload>,
             pub data_base64: Vec<String>,
         }
 
@@ -212,15 +202,13 @@ impl std::str::FromStr for Clipboard {
                 #[allow(clippy::match_single_binding)]
                 match key {
                     #[allow(clippy::redundant_clone)]
-                    "type" => intermediate_rep.r#type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "source" => intermediate_rep.source.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "data" => intermediate_rep.data.push(<models::ClipboardPayload as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    #[allow(clippy::redundant_clone)]
-                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    #[allow(clippy::redundant_clone)]
                     "specversion" => intermediate_rep.specversion.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "type" => intermediate_rep.r#type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "datacontenttype" => intermediate_rep.datacontenttype.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
@@ -229,6 +217,8 @@ impl std::str::FromStr for Clipboard {
                     "subject" => intermediate_rep.subject.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "time" => intermediate_rep.time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "data" => intermediate_rep.data.push(<models::ClipboardPayload as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "data_base64" => intermediate_rep.data_base64.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     _ => return std::result::Result::Err("Unexpected key while parsing Clipboard".to_string())
@@ -241,15 +231,15 @@ impl std::str::FromStr for Clipboard {
 
         // Use the intermediate representation to return the struct
         std::result::Result::Ok(Clipboard {
-            r#type: intermediate_rep.r#type.into_iter().next(),
-            source: intermediate_rep.source.into_iter().next(),
-            data: intermediate_rep.data.into_iter().next(),
             id: intermediate_rep.id.into_iter().next().ok_or_else(|| "id missing in Clipboard".to_string())?,
+            source: intermediate_rep.source.into_iter().next().ok_or_else(|| "source missing in Clipboard".to_string())?,
             specversion: intermediate_rep.specversion.into_iter().next().ok_or_else(|| "specversion missing in Clipboard".to_string())?,
+            r#type: intermediate_rep.r#type.into_iter().next().ok_or_else(|| "type missing in Clipboard".to_string())?,
             datacontenttype: intermediate_rep.datacontenttype.into_iter().next(),
             dataschema: intermediate_rep.dataschema.into_iter().next(),
             subject: intermediate_rep.subject.into_iter().next(),
             time: intermediate_rep.time.into_iter().next(),
+            data: intermediate_rep.data.into_iter().next(),
             data_base64: intermediate_rep.data_base64.into_iter().next(),
         })
     }
@@ -1962,21 +1952,6 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<GraphRelatio
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct IoDocument {
-    #[serde(rename = "type")]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub r#type: Option<String>,
-
-    #[serde(rename = "source")]
-    #[validate(
-            regex(path = *RE_IODOCUMENT_SOURCE),
-        )]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub source: Option<String>,
-
-    #[serde(rename = "data")]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub data: Option<models::TmuxPaneIoDocument>,
-
 /// Identifies the event.
     #[serde(rename = "id")]
     #[validate(
@@ -1984,12 +1959,18 @@ pub struct IoDocument {
         )]
     pub id: String,
 
+    #[serde(rename = "source")]
+    pub source: String,
+
 /// The version of the CloudEvents specification which the event uses.
     #[serde(rename = "specversion")]
     #[validate(
             length(min = 1),
         )]
     pub specversion: String,
+
+    #[serde(rename = "type")]
+    pub r#type: String,
 
 /// Content type of the data value. Must adhere to RFC 2046 format.
     #[serde(rename = "datacontenttype")]
@@ -2019,6 +2000,10 @@ pub struct IoDocument {
     #[serde(skip_serializing_if="Option::is_none")]
     pub time: Option<chrono::DateTime::<chrono::Utc>>,
 
+    #[serde(rename = "data")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub data: Option<models::TmuxPaneIoDocument>,
+
 /// Base64 encoded event payload. Must adhere to RFC4648.
     #[serde(rename = "data_base64")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2026,23 +2011,20 @@ pub struct IoDocument {
 
 }
 
-lazy_static::lazy_static! {
-    static ref RE_IODOCUMENT_SOURCE: regex::Regex = regex::Regex::new(r"[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?&lt;!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*&#x3D;{0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$").unwrap();
-}
 
 impl IoDocument {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new(id: String, specversion: String, ) -> IoDocument {
+    pub fn new(id: String, source: String, specversion: String, ) -> IoDocument {
         IoDocument {
-            r#type: None,
-            source: None,
-            data: None,
             id,
+            source,
             specversion,
+            r#type: "IoDocument".to_string(),
             datacontenttype: None,
             dataschema: None,
             subject: Some("IoDocument".to_string()),
             time: None,
+            data: None,
             data_base64: None,
         }
     }
@@ -2055,30 +2037,20 @@ impl std::fmt::Display for IoDocument {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
 
-            self.r#type.as_ref().map(|r#type| {
-                [
-                    "type".to_string(),
-                    r#type.to_string(),
-                ].join(",")
-            }),
-
-
-            self.source.as_ref().map(|source| {
-                [
-                    "source".to_string(),
-                    source.to_string(),
-                ].join(",")
-            }),
-
-            // Skipping data in query parameter serialization
-
-
             Some("id".to_string()),
             Some(self.id.to_string()),
 
 
+            Some("source".to_string()),
+            Some(self.source.to_string()),
+
+
             Some("specversion".to_string()),
             Some(self.specversion.to_string()),
+
+
+            Some("type".to_string()),
+            Some(self.r#type.to_string()),
 
 
             self.datacontenttype.as_ref().map(|datacontenttype| {
@@ -2106,6 +2078,8 @@ impl std::fmt::Display for IoDocument {
 
             // Skipping time in query parameter serialization
 
+            // Skipping data in query parameter serialization
+
 
             self.data_base64.as_ref().map(|data_base64| {
                 [
@@ -2131,15 +2105,15 @@ impl std::str::FromStr for IoDocument {
         #[derive(Default)]
         #[allow(dead_code)]
         struct IntermediateRep {
-            pub r#type: Vec<String>,
-            pub source: Vec<String>,
-            pub data: Vec<models::TmuxPaneIoDocument>,
             pub id: Vec<String>,
+            pub source: Vec<String>,
             pub specversion: Vec<String>,
+            pub r#type: Vec<String>,
             pub datacontenttype: Vec<String>,
             pub dataschema: Vec<String>,
             pub subject: Vec<String>,
             pub time: Vec<chrono::DateTime::<chrono::Utc>>,
+            pub data: Vec<models::TmuxPaneIoDocument>,
             pub data_base64: Vec<String>,
         }
 
@@ -2159,15 +2133,13 @@ impl std::str::FromStr for IoDocument {
                 #[allow(clippy::match_single_binding)]
                 match key {
                     #[allow(clippy::redundant_clone)]
-                    "type" => intermediate_rep.r#type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "source" => intermediate_rep.source.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "data" => intermediate_rep.data.push(<models::TmuxPaneIoDocument as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    #[allow(clippy::redundant_clone)]
-                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    #[allow(clippy::redundant_clone)]
                     "specversion" => intermediate_rep.specversion.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "type" => intermediate_rep.r#type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "datacontenttype" => intermediate_rep.datacontenttype.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
@@ -2176,6 +2148,8 @@ impl std::str::FromStr for IoDocument {
                     "subject" => intermediate_rep.subject.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "time" => intermediate_rep.time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "data" => intermediate_rep.data.push(<models::TmuxPaneIoDocument as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "data_base64" => intermediate_rep.data_base64.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     _ => return std::result::Result::Err("Unexpected key while parsing IoDocument".to_string())
@@ -2188,15 +2162,15 @@ impl std::str::FromStr for IoDocument {
 
         // Use the intermediate representation to return the struct
         std::result::Result::Ok(IoDocument {
-            r#type: intermediate_rep.r#type.into_iter().next(),
-            source: intermediate_rep.source.into_iter().next(),
-            data: intermediate_rep.data.into_iter().next(),
             id: intermediate_rep.id.into_iter().next().ok_or_else(|| "id missing in IoDocument".to_string())?,
+            source: intermediate_rep.source.into_iter().next().ok_or_else(|| "source missing in IoDocument".to_string())?,
             specversion: intermediate_rep.specversion.into_iter().next().ok_or_else(|| "specversion missing in IoDocument".to_string())?,
+            r#type: intermediate_rep.r#type.into_iter().next().ok_or_else(|| "type missing in IoDocument".to_string())?,
             datacontenttype: intermediate_rep.datacontenttype.into_iter().next(),
             dataschema: intermediate_rep.dataschema.into_iter().next(),
             subject: intermediate_rep.subject.into_iter().next(),
             time: intermediate_rep.time.into_iter().next(),
+            data: intermediate_rep.data.into_iter().next(),
             data_base64: intermediate_rep.data_base64.into_iter().next(),
         })
     }

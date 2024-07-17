@@ -44,11 +44,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
-- [Clipboard](models/Clipboard.md)
 - [ClipboardPayload](models/ClipboardPayload.md)
 - [ClipboardPayloadContext](models/ClipboardPayloadContext.md)
 - [CloudEvent](models/CloudEvent.md)
-- [IoDocument](models/IoDocument.md)
 - [Neo4jCaptureDataChange](models/Neo4jCaptureDataChange.md)
 - [Neo4jCaptureDataChangeMeta](models/Neo4jCaptureDataChangeMeta.md)
 - [Neo4jCaptureDataChangeMetaSource](models/Neo4jCaptureDataChangeMetaSource.md)

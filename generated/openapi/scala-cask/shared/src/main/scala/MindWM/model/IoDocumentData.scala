@@ -28,17 +28,15 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class IoDocumentData(
-  `type`: String = "" ,
-
-    source: String = "" ,
-
-    data: TmuxPaneIoDocument =  ,
-
-  /* Identifies the event. */
+/* Identifies the event. */
   id: String,
+
+    source: String,
 
   /* The version of the CloudEvents specification which the event uses. */
   specversion: String,
+
+    `type`: String,
 
   /* Content type of the data value. Must adhere to RFC 2046 format. */
   datacontenttype: String = "" ,
@@ -51,6 +49,8 @@ case class IoDocumentData(
   /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
   time: OffsetDateTime = null ,
 
+    data: TmuxPaneIoDocument =  ,
+
   /* Base64 encoded event payload. Must adhere to RFC4648. */
   dataBase64: String = "" 
 
@@ -60,66 +60,6 @@ case class IoDocumentData(
 
   def validationErrors(path : Seq[Field], failFast : Boolean) : Seq[ValidationError] = {
     val errors = scala.collection.mutable.ListBuffer[ValidationError]()
-        // ==================
-        // `type`
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-
-        // ==================
-        // source
-        // validate against pattern '[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+\/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$'
-        if (errors.isEmpty || !failFast) {
-           val regex = """[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+\/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$"""
-           if source == null || !regex.r.matches(source) then
-              errors += ValidationError(path :+ IoDocument.Fields.source, s"value '$source' doesn't match pattern $regex")
-        }
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-
-        // ==================
-        // data
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-
         // ==================
         // id
 
@@ -146,6 +86,24 @@ case class IoDocumentData(
         
 
         // ==================
+        // source
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
         // specversion
 
 
@@ -157,6 +115,24 @@ case class IoDocumentData(
                errors += ValidationError(path :+ IoDocument.Fields.specversion, s"length $len is shorter than the min length 1")
             }
         }
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // `type`
+
+
+
 
 
 
@@ -264,6 +240,24 @@ case class IoDocumentData(
         
 
         // ==================
+        // data
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
         // dataBase64
 
 
@@ -294,24 +288,20 @@ case class IoDocumentData(
   /** use 'validated' to check validation */
   def asModel : IoDocument = {
     IoDocument(
-        `type` = Option(
-        `type`
-        )
-        ,
-        source = Option(
-        source
-        )
-        ,
-        data = Option(
-        data
-        )
-        ,
         id = 
         id
         
         ,
+        source = 
+        source
+        
+        ,
         specversion = 
         specversion
+        
+        ,
+        `type` = 
+        `type`
         
         ,
         datacontenttype = Option(
@@ -328,6 +318,10 @@ case class IoDocumentData(
         ,
         time = Option(
         time
+        )
+        ,
+        data = Option(
+        data
         )
         ,
         dataBase64 = Option(

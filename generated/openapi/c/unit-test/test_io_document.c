@@ -23,27 +23,27 @@ io_document_t* instantiate_io_document(int include_optional) {
   if (include_optional) {
     io_document = io_document_create(
       "0",
-      "a",
-      list_createList(),
       "0",
       "0",
+      "IoDocument",
       "0",
       "0",
       "IoDocument",
       "2013-10-20T19:20:30+01:00",
+      list_createList(),
       "0"
     );
   } else {
     io_document = io_document_create(
       "0",
-      "a",
-      list_createList(),
       "0",
       "0",
+      "IoDocument",
       "0",
       "0",
       "IoDocument",
       "2013-10-20T19:20:30+01:00",
+      list_createList(),
       "0"
     );
   }

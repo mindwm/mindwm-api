@@ -14,17 +14,16 @@ import { RequestFile } from './models';
 import { TmuxPaneIoDocument } from './tmuxPaneIoDocument';
 
 export class IoDocument extends any {
-    'type'?: string;
-    'source'?: string;
-    'data'?: TmuxPaneIoDocument;
     /**
     * Identifies the event.
     */
     'id': string;
+    'source': string;
     /**
     * The version of the CloudEvents specification which the event uses.
     */
     'specversion': string;
+    'type': string = 'IoDocument';
     /**
     * Content type of the data value. Must adhere to RFC 2046 format.
     */
@@ -38,6 +37,7 @@ export class IoDocument extends any {
     * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     */
     'time'?: Date;
+    'data'?: TmuxPaneIoDocument;
     /**
     * Base64 encoded event payload. Must adhere to RFC4648.
     */
@@ -47,8 +47,8 @@ export class IoDocument extends any {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "type",
-            "baseName": "type",
+            "name": "id",
+            "baseName": "id",
             "type": "string"
         },
         {
@@ -57,18 +57,13 @@ export class IoDocument extends any {
             "type": "string"
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "TmuxPaneIoDocument"
-        },
-        {
-            "name": "id",
-            "baseName": "id",
+            "name": "specversion",
+            "baseName": "specversion",
             "type": "string"
         },
         {
-            "name": "specversion",
-            "baseName": "specversion",
+            "name": "type",
+            "baseName": "type",
             "type": "string"
         },
         {
@@ -90,6 +85,11 @@ export class IoDocument extends any {
             "name": "time",
             "baseName": "time",
             "type": "Date"
+        },
+        {
+            "name": "data",
+            "baseName": "data",
+            "type": "TmuxPaneIoDocument"
         },
         {
             "name": "dataBase64",

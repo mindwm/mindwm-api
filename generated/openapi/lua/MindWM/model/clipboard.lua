@@ -19,17 +19,17 @@ local function cast_clipboard(t)
 	return setmetatable(t, clipboard_mt)
 end
 
-local function new_clipboard(type, source, data, id, specversion, datacontenttype, dataschema, subject, time, data_base64)
+local function new_clipboard(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, data_base64)
 	return cast_clipboard({
-		["type"] = type;
-		["source"] = source;
-		["data"] = data;
 		["id"] = id;
+		["source"] = source;
 		["specversion"] = specversion;
+		["type"] = type;
 		["datacontenttype"] = datacontenttype;
 		["dataschema"] = dataschema;
 		["subject"] = subject;
 		["time"] = time;
+		["data"] = data;
 		["data_base64"] = data_base64;
 	})
 end

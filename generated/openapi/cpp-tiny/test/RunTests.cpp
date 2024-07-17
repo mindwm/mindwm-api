@@ -48,17 +48,16 @@ void tearDown(){}
 void runTests(){
     
     
-    RUN_TEST(test_Clipboard_type_is_assigned_from_json);
+    RUN_TEST(test_Clipboard_id_is_assigned_from_json);
     
     
     RUN_TEST(test_Clipboard_source_is_assigned_from_json);
     
     
-    
-    RUN_TEST(test_Clipboard_id_is_assigned_from_json);
-    
-    
     RUN_TEST(test_Clipboard_specversion_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_Clipboard_type_is_assigned_from_json);
     
     
     RUN_TEST(test_Clipboard_datacontenttype_is_assigned_from_json);
@@ -71,6 +70,7 @@ void runTests(){
     
     
     RUN_TEST(test_Clipboard_time_is_assigned_from_json);
+    
     
     
     RUN_TEST(test_Clipboard_data_base64_is_assigned_from_json);
@@ -225,17 +225,16 @@ void runTests(){
     
     
     
-    RUN_TEST(test_IoDocument_type_is_assigned_from_json);
+    RUN_TEST(test_IoDocument_id_is_assigned_from_json);
     
     
     RUN_TEST(test_IoDocument_source_is_assigned_from_json);
     
     
-    
-    RUN_TEST(test_IoDocument_id_is_assigned_from_json);
-    
-    
     RUN_TEST(test_IoDocument_specversion_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_IoDocument_type_is_assigned_from_json);
     
     
     RUN_TEST(test_IoDocument_datacontenttype_is_assigned_from_json);
@@ -248,6 +247,7 @@ void runTests(){
     
     
     RUN_TEST(test_IoDocument_time_is_assigned_from_json);
+    
     
     
     RUN_TEST(test_IoDocument_data_base64_is_assigned_from_json);
@@ -368,17 +368,16 @@ void runTests(){
 
     
     
-    RUN_TEST(test_Clipboard_type_is_converted_to_json);
+    RUN_TEST(test_Clipboard_id_is_converted_to_json);
     
     
     RUN_TEST(test_Clipboard_source_is_converted_to_json);
     
     
-    
-    RUN_TEST(test_Clipboard_id_is_converted_to_json);
-    
-    
     RUN_TEST(test_Clipboard_specversion_is_converted_to_json);
+    
+    
+    RUN_TEST(test_Clipboard_type_is_converted_to_json);
     
     
     RUN_TEST(test_Clipboard_datacontenttype_is_converted_to_json);
@@ -391,6 +390,7 @@ void runTests(){
     
     
     RUN_TEST(test_Clipboard_time_is_converted_to_json);
+    
     
     
     RUN_TEST(test_Clipboard_data_base64_is_converted_to_json);
@@ -545,17 +545,16 @@ void runTests(){
     
     
     
-    RUN_TEST(test_IoDocument_type_is_converted_to_json);
+    RUN_TEST(test_IoDocument_id_is_converted_to_json);
     
     
     RUN_TEST(test_IoDocument_source_is_converted_to_json);
     
     
-    
-    RUN_TEST(test_IoDocument_id_is_converted_to_json);
-    
-    
     RUN_TEST(test_IoDocument_specversion_is_converted_to_json);
+    
+    
+    RUN_TEST(test_IoDocument_type_is_converted_to_json);
     
     
     RUN_TEST(test_IoDocument_datacontenttype_is_converted_to_json);
@@ -568,6 +567,7 @@ void runTests(){
     
     
     RUN_TEST(test_IoDocument_time_is_converted_to_json);
+    
     
     
     RUN_TEST(test_IoDocument_data_base64_is_converted_to_json);

@@ -17,13 +17,12 @@ import java.time.OffsetDateTime
 import java.util.HashMap
 
 case class IoDocument (
-                  `type`: Option[String],
-                  source: Option[String],
-                  data: Option[TmuxPaneIoDocument],
             /* Identifies the event. */
                   id: String,
+                  source: String,
             /* The version of the CloudEvents specification which the event uses. */
                   specversion: String,
+                  `type`: String,
             /* Content type of the data value. Must adhere to RFC 2046 format. */
                   datacontenttype: Option[String],
             /* Identifies the schema that data adheres to. */
@@ -31,6 +30,7 @@ case class IoDocument (
                   subject: Option[String],
             /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
                   time: Option[OffsetDateTime],
+                  data: Option[TmuxPaneIoDocument],
             /* Base64 encoded event payload. Must adhere to RFC4648. */
                   dataBase64: Option[String]
 )

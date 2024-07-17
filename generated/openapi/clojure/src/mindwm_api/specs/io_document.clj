@@ -8,15 +8,15 @@
 
 (def io-document-data
   {
-   (ds/opt :type) string?
-   (ds/opt :source) string?
-   (ds/opt :data) tmux-pane-io-document-spec
    (ds/req :id) string?
+   (ds/req :source) string?
    (ds/req :specversion) string?
+   (ds/req :type) string?
    (ds/opt :datacontenttype) string?
    (ds/opt :dataschema) string?
    (ds/opt :subject) string?
    (ds/opt :time) inst?
+   (ds/opt :data) tmux-pane-io-document-spec
    (ds/opt :data_base64) string?
    })
 

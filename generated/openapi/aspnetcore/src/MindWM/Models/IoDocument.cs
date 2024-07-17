@@ -27,25 +27,6 @@ namespace MindWM.Models
     public partial class IoDocument : IEquatable<IoDocument>
     {
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Source
-        /// </summary>
-        [RegularExpression("[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\\\.tmux\\\\.[A-Za-z0-9+/]*={0,2}\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\\\.[0-9]+?\\\\.[0-9]+?\\\\.tiodocument$")]
-        [DataMember(Name="source", EmitDefaultValue=false)]
-        public string Source { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Data
-        /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public TmuxPaneIoDocument Data { get; set; }
-
-        /// <summary>
         /// Identifies the event.
         /// </summary>
         /// <value>Identifies the event.</value>
@@ -55,6 +36,13 @@ namespace MindWM.Models
         public string Id { get; set; }
 
         /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [Required]
+        [DataMember(Name="source", EmitDefaultValue=false)]
+        public string Source { get; set; }
+
+        /// <summary>
         /// The version of the CloudEvents specification which the event uses.
         /// </summary>
         /// <value>The version of the CloudEvents specification which the event uses.</value>
@@ -62,6 +50,13 @@ namespace MindWM.Models
         [MinLength(1)]
         [DataMember(Name="specversion", EmitDefaultValue=false)]
         public string Specversion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [Required]
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; } = "IoDocument";
 
         /// <summary>
         /// Content type of the data value. Must adhere to RFC 2046 format.
@@ -94,6 +89,12 @@ namespace MindWM.Models
         public DateTime Time { get; set; }
 
         /// <summary>
+        /// Gets or Sets Data
+        /// </summary>
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public TmuxPaneIoDocument Data { get; set; }
+
+        /// <summary>
         /// Base64 encoded event payload. Must adhere to RFC4648.
         /// </summary>
         /// <value>Base64 encoded event payload. Must adhere to RFC4648.</value>
@@ -108,15 +109,15 @@ namespace MindWM.Models
         {
             var sb = new StringBuilder();
             sb.Append("class IoDocument {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Specversion: ").Append(Specversion).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Datacontenttype: ").Append(Datacontenttype).Append("\n");
             sb.Append("  Dataschema: ").Append(Dataschema).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  Time: ").Append(Time).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  DataBase64: ").Append(DataBase64).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -155,9 +156,9 @@ namespace MindWM.Models
 
             return 
                 (
-                    Type == other.Type ||
-                    Type != null &&
-                    Type.Equals(other.Type)
+                    Id == other.Id ||
+                    Id != null &&
+                    Id.Equals(other.Id)
                 ) && 
                 (
                     Source == other.Source ||
@@ -165,19 +166,14 @@ namespace MindWM.Models
                     Source.Equals(other.Source)
                 ) && 
                 (
-                    Data == other.Data ||
-                    Data != null &&
-                    Data.Equals(other.Data)
-                ) && 
-                (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
-                ) && 
-                (
                     Specversion == other.Specversion ||
                     Specversion != null &&
                     Specversion.Equals(other.Specversion)
+                ) && 
+                (
+                    Type == other.Type ||
+                    Type != null &&
+                    Type.Equals(other.Type)
                 ) && 
                 (
                     Datacontenttype == other.Datacontenttype ||
@@ -200,6 +196,11 @@ namespace MindWM.Models
                     Time.Equals(other.Time)
                 ) && 
                 (
+                    Data == other.Data ||
+                    Data != null &&
+                    Data.Equals(other.Data)
+                ) && 
+                (
                     DataBase64 == other.DataBase64 ||
                     DataBase64 != null &&
                     DataBase64.Equals(other.DataBase64)
@@ -216,16 +217,14 @@ namespace MindWM.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Type != null)
-                    hashCode = hashCode * 59 + Type.GetHashCode();
-                    if (Source != null)
-                    hashCode = hashCode * 59 + Source.GetHashCode();
-                    if (Data != null)
-                    hashCode = hashCode * 59 + Data.GetHashCode();
                     if (Id != null)
                     hashCode = hashCode * 59 + Id.GetHashCode();
+                    if (Source != null)
+                    hashCode = hashCode * 59 + Source.GetHashCode();
                     if (Specversion != null)
                     hashCode = hashCode * 59 + Specversion.GetHashCode();
+                    if (Type != null)
+                    hashCode = hashCode * 59 + Type.GetHashCode();
                     if (Datacontenttype != null)
                     hashCode = hashCode * 59 + Datacontenttype.GetHashCode();
                     if (Dataschema != null)
@@ -234,6 +233,8 @@ namespace MindWM.Models
                     hashCode = hashCode * 59 + Subject.GetHashCode();
                     
                     hashCode = hashCode * 59 + Time.GetHashCode();
+                    if (Data != null)
+                    hashCode = hashCode * 59 + Data.GetHashCode();
                     if (DataBase64 != null)
                     hashCode = hashCode * 59 + DataBase64.GetHashCode();
                 return hashCode;

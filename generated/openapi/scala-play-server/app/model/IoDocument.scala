@@ -14,17 +14,17 @@ import java.time.OffsetDateTime
   * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
   * @param additionalProperties Any additional properties this model may have.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-17T14:07:32.260026937Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-17T16:10:01.566697796Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 case class IoDocument(
-  `type`: Option[String],
-  source: Option[String],
-  data: Option[TmuxPaneIoDocument],
   id: String,
+  source: String,
   specversion: String,
+  `type`: String,
   datacontenttype: Option[String],
   dataschema: Option[URI],
   subject: Option[String],
   time: Option[OffsetDateTime],
+  data: Option[TmuxPaneIoDocument],
   dataBase64: Option[String]
   additionalProperties: Map[String, OasAnyTypeNotMapped]
 )
@@ -32,7 +32,7 @@ case class IoDocument(
 object IoDocument {
   implicit lazy val ioDocumentJsonFormat: Format[IoDocument] = {
     val realJsonFormat = Json.format[IoDocument]
-    val declaredPropNames = Set("`type`", "source", "data", "id", "specversion", "datacontenttype", "dataschema", "subject", "time", "dataBase64")
+    val declaredPropNames = Set("id", "source", "specversion", "`type`", "datacontenttype", "dataschema", "subject", "time", "data", "dataBase64")
     
     Format(
       Reads {
