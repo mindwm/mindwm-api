@@ -9,7 +9,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="The event payload.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-07-16T19:19:34.179761301Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@ApiModel(description="The event payload.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-07-17T13:48:45.075419003Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEventData   {
   
 

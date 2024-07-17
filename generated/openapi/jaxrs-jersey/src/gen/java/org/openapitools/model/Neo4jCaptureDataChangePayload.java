@@ -38,7 +38,7 @@ import javax.validation.Valid;
   Neo4jCaptureDataChangePayload.JSON_PROPERTY_LABEL,
   Neo4jCaptureDataChangePayload.JSON_PROPERTY_START
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-16T19:19:30.295922441Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-17T13:48:41.039616187Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangePayload   {
   public static final String JSON_PROPERTY_AFTER = "after";
   @JsonProperty(JSON_PROPERTY_AFTER)

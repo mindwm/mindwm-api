@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  * Neo4jCaptureDataChangeNodePayload
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-16T19:19:22.317989189Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-17T13:48:32.911351553Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangeNodePayload implements Neo4jCaptureDataChangePayload {
 
   private Neo4jCaptureDataChangeNodePayloadAfter after;

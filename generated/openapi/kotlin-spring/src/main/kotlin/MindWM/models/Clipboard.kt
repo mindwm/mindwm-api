@@ -33,7 +33,7 @@ data class Clipboard(
     @Schema(example = "null", required = true, description = "Identifies the event.")
     @get:JsonProperty("id", required = true) val id: kotlin.String,
 
-    @get:Pattern(regexp="mindwm.[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-).clipboard$")
+    @get:Pattern(regexp="^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$")
     @Schema(example = "null", required = true, description = "")
     @get:JsonProperty("source", required = true) val source: kotlin.String,
 

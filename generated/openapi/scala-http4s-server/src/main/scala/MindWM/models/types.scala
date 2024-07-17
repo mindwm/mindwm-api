@@ -58,7 +58,7 @@ object Clipboard {
 case class ClipboardAllOf(
   _type: Option[String],
   subject: Option[String],
-  source: Option[Refined[String, MatchesRegex["mindwm.[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-).clipboard$"]]],
+  source: Option[Refined[String, MatchesRegex["^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$"]]],
   data: Option[ClipboardPayload]
 )
 object ClipboardAllOf {

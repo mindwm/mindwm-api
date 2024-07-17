@@ -12,7 +12,7 @@ import org.openapitools.model.Neo4jCaptureDataChangeMetaSource;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-16T19:19:06.350995769Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-17T13:48:16.702923304Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangeMeta   {
   @JsonProperty("operation")
   private String operation;

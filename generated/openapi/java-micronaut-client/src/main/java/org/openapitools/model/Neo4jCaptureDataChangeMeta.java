@@ -36,7 +36,7 @@ import javax.annotation.Generated;
   Neo4jCaptureDataChangeMeta.JSON_PROPERTY_USERNAME
 })
 @JsonTypeName("Neo4jCaptureDataChange_meta")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-16T19:19:08.246738677Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-17T13:48:18.630465359Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Neo4jCaptureDataChangeMeta {
     public static final String JSON_PROPERTY_OPERATION = "operation";

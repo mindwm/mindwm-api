@@ -120,7 +120,7 @@
               "defaullt" : "Clipboard"
             },
             "source" : {
-              "pattern" : "mindwm.[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-).clipboard$"
+              "pattern" : "^mindwm\\\\.[a-zA-Z0-9_]{1,32}\\\\.[a-zA-Z0-9-]{1,63}\\.clipboard$"
             },
             "data" : {
               "$ref" : "#/components/schemas/ClipboardPayload"

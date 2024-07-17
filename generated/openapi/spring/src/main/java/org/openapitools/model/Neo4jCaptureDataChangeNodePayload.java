@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  * Neo4jCaptureDataChangeNodePayload
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T19:21:29.437307440Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-17T13:50:40.031099343Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangeNodePayload implements Neo4jCaptureDataChangePayload {
 
   private Neo4jCaptureDataChangeNodePayloadAfter after;
