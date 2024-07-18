@@ -1,0 +1,8 @@
+{
+  "schemas": {
+    "CloudEvent": {
+      "$ref": "./cloudevents.json",
+      "discrimniator": "type"
+    }
+  }
+}
