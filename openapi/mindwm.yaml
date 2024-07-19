@@ -11,23 +11,45 @@ servers:
     description: Production API endpoint for the Mindwm API
 components:
   schemas:
-    IoDocument:
+    # Cloud events
+    CloudEvent:
       allOf:
         - $ref: ./cloudevents.json
+      discriminator:
+        propertyName: "type"
+        mapping:
+          IoDocument: "#/components/schemas/IoDocument"
+          Clipboard: "#/components/schemas/Clipboard"
       properties:
         type:
           type: string
-          const: IoDocument
-          default: IoDocument
-        subject:
-          type: string
-          const: IoDocument
-          default: IoDocument
-        source:
-          type: string
-          pattern: '^mindwm\..*\.iodocument$'
-        data:
-          $ref: '#/components/schemas/TmuxPaneIoDocument'
+          enum:
+            - IoDocument
+            - Clipboard
+      required:
+        - id
+        - type
+        - source
+        - subject
+        - data
+
+    IoDocument:
+      allOf:
+        - $ref: "#/components/schemas/CloudEvent"
+        - properties:
+            type:
+              type: string
+              const: IoDocument
+              default: IoDocument
+            subject:
+              type: string
+              const: IoDocument
+              default: IoDocument
+            source:
+              type: string
+              pattern: '^mindwm\..*\.iodocument$'
+            data:
+              $ref: '#/components/schemas/TmuxPaneIoDocument'
       additionalProperties: false
       required:
         - type
@@ -42,23 +64,24 @@ components:
           specversion: '1.0.0'
           data:
             $ref: '#/components/schemas/TmuxPaneIoDocument/examples/0'
+
     Clipboard:
       allOf:
         - $ref: ./cloudevents.json
-      properties:
-        type:
-          type: string
-          const: Clipboard
-          defaullt: Clipboard
-        subject:
-          type: string
-          const: Clipboard
-          defaullt: Clipboard
-        source:
-          type: string
-          pattern: mindwm.[a-zA-Z0-9_][a-zA-Z0-9_-]{0,31}\\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-).clipboard$
-        data:
-          $ref: '#/components/schemas/ClipboardPayload'
+        - properties:
+            type:
+              type: string
+              const: Clipboard
+              default: Clipboard
+            subject:
+              type: string
+              const: Clipboard
+              defaullt: Clipboard
+            source:
+              type: string
+              pattern: '^mindwm\..*\.clipboard$'
+            data:
+              $ref: '#/components/schemas/ClipboardPayload'
       additionalProperties: false
       examples:
         - source: mindwm.alice.laptop.clipboard
@@ -68,6 +91,55 @@ components:
           specversion: '1.0.0'
           data:
             $ref: '#/components/schemas/ClipboardPayload/examples/0'
+
+    GraphEvent:
+      allOf:
+        - $ref: ./cloudevents.json
+        - properties:
+            type:
+              type: string
+              const: GraphEvent
+              default: GraphEvent
+            source:
+              type: string
+              enum:
+                - node
+                - relationship
+            subject:
+              type: string
+              enum:
+                - created
+                - updated
+                - deleted
+            data:
+              allOf:
+                - $ref: '#/components/schemas/Neo4jCaptureDataChange'
+                - properties:
+                    payload:
+                      $ref: '#/components/schemas/Neo4jCaptureDataChangeNodePayload'
+      required:
+        - type
+        - source
+        - subject
+        - data
+      additionalProperties: false
+      examples:
+        - type: GraphEvent
+          source: node
+          subject: created
+          id: '5ea0d0c6-4155-11ef-90d8-6f5a5689b5ac'
+          specversion: '1.0.0'
+          data:
+            ref: '#/components/schemas/Neo4jCaptureDataChangeNodePayload/examples/0'
+        - type: created
+          source: relationship
+          subject: created
+          id: '9f1462e4-9fd4-44f4-9169-d554fba50e85'
+          specversion: '1.0.0'
+          data:
+            $ref: '#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload/examples/0'
+
+    # Payload
     ClipboardPayload:
       type: object
       properties:
@@ -138,65 +210,6 @@ components:
         - input: uptime
           output: '16:37:51 up 19 days,  2:15, 71 users,  load average: 2.01, 2.85, 2.95'
           ps1: user@mindwm-dev1:~/rnd/asyncapi$
-    GraphNode:
-      allOf:
-        - $ref: ./cloudevents.json
-      properties:
-        type:
-          type: string
-          enum:
-            - created
-            - updated
-            - deleted
-        source:
-          type: string
-          enum:
-            - graph.node
-            - graph.relationship
-        data:
-          allOf:
-            - $ref: '#/components/schemas/Neo4jCaptureDataChange'
-            - properties:
-                payload:
-                  $ref: '#/components/schemas/Neo4jCaptureDataChangeNodePayload'
-      additionalProperties: false
-      examples:
-        - source: graph.node
-          subject: IoDocument
-          type: created
-          id: '5ea0d0c6-4155-11ef-90d8-6f5a5689b5ac'
-          specversion: '1.0.0'
-          data:
-            $ref: '#/components/schemas/Neo4jCaptureDataChangeNodePayload/examples/0'
-    GraphRelationship:
-      allOf:
-        - $ref: ./cloudevents.json
-      properties:
-        type:
-          type: string
-          enum:
-            - created
-            - updated
-            - deleted
-        source:
-          type: string
-          enum:
-            - graph.relationship
-        data:
-          allOf:
-            - $ref: '#/components/schemas/Neo4jCaptureDataChange'
-            - properties:
-                payload:
-                  $ref: '#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload'
-      additionalProperties: false
-      examples:
-        - source: graph.relationship
-          subject: HAS_IO_DOCUMENT
-          type: created
-          id: '9f1462e4-9fd4-44f4-9169-d554fba50e85'
-          specversion: '1.0.0'
-          data:
-            $ref: '#/components/schemas/Neo4jCaptureDataChangeRelationshipPayload/examples/0'
     Neo4jCaptureDataChange:
       type: object
       properties:
