@@ -1,9 +1,7 @@
 package apimodels;
 
-import apimodels.CloudEventData;
 import java.net.URI;
 import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.*;
 import java.util.Set;
 import javax.validation.*;
@@ -13,7 +11,7 @@ import javax.validation.Valid;
 /**
  * CloudEvents Specification JSON Schema
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-17T16:07:53.975037253Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-21T21:29:28.054395936Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class CloudEvent   {
   @JsonProperty("id")
@@ -63,9 +61,8 @@ public class CloudEvent   {
   private OffsetDateTime time;
 
   @JsonProperty("data")
-  @Valid
-
-  private CloudEventData data;
+  
+  private Object data;
 
   @JsonProperty("data_base64")
   
@@ -207,20 +204,20 @@ public class CloudEvent   {
     this.time = time;
   }
 
-  public CloudEvent data(CloudEventData data) {
+  public CloudEvent data(Object data) {
     this.data = data;
     return this;
   }
 
    /**
-   * Get data
+   * The event payload.
    * @return data
   **/
-  public CloudEventData getData() {
+  public Object getData() {
     return data;
   }
 
-  public void setData(CloudEventData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 

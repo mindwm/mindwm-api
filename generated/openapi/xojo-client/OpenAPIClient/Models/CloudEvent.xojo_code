@@ -66,7 +66,10 @@ Protected Class CloudEvent
 
 
 	#tag Property, Flags = &h0
-		data As OpenAPIClient.Models.CloudEventData
+		#tag Note
+			The event payload.
+		#tag EndNote
+		data As Object
 	#tag EndProperty
 
 
@@ -183,7 +186,7 @@ Protected Class CloudEvent
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="CloudEventData"
+			Type="Object"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

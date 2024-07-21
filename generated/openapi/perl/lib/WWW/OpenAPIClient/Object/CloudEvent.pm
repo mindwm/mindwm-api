@@ -30,7 +30,6 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::CloudEventData;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -277,9 +276,9 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'data' => {
-        datatype => 'CloudEventData',
+        datatype => 'object',
         base_name => 'data',
-        description => '',
+        description => 'The event payload.',
         format => '',
         read_only => '',
             },
@@ -301,7 +300,7 @@ __PACKAGE__->openapi_types( {
     'dataschema' => 'string',
     'subject' => 'string',
     'time' => 'DATE_TIME',
-    'data' => 'CloudEventData',
+    'data' => 'object',
     'data_base64' => 'string'
 } );
 

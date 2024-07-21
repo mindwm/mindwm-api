@@ -15,7 +15,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/Clipboard.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ClipboardPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ClipboardPayloadContext.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CloudEvent.swift
-OpenAPIClient/Classes/OpenAPIs/Models/CloudEventData.swift
 OpenAPIClient/Classes/OpenAPIs/Models/GraphNode.swift
 OpenAPIClient/Classes/OpenAPIs/Models/GraphNodeAllOfData.swift
 OpenAPIClient/Classes/OpenAPIs/Models/GraphRelationship.swift
@@ -41,7 +40,6 @@ docs/Clipboard.md
 docs/ClipboardPayload.md
 docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
-docs/CloudEventData.md
 docs/GraphNode.md
 docs/GraphNodeAllOfData.md
 docs/GraphRelationship.md

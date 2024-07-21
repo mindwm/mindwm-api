@@ -19,10 +19,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
 import java.time.OffsetDateTime;
-import org.openapitools.client.model.CloudEventData;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.NoSuchElementException;
 
 
 
@@ -72,7 +68,10 @@ public class CloudEvent  {
   **/
   private OffsetDateTime time;
 
-  private CloudEventData data;
+ /**
+   * The event payload.
+  **/
+  private Object data;
 
  /**
    * Base64 encoded event payload. Must adhere to RFC4648.
@@ -240,21 +239,21 @@ public class CloudEvent  {
   }
 
  /**
-   * Get data
+   * The event payload.
    * @return data
   **/
-  public CloudEventData getData() {
+  public Object getData() {
     return data;
   }
 
   /**
     * Set data
   **/
-  public void setData(CloudEventData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 
-  public CloudEvent data(CloudEventData data) {
+  public CloudEvent data(Object data) {
     this.data = data;
     return this;
   }

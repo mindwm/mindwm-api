@@ -3,7 +3,6 @@ API/Client/Clipboard.js
 API/Client/ClipboardPayload.js
 API/Client/ClipboardPayloadContext.js
 API/Client/CloudEvent.js
-API/Client/CloudEventData.js
 API/Client/GraphNode.js
 API/Client/GraphNodeAllOfData.js
 API/Client/GraphRelationship.js

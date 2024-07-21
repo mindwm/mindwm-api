@@ -8,7 +8,6 @@ docs/Clipboard.md
 docs/ClipboardPayload.md
 docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
-docs/CloudEventData.md
 docs/GraphNode.md
 docs/GraphNodeAllOfData.md
 docs/GraphRelationship.md

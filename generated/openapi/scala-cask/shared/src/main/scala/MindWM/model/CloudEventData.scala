@@ -11,33 +11,398 @@
  * https://openapi-generator.tech
  */
 
-// this model was generated using model.mustache
+// this model was generated using modelData.mustache
 package MindWM.model
+import MindWM.model.URI
+import java.time.OffsetDateTime
+import ujson.Value
 import scala.util.control.NonFatal
+import scala.util.*
 
 // see https://com-lihaoyi.github.io/upickle/
 import upickle.default.{ReadWriter => RW, macroRW}
 import upickle.default.*
 
+/** CloudEventData a data transfer object, primarily for simple json serialisation.
+  * It has no validation - there may be nulls, values out of range, etc
+  */
 case class CloudEventData(
-) {
+/* Identifies the event. */
+  id: String,
 
-  def asJson: String = asData.asJson
+  /* Identifies the context in which an event happened. */
+  source: String,
 
-  def asData : CloudEventDataData = {
-    CloudEventDataData(
-    )
+  /* The version of the CloudEvents specification which the event uses. */
+  specversion: String,
+
+  /* Describes the type of event related to the originating occurrence. */
+  `type`: String,
+
+  /* Content type of the data value. Must adhere to RFC 2046 format. */
+  datacontenttype: String = "" ,
+
+  /* Identifies the schema that data adheres to. */
+  dataschema: URI = "" ,
+
+  /* Describes the subject of the event in the context of the event producer (identified by source). */
+  subject: String = "" ,
+
+  /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
+  time: OffsetDateTime = null ,
+
+  /* The event payload. */
+  data: Value = ujson.Null ,
+
+  /* Base64 encoded event payload. Must adhere to RFC4648. */
+  dataBase64: String = "" 
+
+  ) {
+
+  def asJson: String = write(this)
+
+  def validationErrors(path : Seq[Field], failFast : Boolean) : Seq[ValidationError] = {
+    val errors = scala.collection.mutable.ListBuffer[ValidationError]()
+        // ==================
+        // id
+
+
+
+        // validate min length 1
+        if (errors.isEmpty || !failFast)  {
+          val len = if id == null then 0 else id.length
+            if (len < 1) {
+               errors += ValidationError(path :+ CloudEvent.Fields.id, s"length $len is shorter than the min length 1")
+            }
+        }
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // source
+
+
+
+        // validate min length 1
+        if (errors.isEmpty || !failFast)  {
+          val len = if source == null then 0 else source.length
+            if (len < 1) {
+               errors += ValidationError(path :+ CloudEvent.Fields.source, s"length $len is shorter than the min length 1")
+            }
+        }
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // specversion
+
+
+
+        // validate min length 1
+        if (errors.isEmpty || !failFast)  {
+          val len = if specversion == null then 0 else specversion.length
+            if (len < 1) {
+               errors += ValidationError(path :+ CloudEvent.Fields.specversion, s"length $len is shorter than the min length 1")
+            }
+        }
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // `type`
+
+
+
+        // validate min length 1
+        if (errors.isEmpty || !failFast)  {
+          val len = if `type` == null then 0 else `type`.length
+            if (len < 1) {
+               errors += ValidationError(path :+ CloudEvent.Fields.`type`, s"length $len is shorter than the min length 1")
+            }
+        }
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // datacontenttype
+
+
+
+        // validate min length 1
+        if (errors.isEmpty || !failFast)  {
+          val len = if datacontenttype == null then 0 else datacontenttype.length
+            if (len < 1) {
+               errors += ValidationError(path :+ CloudEvent.Fields.datacontenttype, s"length $len is shorter than the min length 1")
+            }
+        }
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // dataschema
+
+
+
+        // validate min length 1
+        if (errors.isEmpty || !failFast)  {
+          val len = if dataschema == null then 0 else dataschema.length
+            if (len < 1) {
+               errors += ValidationError(path :+ CloudEvent.Fields.dataschema, s"length $len is shorter than the min length 1")
+            }
+        }
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // subject
+
+
+
+        // validate min length 1
+        if (errors.isEmpty || !failFast)  {
+          val len = if subject == null then 0 else subject.length
+            if (len < 1) {
+               errors += ValidationError(path :+ CloudEvent.Fields.subject, s"length $len is shorter than the min length 1")
+            }
+        }
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // time
+
+
+
+        // validate min length 1
+        if (errors.isEmpty || !failFast)  {
+          val len = if time == null then 0 else time.length
+            if (len < 1) {
+               errors += ValidationError(path :+ CloudEvent.Fields.time, s"length $len is shorter than the min length 1")
+            }
+        }
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // data
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+        // ==================
+        // dataBase64
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+    errors.toSeq
   }
 
+  def validated(failFast : Boolean = false) : scala.util.Try[CloudEvent] = {
+    validationErrors(Vector(), failFast) match {
+      case Seq() => Success(asModel)
+      case first +: theRest => Failure(ValidationErrors(first, theRest))
+    }
+  }
+
+  /** use 'validated' to check validation */
+  def asModel : CloudEvent = {
+    CloudEvent(
+        id = 
+        id
+        
+        ,
+        source = 
+        source
+        
+        ,
+        specversion = 
+        specversion
+        
+        ,
+        `type` = 
+        `type`
+        
+        ,
+        datacontenttype = Option(
+        datacontenttype
+        )
+        ,
+        dataschema = Option(
+        dataschema
+        )
+        ,
+        subject = Option(
+        subject
+        )
+        ,
+        time = Option(
+        time
+        )
+        ,
+        data = Option(
+        data
+        )
+        ,
+        dataBase64 = Option(
+        dataBase64
+        )
+        
+    )
+  }
 }
 
-object CloudEventData{
+object CloudEventData {
 
-    given RW[CloudEventData] = CloudEventDataData.readWriter.bimap[CloudEventData](_.asData, _.asModel)
+  given readWriter : RW[CloudEventData] = macroRW
 
-    enum Fields(fieldName : String) extends Field(fieldName) {
+  def fromJsonString(jason : String) : CloudEventData = try {
+        read[CloudEventData](jason)
+     } catch {
+          case NonFatal(e) => sys.error(s"Error parsing json '$jason': $e")
+     }
+
+  def manyFromJsonString(jason : String) : Seq[CloudEventData] = try {
+        read[List[CloudEventData]](jason)
+    } catch {
+        case NonFatal(e) => sys.error(s"Error parsing json '$jason' as list: $e")
+    }
+
+  def manyFromJsonStringValidated(jason : String, failFast : Boolean = false) : Try[Seq[CloudEvent]] = {
+      Try(manyFromJsonString(jason)).flatMap { list =>
+        list.zipWithIndex.foldLeft(Try(Vector[CloudEvent]())) {
+          case (Success(list), (next, i)) => 
+            next.validated(failFast) match {
+              case Success(ok) => Success(list :+ ok)
+              case Failure(err) => Failure(new Exception(s"Validation error on element $i: ${err.getMessage}", err))
+            }
+          case (fail, _)  => fail
+        }
+      }
+    }
+
+  def mapFromJsonString(jason : String) : Map[String, CloudEventData] = try {
+        read[Map[String, CloudEventData]](jason)
+    } catch {
+        case NonFatal(e) => sys.error(s"Error parsing json '$jason' as map: $e")
     }
 
 
+  def mapFromJsonStringValidated(jason : String, failFast : Boolean = false) : Try[Map[String, CloudEvent]] = {
+     Try(mapFromJsonString(jason)).flatMap { map =>
+       map.foldLeft(Try(Map[String, CloudEvent]())) {
+         case (Success(map), (key, next)) =>
+           next.validated(failFast) match {
+             case Success(ok) => Success(map.updated(key, ok))
+             case Failure(err) => Failure(new Exception(s"Validation error on element $key: ${err.getMessage}", err))
+           }
+         case (fail, _) => fail
+       }
+     }
+  }
 }
 

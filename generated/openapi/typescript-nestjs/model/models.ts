@@ -2,7 +2,6 @@ export * from './clipboard';
 export * from './clipboardPayload';
 export * from './clipboardPayloadContext';
 export * from './cloudEvent';
-export * from './cloudEventData';
 export * from './graphNode';
 export * from './graphNodeAllOfData';
 export * from './graphRelationship';

@@ -3,8 +3,6 @@ namespace MindWM.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open MindWM.Model.CloudEventData
-open MindWM.Model.string option
 
 module CloudEvent =
 
@@ -21,17 +19,17 @@ module CloudEvent =
     [<JsonProperty(PropertyName = "type")>]
     Type : string;
     [<JsonProperty(PropertyName = "datacontenttype")>]
-    Datacontenttype : string option;
+    Datacontenttype : string;
     [<JsonProperty(PropertyName = "dataschema")>]
-    Dataschema : string option;
+    Dataschema : string;
     [<JsonProperty(PropertyName = "subject")>]
-    Subject : string option;
+    Subject : string;
     [<JsonProperty(PropertyName = "time")>]
     Time : Nullable<DateTime>;
     [<JsonProperty(PropertyName = "data")>]
-    Data : CloudEventData;
+    Data : obj;
     [<JsonProperty(PropertyName = "data_base64")>]
-    DataBase64 : string option;
+    DataBase64 : string;
   }
 
   //#endregion

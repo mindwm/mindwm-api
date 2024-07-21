@@ -223,7 +223,7 @@ data CloudEvent = CloudEvent
   , cloudEventDataschema :: !(Maybe Text) -- ^ "dataschema" - Identifies the schema that data adheres to.
   , cloudEventSubject :: !(Maybe Text) -- ^ "subject" - Describes the subject of the event in the context of the event producer (identified by source).
   , cloudEventTime :: !(Maybe DateTime) -- ^ "time" - Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-  , cloudEventData :: !(Maybe CloudEventData) -- ^ "data"
+  , cloudEventData :: !(Maybe A.Value) -- ^ "data" - The event payload.
   , cloudEventDataBase64 :: !(Maybe Text) -- ^ "data_base64" - Base64 encoded event payload. Must adhere to RFC4648.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -278,35 +278,6 @@ mkCloudEvent cloudEventId cloudEventSource cloudEventSpecversion cloudEventType 
   , cloudEventTime = Nothing
   , cloudEventData = Nothing
   , cloudEventDataBase64 = Nothing
-  }
-
--- ** CloudEventData
--- | CloudEventData
--- The event payload.
-data CloudEventData = CloudEventData
-  { 
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON CloudEventData
-instance A.FromJSON CloudEventData where
-  parseJSON = A.withObject "CloudEventData" $ \o ->
-    pure CloudEventData
-      
-
--- | ToJSON CloudEventData
-instance A.ToJSON CloudEventData where
-  toJSON CloudEventData  =
-   _omitNulls
-      [ 
-      ]
-
-
--- | Construct a value of type 'CloudEventData' (by applying it's required fields, if any)
-mkCloudEventData
-  :: CloudEventData
-mkCloudEventData =
-  CloudEventData
-  { 
   }
 
 -- ** GraphNode

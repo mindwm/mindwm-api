@@ -5,7 +5,6 @@ Model/ClipboardPayload.php
 Model/ClipboardPayloadContext.php
 Model/ClipboardPayloadType.php
 Model/CloudEvent.php
-Model/CloudEventData.php
 Model/GraphNode.php
 Model/GraphNodeAllOfData.php
 Model/GraphNodeAllOfSource.php

@@ -17,9 +17,5 @@
 	    </jaxb:typesafeEnumClass>
     </jaxws:bindings>
 
-    <jaxws:bindings node="xsd:simpleType[@name='CloudEvent_data']">
-    	<jaxb:typesafeEnumClass>
-	    </jaxb:typesafeEnumClass>
-    </jaxws:bindings>
 
 </jaxws:bindings>

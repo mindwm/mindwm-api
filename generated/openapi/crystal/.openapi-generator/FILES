@@ -7,7 +7,6 @@ shard.yml
 spec/models/clipboard_payload_context_spec.cr
 spec/models/clipboard_payload_spec.cr
 spec/models/clipboard_spec.cr
-spec/models/cloud_event_data_spec.cr
 spec/models/cloud_event_spec.cr
 spec/models/graph_node_all_of_data_spec.cr
 spec/models/graph_node_spec.cr
@@ -33,7 +32,6 @@ src/openapi_client/models/clipboard.cr
 src/openapi_client/models/clipboard_payload.cr
 src/openapi_client/models/clipboard_payload_context.cr
 src/openapi_client/models/cloud_event.cr
-src/openapi_client/models/cloud_event_data.cr
 src/openapi_client/models/graph_node.cr
 src/openapi_client/models/graph_node_all_of_data.cr
 src/openapi_client/models/graph_relationship.cr

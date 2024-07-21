@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 @JsonTypeName("Neo4jCaptureDataChangeRelationshipPayload_end")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-17T16:08:14.137149898Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-21T21:29:44.473016452Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangeRelationshipPayloadEnd   {
   private String id;
   private @Valid Map<String, Object> ids = new HashMap<>();

@@ -7,7 +7,6 @@ from app.MindWM.models.clipboard import Clipboard
 from app.MindWM.models.clipboard_payload import ClipboardPayload
 from app.MindWM.models.clipboard_payload_context import ClipboardPayloadContext
 from app.MindWM.models.cloud_event import CloudEvent
-from app.MindWM.models.cloud_event_data import CloudEventData
 from app.MindWM.models.graph_node import GraphNode
 from app.MindWM.models.graph_node_all_of_data import GraphNodeAllOfData
 from app.MindWM.models.graph_relationship import GraphRelationship

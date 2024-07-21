@@ -40,21 +40,18 @@ components:
         datacontenttype:
           description: Content type of the data value. Must adhere to RFC 2046 format.
           minLength: 1
-          nullable: true
           title: datacontenttype
           type: string
         dataschema:
           description: Identifies the schema that data adheres to.
           format: uri
           minLength: 1
-          nullable: true
           title: dataschema
           type: string
         subject:
           description: Describes the subject of the event in the context of the event
             producer (identified by source).
           minLength: 1
-          nullable: true
           title: subject
           type: string
         time:
@@ -62,14 +59,14 @@ components:
             3339.
           format: date-time
           minLength: 1
-          nullable: true
           title: time
           type: string
         data:
-          $ref: '#/components/schemas/CloudEvent_data'
+          description: The event payload.
+          title: data
+          type: object
         data_base64:
           description: Base64 encoded event payload. Must adhere to RFC4648.
-          nullable: true
           title: data_base64
           type: string
       required:
@@ -277,14 +274,6 @@ components:
       - start
       - type
       title: Neo4jCaptureDataChangeRelationshipPayload
-    CloudEvent_data:
-      anyOf:
-      - type: string
-      - type: number
-      - type: boolean
-      description: The event payload.
-      nullable: true
-      title: CloudEvent_data
     GraphNode_allOf_data:
       allOf:
       - $ref: '#/components/schemas/Neo4jCaptureDataChange'

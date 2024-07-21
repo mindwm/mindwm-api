@@ -27,22 +27,23 @@ pub struct CloudEvent {
     #[serde(rename = "type")]
     pub r#type: String,
     /// Content type of the data value. Must adhere to RFC 2046 format.
-    #[serde(rename = "datacontenttype", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub datacontenttype: Option<Option<String>>,
+    #[serde(rename = "datacontenttype", skip_serializing_if = "Option::is_none")]
+    pub datacontenttype: Option<String>,
     /// Identifies the schema that data adheres to.
-    #[serde(rename = "dataschema", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub dataschema: Option<Option<String>>,
+    #[serde(rename = "dataschema", skip_serializing_if = "Option::is_none")]
+    pub dataschema: Option<String>,
     /// Describes the subject of the event in the context of the event producer (identified by source).
-    #[serde(rename = "subject", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub subject: Option<Option<String>>,
+    #[serde(rename = "subject", skip_serializing_if = "Option::is_none")]
+    pub subject: Option<String>,
     /// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-    #[serde(rename = "time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub time: Option<Option<String>>,
-    #[serde(rename = "data", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub data: Option<Option<Box<models::CloudEventData>>>,
+    #[serde(rename = "time", skip_serializing_if = "Option::is_none")]
+    pub time: Option<String>,
+    /// The event payload.
+    #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
+    pub data: Option<serde_json::Value>,
     /// Base64 encoded event payload. Must adhere to RFC4648.
-    #[serde(rename = "data_base64", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub data_base64: Option<Option<String>>,
+    #[serde(rename = "data_base64", skip_serializing_if = "Option::is_none")]
+    pub data_base64: Option<String>,
 }
 
 impl CloudEvent {

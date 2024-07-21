@@ -99,7 +99,6 @@ Method | HTTP request | Description
  - [.Models.ClipboardPayloadContext_Type](ClipboardPayloadContext_Type.md)
  - [.Models.ClipboardPayload_Type](ClipboardPayload_Type.md)
  - [.Models.Clipboard_Type](Clipboard_Type.md)
- - [.Models.CloudEventData_Type](CloudEventData_Type.md)
  - [.Models.CloudEvent_Type](CloudEvent_Type.md)
  - [.Models.GraphNodeAllOfData_Type](GraphNodeAllOfData_Type.md)
  - [.Models.GraphNode_Type](GraphNode_Type.md)

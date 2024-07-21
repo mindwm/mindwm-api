@@ -7,7 +7,6 @@ go/model_clipboard.go
 go/model_clipboard_payload.go
 go/model_clipboard_payload_context.go
 go/model_cloud_event.go
-go/model_cloud_event_data.go
 go/model_graph_node.go
 go/model_graph_node_all_of_data.go
 go/model_graph_relationship.go

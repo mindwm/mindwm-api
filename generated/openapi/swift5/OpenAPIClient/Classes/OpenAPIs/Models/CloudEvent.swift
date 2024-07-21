@@ -36,11 +36,12 @@ public struct CloudEvent: Codable, JSONEncodable, Hashable {
     public var subject: String?
     /** Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
     public var time: Date?
-    public var data: CloudEventData?
+    /** The event payload. */
+    public var data: AnyCodable?
     /** Base64 encoded event payload. Must adhere to RFC4648. */
     public var dataBase64: String?
 
-    public init(id: String, source: String, specversion: String, type: String, datacontenttype: String? = nil, dataschema: String? = nil, subject: String? = nil, time: Date? = nil, data: CloudEventData? = nil, dataBase64: String? = nil) {
+    public init(id: String, source: String, specversion: String, type: String, datacontenttype: String? = nil, dataschema: String? = nil, subject: String? = nil, time: Date? = nil, data: AnyCodable? = nil, dataBase64: String? = nil) {
         self.id = id
         self.source = source
         self.specversion = specversion

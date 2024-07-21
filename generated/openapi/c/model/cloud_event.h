@@ -15,7 +15,7 @@
 
 typedef struct cloud_event_t cloud_event_t;
 
-#include "cloud_event_data.h"
+#include "object.h"
 
 
 
@@ -28,7 +28,7 @@ typedef struct cloud_event_t {
     char *dataschema; // string
     char *subject; // string
     char *time; //date time
-    struct cloud_event_data_t *data; //model
+    object_t *data; //object
     char *data_base64; // string
 
 } cloud_event_t;
@@ -42,7 +42,7 @@ cloud_event_t *cloud_event_create(
     char *dataschema,
     char *subject,
     char *time,
-    cloud_event_data_t *data,
+    object_t *data,
     char *data_base64
 );
 

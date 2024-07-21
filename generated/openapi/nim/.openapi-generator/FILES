@@ -4,7 +4,6 @@ MindWM/models/model_clipboard.nim
 MindWM/models/model_clipboard_payload.nim
 MindWM/models/model_clipboard_payload_context.nim
 MindWM/models/model_cloud_event.nim
-MindWM/models/model_cloud_event_data.nim
 MindWM/models/model_graph_node.nim
 MindWM/models/model_graph_node_all_of_data.nim
 MindWM/models/model_graph_relationship.nim

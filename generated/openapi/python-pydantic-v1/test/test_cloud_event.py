@@ -44,7 +44,7 @@ class TestCloudEvent(unittest.TestCase):
                 dataschema = '0',
                 subject = '0',
                 time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                data = MindWM.models.cloud_event_data.CloudEvent_data(),
+                data = None,
                 data_base64 = ''
             )
         else:

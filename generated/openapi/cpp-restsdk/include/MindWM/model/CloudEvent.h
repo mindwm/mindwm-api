@@ -21,8 +21,8 @@
 
 #include "MindWM/ModelBase.h"
 
-#include "MindWM/model/CloudEvent_data.h"
 #include <cpprest/details/basic_types.h>
+#include "MindWM/Object.h"
 
 namespace org {
 namespace openapitools {
@@ -128,13 +128,13 @@ public:
     void setTime(const utility::datetime& value);
 
     /// <summary>
-    /// 
+    /// The event payload.
     /// </summary>
-    std::shared_ptr<CloudEvent_data> getData() const;
+    std::shared_ptr<Object> getData() const;
     bool dataIsSet() const;
     void unsetData();
 
-    void setData(const std::shared_ptr<CloudEvent_data>& value);
+    void setData(const std::shared_ptr<Object>& value);
 
     /// <summary>
     /// Base64 encoded event payload. Must adhere to RFC4648.
@@ -163,7 +163,7 @@ protected:
     bool m_SubjectIsSet;
     utility::datetime m_Time;
     bool m_TimeIsSet;
-    std::shared_ptr<CloudEvent_data> m_Data;
+    std::shared_ptr<Object> m_Data;
     bool m_DataIsSet;
     utility::string_t m_Data_base64;
     bool m_Data_base64IsSet;

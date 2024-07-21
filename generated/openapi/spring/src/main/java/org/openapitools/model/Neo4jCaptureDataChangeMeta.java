@@ -21,7 +21,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("Neo4jCaptureDataChange_meta")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-17T16:10:09.497259654Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-21T21:31:18.817105154Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangeMeta {
 
   private String operation;

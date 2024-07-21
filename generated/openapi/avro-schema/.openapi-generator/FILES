@@ -3,7 +3,6 @@ Clipboard.avsc
 ClipboardPayload.avsc
 ClipboardPayloadContext.avsc
 CloudEvent.avsc
-CloudEventData.avsc
 GraphNode.avsc
 GraphNodeAllOfData.avsc
 GraphRelationship.avsc

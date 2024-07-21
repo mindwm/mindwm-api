@@ -13,7 +13,6 @@
 #pragma once
 
 #include "OpenAPIBaseModel.h"
-#include "OpenAPICloudEventData.h"
 #include "OpenAPIURI.h"
 
 namespace OpenAPI
@@ -47,7 +46,8 @@ public:
 	TOptional<FString> Subject;
 	/* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
 	TOptional<FDateTime> Time;
-	TOptional<OpenAPICloudEventData> Data;
+	/* The event payload. */
+	TOptional<TSharedPtr<FJsonObject>> Data;
 	/* Base64 encoded event payload. Must adhere to RFC4648. */
 	TOptional<FString> DataBase64;
 };

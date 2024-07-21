@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { CloudEventData } from './cloudEventData';
 
 
 /**
@@ -35,23 +34,26 @@ export interface CloudEvent {
     /**
      * Content type of the data value. Must adhere to RFC 2046 format.
      */
-    datacontenttype?: string | null;
+    datacontenttype?: string;
     /**
      * Identifies the schema that data adheres to.
      */
-    dataschema?: string | null;
+    dataschema?: string;
     /**
      * Describes the subject of the event in the context of the event producer (identified by source).
      */
-    subject?: string | null;
+    subject?: string;
     /**
      * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
      */
-    time?: string | null;
-    data?: CloudEventData | null;
+    time?: string;
+    /**
+     * The event payload.
+     */
+    data?: object;
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      */
-    data_base64?: string | null;
+    data_base64?: string;
 }
 

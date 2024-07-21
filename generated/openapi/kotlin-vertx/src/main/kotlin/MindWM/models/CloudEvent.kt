@@ -11,7 +11,6 @@
 */
 package MindWM.models
 
-import MindWM.models.CloudEventData
 
         
 import com.google.gson.annotations.SerializedName
@@ -27,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
  * @param dataschema Identifies the schema that data adheres to.
  * @param subject Describes the subject of the event in the context of the event producer (identified by source).
  * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
- * @param &#x60;data&#x60; 
+ * @param &#x60;data&#x60; The event payload.
  * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -49,7 +48,8 @@ data class CloudEvent (
     val subject: kotlin.String? = null,
     /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
     val time: java.time.OffsetDateTime? = null,
-    val `data`: CloudEventData? = null,
+    /* The event payload. */
+    val `data`: kotlin.Any? = null,
     /* Base64 encoded event payload. Must adhere to RFC4648. */
     val dataBase64: kotlin.String? = null
 ) {

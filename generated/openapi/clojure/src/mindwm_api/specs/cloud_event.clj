@@ -1,7 +1,7 @@
 (ns mindwm-api.specs.cloud-event
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [mindwm-api.specs.cloud-event-data :refer :all]
+            [mindwm-api.specs. :refer :all]
             )
   (:import (java.io File)))
 
@@ -16,7 +16,7 @@
    (ds/opt :dataschema) string?
    (ds/opt :subject) string?
    (ds/opt :time) inst?
-   (ds/opt :data) cloud-event-data-spec
+   (ds/opt :data) any?
    (ds/opt :data_base64) string?
    })
 

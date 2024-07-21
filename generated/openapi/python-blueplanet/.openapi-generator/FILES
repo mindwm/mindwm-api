@@ -25,7 +25,6 @@ app/MindWM/models/clipboard.py
 app/MindWM/models/clipboard_payload.py
 app/MindWM/models/clipboard_payload_context.py
 app/MindWM/models/cloud_event.py
-app/MindWM/models/cloud_event_data.py
 app/MindWM/models/graph_node.py
 app/MindWM/models/graph_node_all_of_data.py
 app/MindWM/models/graph_relationship.py
@@ -71,9 +70,6 @@ model-definitions/types/ddui-views/MindWM.resourceTypes.ClipboardPayloadContext/
 model-definitions/types/ddui-views/MindWM.resourceTypes.CloudEvent/create.json
 model-definitions/types/ddui-views/MindWM.resourceTypes.CloudEvent/high.json
 model-definitions/types/ddui-views/MindWM.resourceTypes.CloudEvent/low.json
-model-definitions/types/ddui-views/MindWM.resourceTypes.CloudEventData/create.json
-model-definitions/types/ddui-views/MindWM.resourceTypes.CloudEventData/high.json
-model-definitions/types/ddui-views/MindWM.resourceTypes.CloudEventData/low.json
 model-definitions/types/ddui-views/MindWM.resourceTypes.GraphNode/create.json
 model-definitions/types/ddui-views/MindWM.resourceTypes.GraphNode/high.json
 model-definitions/types/ddui-views/MindWM.resourceTypes.GraphNode/low.json
@@ -122,7 +118,6 @@ model-definitions/types/ddui-views/MindWM.resourceTypes.TmuxPaneIoDocument/low.j
 model-definitions/types/tosca/MindWM/ClipboardPayloadContext_ResourceType.tosca
 model-definitions/types/tosca/MindWM/ClipboardPayload_ResourceType.tosca
 model-definitions/types/tosca/MindWM/Clipboard_ResourceType.tosca
-model-definitions/types/tosca/MindWM/CloudEventData_ResourceType.tosca
 model-definitions/types/tosca/MindWM/CloudEvent_ResourceType.tosca
 model-definitions/types/tosca/MindWM/GraphNodeAllOfData_ResourceType.tosca
 model-definitions/types/tosca/MindWM/GraphNode_ResourceType.tosca

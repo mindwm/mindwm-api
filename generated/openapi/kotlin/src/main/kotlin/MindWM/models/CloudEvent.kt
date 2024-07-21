@@ -15,7 +15,6 @@
 
 package MindWM.models
 
-import MindWM.models.CloudEventData
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -31,7 +30,7 @@ import com.squareup.moshi.JsonClass
  * @param dataschema Identifies the schema that data adheres to.
  * @param subject Describes the subject of the event in the context of the event producer (identified by source).
  * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
- * @param `data` 
+ * @param `data` The event payload.
  * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
  */
 
@@ -70,8 +69,9 @@ data class CloudEvent (
     @Json(name = "time")
     val time: java.time.OffsetDateTime? = null,
 
+    /* The event payload. */
     @Json(name = "data")
-    val `data`: CloudEventData? = null,
+    val `data`: kotlin.Any? = null,
 
     /* Base64 encoded event payload. Must adhere to RFC4648. */
     @Json(name = "data_base64")

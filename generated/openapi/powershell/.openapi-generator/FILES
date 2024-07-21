@@ -6,7 +6,6 @@ docs/Clipboard.md
 docs/ClipboardPayload.md
 docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
-docs/CloudEventData.md
 docs/GraphNode.md
 docs/GraphNodeAllOfData.md
 docs/GraphRelationship.md
@@ -28,7 +27,6 @@ src/MindWM/Model/Clipboard.ps1
 src/MindWM/Model/ClipboardPayload.ps1
 src/MindWM/Model/ClipboardPayloadContext.ps1
 src/MindWM/Model/CloudEvent.ps1
-src/MindWM/Model/CloudEventData.ps1
 src/MindWM/Model/GraphNode.ps1
 src/MindWM/Model/GraphNodeAllOfData.ps1
 src/MindWM/Model/GraphRelationship.ps1
@@ -54,7 +52,6 @@ tests/Model/Clipboard.Tests.ps1
 tests/Model/ClipboardPayload.Tests.ps1
 tests/Model/ClipboardPayloadContext.Tests.ps1
 tests/Model/CloudEvent.Tests.ps1
-tests/Model/CloudEventData.Tests.ps1
 tests/Model/GraphNode.Tests.ps1
 tests/Model/GraphNodeAllOfData.Tests.ps1
 tests/Model/GraphRelationship.Tests.ps1

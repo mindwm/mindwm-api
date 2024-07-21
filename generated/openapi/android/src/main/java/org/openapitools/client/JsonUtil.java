@@ -73,10 +73,6 @@ public class JsonUtil {
       return new TypeToken<List<CloudEvent>>(){}.getType();
     }
     
-    if ("CloudEventData".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CloudEventData>>(){}.getType();
-    }
-    
     if ("GraphNode".equalsIgnoreCase(className)) {
       return new TypeToken<List<GraphNode>>(){}.getType();
     }
@@ -157,10 +153,6 @@ public class JsonUtil {
     
     if ("CloudEvent".equalsIgnoreCase(className)) {
       return new TypeToken<CloudEvent>(){}.getType();
-    }
-    
-    if ("CloudEventData".equalsIgnoreCase(className)) {
-      return new TypeToken<CloudEventData>(){}.getType();
     }
     
     if ("GraphNode".equalsIgnoreCase(className)) {

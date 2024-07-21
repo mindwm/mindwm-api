@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import io.swagger.annotations.*;
 import javax.validation.Valid;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-17T16:08:10.161499805Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-21T21:29:41.202788407Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphRelationship extends HashMap<String, Object>  {
   
   private String id;

@@ -5,7 +5,6 @@ app/model/Clipboard.scala
 app/model/ClipboardPayload.scala
 app/model/ClipboardPayloadContext.scala
 app/model/CloudEvent.scala
-app/model/CloudEventData.scala
 app/model/GraphNode.scala
 app/model/GraphNodeAllOfData.scala
 app/model/GraphRelationship.scala

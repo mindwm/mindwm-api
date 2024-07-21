@@ -8,7 +8,6 @@ docs/Model/Clipboard.md
 docs/Model/ClipboardPayload.md
 docs/Model/ClipboardPayloadContext.md
 docs/Model/CloudEvent.md
-docs/Model/CloudEventData.md
 docs/Model/GraphNode.md
 docs/Model/GraphNodeAllOfData.md
 docs/Model/GraphRelationship.md
@@ -32,7 +31,6 @@ lib/Model/Clipboard.php
 lib/Model/ClipboardPayload.php
 lib/Model/ClipboardPayloadContext.php
 lib/Model/CloudEvent.php
-lib/Model/CloudEventData.php
 lib/Model/GraphNode.php
 lib/Model/GraphNodeAllOfData.php
 lib/Model/GraphRelationship.php
@@ -54,7 +52,6 @@ phpunit.xml.dist
 test/Model/ClipboardPayloadContextTest.php
 test/Model/ClipboardPayloadTest.php
 test/Model/ClipboardTest.php
-test/Model/CloudEventDataTest.php
 test/Model/CloudEventTest.php
 test/Model/GraphNodeAllOfDataTest.php
 test/Model/GraphNodeTest.php

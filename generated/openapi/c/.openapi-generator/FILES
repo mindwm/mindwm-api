@@ -6,7 +6,6 @@ docs/clipboard.md
 docs/clipboard_payload.md
 docs/clipboard_payload_context.md
 docs/cloud_event.md
-docs/cloud_event_data.md
 docs/graph_node.md
 docs/graph_node_all_of_data.md
 docs/graph_relationship.md
@@ -38,8 +37,6 @@ model/clipboard_payload_context.c
 model/clipboard_payload_context.h
 model/cloud_event.c
 model/cloud_event.h
-model/cloud_event_data.c
-model/cloud_event_data.h
 model/graph_node.c
 model/graph_node.h
 model/graph_node_all_of_data.c
@@ -81,7 +78,6 @@ unit-test/test_clipboard.c
 unit-test/test_clipboard_payload.c
 unit-test/test_clipboard_payload_context.c
 unit-test/test_cloud_event.c
-unit-test/test_cloud_event_data.c
 unit-test/test_graph_node.c
 unit-test/test_graph_node_all_of_data.c
 unit-test/test_graph_relationship.c

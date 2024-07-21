@@ -16,7 +16,6 @@ All URIs are relative to *https://mindwmw.io/v1*
  - [ClipboardPayload](./Models/ClipboardPayload.md)
  - [ClipboardPayload_context](./Models/ClipboardPayload_context.md)
  - [CloudEvent](./Models/CloudEvent.md)
- - [CloudEvent_data](./Models/CloudEvent_data.md)
  - [GraphNode](./Models/GraphNode.md)
  - [GraphNode_allOf_data](./Models/GraphNode_allOf_data.md)
  - [GraphRelationship](./Models/GraphRelationship.md)

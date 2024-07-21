@@ -12,7 +12,6 @@ src/main/scala/org/openapitools/models/Clipboard.scala
 src/main/scala/org/openapitools/models/ClipboardPayload.scala
 src/main/scala/org/openapitools/models/ClipboardPayloadContext.scala
 src/main/scala/org/openapitools/models/CloudEvent.scala
-src/main/scala/org/openapitools/models/CloudEventData.scala
 src/main/scala/org/openapitools/models/GraphNode.scala
 src/main/scala/org/openapitools/models/GraphNodeAllOfData.scala
 src/main/scala/org/openapitools/models/GraphRelationship.scala

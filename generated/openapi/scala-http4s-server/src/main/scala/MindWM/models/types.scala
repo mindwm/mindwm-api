@@ -110,7 +110,7 @@ object ClipboardPayloadContext {
 * @param dataschema Identifies the schema that data adheres to.
 * @param subject Describes the subject of the event in the context of the event producer (identified by source).
 * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-* @param data 
+* @param data The event payload.
 * @param dataUnderscorebase64 Base64 encoded event payload. Must adhere to RFC4648.
 */
 
@@ -123,23 +123,12 @@ case class CloudEvent(
   dataschema: Option[Refined[URI, MinSize[1]]],
   subject: Option[Refined[String, MinSize[1]]],
   time: Option[ZonedDateTime],
-  data: Option[CloudEventData],
+  data: Option[Object],
   dataUnderscorebase64: Option[String]
 )
 object CloudEvent {
   implicit val encoderCloudEvent: Encoder[CloudEvent] = deriveEncoder[CloudEvent].mapJson(_.dropNullValues)
   implicit val decoderCloudEvent: Decoder[CloudEvent] = deriveDecoder[CloudEvent]
-}
-
-/**
-* The event payload.
-*/
-
-case class CloudEventData(
-)
-object CloudEventData {
-  implicit val encoderCloudEventData: Encoder[CloudEventData] = deriveEncoder[CloudEventData].mapJson(_.dropNullValues)
-  implicit val decoderCloudEventData: Decoder[CloudEventData] = deriveDecoder[CloudEventData]
 }
 
 /**

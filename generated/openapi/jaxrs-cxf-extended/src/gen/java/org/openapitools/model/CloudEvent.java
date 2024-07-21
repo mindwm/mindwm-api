@@ -3,8 +3,6 @@ package org.openapitools.model;
 import io.swagger.annotations.ApiModel;
 import java.net.URI;
 import java.util.Date;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.CloudEventData;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -69,9 +67,11 @@ public class CloudEvent  {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'hh:mm:ss.SSSX")
   private Date time;
 
-  @ApiModelProperty(value = "")
-  @Valid
-  private CloudEventData data;
+ /**
+  * The event payload.
+  */
+  @ApiModelProperty(value = "The event payload.")
+  private Object data;
 
  /**
   * Base64 encoded event payload. Must adhere to RFC4648.
@@ -275,25 +275,25 @@ public class CloudEvent  {
   }
 
  /**
-  * Get data
+  * The event payload.
   * @return data
   */
   @JsonProperty("data")
-  public CloudEventData getData() {
+  public Object getData() {
     return data;
   }
 
   /**
    * Sets the <code>data</code> property.
    */
- public void setData(CloudEventData data) {
+ public void setData(Object data) {
     this.data = data;
   }
 
   /**
    * Sets the <code>data</code> property.
    */
-  public CloudEvent data(CloudEventData data) {
+  public CloudEvent data(Object data) {
     this.data = data;
     return this;
   }

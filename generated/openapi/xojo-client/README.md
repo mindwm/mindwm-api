@@ -75,7 +75,6 @@ Class | Method | HTTP request | Description
  - [OpenAPIClient.Models.ClipboardPayload](ClipboardPayload.md)
  - [OpenAPIClient.Models.ClipboardPayloadContext](ClipboardPayloadContext.md)
  - [OpenAPIClient.Models.CloudEvent](CloudEvent.md)
- - [OpenAPIClient.Models.CloudEventData](CloudEventData.md)
  - [OpenAPIClient.Models.GraphNode](GraphNode.md)
  - [OpenAPIClient.Models.GraphNodeAllOfData](GraphNodeAllOfData.md)
  - [OpenAPIClient.Models.GraphRelationship](GraphRelationship.md)

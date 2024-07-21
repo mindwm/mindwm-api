@@ -15,7 +15,6 @@ src/MindWM/models/clipboard.py
 src/MindWM/models/clipboard_payload.py
 src/MindWM/models/clipboard_payload_context.py
 src/MindWM/models/cloud_event.py
-src/MindWM/models/cloud_event_data.py
 src/MindWM/models/extra_models.py
 src/MindWM/models/graph_node.py
 src/MindWM/models/graph_node_all_of_data.py

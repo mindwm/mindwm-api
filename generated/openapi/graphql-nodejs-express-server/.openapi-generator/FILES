@@ -5,7 +5,6 @@ MindWM/model/clipboard.graphql
 MindWM/model/clipboard_payload.graphql
 MindWM/model/clipboard_payload_context.graphql
 MindWM/model/cloud_event.graphql
-MindWM/model/cloud_event_data.graphql
 MindWM/model/graph_node.graphql
 MindWM/model/graph_node_all_of_data.graphql
 MindWM/model/graph_relationship.graphql
@@ -29,7 +28,6 @@ docs/Clipboard.md
 docs/ClipboardPayload.md
 docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
-docs/CloudEventData.md
 docs/GraphNode.md
 docs/GraphNodeAllOfData.md
 docs/GraphRelationship.md

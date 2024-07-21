@@ -6,7 +6,6 @@ docs/CLIPBOARD.md
 docs/CLIPBOARD_PAYLOAD.md
 docs/CLIPBOARD_PAYLOAD_CONTEXT.md
 docs/CLOUD_EVENT.md
-docs/CLOUD_EVENT_DATA.md
 docs/GRAPH_NODE.md
 docs/GRAPH_NODE_ALL_OF_DATA.md
 docs/GRAPH_RELATIONSHIP.md
@@ -27,7 +26,6 @@ src/domain/clipboard.e
 src/domain/clipboard_payload.e
 src/domain/clipboard_payload_context.e
 src/domain/cloud_event.e
-src/domain/cloud_event_data.e
 src/domain/graph_node.e
 src/domain/graph_node_all_of_data.e
 src/domain/graph_relationship.e

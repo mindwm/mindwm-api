@@ -16,7 +16,6 @@
 #include "../model/cloud_event.h"
 cloud_event_t* instantiate_cloud_event(int include_optional);
 
-#include "test_cloud_event_data.c"
 
 
 cloud_event_t* instantiate_cloud_event(int include_optional) {
@@ -31,8 +30,7 @@ cloud_event_t* instantiate_cloud_event(int include_optional) {
       "0",
       "0",
       "2013-10-20T19:20:30+01:00",
-       // false, not to have infinite recursion
-      instantiate_cloud_event_data(0),
+      0,
       "0"
     );
   } else {
@@ -45,7 +43,7 @@ cloud_event_t* instantiate_cloud_event(int include_optional) {
       "0",
       "0",
       "2013-10-20T19:20:30+01:00",
-      NULL,
+      0,
       "0"
     );
   }

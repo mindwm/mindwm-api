@@ -63,10 +63,10 @@ public class OASCloudEvent implements OAS.MappedProperties {
     public Datetime r_time { get; set; }
 
     /**
-     * Get data
+     * The event payload.
      * @return data
      */
-    public OASCloudEventData data { get; set; }
+    public Object data { get; set; }
 
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
@@ -102,7 +102,7 @@ public class OASCloudEvent implements OAS.MappedProperties {
           cloudEvent.dataschema = '';
           cloudEvent.subject = '';
           cloudEvent.r_time = Datetime.newInstanceGmt(2000, 1, 23, 4, 56, 7);
-          cloudEvent.data = OASCloudEventData.getExample();
+          cloudEvent.data = null;
           cloudEvent.dataBase64 = '';
         return cloudEvent;
     }

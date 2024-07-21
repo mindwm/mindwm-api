@@ -11,7 +11,6 @@
  */
 
 import { RequestFile } from './models';
-import { CloudEventData } from './cloudEventData';
 
 /**
 * CloudEvents Specification JSON Schema
@@ -36,24 +35,27 @@ export class CloudEvent {
     /**
     * Content type of the data value. Must adhere to RFC 2046 format.
     */
-    'datacontenttype'?: string | null;
+    'datacontenttype'?: string;
     /**
     * Identifies the schema that data adheres to.
     */
-    'dataschema'?: string | null;
+    'dataschema'?: string;
     /**
     * Describes the subject of the event in the context of the event producer (identified by source).
     */
-    'subject'?: string | null;
+    'subject'?: string;
     /**
     * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     */
-    'time'?: Date | null;
-    'data'?: CloudEventData | null;
+    'time'?: Date;
+    /**
+    * The event payload.
+    */
+    'data'?: object;
     /**
     * Base64 encoded event payload. Must adhere to RFC4648.
     */
-    'dataBase64'?: string | null;
+    'dataBase64'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -101,7 +103,7 @@ export class CloudEvent {
         {
             "name": "data",
             "baseName": "data",
-            "type": "CloudEventData"
+            "type": "object"
         },
         {
             "name": "dataBase64",

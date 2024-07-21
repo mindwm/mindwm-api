@@ -1,7 +1,6 @@
 package MindWM.models
 
 import java.util.Objects
-import MindWM.models.CloudEventData
 import com.fasterxml.jackson.annotation.JsonProperty
 import javax.validation.constraints.DecimalMax
 import javax.validation.constraints.DecimalMin
@@ -24,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema
  * @param dataschema Identifies the schema that data adheres to.
  * @param subject Describes the subject of the event in the context of the event producer (identified by source).
  * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
- * @param &#x60;data&#x60; 
+ * @param &#x60;data&#x60; The event payload.
  * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
  */
 data class CloudEvent(
@@ -63,8 +62,8 @@ data class CloudEvent(
     @get:JsonProperty("time") val time: java.time.OffsetDateTime? = null,
 
     @field:Valid
-    @Schema(example = "null", description = "")
-    @get:JsonProperty("data") val `data`: CloudEventData? = null,
+    @Schema(example = "null", description = "The event payload.")
+    @get:JsonProperty("data") val `data`: kotlin.Any? = null,
 
     @Schema(example = "null", description = "Base64 encoded event payload. Must adhere to RFC4648.")
     @get:JsonProperty("data_base64") val dataBase64: kotlin.String? = null

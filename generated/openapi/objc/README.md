@@ -46,7 +46,6 @@ Import the following:
 #import <OpenAPIClient/OAIClipboardPayload.h>
 #import <OpenAPIClient/OAIClipboardPayloadContext.h>
 #import <OpenAPIClient/OAICloudEvent.h>
-#import <OpenAPIClient/OAICloudEventData.h>
 #import <OpenAPIClient/OAIGraphNode.h>
 #import <OpenAPIClient/OAIGraphNodeAllOfData.h>
 #import <OpenAPIClient/OAIGraphRelationship.h>
@@ -92,7 +91,6 @@ Class | Method | HTTP request | Description
  - [OAIClipboardPayload](docs/OAIClipboardPayload.md)
  - [OAIClipboardPayloadContext](docs/OAIClipboardPayloadContext.md)
  - [OAICloudEvent](docs/OAICloudEvent.md)
- - [OAICloudEventData](docs/OAICloudEventData.md)
  - [OAIGraphNode](docs/OAIGraphNode.md)
  - [OAIGraphNodeAllOfData](docs/OAIGraphNodeAllOfData.md)
  - [OAIGraphRelationship](docs/OAIGraphRelationship.md)

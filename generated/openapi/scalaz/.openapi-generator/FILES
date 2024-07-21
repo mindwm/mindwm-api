@@ -5,7 +5,6 @@ src/main/scala/org/openapitools/client/api/Clipboard.scala
 src/main/scala/org/openapitools/client/api/ClipboardPayload.scala
 src/main/scala/org/openapitools/client/api/ClipboardPayloadContext.scala
 src/main/scala/org/openapitools/client/api/CloudEvent.scala
-src/main/scala/org/openapitools/client/api/CloudEventData.scala
 src/main/scala/org/openapitools/client/api/DateTimeCodecs.scala
 src/main/scala/org/openapitools/client/api/GraphNode.scala
 src/main/scala/org/openapitools/client/api/GraphNodeAllOfData.scala

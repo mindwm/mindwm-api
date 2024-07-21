@@ -16,8 +16,6 @@ server/src/models/OAIClipboardPayload_context.cpp
 server/src/models/OAIClipboardPayload_context.h
 server/src/models/OAICloudEvent.cpp
 server/src/models/OAICloudEvent.h
-server/src/models/OAICloudEvent_data.cpp
-server/src/models/OAICloudEvent_data.h
 server/src/models/OAIEnum.h
 server/src/models/OAIGraphNode.cpp
 server/src/models/OAIGraphNode.h

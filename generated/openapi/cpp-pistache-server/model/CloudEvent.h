@@ -19,7 +19,7 @@
 #define CloudEvent_H_
 
 
-#include "CloudEvent_data.h"
+#include <nlohmann/json.hpp>
 #include <string>
 #include <nlohmann/json.hpp>
 
@@ -108,10 +108,10 @@ public:
     bool timeIsSet() const;
     void unsetTime();
     /// <summary>
-    /// 
+    /// The event payload.
     /// </summary>
-    org::openapitools::server::model::CloudEvent_data getData() const;
-    void setData(org::openapitools::server::model::CloudEvent_data const& value);
+    nlohmann::json getData() const;
+    void setData(nlohmann::json const& value);
     bool dataIsSet() const;
     void unsetData();
     /// <summary>
@@ -141,7 +141,7 @@ protected:
     bool m_SubjectIsSet;
     std::string m_Time;
     bool m_TimeIsSet;
-    org::openapitools::server::model::CloudEvent_data m_Data;
+    nlohmann::json m_Data;
     bool m_DataIsSet;
     std::string m_Data_base64;
     bool m_Data_base64IsSet;

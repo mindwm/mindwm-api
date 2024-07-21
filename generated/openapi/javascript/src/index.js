@@ -17,7 +17,6 @@ import Clipboard from './model/Clipboard';
 import ClipboardPayload from './model/ClipboardPayload';
 import ClipboardPayloadContext from './model/ClipboardPayloadContext';
 import CloudEvent from './model/CloudEvent';
-import CloudEventData from './model/CloudEventData';
 import GraphNode from './model/GraphNode';
 import GraphNodeAllOfData from './model/GraphNodeAllOfData';
 import GraphRelationship from './model/GraphRelationship';
@@ -96,12 +95,6 @@ export {
      * @property {module:model/CloudEvent}
      */
     CloudEvent,
-
-    /**
-     * The CloudEventData model constructor.
-     * @property {module:model/CloudEventData}
-     */
-    CloudEventData,
 
     /**
      * The GraphNode model constructor.

@@ -14,8 +14,6 @@ package org.openapitools.server.model;
 
 import java.net.URI;
 import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.CloudEventData;
 import org.junit.jupiter.api.Test;
 
 /**

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **dataschema** | **string** | Identifies the schema that data adheres to. | [optional] 
 **subject** | **string** | Describes the subject of the event in the context of the event producer (identified by source). | [optional] 
 **time** | **\DateTime** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
-**data** | [**OpenAPI\Server\Model\CloudEventData**](CloudEventData.md) |  | [optional] 
+**data** | **array** | The event payload. | [optional] 
 **dataBase64** | **string** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

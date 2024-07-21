@@ -31,8 +31,6 @@ OpenAPIClient/Model/OAIClipboardPayloadContext.h
 OpenAPIClient/Model/OAIClipboardPayloadContext.m
 OpenAPIClient/Model/OAICloudEvent.h
 OpenAPIClient/Model/OAICloudEvent.m
-OpenAPIClient/Model/OAICloudEventData.h
-OpenAPIClient/Model/OAICloudEventData.m
 OpenAPIClient/Model/OAIGraphNode.h
 OpenAPIClient/Model/OAIGraphNode.m
 OpenAPIClient/Model/OAIGraphNodeAllOfData.h
@@ -68,7 +66,6 @@ docs/OAIClipboard.md
 docs/OAIClipboardPayload.md
 docs/OAIClipboardPayloadContext.md
 docs/OAICloudEvent.md
-docs/OAICloudEventData.md
 docs/OAIGraphNode.md
 docs/OAIGraphNodeAllOfData.md
 docs/OAIGraphRelationship.md

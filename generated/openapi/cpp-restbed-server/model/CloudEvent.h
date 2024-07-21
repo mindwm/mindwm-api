@@ -21,7 +21,6 @@
 
 
 
-#include "CloudEvent_data.h"
 #include <string>
 #include <memory>
 #include <vector>
@@ -107,10 +106,10 @@ public:
     void setTime(std::string value);
 
     /// <summary>
-    /// 
+    /// The event payload.
     /// </summary>
-    CloudEvent_data getData() const;
-    void setData(CloudEvent_data value);
+    std::string getData() const;
+    void setData(std::string value);
 
     /// <summary>
     /// Base64 encoded event payload. Must adhere to RFC4648.
@@ -127,7 +126,7 @@ protected:
     std::string m_Dataschema = "";
     std::string m_Subject = "";
     std::string m_Time = "";
-    CloudEvent_data m_Data;
+    std::string m_Data = nullptr;
     std::string m_Data_base64 = "";
 };
 

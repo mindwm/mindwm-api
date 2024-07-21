@@ -243,24 +243,17 @@ export type CloudEvent = {
      */
     time?: Date;
     /**
-     * 
-     * @type {CloudEventData}
+     * The event payload.
+     * @type {Object}
      * @memberof CloudEvent
      */
-    data?: CloudEventData;
+    data?: Object;
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      * @type {string}
      * @memberof CloudEvent
      */
     data_base64?: string;
-}
-
-/**
- * The event payload.
- * @export
- */
-export type CloudEventData = {
 }
 
 

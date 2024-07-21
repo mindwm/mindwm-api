@@ -5,7 +5,6 @@ docs/Clipboard.md
 docs/ClipboardPayload.md
 docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
-docs/CloudEventData.md
 docs/GraphNode.md
 docs/GraphNodeAllOfData.md
 docs/GraphRelationship.md
@@ -34,7 +33,6 @@ src/main/scala/org/openapitools/client/model/Clipboard.scala
 src/main/scala/org/openapitools/client/model/ClipboardPayload.scala
 src/main/scala/org/openapitools/client/model/ClipboardPayloadContext.scala
 src/main/scala/org/openapitools/client/model/CloudEvent.scala
-src/main/scala/org/openapitools/client/model/CloudEventData.scala
 src/main/scala/org/openapitools/client/model/GraphNode.scala
 src/main/scala/org/openapitools/client/model/GraphNodeAllOfData.scala
 src/main/scala/org/openapitools/client/model/GraphRelationship.scala

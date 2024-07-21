@@ -20,7 +20,7 @@ import java.util.Map;
  * Neo4jCaptureDataChangeRelationshipPayloadEnd
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-17T16:07:52.007907886Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-21T21:29:26.412155295Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangeRelationshipPayloadEnd   {
   @JsonProperty("id")
   private String id;

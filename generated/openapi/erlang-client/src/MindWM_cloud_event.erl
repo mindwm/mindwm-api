@@ -13,7 +13,7 @@
        'dataschema' => MindWM_u_ri:MindWM_u_ri(),
        'subject' => binary(),
        'time' => MindWM_date_time:MindWM_date_time(),
-       'data' => MindWM_cloud_event_data:MindWM_cloud_event_data(),
+       'data' => maps:map(),
        'data_base64' => binary()
      }.
 

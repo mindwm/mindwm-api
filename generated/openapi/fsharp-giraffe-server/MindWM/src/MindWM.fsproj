@@ -36,7 +36,6 @@
     <Compile Include="model/GraphRelationship.fs" />
     <Compile Include="model/GraphNodeAllOfData.fs" />
     <Compile Include="model/GraphNode.fs" />
-    <Compile Include="model/CloudEventData.fs" />
     <Compile Include="model/CloudEvent.fs" />
     <Compile Include="model/ClipboardPayloadContext.fs" />
     <Compile Include="model/ClipboardPayload.fs" />

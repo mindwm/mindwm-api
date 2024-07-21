@@ -22,22 +22,22 @@ class CloudEvent {
     /** @var string $type Describes the type of event related to the originating occurrence.*/
     public $type = "";
 
-    /** @var string|null $datacontenttype Content type of the data value. Must adhere to RFC 2046 format.*/
-    public $datacontenttype = null;
+    /** @var string $datacontenttype Content type of the data value. Must adhere to RFC 2046 format.*/
+    public $datacontenttype = "";
 
-    /** @var string|null $dataschema Identifies the schema that data adheres to.*/
-    public $dataschema = null;
+    /** @var string $dataschema Identifies the schema that data adheres to.*/
+    public $dataschema = "";
 
-    /** @var string|null $subject Describes the subject of the event in the context of the event producer (identified by source).*/
-    public $subject = null;
+    /** @var string $subject Describes the subject of the event in the context of the event producer (identified by source).*/
+    public $subject = "";
 
-    /** @var \DateTime|null $time Timestamp of when the occurrence happened. Must adhere to RFC 3339.*/
-    public $time = null;
+    /** @var \DateTime $time Timestamp of when the occurrence happened. Must adhere to RFC 3339.*/
+    public $time;
 
-    /** @var \app\Models\CloudEventData|null $data */
-    public $data = null;
+    /** @var object $data The event payload.*/
+    public $data;
 
-    /** @var string|null $dataBase64 Base64 encoded event payload. Must adhere to RFC4648.*/
-    public $dataBase64 = null;
+    /** @var string $dataBase64 Base64 encoded event payload. Must adhere to RFC4648.*/
+    public $dataBase64 = "";
 
 }

@@ -16,8 +16,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.net.URI;
 import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.CloudEventData;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.validation.constraints.*;
@@ -41,7 +39,7 @@ import javax.annotation.Generated;
   CloudEvent.JSON_PROPERTY_DATA_BASE64
 })
 @JsonTypeName("CloudEvent")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-17T16:07:45.615547242Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-21T21:29:21.140242715Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class CloudEvent {
     public static final String JSON_PROPERTY_ID = "id";
@@ -69,7 +67,7 @@ public class CloudEvent {
     private OffsetDateTime time;
 
     public static final String JSON_PROPERTY_DATA = "data";
-    private CloudEventData data;
+    private Object data;
 
     public static final String JSON_PROPERTY_DATA_BASE64 = "data_base64";
     private String dataBase64;
@@ -267,26 +265,25 @@ public class CloudEvent {
         this.time = time;
     }
 
-    public CloudEvent data(CloudEventData data) {
+    public CloudEvent data(Object data) {
         this.data = data;
         return this;
     }
 
     /**
-     * Get data
+     * The event payload.
      * @return data
      */
-    @Valid
     @Nullable
     @JsonProperty(JSON_PROPERTY_DATA)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public CloudEventData getData() {
+    public Object getData() {
         return data;
     }
 
     @JsonProperty(JSON_PROPERTY_DATA)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setData(CloudEventData data) {
+    public void setData(Object data) {
         this.data = data;
     }
 

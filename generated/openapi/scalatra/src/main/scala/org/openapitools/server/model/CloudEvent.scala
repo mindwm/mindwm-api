@@ -38,7 +38,8 @@ case class CloudEvent(
   /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
   time: Option[OffsetDateTime],
 
-  data: Option[CloudEventData],
+  /* The event payload. */
+  data: Option[Any],
 
   /* Base64 encoded event payload. Must adhere to RFC4648. */
   dataBase64: Option[String]

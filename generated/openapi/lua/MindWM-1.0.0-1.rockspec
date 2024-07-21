@@ -27,7 +27,6 @@ build = {
 		["MindWM.model.clipboard_payload"] = "MindWM/model/clipboard_payload.lua";
 		["MindWM.model.clipboard_payload_context"] = "MindWM/model/clipboard_payload_context.lua";
 		["MindWM.model.cloud_event"] = "MindWM/model/cloud_event.lua";
-		["MindWM.model.cloud_event_data"] = "MindWM/model/cloud_event_data.lua";
 		["MindWM.model.graph_node"] = "MindWM/model/graph_node.lua";
 		["MindWM.model.graph_node_all_of_data"] = "MindWM/model/graph_node_all_of_data.lua";
 		["MindWM.model.graph_relationship"] = "MindWM/model/graph_relationship.lua";

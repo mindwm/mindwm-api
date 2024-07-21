@@ -5,7 +5,6 @@ docs/Clipboard.md
 docs/ClipboardPayload.md
 docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
-docs/CloudEventData.md
 docs/GraphNode.md
 docs/GraphNodeAllOfData.md
 docs/GraphRelationship.md
@@ -47,7 +46,6 @@ src/main/kotlin/MindWM/models/Clipboard.kt
 src/main/kotlin/MindWM/models/ClipboardPayload.kt
 src/main/kotlin/MindWM/models/ClipboardPayloadContext.kt
 src/main/kotlin/MindWM/models/CloudEvent.kt
-src/main/kotlin/MindWM/models/CloudEventData.kt
 src/main/kotlin/MindWM/models/GraphNode.kt
 src/main/kotlin/MindWM/models/GraphNodeAllOfData.kt
 src/main/kotlin/MindWM/models/GraphRelationship.kt
@@ -66,7 +64,6 @@ src/main/kotlin/MindWM/models/TmuxPaneIoDocument.kt
 src/test/kotlin/MindWM/models/ClipboardPayloadContextTest.kt
 src/test/kotlin/MindWM/models/ClipboardPayloadTest.kt
 src/test/kotlin/MindWM/models/ClipboardTest.kt
-src/test/kotlin/MindWM/models/CloudEventDataTest.kt
 src/test/kotlin/MindWM/models/CloudEventTest.kt
 src/test/kotlin/MindWM/models/GraphNodeAllOfDataTest.kt
 src/test/kotlin/MindWM/models/GraphNodeTest.kt

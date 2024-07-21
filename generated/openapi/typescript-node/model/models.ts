@@ -4,7 +4,6 @@ export * from './clipboard';
 export * from './clipboardPayload';
 export * from './clipboardPayloadContext';
 export * from './cloudEvent';
-export * from './cloudEventData';
 export * from './graphNode';
 export * from './graphNodeAllOfData';
 export * from './graphRelationship';
@@ -38,7 +37,6 @@ import { Clipboard } from './clipboard';
 import { ClipboardPayload } from './clipboardPayload';
 import { ClipboardPayloadContext } from './clipboardPayloadContext';
 import { CloudEvent } from './cloudEvent';
-import { CloudEventData } from './cloudEventData';
 import { GraphNode } from './graphNode';
 import { GraphNodeAllOfData } from './graphNodeAllOfData';
 import { GraphRelationship } from './graphRelationship';
@@ -80,7 +78,6 @@ let typeMap: {[index: string]: any} = {
     "ClipboardPayload": ClipboardPayload,
     "ClipboardPayloadContext": ClipboardPayloadContext,
     "CloudEvent": CloudEvent,
-    "CloudEventData": CloudEventData,
     "GraphNode": GraphNode,
     "GraphNodeAllOfData": GraphNodeAllOfData,
     "GraphRelationship": GraphRelationship,

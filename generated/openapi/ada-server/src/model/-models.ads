@@ -40,25 +40,37 @@ package .Models is
 
 
 
-   type CloudEventData_Type is new anyOf<string,number,boolean>;
+   type CloudEvent_Type is
+     record
+       Id : Swagger.UString;
+       Source : Swagger.UString;
+       Specversion : Swagger.UString;
+       P_Type : Swagger.UString;
+       Datacontenttype : Swagger.Nullable_UString;
+       Dataschema : Swagger.Nullable_UString;
+       Subject : Swagger.Nullable_UString;
+       Time : Swagger.Nullable_Date;
+       Data : Swagger.Object;
+       Data_Base_64 : Swagger.Nullable_UString;
+     end record;
 
 
-   package CloudEventData_Type_Vectors is
+   package CloudEvent_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.CloudEventData_Type);
+                                  Element_Type => .Models.CloudEvent_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.CloudEventData_Type);
+                        Value : in .Models.CloudEvent_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in CloudEventData_Type_Vectors.Vector);
+                        Value : in CloudEvent_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.CloudEventData_Type);
+                          Value : out .Models.CloudEvent_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out CloudEventData_Type_Vectors.Vector);
+                          Value : in out CloudEvent_Type_Vectors.Vector);
 
 
 
@@ -177,41 +189,7 @@ package .Models is
 
 
 
-   type CloudEvent_Type is
-     record
-       Id : Swagger.UString;
-       Source : Swagger.UString;
-       Specversion : Swagger.UString;
-       P_Type : Swagger.UString;
-       Datacontenttype : Swagger.Nullable_UString;
-       Dataschema : Swagger.Nullable_UString;
-       Subject : Swagger.Nullable_UString;
-       Time : Swagger.Nullable_Date;
-       Data : .Models.CloudEventData_Type;
-       Data_Base_64 : Swagger.Nullable_UString;
-     end record;
-
-
-   package CloudEvent_Type_Vectors is
-      new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.CloudEvent_Type);
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in .Models.CloudEvent_Type);
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in CloudEvent_Type_Vectors.Vector);
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : out .Models.CloudEvent_Type);
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : in out CloudEvent_Type_Vectors.Vector);
-
-
-
-   type GraphRelationshipAllOfData_Type is
+   type GraphNodeAllOfData_Type is
      record
        Headers : Swagger.Object;
        Message_Key : Swagger.UString;
@@ -222,30 +200,30 @@ package .Models is
        Timestamp : Swagger.Datetime;
        Topic : Swagger.UString;
        Schema : .Models.Neo4jCaptureDataChangeSchema_Type;
-       Payload : .Models.Neo4jCaptureDataChangeRelationshipPayload_Type;
+       Payload : .Models.Neo4jCaptureDataChangeNodePayload_Type;
      end record;
 
 
-   package GraphRelationshipAllOfData_Type_Vectors is
+   package GraphNodeAllOfData_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.GraphRelationshipAllOfData_Type);
+                                  Element_Type => .Models.GraphNodeAllOfData_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.GraphRelationshipAllOfData_Type);
+                        Value : in .Models.GraphNodeAllOfData_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in GraphRelationshipAllOfData_Type_Vectors.Vector);
+                        Value : in GraphNodeAllOfData_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.GraphRelationshipAllOfData_Type);
+                          Value : out .Models.GraphNodeAllOfData_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out GraphRelationshipAllOfData_Type_Vectors.Vector);
+                          Value : in out GraphNodeAllOfData_Type_Vectors.Vector);
 
 
 
-   type GraphRelationship_Type is
+   type GraphNode_Type is
      record
        Id : Swagger.UString;
        Source : Swagger.UString;
@@ -255,27 +233,27 @@ package .Models is
        Dataschema : Swagger.Nullable_UString;
        Subject : Swagger.Nullable_UString;
        Time : Swagger.Nullable_Date;
-       Data : .Models.GraphRelationshipAllOfData_Type;
+       Data : .Models.GraphNodeAllOfData_Type;
        Data_Base_64 : Swagger.Nullable_UString;
      end record;
 
 
-   package GraphRelationship_Type_Vectors is
+   package GraphNode_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.GraphRelationship_Type);
+                                  Element_Type => .Models.GraphNode_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.GraphRelationship_Type);
+                        Value : in .Models.GraphNode_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in GraphRelationship_Type_Vectors.Vector);
+                        Value : in GraphNode_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.GraphRelationship_Type);
+                          Value : out .Models.GraphNode_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out GraphRelationship_Type_Vectors.Vector);
+                          Value : in out GraphNode_Type_Vectors.Vector);
 
 
 
@@ -513,7 +491,7 @@ package .Models is
 
 
 
-   type GraphNodeAllOfData_Type is
+   type GraphRelationshipAllOfData_Type is
      record
        Headers : Swagger.Object;
        Message_Key : Swagger.UString;
@@ -524,30 +502,30 @@ package .Models is
        Timestamp : Swagger.Datetime;
        Topic : Swagger.UString;
        Schema : .Models.Neo4jCaptureDataChangeSchema_Type;
-       Payload : .Models.Neo4jCaptureDataChangeNodePayload_Type;
+       Payload : .Models.Neo4jCaptureDataChangeRelationshipPayload_Type;
      end record;
 
 
-   package GraphNodeAllOfData_Type_Vectors is
+   package GraphRelationshipAllOfData_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.GraphNodeAllOfData_Type);
+                                  Element_Type => .Models.GraphRelationshipAllOfData_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.GraphNodeAllOfData_Type);
+                        Value : in .Models.GraphRelationshipAllOfData_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in GraphNodeAllOfData_Type_Vectors.Vector);
+                        Value : in GraphRelationshipAllOfData_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.GraphNodeAllOfData_Type);
+                          Value : out .Models.GraphRelationshipAllOfData_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out GraphNodeAllOfData_Type_Vectors.Vector);
+                          Value : in out GraphRelationshipAllOfData_Type_Vectors.Vector);
 
 
 
-   type GraphNode_Type is
+   type GraphRelationship_Type is
      record
        Id : Swagger.UString;
        Source : Swagger.UString;
@@ -557,27 +535,27 @@ package .Models is
        Dataschema : Swagger.Nullable_UString;
        Subject : Swagger.Nullable_UString;
        Time : Swagger.Nullable_Date;
-       Data : .Models.GraphNodeAllOfData_Type;
+       Data : .Models.GraphRelationshipAllOfData_Type;
        Data_Base_64 : Swagger.Nullable_UString;
      end record;
 
 
-   package GraphNode_Type_Vectors is
+   package GraphRelationship_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.GraphNode_Type);
+                                  Element_Type => .Models.GraphRelationship_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.GraphNode_Type);
+                        Value : in .Models.GraphRelationship_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in GraphNode_Type_Vectors.Vector);
+                        Value : in GraphRelationship_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.GraphNode_Type);
+                          Value : out .Models.GraphRelationship_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out GraphNode_Type_Vectors.Vector);
+                          Value : in out GraphRelationship_Type_Vectors.Vector);
 
 
 

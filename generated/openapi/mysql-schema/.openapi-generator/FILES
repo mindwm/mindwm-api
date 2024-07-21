@@ -3,7 +3,6 @@ Model/Clipboard.sql
 Model/ClipboardPayload.sql
 Model/ClipboardPayloadContext.sql
 Model/CloudEvent.sql
-Model/CloudEventData.sql
 Model/GraphNode.sql
 Model/GraphNodeAllOfData.sql
 Model/GraphRelationship.sql

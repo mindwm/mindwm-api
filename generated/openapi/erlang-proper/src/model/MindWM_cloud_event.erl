@@ -17,7 +17,7 @@
   | {'dataschema', MindWM_u_ri:MindWM_u_ri() }
   | {'subject', binary() }
   | {'time', datetime() }
-  | {'data', MindWM_cloud_event_data:MindWM_cloud_event_data() }
+  | {'data', map() }
   | {'data_base64', binary() }
   ].
 
@@ -34,7 +34,7 @@ MindWM_cloud_event(Fields) ->
             , {'dataschema', binary(1) }
             , {'subject', binary(1) }
             , {'time', datetime() }
-            , {'data', MindWM_cloud_event_data:MindWM_cloud_event_data() }
+            , {'data', map() }
             , {'data_base64', binary() }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).

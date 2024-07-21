@@ -5,7 +5,6 @@ MindWM/model/clipboard.lua
 MindWM/model/clipboard_payload.lua
 MindWM/model/clipboard_payload_context.lua
 MindWM/model/cloud_event.lua
-MindWM/model/cloud_event_data.lua
 MindWM/model/graph_node.lua
 MindWM/model/graph_node_all_of_data.lua
 MindWM/model/graph_relationship.lua
@@ -25,7 +24,6 @@ git_push.sh
 spec/clipboard_payload_context_spec.lua
 spec/clipboard_payload_spec.lua
 spec/clipboard_spec.lua
-spec/cloud_event_data_spec.lua
 spec/cloud_event_spec.lua
 spec/graph_node_all_of_data_spec.lua
 spec/graph_node_spec.lua

@@ -40,6 +40,7 @@ module OpenapiClient
     # Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     attr_accessor :time
 
+    # The event payload.
     attr_accessor :data
 
     # Base64 encoded event payload. Must adhere to RFC4648.
@@ -77,7 +78,7 @@ module OpenapiClient
         :'dataschema' => :'String',
         :'subject' => :'String',
         :'time' => :'Time',
-        :'data' => :'CloudEventData',
+        :'data' => :'Object',
         :'data_base64' => :'String'
       }
     end
@@ -85,12 +86,6 @@ module OpenapiClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'datacontenttype',
-        :'dataschema',
-        :'subject',
-        :'time',
-        :'data',
-        :'data_base64'
       ])
     end
 
@@ -292,7 +287,11 @@ module OpenapiClient
     # Custom attribute writer method with validation
     # @param [Object] datacontenttype Value to be assigned
     def datacontenttype=(datacontenttype)
-      if !datacontenttype.nil? && datacontenttype.to_s.length < 1
+      if datacontenttype.nil?
+        fail ArgumentError, 'datacontenttype cannot be nil'
+      end
+
+      if datacontenttype.to_s.length < 1
         fail ArgumentError, 'invalid value for "datacontenttype", the character length must be great than or equal to 1.'
       end
 
@@ -302,7 +301,11 @@ module OpenapiClient
     # Custom attribute writer method with validation
     # @param [Object] dataschema Value to be assigned
     def dataschema=(dataschema)
-      if !dataschema.nil? && dataschema.to_s.length < 1
+      if dataschema.nil?
+        fail ArgumentError, 'dataschema cannot be nil'
+      end
+
+      if dataschema.to_s.length < 1
         fail ArgumentError, 'invalid value for "dataschema", the character length must be great than or equal to 1.'
       end
 
@@ -312,7 +315,11 @@ module OpenapiClient
     # Custom attribute writer method with validation
     # @param [Object] subject Value to be assigned
     def subject=(subject)
-      if !subject.nil? && subject.to_s.length < 1
+      if subject.nil?
+        fail ArgumentError, 'subject cannot be nil'
+      end
+
+      if subject.to_s.length < 1
         fail ArgumentError, 'invalid value for "subject", the character length must be great than or equal to 1.'
       end
 
@@ -322,7 +329,11 @@ module OpenapiClient
     # Custom attribute writer method with validation
     # @param [Object] time Value to be assigned
     def time=(time)
-      if !time.nil? && time.to_s.length < 1
+      if time.nil?
+        fail ArgumentError, 'time cannot be nil'
+      end
+
+      if time.to_s.length < 1
         fail ArgumentError, 'invalid value for "time", the character length must be great than or equal to 1.'
       end
 

@@ -12,7 +12,7 @@ syntax = "proto3";
 
 package mindwm;
 
-import public "models/cloud_event_data.proto";
+import public "models/todo_object_mapping.proto";
 
 message CloudEvent {
 
@@ -29,20 +29,21 @@ message CloudEvent {
   string type = 3575610;
 
   // Content type of the data value. Must adhere to RFC 2046 format.
-  optional string datacontenttype = 179674810;
+  string datacontenttype = 179674810;
 
   // Identifies the schema that data adheres to.
-  optional string dataschema = 507232824;
+  string dataschema = 507232824;
 
   // Describes the subject of the event in the context of the event producer (identified by source).
-  optional string subject = 257272535;
+  string subject = 257272535;
 
   // Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-  optional string time = 3560141;
+  string time = 3560141;
 
-  CloudEventData data = 3076010;
+  // The event payload.
+  TODO_OBJECT_MAPPING data = 3076010;
 
   // Base64 encoded event payload. Must adhere to RFC4648.
-  optional string data_base64 = 222980223;
+  string data_base64 = 222980223;
 
 }

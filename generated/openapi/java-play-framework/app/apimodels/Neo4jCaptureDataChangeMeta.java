@@ -11,7 +11,7 @@ import javax.validation.Valid;
 /**
  * Neo4jCaptureDataChangeMeta
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-17T16:07:53.975037253Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-21T21:29:28.054395936Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class Neo4jCaptureDataChangeMeta   {
   @JsonProperty("operation")

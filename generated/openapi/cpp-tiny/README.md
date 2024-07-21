@@ -35,7 +35,6 @@ All URIs are relative to https://mindwmw.iohttps://mindwmw.io/v1
 |*ClipboardPayload* | |
 |*ClipboardPayload_context* | Selection context|
 |*CloudEvent* | CloudEvents Specification JSON Schema|
-|*CloudEvent_data* | The event payload.|
 |*GraphNode* | |
 |*GraphNode_allOf_data* | |
 |*GraphRelationship* | |

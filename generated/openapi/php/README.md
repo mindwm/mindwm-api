@@ -63,7 +63,6 @@ Class | Method | HTTP request | Description
 - [ClipboardPayload](docs/Model/ClipboardPayload.md)
 - [ClipboardPayloadContext](docs/Model/ClipboardPayloadContext.md)
 - [CloudEvent](docs/Model/CloudEvent.md)
-- [CloudEventData](docs/Model/CloudEventData.md)
 - [GraphNode](docs/Model/GraphNode.md)
 - [GraphNodeAllOfData](docs/Model/GraphNodeAllOfData.md)
 - [GraphRelationship](docs/Model/GraphRelationship.md)

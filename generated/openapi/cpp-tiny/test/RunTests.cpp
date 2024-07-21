@@ -7,8 +7,6 @@
 
 #include "CloudEventTest.cpp"
 
-#include "CloudEvent_dataTest.cpp"
-
 #include "GraphNodeTest.cpp"
 
 #include "GraphNode_allOf_dataTest.cpp"
@@ -117,7 +115,6 @@ void runTests(){
     
     
     RUN_TEST(test_CloudEvent_data_base64_is_assigned_from_json);
-    
     
     
     
@@ -437,7 +434,6 @@ void runTests(){
     
     
     RUN_TEST(test_CloudEvent_data_base64_is_converted_to_json);
-    
     
     
     

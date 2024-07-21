@@ -46,7 +46,6 @@ Class | Description
  *ClipboardPayload* | 
  *ClipboardPayload_context* | Selection context
  *CloudEvent* | CloudEvents Specification JSON Schema
- *CloudEvent_data* | The event payload.
  *GraphNode* | 
  *GraphNode_allOf_data* | 
  *GraphRelationship* | 

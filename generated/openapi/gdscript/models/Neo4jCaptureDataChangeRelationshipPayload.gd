@@ -44,11 +44,11 @@ var __id__was__set := false
 
 # Required: True
 # isArray: false
-@export var some_label: AnyType:
+@export var label: AnyType:
 	set(value):
-		__some_label__was__set = true
-		some_label = value
-var __some_label__was__set := false
+		__label__was__set = true
+		label = value
+var __label__was__set := false
 
 # Required: True
 # isArray: false
@@ -77,8 +77,8 @@ func bzz_collect_missing_properties() -> Array:
 		bzz_missing_properties.append("end")
 	if not self.__id__was__set:
 		bzz_missing_properties.append("id")
-	if not self.__some_label__was__set:
-		bzz_missing_properties.append("some_label")
+	if not self.__label__was__set:
+		bzz_missing_properties.append("label")
 	if not self.__start__was__set:
 		bzz_missing_properties.append("start")
 	if not self.__type__was__set:
@@ -96,8 +96,8 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["end"] = self.end
 	if self.__id__was__set:
 		bzz_dictionary["id"] = self.id
-	if self.__some_label__was__set:
-		bzz_dictionary["some_label"] = self.some_label
+	if self.__label__was__set:
+		bzz_dictionary["label"] = self.label
 	if self.__start__was__set:
 		bzz_dictionary["start"] = self.start
 	if self.__type__was__set:
@@ -116,8 +116,8 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 		me.end = Neo4jCaptureDataChangeRelationshipPayload_end.bzz_denormalize_single(from_dict["end"])
 	if from_dict.has("id"):
 		me.id = from_dict["id"]
-	if from_dict.has("some_label"):
-		me.some_label = from_dict["some_label"]
+	if from_dict.has("label"):
+		me.label = from_dict["label"]
 	if from_dict.has("start"):
 		me.start = Neo4jCaptureDataChangeRelationshipPayload_end.bzz_denormalize_single(from_dict["start"])
 	if from_dict.has("type"):

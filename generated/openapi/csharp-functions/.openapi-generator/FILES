@@ -10,7 +10,6 @@ src/MindWM/Models/Clipboard.cs
 src/MindWM/Models/ClipboardPayload.cs
 src/MindWM/Models/ClipboardPayloadContext.cs
 src/MindWM/Models/CloudEvent.cs
-src/MindWM/Models/CloudEventData.cs
 src/MindWM/Models/GraphNode.cs
 src/MindWM/Models/GraphNodeAllOfData.cs
 src/MindWM/Models/GraphRelationship.cs

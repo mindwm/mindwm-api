@@ -3,7 +3,6 @@ Models/Clipboard.md
 Models/ClipboardPayload.md
 Models/ClipboardPayload_context.md
 Models/CloudEvent.md
-Models/CloudEvent_data.md
 Models/GraphNode.md
 Models/GraphNode_allOf_data.md
 Models/GraphRelationship.md

@@ -936,51 +936,36 @@ ul.nav-tabs {
     "datacontenttype" : {
       "minLength" : 1,
       "type" : "string",
-      "description" : "Content type of the data value. Must adhere to RFC 2046 format.",
-      "nullable" : true
+      "description" : "Content type of the data value. Must adhere to RFC 2046 format."
     },
     "dataschema" : {
       "minLength" : 1,
       "type" : "string",
       "description" : "Identifies the schema that data adheres to.",
-      "format" : "uri",
-      "nullable" : true
+      "format" : "uri"
     },
     "subject" : {
       "minLength" : 1,
       "type" : "string",
-      "description" : "Describes the subject of the event in the context of the event producer (identified by source).",
-      "nullable" : true
+      "description" : "Describes the subject of the event in the context of the event producer (identified by source)."
     },
     "time" : {
       "minLength" : 1,
       "type" : "string",
       "description" : "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
-      "format" : "date-time",
-      "nullable" : true
+      "format" : "date-time"
     },
     "data" : {
-      "$ref" : "#/components/schemas/CloudEvent_data"
+      "type" : "object",
+      "description" : "The event payload."
     },
     "data_base64" : {
       "type" : "string",
-      "description" : "Base64 encoded event payload. Must adhere to RFC4648.",
-      "nullable" : true
+      "description" : "Base64 encoded event payload. Must adhere to RFC4648."
     }
   },
   "description" : "CloudEvents Specification JSON Schema",
   "discrimniator" : "type"
-};
-    defs["CloudEvent_data"] = {
-  "description" : "The event payload.",
-  "nullable" : true,
-  "anyOf" : [ {
-    "type" : "string"
-  }, {
-    "type" : "number"
-  }, {
-    "type" : "boolean"
-  } ]
 };
     defs["GraphNode"] = {
   "additionalProperties" : { },

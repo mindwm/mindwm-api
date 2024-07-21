@@ -9,7 +9,6 @@ docs/Model/Clipboard.md
 docs/Model/ClipboardPayload.md
 docs/Model/ClipboardPayloadContext.md
 docs/Model/CloudEvent.md
-docs/Model/CloudEventData.md
 docs/Model/GraphNode.md
 docs/Model/GraphNodeAllOfData.md
 docs/Model/GraphRelationship.md
@@ -34,7 +33,6 @@ src/Model/Clipboard.php
 src/Model/ClipboardPayload.php
 src/Model/ClipboardPayloadContext.php
 src/Model/CloudEvent.php
-src/Model/CloudEventData.php
 src/Model/GraphNode.php
 src/Model/GraphNodeAllOfData.php
 src/Model/GraphRelationship.php
@@ -55,7 +53,6 @@ src/ObjectSerializer.php
 tests/Model/ClipboardPayloadContextTest.php
 tests/Model/ClipboardPayloadTest.php
 tests/Model/ClipboardTest.php
-tests/Model/CloudEventDataTest.php
 tests/Model/CloudEventTest.php
 tests/Model/GraphNodeAllOfDataTest.php
 tests/Model/GraphNodeTest.php

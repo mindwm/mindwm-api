@@ -82,9 +82,6 @@ ptree CloudEvent::toPropertyTree_internal()
 	pt.put("dataschema", m_Dataschema);
 	pt.put("subject", m_Subject);
 	pt.put("time", m_Time);
-	if (m_Data != nullptr) {
-		pt.add_child("data", m_Data->toPropertyTree());
-	}
 	pt.put("data_base64", m_Data_base64);
 	return pt;
 }
@@ -100,10 +97,6 @@ void CloudEvent::fromPropertyTree_internal(ptree const &pt)
 	m_Dataschema = pt.get("dataschema", "");
 	m_Subject = pt.get("subject", "");
 	m_Time = pt.get("time", "");
-	if (pt.get_child_optional("data")) {
-		m_Data = std::make_shared<CloudEvent_data>();
-		m_Data->fromPropertyTree(pt.get_child("data"));
-	}
 	m_Data_base64 = pt.get("data_base64", "");
 }
 
@@ -179,12 +172,12 @@ void CloudEvent::setTime(std::string value)
 {
 	m_Time = value;
 }
-std::shared_ptr<CloudEvent_data> CloudEvent::getData() const
+std::shared_ptr<Object> CloudEvent::getData() const
 {
     return m_Data;
 }
 
-void CloudEvent::setData(std::shared_ptr<CloudEvent_data> value)
+void CloudEvent::setData(std::shared_ptr<Object> value)
 {
 	m_Data = value;
 }

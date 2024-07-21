@@ -5,12 +5,8 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.net.URI;
-import java.util.Arrays;
 import java.util.Date;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.CloudEventData;
 import org.springframework.format.annotation.DateTimeFormat;
-import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -26,7 +22,7 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "CloudEvent", description = "CloudEvents Specification JSON Schema")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-17T16:07:59.977914110Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-21T21:29:32.858712132Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEvent {
 
   private String id;
@@ -37,18 +33,18 @@ public class CloudEvent {
 
   private String type;
 
-  private JsonNullable<@Size(min = 1) String> datacontenttype = JsonNullable.<String>undefined();
+  private String datacontenttype;
 
-  private JsonNullable<@Size(min = 1) URI> dataschema = JsonNullable.<URI>undefined();
+  private URI dataschema;
 
-  private JsonNullable<@Size(min = 1) String> subject = JsonNullable.<String>undefined();
+  private String subject;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  private JsonNullable<@Size(min = 1) Date> time = JsonNullable.<Date>undefined();
+  private Date time;
 
-  private JsonNullable<CloudEventData> data = JsonNullable.<CloudEventData>undefined();
+  private Object data;
 
-  private JsonNullable<String> dataBase64 = JsonNullable.<String>undefined();
+  private String dataBase64;
 
   public CloudEvent() {
     super();
@@ -145,7 +141,7 @@ public class CloudEvent {
   }
 
   public CloudEvent datacontenttype(String datacontenttype) {
-    this.datacontenttype = JsonNullable.of(datacontenttype);
+    this.datacontenttype = datacontenttype;
     return this;
   }
 
@@ -156,16 +152,16 @@ public class CloudEvent {
   @Size(min = 1) 
   @Schema(name = "datacontenttype", description = "Content type of the data value. Must adhere to RFC 2046 format.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("datacontenttype")
-  public JsonNullable<@Size(min = 1) String> getDatacontenttype() {
+  public String getDatacontenttype() {
     return datacontenttype;
   }
 
-  public void setDatacontenttype(JsonNullable<String> datacontenttype) {
+  public void setDatacontenttype(String datacontenttype) {
     this.datacontenttype = datacontenttype;
   }
 
   public CloudEvent dataschema(URI dataschema) {
-    this.dataschema = JsonNullable.of(dataschema);
+    this.dataschema = dataschema;
     return this;
   }
 
@@ -176,16 +172,16 @@ public class CloudEvent {
   @Valid @Size(min = 1) 
   @Schema(name = "dataschema", description = "Identifies the schema that data adheres to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("dataschema")
-  public JsonNullable<@Size(min = 1) URI> getDataschema() {
+  public URI getDataschema() {
     return dataschema;
   }
 
-  public void setDataschema(JsonNullable<URI> dataschema) {
+  public void setDataschema(URI dataschema) {
     this.dataschema = dataschema;
   }
 
   public CloudEvent subject(String subject) {
-    this.subject = JsonNullable.of(subject);
+    this.subject = subject;
     return this;
   }
 
@@ -196,16 +192,16 @@ public class CloudEvent {
   @Size(min = 1) 
   @Schema(name = "subject", description = "Describes the subject of the event in the context of the event producer (identified by source).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("subject")
-  public JsonNullable<@Size(min = 1) String> getSubject() {
+  public String getSubject() {
     return subject;
   }
 
-  public void setSubject(JsonNullable<String> subject) {
+  public void setSubject(String subject) {
     this.subject = subject;
   }
 
   public CloudEvent time(Date time) {
-    this.time = JsonNullable.of(time);
+    this.time = time;
     return this;
   }
 
@@ -216,36 +212,36 @@ public class CloudEvent {
   @Valid @Size(min = 1) 
   @Schema(name = "time", description = "Timestamp of when the occurrence happened. Must adhere to RFC 3339.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("time")
-  public JsonNullable<@Size(min = 1) Date> getTime() {
+  public Date getTime() {
     return time;
   }
 
-  public void setTime(JsonNullable<Date> time) {
+  public void setTime(Date time) {
     this.time = time;
   }
 
-  public CloudEvent data(CloudEventData data) {
-    this.data = JsonNullable.of(data);
+  public CloudEvent data(Object data) {
+    this.data = data;
     return this;
   }
 
   /**
-   * Get data
+   * The event payload.
    * @return data
    */
-  @Valid 
-  @Schema(name = "data", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  
+  @Schema(name = "data", description = "The event payload.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("data")
-  public JsonNullable<CloudEventData> getData() {
+  public Object getData() {
     return data;
   }
 
-  public void setData(JsonNullable<CloudEventData> data) {
+  public void setData(Object data) {
     this.data = data;
   }
 
   public CloudEvent dataBase64(String dataBase64) {
-    this.dataBase64 = JsonNullable.of(dataBase64);
+    this.dataBase64 = dataBase64;
     return this;
   }
 
@@ -256,11 +252,11 @@ public class CloudEvent {
   
   @Schema(name = "data_base64", description = "Base64 encoded event payload. Must adhere to RFC4648.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("data_base64")
-  public JsonNullable<String> getDataBase64() {
+  public String getDataBase64() {
     return dataBase64;
   }
 
-  public void setDataBase64(JsonNullable<String> dataBase64) {
+  public void setDataBase64(String dataBase64) {
     this.dataBase64 = dataBase64;
   }
 
@@ -277,28 +273,17 @@ public class CloudEvent {
         Objects.equals(this.source, cloudEvent.source) &&
         Objects.equals(this.specversion, cloudEvent.specversion) &&
         Objects.equals(this.type, cloudEvent.type) &&
-        equalsNullable(this.datacontenttype, cloudEvent.datacontenttype) &&
-        equalsNullable(this.dataschema, cloudEvent.dataschema) &&
-        equalsNullable(this.subject, cloudEvent.subject) &&
-        equalsNullable(this.time, cloudEvent.time) &&
-        equalsNullable(this.data, cloudEvent.data) &&
-        equalsNullable(this.dataBase64, cloudEvent.dataBase64);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.datacontenttype, cloudEvent.datacontenttype) &&
+        Objects.equals(this.dataschema, cloudEvent.dataschema) &&
+        Objects.equals(this.subject, cloudEvent.subject) &&
+        Objects.equals(this.time, cloudEvent.time) &&
+        Objects.equals(this.data, cloudEvent.data) &&
+        Objects.equals(this.dataBase64, cloudEvent.dataBase64);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, source, specversion, type, hashCodeNullable(datacontenttype), hashCodeNullable(dataschema), hashCodeNullable(subject), hashCodeNullable(time), hashCodeNullable(data), hashCodeNullable(dataBase64));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64);
   }
 
   @Override

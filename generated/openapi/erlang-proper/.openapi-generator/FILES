@@ -10,7 +10,6 @@ src/model/MindWM_clipboard.erl
 src/model/MindWM_clipboard_payload.erl
 src/model/MindWM_clipboard_payload_context.erl
 src/model/MindWM_cloud_event.erl
-src/model/MindWM_cloud_event_data.erl
 src/model/MindWM_graph_node.erl
 src/model/MindWM_graph_node_all_of_data.erl
 src/model/MindWM_graph_relationship.erl

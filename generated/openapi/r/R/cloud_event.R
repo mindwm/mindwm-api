@@ -15,7 +15,7 @@
 #' @field dataschema Identifies the schema that data adheres to. character [optional]
 #' @field subject Describes the subject of the event in the context of the event producer (identified by source). character [optional]
 #' @field time Timestamp of when the occurrence happened. Must adhere to RFC 3339. character [optional]
-#' @field data  \link{CloudEventData} [optional]
+#' @field data The event payload. object [optional]
 #' @field data_base64 Base64 encoded event payload. Must adhere to RFC4648. character [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -46,7 +46,7 @@ CloudEvent <- R6::R6Class(
     #' @param dataschema Identifies the schema that data adheres to.
     #' @param subject Describes the subject of the event in the context of the event producer (identified by source).
     #' @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-    #' @param data data
+    #' @param data The event payload.
     #' @param data_base64 Base64 encoded event payload. Must adhere to RFC4648.
     #' @param ... Other optional arguments.
     #' @export
@@ -104,7 +104,6 @@ CloudEvent <- R6::R6Class(
         self$`time` <- `time`
       }
       if (!is.null(`data`)) {
-        stopifnot(R6::is.R6(`data`))
         self$`data` <- `data`
       }
       if (!is.null(`data_base64`)) {
@@ -157,7 +156,7 @@ CloudEvent <- R6::R6Class(
       }
       if (!is.null(self$`data`)) {
         CloudEventObject[["data"]] <-
-          self$`data`$toJSON()
+          self$`data`
       }
       if (!is.null(self$`data_base64`)) {
         CloudEventObject[["data_base64"]] <-
@@ -204,9 +203,7 @@ CloudEvent <- R6::R6Class(
         self$`time` <- this_object$`time`
       }
       if (!is.null(this_object$`data`)) {
-        `data_object` <- CloudEventData$new()
-        `data_object`$fromJSON(jsonlite::toJSON(this_object$`data`, auto_unbox = TRUE, digits = NA))
-        self$`data` <- `data_object`
+        self$`data` <- this_object$`data`
       }
       if (!is.null(this_object$`data_base64`)) {
         self$`data_base64` <- this_object$`data_base64`
@@ -289,9 +286,9 @@ CloudEvent <- R6::R6Class(
         if (!is.null(self$`data`)) {
           sprintf(
           '"data":
-          %s
-          ',
-          jsonlite::toJSON(self$`data`$toJSON(), auto_unbox = TRUE, digits = NA)
+            "%s"
+                    ',
+          self$`data`
           )
         },
         if (!is.null(self$`data_base64`)) {
@@ -328,7 +325,7 @@ CloudEvent <- R6::R6Class(
       self$`dataschema` <- this_object$`dataschema`
       self$`subject` <- this_object$`subject`
       self$`time` <- this_object$`time`
-      self$`data` <- CloudEventData$new()$fromJSON(jsonlite::toJSON(this_object$`data`, auto_unbox = TRUE, digits = NA))
+      self$`data` <- this_object$`data`
       self$`data_base64` <- this_object$`data_base64`
       self
     },

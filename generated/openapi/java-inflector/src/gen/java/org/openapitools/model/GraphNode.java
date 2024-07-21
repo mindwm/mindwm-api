@@ -16,7 +16,7 @@ import org.openapitools.model.GraphNodeAllOfData;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-17T16:07:43.630284849Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-21T21:29:19.531294139Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class GraphNode extends HashMap<String, Object>  {
   @JsonProperty("id")
   private String id;

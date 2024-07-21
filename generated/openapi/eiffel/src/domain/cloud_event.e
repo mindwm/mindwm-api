@@ -35,8 +35,8 @@ feature --Access
       -- Describes the subject of the event in the context of the event producer (identified by source).
     time: detachable DATE_TIME
       -- Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-    data: detachable CLOUD_EVENT_DATA
-      
+    data: detachable ANY
+      -- The event payload.
     data_base64: detachable STRING_32
       -- Base64 encoded event payload. Must adhere to RFC4648.
 

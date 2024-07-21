@@ -17,7 +17,6 @@ export {
   ClipboardPayload,
   ClipboardPayloadContext,
   CloudEvent,
-  CloudEventData,
   GraphNode,
   GraphNodeAllOfData,
   GraphRelationship,

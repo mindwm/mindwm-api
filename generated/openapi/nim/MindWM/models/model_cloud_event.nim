@@ -10,7 +10,7 @@
 import json
 import tables
 
-import model_cloud_event_data
+import model_object
 
 type CloudEvent* = object
   ## CloudEvents Specification JSON Schema
@@ -22,5 +22,5 @@ type CloudEvent* = object
   dataschema*: string ## Identifies the schema that data adheres to.
   subject*: string ## Describes the subject of the event in the context of the event producer (identified by source).
   time*: string ## Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-  data*: CloudEvent_data
+  data*: object ## The event payload.
   dataBase64*: string ## Base64 encoded event payload. Must adhere to RFC4648.

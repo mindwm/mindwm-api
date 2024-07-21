@@ -33,7 +33,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   TmuxPaneIoDocument.JSON_PROPERTY_PS1
 })
 @JsonTypeName("TmuxPaneIoDocument")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-17T16:07:47.810085790Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-21T21:29:22.991827113Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class TmuxPaneIoDocument extends HashMap<String, Object> {
     public static final String JSON_PROPERTY_INPUT = "input";

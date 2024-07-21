@@ -18,7 +18,6 @@ module Api.Data exposing
     , ClipboardPayload, ClipboardPayloadType(..), clipboardPayloadTypeVariants
     , ClipboardPayloadContext
     , CloudEvent
-    , CloudEventData
     , GraphNode, GraphNodeSource(..), graphNodeSourceVariants, GraphNodeType(..), graphNodeTypeVariants
     , GraphNodeAllOfData
     , GraphRelationship, GraphRelationshipSource(..), graphRelationshipSourceVariants, GraphRelationshipType(..), graphRelationshipTypeVariants
@@ -38,7 +37,6 @@ module Api.Data exposing
     , encodeClipboardPayload
     , encodeClipboardPayloadContext
     , encodeCloudEvent
-    , encodeCloudEventData
     , encodeGraphNode
     , encodeGraphNodeAllOfData
     , encodeGraphRelationship
@@ -58,7 +56,6 @@ module Api.Data exposing
     , clipboardPayloadDecoder
     , clipboardPayloadContextDecoder
     , cloudEventDecoder
-    , cloudEventDataDecoder
     , graphNodeDecoder
     , graphNodeAllOfDataDecoder
     , graphRelationshipDecoder
@@ -141,15 +138,9 @@ type alias CloudEvent =
     , dataschema : Maybe String
     , subject : Maybe String
     , time : Maybe Posix
-    , data : Maybe CloudEventData
+    , data : Maybe Object
     , dataBase64 : Maybe String
     }
-
-
-{-| The event payload.
--}
-type alias CloudEventData =
-    { }
 
 
 type alias GraphNode =
@@ -465,31 +456,12 @@ encodeCloudEventPairs model =
             , encode "source" Json.Encode.string model.source
             , encode "specversion" Json.Encode.string model.specversion
             , encode "type" Json.Encode.string model.type_
-            , maybeEncodeNullable "datacontenttype" Json.Encode.string model.datacontenttype
-            , maybeEncodeNullable "dataschema" Json.Encode.string model.dataschema
-            , maybeEncodeNullable "subject" Json.Encode.string model.subject
-            , maybeEncodeNullable "time" Api.Time.encodeDateTime model.time
-            , maybeEncodeNullable "data" encodeCloudEventData model.data
-            , maybeEncodeNullable "data_base64" Json.Encode.string model.dataBase64
-            ]
-    in
-    pairs
-
-
-encodeCloudEventData : CloudEventData -> Json.Encode.Value
-encodeCloudEventData =
-    encodeObject << encodeCloudEventDataPairs
-
-
-encodeCloudEventDataWithTag : ( String, String ) -> CloudEventData -> Json.Encode.Value
-encodeCloudEventDataWithTag (tagField, tag) model =
-    encodeObject (encodeCloudEventDataPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeCloudEventDataPairs : CloudEventData -> List EncodedField
-encodeCloudEventDataPairs model =
-    let
-        pairs =
+            , maybeEncode "datacontenttype" Json.Encode.string model.datacontenttype
+            , maybeEncode "dataschema" Json.Encode.string model.dataschema
+            , maybeEncode "subject" Json.Encode.string model.subject
+            , maybeEncode "time" Api.Time.encodeDateTime model.time
+            , maybeEncode "data" encodeObject model.data
+            , maybeEncode "data_base64" Json.Encode.string model.dataBase64
             ]
     in
     pairs
@@ -988,17 +960,12 @@ cloudEventDecoder =
         |> decode "source" Json.Decode.string 
         |> decode "specversion" Json.Decode.string 
         |> decode "type" Json.Decode.string 
-        |> maybeDecodeNullable "datacontenttype" Json.Decode.string Nothing
-        |> maybeDecodeNullable "dataschema" Json.Decode.string Nothing
-        |> maybeDecodeNullable "subject" Json.Decode.string Nothing
-        |> maybeDecodeNullable "time" Api.Time.dateTimeDecoder Nothing
-        |> maybeDecodeNullable "data" cloudEventDataDecoder Nothing
-        |> maybeDecodeNullable "data_base64" Json.Decode.string Nothing
-
-
-cloudEventDataDecoder : Json.Decode.Decoder CloudEventData
-cloudEventDataDecoder =
-    Json.Decode.succeed CloudEventData
+        |> maybeDecode "datacontenttype" Json.Decode.string Nothing
+        |> maybeDecode "dataschema" Json.Decode.string Nothing
+        |> maybeDecode "subject" Json.Decode.string Nothing
+        |> maybeDecode "time" Api.Time.dateTimeDecoder Nothing
+        |> maybeDecode "data" objectDecoder Nothing
+        |> maybeDecode "data_base64" Json.Decode.string Nothing
 
 
 graphNodeDecoder : Json.Decode.Decoder GraphNode

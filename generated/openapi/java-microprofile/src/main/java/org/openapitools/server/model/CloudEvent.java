@@ -14,8 +14,6 @@ package org.openapitools.server.model;
 
 import java.net.URI;
 import java.util.Date;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.CloudEventData;
 import java.lang.reflect.Type;
 import javax.json.bind.annotation.JsonbTypeDeserializer;
 import javax.json.bind.annotation.JsonbTypeSerializer;
@@ -81,8 +79,11 @@ public class CloudEvent  {
   @JsonbProperty("time")
   private Date time;
 
+ /**
+  * The event payload.
+  */
   @JsonbProperty("data")
-  private CloudEventData data;
+  private Object data;
 
  /**
   * Base64 encoded event payload. Must adhere to RFC4648.
@@ -251,21 +252,21 @@ public class CloudEvent  {
   }
 
   /**
-   * Get data
+   * The event payload.
    * @return data
    **/
-  public CloudEventData getData() {
+  public Object getData() {
     return data;
   }
 
   /**
    * Set data
    */
-  public void setData(CloudEventData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 
-  public CloudEvent data(CloudEventData data) {
+  public CloudEvent data(Object data) {
     this.data = data;
     return this;
   }

@@ -7,7 +7,6 @@ src/mindwm_api/specs/clipboard.clj
 src/mindwm_api/specs/clipboard_payload.clj
 src/mindwm_api/specs/clipboard_payload_context.clj
 src/mindwm_api/specs/cloud_event.clj
-src/mindwm_api/specs/cloud_event_data.clj
 src/mindwm_api/specs/graph_node.clj
 src/mindwm_api/specs/graph_node_all_of_data.clj
 src/mindwm_api/specs/graph_relationship.clj

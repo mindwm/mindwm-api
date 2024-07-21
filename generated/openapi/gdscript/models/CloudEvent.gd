@@ -77,11 +77,11 @@ var __subject__was__set := false
 # Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 # Required: False
 # isArray: false
-@export var some_time: AnyType:
+@export var time: AnyType:
 	set(value):
-		__some_time__was__set = true
-		some_time = value
-var __some_time__was__set := false
+		__time__was__set = true
+		time = value
+var __time__was__set := false
 
 # The event payload.
 # Required: False
@@ -131,8 +131,8 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["dataschema"] = self.dataschema
 	if self.__subject__was__set:
 		bzz_dictionary["subject"] = self.subject
-	if self.__some_time__was__set:
-		bzz_dictionary["some_time"] = self.some_time
+	if self.__time__was__set:
+		bzz_dictionary["time"] = self.time
 	if self.__data__was__set:
 		bzz_dictionary["data"] = self.data
 	if self.__dataUnderscorebase64__was__set:
@@ -157,8 +157,8 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 		me.dataschema = from_dict["dataschema"]
 	if from_dict.has("subject"):
 		me.subject = from_dict["subject"]
-	if from_dict.has("some_time"):
-		me.some_time = from_dict["some_time"]
+	if from_dict.has("time"):
+		me.time = from_dict["time"]
 	if from_dict.has("data"):
 		me.data = from_dict["data"]
 	if from_dict.has("dataUnderscorebase64"):

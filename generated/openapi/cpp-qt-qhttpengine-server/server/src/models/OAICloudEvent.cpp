@@ -137,7 +137,7 @@ QJsonObject OAICloudEvent::asJsonObject() const {
     if (m_time_isSet) {
         obj.insert(QString("time"), ::OpenAPI::toJsonValue(time));
     }
-    if (data.isSet()) {
+    if (m_data_isSet) {
         obj.insert(QString("data"), ::OpenAPI::toJsonValue(data));
     }
     if (m_data_base64_isSet) {
@@ -274,10 +274,10 @@ bool OAICloudEvent::is_time_Valid() const{
     return m_time_isValid;
 }
 
-OAICloudEvent_data OAICloudEvent::getData() const {
+OAIObject OAICloudEvent::getData() const {
     return data;
 }
-void OAICloudEvent::setData(const OAICloudEvent_data &data) {
+void OAICloudEvent::setData(const OAIObject &data) {
     this->data = data;
     this->m_data_isSet = true;
 }
@@ -349,7 +349,7 @@ bool OAICloudEvent::isSet() const {
             break;
         }
 
-        if (data.isSet()) {
+        if (m_data_isSet) {
             isObjectUpdated = true;
             break;
         }

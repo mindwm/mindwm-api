@@ -1,5 +1,4 @@
 const utils = require('../utils/utils');
-const CloudEvent_data = require('../models/CloudEvent_data');
 
 module.exports = {
     fields: (prefix = '', isInput = true, isArrayChild = false) => {
@@ -49,7 +48,11 @@ module.exports = {
                 label: `Timestamp of when the occurrence happened. Must adhere to RFC 3339. - [${labelPrefix}time]`,
                 type: 'string',
             },
-            ...CloudEvent_data.fields(`${keyPrefix}data`, isInput),
+            {
+                key: `${keyPrefix}data`,
+                label: `The event payload. - [${labelPrefix}data]`,
+                dict: true,
+            },
             {
                 key: `${keyPrefix}data_base64`,
                 label: `Base64 encoded event payload. Must adhere to RFC4648. - [${labelPrefix}data_base64]`,
@@ -68,7 +71,7 @@ module.exports = {
             'dataschema': bundle.inputData?.[`${keyPrefix}dataschema`],
             'subject': bundle.inputData?.[`${keyPrefix}subject`],
             'time': bundle.inputData?.[`${keyPrefix}time`],
-            'data': utils.removeIfEmpty(CloudEvent_data.mapping(bundle, `${keyPrefix}data`)),
+            'data': bundle.inputData?.[`${keyPrefix}data`],
             'data_base64': bundle.inputData?.[`${keyPrefix}data_base64`],
         }
     },

@@ -6,7 +6,6 @@ import { Clipboard } from '../models/Clipboard';
 import { ClipboardPayload } from '../models/ClipboardPayload';
 import { ClipboardPayloadContext } from '../models/ClipboardPayloadContext';
 import { CloudEvent } from '../models/CloudEvent';
-import { CloudEventData } from '../models/CloudEventData';
 import { GraphNode } from '../models/GraphNode';
 import { GraphNodeAllOfData } from '../models/GraphNodeAllOfData';
 import { GraphRelationship } from '../models/GraphRelationship';

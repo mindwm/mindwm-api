@@ -2,8 +2,6 @@ namespace MindWM.Model
 
 open System
 open System.Collections.Generic
-open MindWM.Model.CloudEventData
-open MindWM.Model.string option
 
 module CloudEvent =
 
@@ -15,11 +13,11 @@ module CloudEvent =
     Source : string;
     Specversion : string;
     Type : string;
-    Datacontenttype : string option;
-    Dataschema : string option;
-    Subject : string option;
+    Datacontenttype : string;
+    Dataschema : string;
+    Subject : string;
     Time : Nullable<DateTime>;
-    Data : CloudEventData;
-    DataBase64 : string option;
+    Data : obj;
+    DataBase64 : string;
   }
   //#endregion

@@ -63,7 +63,8 @@ API.Client.CloudEvent.prototype.subject;
 API.Client.CloudEvent.prototype.time;
 
 /**
- * @type {!API.Client.CloudEvent_data}
+ * The event payload.
+ * @type {!API.Client.Object}
  * @export
  */
 API.Client.CloudEvent.prototype.data;

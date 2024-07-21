@@ -6,7 +6,6 @@ docs/Clipboard.md
 docs/ClipboardPayload.md
 docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
-docs/CloudEventData.md
 docs/GraphNode.md
 docs/GraphNodeAllOfData.md
 docs/GraphRelationship.md
@@ -41,7 +40,6 @@ src/main/java/org/openapitools/client/model/Clipboard.java
 src/main/java/org/openapitools/client/model/ClipboardPayload.java
 src/main/java/org/openapitools/client/model/ClipboardPayloadContext.java
 src/main/java/org/openapitools/client/model/CloudEvent.java
-src/main/java/org/openapitools/client/model/CloudEventData.java
 src/main/java/org/openapitools/client/model/GraphNode.java
 src/main/java/org/openapitools/client/model/GraphNodeAllOfData.java
 src/main/java/org/openapitools/client/model/GraphRelationship.java

@@ -15,7 +15,6 @@ lib/Model/Clipboard.php
 lib/Model/ClipboardPayload.php
 lib/Model/ClipboardPayloadContext.php
 lib/Model/CloudEvent.php
-lib/Model/CloudEventData.php
 lib/Model/GraphNode.php
 lib/Model/GraphNodeAllOfData.php
 lib/Model/GraphRelationship.php
@@ -40,7 +39,6 @@ tests/BaseModelTest.php
 tests/Model/ClipboardPayloadContextTest.php
 tests/Model/ClipboardPayloadTest.php
 tests/Model/ClipboardTest.php
-tests/Model/CloudEventDataTest.php
 tests/Model/CloudEventTest.php
 tests/Model/GraphNodeAllOfDataTest.php
 tests/Model/GraphNodeTest.php

@@ -12,7 +12,7 @@
 #include <string>
 #include "bourne/json.hpp"
 #include "Helpers.h"
-#include "CloudEvent_data.h"
+#include "Object.h"
 
 namespace Tiny {
 
@@ -102,13 +102,13 @@ public:
 	/*! \brief Set Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 	 */
 	void setTime(std::string  time);
-	/*! \brief Get 
+	/*! \brief Get The event payload.
 	 */
-	CloudEvent_data getData();
+	Object getData();
 
-	/*! \brief Set 
+	/*! \brief Set The event payload.
 	 */
-	void setData(CloudEvent_data  data);
+	void setData(Object  data);
 	/*! \brief Get Base64 encoded event payload. Must adhere to RFC4648.
 	 */
 	std::string getDataBase64();
@@ -127,7 +127,7 @@ public:
     std::string dataschema{};
     std::string subject{};
     std::string time{};
-    CloudEvent_data data;
+    Object data;
     std::string data_base64{};
 };
 }

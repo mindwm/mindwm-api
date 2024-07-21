@@ -20,7 +20,7 @@
 
 #include <QJsonObject>
 
-#include "OAICloudEvent_data.h"
+#include "OAIObject.h"
 #include <QDateTime>
 #include <QString>
 
@@ -80,8 +80,8 @@ public:
     bool is_time_Set() const;
     bool is_time_Valid() const;
 
-    OAICloudEvent_data getData() const;
-    void setData(const OAICloudEvent_data &data);
+    OAIObject getData() const;
+    void setData(const OAIObject &data);
     bool is_data_Set() const;
     bool is_data_Valid() const;
 
@@ -128,7 +128,7 @@ private:
     bool m_time_isSet;
     bool m_time_isValid;
 
-    OAICloudEvent_data m_data;
+    OAIObject m_data;
     bool m_data_isSet;
     bool m_data_isValid;
 

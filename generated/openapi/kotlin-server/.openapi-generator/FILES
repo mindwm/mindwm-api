@@ -12,7 +12,6 @@ src/main/kotlin/MindWM/models/Clipboard.kt
 src/main/kotlin/MindWM/models/ClipboardPayload.kt
 src/main/kotlin/MindWM/models/ClipboardPayloadContext.kt
 src/main/kotlin/MindWM/models/CloudEvent.kt
-src/main/kotlin/MindWM/models/CloudEventData.kt
 src/main/kotlin/MindWM/models/GraphNode.kt
 src/main/kotlin/MindWM/models/GraphNodeAllOfData.kt
 src/main/kotlin/MindWM/models/GraphRelationship.kt

@@ -6,8 +6,6 @@ pub mod clipboard_payload_context;
 pub use self::clipboard_payload_context::ClipboardPayloadContext;
 pub mod cloud_event;
 pub use self::cloud_event::CloudEvent;
-pub mod cloud_event_data;
-pub use self::cloud_event_data::CloudEventData;
 pub mod graph_node;
 pub use self::graph_node::GraphNode;
 pub mod graph_node_all_of_data;

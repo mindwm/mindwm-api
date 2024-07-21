@@ -13,7 +13,6 @@ src/main/java/com/prokarma/pkmst/model/Clipboard.java
 src/main/java/com/prokarma/pkmst/model/ClipboardPayload.java
 src/main/java/com/prokarma/pkmst/model/ClipboardPayloadContext.java
 src/main/java/com/prokarma/pkmst/model/CloudEvent.java
-src/main/java/com/prokarma/pkmst/model/CloudEventData.java
 src/main/java/com/prokarma/pkmst/model/GraphNode.java
 src/main/java/com/prokarma/pkmst/model/GraphNodeAllOfData.java
 src/main/java/com/prokarma/pkmst/model/GraphRelationship.java

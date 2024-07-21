@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Selection context
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T16:07:34.486843044Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-21T21:29:10.640893411Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardPayloadContext {
   public static final String SERIALIZED_NAME_WINDOW = "window";
   @SerializedName(SERIALIZED_NAME_WINDOW)

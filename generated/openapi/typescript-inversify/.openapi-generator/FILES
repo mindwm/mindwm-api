@@ -9,7 +9,6 @@ model/clipboard.ts
 model/clipboardPayload.ts
 model/clipboardPayloadContext.ts
 model/cloudEvent.ts
-model/cloudEventData.ts
 model/graphNode.ts
 model/graphNodeAllOfData.ts
 model/graphRelationship.ts

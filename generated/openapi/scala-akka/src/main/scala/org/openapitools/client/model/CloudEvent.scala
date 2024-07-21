@@ -32,7 +32,8 @@ case class CloudEvent (
   subject: Option[String] = None,
   /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
   time: Option[OffsetDateTime] = None,
-  data: Option[CloudEventData] = None,
+  /* The event payload. */
+  data: Option[Any] = None,
   /* Base64 encoded event payload. Must adhere to RFC4648. */
   dataBase64: Option[String] = None
 ) extends ApiModel

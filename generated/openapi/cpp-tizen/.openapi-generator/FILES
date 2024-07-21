@@ -10,8 +10,6 @@ src/ClipboardPayloadContext.cpp
 src/ClipboardPayloadContext.h
 src/CloudEvent.cpp
 src/CloudEvent.h
-src/CloudEventData.cpp
-src/CloudEventData.h
 src/Error.cpp
 src/Error.h
 src/GraphNode.cpp

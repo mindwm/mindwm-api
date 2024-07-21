@@ -190,7 +190,7 @@ bool CloudEvent::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("data")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<CloudEvent_data> refVal_setData;
+            std::shared_ptr<Object> refVal_setData;
             ok &= ModelBase::fromJson(fieldValue, refVal_setData);
             setData(refVal_setData);
         }
@@ -316,7 +316,7 @@ bool CloudEvent::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, con
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("data"))))
     {
-        std::shared_ptr<CloudEvent_data> refVal_setData;
+        std::shared_ptr<Object> refVal_setData;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("data"))), refVal_setData );
         setData(refVal_setData);
     }
@@ -489,12 +489,12 @@ void CloudEvent::unsetTime()
 {
     m_TimeIsSet = false;
 }
-std::shared_ptr<CloudEvent_data> CloudEvent::getData() const
+std::shared_ptr<Object> CloudEvent::getData() const
 {
     return m_Data;
 }
 
-void CloudEvent::setData(const std::shared_ptr<CloudEvent_data>& value)
+void CloudEvent::setData(const std::shared_ptr<Object>& value)
 {
     m_Data = value;
     m_DataIsSet = true;

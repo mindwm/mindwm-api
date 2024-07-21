@@ -51,8 +51,9 @@ module OpenAPIClient
     @[JSON::Field(key: "time", type: Time?, nillable: true, emit_null: false)]
     property time : Time?
 
-    @[JSON::Field(key: "data", type: CloudEventData?, nillable: true, emit_null: false)]
-    property data : CloudEventData?
+    # The event payload.
+    @[JSON::Field(key: "data", type: Object?, nillable: true, emit_null: false)]
+    property data : Object?
 
     # Base64 encoded event payload. Must adhere to RFC4648.
     @[JSON::Field(key: "data_base64", type: String?, nillable: true, emit_null: false)]
@@ -60,7 +61,7 @@ module OpenAPIClient
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(@id : String, @source : String, @specversion : String, @_type : String, @datacontenttype : String?, @dataschema : String?, @subject : String?, @time : Time?, @data : CloudEventData?, @data_base64 : String?)
+    def initialize(@id : String, @source : String, @specversion : String, @_type : String, @datacontenttype : String?, @dataschema : String?, @subject : String?, @time : Time?, @data : Object?, @data_base64 : String?)
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?

@@ -10,7 +10,6 @@ MindWM/models/clipboard.py
 MindWM/models/clipboard_payload.py
 MindWM/models/clipboard_payload_context.py
 MindWM/models/cloud_event.py
-MindWM/models/cloud_event_data.py
 MindWM/models/graph_node.py
 MindWM/models/graph_node_all_of_data.py
 MindWM/models/graph_relationship.py

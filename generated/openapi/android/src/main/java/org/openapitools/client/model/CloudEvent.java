@@ -14,7 +14,6 @@ package org.openapitools.client.model;
 
 import java.net.URI;
 import java.util.Date;
-import org.openapitools.client.model.CloudEventData;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -41,7 +40,7 @@ public class CloudEvent {
   @SerializedName("time")
   private Date time = null;
   @SerializedName("data")
-  private CloudEventData data = null;
+  private Object data = null;
   @SerializedName("data_base64")
   private String dataBase64 = null;
 
@@ -134,12 +133,13 @@ public class CloudEvent {
   }
 
   /**
+   * The event payload.
    **/
-  @ApiModelProperty(value = "")
-  public CloudEventData getData() {
+  @ApiModelProperty(value = "The event payload.")
+  public Object getData() {
     return data;
   }
-  public void setData(CloudEventData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 

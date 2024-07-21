@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Dataschema** | **String** | Identifies the schema that data adheres to. | [optional] 
 **Subject** | **String** | Describes the subject of the event in the context of the event producer (identified by source). | [optional] 
 **Time** | **System.DateTime** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
-**VarData** | [**CloudEventData**](CloudEventData.md) |  | [optional] 
+**VarData** | [**SystemCollectionsHashtable**](.md) | The event payload. | [optional] 
 **DataBase64** | **String** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
 ## Examples

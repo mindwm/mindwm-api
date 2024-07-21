@@ -12,8 +12,6 @@ model/ClipboardPayload_context.cpp
 model/ClipboardPayload_context.h
 model/CloudEvent.cpp
 model/CloudEvent.h
-model/CloudEvent_data.cpp
-model/CloudEvent_data.h
 model/GraphNode.cpp
 model/GraphNode.h
 model/GraphNode_allOf_data.cpp

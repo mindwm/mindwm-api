@@ -10,7 +10,6 @@ lib/mindwm_api/model/clipboard.ex
 lib/mindwm_api/model/clipboard_payload.ex
 lib/mindwm_api/model/clipboard_payload_context.ex
 lib/mindwm_api/model/cloud_event.ex
-lib/mindwm_api/model/cloud_event_data.ex
 lib/mindwm_api/model/graph_node.ex
 lib/mindwm_api/model/graph_node_all_of_data.ex
 lib/mindwm_api/model/graph_relationship.ex

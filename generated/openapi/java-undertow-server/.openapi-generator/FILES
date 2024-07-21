@@ -7,7 +7,6 @@ src/main/java/org/openapitools/model/Clipboard.java
 src/main/java/org/openapitools/model/ClipboardPayload.java
 src/main/java/org/openapitools/model/ClipboardPayloadContext.java
 src/main/java/org/openapitools/model/CloudEvent.java
-src/main/java/org/openapitools/model/CloudEventData.java
 src/main/java/org/openapitools/model/GraphNode.java
 src/main/java/org/openapitools/model/GraphNodeAllOfData.java
 src/main/java/org/openapitools/model/GraphRelationship.java

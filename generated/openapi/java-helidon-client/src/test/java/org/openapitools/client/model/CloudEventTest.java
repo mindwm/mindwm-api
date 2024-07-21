@@ -20,10 +20,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
 import java.time.OffsetDateTime;
-import org.openapitools.client.model.CloudEventData;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.NoSuchElementException;
 
 import org.junit.jupiter.api.Test;
 

@@ -105,7 +105,6 @@ Class | Method | HTTP request | Description
  - [Model.ClipboardPayload](docs/ClipboardPayload.md)
  - [Model.ClipboardPayloadContext](docs/ClipboardPayloadContext.md)
  - [Model.CloudEvent](docs/CloudEvent.md)
- - [Model.CloudEventData](docs/CloudEventData.md)
  - [Model.GraphNode](docs/GraphNode.md)
  - [Model.GraphNodeAllOfData](docs/GraphNodeAllOfData.md)
  - [Model.GraphRelationship](docs/GraphRelationship.md)

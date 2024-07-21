@@ -2,7 +2,6 @@ export * from '../models/Clipboard';
 export * from '../models/ClipboardPayload';
 export * from '../models/ClipboardPayloadContext';
 export * from '../models/CloudEvent';
-export * from '../models/CloudEventData';
 export * from '../models/GraphNode';
 export * from '../models/GraphNodeAllOfData';
 export * from '../models/GraphRelationship';
@@ -23,7 +22,6 @@ import { Clipboard } from '../models/Clipboard';
 import { ClipboardPayload   , ClipboardPayloadTypeEnum    } from '../models/ClipboardPayload';
 import { ClipboardPayloadContext } from '../models/ClipboardPayloadContext';
 import { CloudEvent } from '../models/CloudEvent';
-import { CloudEventData } from '../models/CloudEventData';
 import { GraphNode , GraphNodeSourceEnum   , GraphNodeTypeEnum         } from '../models/GraphNode';
 import { GraphNodeAllOfData } from '../models/GraphNodeAllOfData';
 import { GraphRelationship , GraphRelationshipSourceEnum   , GraphRelationshipTypeEnum         } from '../models/GraphRelationship';
@@ -65,7 +63,6 @@ let typeMap: {[index: string]: any} = {
     "ClipboardPayload": ClipboardPayload,
     "ClipboardPayloadContext": ClipboardPayloadContext,
     "CloudEvent": CloudEvent,
-    "CloudEventData": CloudEventData,
     "GraphNode": GraphNode,
     "GraphNodeAllOfData": GraphNodeAllOfData,
     "GraphRelationship": GraphRelationship,

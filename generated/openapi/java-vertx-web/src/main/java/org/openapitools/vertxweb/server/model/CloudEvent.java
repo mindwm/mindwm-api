@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.net.URI;
 import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.vertxweb.server.model.CloudEventData;
 
 /**
  * CloudEvents Specification JSON Schema
@@ -22,14 +20,14 @@ public class CloudEvent   {
   private URI dataschema;
   private String subject;
   private OffsetDateTime time;
-  private CloudEventData data;
+  private Object data;
   private String dataBase64;
 
   public CloudEvent () {
 
   }
 
-  public CloudEvent (String id, String source, String specversion, String type, String datacontenttype, URI dataschema, String subject, OffsetDateTime time, CloudEventData data, String dataBase64) {
+  public CloudEvent (String id, String source, String specversion, String type, String datacontenttype, URI dataschema, String subject, OffsetDateTime time, Object data, String dataBase64) {
     this.id = id;
     this.source = source;
     this.specversion = specversion;
@@ -116,10 +114,10 @@ public class CloudEvent   {
 
     
   @JsonProperty("data")
-  public CloudEventData getData() {
+  public Object getData() {
     return data;
   }
-  public void setData(CloudEventData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 

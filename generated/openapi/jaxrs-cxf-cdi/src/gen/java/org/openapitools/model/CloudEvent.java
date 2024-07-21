@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.net.URI;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.CloudEventData;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -37,7 +35,7 @@ public class CloudEvent   {
 
   private java.util.Date time;
 
-  private CloudEventData data;
+  private Object data;
 
   private String dataBase64;
 
@@ -198,19 +196,20 @@ public class CloudEvent   {
 
 
   /**
+   * The event payload.
    **/
-  public CloudEvent data(CloudEventData data) {
+  public CloudEvent data(Object data) {
     this.data = data;
     return this;
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The event payload.")
   @JsonProperty("data")
-  public CloudEventData getData() {
+  public Object getData() {
     return data;
   }
-  public void setData(CloudEventData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 

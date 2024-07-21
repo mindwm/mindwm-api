@@ -205,7 +205,6 @@ font-style: italic;
     <li><a href="#ClipboardPayload"><code>ClipboardPayload</code> - </a></li>
     <li><a href="#ClipboardPayload_context"><code>ClipboardPayload_context</code> - </a></li>
     <li><a href="#CloudEvent"><code>CloudEvent</code> - </a></li>
-    <li><a href="#CloudEvent_data"><code>CloudEvent_data</code> - </a></li>
     <li><a href="#GraphNode"><code>GraphNode</code> - </a></li>
     <li><a href="#GraphNode_allOf_data"><code>GraphNode_allOf_data</code> - </a></li>
     <li><a href="#GraphRelationship"><code>GraphRelationship</code> - </a></li>
@@ -271,15 +270,9 @@ font-style: italic;
 <div class="param">dataschema (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> Identifies the schema that data adheres to. format: uri</div>
 <div class="param">subject (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Describes the subject of the event in the context of the event producer (identified by source). </div>
 <div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Timestamp of when the occurrence happened. Must adhere to RFC 3339. format: date-time</div>
-<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#CloudEvent_data">CloudEvent_data</a></span>  </div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span> The event payload. </div>
 <div class="param">data_base64 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Base64 encoded event payload. Must adhere to RFC4648. </div>
     </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="CloudEvent_data"><code>CloudEvent_data</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The event payload.</div>
-    <div class="field-items">
-          </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="GraphNode"><code>GraphNode</code> - </a> <a class="up" href="#__Models">Up</a></h3>

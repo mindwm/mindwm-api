@@ -13,9 +13,9 @@
 
 // this model was generated using model.mustache
 package MindWM.model
-import MindWM.model.CloudEventData
 import MindWM.model.URI
 import java.time.OffsetDateTime
+import ujson.Value
 import scala.util.control.NonFatal
 
 // see https://com-lihaoyi.github.io/upickle/
@@ -47,7 +47,8 @@ case class CloudEvent(
   /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
   time: Option[OffsetDateTime] = None ,
 
-    data: Option[CloudEventData] = None ,
+  /* The event payload. */
+  data: Option[Value] = None ,
 
   /* Base64 encoded event payload. Must adhere to RFC4648. */
   dataBase64: Option[String] = None 
@@ -66,7 +67,7 @@ case class CloudEvent(
             dataschema = dataschema.getOrElse(""),
             subject = subject.getOrElse(""),
             time = time.getOrElse(null),
-            data = data.map(_.asData).getOrElse(null),
+            data = data.getOrElse(ujson.Null),
             dataBase64 = dataBase64.getOrElse("")
     )
   }

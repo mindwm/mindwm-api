@@ -13,9 +13,9 @@
 
 // this model was generated using modelTest.mustache
 package MindWM.model
-import MindWM.model.CloudEventData
 import MindWM.model.URI
 import java.time.OffsetDateTime
+import ujson.Value
 
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec

@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import CloudEventData from './CloudEventData';
 
 /**
  * The CloudEvent model module.
@@ -82,7 +81,7 @@ class CloudEvent {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = CloudEventData.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], Object);
             }
             if (data.hasOwnProperty('data_base64')) {
                 obj['data_base64'] = ApiClient.convertToType(data['data_base64'], 'String');
@@ -130,10 +129,6 @@ class CloudEvent {
         // ensure the json data is a string
         if (data['subject'] && !(typeof data['subject'] === 'string' || data['subject'] instanceof String)) {
             throw new Error("Expected the field `subject` to be a primitive type in the JSON string but got " + data['subject']);
-        }
-        // validate the optional field `data`
-        if (data['data']) { // data not null
-          CloudEventData.validateJSON(data['data']);
         }
         // ensure the json data is a string
         if (data['data_base64'] && !(typeof data['data_base64'] === 'string' || data['data_base64'] instanceof String)) {
@@ -197,7 +192,8 @@ CloudEvent.prototype['subject'] = undefined;
 CloudEvent.prototype['time'] = undefined;
 
 /**
- * @member {module:model/CloudEventData} data
+ * The event payload.
+ * @member {Object} data
  */
 CloudEvent.prototype['data'] = undefined;
 

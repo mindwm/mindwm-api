@@ -58,7 +58,6 @@ set(SRCS
     model/clipboard_payload.c
     model/clipboard_payload_context.c
     model/cloud_event.c
-    model/cloud_event_data.c
     model/graph_node.c
     model/graph_node_all_of_data.c
     model/graph_relationship.c
@@ -88,7 +87,6 @@ set(HDRS
     model/clipboard_payload.h
     model/clipboard_payload_context.h
     model/cloud_event.h
-    model/cloud_event_data.h
     model/graph_node.h
     model/graph_node_all_of_data.h
     model/graph_relationship.h

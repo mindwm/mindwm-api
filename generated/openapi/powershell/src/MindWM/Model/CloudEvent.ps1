@@ -31,7 +31,7 @@ Describes the subject of the event in the context of the event producer (identif
 .PARAMETER Time
 Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 .PARAMETER VarData
-No description available.
+The event payload.
 .PARAMETER DataBase64
 Base64 encoded event payload. Must adhere to RFC4648.
 .OUTPUTS

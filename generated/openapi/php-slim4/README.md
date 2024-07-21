@@ -170,7 +170,6 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\ClipboardPayload
 * OpenAPIServer\Model\ClipboardPayloadContext
 * OpenAPIServer\Model\CloudEvent
-* OpenAPIServer\Model\CloudEventData
 * OpenAPIServer\Model\GraphNode
 * OpenAPIServer\Model\GraphNodeAllOfData
 * OpenAPIServer\Model\GraphRelationship

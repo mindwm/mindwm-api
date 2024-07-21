@@ -13,7 +13,6 @@ app/models/clipboard.rb
 app/models/clipboard_payload.rb
 app/models/clipboard_payload_context.rb
 app/models/cloud_event.rb
-app/models/cloud_event_data.rb
 app/models/graph_node.rb
 app/models/graph_node_all_of_data.rb
 app/models/graph_relationship.rb

@@ -21,8 +21,8 @@
 
 
 
-#include "CloudEvent_data.h"
 #include <string>
+#include "Object.h"
 #include <memory>
 #include <vector>
 #include <boost/property_tree/ptree.hpp>
@@ -99,10 +99,10 @@ public:
     void setTime(std::string value);
 
     /// <summary>
-    /// 
+    /// The event payload.
     /// </summary>
-    std::shared_ptr<CloudEvent_data> getData() const;
-    void setData(std::shared_ptr<CloudEvent_data> value);
+    std::shared_ptr<Object> getData() const;
+    void setData(std::shared_ptr<Object> value);
 
     /// <summary>
     /// Base64 encoded event payload. Must adhere to RFC4648.
@@ -130,7 +130,7 @@ protected:
     std::string m_Dataschema = "";
     std::string m_Subject = "";
     std::string m_Time = "";
-    std::shared_ptr<CloudEvent_data> m_Data;
+    std::shared_ptr<Object> m_Data = nullptr;
     std::string m_Data_base64 = "";
 };
 

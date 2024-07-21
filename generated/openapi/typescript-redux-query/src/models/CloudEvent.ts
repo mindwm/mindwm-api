@@ -12,12 +12,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import {
-    CloudEventData,
-    CloudEventDataFromJSON,
-    CloudEventDataToJSON,
-} from './';
-
 /**
  * CloudEvents Specification JSON Schema
  * @export
@@ -73,11 +67,11 @@ export interface CloudEvent  {
      */
     time?: Date;
     /**
-     * 
-     * @type {CloudEventData}
+     * The event payload.
+     * @type {object}
      * @memberof CloudEvent
      */
-    data?: CloudEventData;
+    data?: object;
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      * @type {string}
@@ -96,7 +90,7 @@ export function CloudEventFromJSON(json: any): CloudEvent {
         'dataschema': !exists(json, 'dataschema') ? undefined : json['dataschema'],
         'subject': !exists(json, 'subject') ? undefined : json['subject'],
         'time': !exists(json, 'time') ? undefined : new Date(json['time']),
-        'data': !exists(json, 'data') ? undefined : CloudEventDataFromJSON(json['data']),
+        'data': !exists(json, 'data') ? undefined : json['data'],
         'dataBase64': !exists(json, 'data_base64') ? undefined : json['data_base64'],
     };
 }
@@ -114,7 +108,7 @@ export function CloudEventToJSON(value?: CloudEvent): any {
         'dataschema': value.dataschema,
         'subject': value.subject,
         'time': value.time === undefined ? undefined : value.time.toISOString(),
-        'data': CloudEventDataToJSON(value.data),
+        'data': value.data,
         'data_base64': value.dataBase64,
     };
 }

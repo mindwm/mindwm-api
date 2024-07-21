@@ -9,7 +9,6 @@
 
 
 #include <string>
-#include "CloudEvent_data.h"
 #include "Object.h"
 
 /** \defgroup Models Data Structures for API
@@ -102,13 +101,13 @@ public:
 	/*! \brief Set Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 	 */
 	void setTime(std::string  time);
-	/*! \brief Get 
+	/*! \brief Get The event payload.
 	 */
-	CloudEvent_data getData();
+	std::string getData();
 
-	/*! \brief Set 
+	/*! \brief Set The event payload.
 	 */
-	void setData(CloudEvent_data  data);
+	void setData(std::string  data);
 	/*! \brief Get Base64 encoded event payload. Must adhere to RFC4648.
 	 */
 	std::string getDataBase64();
@@ -126,7 +125,7 @@ private:
 	std::string dataschema;
 	std::string subject;
 	std::string time;
-	CloudEvent_data data;
+	std::string data;
 	std::string data_base64;
 	void __init();
 	void __cleanup();

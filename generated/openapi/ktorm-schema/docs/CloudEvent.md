@@ -13,7 +13,7 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **dataschema** | dataschema | text |  | [**java.net.URI**](java.net.URI.md) | Identifies the schema that data adheres to. |  [optional]
 **subject** | subject | text |  | **kotlin.String** | Describes the subject of the event in the context of the event producer (identified by source). |  [optional]
 **time** | time | datetime |  | [**java.time.LocalDateTime**](java.time.LocalDateTime.md) | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  [optional]
-**data** | data | long |  | [**CloudEventData**](CloudEventData.md) |  |  [optional] [foreignkey]
+**data** | data | blob |  | [**kotlin.Any**](.md) | The event payload. |  [optional]
 **dataBase64** | data_base64 | text |  | **kotlin.String** | Base64 encoded event payload. Must adhere to RFC4648. |  [optional]
 
 

@@ -378,11 +378,11 @@ void CloudEvent::unsetTime()
 {
     m_TimeIsSet = false;
 }
-org::openapitools::server::model::CloudEvent_data CloudEvent::getData() const
+nlohmann::json CloudEvent::getData() const
 {
     return m_Data;
 }
-void CloudEvent::setData(org::openapitools::server::model::CloudEvent_data const& value)
+void CloudEvent::setData(nlohmann::json const& value)
 {
     m_Data = value;
     m_DataIsSet = true;

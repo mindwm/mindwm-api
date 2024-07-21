@@ -66,7 +66,7 @@ class CloudEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'dataschema' => 'string',
         'subject' => 'string',
         'time' => '\DateTime',
-        'data' => '\OpenAPI\Client\Model\CloudEventData',
+        'data' => 'object',
         'data_base64' => 'string'
     ];
 
@@ -100,12 +100,12 @@ class CloudEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'source' => false,
         'specversion' => false,
         'type' => false,
-        'datacontenttype' => true,
-        'dataschema' => true,
-        'subject' => true,
-        'time' => true,
-        'data' => true,
-        'data_base64' => true
+        'datacontenttype' => false,
+        'dataschema' => false,
+        'subject' => false,
+        'time' => false,
+        'data' => false,
+        'data_base64' => false
     ];
 
     /**
@@ -545,17 +545,10 @@ class CloudEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDatacontenttype($datacontenttype)
     {
         if (is_null($datacontenttype)) {
-            array_push($this->openAPINullablesSetToNull, 'datacontenttype');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('datacontenttype', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable datacontenttype cannot be null');
         }
 
-        if (!is_null($datacontenttype) && (mb_strlen($datacontenttype) < 1)) {
+        if ((mb_strlen($datacontenttype) < 1)) {
             throw new \InvalidArgumentException('invalid length for $datacontenttype when calling CloudEvent., must be bigger than or equal to 1.');
         }
 
@@ -584,17 +577,10 @@ class CloudEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDataschema($dataschema)
     {
         if (is_null($dataschema)) {
-            array_push($this->openAPINullablesSetToNull, 'dataschema');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dataschema', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable dataschema cannot be null');
         }
 
-        if (!is_null($dataschema) && (mb_strlen($dataschema) < 1)) {
+        if ((mb_strlen($dataschema) < 1)) {
             throw new \InvalidArgumentException('invalid length for $dataschema when calling CloudEvent., must be bigger than or equal to 1.');
         }
 
@@ -623,17 +609,10 @@ class CloudEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSubject($subject)
     {
         if (is_null($subject)) {
-            array_push($this->openAPINullablesSetToNull, 'subject');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('subject', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable subject cannot be null');
         }
 
-        if (!is_null($subject) && (mb_strlen($subject) < 1)) {
+        if ((mb_strlen($subject) < 1)) {
             throw new \InvalidArgumentException('invalid length for $subject when calling CloudEvent., must be bigger than or equal to 1.');
         }
 
@@ -662,17 +641,10 @@ class CloudEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTime($time)
     {
         if (is_null($time)) {
-            array_push($this->openAPINullablesSetToNull, 'time');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('time', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable time cannot be null');
         }
 
-        if (!is_null($time) && (mb_strlen($time) < 1)) {
+        if ((mb_strlen($time) < 1)) {
             throw new \InvalidArgumentException('invalid length for $time when calling CloudEvent., must be bigger than or equal to 1.');
         }
 
@@ -684,7 +656,7 @@ class CloudEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\CloudEventData|null
+     * @return object|null
      */
     public function getData()
     {
@@ -694,21 +666,14 @@ class CloudEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\CloudEventData|null $data data
+     * @param object|null $data The event payload.
      *
      * @return self
      */
     public function setData($data)
     {
         if (is_null($data)) {
-            array_push($this->openAPINullablesSetToNull, 'data');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
         $this->container['data'] = $data;
 
@@ -735,14 +700,7 @@ class CloudEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDataBase64($data_base64)
     {
         if (is_null($data_base64)) {
-            array_push($this->openAPINullablesSetToNull, 'data_base64');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data_base64', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable data_base64 cannot be null');
         }
         $this->container['data_base64'] = $data_base64;
 

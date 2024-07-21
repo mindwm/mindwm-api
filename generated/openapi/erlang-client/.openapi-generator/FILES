@@ -6,7 +6,6 @@ src/MindWM_clipboard.erl
 src/MindWM_clipboard_payload.erl
 src/MindWM_clipboard_payload_context.erl
 src/MindWM_cloud_event.erl
-src/MindWM_cloud_event_data.erl
 src/MindWM_graph_node.erl
 src/MindWM_graph_node_all_of_data.erl
 src/MindWM_graph_relationship.erl

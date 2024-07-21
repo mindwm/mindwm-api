@@ -50,8 +50,8 @@
     },
     {
       "name": "data",
-      "type": ["null", "MindWM.CloudEventData"],
-      "doc": "",
+      "type": ["null", "MindWM.object"],
+      "doc": "The event payload.",
       "default": null
     },
     {

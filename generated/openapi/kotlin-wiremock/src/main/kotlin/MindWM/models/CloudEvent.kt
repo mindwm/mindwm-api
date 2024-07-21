@@ -33,7 +33,7 @@ data class CloudEvent(
     val time: java.time.OffsetDateTime? = null,
 
     @field:JsonProperty("data")
-    val `data`: CloudEventData? = null,
+    val `data`: kotlin.Any? = null,
 
     @field:JsonProperty("data_base64")
     val dataBase64: kotlin.String? = null,

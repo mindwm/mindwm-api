@@ -14,7 +14,6 @@ models/Clipboard.ts
 models/ClipboardPayload.ts
 models/ClipboardPayloadContext.ts
 models/CloudEvent.ts
-models/CloudEventData.ts
 models/GraphNode.ts
 models/GraphNodeAllOfData.ts
 models/GraphRelationship.ts

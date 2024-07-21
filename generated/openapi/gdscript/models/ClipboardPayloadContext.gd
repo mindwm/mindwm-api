@@ -14,11 +14,11 @@ class_name ClipboardPayloadContext
 # window id
 # Required: False
 # isArray: false
-@export var some_window: AnyType:
+@export var window: AnyType:
 	set(value):
-		__some_window__was__set = true
-		some_window = value
-var __some_window__was__set := false
+		__window__was__set = true
+		window = value
+var __window__was__set := false
 
 
 func bzz_collect_missing_properties() -> Array:
@@ -28,16 +28,16 @@ func bzz_collect_missing_properties() -> Array:
 
 func bzz_normalize() -> Dictionary:
 	var bzz_dictionary := Dictionary()
-	if self.__some_window__was__set:
-		bzz_dictionary["some_window"] = self.some_window
+	if self.__window__was__set:
+		bzz_dictionary["window"] = self.window
 	return bzz_dictionary
 
 
 # Won't work for JSON+LD
 static func bzz_denormalize_single(from_dict: Dictionary):
 	var me := new()
-	if from_dict.has("some_window"):
-		me.some_window = from_dict["some_window"]
+	if from_dict.has("window"):
+		me.window = from_dict["window"]
 	return me
 
 

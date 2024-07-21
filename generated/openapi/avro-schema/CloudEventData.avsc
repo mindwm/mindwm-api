@@ -1,9 +1,0 @@
-{
-  "namespace": "MindWM",
-  "type": "record",
-  "doc": "The event payload.",
-  "name": "CloudEventData",
-  "fields": [
-  ]
-
-}

@@ -5,7 +5,6 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from MindWM.models.base_model import Model
-from MindWM.models.cloud_event_data import CloudEventData
 from MindWM import util
 
 
@@ -15,7 +14,7 @@ class CloudEvent(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: str=None, source: str=None, specversion: str=None, type: str=None, datacontenttype: str=None, dataschema: str=None, subject: str=None, time: datetime=None, data: CloudEventData=None, data_base64: str=None):
+    def __init__(self, id: str=None, source: str=None, specversion: str=None, type: str=None, datacontenttype: str=None, dataschema: str=None, subject: str=None, time: datetime=None, data: object=None, data_base64: str=None):
         """CloudEvent - a model defined in OpenAPI
 
         :param id: The id of this CloudEvent.
@@ -38,7 +37,7 @@ class CloudEvent(Model):
             'dataschema': str,
             'subject': str,
             'time': datetime,
-            'data': CloudEventData,
+            'data': object,
             'data_base64': str
         }
 
@@ -287,9 +286,10 @@ class CloudEvent(Model):
     def data(self):
         """Gets the data of this CloudEvent.
 
+        The event payload.
 
         :return: The data of this CloudEvent.
-        :rtype: CloudEventData
+        :rtype: object
         """
         return self._data
 
@@ -297,9 +297,10 @@ class CloudEvent(Model):
     def data(self, data):
         """Sets the data of this CloudEvent.
 
+        The event payload.
 
         :param data: The data of this CloudEvent.
-        :type data: CloudEventData
+        :type data: object
         """
 
         self._data = data

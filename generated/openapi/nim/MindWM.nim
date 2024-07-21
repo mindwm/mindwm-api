@@ -12,7 +12,6 @@ import MindWM/models/model_clipboard
 import MindWM/models/model_clipboard_payload
 import MindWM/models/model_clipboard_payload_context
 import MindWM/models/model_cloud_event
-import MindWM/models/model_cloud_event_data
 import MindWM/models/model_graph_node
 import MindWM/models/model_graph_node_all_of_data
 import MindWM/models/model_graph_relationship
@@ -33,7 +32,6 @@ export model_clipboard
 export model_clipboard_payload
 export model_clipboard_payload_context
 export model_cloud_event
-export model_cloud_event_data
 export model_graph_node
 export model_graph_node_all_of_data
 export model_graph_relationship

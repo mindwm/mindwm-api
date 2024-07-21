@@ -73,7 +73,6 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::ClipboardPayload](docs/ClipboardPayload.md)
  - [OpenapiClient::ClipboardPayloadContext](docs/ClipboardPayloadContext.md)
  - [OpenapiClient::CloudEvent](docs/CloudEvent.md)
- - [OpenapiClient::CloudEventData](docs/CloudEventData.md)
  - [OpenapiClient::GraphNode](docs/GraphNode.md)
  - [OpenapiClient::GraphNodeAllOfData](docs/GraphNodeAllOfData.md)
  - [OpenapiClient::GraphRelationship](docs/GraphRelationship.md)

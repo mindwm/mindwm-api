@@ -14,8 +14,6 @@ OpenAPIClient/Models/ClipboardPayloadContext.xojo_code
 OpenAPIClient/Models/ClipboardPayloadContextOptional.xojo_code
 OpenAPIClient/Models/ClipboardPayloadOptional.xojo_code
 OpenAPIClient/Models/CloudEvent.xojo_code
-OpenAPIClient/Models/CloudEventData.xojo_code
-OpenAPIClient/Models/CloudEventDataOptional.xojo_code
 OpenAPIClient/Models/CloudEventOptional.xojo_code
 OpenAPIClient/Models/GraphNode.xojo_code
 OpenAPIClient/Models/GraphNodeAllOfData.xojo_code

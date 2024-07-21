@@ -138,12 +138,14 @@ class CloudEvent
     protected ?\DateTime $time = null;
 
     /**
-     * @var CloudEventData|null
+     * The event payload.
+     *
+     * @var array|null
      * @SerializedName("data")
-     * @Type("OpenAPI\Server\Model\CloudEventData")
+     * @Type("array")
     */
-    #[Assert\Type("OpenAPI\Server\Model\CloudEventData")]
-    protected ?CloudEventData $data = null;
+    #[Assert\Type("array")]
+    protected ?array $data = null;
 
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
@@ -394,9 +396,9 @@ class CloudEvent
     /**
      * Gets data.
      *
-     * @return CloudEventData|null
+     * @return array|null
      */
-    public function getData(): ?CloudEventData
+    public function getData(): ?array
     {
         return $this->data;
     }
@@ -404,11 +406,11 @@ class CloudEvent
     /**
     * Sets data.
     *
-    * @param CloudEventData|null $data
+    * @param array|null $data  The event payload.
     *
     * @return $this
     */
-    public function setData(?CloudEventData $data = null): self
+    public function setData(?array $data = null): self
     {
         $this->data = $data;
 

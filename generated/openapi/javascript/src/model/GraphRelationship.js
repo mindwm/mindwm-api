@@ -254,7 +254,8 @@ CloudEvent.prototype['subject'] = undefined;
  */
 CloudEvent.prototype['time'] = undefined;
 /**
- * @member {module:model/CloudEventData} data
+ * The event payload.
+ * @member {Object} data
  */
 CloudEvent.prototype['data'] = undefined;
 /**

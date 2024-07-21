@@ -2,8 +2,6 @@ package org.openapitools.server.model;
 
 import java.net.URI;
 import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.CloudEventData;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -21,7 +19,7 @@ public class CloudEvent   {
     private URI dataschema;
     private String subject;
     private OffsetDateTime time;
-    private CloudEventData data;
+    private Object data;
     private String dataBase64;
 
     /**
@@ -42,7 +40,7 @@ public class CloudEvent   {
      * @param dataschema Identifies the schema that data adheres to.
      * @param subject Describes the subject of the event in the context of the event producer (identified by source).
      * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-     * @param data data
+     * @param data The event payload.
      * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
      */
     public CloudEvent(
@@ -54,7 +52,7 @@ public class CloudEvent   {
         URI dataschema, 
         String subject, 
         OffsetDateTime time, 
-        CloudEventData data, 
+        Object data, 
         String dataBase64
     ) {
         this.id = id;
@@ -168,14 +166,14 @@ public class CloudEvent   {
     }
 
     /**
-     * Get data
+     * The event payload.
      * @return data
      */
-    public CloudEventData getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(CloudEventData data) {
+    public void setData(Object data) {
         this.data = data;
     }
 

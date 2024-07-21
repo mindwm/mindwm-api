@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **Source** | **string** | Identifies the context in which an event happened. | 
 **Specversion** | **string** | The version of the CloudEvents specification which the event uses. | 
 **Type** | **string** | Describes the type of event related to the originating occurrence. | 
-**Datacontenttype** | Pointer to **NullableString** | Content type of the data value. Must adhere to RFC 2046 format. | [optional] 
-**Dataschema** | Pointer to **NullableString** | Identifies the schema that data adheres to. | [optional] 
-**Subject** | Pointer to **NullableString** | Describes the subject of the event in the context of the event producer (identified by source). | [optional] 
-**Time** | Pointer to **NullableTime** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
-**Data** | Pointer to [**NullableCloudEventData**](CloudEventData.md) |  | [optional] 
-**DataBase64** | Pointer to **NullableString** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
+**Datacontenttype** | Pointer to **string** | Content type of the data value. Must adhere to RFC 2046 format. | [optional] 
+**Dataschema** | Pointer to **string** | Identifies the schema that data adheres to. | [optional] 
+**Subject** | Pointer to **string** | Describes the subject of the event in the context of the event producer (identified by source). | [optional] 
+**Time** | Pointer to **time.Time** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
+**Data** | Pointer to **map[string]interface{}** | The event payload. | [optional] 
+**DataBase64** | Pointer to **string** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
 ## Methods
 
@@ -139,16 +139,6 @@ SetDatacontenttype sets Datacontenttype field to given value.
 
 HasDatacontenttype returns a boolean if a field has been set.
 
-### SetDatacontenttypeNil
-
-`func (o *CloudEvent) SetDatacontenttypeNil(b bool)`
-
- SetDatacontenttypeNil sets the value for Datacontenttype to be an explicit nil
-
-### UnsetDatacontenttype
-`func (o *CloudEvent) UnsetDatacontenttype()`
-
-UnsetDatacontenttype ensures that no value is present for Datacontenttype, not even an explicit nil
 ### GetDataschema
 
 `func (o *CloudEvent) GetDataschema() string`
@@ -174,16 +164,6 @@ SetDataschema sets Dataschema field to given value.
 
 HasDataschema returns a boolean if a field has been set.
 
-### SetDataschemaNil
-
-`func (o *CloudEvent) SetDataschemaNil(b bool)`
-
- SetDataschemaNil sets the value for Dataschema to be an explicit nil
-
-### UnsetDataschema
-`func (o *CloudEvent) UnsetDataschema()`
-
-UnsetDataschema ensures that no value is present for Dataschema, not even an explicit nil
 ### GetSubject
 
 `func (o *CloudEvent) GetSubject() string`
@@ -209,16 +189,6 @@ SetSubject sets Subject field to given value.
 
 HasSubject returns a boolean if a field has been set.
 
-### SetSubjectNil
-
-`func (o *CloudEvent) SetSubjectNil(b bool)`
-
- SetSubjectNil sets the value for Subject to be an explicit nil
-
-### UnsetSubject
-`func (o *CloudEvent) UnsetSubject()`
-
-UnsetSubject ensures that no value is present for Subject, not even an explicit nil
 ### GetTime
 
 `func (o *CloudEvent) GetTime() time.Time`
@@ -244,32 +214,22 @@ SetTime sets Time field to given value.
 
 HasTime returns a boolean if a field has been set.
 
-### SetTimeNil
-
-`func (o *CloudEvent) SetTimeNil(b bool)`
-
- SetTimeNil sets the value for Time to be an explicit nil
-
-### UnsetTime
-`func (o *CloudEvent) UnsetTime()`
-
-UnsetTime ensures that no value is present for Time, not even an explicit nil
 ### GetData
 
-`func (o *CloudEvent) GetData() CloudEventData`
+`func (o *CloudEvent) GetData() map[string]interface{}`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *CloudEvent) GetDataOk() (*CloudEventData, bool)`
+`func (o *CloudEvent) GetDataOk() (*map[string]interface{}, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *CloudEvent) SetData(v CloudEventData)`
+`func (o *CloudEvent) SetData(v map[string]interface{})`
 
 SetData sets Data field to given value.
 
@@ -279,16 +239,6 @@ SetData sets Data field to given value.
 
 HasData returns a boolean if a field has been set.
 
-### SetDataNil
-
-`func (o *CloudEvent) SetDataNil(b bool)`
-
- SetDataNil sets the value for Data to be an explicit nil
-
-### UnsetData
-`func (o *CloudEvent) UnsetData()`
-
-UnsetData ensures that no value is present for Data, not even an explicit nil
 ### GetDataBase64
 
 `func (o *CloudEvent) GetDataBase64() string`
@@ -314,16 +264,6 @@ SetDataBase64 sets DataBase64 field to given value.
 
 HasDataBase64 returns a boolean if a field has been set.
 
-### SetDataBase64Nil
-
-`func (o *CloudEvent) SetDataBase64Nil(b bool)`
-
- SetDataBase64Nil sets the value for DataBase64 to be an explicit nil
-
-### UnsetDataBase64
-`func (o *CloudEvent) UnsetDataBase64()`
-
-UnsetDataBase64 ensures that no value is present for DataBase64, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

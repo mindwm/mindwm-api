@@ -13,11 +13,11 @@ class_name TmuxPaneIoDocument
 # User input
 # Required: True
 # isArray: false
-@export var some_input: AnyType:
+@export var input: AnyType:
 	set(value):
-		__some_input__was__set = true
-		some_input = value
-var __some_input__was__set := false
+		__input__was__set = true
+		input = value
+var __input__was__set := false
 
 # Command output (mix of stdout & stderr)
 # Required: True
@@ -40,8 +40,8 @@ var __ps1__was__set := false
 
 func bzz_collect_missing_properties() -> Array:
 	var bzz_missing_properties := Array()
-	if not self.__some_input__was__set:
-		bzz_missing_properties.append("some_input")
+	if not self.__input__was__set:
+		bzz_missing_properties.append("input")
 	if not self.__output__was__set:
 		bzz_missing_properties.append("output")
 	if not self.__ps1__was__set:
@@ -51,8 +51,8 @@ func bzz_collect_missing_properties() -> Array:
 
 func bzz_normalize() -> Dictionary:
 	var bzz_dictionary := Dictionary()
-	if self.__some_input__was__set:
-		bzz_dictionary["some_input"] = self.some_input
+	if self.__input__was__set:
+		bzz_dictionary["input"] = self.input
 	if self.__output__was__set:
 		bzz_dictionary["output"] = self.output
 	if self.__ps1__was__set:
@@ -63,8 +63,8 @@ func bzz_normalize() -> Dictionary:
 # Won't work for JSON+LD
 static func bzz_denormalize_single(from_dict: Dictionary):
 	var me := new()
-	if from_dict.has("some_input"):
-		me.some_input = from_dict["some_input"]
+	if from_dict.has("input"):
+		me.input = from_dict["input"]
 	if from_dict.has("output"):
 		me.output = from_dict["output"]
 	if from_dict.has("ps1"):

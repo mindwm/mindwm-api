@@ -56,7 +56,10 @@ export interface CloudEvent {
      */
     time?: string;
 
-    data?: models.CloudEventData;
+    /**
+     * The event payload.
+     */
+    data?: object;
 
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.

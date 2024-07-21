@@ -7,7 +7,6 @@ src/main/java/org/openapitools/vertxweb/server/model/Clipboard.java
 src/main/java/org/openapitools/vertxweb/server/model/ClipboardPayload.java
 src/main/java/org/openapitools/vertxweb/server/model/ClipboardPayloadContext.java
 src/main/java/org/openapitools/vertxweb/server/model/CloudEvent.java
-src/main/java/org/openapitools/vertxweb/server/model/CloudEventData.java
 src/main/java/org/openapitools/vertxweb/server/model/GraphNode.java
 src/main/java/org/openapitools/vertxweb/server/model/GraphNodeAllOfData.java
 src/main/java/org/openapitools/vertxweb/server/model/GraphRelationship.java

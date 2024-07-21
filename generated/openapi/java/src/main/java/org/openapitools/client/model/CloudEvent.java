@@ -23,8 +23,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
-import org.openapitools.client.model.CloudEventData;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CloudEvents Specification JSON Schema
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T16:07:34.486843044Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-21T21:29:10.640893411Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEvent {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -89,7 +87,7 @@ public class CloudEvent {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private CloudEventData data;
+  private Object data;
 
   public static final String SERIALIZED_NAME_DATA_BASE64 = "data_base64";
   @SerializedName(SERIALIZED_NAME_DATA_BASE64)
@@ -250,21 +248,21 @@ public class CloudEvent {
   }
 
 
-  public CloudEvent data(CloudEventData data) {
+  public CloudEvent data(Object data) {
     this.data = data;
     return this;
   }
 
   /**
-   * Get data
+   * The event payload.
    * @return data
    */
   @javax.annotation.Nullable
-  public CloudEventData getData() {
+  public Object getData() {
     return data;
   }
 
-  public void setData(CloudEventData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 
@@ -310,20 +308,9 @@ public class CloudEvent {
         Objects.equals(this.dataBase64, cloudEvent.dataBase64);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -429,10 +416,6 @@ public class CloudEvent {
       }
       if ((jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull()) && !jsonObj.get("subject").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subject` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subject").toString()));
-      }
-      // validate the optional field `data`
-      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-        CloudEventData.validateJsonElement(jsonObj.get("data"));
       }
       if ((jsonObj.get("data_base64") != null && !jsonObj.get("data_base64").isJsonNull()) && !jsonObj.get("data_base64").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `data_base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data_base64").toString()));

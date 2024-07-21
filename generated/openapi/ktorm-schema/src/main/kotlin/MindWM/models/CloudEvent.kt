@@ -27,7 +27,7 @@ import .*
  * @param dataschema Identifies the schema that data adheres to.
  * @param subject Describes the subject of the event in the context of the event producer (identified by source).
  * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
- * @param data 
+ * @param data The event payload.
  * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
  */
 object CloudEvents : BaseTable<CloudEvent>("CloudEvent") {
@@ -39,7 +39,7 @@ object CloudEvents : BaseTable<CloudEvent>("CloudEvent") {
     val dataschema = text("dataschema") /* null */ /* Identifies the schema that data adheres to. */
     val subject = text("subject") /* null */ /* Describes the subject of the event in the context of the event producer (identified by source). */
     val time = datetime("time") /* null */ /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
-    val data = long("data") /* null */
+    val data = blob("data") /* null */ /* The event payload. */
     val dataBase64 = text("data_base64") /* null */ /* Base64 encoded event payload. Must adhere to RFC4648. */
 
     /**
@@ -54,7 +54,7 @@ object CloudEvents : BaseTable<CloudEvent>("CloudEvent") {
         dataschema = row[dataschema]  /* java.net.URI? */ /* Identifies the schema that data adheres to. */,
         subject = row[subject]  /* kotlin.String? */ /* Describes the subject of the event in the context of the event producer (identified by source). */,
         time = row[time]  /* java.time.LocalDateTime? */ /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */,
-        data = CloudEventDatas.createEntity(row, withReferences) /* CloudEventData? */,
+        data = row[data]  /* kotlin.Any? */ /* The event payload. */,
         dataBase64 = row[dataBase64]  /* kotlin.String? */ /* Base64 encoded event payload. Must adhere to RFC4648. */
     )
 

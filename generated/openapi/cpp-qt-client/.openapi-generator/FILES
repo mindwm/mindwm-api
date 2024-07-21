@@ -10,8 +10,6 @@ client/OAIClipboardPayload_context.cpp
 client/OAIClipboardPayload_context.h
 client/OAICloudEvent.cpp
 client/OAICloudEvent.h
-client/OAICloudEvent_data.cpp
-client/OAICloudEvent_data.h
 client/OAIEnum.h
 client/OAIGraphNode.cpp
 client/OAIGraphNode.h

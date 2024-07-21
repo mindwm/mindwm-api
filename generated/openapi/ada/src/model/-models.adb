@@ -62,15 +62,37 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.CloudEventData_Type) is
+                        Value : in .Models.CloudEvent_Type) is
    begin
       Into.Start_Entity (Name);
+      Into.Write_Entity ("id", Value.Id);
+      Into.Write_Entity ("source", Value.Source);
+      Into.Write_Entity ("specversion", Value.Specversion);
+      Into.Write_Entity ("type", Value.P_Type);
+      if not Value.Datacontenttype.Is_Null then
+         Into.Write_Entity ("datacontenttype", Value.Datacontenttype);
+      end if;
+      if not Value.Dataschema.Is_Null then
+         Into.Write_Entity ("dataschema", Value.Dataschema);
+      end if;
+      if not Value.Subject.Is_Null then
+         Into.Write_Entity ("subject", Value.Subject);
+      end if;
+      if not Value.Time.Is_Null then
+         Into.Write_Entity ("time", Value.Time);
+      end if;
+      if not Swagger.Is_Null (Value.Data) then
+         Into.Write_Entity ("data", Value.Data);
+      end if;
+      if not Value.Data_Base_64.Is_Null then
+         Into.Write_Entity ("data_base64", Value.Data_Base_64);
+      end if;
       Into.End_Entity (Name);
    end Serialize;
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in CloudEventData_Type_Vectors.Vector) is
+                        Value : in CloudEvent_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -81,17 +103,27 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.CloudEventData_Type) is
+                          Value : out .Models.CloudEvent_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
+      Swagger.Streams.Deserialize (Object, "id", Value.Id);
+      Swagger.Streams.Deserialize (Object, "source", Value.Source);
+      Swagger.Streams.Deserialize (Object, "specversion", Value.Specversion);
+      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
+      Swagger.Streams.Deserialize (Object, "datacontenttype", Value.Datacontenttype);
+      Swagger.Streams.Deserialize (Object, "dataschema", Value.Dataschema);
+      Swagger.Streams.Deserialize (Object, "subject", Value.Subject);
+      Swagger.Streams.Deserialize (Object, "time", Value.Time);
+      Swagger.Streams.Deserialize (Object, "data", Value.Data);
+      Swagger.Streams.Deserialize (Object, "data_base64", Value.Data_Base_64);
    end Deserialize;
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out CloudEventData_Type_Vectors.Vector) is
+                          Value : in out CloudEvent_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : .Models.CloudEventData_Type;
+      Item : .Models.CloudEvent_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);
@@ -319,68 +351,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.CloudEvent_Type) is
-   begin
-      Into.Start_Entity (Name);
-      Into.Write_Entity ("id", Value.Id);
-      Into.Write_Entity ("source", Value.Source);
-      Into.Write_Entity ("specversion", Value.Specversion);
-      Into.Write_Entity ("type", Value.P_Type);
-      Into.Write_Entity ("datacontenttype", Value.Datacontenttype);
-      Into.Write_Entity ("dataschema", Value.Dataschema);
-      Into.Write_Entity ("subject", Value.Subject);
-      Into.Write_Entity ("time", Value.Time);
-      Serialize (Into, "data", Value.Data);
-      Into.Write_Entity ("data_base64", Value.Data_Base_64);
-      Into.End_Entity (Name);
-   end Serialize;
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in CloudEvent_Type_Vectors.Vector) is
-   begin
-      Into.Start_Array (Name);
-      for Item of Value loop
-         Serialize (Into, "", Item);
-      end loop;
-      Into.End_Array (Name);
-   end Serialize;
-
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : out .Models.CloudEvent_Type) is
-      Object : Swagger.Value_Type;
-   begin
-      Swagger.Streams.Deserialize (From, Name, Object);
-      Swagger.Streams.Deserialize (Object, "id", Value.Id);
-      Swagger.Streams.Deserialize (Object, "source", Value.Source);
-      Swagger.Streams.Deserialize (Object, "specversion", Value.Specversion);
-      Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
-      Swagger.Streams.Deserialize (Object, "datacontenttype", Value.Datacontenttype);
-      Swagger.Streams.Deserialize (Object, "dataschema", Value.Dataschema);
-      Swagger.Streams.Deserialize (Object, "subject", Value.Subject);
-      Swagger.Streams.Deserialize (Object, "time", Value.Time);
-      Deserialize (Object, "data", Value.Data);
-      Swagger.Streams.Deserialize (Object, "data_base64", Value.Data_Base_64);
-   end Deserialize;
-
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : in out CloudEvent_Type_Vectors.Vector) is
-      List : Swagger.Value_Array_Type;
-      Item : .Models.CloudEvent_Type;
-   begin
-      Value.Clear;
-      Swagger.Streams.Deserialize (From, Name, List);
-      for Data of List loop
-         Deserialize (Data, "", Item);
-         Value.Append (Item);
-      end loop;
-   end Deserialize;
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in .Models.GraphRelationshipAllOfData_Type) is
+                        Value : in .Models.GraphNodeAllOfData_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("headers", Value.Headers);
@@ -398,7 +369,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in GraphRelationshipAllOfData_Type_Vectors.Vector) is
+                        Value : in GraphNodeAllOfData_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -409,7 +380,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.GraphRelationshipAllOfData_Type) is
+                          Value : out .Models.GraphNodeAllOfData_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -427,9 +398,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out GraphRelationshipAllOfData_Type_Vectors.Vector) is
+                          Value : in out GraphNodeAllOfData_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : .Models.GraphRelationshipAllOfData_Type;
+      Item : .Models.GraphNodeAllOfData_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);
@@ -441,7 +412,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.GraphRelationship_Type) is
+                        Value : in .Models.GraphNode_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("id", Value.Id);
@@ -469,7 +440,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in GraphRelationship_Type_Vectors.Vector) is
+                        Value : in GraphNode_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -480,7 +451,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.GraphRelationship_Type) is
+                          Value : out .Models.GraphNode_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -498,9 +469,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out GraphRelationship_Type_Vectors.Vector) is
+                          Value : in out GraphNode_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : .Models.GraphRelationship_Type;
+      Item : .Models.GraphNode_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);
@@ -934,7 +905,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.GraphNodeAllOfData_Type) is
+                        Value : in .Models.GraphRelationshipAllOfData_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("headers", Value.Headers);
@@ -952,7 +923,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in GraphNodeAllOfData_Type_Vectors.Vector) is
+                        Value : in GraphRelationshipAllOfData_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -963,7 +934,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.GraphNodeAllOfData_Type) is
+                          Value : out .Models.GraphRelationshipAllOfData_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -981,9 +952,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out GraphNodeAllOfData_Type_Vectors.Vector) is
+                          Value : in out GraphRelationshipAllOfData_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : .Models.GraphNodeAllOfData_Type;
+      Item : .Models.GraphRelationshipAllOfData_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);
@@ -995,7 +966,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.GraphNode_Type) is
+                        Value : in .Models.GraphRelationship_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("id", Value.Id);
@@ -1023,7 +994,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in GraphNode_Type_Vectors.Vector) is
+                        Value : in GraphRelationship_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -1034,7 +1005,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.GraphNode_Type) is
+                          Value : out .Models.GraphRelationship_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -1052,9 +1023,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out GraphNode_Type_Vectors.Vector) is
+                          Value : in out GraphRelationship_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : .Models.GraphNode_Type;
+      Item : .Models.GraphRelationship_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);

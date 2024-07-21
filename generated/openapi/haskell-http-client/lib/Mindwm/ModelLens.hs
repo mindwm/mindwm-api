@@ -171,7 +171,7 @@ cloudEventTimeL f CloudEvent{..} = (\cloudEventTime -> CloudEvent { cloudEventTi
 {-# INLINE cloudEventTimeL #-}
 
 -- | 'cloudEventData' Lens
-cloudEventDataL :: Lens_' CloudEvent (Maybe CloudEventData)
+cloudEventDataL :: Lens_' CloudEvent (Maybe A.Value)
 cloudEventDataL f CloudEvent{..} = (\cloudEventData -> CloudEvent { cloudEventData, ..} ) <$> f cloudEventData
 {-# INLINE cloudEventDataL #-}
 
@@ -179,10 +179,6 @@ cloudEventDataL f CloudEvent{..} = (\cloudEventData -> CloudEvent { cloudEventDa
 cloudEventDataBase64L :: Lens_' CloudEvent (Maybe Text)
 cloudEventDataBase64L f CloudEvent{..} = (\cloudEventDataBase64 -> CloudEvent { cloudEventDataBase64, ..} ) <$> f cloudEventDataBase64
 {-# INLINE cloudEventDataBase64L #-}
-
-
-
--- * CloudEventData
 
 
 

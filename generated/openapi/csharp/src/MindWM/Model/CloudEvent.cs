@@ -47,9 +47,9 @@ namespace MindWM.Model
         /// <param name="dataschema">Identifies the schema that data adheres to..</param>
         /// <param name="subject">Describes the subject of the event in the context of the event producer (identified by source)..</param>
         /// <param name="time">Timestamp of when the occurrence happened. Must adhere to RFC 3339..</param>
-        /// <param name="data">data.</param>
+        /// <param name="data">The event payload..</param>
         /// <param name="dataBase64">Base64 encoded event payload. Must adhere to RFC4648..</param>
-        public CloudEvent(string id = default(string), string source = default(string), string specversion = default(string), string type = default(string), string datacontenttype = default(string), string dataschema = default(string), string subject = default(string), DateTime? time = default(DateTime?), CloudEventData data = default(CloudEventData), string dataBase64 = default(string))
+        public CloudEvent(string id = default(string), string source = default(string), string specversion = default(string), string type = default(string), string datacontenttype = default(string), string dataschema = default(string), string subject = default(string), DateTime time = default(DateTime), Object data = default(Object), string dataBase64 = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -115,41 +115,42 @@ namespace MindWM.Model
         /// Content type of the data value. Must adhere to RFC 2046 format.
         /// </summary>
         /// <value>Content type of the data value. Must adhere to RFC 2046 format.</value>
-        [DataMember(Name = "datacontenttype", EmitDefaultValue = true)]
+        [DataMember(Name = "datacontenttype", EmitDefaultValue = false)]
         public string Datacontenttype { get; set; }
 
         /// <summary>
         /// Identifies the schema that data adheres to.
         /// </summary>
         /// <value>Identifies the schema that data adheres to.</value>
-        [DataMember(Name = "dataschema", EmitDefaultValue = true)]
+        [DataMember(Name = "dataschema", EmitDefaultValue = false)]
         public string Dataschema { get; set; }
 
         /// <summary>
         /// Describes the subject of the event in the context of the event producer (identified by source).
         /// </summary>
         /// <value>Describes the subject of the event in the context of the event producer (identified by source).</value>
-        [DataMember(Name = "subject", EmitDefaultValue = true)]
+        [DataMember(Name = "subject", EmitDefaultValue = false)]
         public string Subject { get; set; }
 
         /// <summary>
         /// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
         /// </summary>
         /// <value>Timestamp of when the occurrence happened. Must adhere to RFC 3339.</value>
-        [DataMember(Name = "time", EmitDefaultValue = true)]
-        public DateTime? Time { get; set; }
+        [DataMember(Name = "time", EmitDefaultValue = false)]
+        public DateTime Time { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// The event payload.
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = true)]
-        public CloudEventData Data { get; set; }
+        /// <value>The event payload.</value>
+        [DataMember(Name = "data", EmitDefaultValue = false)]
+        public Object Data { get; set; }
 
         /// <summary>
         /// Base64 encoded event payload. Must adhere to RFC4648.
         /// </summary>
         /// <value>Base64 encoded event payload. Must adhere to RFC4648.</value>
-        [DataMember(Name = "data_base64", EmitDefaultValue = true)]
+        [DataMember(Name = "data_base64", EmitDefaultValue = false)]
         public string DataBase64 { get; set; }
 
         /// <summary>
@@ -232,7 +233,7 @@ namespace MindWM.Model
                 yield return new ValidationResult("Invalid value for Subject, length must be greater than 1.", new [] { "Subject" });
             }
 
-            // Time (DateTime?) minLength
+            // Time (DateTime) minLength
             if (this.Time != null && this.Time.Length < 1)
             {
                 yield return new ValidationResult("Invalid value for Time, length must be greater than 1.", new [] { "Time" });

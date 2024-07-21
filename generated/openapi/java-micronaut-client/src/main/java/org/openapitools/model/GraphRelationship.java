@@ -42,7 +42,7 @@ import javax.annotation.Generated;
   GraphRelationship.JSON_PROPERTY_DATA_BASE64
 })
 @JsonTypeName("GraphRelationship")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-17T16:07:45.615547242Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-21T21:29:21.140242715Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class GraphRelationship extends HashMap<String, Object> {
     public static final String JSON_PROPERTY_ID = "id";

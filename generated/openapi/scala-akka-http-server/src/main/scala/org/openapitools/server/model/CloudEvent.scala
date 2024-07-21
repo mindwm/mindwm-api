@@ -14,7 +14,7 @@ import java.time.OffsetDateTime
  * @param dataschema Identifies the schema that data adheres to. for example: ''null''
  * @param subject Describes the subject of the event in the context of the event producer (identified by source). for example: ''null''
  * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339. for example: ''null''
- * @param data  for example: ''null''
+ * @param data The event payload. for example: ''null''
  * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648. for example: ''null''
 */
 final case class CloudEvent (
@@ -26,7 +26,7 @@ final case class CloudEvent (
   dataschema: Option[URI] = None,
   subject: Option[String] = None,
   time: Option[OffsetDateTime] = None,
-  data: Option[CloudEventData] = None,
+  data: Option[Any] = None,
   dataBase64: Option[String] = None
 )
 

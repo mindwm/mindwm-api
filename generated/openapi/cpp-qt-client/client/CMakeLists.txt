@@ -15,7 +15,6 @@ add_library(${PROJECT_NAME}
   OAIClipboardPayload.h
   OAIClipboardPayload_context.h
   OAICloudEvent.h
-  OAICloudEvent_data.h
   OAIGraphNode.h
   OAIGraphNode_allOf_data.h
   OAIGraphRelationship.h
@@ -43,7 +42,6 @@ add_library(${PROJECT_NAME}
   OAIClipboardPayload.cpp
   OAIClipboardPayload_context.cpp
   OAICloudEvent.cpp
-  OAICloudEvent_data.cpp
   OAIGraphNode.cpp
   OAIGraphNode_allOf_data.cpp
   OAIGraphRelationship.cpp

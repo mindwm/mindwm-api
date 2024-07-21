@@ -36,7 +36,7 @@ import javax.validation.Valid;
   Neo4jCaptureDataChangeRelationshipPayloadEnd.JSON_PROPERTY_IDS,
   Neo4jCaptureDataChangeRelationshipPayloadEnd.JSON_PROPERTY_LABELS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-17T16:08:08.177013334Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-21T21:29:39.541794353Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jCaptureDataChangeRelationshipPayloadEnd   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)

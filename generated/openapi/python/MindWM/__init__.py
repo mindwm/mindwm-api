@@ -34,7 +34,6 @@ from MindWM.models.clipboard import Clipboard
 from MindWM.models.clipboard_payload import ClipboardPayload
 from MindWM.models.clipboard_payload_context import ClipboardPayloadContext
 from MindWM.models.cloud_event import CloudEvent
-from MindWM.models.cloud_event_data import CloudEventData
 from MindWM.models.graph_node import GraphNode
 from MindWM.models.graph_node_all_of_data import GraphNodeAllOfData
 from MindWM.models.graph_relationship import GraphRelationship

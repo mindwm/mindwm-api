@@ -59,7 +59,7 @@ export external public interface ~CloudEvent {
     /**
      * The event payload.
      */
-    public data?: String | number | boolean;
+    public data?: ~Object+;
 
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.

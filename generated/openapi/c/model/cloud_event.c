@@ -14,7 +14,7 @@ cloud_event_t *cloud_event_create(
     char *dataschema,
     char *subject,
     char *time,
-    cloud_event_data_t *data,
+    object_t *data,
     char *data_base64
     ) {
     cloud_event_t *cloud_event_local_var = malloc(sizeof(cloud_event_t));
@@ -74,7 +74,7 @@ void cloud_event_free(cloud_event_t *cloud_event) {
         cloud_event->time = NULL;
     }
     if (cloud_event->data) {
-        cloud_event_data_free(cloud_event->data);
+        object_free(cloud_event->data);
         cloud_event->data = NULL;
     }
     if (cloud_event->data_base64) {
@@ -157,11 +157,11 @@ cJSON *cloud_event_convertToJSON(cloud_event_t *cloud_event) {
 
     // cloud_event->data
     if(cloud_event->data) {
-    cJSON *data_local_JSON = cloud_event_data_convertToJSON(cloud_event->data);
-    if(data_local_JSON == NULL) {
+    cJSON *data_object = object_convertToJSON(cloud_event->data);
+    if(data_object == NULL) {
     goto fail; //model
     }
-    cJSON_AddItemToObject(item, "data", data_local_JSON);
+    cJSON_AddItemToObject(item, "data", data_object);
     if(item->child == NULL) {
     goto fail;
     }
@@ -186,9 +186,6 @@ fail:
 cloud_event_t *cloud_event_parseFromJSON(cJSON *cloud_eventJSON){
 
     cloud_event_t *cloud_event_local_var = NULL;
-
-    // define the local variable for cloud_event->data
-    cloud_event_data_t *data_local_nonprim = NULL;
 
     // cloud_event->id
     cJSON *id = cJSON_GetObjectItemCaseSensitive(cloud_eventJSON, "id");
@@ -276,8 +273,9 @@ cloud_event_t *cloud_event_parseFromJSON(cJSON *cloud_eventJSON){
 
     // cloud_event->data
     cJSON *data = cJSON_GetObjectItemCaseSensitive(cloud_eventJSON, "data");
+    object_t *data_local_object = NULL;
     if (data) { 
-    data_local_nonprim = cloud_event_data_parseFromJSON(data); //nonprimitive
+    data_local_object = object_parseFromJSON(data); //object
     }
 
     // cloud_event->data_base64
@@ -299,16 +297,12 @@ cloud_event_t *cloud_event_parseFromJSON(cJSON *cloud_eventJSON){
         dataschema && !cJSON_IsNull(dataschema) ? strdup(dataschema->valuestring) : NULL,
         subject && !cJSON_IsNull(subject) ? strdup(subject->valuestring) : NULL,
         time && !cJSON_IsNull(time) ? strdup(time->valuestring) : NULL,
-        data ? data_local_nonprim : NULL,
+        data ? data_local_object : NULL,
         data_base64 && !cJSON_IsNull(data_base64) ? strdup(data_base64->valuestring) : NULL
         );
 
     return cloud_event_local_var;
 end:
-    if (data_local_nonprim) {
-        cloud_event_data_free(data_local_nonprim);
-        data_local_nonprim = NULL;
-    }
     return NULL;
 
 }

@@ -3,12 +3,10 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.CloudEventData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.net.URI;
 import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * Response class to be returned by Api
  * @author pkmst
@@ -19,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 @ApiModel(description = "CloudEvents Specification JSON Schema")
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-17T16:07:52.007907886Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-21T21:29:26.412155295Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEvent   {
   @JsonProperty("id")
   private String id;
@@ -46,7 +44,7 @@ public class CloudEvent   {
   private OffsetDateTime time;
 
   @JsonProperty("data")
-  private CloudEventData data;
+  private Object data;
 
   @JsonProperty("data_base64")
   private String dataBase64;
@@ -195,21 +193,21 @@ public class CloudEvent   {
     this.time = time;
   }
 
-  public CloudEvent data(CloudEventData data) {
+  public CloudEvent data(Object data) {
     this.data = data;
     return this;
   }
 
   /**
-   * Get data
+   * The event payload.
    * @return data
    */
-  @ApiModelProperty(value = "")
-  public CloudEventData getData() {
+  @ApiModelProperty(value = "The event payload.")
+  public Object getData() {
     return data;
   }
 
-  public void setData(CloudEventData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 

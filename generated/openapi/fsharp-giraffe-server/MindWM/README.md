@@ -21,7 +21,6 @@ The following models have been auto-generated from the provided OpenAPI schema:
 - model/GraphRelationshipModel.fs
 - model/GraphNodeAllOfDataModel.fs
 - model/GraphNodeModel.fs
-- model/CloudEventDataModel.fs
 - model/CloudEventModel.fs
 - model/ClipboardPayloadContextModel.fs
 - model/ClipboardPayloadModel.fs

@@ -6,7 +6,6 @@ models/Clipboard.js
 models/ClipboardPayload.js
 models/ClipboardPayload_context.js
 models/CloudEvent.js
-models/CloudEvent_data.js
 models/GraphNode.js
 models/GraphNode_allOf_data.js
 models/GraphRelationship.js

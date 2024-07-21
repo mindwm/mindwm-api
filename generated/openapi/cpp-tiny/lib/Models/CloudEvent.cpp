@@ -14,7 +14,7 @@ CloudEvent::CloudEvent()
 	dataschema = std::string();
 	subject = std::string();
 	time = std::string();
-	data = CloudEvent_data();
+	data = null;
 	data_base64 = std::string();
 }
 
@@ -146,7 +146,7 @@ CloudEvent::fromJson(std::string jsonObj)
 
 
 
-        CloudEvent_data* obj = &data;
+        Object* obj = &data;
 		obj->fromJson(value.dump());
 
     }
@@ -343,14 +343,14 @@ CloudEvent::setTime(std::string  time)
 	this->time = time;
 }
 
-CloudEvent_data
+Object
 CloudEvent::getData()
 {
 	return data;
 }
 
 void
-CloudEvent::setData(CloudEvent_data  data)
+CloudEvent::setData(Object  data)
 {
 	this->data = data;
 }

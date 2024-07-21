@@ -31,7 +31,7 @@ CloudEvent::__init()
 	//dataschema = std::string();
 	//subject = std::string();
 	//time = null;
-	//data = new CloudEvent_data();
+	//data = null;
 	//data_base64 = std::string();
 }
 
@@ -189,11 +189,11 @@ CloudEvent::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("CloudEvent_data")) {
-			jsonToValue(&data, node, "CloudEvent_data", "CloudEvent_data");
+		if (isprimitive("std::string")) {
+			jsonToValue(&data, node, "std::string", "");
 		} else {
 			
-			CloudEvent_data* obj = static_cast<CloudEvent_data*> (&data);
+			std::string* obj = static_cast<std::string*> (&data);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -293,13 +293,13 @@ CloudEvent::toJson()
 	}
 	const gchar *timeKey = "time";
 	json_object_set_member(pJsonObject, timeKey, node);
-	if (isprimitive("CloudEvent_data")) {
-		CloudEvent_data obj = getData();
-		node = converttoJson(&obj, "CloudEvent_data", "");
+	if (isprimitive("std::string")) {
+		std::string obj = getData();
+		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
 		
-		CloudEvent_data obj = static_cast<CloudEvent_data> (getData());
+		std::string obj = static_cast<std::string> (getData());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -420,14 +420,14 @@ CloudEvent::setTime(std::string  time)
 	this->time = time;
 }
 
-CloudEvent_data
+std::string
 CloudEvent::getData()
 {
 	return data;
 }
 
 void
-CloudEvent::setData(CloudEvent_data  data)
+CloudEvent::setData(std::string  data)
 {
 	this->data = data;
 }

@@ -24,7 +24,6 @@ main =
       propMimeEq MimeJSON (Proxy :: Proxy ClipboardPayload)
       propMimeEq MimeJSON (Proxy :: Proxy ClipboardPayloadContext)
       propMimeEq MimeJSON (Proxy :: Proxy CloudEvent)
-      propMimeEq MimeJSON (Proxy :: Proxy CloudEventData)
       propMimeEq MimeJSON (Proxy :: Proxy GraphNode)
       propMimeEq MimeJSON (Proxy :: Proxy GraphNodeAllOfData)
       propMimeEq MimeJSON (Proxy :: Proxy GraphRelationship)

@@ -6,7 +6,6 @@ HEADERS += \
     $${PWD}/OAIClipboardPayload.h \
     $${PWD}/OAIClipboardPayload_context.h \
     $${PWD}/OAICloudEvent.h \
-    $${PWD}/OAICloudEvent_data.h \
     $${PWD}/OAIGraphNode.h \
     $${PWD}/OAIGraphNode_allOf_data.h \
     $${PWD}/OAIGraphRelationship.h \
@@ -39,7 +38,6 @@ SOURCES += \
     $${PWD}/OAIClipboardPayload.cpp \
     $${PWD}/OAIClipboardPayload_context.cpp \
     $${PWD}/OAICloudEvent.cpp \
-    $${PWD}/OAICloudEvent_data.cpp \
     $${PWD}/OAIGraphNode.cpp \
     $${PWD}/OAIGraphNode_allOf_data.cpp \
     $${PWD}/OAIGraphRelationship.cpp \

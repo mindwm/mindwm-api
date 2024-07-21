@@ -12,7 +12,7 @@
 | **dataschema** | **String** | Identifies the schema that data adheres to. | [optional] |
 | **subject** | **String** | Describes the subject of the event in the context of the event producer (identified by source). | [optional] |
 | **time** | **Time** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] |
-| **data** | [**CloudEventData**](CloudEventData.md) |  | [optional] |
+| **data** | **Object** | The event payload. | [optional] |
 | **data_base64** | **String** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] |
 
 ## Example

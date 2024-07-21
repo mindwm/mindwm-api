@@ -144,12 +144,14 @@ class CloudEvent  implements \JsonSerializable
     public ?\DateTime $time;
 
     /**
-     * @var CloudEventData|null
+     * The event payload.
+     *
+     * @var 
      * @SerializedName("data")
-     * @Assert\Type("\OpenAPIServer\Model\CloudEventData")
-     * @Type("\OpenAPIServer\Model\CloudEventData")
+     * @Assert\Type("object")
+     * @Type("object")
      */
-    public ?CloudEventData $data;
+    public  $data;
 
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
@@ -172,10 +174,10 @@ class CloudEvent  implements \JsonSerializable
      * @param string|null $dataschema
      * @param string|null $subject
      * @param \DateTime|null $time
-     * @param CloudEventData|null $data
+     * @param  $data
      * @param string|null $dataBase64
      */
-    public function __construct(string $id, string $source, string $specversion, string $type, ?string $datacontenttype, ?string $dataschema, ?string $subject, ?\DateTime $time, ?CloudEventData $data, ?string $dataBase64)
+    public function __construct(string $id, string $source, string $specversion, string $type, ?string $datacontenttype, ?string $dataschema, ?string $subject, ?\DateTime $time,  $data, ?string $dataBase64)
     {
         $this->id = $id;
         $this->source = $source;
@@ -200,7 +202,7 @@ class CloudEvent  implements \JsonSerializable
             $data['dataschema'] ?? null, 
             $data['subject'] ?? null, 
             isset($data['time']) ? new \DateTime($data['time']) : null, 
-            isset($data['data']) ? CloudEventData::fromArray($data['data']) : null, 
+            $data['data'] ?? null, 
             $data['data_base64'] ?? null, 
         );
     }

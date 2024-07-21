@@ -31,16 +31,17 @@ type CloudEvent struct {
 	// Describes the type of event related to the originating occurrence.
 	Type string `json:"type"`
 	// Content type of the data value. Must adhere to RFC 2046 format.
-	Datacontenttype NullableString `json:"datacontenttype,omitempty"`
+	Datacontenttype *string `json:"datacontenttype,omitempty"`
 	// Identifies the schema that data adheres to.
-	Dataschema NullableString `json:"dataschema,omitempty"`
+	Dataschema *string `json:"dataschema,omitempty"`
 	// Describes the subject of the event in the context of the event producer (identified by source).
-	Subject NullableString `json:"subject,omitempty"`
+	Subject *string `json:"subject,omitempty"`
 	// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-	Time NullableTime `json:"time,omitempty"`
-	Data NullableCloudEventData `json:"data,omitempty"`
+	Time *time.Time `json:"time,omitempty"`
+	// The event payload.
+	Data map[string]interface{} `json:"data,omitempty"`
 	// Base64 encoded event payload. Must adhere to RFC4648.
-	DataBase64 NullableString `json:"data_base64,omitempty"`
+	DataBase64 *string `json:"data_base64,omitempty"`
 }
 
 type _CloudEvent CloudEvent
@@ -162,256 +163,196 @@ func (o *CloudEvent) SetType(v string) {
 	o.Type = v
 }
 
-// GetDatacontenttype returns the Datacontenttype field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDatacontenttype returns the Datacontenttype field value if set, zero value otherwise.
 func (o *CloudEvent) GetDatacontenttype() string {
-	if o == nil || IsNil(o.Datacontenttype.Get()) {
+	if o == nil || IsNil(o.Datacontenttype) {
 		var ret string
 		return ret
 	}
-	return *o.Datacontenttype.Get()
+	return *o.Datacontenttype
 }
 
 // GetDatacontenttypeOk returns a tuple with the Datacontenttype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CloudEvent) GetDatacontenttypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Datacontenttype) {
 		return nil, false
 	}
-	return o.Datacontenttype.Get(), o.Datacontenttype.IsSet()
+	return o.Datacontenttype, true
 }
 
 // HasDatacontenttype returns a boolean if a field has been set.
 func (o *CloudEvent) HasDatacontenttype() bool {
-	if o != nil && o.Datacontenttype.IsSet() {
+	if o != nil && !IsNil(o.Datacontenttype) {
 		return true
 	}
 
 	return false
 }
 
-// SetDatacontenttype gets a reference to the given NullableString and assigns it to the Datacontenttype field.
+// SetDatacontenttype gets a reference to the given string and assigns it to the Datacontenttype field.
 func (o *CloudEvent) SetDatacontenttype(v string) {
-	o.Datacontenttype.Set(&v)
-}
-// SetDatacontenttypeNil sets the value for Datacontenttype to be an explicit nil
-func (o *CloudEvent) SetDatacontenttypeNil() {
-	o.Datacontenttype.Set(nil)
+	o.Datacontenttype = &v
 }
 
-// UnsetDatacontenttype ensures that no value is present for Datacontenttype, not even an explicit nil
-func (o *CloudEvent) UnsetDatacontenttype() {
-	o.Datacontenttype.Unset()
-}
-
-// GetDataschema returns the Dataschema field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDataschema returns the Dataschema field value if set, zero value otherwise.
 func (o *CloudEvent) GetDataschema() string {
-	if o == nil || IsNil(o.Dataschema.Get()) {
+	if o == nil || IsNil(o.Dataschema) {
 		var ret string
 		return ret
 	}
-	return *o.Dataschema.Get()
+	return *o.Dataschema
 }
 
 // GetDataschemaOk returns a tuple with the Dataschema field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CloudEvent) GetDataschemaOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Dataschema) {
 		return nil, false
 	}
-	return o.Dataschema.Get(), o.Dataschema.IsSet()
+	return o.Dataschema, true
 }
 
 // HasDataschema returns a boolean if a field has been set.
 func (o *CloudEvent) HasDataschema() bool {
-	if o != nil && o.Dataschema.IsSet() {
+	if o != nil && !IsNil(o.Dataschema) {
 		return true
 	}
 
 	return false
 }
 
-// SetDataschema gets a reference to the given NullableString and assigns it to the Dataschema field.
+// SetDataschema gets a reference to the given string and assigns it to the Dataschema field.
 func (o *CloudEvent) SetDataschema(v string) {
-	o.Dataschema.Set(&v)
-}
-// SetDataschemaNil sets the value for Dataschema to be an explicit nil
-func (o *CloudEvent) SetDataschemaNil() {
-	o.Dataschema.Set(nil)
+	o.Dataschema = &v
 }
 
-// UnsetDataschema ensures that no value is present for Dataschema, not even an explicit nil
-func (o *CloudEvent) UnsetDataschema() {
-	o.Dataschema.Unset()
-}
-
-// GetSubject returns the Subject field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSubject returns the Subject field value if set, zero value otherwise.
 func (o *CloudEvent) GetSubject() string {
-	if o == nil || IsNil(o.Subject.Get()) {
+	if o == nil || IsNil(o.Subject) {
 		var ret string
 		return ret
 	}
-	return *o.Subject.Get()
+	return *o.Subject
 }
 
 // GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CloudEvent) GetSubjectOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Subject) {
 		return nil, false
 	}
-	return o.Subject.Get(), o.Subject.IsSet()
+	return o.Subject, true
 }
 
 // HasSubject returns a boolean if a field has been set.
 func (o *CloudEvent) HasSubject() bool {
-	if o != nil && o.Subject.IsSet() {
+	if o != nil && !IsNil(o.Subject) {
 		return true
 	}
 
 	return false
 }
 
-// SetSubject gets a reference to the given NullableString and assigns it to the Subject field.
+// SetSubject gets a reference to the given string and assigns it to the Subject field.
 func (o *CloudEvent) SetSubject(v string) {
-	o.Subject.Set(&v)
-}
-// SetSubjectNil sets the value for Subject to be an explicit nil
-func (o *CloudEvent) SetSubjectNil() {
-	o.Subject.Set(nil)
+	o.Subject = &v
 }
 
-// UnsetSubject ensures that no value is present for Subject, not even an explicit nil
-func (o *CloudEvent) UnsetSubject() {
-	o.Subject.Unset()
-}
-
-// GetTime returns the Time field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTime returns the Time field value if set, zero value otherwise.
 func (o *CloudEvent) GetTime() time.Time {
-	if o == nil || IsNil(o.Time.Get()) {
+	if o == nil || IsNil(o.Time) {
 		var ret time.Time
 		return ret
 	}
-	return *o.Time.Get()
+	return *o.Time
 }
 
 // GetTimeOk returns a tuple with the Time field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CloudEvent) GetTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Time) {
 		return nil, false
 	}
-	return o.Time.Get(), o.Time.IsSet()
+	return o.Time, true
 }
 
 // HasTime returns a boolean if a field has been set.
 func (o *CloudEvent) HasTime() bool {
-	if o != nil && o.Time.IsSet() {
+	if o != nil && !IsNil(o.Time) {
 		return true
 	}
 
 	return false
 }
 
-// SetTime gets a reference to the given NullableTime and assigns it to the Time field.
+// SetTime gets a reference to the given time.Time and assigns it to the Time field.
 func (o *CloudEvent) SetTime(v time.Time) {
-	o.Time.Set(&v)
-}
-// SetTimeNil sets the value for Time to be an explicit nil
-func (o *CloudEvent) SetTimeNil() {
-	o.Time.Set(nil)
+	o.Time = &v
 }
 
-// UnsetTime ensures that no value is present for Time, not even an explicit nil
-func (o *CloudEvent) UnsetTime() {
-	o.Time.Unset()
-}
-
-// GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CloudEvent) GetData() CloudEventData {
-	if o == nil || IsNil(o.Data.Get()) {
-		var ret CloudEventData
+// GetData returns the Data field value if set, zero value otherwise.
+func (o *CloudEvent) GetData() map[string]interface{} {
+	if o == nil || IsNil(o.Data) {
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.Data.Get()
+	return o.Data
 }
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CloudEvent) GetDataOk() (*CloudEventData, bool) {
-	if o == nil {
-		return nil, false
+func (o *CloudEvent) GetDataOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Data) {
+		return map[string]interface{}{}, false
 	}
-	return o.Data.Get(), o.Data.IsSet()
+	return o.Data, true
 }
 
 // HasData returns a boolean if a field has been set.
 func (o *CloudEvent) HasData() bool {
-	if o != nil && o.Data.IsSet() {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given NullableCloudEventData and assigns it to the Data field.
-func (o *CloudEvent) SetData(v CloudEventData) {
-	o.Data.Set(&v)
-}
-// SetDataNil sets the value for Data to be an explicit nil
-func (o *CloudEvent) SetDataNil() {
-	o.Data.Set(nil)
+// SetData gets a reference to the given map[string]interface{} and assigns it to the Data field.
+func (o *CloudEvent) SetData(v map[string]interface{}) {
+	o.Data = v
 }
 
-// UnsetData ensures that no value is present for Data, not even an explicit nil
-func (o *CloudEvent) UnsetData() {
-	o.Data.Unset()
-}
-
-// GetDataBase64 returns the DataBase64 field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDataBase64 returns the DataBase64 field value if set, zero value otherwise.
 func (o *CloudEvent) GetDataBase64() string {
-	if o == nil || IsNil(o.DataBase64.Get()) {
+	if o == nil || IsNil(o.DataBase64) {
 		var ret string
 		return ret
 	}
-	return *o.DataBase64.Get()
+	return *o.DataBase64
 }
 
 // GetDataBase64Ok returns a tuple with the DataBase64 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CloudEvent) GetDataBase64Ok() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DataBase64) {
 		return nil, false
 	}
-	return o.DataBase64.Get(), o.DataBase64.IsSet()
+	return o.DataBase64, true
 }
 
 // HasDataBase64 returns a boolean if a field has been set.
 func (o *CloudEvent) HasDataBase64() bool {
-	if o != nil && o.DataBase64.IsSet() {
+	if o != nil && !IsNil(o.DataBase64) {
 		return true
 	}
 
 	return false
 }
 
-// SetDataBase64 gets a reference to the given NullableString and assigns it to the DataBase64 field.
+// SetDataBase64 gets a reference to the given string and assigns it to the DataBase64 field.
 func (o *CloudEvent) SetDataBase64(v string) {
-	o.DataBase64.Set(&v)
-}
-// SetDataBase64Nil sets the value for DataBase64 to be an explicit nil
-func (o *CloudEvent) SetDataBase64Nil() {
-	o.DataBase64.Set(nil)
-}
-
-// UnsetDataBase64 ensures that no value is present for DataBase64, not even an explicit nil
-func (o *CloudEvent) UnsetDataBase64() {
-	o.DataBase64.Unset()
+	o.DataBase64 = &v
 }
 
 func (o CloudEvent) MarshalJSON() ([]byte, error) {
@@ -428,23 +369,23 @@ func (o CloudEvent) ToMap() (map[string]interface{}, error) {
 	toSerialize["source"] = o.Source
 	toSerialize["specversion"] = o.Specversion
 	toSerialize["type"] = o.Type
-	if o.Datacontenttype.IsSet() {
-		toSerialize["datacontenttype"] = o.Datacontenttype.Get()
+	if !IsNil(o.Datacontenttype) {
+		toSerialize["datacontenttype"] = o.Datacontenttype
 	}
-	if o.Dataschema.IsSet() {
-		toSerialize["dataschema"] = o.Dataschema.Get()
+	if !IsNil(o.Dataschema) {
+		toSerialize["dataschema"] = o.Dataschema
 	}
-	if o.Subject.IsSet() {
-		toSerialize["subject"] = o.Subject.Get()
+	if !IsNil(o.Subject) {
+		toSerialize["subject"] = o.Subject
 	}
-	if o.Time.IsSet() {
-		toSerialize["time"] = o.Time.Get()
+	if !IsNil(o.Time) {
+		toSerialize["time"] = o.Time
 	}
-	if o.Data.IsSet() {
-		toSerialize["data"] = o.Data.Get()
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
 	}
-	if o.DataBase64.IsSet() {
-		toSerialize["data_base64"] = o.DataBase64.Get()
+	if !IsNil(o.DataBase64) {
+		toSerialize["data_base64"] = o.DataBase64
 	}
 	return toSerialize, nil
 }

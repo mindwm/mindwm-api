@@ -117,7 +117,6 @@ Class | Method | HTTP request | Description
  - [MindwmApi.ClipboardPayload](docs/ClipboardPayload.md)
  - [MindwmApi.ClipboardPayloadContext](docs/ClipboardPayloadContext.md)
  - [MindwmApi.CloudEvent](docs/CloudEvent.md)
- - [MindwmApi.CloudEventData](docs/CloudEventData.md)
  - [MindwmApi.GraphNode](docs/GraphNode.md)
  - [MindwmApi.GraphNodeAllOfData](docs/GraphNodeAllOfData.md)
  - [MindwmApi.GraphRelationship](docs/GraphRelationship.md)

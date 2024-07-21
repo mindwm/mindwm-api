@@ -8,7 +8,6 @@ modelMappings:
 ClipboardPayload : org.openapitools.model.ClipboardPayload
 ClipboardPayloadContext : org.openapitools.model.ClipboardPayloadContext
 CloudEvent : org.openapitools.model.CloudEvent
-CloudEventData : org.openapitools.model.CloudEventData
 GraphNode : org.openapitools.model.GraphNode
 GraphNodeAllOfData : org.openapitools.model.GraphNodeAllOfData
 GraphRelationship : org.openapitools.model.GraphRelationship

@@ -10,7 +10,6 @@ models/model_clipboard.go
 models/model_clipboard_payload.go
 models/model_clipboard_payload_context.go
 models/model_cloud_event.go
-models/model_cloud_event_data.go
 models/model_graph_node.go
 models/model_graph_node_all_of_data.go
 models/model_graph_relationship.go

@@ -14,9 +14,6 @@
 */
 
 
-#import "OAICloudEventData.h"
-@protocol OAICloudEventData;
-@class OAICloudEventData;
 
 
 
@@ -49,8 +46,9 @@
 /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. [optional]
  */
 @property(nonatomic) NSDate* time;
-
-@property(nonatomic) OAICloudEventData* data;
+/* The event payload. [optional]
+ */
+@property(nonatomic) NSObject* data;
 /* Base64 encoded event payload. Must adhere to RFC4648. [optional]
  */
 @property(nonatomic) NSString* dataBase64;

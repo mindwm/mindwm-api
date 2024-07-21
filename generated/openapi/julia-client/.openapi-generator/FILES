@@ -4,7 +4,6 @@ docs/Clipboard.md
 docs/ClipboardPayload.md
 docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
-docs/CloudEventData.md
 docs/GraphNode.md
 docs/GraphNodeAllOfData.md
 docs/GraphRelationship.md
@@ -26,7 +25,6 @@ src/models/model_Clipboard.jl
 src/models/model_ClipboardPayload.jl
 src/models/model_ClipboardPayloadContext.jl
 src/models/model_CloudEvent.jl
-src/models/model_CloudEventData.jl
 src/models/model_GraphNode.jl
 src/models/model_GraphNodeAllOfData.jl
 src/models/model_GraphRelationship.jl

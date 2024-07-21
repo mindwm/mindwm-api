@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CloudEventData } from './CloudEventData';
-import {
-    CloudEventDataFromJSON,
-    CloudEventDataFromJSONTyped,
-    CloudEventDataToJSON,
-} from './CloudEventData';
-
 /**
  * CloudEvents Specification JSON Schema
  * @export
@@ -55,37 +48,37 @@ export interface CloudEvent {
      * @type {string}
      * @memberof CloudEvent
      */
-    datacontenttype?: string | null;
+    datacontenttype?: string;
     /**
      * Identifies the schema that data adheres to.
      * @type {string}
      * @memberof CloudEvent
      */
-    dataschema?: string | null;
+    dataschema?: string;
     /**
      * Describes the subject of the event in the context of the event producer (identified by source).
      * @type {string}
      * @memberof CloudEvent
      */
-    subject?: string | null;
+    subject?: string;
     /**
      * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
      * @type {Date}
      * @memberof CloudEvent
      */
-    time?: Date | null;
+    time?: Date;
     /**
-     * 
-     * @type {CloudEventData}
+     * The event payload.
+     * @type {object}
      * @memberof CloudEvent
      */
-    data?: CloudEventData | null;
+    data?: object;
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      * @type {string}
      * @memberof CloudEvent
      */
-    dataBase64?: string | null;
+    dataBase64?: string;
 }
 
 /**
@@ -117,7 +110,7 @@ export function CloudEventFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'dataschema': json['dataschema'] == null ? undefined : json['dataschema'],
         'subject': json['subject'] == null ? undefined : json['subject'],
         'time': json['time'] == null ? undefined : (new Date(json['time'])),
-        'data': json['data'] == null ? undefined : CloudEventDataFromJSON(json['data']),
+        'data': json['data'] == null ? undefined : json['data'],
         'dataBase64': json['data_base64'] == null ? undefined : json['data_base64'],
     };
 }
@@ -135,8 +128,8 @@ export function CloudEventToJSON(value?: CloudEvent | null): any {
         'datacontenttype': value['datacontenttype'],
         'dataschema': value['dataschema'],
         'subject': value['subject'],
-        'time': value['time'] == null ? undefined : ((value['time'] as any).toISOString()),
-        'data': CloudEventDataToJSON(value['data']),
+        'time': value['time'] == null ? undefined : ((value['time']).toISOString()),
+        'data': value['data'],
         'data_base64': value['dataBase64'],
     };
 }

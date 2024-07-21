@@ -6,7 +6,6 @@ src/main/groovy/org/openapitools/model/Clipboard.groovy
 src/main/groovy/org/openapitools/model/ClipboardPayload.groovy
 src/main/groovy/org/openapitools/model/ClipboardPayloadContext.groovy
 src/main/groovy/org/openapitools/model/CloudEvent.groovy
-src/main/groovy/org/openapitools/model/CloudEventData.groovy
 src/main/groovy/org/openapitools/model/GraphNode.groovy
 src/main/groovy/org/openapitools/model/GraphNodeAllOfData.groovy
 src/main/groovy/org/openapitools/model/GraphRelationship.groovy

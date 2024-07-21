@@ -7,7 +7,6 @@ import io.circe.java8.time._
 import MindWM._
 import java.net.URI
 import java.time.ZonedDateTime
-import org.openapitools.models.CloudEventData
 
 /**
  * CloudEvents Specification JSON Schema
@@ -19,7 +18,7 @@ import org.openapitools.models.CloudEventData
  * @param dataschema Identifies the schema that data adheres to.
  * @param subject Describes the subject of the event in the context of the event producer (identified by source).
  * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
- * @param data 
+ * @param data The event payload.
  * @param dataUnderscorebase64 Base64 encoded event payload. Must adhere to RFC4648.
  */
 case class CloudEvent(id: String,
@@ -30,7 +29,7 @@ case class CloudEvent(id: String,
                 dataschema: Option[URI],
                 subject: Option[String],
                 time: Option[ZonedDateTime],
-                data: Option[CloudEventData],
+                data: Option[Object],
                 dataUnderscorebase64: Option[String]
                 )
 

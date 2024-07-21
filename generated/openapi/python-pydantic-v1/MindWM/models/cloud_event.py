@@ -18,9 +18,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Optional
+from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictStr, constr
-from MindWM.models.cloud_event_data import CloudEventData
 
 class CloudEvent(BaseModel):
     """
@@ -34,7 +33,7 @@ class CloudEvent(BaseModel):
     dataschema: Optional[constr(strict=True, min_length=1)] = Field(default=None, description="Identifies the schema that data adheres to.")
     subject: Optional[constr(strict=True, min_length=1)] = Field(default=None, description="Describes the subject of the event in the context of the event producer (identified by source).")
     time: Optional[datetime] = Field(default=None, description="Timestamp of when the occurrence happened. Must adhere to RFC 3339.")
-    data: Optional[CloudEventData] = None
+    data: Optional[Dict[str, Any]] = Field(default=None, description="The event payload.")
     data_base64: Optional[StrictStr] = Field(default=None, description="Base64 encoded event payload. Must adhere to RFC4648.")
     __properties = ["id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64"]
 
@@ -62,39 +61,6 @@ class CloudEvent(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
-            _dict['data'] = self.data.to_dict()
-        # set to None if datacontenttype (nullable) is None
-        # and __fields_set__ contains the field
-        if self.datacontenttype is None and "datacontenttype" in self.__fields_set__:
-            _dict['datacontenttype'] = None
-
-        # set to None if dataschema (nullable) is None
-        # and __fields_set__ contains the field
-        if self.dataschema is None and "dataschema" in self.__fields_set__:
-            _dict['dataschema'] = None
-
-        # set to None if subject (nullable) is None
-        # and __fields_set__ contains the field
-        if self.subject is None and "subject" in self.__fields_set__:
-            _dict['subject'] = None
-
-        # set to None if time (nullable) is None
-        # and __fields_set__ contains the field
-        if self.time is None and "time" in self.__fields_set__:
-            _dict['time'] = None
-
-        # set to None if data (nullable) is None
-        # and __fields_set__ contains the field
-        if self.data is None and "data" in self.__fields_set__:
-            _dict['data'] = None
-
-        # set to None if data_base64 (nullable) is None
-        # and __fields_set__ contains the field
-        if self.data_base64 is None and "data_base64" in self.__fields_set__:
-            _dict['data_base64'] = None
-
         return _dict
 
     @classmethod
@@ -115,7 +81,7 @@ class CloudEvent(BaseModel):
             "dataschema": obj.get("dataschema"),
             "subject": obj.get("subject"),
             "time": obj.get("time"),
-            "data": CloudEventData.from_dict(obj.get("data")) if obj.get("data") is not None else None,
+            "data": obj.get("data"),
             "data_base64": obj.get("data_base64")
         })
         return _obj

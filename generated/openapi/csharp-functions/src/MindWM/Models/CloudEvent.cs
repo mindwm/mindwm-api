@@ -67,7 +67,7 @@ namespace MindWM.Models
         /// </summary>
         /// <value>Content type of the data value. Must adhere to RFC 2046 format.</value>
         [MinLength(1)]
-        [DataMember(Name="datacontenttype", EmitDefaultValue=true)]
+        [DataMember(Name="datacontenttype", EmitDefaultValue=false)]
         public string Datacontenttype { get; set; }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace MindWM.Models
         /// </summary>
         /// <value>Identifies the schema that data adheres to.</value>
         [MinLength(1)]
-        [DataMember(Name="dataschema", EmitDefaultValue=true)]
+        [DataMember(Name="dataschema", EmitDefaultValue=false)]
         public string Dataschema { get; set; }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace MindWM.Models
         /// </summary>
         /// <value>Describes the subject of the event in the context of the event producer (identified by source).</value>
         [MinLength(1)]
-        [DataMember(Name="subject", EmitDefaultValue=true)]
+        [DataMember(Name="subject", EmitDefaultValue=false)]
         public string Subject { get; set; }
 
         /// <summary>
@@ -91,20 +91,21 @@ namespace MindWM.Models
         /// </summary>
         /// <value>Timestamp of when the occurrence happened. Must adhere to RFC 3339.</value>
         [MinLength(1)]
-        [DataMember(Name="time", EmitDefaultValue=true)]
-        public DateTime? Time { get; set; }
+        [DataMember(Name="time", EmitDefaultValue=false)]
+        public DateTime Time { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// The event payload.
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=true)]
-        public CloudEventData Data { get; set; }
+        /// <value>The event payload.</value>
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public Object Data { get; set; }
 
         /// <summary>
         /// Base64 encoded event payload. Must adhere to RFC4648.
         /// </summary>
         /// <value>Base64 encoded event payload. Must adhere to RFC4648.</value>
-        [DataMember(Name="data_base64", EmitDefaultValue=true)]
+        [DataMember(Name="data_base64", EmitDefaultValue=false)]
         public string DataBase64 { get; set; }
 
         /// <summary>

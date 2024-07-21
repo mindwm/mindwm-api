@@ -18,7 +18,6 @@ include/MindWM/model/Clipboard.h
 include/MindWM/model/ClipboardPayload.h
 include/MindWM/model/ClipboardPayload_context.h
 include/MindWM/model/CloudEvent.h
-include/MindWM/model/CloudEvent_data.h
 include/MindWM/model/GraphNode.h
 include/MindWM/model/GraphNode_allOf_data.h
 include/MindWM/model/GraphRelationship.h
@@ -47,7 +46,6 @@ src/model/Clipboard.cpp
 src/model/ClipboardPayload.cpp
 src/model/ClipboardPayload_context.cpp
 src/model/CloudEvent.cpp
-src/model/CloudEvent_data.cpp
 src/model/GraphNode.cpp
 src/model/GraphNode_allOf_data.cpp
 src/model/GraphRelationship.cpp

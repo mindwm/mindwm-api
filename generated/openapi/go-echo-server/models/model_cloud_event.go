@@ -20,19 +20,20 @@ type CloudEvent struct {
 	Type string `json:"type"`
 
 	// Content type of the data value. Must adhere to RFC 2046 format.
-	Datacontenttype *string `json:"datacontenttype,omitempty"`
+	Datacontenttype string `json:"datacontenttype,omitempty"`
 
 	// Identifies the schema that data adheres to.
-	Dataschema *string `json:"dataschema,omitempty"`
+	Dataschema string `json:"dataschema,omitempty"`
 
 	// Describes the subject of the event in the context of the event producer (identified by source).
-	Subject *string `json:"subject,omitempty"`
+	Subject string `json:"subject,omitempty"`
 
 	// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-	Time *time.Time `json:"time,omitempty"`
+	Time time.Time `json:"time,omitempty"`
 
-	Data *CloudEventData `json:"data,omitempty"`
+	// The event payload.
+	Data map[string]interface{} `json:"data,omitempty"`
 
 	// Base64 encoded event payload. Must adhere to RFC4648.
-	DataBase64 *string `json:"data_base64,omitempty"`
+	DataBase64 string `json:"data_base64,omitempty"`
 }

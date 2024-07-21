@@ -29,7 +29,7 @@ import javax.annotation.Generated;
   Neo4jCaptureDataChangeMetaSource.JSON_PROPERTY_HOSTNAME
 })
 @JsonTypeName("Neo4jCaptureDataChange_meta_source")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-17T16:07:45.615547242Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-21T21:29:21.140242715Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 @Introspected
 public class Neo4jCaptureDataChangeMetaSource {
     public static final String JSON_PROPERTY_HOSTNAME = "hostname";

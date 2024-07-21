@@ -19,10 +19,6 @@ force-app/main/default/classes/OASClipboardTest.cls
 force-app/main/default/classes/OASClipboardTest.cls-meta.xml
 force-app/main/default/classes/OASCloudEvent.cls
 force-app/main/default/classes/OASCloudEvent.cls-meta.xml
-force-app/main/default/classes/OASCloudEventData.cls
-force-app/main/default/classes/OASCloudEventData.cls-meta.xml
-force-app/main/default/classes/OASCloudEventDataTest.cls
-force-app/main/default/classes/OASCloudEventDataTest.cls-meta.xml
 force-app/main/default/classes/OASCloudEventTest.cls
 force-app/main/default/classes/OASCloudEventTest.cls-meta.xml
 force-app/main/default/classes/OASGraphNode.cls

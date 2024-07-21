@@ -8,7 +8,6 @@ docs/Clipboard.md
 docs/ClipboardPayload.md
 docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
-docs/CloudEventData.md
 docs/GraphNode.md
 docs/GraphNodeAllOfData.md
 docs/GraphRelationship.md
@@ -32,7 +31,6 @@ lib/WWW/OpenAPIClient/Object/Clipboard.pm
 lib/WWW/OpenAPIClient/Object/ClipboardPayload.pm
 lib/WWW/OpenAPIClient/Object/ClipboardPayloadContext.pm
 lib/WWW/OpenAPIClient/Object/CloudEvent.pm
-lib/WWW/OpenAPIClient/Object/CloudEventData.pm
 lib/WWW/OpenAPIClient/Object/GraphNode.pm
 lib/WWW/OpenAPIClient/Object/GraphNodeAllOfData.pm
 lib/WWW/OpenAPIClient/Object/GraphRelationship.pm
@@ -53,7 +51,6 @@ lib/WWW/OpenAPIClient/Role/AutoDoc.pm
 t/ClipboardPayloadContextTest.t
 t/ClipboardPayloadTest.t
 t/ClipboardTest.t
-t/CloudEventDataTest.t
 t/CloudEventTest.t
 t/GraphNodeAllOfDataTest.t
 t/GraphNodeTest.t

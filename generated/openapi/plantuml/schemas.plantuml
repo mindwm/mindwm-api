@@ -26,11 +26,8 @@ entity CloudEvent {
     dataschema: URI
     subject: String
     time: Date
-    data: CloudEventData
+    data: Object
     data_base64: String
-}
-
-entity CloudEventData {
 }
 
 entity GraphNode {
@@ -141,6 +138,5 @@ Neo4jCaptureDataChange -- Neo4jCaptureDataChangeSchema : schema
 Neo4jCaptureDataChange -- Neo4jCaptureDataChangePayload : payload
 Neo4jCaptureDataChangeRelationshipPayload -- Neo4jCaptureDataChangeRelationshipPayloadEnd : end
 Neo4jCaptureDataChangeRelationshipPayload -- Neo4jCaptureDataChangeRelationshipPayloadEnd : start
-CloudEvent -- CloudEventData : data
 
 @enduml

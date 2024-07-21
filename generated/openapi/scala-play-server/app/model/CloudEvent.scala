@@ -14,9 +14,10 @@ import java.time.OffsetDateTime
   * @param dataschema Identifies the schema that data adheres to.
   * @param subject Describes the subject of the event in the context of the event producer (identified by source).
   * @param time Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+  * @param data The event payload.
   * @param dataBase64 Base64 encoded event payload. Must adhere to RFC4648.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-17T16:10:01.566697796Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-21T21:31:12.299262078Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 case class CloudEvent(
   id: String,
   source: String,
@@ -26,7 +27,7 @@ case class CloudEvent(
   dataschema: Option[URI],
   subject: Option[String],
   time: Option[OffsetDateTime],
-  data: Option[CloudEventData],
+  data: Option[JsObject],
   dataBase64: Option[String]
 )
 

@@ -5,7 +5,6 @@ Private/OpenAPIClipboard.cpp
 Private/OpenAPIClipboardPayload.cpp
 Private/OpenAPIClipboardPayloadContext.cpp
 Private/OpenAPICloudEvent.cpp
-Private/OpenAPICloudEventData.cpp
 Private/OpenAPIGraphNode.cpp
 Private/OpenAPIGraphNodeAllOfData.cpp
 Private/OpenAPIGraphRelationship.cpp
@@ -29,7 +28,6 @@ Public/OpenAPIClipboard.h
 Public/OpenAPIClipboardPayload.h
 Public/OpenAPIClipboardPayloadContext.h
 Public/OpenAPICloudEvent.h
-Public/OpenAPICloudEventData.h
 Public/OpenAPIGraphNode.h
 Public/OpenAPIGraphNodeAllOfData.h
 Public/OpenAPIGraphRelationship.h

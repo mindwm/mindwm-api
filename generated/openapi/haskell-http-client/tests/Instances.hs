@@ -164,17 +164,9 @@ genCloudEvent n =
     <*> arbitraryReducedMaybe n -- cloudEventDataschema :: Maybe Text
     <*> arbitraryReducedMaybe n -- cloudEventSubject :: Maybe Text
     <*> arbitraryReducedMaybe n -- cloudEventTime :: Maybe DateTime
-    <*> arbitraryReducedMaybe n -- cloudEventData :: Maybe CloudEventData
+    <*> arbitraryReducedMaybeValue n -- cloudEventData :: Maybe A.Value
     <*> arbitraryReducedMaybe n -- cloudEventDataBase64 :: Maybe Text
   
-instance Arbitrary CloudEventData where
-  arbitrary = sized genCloudEventData
-
-genCloudEventData :: Int -> Gen CloudEventData
-genCloudEventData n =
-  
-  pure CloudEventData
-   
 instance Arbitrary GraphNode where
   arbitrary = sized genGraphNode
 

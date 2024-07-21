@@ -8,7 +8,6 @@ src/main/scala/io/swagger/client/model/Clipboard.scala
 src/main/scala/io/swagger/client/model/ClipboardPayload.scala
 src/main/scala/io/swagger/client/model/ClipboardPayloadContext.scala
 src/main/scala/io/swagger/client/model/CloudEvent.scala
-src/main/scala/io/swagger/client/model/CloudEventData.scala
 src/main/scala/io/swagger/client/model/GraphNode.scala
 src/main/scala/io/swagger/client/model/GraphNodeAllOfData.scala
 src/main/scala/io/swagger/client/model/GraphRelationship.scala

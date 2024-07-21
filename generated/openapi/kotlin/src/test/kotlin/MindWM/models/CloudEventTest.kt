@@ -19,7 +19,6 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import MindWM.models.CloudEvent
-import MindWM.models.CloudEventData
 
 class CloudEventTest : ShouldSpec() {
     init {
@@ -74,7 +73,7 @@ class CloudEventTest : ShouldSpec() {
             //modelInstance.time shouldBe ("TODO")
         }
 
-        // to test the property ``data``
+        // to test the property ``data`` - The event payload.
         should("test `data`") {
             // uncomment below to test the property
             //modelInstance.`data` shouldBe ("TODO")

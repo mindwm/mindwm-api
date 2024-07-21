@@ -6,7 +6,6 @@ app/apimodels/Clipboard.java
 app/apimodels/ClipboardPayload.java
 app/apimodels/ClipboardPayloadContext.java
 app/apimodels/CloudEvent.java
-app/apimodels/CloudEventData.java
 app/apimodels/GraphNode.java
 app/apimodels/GraphNodeAllOfData.java
 app/apimodels/GraphRelationship.java

@@ -58,7 +58,6 @@ Class | Method | HTTP request | Description
  - [OASClipboardPayload](OASClipboardPayload.md)
  - [OASClipboardPayloadContext](OASClipboardPayloadContext.md)
  - [OASCloudEvent](OASCloudEvent.md)
- - [OASCloudEventData](OASCloudEventData.md)
  - [OASGraphNode](OASGraphNode.md)
  - [OASGraphNodeAllOfData](OASGraphNodeAllOfData.md)
  - [OASGraphRelationship](OASGraphRelationship.md)

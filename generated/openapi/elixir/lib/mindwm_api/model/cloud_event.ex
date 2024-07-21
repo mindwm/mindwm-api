@@ -29,7 +29,7 @@ defmodule MindwmAPI.Model.CloudEvent do
     :dataschema => String.t | nil,
     :subject => String.t | nil,
     :time => DateTime.t | nil,
-    :data => MindwmAPI.Model.CloudEventData.t | nil,
+    :data => map() | nil,
     :data_base64 => String.t | nil
   }
 
@@ -38,7 +38,6 @@ defmodule MindwmAPI.Model.CloudEvent do
   def decode(value) do
     value
      |> Deserializer.deserialize(:time, :datetime, nil)
-     |> Deserializer.deserialize(:data, :struct, MindwmAPI.Model.CloudEventData)
   end
 end
 

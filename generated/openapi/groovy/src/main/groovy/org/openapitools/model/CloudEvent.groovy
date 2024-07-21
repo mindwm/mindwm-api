@@ -4,8 +4,6 @@ import groovy.transform.Canonical
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.net.URI;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.CloudEventData;
 
 @Canonical
 class CloudEvent {
@@ -25,8 +23,8 @@ class CloudEvent {
     String subject
     /* Timestamp of when the occurrence happened. Must adhere to RFC 3339. */
     Date time
-    
-    CloudEventData data
+    /* The event payload. */
+    Object data
     /* Base64 encoded event payload. Must adhere to RFC4648. */
     String dataBase64
 }

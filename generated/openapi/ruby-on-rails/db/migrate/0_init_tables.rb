@@ -50,13 +50,8 @@ class InitTables < ActiveRecord::Migration
       t.String :dataschema
       t.string :subject
       t.datetime :time
-      t.string :data
+      t.Object :data
       t.string :data_base64
-
-      t.timestamps
-    end
-
-    create_table "cloud_event_data".pluralize.to_sym, id: false do |t|
 
       t.timestamps
     end

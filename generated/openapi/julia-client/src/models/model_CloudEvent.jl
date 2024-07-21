@@ -26,7 +26,7 @@ CloudEvents Specification JSON Schema
     - dataschema::String : Identifies the schema that data adheres to.
     - subject::String : Describes the subject of the event in the context of the event producer (identified by source).
     - time::ZonedDateTime : Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-    - data::CloudEventData
+    - data::Any : The event payload.
     - data_base64::String : Base64 encoded event payload. Must adhere to RFC4648.
 """
 Base.@kwdef mutable struct CloudEvent <: OpenAPI.APIModel
@@ -38,7 +38,7 @@ Base.@kwdef mutable struct CloudEvent <: OpenAPI.APIModel
     dataschema::Union{Nothing, String} = nothing
     subject::Union{Nothing, String} = nothing
     time::Union{Nothing, ZonedDateTime} = nothing
-    data = nothing # spec type: Union{ Nothing, CloudEventData }
+    data::Union{Nothing, Any} = nothing
     data_base64::Union{Nothing, String} = nothing
 
     function CloudEvent(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, data_base64, )
@@ -56,7 +56,7 @@ Base.@kwdef mutable struct CloudEvent <: OpenAPI.APIModel
     end
 end # type CloudEvent
 
-const _property_types_CloudEvent = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("source")=>"String", Symbol("specversion")=>"String", Symbol("type")=>"String", Symbol("datacontenttype")=>"String", Symbol("dataschema")=>"String", Symbol("subject")=>"String", Symbol("time")=>"ZonedDateTime", Symbol("data")=>"CloudEventData", Symbol("data_base64")=>"String", )
+const _property_types_CloudEvent = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("source")=>"String", Symbol("specversion")=>"String", Symbol("type")=>"String", Symbol("datacontenttype")=>"String", Symbol("dataschema")=>"String", Symbol("subject")=>"String", Symbol("time")=>"ZonedDateTime", Symbol("data")=>"Any", Symbol("data_base64")=>"String", )
 OpenAPI.property_type(::Type{ CloudEvent }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CloudEvent[name]))}
 
 function check_required(o::CloudEvent)

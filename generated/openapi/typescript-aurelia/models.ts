@@ -116,18 +116,14 @@ export interface CloudEvent {
    * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
    */
   time?: string;
-  data?: CloudEventData;
+  /**
+   * The event payload.
+   */
+  data?: object;
   /**
    * Base64 encoded event payload. Must adhere to RFC4648.
    */
   data_base64?: string;
-}
-
-
-/**
- * The event payload.
- */
-export interface CloudEventData {
 }
 
 

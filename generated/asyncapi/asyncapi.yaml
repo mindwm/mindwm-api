@@ -124,7 +124,7 @@ components:
         $ref: '#/components/schemas/Neo4jCaptureDataChange'
   schemas:
     CloudEvent:
-      $ref: https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/formats/cloudevents.json
+      $ref: './cloudevents.json'
       discrimniator: type
     IoDocument:
       allOf:

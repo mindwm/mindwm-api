@@ -186,44 +186,37 @@ export interface CloudEvent {
      * @type {string}
      * @memberof CloudEvent
      */
-    'datacontenttype'?: string | null;
+    'datacontenttype'?: string;
     /**
      * Identifies the schema that data adheres to.
      * @type {string}
      * @memberof CloudEvent
      */
-    'dataschema'?: string | null;
+    'dataschema'?: string;
     /**
      * Describes the subject of the event in the context of the event producer (identified by source).
      * @type {string}
      * @memberof CloudEvent
      */
-    'subject'?: string | null;
+    'subject'?: string;
     /**
      * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
      * @type {string}
      * @memberof CloudEvent
      */
-    'time'?: string | null;
+    'time'?: string;
     /**
-     * 
-     * @type {CloudEventData}
+     * The event payload.
+     * @type {object}
      * @memberof CloudEvent
      */
-    'data'?: CloudEventData | null;
+    'data'?: object;
     /**
      * Base64 encoded event payload. Must adhere to RFC4648.
      * @type {string}
      * @memberof CloudEvent
      */
-    'data_base64'?: string | null;
-}
-/**
- * The event payload.
- * @export
- * @interface CloudEventData
- */
-export interface CloudEventData {
+    'data_base64'?: string;
 }
 /**
  * 

@@ -5,7 +5,6 @@ src/models/Clipboard.ts
 src/models/ClipboardPayload.ts
 src/models/ClipboardPayloadContext.ts
 src/models/CloudEvent.ts
-src/models/CloudEventData.ts
 src/models/GraphNode.ts
 src/models/GraphNodeAllOfData.ts
 src/models/GraphRelationship.ts

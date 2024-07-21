@@ -17,7 +17,6 @@ jvm/src/main/scala/MindWM/package.scala
 jvm/src/test/scala/MindWM/model/ClipboardPayloadContextTest.scala
 jvm/src/test/scala/MindWM/model/ClipboardPayloadTest.scala
 jvm/src/test/scala/MindWM/model/ClipboardTest.scala
-jvm/src/test/scala/MindWM/model/CloudEventDataTest.scala
 jvm/src/test/scala/MindWM/model/CloudEventTest.scala
 jvm/src/test/scala/MindWM/model/GraphNodeAllOfDataTest.scala
 jvm/src/test/scala/MindWM/model/GraphNodeTest.scala
@@ -44,8 +43,6 @@ shared/src/main/scala/MindWM/model/ClipboardPayloadContextData.scala
 shared/src/main/scala/MindWM/model/ClipboardPayloadData.scala
 shared/src/main/scala/MindWM/model/CloudEvent.scala
 shared/src/main/scala/MindWM/model/CloudEventData.scala
-shared/src/main/scala/MindWM/model/CloudEventData.scala
-shared/src/main/scala/MindWM/model/CloudEventDataData.scala
 shared/src/main/scala/MindWM/model/GraphNode.scala
 shared/src/main/scala/MindWM/model/GraphNodeAllOfData.scala
 shared/src/main/scala/MindWM/model/GraphNodeAllOfDataData.scala

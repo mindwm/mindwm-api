@@ -639,53 +639,42 @@ pub struct CloudEvent {
     #[validate(
             length(min = 1),
         )]
-    #[serde(deserialize_with = "swagger::nullable_format::deserialize_optional_nullable")]
-    #[serde(default = "swagger::nullable_format::default_optional_nullable")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub datacontenttype: Option<swagger::Nullable<String>>,
+    pub datacontenttype: Option<String>,
 
     /// Identifies the schema that data adheres to.
     #[serde(rename = "dataschema")]
     #[validate(
             length(min = 1),
         )]
-    #[serde(deserialize_with = "swagger::nullable_format::deserialize_optional_nullable")]
-    #[serde(default = "swagger::nullable_format::default_optional_nullable")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub dataschema: Option<swagger::Nullable<String>>,
+    pub dataschema: Option<String>,
 
     /// Describes the subject of the event in the context of the event producer (identified by source).
     #[serde(rename = "subject")]
     #[validate(
             length(min = 1),
         )]
-    #[serde(deserialize_with = "swagger::nullable_format::deserialize_optional_nullable")]
-    #[serde(default = "swagger::nullable_format::default_optional_nullable")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub subject: Option<swagger::Nullable<String>>,
+    pub subject: Option<String>,
 
     /// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     #[serde(rename = "time")]
     #[validate(
             length(min = 1),
         )]
-    #[serde(deserialize_with = "swagger::nullable_format::deserialize_optional_nullable")]
-    #[serde(default = "swagger::nullable_format::default_optional_nullable")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub time: Option<swagger::Nullable<chrono::DateTime::<chrono::Utc>>>,
+    pub time: Option<chrono::DateTime::<chrono::Utc>>,
 
+    /// The event payload.
     #[serde(rename = "data")]
-    #[serde(deserialize_with = "swagger::nullable_format::deserialize_optional_nullable")]
-    #[serde(default = "swagger::nullable_format::default_optional_nullable")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub data: Option<swagger::Nullable<models::CloudEventData>>,
+    pub data: Option<serde_json::Value>,
 
     /// Base64 encoded event payload. Must adhere to RFC4648.
     #[serde(rename = "data_base64")]
-    #[serde(deserialize_with = "swagger::nullable_format::deserialize_optional_nullable")]
-    #[serde(default = "swagger::nullable_format::default_optional_nullable")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub data_base64: Option<swagger::Nullable<String>>,
+    pub data_base64: Option<String>,
 
 }
 
@@ -734,7 +723,7 @@ impl std::string::ToString for CloudEvent {
             self.datacontenttype.as_ref().map(|datacontenttype| {
                 [
                     "datacontenttype".to_string(),
-                    datacontenttype.as_ref().map_or("null".to_string(), |x| x.to_string()),
+                    datacontenttype.to_string(),
                 ].join(",")
             }),
 
@@ -742,7 +731,7 @@ impl std::string::ToString for CloudEvent {
             self.dataschema.as_ref().map(|dataschema| {
                 [
                     "dataschema".to_string(),
-                    dataschema.as_ref().map_or("null".to_string(), |x| x.to_string()),
+                    dataschema.to_string(),
                 ].join(",")
             }),
 
@@ -750,7 +739,7 @@ impl std::string::ToString for CloudEvent {
             self.subject.as_ref().map(|subject| {
                 [
                     "subject".to_string(),
-                    subject.as_ref().map_or("null".to_string(), |x| x.to_string()),
+                    subject.to_string(),
                 ].join(",")
             }),
 
@@ -762,7 +751,7 @@ impl std::string::ToString for CloudEvent {
             self.data_base64.as_ref().map(|data_base64| {
                 [
                     "data_base64".to_string(),
-                    data_base64.as_ref().map_or("null".to_string(), |x| x.to_string()),
+                    data_base64.to_string(),
                 ].join(",")
             }),
 
@@ -791,7 +780,7 @@ impl std::str::FromStr for CloudEvent {
             pub dataschema: Vec<String>,
             pub subject: Vec<String>,
             pub time: Vec<chrono::DateTime::<chrono::Utc>>,
-            pub data: Vec<models::CloudEventData>,
+            pub data: Vec<serde_json::Value>,
             pub data_base64: Vec<String>,
         }
 
@@ -818,12 +807,18 @@ impl std::str::FromStr for CloudEvent {
                     "specversion" => intermediate_rep.specversion.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "type" => intermediate_rep.r#type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    "datacontenttype" => return std::result::Result::Err("Parsing a nullable type in this style is not supported in CloudEvent".to_string()),
-                    "dataschema" => return std::result::Result::Err("Parsing a nullable type in this style is not supported in CloudEvent".to_string()),
-                    "subject" => return std::result::Result::Err("Parsing a nullable type in this style is not supported in CloudEvent".to_string()),
-                    "time" => return std::result::Result::Err("Parsing a nullable type in this style is not supported in CloudEvent".to_string()),
-                    "data" => return std::result::Result::Err("Parsing a nullable type in this style is not supported in CloudEvent".to_string()),
-                    "data_base64" => return std::result::Result::Err("Parsing a nullable type in this style is not supported in CloudEvent".to_string()),
+                    #[allow(clippy::redundant_clone)]
+                    "datacontenttype" => intermediate_rep.datacontenttype.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "dataschema" => intermediate_rep.dataschema.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "subject" => intermediate_rep.subject.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "time" => intermediate_rep.time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "data" => intermediate_rep.data.push(<serde_json::Value as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "data_base64" => intermediate_rep.data_base64.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     _ => return std::result::Result::Err("Unexpected key while parsing CloudEvent".to_string())
                 }
             }
@@ -838,12 +833,12 @@ impl std::str::FromStr for CloudEvent {
             source: intermediate_rep.source.into_iter().next().ok_or_else(|| "source missing in CloudEvent".to_string())?,
             specversion: intermediate_rep.specversion.into_iter().next().ok_or_else(|| "specversion missing in CloudEvent".to_string())?,
             r#type: intermediate_rep.r#type.into_iter().next().ok_or_else(|| "type missing in CloudEvent".to_string())?,
-            datacontenttype: std::result::Result::Err("Nullable types not supported in CloudEvent".to_string())?,
-            dataschema: std::result::Result::Err("Nullable types not supported in CloudEvent".to_string())?,
-            subject: std::result::Result::Err("Nullable types not supported in CloudEvent".to_string())?,
-            time: std::result::Result::Err("Nullable types not supported in CloudEvent".to_string())?,
-            data: std::result::Result::Err("Nullable types not supported in CloudEvent".to_string())?,
-            data_base64: std::result::Result::Err("Nullable types not supported in CloudEvent".to_string())?,
+            datacontenttype: intermediate_rep.datacontenttype.into_iter().next(),
+            dataschema: intermediate_rep.dataschema.into_iter().next(),
+            subject: intermediate_rep.subject.into_iter().next(),
+            time: intermediate_rep.time.into_iter().next(),
+            data: intermediate_rep.data.into_iter().next(),
+            data_base64: intermediate_rep.data_base64.into_iter().next(),
         })
     }
 }
@@ -876,114 +871,6 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
                             format!("Unable to convert header value '{}' into CloudEvent - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-
-/// The event payload.
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
-#[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct CloudEventData {
-}
-
-
-impl CloudEventData {
-    #[allow(clippy::new_without_default)]
-    pub fn new() -> CloudEventData {
-        CloudEventData {
-        }
-    }
-}
-
-/// Converts the CloudEventData value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
-/// Should be implemented in a serde serializer
-impl std::string::ToString for CloudEventData {
-    fn to_string(&self) -> String {
-        let params: Vec<Option<String>> = vec![
-        ];
-
-        params.into_iter().flatten().collect::<Vec<_>>().join(",")
-    }
-}
-
-/// Converts Query Parameters representation (style=form, explode=false) to a CloudEventData value
-/// as specified in https://swagger.io/docs/specification/serialization/
-/// Should be implemented in a serde deserializer
-impl std::str::FromStr for CloudEventData {
-    type Err = String;
-
-    fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
-        /// An intermediate representation of the struct to use for parsing.
-        #[derive(Default)]
-        #[allow(dead_code)]
-        struct IntermediateRep {
-        }
-
-        let mut intermediate_rep = IntermediateRep::default();
-
-        // Parse into intermediate representation
-        let mut string_iter = s.split(',');
-        let mut key_result = string_iter.next();
-
-        while key_result.is_some() {
-            let val = match string_iter.next() {
-                Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing CloudEventData".to_string())
-            };
-
-            if let Some(key) = key_result {
-                #[allow(clippy::match_single_binding)]
-                match key {
-                    _ => return std::result::Result::Err("Unexpected key while parsing CloudEventData".to_string())
-                }
-            }
-
-            // Get the next key
-            key_result = string_iter.next();
-        }
-
-        // Use the intermediate representation to return the struct
-        std::result::Result::Ok(CloudEventData {
-        })
-    }
-}
-
-// Methods for converting between header::IntoHeaderValue<CloudEventData> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<CloudEventData>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<CloudEventData>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for CloudEventData - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<CloudEventData> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <CloudEventData as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into CloudEventData - {}",
                                 value, err))
                     }
              },

@@ -6,7 +6,6 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.MindWM.models.base_model import Model
-from app.MindWM.models.cloud_event_data import CloudEventData  # noqa: F401,E501
 from MindWM import util
 
 
@@ -16,7 +15,7 @@ class CloudEvent(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: str=None, source: str=None, specversion: str=None, type: str=None, datacontenttype: str=None, dataschema: str=None, subject: str=None, time: datetime=None, data: CloudEventData=None, data_base64: str=None):  # noqa: E501
+    def __init__(self, id: str=None, source: str=None, specversion: str=None, type: str=None, datacontenttype: str=None, dataschema: str=None, subject: str=None, time: datetime=None, data: object=None, data_base64: str=None):  # noqa: E501
         """CloudEvent - a model defined in Swagger
 
         :param id: The id of this CloudEvent.  # noqa: E501
@@ -36,7 +35,7 @@ class CloudEvent(Model):
         :param time: The time of this CloudEvent.  # noqa: E501
         :type time: datetime
         :param data: The data of this CloudEvent.  # noqa: E501
-        :type data: CloudEventData
+        :type data: object
         :param data_base64: The data_base64 of this CloudEvent.  # noqa: E501
         :type data_base64: str
         """
@@ -49,7 +48,7 @@ class CloudEvent(Model):
             'dataschema': str,
             'subject': str,
             'time': datetime,
-            'data': CloudEventData,
+            'data': object,
             'data_base64': str
         }
 
@@ -297,22 +296,24 @@ class CloudEvent(Model):
         self._time = time
 
     @property
-    def data(self) -> CloudEventData:
+    def data(self) -> object:
         """Gets the data of this CloudEvent.
 
+        The event payload.  # noqa: E501
 
         :return: The data of this CloudEvent.
-        :rtype: CloudEventData
+        :rtype: object
         """
         return self._data
 
     @data.setter
-    def data(self, data: CloudEventData):
+    def data(self, data: object):
         """Sets the data of this CloudEvent.
 
+        The event payload.  # noqa: E501
 
         :param data: The data of this CloudEvent.
-        :type data: CloudEventData
+        :type data: object
         """
 
         self._data = data

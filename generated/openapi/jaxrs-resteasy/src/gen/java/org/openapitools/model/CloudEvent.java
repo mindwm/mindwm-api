@@ -8,14 +8,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.net.URI;
 import java.util.Date;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.CloudEventData;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 import javax.validation.Valid;
 
-@ApiModel(description="CloudEvents Specification JSON Schema")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-17T16:08:10.161499805Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@ApiModel(description="CloudEvents Specification JSON Schema")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-21T21:29:41.202788407Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class CloudEvent   {
   
   private String id;
@@ -26,7 +24,7 @@ public class CloudEvent   {
   private URI dataschema;
   private String subject;
   private Date time;
-  private CloudEventData data;
+  private Object data;
   private String dataBase64;
 
   /**
@@ -138,15 +136,15 @@ public class CloudEvent   {
   }
 
   /**
+   * The event payload.
    **/
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The event payload.")
   @JsonProperty("data")
-  @Valid
-  public CloudEventData getData() {
+  public Object getData() {
     return data;
   }
-  public void setData(CloudEventData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 

@@ -9,7 +9,6 @@ docs/Clipboard.md
 docs/ClipboardPayload.md
 docs/ClipboardPayloadContext.md
 docs/CloudEvent.md
-docs/CloudEventData.md
 docs/GraphNode.md
 docs/GraphNodeAllOfData.md
 docs/GraphRelationship.md
@@ -32,7 +31,6 @@ model_clipboard.go
 model_clipboard_payload.go
 model_clipboard_payload_context.go
 model_cloud_event.go
-model_cloud_event_data.go
 model_graph_node.go
 model_graph_node_all_of_data.go
 model_graph_relationship.go

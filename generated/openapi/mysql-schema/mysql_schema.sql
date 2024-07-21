@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `CloudEvent` (
   `dataschema` TEXT DEFAULT NULL COMMENT 'Identifies the schema that data adheres to.',
   `subject` TEXT DEFAULT NULL COMMENT 'Describes the subject of the event in the context of the event producer (identified by source).',
   `time` DATETIME DEFAULT NULL COMMENT 'Timestamp of when the occurrence happened. Must adhere to RFC 3339.',
-  `data` TEXT DEFAULT NULL,
+  `data` JSON DEFAULT NULL COMMENT 'The event payload.',
   `data_base64` TEXT DEFAULT NULL COMMENT 'Base64 encoded event payload. Must adhere to RFC4648.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='CloudEvents Specification JSON Schema';
 

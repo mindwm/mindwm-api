@@ -240,7 +240,6 @@ use WWW::OpenAPIClient::Object::Clipboard;
 use WWW::OpenAPIClient::Object::ClipboardPayload;
 use WWW::OpenAPIClient::Object::ClipboardPayloadContext;
 use WWW::OpenAPIClient::Object::CloudEvent;
-use WWW::OpenAPIClient::Object::CloudEventData;
 use WWW::OpenAPIClient::Object::GraphNode;
 use WWW::OpenAPIClient::Object::GraphNodeAllOfData;
 use WWW::OpenAPIClient::Object::GraphRelationship;
@@ -273,7 +272,6 @@ use WWW::OpenAPIClient::Object::Clipboard;
 use WWW::OpenAPIClient::Object::ClipboardPayload;
 use WWW::OpenAPIClient::Object::ClipboardPayloadContext;
 use WWW::OpenAPIClient::Object::CloudEvent;
-use WWW::OpenAPIClient::Object::CloudEventData;
 use WWW::OpenAPIClient::Object::GraphNode;
 use WWW::OpenAPIClient::Object::GraphNodeAllOfData;
 use WWW::OpenAPIClient::Object::GraphRelationship;
@@ -309,7 +307,6 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ClipboardPayload](docs/ClipboardPayload.md)
  - [WWW::OpenAPIClient::Object::ClipboardPayloadContext](docs/ClipboardPayloadContext.md)
  - [WWW::OpenAPIClient::Object::CloudEvent](docs/CloudEvent.md)
- - [WWW::OpenAPIClient::Object::CloudEventData](docs/CloudEventData.md)
  - [WWW::OpenAPIClient::Object::GraphNode](docs/GraphNode.md)
  - [WWW::OpenAPIClient::Object::GraphNodeAllOfData](docs/GraphNodeAllOfData.md)
  - [WWW::OpenAPIClient::Object::GraphRelationship](docs/GraphRelationship.md)

@@ -8,8 +8,6 @@ lib/Models/ClipboardPayloadContext.cpp
 lib/Models/ClipboardPayloadContext.h
 lib/Models/CloudEvent.cpp
 lib/Models/CloudEvent.h
-lib/Models/CloudEventData.cpp
-lib/Models/CloudEventData.h
 lib/Models/GraphNode.cpp
 lib/Models/GraphNode.h
 lib/Models/GraphNodeAllOfData.cpp
@@ -45,7 +43,6 @@ lib/Models/TmuxPaneIoDocument.h
 lib/TestFiles/ClipboardPayloadContextTest.cpp
 lib/TestFiles/ClipboardPayloadTest.cpp
 lib/TestFiles/ClipboardTest.cpp
-lib/TestFiles/CloudEventDataTest.cpp
 lib/TestFiles/CloudEventTest.cpp
 lib/TestFiles/GraphNodeAllOfDataTest.cpp
 lib/TestFiles/GraphNodeTest.cpp

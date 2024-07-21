@@ -8,7 +8,6 @@ module MindwmAPI.Types (
   ClipboardPayload (..),
   ClipboardPayloadContext (..),
   CloudEvent (..),
-  CloudEventData (..),
   GraphNode (..),
   GraphNodeAllOfData (..),
   GraphRelationship (..),
@@ -104,7 +103,7 @@ data CloudEvent = CloudEvent
   , cloudEventDataschema :: Maybe Text -- ^ Identifies the schema that data adheres to.
   , cloudEventSubject :: Maybe Text -- ^ Describes the subject of the event in the context of the event producer (identified by source).
   , cloudEventTime :: Maybe UTCTime -- ^ Timestamp of when the occurrence happened. Must adhere to RFC 3339.
-  , cloudEventData :: Maybe CloudEventData -- ^ 
+  , cloudEventData :: Maybe Object -- ^ The event payload.
   , cloudEventDataUnderscorebase64 :: Maybe Text -- ^ Base64 encoded event payload. Must adhere to RFC4648.
   } deriving (Show, Eq, Generic)
 
@@ -131,28 +130,6 @@ optionsCloudEvent =
       , ("cloudEventTime", "time")
       , ("cloudEventData", "data")
       , ("cloudEventDataUnderscorebase64", "data_base64")
-      ]
-
-
--- | The event payload.
-data CloudEventData = CloudEventData
-  { 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON CloudEventData where
-  parseJSON = genericParseJSON optionsCloudEventData
-instance ToJSON CloudEventData where
-  toJSON = genericToJSON optionsCloudEventData
-
-optionsCloudEventData :: Options
-optionsCloudEventData =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ 
       ]
 
 

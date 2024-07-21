@@ -60,7 +60,6 @@ Class | Method | HTTP request | Description
  - [MindWM\Model.ClipboardPayload](docs/ClipboardPayload.md)
  - [MindWM\Model.ClipboardPayloadContext](docs/ClipboardPayloadContext.md)
  - [MindWM\Model.CloudEvent](docs/CloudEvent.md)
- - [MindWM\Model.CloudEventData](docs/CloudEventData.md)
  - [MindWM\Model.GraphNode](docs/GraphNode.md)
  - [MindWM\Model.GraphNodeAllOfData](docs/GraphNodeAllOfData.md)
  - [MindWM\Model.GraphRelationship](docs/GraphRelationship.md)

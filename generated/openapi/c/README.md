@@ -73,7 +73,6 @@ Category | Method | HTTP request | Description
  - [clipboard_payload_t](docs/clipboard_payload.md)
  - [clipboard_payload_context_t](docs/clipboard_payload_context.md)
  - [cloud_event_t](docs/cloud_event.md)
- - [cloud_event_data_t](docs/cloud_event_data.md)
  - [graph_node_t](docs/graph_node.md)
  - [graph_node_all_of_data_t](docs/graph_node_all_of_data.md)
  - [graph_relationship_t](docs/graph_relationship.md)
