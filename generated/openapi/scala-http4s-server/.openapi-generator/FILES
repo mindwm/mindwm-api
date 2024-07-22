@@ -1,7 +1,0 @@
-.openapi-generator-ignore
-build.sbt
-project/build.properties
-src/main/scala/MindWM/api.scala
-src/main/scala/MindWM/apis/path.scala
-src/main/scala/MindWM/apis/query.scala
-src/main/scala/MindWM/models/types.scala
