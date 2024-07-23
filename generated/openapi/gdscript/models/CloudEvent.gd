@@ -53,7 +53,7 @@ var __datacontenttype__was__set := false
 
 # Required: False
 # isArray: false
-@export var dataschema: URI = "":
+@export var dataschema: String = "":
 	set(value):
 		__dataschema__was__set = true
 		dataschema = value

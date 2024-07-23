@@ -45,7 +45,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
 - [CloudEvent](models/CloudEvent.md)
-- [Cloudevents](models/Cloudevents.md)
+- [CloudeventsGdscript](models/CloudeventsGdscript.md)
 - [IoDocument](models/IoDocument.md)
 - [IoDocumentAllOf](models/IoDocumentAllOf.md)
 
