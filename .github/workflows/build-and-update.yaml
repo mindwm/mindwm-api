@@ -83,6 +83,8 @@ jobs:
           cd /github/workspace/
           docker-entrypoint.sh generate -i generated/openapi/openapi_gdscript.yaml -p packageName=MindWM -g gdscript -o generated/openapi/gdscript; 
           rm -v generated/openapi/openapi_gdscript.yaml
+	  cd generated/openapi/gdscript 
+          sed -r -i'' 's/: Object:$$/: Dictionary:/' models/* core/*
 
     - name: Commit changes
       run: |

@@ -45,6 +45,7 @@ openapi-generator-gdscript: generated_dir
         -p packageName=$(PACKAGE_NAME) \
     	-g gdscript \
     	-o /local/$(GENERATED_DIR)/openapi/gdscript
+	(cd $(GENERATED_DIR)/openapi/gdscript && sudo sed -r -i'' 's/: Object:$$/: Dictionary:/' models/* core/*)
 
 
 	# cp ./openapi.yaml openapi-generator/modules
