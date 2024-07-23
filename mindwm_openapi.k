@@ -11,8 +11,10 @@ if file.read_env("GDSCRIPT_WORKAROUND"):
       "/" = {}
     } 
   }
+  _cloudevent_jsonschema = "./cloudevents_gdscript.yaml"
 else:
   _paths = {}
+  _cloudevent_jsonschema = "./cloudevents.yaml"
 
 openapi = p.merge({
   openapi = mindwmApi.openapi.version
@@ -26,4 +28,10 @@ openapi = p.merge({
 
 openapi_definition = util.yaml_file_merge("openapi_base.yaml", openapi)
 
-manifests.yaml_stream([p.merge(openapi_definition, { components.schemas = yaml.decode(file.read("schemas.yaml")) } )])
+schemas = p.merge(yaml.decode(file.read("schemas.yaml")), {
+  CloudEvent = {
+    "$ref" = _cloudevent_jsonschema
+  }
+})
+
+manifests.yaml_stream([p.merge(openapi_definition, { components.schemas = schemas } )])
