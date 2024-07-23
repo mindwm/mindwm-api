@@ -78,7 +78,7 @@ var __time__was__set := false
 
 # Required: False
 # isArray: false
-@export var data: Object:
+@export var data: Dictionary:
 	set(value):
 		__data__was__set = true
 		data = value

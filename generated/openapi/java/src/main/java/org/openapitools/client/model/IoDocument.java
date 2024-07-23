@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * IoDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-23T18:30:00.958570728Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-23T19:06:35.063027046Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
