@@ -1,0 +1,8 @@
+.openapi-generator-ignore
+README.md
+core/ApiBee.gd
+core/ApiConfig.gd
+core/ApiError.gd
+core/ApiResponse.gd
+models/CloudEvent.gd
+models/Cloudevents.gd
