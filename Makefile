@@ -18,10 +18,10 @@ generated_dir:
 kcl:
 	kcl mod update
 	kcl run ./mindwm_asyncapi.k | tee $(GENERATED_DIR)/asyncapi/asyncapi.yaml 
-	cp ./cloudevents.json $(GENERATED_DIR)/asyncapi/
+	cp ./cloudevents.yaml $(GENERATED_DIR)/asyncapi/
 	kcl run ./mindwm_openapi | tee $(GENERATED_DIR)/openapi/openapi.yaml                                                                          
 	GDSCRIPT_WORKAROUND=1 kcl run ./mindwm_openapi | yq 'del(.. | select(has("const")).const)' | tee $(GENERATED_DIR)/openapi/openapi_gdscript.yaml                                           
-	cp ./cloudevents.json $(GENERATED_DIR)/openapi/
+	cp ./cloudevents.yaml $(GENERATED_DIR)/openapi/
 
 .PHONY: openapi-generator-docker
 openapi-generator-docker:

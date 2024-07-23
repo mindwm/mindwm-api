@@ -1,5 +1,5 @@
 CloudEvent:
-  $ref: "./cloudevents.json"
+  $ref: "./cloudevents.yaml"
 
 IoDocument:
   allOf:
