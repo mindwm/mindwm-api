@@ -1,0 +1,30 @@
+openapi: '3.1.0'
+info:
+  title: Mindwm API
+  description: This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
+  version: '0.1.0'
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://mindwmw.io/v1
+  description: Production API endpoint for the Mindwm API
+components:
+  schemas:
+    CloudEvent:
+      $ref: './cloudevents.json'
+    IoDocument:
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      - properties:
+          type:
+            type: string
+            const: IoDocument
+            default: IoDocument
+          subject:
+            type: string
+            const: IoDocument
+            default: IoDocument
+          source:
+            type: string
+      additionalProperties: false

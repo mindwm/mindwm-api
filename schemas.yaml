@@ -1,2 +1,18 @@
 CloudEvent:
   $ref: "./cloudevents.json"
+
+IoDocument:
+  allOf:
+    - $ref: '#/components/schemas/CloudEvent'
+    - properties:
+        type:
+          type: string
+          const: IoDocument      # not compatible with openapi-generator-gdscript
+          default: IoDocument
+        subject:
+          type: string
+          const: IoDocument     # not compatible with openapi-generator-gdscript
+          default: IoDocument
+        source:
+          type: string
+  additionalProperties: false

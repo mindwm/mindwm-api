@@ -12,10 +12,16 @@ GENERATED_DIR := "generated/$(PACKAGE_NAME)/$(OPENAPI_MINDWM_VERSION)"
 .PHONY: generated_dir
 generated_dir:
 	test -d $(GENERATED_DIR) || (mkdir -p $(GENERATED_DIR) && chmod a+rwx $(GENERATED_DIR))
+	mkdir -p $(GENERATED_DIR)/openapi
+	mkdir -p $(GENERATED_DIR)/asyncapi
 	
 kcl:
-	kcl run ./mindwm_asyncapi.k > asyncapi.yaml
-	kcl run ./mindwm_openapi > openapi.yaml
+	kcl mod update
+	kcl run ./mindwm_asyncapi.k | tee $(GENERATED_DIR)/asyncapi/asyncapi.yaml 
+	cp ./cloudevents.json $(GENERATED_DIR)/asyncapi/
+	kcl run ./mindwm_openapi | tee $(GENERATED_DIR)/openapi/openapi.yaml                                                                          
+	GDSCRIPT_WORKAROUND=1 kcl run ./mindwm_openapi | yq 'del(.. | select(has("const")).const)' | tee $(GENERATED_DIR)/openapi/openapi_gdscript.yaml                                           
+	cp ./cloudevents.json $(GENERATED_DIR)/openapi/
 
 .PHONY: openapi-generator-docker
 openapi-generator-docker:
@@ -34,10 +40,10 @@ openapi-generator-python: generated_dir
 .PHONY: openapi-generator-gdscript
 openapi-generator-gdscript: generated_dir
 	docker run --rm -v "$(PWD):/local" ghcr.io/mindwm/openapi-generator/openapi-generator:gdscript generate \
-    		-i /local/openapi.yaml \
+    	-i /local/$(GENERATED_DIR)/openapi/openapi_gdscript.yaml \
         -p packageName=$(PACKAGE_NAME) \
-    		-g gdscript \
-    		-o /local/$(GENERATED_DIR)/gdscript
+    	-g gdscript \
+    	-o /local/$(GENERATED_DIR)/openapi/gdscript
 
 
 	# cp ./openapi.yaml openapi-generator/modules
