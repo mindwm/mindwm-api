@@ -1,0 +1,16 @@
+.babelrc
+.gitignore
+.openapi-generator-ignore
+.travis.yml
+README.md
+docs/CloudEvent.md
+docs/IoDocument.md
+git_push.sh
+mocha.opts
+package.json
+src/ApiClient.js
+src/index.js
+src/model/CloudEvent.js
+src/model/IoDocument.js
+test/model/CloudEvent.spec.js
+test/model/IoDocument.spec.js

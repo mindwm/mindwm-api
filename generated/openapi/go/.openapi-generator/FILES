@@ -1,0 +1,16 @@
+.gitignore
+.openapi-generator-ignore
+.travis.yml
+README.md
+api/openapi.yaml
+client.go
+configuration.go
+docs/CloudEvent.md
+docs/IoDocument.md
+git_push.sh
+go.mod
+go.sum
+model_cloud_event.go
+model_io_document.go
+response.go
+utils.go
