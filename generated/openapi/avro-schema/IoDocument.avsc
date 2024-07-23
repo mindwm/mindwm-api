@@ -1,0 +1,24 @@
+{
+  "namespace": "MindWM",
+  "type": "record",
+  "doc": "",
+  "name": "IoDocument",
+  "fields": [
+    {
+      "name": "input",
+      "type": "string",
+      "doc": "User input"
+    },
+    {
+      "name": "output",
+      "type": "string",
+      "doc": "Command output (mix of stdout & stderr)"
+    },
+    {
+      "name": "ps1",
+      "type": "string",
+      "doc": "ps1 (prompt) AFTER the input and output"
+    }
+  ]
+
+}
