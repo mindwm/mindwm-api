@@ -1,7 +1,7 @@
 CloudEvent:
   $ref: "./cloudevents.yaml"
 
-IoDocument:
+IoDocumentEvent:
   allOf:
     - $ref: '#/components/schemas/CloudEvent'
     - properties:
@@ -15,4 +15,56 @@ IoDocument:
           default: IoDocument
         source:
           type: string
+        data:
+          $ref: "#/components/schemas/IoDocument"
   additionalProperties: false
+
+ClipboardEvent:
+  allOf:
+    - $ref: '#/components/schemas/CloudEvent'
+    - properties:
+        type:
+          type: string
+          const: Clipboard
+          default: Clipboard
+        subject:
+          type: string
+          const: Clipboard
+          default: Clipboard
+        source:
+          type: string
+          # mindwm.bebebeko.mcmp6.clipbaord
+          # XXX(@metacoma) fix pattern
+          # pattern: '^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$'
+  additionalProperties: false
+
+IoDocument:
+  type: object
+  properties:
+    input:
+      type: string
+      description: User input
+      minLength: 1
+      examples: 
+        - "uptime"
+    output:
+      type: string
+      minLength: 0
+      description: Command output (mix of stdout & stderr)
+      examples: 
+        - "16:37:51 up 19 days,  2:15, 71 users,  load average: 2.01, 2.85, 2.95"
+    ps1: 
+      type: string
+      description: ps1 (prompt) AFTER the input and output
+      minLength: 1
+      examples:
+        - "user@mindwm-dev1:~/rnd/asyncapi$"
+  additionalProperties: false
+  required:
+    - input
+    - output
+    - ps1
+  examples:
+    - input: "uptime"
+      output: "16:37:51 up 19 days,  2:15, 71 users,  load average: 2.01, 2.85, 2.95"
+      ps1: "user@mindwm-dev1:~/rnd/asyncapi$"
