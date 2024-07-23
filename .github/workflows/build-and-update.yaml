@@ -21,7 +21,7 @@ jobs:
     - name: Log in to GitHub Container Registry
       run: echo ${{ secrets.MINDWM_TOKEN }} | docker login ghcr.io -u metacoma --password-stdin
 
-    - name: Build and Push io-context-service
+    - name: build and push CI docker image
       run: |
         docker build -t ghcr.io/mindwm/mindwm-api/mindwm-api:latest .
         docker push ghcr.io/mindwm/mindwm-api/mindwm-api:latest
@@ -48,7 +48,7 @@ jobs:
           kcl run ./mindwm_openapi | tee generated/openapi/openapi.yaml
           GDSCRIPT_WORKAROUND=1 kcl run ./mindwm_openapi | yq 'del(.. | select(has("const")).const)' | tee generated/openapi/openapi_gdscript.yaml
           cp ./cloudevents.yaml generated/openapi
-          cat ./cloudevents.yaml | yq e 'del(.. | select(has("format") and .format == "uri").format)' | tee $(GENERATED_DIR)/openapi/cloudevents_gdscript.yaml
+          cat ./cloudevents.yaml | yq e 'del(.. | select(has("format") and .format == "uri").format)' | tee generated/openapi/cloudevents_gdscript.yaml
 
 
 #    - name: asyncapi html-template generate
