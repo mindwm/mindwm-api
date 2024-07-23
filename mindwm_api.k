@@ -8,8 +8,8 @@ description = "This document describes the documentation, a collection of JSON s
 license = {
   name = "Apache 2.0"
   url = "https://www.apache.org/licenses/LICENSE-2.0"
-  if file.read_env("GDSCRIPT_WORKAROUND"):
-    identifier = "Apache-2.0"
+#  if file.read_env("GDSCRIPT_WORKAROUND"):
+#    identifier = "Apache-2.0"
 }
 
 asyncapi = {
@@ -19,7 +19,10 @@ asyncapi = {
 } 
 
 openapi = {
-  version = "3.1.0"
+  if file.read_env("GDSCRIPT_WORKAROUND"):
+    version = "3.0.0"
+  else:
+    version = "3.1.0"
   title = api_title
   description = description
 } 

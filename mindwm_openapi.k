@@ -5,8 +5,16 @@ import .mindwm_api as mindwmApi
 import .util as util
 import json_merge_patch as p
 
+if file.read_env("GDSCRIPT_WORKAROUND"):
+  _paths = {
+    paths = {
+      "/" = {}
+    } 
+  }
+else:
+  _paths = {}
 
-openapi = {
+openapi = p.merge({
   openapi = mindwmApi.openapi.version
   info = {
     version = mindwmApi.version
@@ -14,9 +22,8 @@ openapi = {
     description = mindwmApi.openapi.description
     license = mindwmApi.license
   }
-} 
+}, _paths)
 
 openapi_definition = util.yaml_file_merge("openapi_base.yaml", openapi)
-
 
 manifests.yaml_stream([p.merge(openapi_definition, { components.schemas = yaml.decode(file.read("schemas.yaml")) } )])
