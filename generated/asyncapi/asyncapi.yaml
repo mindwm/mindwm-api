@@ -125,3 +125,18 @@ components:
   schemas:
     CloudEvent:
       $ref: './cloudevents.json'
+    IoDocument:
+      allOf:
+      - $ref: '#/components/schemas/CloudEvent'
+      - properties:
+          type:
+            type: string
+            const: IoDocument
+            default: IoDocument
+          subject:
+            type: string
+            const: IoDocument
+            default: IoDocument
+          source:
+            type: string
+      additionalProperties: false
