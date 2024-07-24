@@ -48,17 +48,18 @@ jobs:
           kcl run ./mindwm_openapi | tee generated/openapi/openapi.yaml
           GDSCRIPT_WORKAROUND=1 kcl run ./mindwm_openapi | yq 'del(.. | select(has("const")).const)' | yq 'del(.. | select(has("examples")).examples)' | tee generated/openapi/openapi_gdscript.yaml
           cp ./CloudEvent.yaml generated/openapi
-#    - name: asyncapi html-template generate
-#      uses: addnab/docker-run-action@v3
-#      with:
-#        image: asyncapi/cli:2.0.3
-#        options: -v ${{ github.workspace }}:/github/workspace
-#        shell: /bin/sh
-#        run: | 
-#          cd /github/workspace/
-#          asyncapi config analytics --disable
-#          asyncapi generate fromTemplate generated/asyncapi/asyncapi.yaml @asyncapi/html-template -o generated/asyncapi/html --force-write
-#
+    - name: asyncapi html-template generate
+      uses: addnab/docker-run-action@v3
+      with:
+        image: asyncapi/cli:2.0.3
+        options: -v ${{ github.workspace }}:/github/workspace
+        shell: /bin/sh
+        run: | 
+          cd /github/workspace/
+          asyncapi config analytics --disable
+          cd generated/asyncapi/  # without this, asyncapi can't find ./CloudEvent.yaml (ref in jsconschema)
+          asyncapi generate fromTemplate generated/asyncapi/asyncapi.yaml @asyncapi/html-template -o generated/asyncapi/html --force-write
+
     - name: openapi generate
       uses: addnab/docker-run-action@v3
       with:
@@ -91,15 +92,15 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
         
 
-#    - name: Pushes to another repository
-#      id: push_directory
-#      uses: cpina/github-action-push-to-another-repository@target-branch
-#      env:
-#        API_TOKEN_GITHUB: ${{ secrets.MINDWM_TOKEN }}
-#      with:
-#        source-directory: generated/asyncapi/html
-#        destination-github-username: 'mindwm'
-#        destination-repository-name: 'mindwm.github.io'
-#        user-email: github-actions@github.com
-#        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-#        target-branch: main
+    - name: Pushes to another repository
+      id: push_directory
+      uses: cpina/github-action-push-to-another-repository@target-branch
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.MINDWM_TOKEN }}
+      with:
+        source-directory: generated/asyncapi/html
+        destination-github-username: 'mindwm'
+        destination-repository-name: 'mindwm.github.io'
+        user-email: github-actions@github.com
+        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+        target-branch: main
