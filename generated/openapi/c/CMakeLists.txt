@@ -54,9 +54,12 @@ set(SRCS
     src/binary.c
     external/cJSON.c
     model/object.c
+    model/clipboard.c
+    model/clipboard_context.c
     model/clipboard_event.c
     model/io_document.c
     model/io_document_event.c
+    model/vector2int.c
 
 )
 
@@ -67,9 +70,12 @@ set(HDRS
     include/keyValuePair.h
     external/cJSON.h
     model/object.h
+    model/clipboard.h
+    model/clipboard_context.h
     model/clipboard_event.h
     model/io_document.h
     model/io_document_event.h
+    model/vector2int.h
 
 )
 

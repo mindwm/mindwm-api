@@ -69,9 +69,12 @@ Category | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [clipboard_t](docs/clipboard.md)
+ - [clipboard_context_t](docs/clipboard_context.md)
  - [clipboard_event_t](docs/clipboard_event.md)
  - [io_document_t](docs/io_document.md)
  - [io_document_event_t](docs/io_document_event.md)
+ - [vector2int_t](docs/vector2int.md)
 
 
 ## Documentation for Authorization

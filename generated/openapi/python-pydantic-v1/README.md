@@ -68,9 +68,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Clipboard](docs/Clipboard.md)
+ - [ClipboardContext](docs/ClipboardContext.md)
  - [ClipboardEvent](docs/ClipboardEvent.md)
  - [IoDocument](docs/IoDocument.md)
  - [IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [Vector2int](docs/Vector2int.md)
 
 
 <a id="documentation-for-authorization"></a>

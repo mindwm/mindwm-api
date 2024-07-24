@@ -30,6 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use WWW::OpenAPIClient::Object::Clipboard;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -276,9 +277,9 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'data' => {
-        datatype => 'object',
+        datatype => 'Clipboard',
         base_name => 'data',
-        description => 'The event payload.',
+        description => '',
         format => '',
         read_only => '',
             },
@@ -300,7 +301,7 @@ __PACKAGE__->openapi_types( {
     'dataschema' => 'string',
     'subject' => 'string',
     'time' => 'DATE_TIME',
-    'data' => 'object',
+    'data' => 'Clipboard',
     'data_base64' => 'string'
 } );
 

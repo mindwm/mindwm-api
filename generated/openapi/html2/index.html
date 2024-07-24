@@ -844,6 +844,39 @@ ul.nav-tabs {
   <script>
     // Script section to load models into a JS Var
     var defs = {}
+    defs["Clipboard"] = {
+  "required" : [ "clipboardType", "content", "context" ],
+  "properties" : {
+    "context" : {
+      "$ref" : "#/components/schemas/ClipboardContext"
+    },
+    "clipboardType" : {
+      "description" : "Type of clipboard",
+      "enum" : [ "Primary", "Secondary", "Clipboard" ]
+    },
+    "content" : {
+      "description" : "Clipboard content"
+    },
+    "selectionStart" : {
+      "$ref" : "#/components/schemas/Vector2int"
+    },
+    "selectionEnd" : {
+      "$ref" : "#/components/schemas/Vector2int"
+    }
+  },
+  "additionalProperties" : { }
+};
+    defs["ClipboardContext"] = {
+  "required" : [ "windowId" ],
+  "properties" : {
+    "windowId" : {
+      "maximum" : 4294967295,
+      "minimum" : 0,
+      "type" : "number",
+      "description" : "Xorg window_id"
+    }
+  }
+};
     defs["ClipboardEvent"] = {
   "additionalProperties" : { },
   "allOf" : [ {
@@ -942,7 +975,10 @@ ul.nav-tabs {
       "subject" : {
         "default" : "Clipboard"
       },
-      "source" : { }
+      "source" : { },
+      "data" : {
+        "$ref" : "#/components/schemas/Clipboard"
+      }
     }
   } ]
 };
@@ -1068,6 +1104,23 @@ ul.nav-tabs {
       }
     }
   } ]
+};
+    defs["Vector2int"] = {
+  "required" : [ "x", "y" ],
+  "properties" : {
+    "x" : {
+      "maximum" : 4294967295,
+      "minimum" : 0,
+      "type" : "number",
+      "description" : "the X coordinate"
+    },
+    "y" : {
+      "maximum" : 4294967295,
+      "minimum" : 0,
+      "type" : "number",
+      "description" : "the Y coordinate"
+    }
+  }
 };
 
         defs["IoDocumentEvent_allOf_data"] = {

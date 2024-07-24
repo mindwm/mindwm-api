@@ -44,12 +44,15 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+- [Clipboard](models/Clipboard.md)
+- [ClipboardContext](models/ClipboardContext.md)
 - [ClipboardEvent](models/ClipboardEvent.md)
 - [ClipboardEventAllOf](models/ClipboardEventAllOf.md)
 - [CloudEvent](models/CloudEvent.md)
 - [IoDocument](models/IoDocument.md)
 - [IoDocumentEvent](models/IoDocumentEvent.md)
 - [IoDocumentEventAllOf](models/IoDocumentEventAllOf.md)
+- [Vector2int](models/Vector2int.md)
 
 
 ## Documentation For Authorization

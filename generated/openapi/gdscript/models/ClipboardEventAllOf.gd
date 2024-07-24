@@ -34,6 +34,14 @@ var __subject__was__set := false
 		source = value
 var __source__was__set := false
 
+# Required: False
+# isArray: false
+@export var data: Clipboard:
+	set(value):
+		__data__was__set = true
+		data = value
+var __data__was__set := false
+
 
 func bzz_collect_missing_properties() -> Array:
 	var bzz_missing_properties := Array()
@@ -48,6 +56,8 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["subject"] = self.subject
 	if self.__source__was__set:
 		bzz_dictionary["source"] = self.source
+	if self.__data__was__set:
+		bzz_dictionary["data"] = self.data
 	return bzz_dictionary
 
 
@@ -60,6 +70,8 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 		me.subject = from_dict["subject"]
 	if from_dict.has("source"):
 		me.source = from_dict["source"]
+	if from_dict.has("data"):
+		me.data = Clipboard.bzz_denormalize_single(from_dict["data"])
 	return me
 
 

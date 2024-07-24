@@ -28,6 +28,78 @@ This document describes the documentation, a collection of JSON schemas and exam
 == Models
 
 
+[#Clipboard]
+=== _Clipboard_ 
+
+
+
+
+[.fields-Clipboard]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| context
+| X
+| 
+| <<ClipboardContext>>    
+| 
+|     
+
+| clipboardType
+| X
+| 
+|  <<String>>  
+| Type of clipboard
+|  _Enum:_ Primary, Secondary, Clipboard,  
+
+| content
+| X
+| 
+|   String  
+| Clipboard content
+|     
+
+| selectionStart
+| 
+| 
+| <<Vector2int>>    
+| 
+|     
+
+| selectionEnd
+| 
+| 
+| <<Vector2int>>    
+| 
+|     
+
+|===
+
+
+
+[#ClipboardContext]
+=== _ClipboardContext_ 
+
+
+
+
+[.fields-ClipboardContext]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| windowId
+| X
+| 
+|   BigDecimal  
+| Xorg window_id
+|     
+
+|===
+
+
+
 [#ClipboardEvent]
 === _ClipboardEvent_ 
 
@@ -97,9 +169,9 @@ This document describes the documentation, a collection of JSON schemas and exam
 
 | data
 | 
-| X
-|   oas_any_type_not_mapped  
-| The event payload.
+| 
+| <<Clipboard>>    
+| 
 |     
 
 | data_base64
@@ -228,6 +300,35 @@ This document describes the documentation, a collection of JSON schemas and exam
 | 
 |   String  
 | Base64 encoded event payload. Must adhere to RFC4648.
+|     
+
+|===
+
+
+
+[#Vector2int]
+=== _Vector2int_ 
+
+
+
+
+[.fields-Vector2int]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| x
+| X
+| 
+|   BigDecimal  
+| the X coordinate
+|     
+
+| y
+| X
+| 
+|   BigDecimal  
+| the Y coordinate
 |     
 
 |===

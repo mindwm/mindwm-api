@@ -2,6 +2,18 @@
 
 title Mindwm API Schemas Diagram
 
+entity Clipboard {
+    * context: ClipboardContext
+    * clipboardType: String
+    * content: String
+    selectionStart: Vector2int
+    selectionEnd: Vector2int
+}
+
+entity ClipboardContext {
+    * windowId: BigDecimal
+}
+
 entity ClipboardEvent {
     * id: String
     * source: String
@@ -11,7 +23,7 @@ entity ClipboardEvent {
     dataschema: String
     subject: String
     time: Date
-    data: OasAnyTypeNotMapped
+    data: Clipboard
     data_base64: String
 }
 
@@ -34,6 +46,15 @@ entity IoDocumentEvent {
     data_base64: String
 }
 
+entity Vector2int {
+    * x: BigDecimal
+    * y: BigDecimal
+}
 
+
+ClipboardEvent -- Clipboard : data
+Clipboard -- ClipboardContext : context
+Clipboard -- Vector2int : selectionStart
+Clipboard -- Vector2int : selectionEnd
 
 @enduml

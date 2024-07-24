@@ -176,6 +176,38 @@ components:
           subject:
             default: Clipboard
           source: {}
+          data:
+            $ref: '#/components/schemas/Clipboard'
+    Clipboard:
+      additionalProperties: {}
+      properties:
+        context:
+          $ref: '#/components/schemas/ClipboardContext'
+        clipboardType:
+          description: Type of clipboard
+          enum:
+          - Primary
+          - Secondary
+          - Clipboard
+        content:
+          description: Clipboard content
+        selectionStart:
+          $ref: '#/components/schemas/Vector2int'
+        selectionEnd:
+          $ref: '#/components/schemas/Vector2int'
+      required:
+      - clipboardType
+      - content
+      - context
+    ClipboardContext:
+      properties:
+        windowId:
+          description: Xorg window_id
+          maximum: 4294967295
+          minimum: 0
+          type: number
+      required:
+      - windowId
     IoDocument:
       additionalProperties: {}
       properties:
@@ -192,6 +224,21 @@ components:
       - input
       - output
       - ps1
+    Vector2int:
+      properties:
+        x:
+          description: the X coordinate
+          maximum: 4294967295
+          minimum: 0
+          type: number
+        "y":
+          description: the Y coordinate
+          maximum: 4294967295
+          minimum: 0
+          type: number
+      required:
+      - x
+      - "y"
     IoDocumentEvent_allOf_data:
       description: The event payload.
 

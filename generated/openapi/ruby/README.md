@@ -69,9 +69,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [OpenapiClient::Clipboard](docs/Clipboard.md)
+ - [OpenapiClient::ClipboardContext](docs/ClipboardContext.md)
  - [OpenapiClient::ClipboardEvent](docs/ClipboardEvent.md)
  - [OpenapiClient::IoDocument](docs/IoDocument.md)
  - [OpenapiClient::IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [OpenapiClient::Vector2int](docs/Vector2int.md)
 
 
 ## Documentation for Authorization

@@ -1,10 +1,16 @@
+export * from '../models/Clipboard';
+export * from '../models/ClipboardContext';
 export * from '../models/ClipboardEvent';
 export * from '../models/IoDocument';
 export * from '../models/IoDocumentEvent';
+export * from '../models/Vector2int';
 
+import { Clipboard , ClipboardClipboardTypeEnum      } from '../models/Clipboard';
+import { ClipboardContext } from '../models/ClipboardContext';
 import { ClipboardEvent } from '../models/ClipboardEvent';
 import { IoDocument } from '../models/IoDocument';
 import { IoDocumentEvent } from '../models/IoDocumentEvent';
+import { Vector2int } from '../models/Vector2int';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -19,12 +25,16 @@ let primitives = [
                  ];
 
 let enumsMap: Set<string> = new Set<string>([
+    "ClipboardClipboardTypeEnum",
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "Clipboard": Clipboard,
+    "ClipboardContext": ClipboardContext,
     "ClipboardEvent": ClipboardEvent,
     "IoDocument": IoDocument,
     "IoDocumentEvent": IoDocumentEvent,
+    "Vector2int": Vector2int,
 }
 
 type MimeTypeDescriptor = {

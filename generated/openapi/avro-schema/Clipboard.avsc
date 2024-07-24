@@ -1,0 +1,44 @@
+{
+  "namespace": "MindWM",
+  "type": "record",
+  "doc": "",
+  "name": "Clipboard",
+  "fields": [
+    {
+      "name": "context",
+      "type": "MindWM.ClipboardContext",
+      "doc": ""
+    },
+    {
+      "name": "clipboardType",
+      "type": {
+        "type": "enum",
+        "name": "Clipboard_clipboardType",
+        "symbols": [
+          "Primary",
+          "Secondary",
+          "Clipboard"
+        ]
+      },
+      "doc": "Type of clipboard"
+    },
+    {
+      "name": "content",
+      "type": "string",
+      "doc": "Clipboard content"
+    },
+    {
+      "name": "selectionStart",
+      "type": ["null", "MindWM.Vector2int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "selectionEnd",
+      "type": ["null", "MindWM.Vector2int"],
+      "doc": "",
+      "default": null
+    }
+  ]
+
+}

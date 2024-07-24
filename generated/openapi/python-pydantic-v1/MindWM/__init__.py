@@ -30,6 +30,9 @@ from MindWM.exceptions import ApiAttributeError
 from MindWM.exceptions import ApiException
 
 # import models into sdk package
+from MindWM.models.clipboard import Clipboard
+from MindWM.models.clipboard_context import ClipboardContext
 from MindWM.models.clipboard_event import ClipboardEvent
 from MindWM.models.io_document import IoDocument
 from MindWM.models.io_document_event import IoDocumentEvent
+from MindWM.models.vector2int import Vector2int

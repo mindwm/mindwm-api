@@ -77,7 +77,7 @@ var __time__was__set := false
 
 # Required: False
 # isArray: false
-@export var data: Dictionary:
+@export var data: Clipboard:
 	set(value):
 		__data__was__set = true
 		data = value
@@ -150,7 +150,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("time"):
 		me.time = from_dict["time"]
 	if from_dict.has("data"):
-		me.data = from_dict["data"]
+		me.data = Clipboard.bzz_denormalize_single(from_dict["data"])
 	if from_dict.has("dataUnderscorebase64"):
 		me.dataUnderscorebase64 = from_dict["dataUnderscorebase64"]
 	return me

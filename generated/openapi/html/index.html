@@ -201,11 +201,34 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
+    <li><a href="#Clipboard"><code>Clipboard</code> - </a></li>
+    <li><a href="#ClipboardContext"><code>ClipboardContext</code> - </a></li>
     <li><a href="#ClipboardEvent"><code>ClipboardEvent</code> - </a></li>
     <li><a href="#IoDocument"><code>IoDocument</code> - </a></li>
     <li><a href="#IoDocumentEvent"><code>IoDocumentEvent</code> - </a></li>
+    <li><a href="#Vector2int"><code>Vector2int</code> - </a></li>
   </ol>
 
+  <div class="model">
+    <h3><a name="Clipboard"><code>Clipboard</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">context </div><div class="param-desc"><span class="param-type"><a href="#ClipboardContext">ClipboardContext</a></span>  </div>
+<div class="param">clipboardType </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of clipboard </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Primary</div><div class="param-enum">Secondary</div><div class="param-enum">Clipboard</div>
+<div class="param">content </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Clipboard content </div>
+<div class="param">selectionStart (optional)</div><div class="param-desc"><span class="param-type"><a href="#Vector2int">Vector2int</a></span>  </div>
+<div class="param">selectionEnd (optional)</div><div class="param-desc"><span class="param-type"><a href="#Vector2int">Vector2int</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ClipboardContext"><code>ClipboardContext</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">windowId </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Xorg window_id </div>
+    </div>  <!-- field-items -->
+  </div>
   <div class="model">
     <h3><a name="ClipboardEvent"><code>ClipboardEvent</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
@@ -218,7 +241,7 @@ font-style: italic;
 <div class="param">dataschema (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies the schema that data adheres to. </div>
 <div class="param">subject (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Timestamp of when the occurrence happened. Must adhere to RFC 3339. format: date-time</div>
-<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The event payload. </div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#Clipboard">Clipboard</a></span>  </div>
 <div class="param">data_base64 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Base64 encoded event payload. Must adhere to RFC4648. </div>
     </div>  <!-- field-items -->
   </div>
@@ -245,6 +268,14 @@ font-style: italic;
 <div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Timestamp of when the occurrence happened. Must adhere to RFC 3339. format: date-time</div>
 <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#IoDocument">IoDocument</a></span>  </div>
 <div class="param">data_base64 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Base64 encoded event payload. Must adhere to RFC4648. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Vector2int"><code>Vector2int</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">x </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> the X coordinate </div>
+<div class="param">y </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> the Y coordinate </div>
     </div>  <!-- field-items -->
   </div>
   </body>

@@ -5,10 +5,8 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
+import org.openapitools.model.Clipboard;
 import org.springframework.format.annotation.DateTimeFormat;
-import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -27,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * ClipboardEvent
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-24T14:53:59.871557775Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-24T16:45:33.973613984Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardEvent {
 
   private String id;
@@ -47,7 +45,7 @@ public class ClipboardEvent {
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime time;
 
-  private JsonNullable<Object> data = JsonNullable.<Object>undefined();
+  private Clipboard data;
 
   private String dataBase64;
 
@@ -225,23 +223,23 @@ public class ClipboardEvent {
     this.time = time;
   }
 
-  public ClipboardEvent data(Object data) {
-    this.data = JsonNullable.of(data);
+  public ClipboardEvent data(Clipboard data) {
+    this.data = data;
     return this;
   }
 
   /**
-   * The event payload.
+   * Get data
    * @return data
    */
-  
-  @Schema(name = "data", description = "The event payload.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Valid 
+  @Schema(name = "data", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("data")
-  public JsonNullable<Object> getData() {
+  public Clipboard getData() {
     return data;
   }
 
-  public void setData(JsonNullable<Object> data) {
+  public void setData(Clipboard data) {
     this.data = data;
   }
 
@@ -319,25 +317,14 @@ public class ClipboardEvent {
         Objects.equals(this.dataschema, clipboardEvent.dataschema) &&
         Objects.equals(this.subject, clipboardEvent.subject) &&
         Objects.equals(this.time, clipboardEvent.time) &&
-        equalsNullable(this.data, clipboardEvent.data) &&
+        Objects.equals(this.data, clipboardEvent.data) &&
         Objects.equals(this.dataBase64, clipboardEvent.dataBase64) &&
     Objects.equals(this.additionalProperties, clipboardEvent.additionalProperties);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, hashCodeNullable(data), dataBase64, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64, additionalProperties);
   }
 
   @Override

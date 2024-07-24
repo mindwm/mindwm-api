@@ -1,4 +1,7 @@
 .openapi-generator-ignore
+Clipboard.avsc
+ClipboardContext.avsc
 ClipboardEvent.avsc
 IoDocument.avsc
 IoDocumentEvent.avsc
+Vector2int.avsc

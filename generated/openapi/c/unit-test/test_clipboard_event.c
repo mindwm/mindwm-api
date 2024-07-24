@@ -16,6 +16,7 @@
 #include "../model/clipboard_event.h"
 clipboard_event_t* instantiate_clipboard_event(int include_optional);
 
+#include "test_clipboard.c"
 
 
 clipboard_event_t* instantiate_clipboard_event(int include_optional) {
@@ -30,7 +31,7 @@ clipboard_event_t* instantiate_clipboard_event(int include_optional) {
       "0",
       "Clipboard",
       "2013-10-20T19:20:30+01:00",
-      null,
+      list_createList(),
       "0"
     );
   } else {
@@ -43,7 +44,7 @@ clipboard_event_t* instantiate_clipboard_event(int include_optional) {
       "0",
       "Clipboard",
       "2013-10-20T19:20:30+01:00",
-      null,
+      list_createList(),
       "0"
     );
   }

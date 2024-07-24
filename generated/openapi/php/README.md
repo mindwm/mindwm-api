@@ -59,9 +59,12 @@ Class | Method | HTTP request | Description
 
 ## Models
 
+- [Clipboard](docs/Model/Clipboard.md)
+- [ClipboardContext](docs/Model/ClipboardContext.md)
 - [ClipboardEvent](docs/Model/ClipboardEvent.md)
 - [IoDocument](docs/Model/IoDocument.md)
 - [IoDocumentEvent](docs/Model/IoDocumentEvent.md)
+- [Vector2int](docs/Model/Vector2int.md)
 
 ## Authorization
 Endpoints do not require authorization.

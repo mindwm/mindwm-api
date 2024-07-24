@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { Clipboard } from '../models/Clipboard';
 import { HttpFile } from '../http/http';
 
 export class ClipboardEvent {
@@ -36,10 +37,7 @@ export class ClipboardEvent {
     * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     */
     'time'?: Date;
-    /**
-    * The event payload.
-    */
-    'data'?: any | null;
+    'data'?: Clipboard;
     /**
     * Base64 encoded event payload. Must adhere to RFC4648.
     */
@@ -99,7 +97,7 @@ export class ClipboardEvent {
         {
             "name": "data",
             "baseName": "data",
-            "type": "any",
+            "type": "Clipboard",
             "format": ""
         },
         {

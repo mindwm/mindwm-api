@@ -1,0 +1,14 @@
+{
+  "namespace": "MindWM",
+  "type": "record",
+  "doc": "",
+  "name": "ClipboardContext",
+  "fields": [
+    {
+      "name": "windowId",
+      "type": "double",
+      "doc": "Xorg window_id"
+    }
+  ]
+
+}

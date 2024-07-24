@@ -1,3 +1,6 @@
+export * from '../models/Clipboard'
+export * from '../models/ClipboardContext'
 export * from '../models/ClipboardEvent'
 export * from '../models/IoDocument'
 export * from '../models/IoDocumentEvent'
+export * from '../models/Vector2int'

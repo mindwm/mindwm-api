@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Clipboard from './Clipboard';
 
 /**
  * The ClipboardEvent model module.
@@ -84,7 +85,7 @@ class ClipboardEvent {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], Object);
+                obj['data'] = Clipboard.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('data_base64')) {
                 obj['data_base64'] = ApiClient.convertToType(data['data_base64'], 'String');
@@ -132,6 +133,10 @@ class ClipboardEvent {
         // ensure the json data is a string
         if (data['subject'] && !(typeof data['subject'] === 'string' || data['subject'] instanceof String)) {
             throw new Error("Expected the field `subject` to be a primitive type in the JSON string but got " + data['subject']);
+        }
+        // validate the optional field `data`
+        if (data['data']) { // data not null
+          Clipboard.validateJSON(data['data']);
         }
         // ensure the json data is a string
         if (data['data_base64'] && !(typeof data['data_base64'] === 'string' || data['data_base64'] instanceof String)) {
@@ -194,8 +199,7 @@ ClipboardEvent.prototype['subject'] = 'Clipboard';
 ClipboardEvent.prototype['time'] = undefined;
 
 /**
- * The event payload.
- * @member {Object} data
+ * @member {module:model/Clipboard} data
  */
 ClipboardEvent.prototype['data'] = undefined;
 

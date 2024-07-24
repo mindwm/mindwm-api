@@ -113,9 +113,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [MindwmApi.Clipboard](docs/Clipboard.md)
+ - [MindwmApi.ClipboardContext](docs/ClipboardContext.md)
  - [MindwmApi.ClipboardEvent](docs/ClipboardEvent.md)
  - [MindwmApi.IoDocument](docs/IoDocument.md)
  - [MindwmApi.IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [MindwmApi.Vector2int](docs/Vector2int.md)
 
 
 ## Documentation for Authorization

@@ -50,8 +50,8 @@
     },
     {
       "name": "data",
-      "type": ["null", "MindWM.AnyType"],
-      "doc": "The event payload.",
+      "type": ["null", "MindWM.Clipboard"],
+      "doc": "",
       "default": null
     },
     {

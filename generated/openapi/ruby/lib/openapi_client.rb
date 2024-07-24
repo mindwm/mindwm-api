@@ -17,9 +17,12 @@ require 'openapi_client/version'
 require 'openapi_client/configuration'
 
 # Models
+require 'openapi_client/models/clipboard'
+require 'openapi_client/models/clipboard_context'
 require 'openapi_client/models/clipboard_event'
 require 'openapi_client/models/io_document'
 require 'openapi_client/models/io_document_event'
+require 'openapi_client/models/vector2int'
 
 # APIs
 

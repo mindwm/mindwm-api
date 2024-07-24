@@ -34,8 +34,7 @@ type ClipboardEvent struct {
 	Subject *string `json:"subject,omitempty"`
 	// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
 	Time *time.Time `json:"time,omitempty"`
-	// The event payload.
-	Data interface{} `json:"data,omitempty"`
+	Data *Clipboard `json:"data,omitempty"`
 	// Base64 encoded event payload. Must adhere to RFC4648.
 	DataBase64 *string `json:"data_base64,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -294,23 +293,22 @@ func (o *ClipboardEvent) SetTime(v time.Time) {
 	o.Time = &v
 }
 
-// GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ClipboardEvent) GetData() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetData returns the Data field value if set, zero value otherwise.
+func (o *ClipboardEvent) GetData() Clipboard {
+	if o == nil || IsNil(o.Data) {
+		var ret Clipboard
 		return ret
 	}
-	return o.Data
+	return *o.Data
 }
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ClipboardEvent) GetDataOk() (*interface{}, bool) {
+func (o *ClipboardEvent) GetDataOk() (*Clipboard, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
-	return &o.Data, true
+	return o.Data, true
 }
 
 // HasData returns a boolean if a field has been set.
@@ -322,9 +320,9 @@ func (o *ClipboardEvent) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given interface{} and assigns it to the Data field.
-func (o *ClipboardEvent) SetData(v interface{}) {
-	o.Data = v
+// SetData gets a reference to the given Clipboard and assigns it to the Data field.
+func (o *ClipboardEvent) SetData(v Clipboard) {
+	o.Data = &v
 }
 
 // GetDataBase64 returns the DataBase64 field value if set, zero value otherwise.
@@ -385,7 +383,7 @@ func (o ClipboardEvent) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Time) {
 		toSerialize["time"] = o.Time
 	}
-	if o.Data != nil {
+	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
 	if !IsNil(o.DataBase64) {

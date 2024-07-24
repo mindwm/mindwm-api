@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **dataschema** | **String** | Identifies the schema that data adheres to. | [optional] 
 **subject** | **String** |  | [optional] [default to &#39;Clipboard&#39;]
 **time** | **Date** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
-**data** | **Object** | The event payload. | [optional] 
+**data** | [**Clipboard**](Clipboard.md) |  | [optional] 
 **dataBase64** | **String** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
 

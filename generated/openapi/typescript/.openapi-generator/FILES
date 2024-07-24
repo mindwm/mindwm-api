@@ -10,10 +10,13 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
+models/Clipboard.ts
+models/ClipboardContext.ts
 models/ClipboardEvent.ts
 models/IoDocument.ts
 models/IoDocumentEvent.ts
 models/ObjectSerializer.ts
+models/Vector2int.ts
 models/all.ts
 package.json
 rxjsStub.ts

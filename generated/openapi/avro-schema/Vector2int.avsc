@@ -1,0 +1,19 @@
+{
+  "namespace": "MindWM",
+  "type": "record",
+  "doc": "",
+  "name": "Vector2int",
+  "fields": [
+    {
+      "name": "x",
+      "type": "double",
+      "doc": "the X coordinate"
+    },
+    {
+      "name": "y",
+      "type": "double",
+      "doc": "the Y coordinate"
+    }
+  ]
+
+}

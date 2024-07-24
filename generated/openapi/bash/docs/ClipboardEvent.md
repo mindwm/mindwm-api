@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **dataschema** | **string** |  | [optional] [default to null]
 **subject** | **string** |  | [optional] [default to Clipboard]
 **_time** | **string** |  | [optional] [default to null]
-**data** | [**AnyType**](.md) |  | [optional] [default to null]
+**data** | [**Clipboard**](Clipboard.md) |  | [optional] [default to null]
 **dataUnderscorebase64** | **string** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

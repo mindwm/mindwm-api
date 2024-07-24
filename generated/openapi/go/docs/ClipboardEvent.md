@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Dataschema** | Pointer to **string** | Identifies the schema that data adheres to. | [optional] 
 **Subject** | Pointer to **string** |  | [optional] [default to "Clipboard"]
 **Time** | Pointer to **time.Time** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
-**Data** | Pointer to **interface{}** | The event payload. | [optional] 
+**Data** | Pointer to [**Clipboard**](Clipboard.md) |  | [optional] 
 **DataBase64** | Pointer to **string** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
 
 ## Methods
@@ -216,20 +216,20 @@ HasTime returns a boolean if a field has been set.
 
 ### GetData
 
-`func (o *ClipboardEvent) GetData() interface{}`
+`func (o *ClipboardEvent) GetData() Clipboard`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *ClipboardEvent) GetDataOk() (*interface{}, bool)`
+`func (o *ClipboardEvent) GetDataOk() (*Clipboard, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *ClipboardEvent) SetData(v interface{})`
+`func (o *ClipboardEvent) SetData(v Clipboard)`
 
 SetData sets Data field to given value.
 
@@ -239,16 +239,6 @@ SetData sets Data field to given value.
 
 HasData returns a boolean if a field has been set.
 
-### SetDataNil
-
-`func (o *ClipboardEvent) SetDataNil(b bool)`
-
- SetDataNil sets the value for Data to be an explicit nil
-
-### UnsetData
-`func (o *ClipboardEvent) UnsetData()`
-
-UnsetData ensures that no value is present for Data, not even an explicit nil
 ### GetDataBase64
 
 `func (o *ClipboardEvent) GetDataBase64() string`

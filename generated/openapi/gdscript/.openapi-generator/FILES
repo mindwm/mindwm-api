@@ -4,9 +4,12 @@ core/ApiBee.gd
 core/ApiConfig.gd
 core/ApiError.gd
 core/ApiResponse.gd
+models/Clipboard.gd
+models/ClipboardContext.gd
 models/ClipboardEvent.gd
 models/ClipboardEventAllOf.gd
 models/CloudEvent.gd
 models/IoDocument.gd
 models/IoDocumentEvent.gd
 models/IoDocumentEventAllOf.gd
+models/Vector2int.gd

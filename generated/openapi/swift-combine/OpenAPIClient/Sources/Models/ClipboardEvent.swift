@@ -21,12 +21,11 @@ public struct ClipboardEvent: Codable {
     public var subject: String? = "Clipboard"
     /// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     public var time: Date?
-    /// The event payload.
-    public var data: Any?
+    public var data: Clipboard?
     /// Base64 encoded event payload. Must adhere to RFC4648.
     public var dataBase64: String?
 
-    public init(id: String, source: String, specversion: String, type: String = "Clipboard", datacontenttype: String? = nil, dataschema: String? = nil, subject: String? = "Clipboard", time: Date? = nil, data: Any? = nil, dataBase64: String? = nil) {
+    public init(id: String, source: String, specversion: String, type: String = "Clipboard", datacontenttype: String? = nil, dataschema: String? = nil, subject: String? = "Clipboard", time: Date? = nil, data: Clipboard? = nil, dataBase64: String? = nil) {
         self.id = id
         self.source = source
         self.specversion = specversion
@@ -62,7 +61,7 @@ public struct ClipboardEvent: Codable {
         dataschema = try container.decodeIfPresent(String.self, forKey: .dataschema)
         subject = try container.decodeIfPresent(String.self, forKey: .subject)
         time = try container.decodeIfPresent(Date.self, forKey: .time)
-        data = try container.decodeIfPresent(Any.self, forKey: .data)
+        data = try container.decodeIfPresent(Clipboard.self, forKey: .data)
         dataBase64 = try container.decodeIfPresent(String.self, forKey: .dataBase64)
     }
 
@@ -76,9 +75,7 @@ public struct ClipboardEvent: Codable {
         try container.encodeIfPresent(dataschema, forKey: .dataschema)
         try container.encodeIfPresent(subject, forKey: .subject)
         try container.encodeIfPresent(time, forKey: .time)
-        if let data = data {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: data), forKey: .data)
-        }
+        try container.encodeIfPresent(data, forKey: .data)
         try container.encodeIfPresent(dataBase64, forKey: .dataBase64)
     }
 }

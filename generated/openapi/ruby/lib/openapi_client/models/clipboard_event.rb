@@ -36,7 +36,6 @@ module OpenapiClient
     # Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     attr_accessor :time
 
-    # The event payload.
     attr_accessor :data
 
     # Base64 encoded event payload. Must adhere to RFC4648.
@@ -74,7 +73,7 @@ module OpenapiClient
         :'dataschema' => :'String',
         :'subject' => :'String',
         :'time' => :'Time',
-        :'data' => :'Object',
+        :'data' => :'Clipboard',
         :'data_base64' => :'String'
       }
     end
@@ -82,7 +81,6 @@ module OpenapiClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'data',
       ])
     end
 

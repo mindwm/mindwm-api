@@ -13,9 +13,12 @@
 
 
 import ApiClient from './ApiClient';
+import Clipboard from './model/Clipboard';
+import ClipboardContext from './model/ClipboardContext';
 import ClipboardEvent from './model/ClipboardEvent';
 import IoDocument from './model/IoDocument';
 import IoDocumentEvent from './model/IoDocumentEvent';
+import Vector2int from './model/Vector2int';
 
 
 /**
@@ -57,6 +60,18 @@ export {
     ApiClient,
 
     /**
+     * The Clipboard model constructor.
+     * @property {module:model/Clipboard}
+     */
+    Clipboard,
+
+    /**
+     * The ClipboardContext model constructor.
+     * @property {module:model/ClipboardContext}
+     */
+    ClipboardContext,
+
+    /**
      * The ClipboardEvent model constructor.
      * @property {module:model/ClipboardEvent}
      */
@@ -72,5 +87,11 @@ export {
      * The IoDocumentEvent model constructor.
      * @property {module:model/IoDocumentEvent}
      */
-    IoDocumentEvent
+    IoDocumentEvent,
+
+    /**
+     * The Vector2int model constructor.
+     * @property {module:model/Vector2int}
+     */
+    Vector2int
 };

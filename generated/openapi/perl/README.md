@@ -236,9 +236,12 @@ To load the API packages:
 
 To load the models:
 ```perl
+use WWW::OpenAPIClient::Object::Clipboard;
+use WWW::OpenAPIClient::Object::ClipboardContext;
 use WWW::OpenAPIClient::Object::ClipboardEvent;
 use WWW::OpenAPIClient::Object::IoDocument;
 use WWW::OpenAPIClient::Object::IoDocumentEvent;
+use WWW::OpenAPIClient::Object::Vector2int;
 
 ````
 
@@ -252,9 +255,12 @@ use warnings;
 # load the API package
 
 # load the models
+use WWW::OpenAPIClient::Object::Clipboard;
+use WWW::OpenAPIClient::Object::ClipboardContext;
 use WWW::OpenAPIClient::Object::ClipboardEvent;
 use WWW::OpenAPIClient::Object::IoDocument;
 use WWW::OpenAPIClient::Object::IoDocumentEvent;
+use WWW::OpenAPIClient::Object::Vector2int;
 
 # for displaying the API response data
 use Data::Dumper;
@@ -271,9 +277,12 @@ Class | Method | HTTP request | Description
 
 
 # DOCUMENTATION FOR MODELS
+ - [WWW::OpenAPIClient::Object::Clipboard](docs/Clipboard.md)
+ - [WWW::OpenAPIClient::Object::ClipboardContext](docs/ClipboardContext.md)
  - [WWW::OpenAPIClient::Object::ClipboardEvent](docs/ClipboardEvent.md)
  - [WWW::OpenAPIClient::Object::IoDocument](docs/IoDocument.md)
  - [WWW::OpenAPIClient::Object::IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [WWW::OpenAPIClient::Object::Vector2int](docs/Vector2int.md)
 
 
 # DOCUMENTATION FOR AUTHORIZATION

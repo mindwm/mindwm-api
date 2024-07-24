@@ -2,7 +2,7 @@
 
 Mindwm API
 - API version: 0.1.0
-  - Build date: 2024-07-24T14:53:37.952002402Z[Etc/UTC]
+  - Build date: 2024-07-24T16:45:12.199441201Z[Etc/UTC]
   - Generator version: 7.7.0
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
@@ -92,9 +92,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [Clipboard](docs/Clipboard.md)
+ - [ClipboardContext](docs/ClipboardContext.md)
  - [ClipboardEvent](docs/ClipboardEvent.md)
  - [IoDocument](docs/IoDocument.md)
  - [IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [Vector2int](docs/Vector2int.md)
 
 
 <a id="documentation-for-authorization"></a>
