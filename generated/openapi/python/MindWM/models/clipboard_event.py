@@ -36,7 +36,7 @@ class ClipboardEvent(BaseModel):
     dataschema: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Identifies the schema that data adheres to.")
     subject: Optional[StrictStr] = 'Clipboard'
     time: Optional[datetime] = Field(default=None, description="Timestamp of when the occurrence happened. Must adhere to RFC 3339.")
-    data: Optional[Dict[str, Any]] = Field(default=None, description="The event payload.")
+    data: Optional[Any] = Field(default=None, description="The event payload.")
     data_base64: Optional[StrictStr] = Field(default=None, description="Base64 encoded event payload. Must adhere to RFC4648.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64"]
@@ -86,6 +86,11 @@ class ClipboardEvent(BaseModel):
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
+
+        # set to None if data (nullable) is None
+        # and model_fields_set contains the field
+        if self.data is None and "data" in self.model_fields_set:
+            _dict['data'] = None
 
         return _dict
 

@@ -7,7 +7,6 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/ClipboardEvent.md
-docs/CloudEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
 git_push.sh
@@ -38,10 +37,8 @@ src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
 src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/ClipboardEvent.java
-src/main/java/org/openapitools/client/model/CloudEvent.java
 src/main/java/org/openapitools/client/model/IoDocument.java
 src/main/java/org/openapitools/client/model/IoDocumentEvent.java
 src/test/java/org/openapitools/client/model/ClipboardEventTest.java
-src/test/java/org/openapitools/client/model/CloudEventTest.java
 src/test/java/org/openapitools/client/model/IoDocumentEventTest.java
 src/test/java/org/openapitools/client/model/IoDocumentTest.java

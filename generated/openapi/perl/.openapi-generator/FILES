@@ -5,7 +5,6 @@ README.md
 bin/autodoc
 cpanfile
 docs/ClipboardEvent.md
-docs/CloudEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
 git_push.sh
@@ -13,12 +12,10 @@ lib/WWW/OpenAPIClient/ApiClient.pm
 lib/WWW/OpenAPIClient/ApiFactory.pm
 lib/WWW/OpenAPIClient/Configuration.pm
 lib/WWW/OpenAPIClient/Object/ClipboardEvent.pm
-lib/WWW/OpenAPIClient/Object/CloudEvent.pm
 lib/WWW/OpenAPIClient/Object/IoDocument.pm
 lib/WWW/OpenAPIClient/Object/IoDocumentEvent.pm
 lib/WWW/OpenAPIClient/Role.pm
 lib/WWW/OpenAPIClient/Role/AutoDoc.pm
 t/ClipboardEventTest.t
-t/CloudEventTest.t
 t/IoDocumentEventTest.t
 t/IoDocumentTest.t

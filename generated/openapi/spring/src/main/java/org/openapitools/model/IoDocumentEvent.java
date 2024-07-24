@@ -4,7 +4,6 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import java.net.URI;
 import java.time.OffsetDateTime;
 import org.openapitools.model.IoDocument;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * IoDocumentEvent
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-23T19:56:46.882506413Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-24T14:53:59.871557775Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocumentEvent {
 
   private String id;
@@ -39,7 +38,7 @@ public class IoDocumentEvent {
 
   private String datacontenttype;
 
-  private URI dataschema;
+  private String dataschema;
 
   private String subject = "IoDocument";
 
@@ -164,7 +163,7 @@ public class IoDocumentEvent {
     this.datacontenttype = datacontenttype;
   }
 
-  public IoDocumentEvent dataschema(URI dataschema) {
+  public IoDocumentEvent dataschema(String dataschema) {
     this.dataschema = dataschema;
     return this;
   }
@@ -173,14 +172,14 @@ public class IoDocumentEvent {
    * Identifies the schema that data adheres to.
    * @return dataschema
    */
-  @Valid @Size(min = 1) 
+  @Size(min = 1) 
   @Schema(name = "dataschema", description = "Identifies the schema that data adheres to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("dataschema")
-  public URI getDataschema() {
+  public String getDataschema() {
     return dataschema;
   }
 
-  public void setDataschema(URI dataschema) {
+  public void setDataschema(String dataschema) {
     this.dataschema = dataschema;
   }
 

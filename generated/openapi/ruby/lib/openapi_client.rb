@@ -18,7 +18,6 @@ require 'openapi_client/configuration'
 
 # Models
 require 'openapi_client/models/clipboard_event'
-require 'openapi_client/models/cloud_event'
 require 'openapi_client/models/io_document'
 require 'openapi_client/models/io_document_event'
 

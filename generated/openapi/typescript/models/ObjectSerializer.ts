@@ -1,10 +1,8 @@
 export * from '../models/ClipboardEvent';
-export * from '../models/CloudEvent';
 export * from '../models/IoDocument';
 export * from '../models/IoDocumentEvent';
 
 import { ClipboardEvent } from '../models/ClipboardEvent';
-import { CloudEvent } from '../models/CloudEvent';
 import { IoDocument } from '../models/IoDocument';
 import { IoDocumentEvent } from '../models/IoDocumentEvent';
 
@@ -25,7 +23,6 @@ let enumsMap: Set<string> = new Set<string>([
 
 let typeMap: {[index: string]: any} = {
     "ClipboardEvent": ClipboardEvent,
-    "CloudEvent": CloudEvent,
     "IoDocument": IoDocument,
     "IoDocumentEvent": IoDocumentEvent,
 }

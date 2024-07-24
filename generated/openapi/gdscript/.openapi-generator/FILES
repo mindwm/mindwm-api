@@ -7,7 +7,6 @@ core/ApiResponse.gd
 models/ClipboardEvent.gd
 models/ClipboardEventAllOf.gd
 models/CloudEvent.gd
-models/CloudeventsGdscript.gd
 models/IoDocument.gd
 models/IoDocumentEvent.gd
 models/IoDocumentEventAllOf.gd

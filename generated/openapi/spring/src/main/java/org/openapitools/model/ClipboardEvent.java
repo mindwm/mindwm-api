@@ -4,9 +4,11 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import java.net.URI;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.springframework.format.annotation.DateTimeFormat;
+import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -25,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * ClipboardEvent
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-23T19:56:46.882506413Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-24T14:53:59.871557775Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardEvent {
 
   private String id;
@@ -38,14 +40,14 @@ public class ClipboardEvent {
 
   private String datacontenttype;
 
-  private URI dataschema;
+  private String dataschema;
 
   private String subject = "Clipboard";
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime time;
 
-  private Object data;
+  private JsonNullable<Object> data = JsonNullable.<Object>undefined();
 
   private String dataBase64;
 
@@ -163,7 +165,7 @@ public class ClipboardEvent {
     this.datacontenttype = datacontenttype;
   }
 
-  public ClipboardEvent dataschema(URI dataschema) {
+  public ClipboardEvent dataschema(String dataschema) {
     this.dataschema = dataschema;
     return this;
   }
@@ -172,14 +174,14 @@ public class ClipboardEvent {
    * Identifies the schema that data adheres to.
    * @return dataschema
    */
-  @Valid @Size(min = 1) 
+  @Size(min = 1) 
   @Schema(name = "dataschema", description = "Identifies the schema that data adheres to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("dataschema")
-  public URI getDataschema() {
+  public String getDataschema() {
     return dataschema;
   }
 
-  public void setDataschema(URI dataschema) {
+  public void setDataschema(String dataschema) {
     this.dataschema = dataschema;
   }
 
@@ -224,7 +226,7 @@ public class ClipboardEvent {
   }
 
   public ClipboardEvent data(Object data) {
-    this.data = data;
+    this.data = JsonNullable.of(data);
     return this;
   }
 
@@ -235,11 +237,11 @@ public class ClipboardEvent {
   
   @Schema(name = "data", description = "The event payload.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("data")
-  public Object getData() {
+  public JsonNullable<Object> getData() {
     return data;
   }
 
-  public void setData(Object data) {
+  public void setData(JsonNullable<Object> data) {
     this.data = data;
   }
 
@@ -317,14 +319,25 @@ public class ClipboardEvent {
         Objects.equals(this.dataschema, clipboardEvent.dataschema) &&
         Objects.equals(this.subject, clipboardEvent.subject) &&
         Objects.equals(this.time, clipboardEvent.time) &&
-        Objects.equals(this.data, clipboardEvent.data) &&
+        equalsNullable(this.data, clipboardEvent.data) &&
         Objects.equals(this.dataBase64, clipboardEvent.dataBase64) &&
     Objects.equals(this.additionalProperties, clipboardEvent.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64, additionalProperties);
+    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, hashCodeNullable(data), dataBase64, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

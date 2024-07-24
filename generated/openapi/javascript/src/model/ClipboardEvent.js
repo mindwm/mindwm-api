@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import CloudEvent from './CloudEvent';
 
 /**
  * The ClipboardEvent model module.
@@ -24,14 +23,13 @@ class ClipboardEvent {
      * Constructs a new <code>ClipboardEvent</code>.
      * @alias module:model/ClipboardEvent
      * @extends Object
-     * @implements module:model/CloudEvent
      * @param id {String} Identifies the event.
      * @param source {String} 
      * @param specversion {String} The version of the CloudEvents specification which the event uses.
      * @param type {String} 
      */
     constructor(id, source, specversion, type) { 
-        CloudEvent.initialize(this, id, source, specversion, type);
+        
         ClipboardEvent.initialize(this, id, source, specversion, type);
     }
 
@@ -60,7 +58,6 @@ class ClipboardEvent {
 
             ApiClient.constructFromObject(data, obj, 'Object');
             
-            CloudEvent.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -209,57 +206,6 @@ ClipboardEvent.prototype['data'] = undefined;
 ClipboardEvent.prototype['data_base64'] = undefined;
 
 
-// Implement CloudEvent interface:
-/**
- * Identifies the event.
- * @member {String} id
- */
-CloudEvent.prototype['id'] = undefined;
-/**
- * Identifies the context in which an event happened.
- * @member {String} source
- */
-CloudEvent.prototype['source'] = undefined;
-/**
- * The version of the CloudEvents specification which the event uses.
- * @member {String} specversion
- */
-CloudEvent.prototype['specversion'] = undefined;
-/**
- * Describes the type of event related to the originating occurrence.
- * @member {String} type
- */
-CloudEvent.prototype['type'] = undefined;
-/**
- * Content type of the data value. Must adhere to RFC 2046 format.
- * @member {String} datacontenttype
- */
-CloudEvent.prototype['datacontenttype'] = undefined;
-/**
- * Identifies the schema that data adheres to.
- * @member {String} dataschema
- */
-CloudEvent.prototype['dataschema'] = undefined;
-/**
- * Describes the subject of the event in the context of the event producer (identified by source).
- * @member {String} subject
- */
-CloudEvent.prototype['subject'] = undefined;
-/**
- * Timestamp of when the occurrence happened. Must adhere to RFC 3339.
- * @member {Date} time
- */
-CloudEvent.prototype['time'] = undefined;
-/**
- * The event payload.
- * @member {Object} data
- */
-CloudEvent.prototype['data'] = undefined;
-/**
- * Base64 encoded event payload. Must adhere to RFC4648.
- * @member {String} data_base64
- */
-CloudEvent.prototype['data_base64'] = undefined;
 
 
 

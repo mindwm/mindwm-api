@@ -20,9 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ClipboardEvent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-23T19:56:25.775439539Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-24T14:53:37.952002402Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardEvent {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -75,7 +75,7 @@ public class ClipboardEvent {
 
   public static final String SERIALIZED_NAME_DATASCHEMA = "dataschema";
   @SerializedName(SERIALIZED_NAME_DATASCHEMA)
-  private URI dataschema;
+  private String dataschema;
 
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
   @SerializedName(SERIALIZED_NAME_SUBJECT)
@@ -87,7 +87,7 @@ public class ClipboardEvent {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private Object data;
+  private Object data = null;
 
   public static final String SERIALIZED_NAME_DATA_BASE64 = "data_base64";
   @SerializedName(SERIALIZED_NAME_DATA_BASE64)
@@ -191,7 +191,7 @@ public class ClipboardEvent {
   }
 
 
-  public ClipboardEvent dataschema(URI dataschema) {
+  public ClipboardEvent dataschema(String dataschema) {
     this.dataschema = dataschema;
     return this;
   }
@@ -201,11 +201,11 @@ public class ClipboardEvent {
    * @return dataschema
    */
   @javax.annotation.Nullable
-  public URI getDataschema() {
+  public String getDataschema() {
     return dataschema;
   }
 
-  public void setDataschema(URI dataschema) {
+  public void setDataschema(String dataschema) {
     this.dataschema = dataschema;
   }
 
@@ -353,9 +353,20 @@ public class ClipboardEvent {
         Objects.equals(this.additionalProperties, clipboardEvent.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

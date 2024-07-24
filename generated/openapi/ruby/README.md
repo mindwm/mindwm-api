@@ -70,7 +70,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [OpenapiClient::ClipboardEvent](docs/ClipboardEvent.md)
- - [OpenapiClient::CloudEvent](docs/CloudEvent.md)
  - [OpenapiClient::IoDocument](docs/IoDocument.md)
  - [OpenapiClient::IoDocumentEvent](docs/IoDocumentEvent.md)
 

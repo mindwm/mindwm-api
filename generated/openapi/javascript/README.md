@@ -114,7 +114,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [MindwmApi.ClipboardEvent](docs/ClipboardEvent.md)
- - [MindwmApi.CloudEvent](docs/CloudEvent.md)
  - [MindwmApi.IoDocument](docs/IoDocument.md)
  - [MindwmApi.IoDocumentEvent](docs/IoDocumentEvent.md)
 

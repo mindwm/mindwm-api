@@ -65,7 +65,7 @@ class ClipboardEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'dataschema' => 'string',
         'subject' => 'string',
         'time' => '\DateTime',
-        'data' => 'object',
+        'data' => 'mixed',
         'data_base64' => 'string'
     ];
 
@@ -82,7 +82,7 @@ class ClipboardEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'specversion' => null,
         'type' => null,
         'datacontenttype' => null,
-        'dataschema' => 'uri',
+        'dataschema' => null,
         'subject' => null,
         'time' => 'date-time',
         'data' => null,
@@ -103,7 +103,7 @@ class ClipboardEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'dataschema' => false,
         'subject' => false,
         'time' => false,
-        'data' => false,
+        'data' => true,
         'data_base64' => false
     ];
 
@@ -628,7 +628,7 @@ class ClipboardEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return object|null
+     * @return mixed|null
      */
     public function getData()
     {
@@ -638,14 +638,21 @@ class ClipboardEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param object|null $data The event payload.
+     * @param mixed|null $data The event payload.
      *
      * @return self
      */
     public function setData($data)
     {
         if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data'] = $data;
 

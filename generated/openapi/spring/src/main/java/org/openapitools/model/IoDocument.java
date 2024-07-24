@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * IoDocument
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-23T19:56:46.882506413Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-24T14:53:59.871557775Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument {
 
   private String input;

@@ -3,18 +3,15 @@
 title Mindwm API Schemas Diagram
 
 entity ClipboardEvent {
-}
-
-entity CloudEvent {
     * id: String
     * source: String
     * specversion: String
     * type: String
     datacontenttype: String
-    dataschema: URI
+    dataschema: String
     subject: String
     time: Date
-    data: Object
+    data: OasAnyTypeNotMapped
     data_base64: String
 }
 
@@ -25,10 +22,18 @@ entity IoDocument {
 }
 
 entity IoDocumentEvent {
+    * id: String
+    * source: String
+    * specversion: String
+    * type: String
+    datacontenttype: String
+    dataschema: String
+    subject: String
+    time: Date
+    data: IoDocument
+    data_base64: String
 }
 
-CloudEvent <|--- ClipboardEvent
-CloudEvent <|--- IoDocumentEvent
 
 
 @enduml

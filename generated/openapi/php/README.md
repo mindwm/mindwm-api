@@ -60,7 +60,6 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [ClipboardEvent](docs/Model/ClipboardEvent.md)
-- [CloudEvent](docs/Model/CloudEvent.md)
 - [IoDocument](docs/Model/IoDocument.md)
 - [IoDocumentEvent](docs/Model/IoDocumentEvent.md)
 

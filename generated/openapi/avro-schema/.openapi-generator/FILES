@@ -1,5 +1,4 @@
 .openapi-generator-ignore
 ClipboardEvent.avsc
-CloudEvent.avsc
 IoDocument.avsc
 IoDocumentEvent.avsc

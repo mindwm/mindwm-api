@@ -30,7 +30,7 @@ clipboard_event_t* instantiate_clipboard_event(int include_optional) {
       "0",
       "Clipboard",
       "2013-10-20T19:20:30+01:00",
-      0,
+      null,
       "0"
     );
   } else {
@@ -43,7 +43,7 @@ clipboard_event_t* instantiate_clipboard_event(int include_optional) {
       "0",
       "Clipboard",
       "2013-10-20T19:20:30+01:00",
-      0,
+      null,
       "0"
     );
   }

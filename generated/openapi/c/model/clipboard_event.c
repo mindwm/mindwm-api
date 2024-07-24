@@ -14,7 +14,7 @@ clipboard_event_t *clipboard_event_create(
     char *dataschema,
     char *subject,
     char *time,
-    object_t *data,
+    any_type_t *data,
     char *data_base64
     ) {
     clipboard_event_t *clipboard_event_local_var = malloc(sizeof(clipboard_event_t));
@@ -74,7 +74,7 @@ void clipboard_event_free(clipboard_event_t *clipboard_event) {
         clipboard_event->time = NULL;
     }
     if (clipboard_event->data) {
-        object_free(clipboard_event->data);
+        _free(clipboard_event->data);
         clipboard_event->data = NULL;
     }
     if (clipboard_event->data_base64) {
@@ -157,13 +157,13 @@ cJSON *clipboard_event_convertToJSON(clipboard_event_t *clipboard_event) {
 
     // clipboard_event->data
     if(clipboard_event->data) {
-    cJSON *data_object = object_convertToJSON(clipboard_event->data);
-    if(data_object == NULL) {
-    goto fail; //model
+    cJSON *data_local_JSON = _convertToJSON(clipboard_event->data);
+    if(data_local_JSON == NULL) {
+        goto fail; // custom
     }
-    cJSON_AddItemToObject(item, "data", data_object);
+    cJSON_AddItemToObject(item, "data", data_local_JSON);
     if(item->child == NULL) {
-    goto fail;
+        goto fail;
     }
     }
 
@@ -186,6 +186,9 @@ fail:
 clipboard_event_t *clipboard_event_parseFromJSON(cJSON *clipboard_eventJSON){
 
     clipboard_event_t *clipboard_event_local_var = NULL;
+
+    // define the local variable for clipboard_event->data
+    _t *data_local_nonprim = NULL;
 
     // clipboard_event->id
     cJSON *id = cJSON_GetObjectItemCaseSensitive(clipboard_eventJSON, "id");
@@ -273,9 +276,8 @@ clipboard_event_t *clipboard_event_parseFromJSON(cJSON *clipboard_eventJSON){
 
     // clipboard_event->data
     cJSON *data = cJSON_GetObjectItemCaseSensitive(clipboard_eventJSON, "data");
-    object_t *data_local_object = NULL;
     if (data) { 
-    data_local_object = object_parseFromJSON(data); //object
+    data_local_nonprim = _parseFromJSON(data); //custom
     }
 
     // clipboard_event->data_base64
@@ -297,12 +299,16 @@ clipboard_event_t *clipboard_event_parseFromJSON(cJSON *clipboard_eventJSON){
         dataschema && !cJSON_IsNull(dataschema) ? strdup(dataschema->valuestring) : NULL,
         subject && !cJSON_IsNull(subject) ? strdup(subject->valuestring) : NULL,
         time && !cJSON_IsNull(time) ? strdup(time->valuestring) : NULL,
-        data ? data_local_object : NULL,
+        data ? data_local_nonprim : NULL,
         data_base64 && !cJSON_IsNull(data_base64) ? strdup(data_base64->valuestring) : NULL
         );
 
     return clipboard_event_local_var;
 end:
+    if (data_local_nonprim) {
+        _free(data_local_nonprim);
+        data_local_nonprim = NULL;
+    }
     return NULL;
 
 }

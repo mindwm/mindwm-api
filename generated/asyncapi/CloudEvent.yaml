@@ -83,6 +83,7 @@ definitions:
     minLength: 1
   dataschemadef:
     type: string
+#    format: uri
     minLength: 1
   subjectdef:
     type: string

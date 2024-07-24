@@ -11,14 +11,12 @@ MindWM/configuration.py
 MindWM/exceptions.py
 MindWM/models/__init__.py
 MindWM/models/clipboard_event.py
-MindWM/models/cloud_event.py
 MindWM/models/io_document.py
 MindWM/models/io_document_event.py
 MindWM/py.typed
 MindWM/rest.py
 README.md
 docs/ClipboardEvent.md
-docs/CloudEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
 git_push.sh
@@ -29,7 +27,6 @@ setup.py
 test-requirements.txt
 test/__init__.py
 test/test_clipboard_event.py
-test/test_cloud_event.py
 test/test_io_document.py
 test/test_io_document_event.py
 tox.ini

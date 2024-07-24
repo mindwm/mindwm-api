@@ -14,7 +14,6 @@
 
 import ApiClient from './ApiClient';
 import ClipboardEvent from './model/ClipboardEvent';
-import CloudEvent from './model/CloudEvent';
 import IoDocument from './model/IoDocument';
 import IoDocumentEvent from './model/IoDocumentEvent';
 
@@ -62,12 +61,6 @@ export {
      * @property {module:model/ClipboardEvent}
      */
     ClipboardEvent,
-
-    /**
-     * The CloudEvent model constructor.
-     * @property {module:model/CloudEvent}
-     */
-    CloudEvent,
 
     /**
      * The IoDocument model constructor.

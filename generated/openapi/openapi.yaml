@@ -11,11 +11,9 @@ servers:
   description: Production API endpoint for the Mindwm API
 components:
   schemas:
-    CloudEvent:
-      $ref: './cloudevents.yaml'
     IoDocumentEvent:
       allOf:
-      - $ref: '#/components/schemas/CloudEvent'
+      - $ref: './CloudEvent.yaml'
       - properties:
           type:
             type: string
@@ -32,7 +30,7 @@ components:
       additionalProperties: false
     ClipboardEvent:
       allOf:
-      - $ref: '#/components/schemas/CloudEvent'
+      - $ref: './CloudEvent.yaml'
       - properties:
           type:
             type: string

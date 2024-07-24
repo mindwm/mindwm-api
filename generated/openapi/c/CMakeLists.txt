@@ -55,7 +55,6 @@ set(SRCS
     external/cJSON.c
     model/object.c
     model/clipboard_event.c
-    model/cloud_event.c
     model/io_document.c
     model/io_document_event.c
 
@@ -69,7 +68,6 @@ set(HDRS
     external/cJSON.h
     model/object.h
     model/clipboard_event.h
-    model/cloud_event.h
     model/io_document.h
     model/io_document_event.h
 

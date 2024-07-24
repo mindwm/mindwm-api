@@ -39,7 +39,7 @@ export class ClipboardEvent {
     /**
     * The event payload.
     */
-    'data'?: any;
+    'data'?: any | null;
     /**
     * Base64 encoded event payload. Must adhere to RFC4648.
     */
@@ -82,7 +82,7 @@ export class ClipboardEvent {
             "name": "dataschema",
             "baseName": "dataschema",
             "type": "string",
-            "format": "uri"
+            "format": ""
         },
         {
             "name": "subject",

@@ -3,7 +3,6 @@ CMakeLists.txt
 Packing.cmake
 README.md
 docs/clipboard_event.md
-docs/cloud_event.md
 docs/io_document.md
 docs/io_document_event.md
 external/cJSON.c
@@ -16,8 +15,6 @@ include/list.h
 libcurl.licence
 model/clipboard_event.c
 model/clipboard_event.h
-model/cloud_event.c
-model/cloud_event.h
 model/io_document.c
 model/io_document.h
 model/io_document_event.c
@@ -30,6 +27,5 @@ src/binary.c
 src/list.c
 uncrustify-rules.cfg
 unit-test/test_clipboard_event.c
-unit-test/test_cloud_event.c
 unit-test/test_io_document.c
 unit-test/test_io_document_event.c

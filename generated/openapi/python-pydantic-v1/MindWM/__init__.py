@@ -31,6 +31,5 @@ from MindWM.exceptions import ApiException
 
 # import models into sdk package
 from MindWM.models.clipboard_event import ClipboardEvent
-from MindWM.models.cloud_event import CloudEvent
 from MindWM.models.io_document import IoDocument
 from MindWM.models.io_document_event import IoDocumentEvent

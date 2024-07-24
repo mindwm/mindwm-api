@@ -123,11 +123,9 @@ components:
       payload:
         $ref: '#/components/schemas/Neo4jCaptureDataChange'
   schemas:
-    CloudEvent:
-      $ref: './cloudevents.yaml'
     IoDocumentEvent:
       allOf:
-      - $ref: '#/components/schemas/CloudEvent'
+      - $ref: './CloudEvent.yaml'
       - properties:
           type:
             type: string
@@ -144,7 +142,7 @@ components:
       additionalProperties: false
     ClipboardEvent:
       allOf:
-      - $ref: '#/components/schemas/CloudEvent'
+      - $ref: './CloudEvent.yaml'
       - properties:
           type:
             type: string

@@ -80,7 +80,7 @@ export class IoDocumentEvent {
             "name": "dataschema",
             "baseName": "dataschema",
             "type": "string",
-            "format": "uri"
+            "format": ""
         },
         {
             "name": "subject",

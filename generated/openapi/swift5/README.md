@@ -31,7 +31,6 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [ClipboardEvent](docs/ClipboardEvent.md)
- - [CloudEvent](docs/CloudEvent.md)
  - [IoDocument](docs/IoDocument.md)
  - [IoDocumentEvent](docs/IoDocumentEvent.md)
 

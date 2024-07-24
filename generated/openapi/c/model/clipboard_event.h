@@ -16,7 +16,6 @@
 typedef struct clipboard_event_t clipboard_event_t;
 
 #include "any_type.h"
-#include "object.h"
 
 
 
@@ -29,7 +28,7 @@ typedef struct clipboard_event_t {
     char *dataschema; // string
     char *subject; // string
     char *time; //date time
-    object_t *data; //object
+    any_type_t *data; // custom
     char *data_base64; // string
 
 } clipboard_event_t;
@@ -43,7 +42,7 @@ clipboard_event_t *clipboard_event_create(
     char *dataschema,
     char *subject,
     char *time,
-    object_t *data,
+    any_type_t *data,
     char *data_base64
 );
 

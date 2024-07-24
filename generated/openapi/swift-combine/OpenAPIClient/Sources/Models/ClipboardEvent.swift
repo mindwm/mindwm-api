@@ -22,11 +22,11 @@ public struct ClipboardEvent: Codable {
     /// Timestamp of when the occurrence happened. Must adhere to RFC 3339.
     public var time: Date?
     /// The event payload.
-    public var data: [String: Any]?
+    public var data: Any?
     /// Base64 encoded event payload. Must adhere to RFC4648.
     public var dataBase64: String?
 
-    public init(id: String, source: String, specversion: String, type: String = "Clipboard", datacontenttype: String? = nil, dataschema: String? = nil, subject: String? = "Clipboard", time: Date? = nil, data: [String: Any]? = nil, dataBase64: String? = nil) {
+    public init(id: String, source: String, specversion: String, type: String = "Clipboard", datacontenttype: String? = nil, dataschema: String? = nil, subject: String? = "Clipboard", time: Date? = nil, data: Any? = nil, dataBase64: String? = nil) {
         self.id = id
         self.source = source
         self.specversion = specversion
@@ -62,7 +62,7 @@ public struct ClipboardEvent: Codable {
         dataschema = try container.decodeIfPresent(String.self, forKey: .dataschema)
         subject = try container.decodeIfPresent(String.self, forKey: .subject)
         time = try container.decodeIfPresent(Date.self, forKey: .time)
-        data = try container.decodeIfPresent([String: Any].self, forKey: .data)
+        data = try container.decodeIfPresent(Any.self, forKey: .data)
         dataBase64 = try container.decodeIfPresent(String.self, forKey: .dataBase64)
     }
 

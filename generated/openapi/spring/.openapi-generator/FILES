@@ -7,7 +7,6 @@ src/main/java/org/openapitools/api/ApiUtil.java
 src/main/java/org/openapitools/configuration/HomeController.java
 src/main/java/org/openapitools/configuration/SpringDocConfiguration.java
 src/main/java/org/openapitools/model/ClipboardEvent.java
-src/main/java/org/openapitools/model/CloudEvent.java
 src/main/java/org/openapitools/model/IoDocument.java
 src/main/java/org/openapitools/model/IoDocumentEvent.java
 src/main/resources/application.properties

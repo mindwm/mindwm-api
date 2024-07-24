@@ -6,14 +6,12 @@ api/openapi.yaml
 client.go
 configuration.go
 docs/ClipboardEvent.md
-docs/CloudEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
 git_push.sh
 go.mod
 go.sum
 model_clipboard_event.go
-model_cloud_event.go
 model_io_document.go
 model_io_document_event.go
 response.go

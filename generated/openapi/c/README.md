@@ -70,7 +70,6 @@ Category | Method | HTTP request | Description
 ## Documentation for Models
 
  - [clipboard_event_t](docs/clipboard_event.md)
- - [cloud_event_t](docs/cloud_event.md)
  - [io_document_t](docs/io_document.md)
  - [io_document_event_t](docs/io_document_event.md)
 

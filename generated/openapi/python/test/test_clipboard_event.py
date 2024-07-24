@@ -43,7 +43,7 @@ class TestClipboardEvent(unittest.TestCase):
                 dataschema = '0',
                 subject = 'Clipboard',
                 time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                data = MindWM.models.data.data(),
+                data = None,
                 data_base64 = ''
             )
         else:

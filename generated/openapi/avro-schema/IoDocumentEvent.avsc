@@ -32,7 +32,7 @@
     },
     {
       "name": "dataschema",
-      "type": ["null", "MindWM.URI"],
+      "type": ["null", "string"],
       "doc": "Identifies the schema that data adheres to.",
       "default": null
     },

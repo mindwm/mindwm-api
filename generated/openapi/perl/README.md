@@ -237,7 +237,6 @@ To load the API packages:
 To load the models:
 ```perl
 use WWW::OpenAPIClient::Object::ClipboardEvent;
-use WWW::OpenAPIClient::Object::CloudEvent;
 use WWW::OpenAPIClient::Object::IoDocument;
 use WWW::OpenAPIClient::Object::IoDocumentEvent;
 
@@ -254,7 +253,6 @@ use warnings;
 
 # load the models
 use WWW::OpenAPIClient::Object::ClipboardEvent;
-use WWW::OpenAPIClient::Object::CloudEvent;
 use WWW::OpenAPIClient::Object::IoDocument;
 use WWW::OpenAPIClient::Object::IoDocumentEvent;
 
@@ -274,7 +272,6 @@ Class | Method | HTTP request | Description
 
 # DOCUMENTATION FOR MODELS
  - [WWW::OpenAPIClient::Object::ClipboardEvent](docs/ClipboardEvent.md)
- - [WWW::OpenAPIClient::Object::CloudEvent](docs/CloudEvent.md)
  - [WWW::OpenAPIClient::Object::IoDocument](docs/IoDocument.md)
  - [WWW::OpenAPIClient::Object::IoDocumentEvent](docs/IoDocumentEvent.md)
 

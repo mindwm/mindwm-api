@@ -15,6 +15,5 @@
 
 # import models into model package
 from MindWM.models.clipboard_event import ClipboardEvent
-from MindWM.models.cloud_event import CloudEvent
 from MindWM.models.io_document import IoDocument
 from MindWM.models.io_document_event import IoDocumentEvent

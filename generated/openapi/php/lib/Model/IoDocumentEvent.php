@@ -82,7 +82,7 @@ class IoDocumentEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'specversion' => null,
         'type' => null,
         'datacontenttype' => null,
-        'dataschema' => 'uri',
+        'dataschema' => null,
         'subject' => null,
         'time' => 'date-time',
         'data' => null,

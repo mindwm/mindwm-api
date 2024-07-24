@@ -5,6 +5,5 @@ _client.sh
 client.sh
 client.sh.bash-completion
 docs/ClipboardEvent.md
-docs/CloudEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md

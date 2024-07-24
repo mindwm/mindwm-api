@@ -47,7 +47,6 @@ Class | Method | HTTP request | Description
 - [ClipboardEvent](models/ClipboardEvent.md)
 - [ClipboardEventAllOf](models/ClipboardEventAllOf.md)
 - [CloudEvent](models/CloudEvent.md)
-- [CloudeventsGdscript](models/CloudeventsGdscript.md)
 - [IoDocument](models/IoDocument.md)
 - [IoDocumentEvent](models/IoDocumentEvent.md)
 - [IoDocumentEventAllOf](models/IoDocumentEventAllOf.md)

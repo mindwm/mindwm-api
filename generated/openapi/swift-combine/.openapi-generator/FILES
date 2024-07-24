@@ -1,7 +1,6 @@
 .openapi-generator-ignore
 OpenAPIClient/Package.swift
 OpenAPIClient/Sources/Models/ClipboardEvent.swift
-OpenAPIClient/Sources/Models/CloudEvent.swift
 OpenAPIClient/Sources/Models/IoDocument.swift
 OpenAPIClient/Sources/Models/IoDocumentEvent.swift
 OpenAPIClient/Sources/Private/AnyDecodable.swift

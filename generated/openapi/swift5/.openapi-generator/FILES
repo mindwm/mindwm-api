@@ -12,7 +12,6 @@ OpenAPIClient/Classes/OpenAPIs/JSONDataEncoding.swift
 OpenAPIClient/Classes/OpenAPIs/JSONEncodingHelper.swift
 OpenAPIClient/Classes/OpenAPIs/Models.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ClipboardEvent.swift
-OpenAPIClient/Classes/OpenAPIs/Models/CloudEvent.swift
 OpenAPIClient/Classes/OpenAPIs/Models/IoDocument.swift
 OpenAPIClient/Classes/OpenAPIs/Models/IoDocumentEvent.swift
 OpenAPIClient/Classes/OpenAPIs/OpenISO8601DateFormatter.swift
@@ -22,7 +21,6 @@ OpenAPIClient/Classes/OpenAPIs/Validation.swift
 Package.swift
 README.md
 docs/ClipboardEvent.md
-docs/CloudEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
 git_push.sh
