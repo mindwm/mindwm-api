@@ -44,13 +44,10 @@ jobs:
           cd /github/workspace/
           kcl mod update
           kcl run ./mindwm_asyncapi.k | tee generated/asyncapi/asyncapi.yaml
-          cp ./cloudevents.yaml generated/asyncapi/
+          cp ./CloudEvent.yaml generated/asyncapi/
           kcl run ./mindwm_openapi | tee generated/openapi/openapi.yaml
           GDSCRIPT_WORKAROUND=1 kcl run ./mindwm_openapi | yq 'del(.. | select(has("const")).const)' | yq 'del(.. | select(has("examples")).examples)' | tee generated/openapi/openapi_gdscript.yaml
-          cp ./cloudevents.yaml generated/openapi
-          cat ./cloudevents.yaml | yq e 'del(.. | select(has("format") and .format == "uri").format)' | tee generated/openapi/cloudevents_gdscript.yaml
-
-
+          cp ./CloudEvent.yaml generated/openapi
 #    - name: asyncapi html-template generate
 #      uses: addnab/docker-run-action@v3
 #      with:

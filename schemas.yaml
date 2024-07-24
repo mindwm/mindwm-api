@@ -1,9 +1,6 @@
-CloudEvent:
-  $ref: "./cloudevents.yaml"
-
 IoDocumentEvent:
   allOf:
-    - $ref: '#/components/schemas/CloudEvent'
+    - $ref: "./CloudEvent.yaml"
     - properties:
         type:
           type: string
@@ -21,7 +18,7 @@ IoDocumentEvent:
 
 ClipboardEvent:
   allOf:
-    - $ref: '#/components/schemas/CloudEvent'
+    - $ref: "./CloudEvent.yaml"
     - properties:
         type:
           type: string

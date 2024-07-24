@@ -11,6 +11,7 @@ GENERATED_DIR := "generated/$(PACKAGE_NAME)/$(OPENAPI_MINDWM_VERSION)"
 # XXX
 .PHONY: generated_dir
 generated_dir:
+	sudo rm -rf $(GENERATED_DIR)
 	test -d $(GENERATED_DIR) || (mkdir -p $(GENERATED_DIR) && chmod a+rwx $(GENERATED_DIR))
 	mkdir -p $(GENERATED_DIR)/openapi
 	mkdir -p $(GENERATED_DIR)/asyncapi
@@ -18,11 +19,11 @@ generated_dir:
 kcl:
 	kcl mod update
 	kcl run ./mindwm_asyncapi.k | tee $(GENERATED_DIR)/asyncapi/asyncapi.yaml 
-	cp ./cloudevents.yaml $(GENERATED_DIR)/asyncapi/
-	kcl run ./mindwm_openapi | tee $(GENERATED_DIR)/openapi/openapi.yaml                                                                          
+	cp ./CloudEvent.yaml $(GENERATED_DIR)/asyncapi/
+	kcl run ./mindwm_openapi | tee $(GENERATED_DIR)/openapi/openapi.yaml
 	GDSCRIPT_WORKAROUND=1 kcl run ./mindwm_openapi | yq 'del(.. | select(has("const")).const)' | yq 'del(.. | select(has("examples")).examples)' | tee $(GENERATED_DIR)/openapi/openapi_gdscript.yaml                                           
-	cp ./cloudevents.yaml $(GENERATED_DIR)/openapi/
-	cat ./cloudevents.yaml | yq e 'del(.. | select(has("format") and .format == "uri").format)' | tee $(GENERATED_DIR)/openapi/cloudevents_gdscript.yaml
+	cp ./CloudEvent.yaml $(GENERATED_DIR)/openapi/
+	#cat ./cloudevents.yaml | yq e 'del(.. | select(has("format") and .format == "uri").format)' | tee $(GENERATED_DIR)/openapi/cloudevents_gdscript.yaml
 
 .PHONY: openapi-generator-docker
 openapi-generator-docker:

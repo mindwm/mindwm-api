@@ -11,7 +11,7 @@ if file.read_env("GDSCRIPT_WORKAROUND"):
       "/" = {}
     } 
   }
-  _cloudevent_jsonschema = "./cloudevents_gdscript.yaml"
+  _cloudevent_jsonschema = "./cloudevents.yaml"
 else:
   _paths = {}
   _cloudevent_jsonschema = "./cloudevents.yaml"
@@ -28,10 +28,10 @@ openapi = p.merge({
 
 openapi_definition = util.yaml_file_merge("openapi_base.yaml", openapi)
 
-schemas = p.merge(yaml.decode(file.read("schemas.yaml")), {
-  CloudEvent = {
-    "$ref" = _cloudevent_jsonschema
-  }
-})
+schemas = yaml.decode(file.read("schemas.yaml"))
+#  CloudEvent = {
+#    "$ref" = _cloudevent_jsonschema
+#  }
+#})
 
 manifests.yaml_stream([p.merge(openapi_definition, { components.schemas = schemas } )])
