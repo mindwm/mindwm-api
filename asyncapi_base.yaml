@@ -53,8 +53,8 @@ channels:
       - $ref: '#/servers/asciinema'
       - $ref: '#/servers/mindwm-client'
     messages:
-      TmuxPaneIoDocument: 
-        $ref: '#/components/messages/TmuxPaneIoDocument'
+      IoDocument: 
+        $ref: '#/components/messages/IoDocument'
 
   HostJetStreamChannel:
     address: "KN_USER_${USERNAME}__${HOSTNAME}_BROKER_KNE_TRIGGER"
@@ -62,49 +62,43 @@ channels:
       - $ref: '#/servers/nats'
     externalDocs: 
       url: https://github.com/knative-extensions/eventing-natss
-  HostNatsTopicIn:
-    address: user-${USERNAME}.${HOSTNAME}-broker-kne-trigger._knative
-    servers: 
-      - $ref: '#/servers/nats'
-    messages:
-      GraphEvent:
-        $ref: '#/components/messages/GraphEvent'
+#  HostNatsTopicIn:
+#    address: user-${USERNAME}.${HOSTNAME}-broker-kne-trigger._knative
+#    servers: 
+#      - $ref: '#/servers/nats'
+#    messages:
+#      GraphEvent:
+#        $ref: '#/components/messages/GraphEvent'
   HostNatsTopicIoDocument:
     address: 'mindwm.${USER}.${HOSTNAME}.tmux.${TMUX_SOCKET}.${MINDWM_UUID}.${TMUX_ID}.${TMUX_PANE_ID}.iodocument'
     servers: 
       - $ref: '#/servers/nats'
     messages:
       IoDocument:
-        $ref: '#/components/messages/IoDocument'
+        $ref: '#/components/messages/IoDocumentEvent'
   HostNatsTopicClipboard:
     address: 'mindwm.${USER}.${HOSTNAME}.clipboard'
     servers: 
       - $ref: '#/servers/nats'
     messages:
-      Clipboard:
-        $ref: '#/components/messages/Clipboard'
+      ClipboardEvent:
+        $ref: '#/components/messages/ClipboardEvent'
  
  
 operations:
-  TmuxPaneIoDocument:
+  IoDocument:
     action: send
     channel: 
       $ref: '#/channels/TmuxPane'
     messages:
-      - $ref: '#/channels/TmuxPane/messages/TmuxPaneIoDocument'
-  IoDocument:
+      - $ref: '#/channels/TmuxPane/messages/IoDocument'
+
+  IoDocumentEvent:
     action: send
     channel:
       $ref: '#/channels/HostNatsTopicIoDocument'
     messages:
-      - $ref: '#/channels/HostNatsTopicIoDocument/messages/IoDocument'
-
-  GraphEvent:
-    action: send
-    channel:
-      $ref: '#/channels/HostNatsTopicIn'
-    messages:
-      - $ref: '#/channels/HostNatsTopicIn/messages/GraphEvent'
+      - $ref: '#/channels/HostNatsTopicIoDocument/messages/IoDocumentEvent'
 
 #  GraphEvent:
 #    action: send
@@ -113,29 +107,36 @@ operations:
 #    messages:
 #      - $ref: '#/channels/HostNatsTopicIn/messages/GraphEvent'
 
-  Clipboard:
+#  GraphEvent:
+#    action: send
+#    channel:
+#      $ref: '#/channels/HostNatsTopicIn'
+#    messages:
+#      - $ref: '#/channels/HostNatsTopicIn/messages/GraphEvent'
+
+  ClipboardEvent:
     action: send
     channel:
       $ref: '#/channels/HostNatsTopicClipboard'
     messages:
-      - $ref: '#/channels/HostNatsTopicClipboard/messages/Clipboard'
+      - $ref: '#/channels/HostNatsTopicClipboard/messages/ClipboardEvent'
     
 
 components:
   messages:
-    TmuxPaneIoDocument:
+    IoDocument:
       summary: "Basic IoDocument produced by mindwm-client"
       payload:
-        $ref: '#/components/schemas/TmuxPaneIoDocument'
-    IoDocument:
+        $ref: '#/components/schemas/IoDocument'
+    IoDocumentEvent:
       summary: "TmuxPaneIoDocument in cloudevent"
       payload:
-        $ref: "#/components/schemas/IoDocument"
+        $ref: "#/components/schemas/IoDocumentEvent"
     Clipboard:
+      summary: "Clipboard data"
+      payload:
+        $ref: '#/components/schemas/Clipboard'
+    ClipboardEvent:
       summary: "Clipboard"
       payload:
-        $ref: "#/components/schemas/Clipboard"
-    GraphEvent:
-      summary: "Graph node events"
-      payload:
-        $ref: "#/components/schemas/Neo4jCaptureDataChange"
+        $ref: "#/components/schemas/ClipboardEvent"

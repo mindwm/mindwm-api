@@ -55,12 +55,11 @@ openapi-generator-gdscript: generated_dir
 	# cp -vr $(GENERATED_DIR)/gdscript-mindwm/* ../$(GENERATED_DIR)/gdscript/
 
 asyncapi-generate:
-	docker run --rm -it \
+	docker run --rm -it -v "$(PWD):/local" \
 	   --user=root \
 		 -v $(PWD)/.asyncapi-analytics:/root/.asyncapi-analytics \
-	   -v $(PWD)/asyncapi2.yaml:/app/asyncapi.yml \
-		 -v $(PWD)/asyncapi/$(TEMPLATE):/app/output/$(TEMPLATE) \
-	   asyncapi/cli generate fromTemplate -o /app/output/$(TEMPLATE) /app/asyncapi.yml @asyncapi/$(TEMPLATE)-template --force-write
+		 -w /local/$(GENERATED_DIR)/asyncapi \
+	   asyncapi/cli generate fromTemplate -o /local/$(GENERATED_DIR)/asyncapi/$(TEMPLATE) /local/$(GENERATED_DIR)/asyncapi/asyncapi.yaml @asyncapi/$(TEMPLATE)-template --force-write
 
 asyncapi-generate-html:
 	$(MAKE) asyncapi-generate TEMPLATE=html
