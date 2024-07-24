@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Clipboard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-24T16:45:12.199441201Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-24T17:54:06.965365496Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Clipboard {
   public static final String SERIALIZED_NAME_CONTEXT = "context";
   @SerializedName(SERIALIZED_NAME_CONTEXT)
