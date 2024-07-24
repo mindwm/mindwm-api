@@ -60,14 +60,14 @@ Clipboard:
 
 ClipboardContext:
   properties:
-     windowId:
-          description: Xorg window_id
-          maximum: 4294967295
-          minimum: 0
-          type: number
-      required:
-        - windowId
-      type: object
+    windowId:
+      description: Xorg window_id
+      maximum: 4294967295
+      minimum: 0
+      type: number
+  required:
+    - windowId
+  type: object
 
 IoDocument:
   type: object
