@@ -74,7 +74,7 @@ channels:
     servers: 
       - $ref: '#/servers/nats'
     messages:
-      IoDocument:
+      IoDocumentEvent:
         $ref: '#/components/messages/IoDocumentEvent'
   HostNatsTopicClipboard:
     address: 'mindwm.${USER}.${HOSTNAME}.clipboard'
