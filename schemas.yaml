@@ -30,10 +30,44 @@ ClipboardEvent:
           default: Clipboard
         source:
           type: string
-          # mindwm.bebebeko.mcmp6.clipbaord
-          # XXX(@metacoma) fix pattern
-          # pattern: '^mindwm\\.[a-zA-Z0-9_]{1,32}\\.[a-zA-Z0-9-]{1,63}\.clipboard$'
+        data:
+          $ref: "#/components/schemas/Clipboard"
   additionalProperties: false
+
+Clipboard:
+  properties:
+    context:
+      $ref: "#/components/schemas/ClipboardContext"
+    clipboardType:
+      description: Type of clipboard
+      enum:
+        - Primary
+        - Secondary
+        - Clipboard
+      type: string
+    content:
+      type: string
+      description: Clipboard content
+    selectionStart:
+      $ref: "#/components/schemas/Vector2int"
+    selectionEnd:
+      $ref: "#/components/schemas/Vector2int"
+  required:
+    - context
+    - clipboardType
+    - content
+  additionalProperties: false
+
+ClipboardContext:
+  properties:
+    windowId:
+      description: Xorg window_id
+      maximum: 4294967295
+      minimum: 0
+      type: number
+  required:
+    - windowId
+  type: object
 
 IoDocument:
   type: object
@@ -65,3 +99,20 @@ IoDocument:
     - input: "uptime"
       output: "16:37:51 up 19 days,  2:15, 71 users,  load average: 2.01, 2.85, 2.95"
       ps1: "user@mindwm-dev1:~/rnd/asyncapi$"
+
+Vector2int:
+  properties:
+    x:
+      description: the X coordinate
+      maximum: 4294967295
+      minimum: 0
+      type: number
+    y:
+      description: the Y coordinate
+      maximum: 4294967295
+      minimum: 0
+      type: number
+  required:
+    - x
+    - y
+  type: object
