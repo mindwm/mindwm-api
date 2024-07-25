@@ -93,7 +93,7 @@ jobs:
         
 
     - name: Update HTML documentation
-      id: push_directory
+      id: update_html_doc
       uses: cpina/github-action-push-to-another-repository@target-branch
       env:
         API_TOKEN_GITHUB: ${{ secrets.MINDWM_TOKEN }}
@@ -106,7 +106,7 @@ jobs:
         target-branch: main
 
     - name: Update mindwm-sdk-gdscript
-      id: push_directory
+      id: update_mindwm_sdk_gdscript
       uses: cpina/github-action-push-to-another-repository@target-branch
       env:
         API_TOKEN_GITHUB: ${{ secrets.MINDWM_TOKEN }}
