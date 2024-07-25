@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * IoDocumentEvent
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-25T08:58:18.951457013Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-25T09:20:33.535979507Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocumentEvent {
 
   private String id;
