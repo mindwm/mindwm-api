@@ -134,3 +134,18 @@ jobs:
         target-branch: main
         target-directory: MindWM
 
+
+    - name: Update mindwm-sdk-golang
+      id: update_mindwm_sdk_golang
+      uses: cpina/github-action-push-to-another-repository@target-branch
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.MINDWM_TOKEN }}
+      with:
+        source-directory: generated/openapi/go
+        destination-github-username: 'mindwm'
+        destination-repository-name: 'mindwm-sdk-golang'
+        user-email: metacoma@github.com
+        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+        target-branch: main
+        target-directory: MindWM
+
