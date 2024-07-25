@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * ClipboardEvent
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-24T17:54:28.324691086Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-25T08:58:18.951457013Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardEvent {
 
   private String id;
