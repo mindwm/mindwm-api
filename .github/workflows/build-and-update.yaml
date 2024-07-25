@@ -119,3 +119,18 @@ jobs:
         target-branch: main
         target-directory: models
 
+
+    - name: Update mindwm-sdk-python
+      id: update_mindwm_sdk_python
+      uses: cpina/github-action-push-to-another-repository@target-branch
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.MINDWM_TOKEN }}
+      with:
+        source-directory: generated/openapi/python/MindWM
+        destination-github-username: 'mindwm'
+        destination-repository-name: 'mindwm-sdk-python'
+        user-email: metacoma@github.com
+        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+        target-branch: main
+        target-directory: MindWM
+
