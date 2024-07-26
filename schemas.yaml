@@ -16,6 +16,24 @@ IoDocumentEvent:
           $ref: "#/components/schemas/IoDocument"
   additionalProperties: false
 
+TouchEvent:
+  allOf:
+    - $ref: "./CloudEvent.yaml"
+    - properties:
+        type:
+          type: string
+          const: touch      # not compatible with openapi-generator-gdscript
+          default: touch
+        subject:
+          type: string
+          const: node
+          default: node
+        source:
+          type: string
+        data:
+          $ref: "#/components/schemas/Touch"
+  additionalProperties: false
+
 ClipboardEvent:
   allOf:
     - $ref: "./CloudEvent.yaml"
@@ -116,3 +134,14 @@ Vector2int:
     - x
     - y
   type: object
+
+Touch:
+  type: object
+  properties:
+    ids:
+      type: array
+      items: 
+        type: number
+  required:
+    - ids
+
