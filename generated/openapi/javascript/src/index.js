@@ -18,6 +18,8 @@ import ClipboardContext from './model/ClipboardContext';
 import ClipboardEvent from './model/ClipboardEvent';
 import IoDocument from './model/IoDocument';
 import IoDocumentEvent from './model/IoDocumentEvent';
+import Touch from './model/Touch';
+import TouchEvent from './model/TouchEvent';
 import Vector2int from './model/Vector2int';
 
 
@@ -88,6 +90,18 @@ export {
      * @property {module:model/IoDocumentEvent}
      */
     IoDocumentEvent,
+
+    /**
+     * The Touch model constructor.
+     * @property {module:model/Touch}
+     */
+    Touch,
+
+    /**
+     * The TouchEvent model constructor.
+     * @property {module:model/TouchEvent}
+     */
+    TouchEvent,
 
     /**
      * The Vector2int model constructor.

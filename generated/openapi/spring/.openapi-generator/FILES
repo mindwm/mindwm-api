@@ -11,6 +11,8 @@ src/main/java/org/openapitools/model/ClipboardContext.java
 src/main/java/org/openapitools/model/ClipboardEvent.java
 src/main/java/org/openapitools/model/IoDocument.java
 src/main/java/org/openapitools/model/IoDocumentEvent.java
+src/main/java/org/openapitools/model/Touch.java
+src/main/java/org/openapitools/model/TouchEvent.java
 src/main/java/org/openapitools/model/Vector2int.java
 src/main/resources/application.properties
 src/main/resources/openapi.yaml

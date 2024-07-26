@@ -16,6 +16,8 @@ OpenAPIClient/Classes/OpenAPIs/Models/ClipboardContext.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ClipboardEvent.swift
 OpenAPIClient/Classes/OpenAPIs/Models/IoDocument.swift
 OpenAPIClient/Classes/OpenAPIs/Models/IoDocumentEvent.swift
+OpenAPIClient/Classes/OpenAPIs/Models/Touch.swift
+OpenAPIClient/Classes/OpenAPIs/Models/TouchEvent.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Vector2int.swift
 OpenAPIClient/Classes/OpenAPIs/OpenISO8601DateFormatter.swift
 OpenAPIClient/Classes/OpenAPIs/SynchronizedDictionary.swift
@@ -28,6 +30,8 @@ docs/ClipboardContext.md
 docs/ClipboardEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
+docs/Touch.md
+docs/TouchEvent.md
 docs/Vector2int.md
 git_push.sh
 project.yml

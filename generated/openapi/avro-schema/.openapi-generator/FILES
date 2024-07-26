@@ -4,4 +4,6 @@ ClipboardContext.avsc
 ClipboardEvent.avsc
 IoDocument.avsc
 IoDocumentEvent.avsc
+Touch.avsc
+TouchEvent.avsc
 Vector2int.avsc

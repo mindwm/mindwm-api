@@ -74,6 +74,8 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::ClipboardEvent](docs/ClipboardEvent.md)
  - [OpenapiClient::IoDocument](docs/IoDocument.md)
  - [OpenapiClient::IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [OpenapiClient::Touch](docs/Touch.md)
+ - [OpenapiClient::TouchEvent](docs/TouchEvent.md)
  - [OpenapiClient::Vector2int](docs/Vector2int.md)
 
 

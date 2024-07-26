@@ -59,6 +59,8 @@ set(SRCS
     model/clipboard_event.c
     model/io_document.c
     model/io_document_event.c
+    model/touch.c
+    model/touch_event.c
     model/vector2int.c
 
 )
@@ -75,6 +77,8 @@ set(HDRS
     model/clipboard_event.h
     model/io_document.h
     model/io_document_event.h
+    model/touch.h
+    model/touch_event.h
     model/vector2int.h
 
 )

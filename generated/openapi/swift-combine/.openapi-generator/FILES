@@ -5,6 +5,8 @@ OpenAPIClient/Sources/Models/ClipboardContext.swift
 OpenAPIClient/Sources/Models/ClipboardEvent.swift
 OpenAPIClient/Sources/Models/IoDocument.swift
 OpenAPIClient/Sources/Models/IoDocumentEvent.swift
+OpenAPIClient/Sources/Models/Touch.swift
+OpenAPIClient/Sources/Models/TouchEvent.swift
 OpenAPIClient/Sources/Models/Vector2int.swift
 OpenAPIClient/Sources/Private/AnyDecodable.swift
 OpenAPIClient/Sources/Private/OpenISO8601DateFormatter.swift

@@ -12,4 +12,7 @@ models/CloudEvent.gd
 models/IoDocument.gd
 models/IoDocumentEvent.gd
 models/IoDocumentEventAllOf.gd
+models/Touch.gd
+models/TouchEvent.gd
+models/TouchEventAllOf.gd
 models/Vector2int.gd

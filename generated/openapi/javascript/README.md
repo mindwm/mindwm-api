@@ -118,6 +118,8 @@ Class | Method | HTTP request | Description
  - [MindwmApi.ClipboardEvent](docs/ClipboardEvent.md)
  - [MindwmApi.IoDocument](docs/IoDocument.md)
  - [MindwmApi.IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [MindwmApi.Touch](docs/Touch.md)
+ - [MindwmApi.TouchEvent](docs/TouchEvent.md)
  - [MindwmApi.Vector2int](docs/Vector2int.md)
 
 

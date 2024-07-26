@@ -9,4 +9,6 @@ docs/ClipboardContext.md
 docs/ClipboardEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
+docs/Touch.md
+docs/TouchEvent.md
 docs/Vector2int.md

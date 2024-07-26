@@ -64,6 +64,8 @@ Class | Method | HTTP request | Description
 - [ClipboardEvent](docs/Model/ClipboardEvent.md)
 - [IoDocument](docs/Model/IoDocument.md)
 - [IoDocumentEvent](docs/Model/IoDocumentEvent.md)
+- [Touch](docs/Model/Touch.md)
+- [TouchEvent](docs/Model/TouchEvent.md)
 - [Vector2int](docs/Model/Vector2int.md)
 
 ## Authorization

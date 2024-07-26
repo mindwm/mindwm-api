@@ -16,6 +16,8 @@ models/ClipboardEvent.ts
 models/IoDocument.ts
 models/IoDocumentEvent.ts
 models/ObjectSerializer.ts
+models/Touch.ts
+models/TouchEvent.ts
 models/Vector2int.ts
 models/all.ts
 package.json

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * IoDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:58:07.051716374Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-26T09:58:54.303463733Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class IoDocument {
   public static final String SERIALIZED_NAME_INPUT = "input";
   @SerializedName(SERIALIZED_NAME_INPUT)

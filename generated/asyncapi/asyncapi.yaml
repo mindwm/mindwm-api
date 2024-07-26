@@ -72,6 +72,13 @@ channels:
     messages:
       ClipboardEvent:
         $ref: '#/components/messages/ClipboardEvent'
+  TouchChannel:
+    address: mindwm.${USER}.${HOSTNAME}.touch
+    servers:
+    - $ref: '#/servers/nats'
+    messages:
+      TouchEvent:
+        $ref: '#/components/messages/TouchEvent'
 operations:
   IoDocument:
     action: send
@@ -91,6 +98,12 @@ operations:
       $ref: '#/channels/HostNatsTopicClipboard'
     messages:
     - $ref: '#/channels/HostNatsTopicClipboard/messages/ClipboardEvent'
+  TouchEvent:
+    action: send
+    channel:
+      $ref: '#/channels/TouchChannel'
+    messages:
+    - $ref: '#/channels/TouchChannel/messages/TouchEvent'
 components:
   messages:
     IoDocument:
@@ -109,6 +122,10 @@ components:
       summary: Clipboard
       payload:
         $ref: '#/components/schemas/ClipboardEvent'
+    TouchEvent:
+      summary: update atime
+      payload:
+        $ref: '#/components/schemas/TouchEvent'
   schemas:
     IoDocumentEvent:
       allOf:
@@ -126,6 +143,23 @@ components:
             type: string
           data:
             $ref: '#/components/schemas/IoDocument'
+      additionalProperties: false
+    TouchEvent:
+      allOf:
+      - $ref: './CloudEvent.yaml'
+      - properties:
+          type:
+            type: string
+            const: touch
+            default: touch
+          subject:
+            type: string
+            const: node
+            default: node
+          source:
+            type: string
+          data:
+            $ref: '#/components/schemas/Touch'
       additionalProperties: false
     ClipboardEvent:
       allOf:
@@ -223,3 +257,12 @@ components:
       - x
       - 'y'
       type: object
+    Touch:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: number
+      required:
+      - ids

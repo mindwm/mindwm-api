@@ -3,6 +3,8 @@ export * from '../models/ClipboardContext';
 export * from '../models/ClipboardEvent';
 export * from '../models/IoDocument';
 export * from '../models/IoDocumentEvent';
+export * from '../models/Touch';
+export * from '../models/TouchEvent';
 export * from '../models/Vector2int';
 
 import { Clipboard , ClipboardClipboardTypeEnum      } from '../models/Clipboard';
@@ -10,6 +12,8 @@ import { ClipboardContext } from '../models/ClipboardContext';
 import { ClipboardEvent } from '../models/ClipboardEvent';
 import { IoDocument } from '../models/IoDocument';
 import { IoDocumentEvent } from '../models/IoDocumentEvent';
+import { Touch } from '../models/Touch';
+import { TouchEvent } from '../models/TouchEvent';
 import { Vector2int } from '../models/Vector2int';
 
 /* tslint:disable:no-unused-variable */
@@ -34,6 +38,8 @@ let typeMap: {[index: string]: any} = {
     "ClipboardEvent": ClipboardEvent,
     "IoDocument": IoDocument,
     "IoDocumentEvent": IoDocumentEvent,
+    "Touch": Touch,
+    "TouchEvent": TouchEvent,
     "Vector2int": Vector2int,
 }
 

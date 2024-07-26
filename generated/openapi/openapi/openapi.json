@@ -120,6 +120,111 @@
           }
         } ]
       },
+      "TouchEvent" : {
+        "additionalProperties" : { },
+        "allOf" : [ {
+          "description" : "CloudEvents Specification JSON Schema",
+          "properties" : {
+            "id" : {
+              "description" : "Identifies the event.",
+              "minLength" : 1
+            },
+            "source" : {
+              "description" : "Identifies the context in which an event happened.",
+              "format" : "uri-reference",
+              "minLength" : 1
+            },
+            "specversion" : {
+              "description" : "The version of the CloudEvents specification which the event uses.",
+              "minLength" : 1
+            },
+            "type" : {
+              "description" : "Describes the type of event related to the originating occurrence.",
+              "minLength" : 1
+            },
+            "datacontenttype" : {
+              "description" : "Content type of the data value. Must adhere to RFC 2046 format.",
+              "minLength" : 1
+            },
+            "dataschema" : {
+              "description" : "Identifies the schema that data adheres to.",
+              "minLength" : 1
+            },
+            "subject" : {
+              "description" : "Describes the subject of the event in the context of the event producer (identified by source).",
+              "minLength" : 1
+            },
+            "time" : {
+              "description" : "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
+              "format" : "date-time",
+              "minLength" : 1
+            },
+            "data" : {
+              "$ref" : "#/components/schemas/IoDocumentEvent_allOf_data"
+            },
+            "data_base64" : {
+              "description" : "Base64 encoded event payload. Must adhere to RFC4648."
+            }
+          },
+          "required" : [ "id", "source", "specversion", "type" ],
+          "definitions" : {
+            "iddef" : {
+              "type" : "string",
+              "minLength" : 1
+            },
+            "sourcedef" : {
+              "type" : "string",
+              "format" : "uri-reference",
+              "minLength" : 1
+            },
+            "specversiondef" : {
+              "type" : "string",
+              "minLength" : 1
+            },
+            "typedef" : {
+              "type" : "string",
+              "minLength" : 1
+            },
+            "datacontenttypedef" : {
+              "type" : "string",
+              "minLength" : 1
+            },
+            "dataschemadef" : {
+              "type" : "string",
+              "minLength" : 1
+            },
+            "subjectdef" : {
+              "type" : "string",
+              "minLength" : 1
+            },
+            "timedef" : {
+              "type" : "string",
+              "format" : "date-time",
+              "minLength" : 1
+            },
+            "datadef" : {
+              "type" : "object"
+            },
+            "data_base64def" : {
+              "type" : "string",
+              "contentEncoding" : "base64"
+            }
+          }
+        }, {
+          "properties" : {
+            "type" : {
+              "default" : "touch"
+            },
+            "subject" : {
+              "default" : "node"
+            },
+            "source" : { },
+            "data" : {
+              "$ref" : "#/components/schemas/Touch"
+            }
+          }
+        } ]
+      },
       "ClipboardEvent" : {
         "additionalProperties" : { },
         "allOf" : [ {
@@ -292,6 +397,17 @@
           }
         },
         "required" : [ "x", "y" ]
+      },
+      "Touch" : {
+        "properties" : {
+          "ids" : {
+            "items" : {
+              "type" : "number"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "ids" ]
       },
       "IoDocumentEvent_allOf_data" : {
         "description" : "The event payload."

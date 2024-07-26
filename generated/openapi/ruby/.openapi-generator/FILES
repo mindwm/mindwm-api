@@ -12,6 +12,8 @@ docs/ClipboardContext.md
 docs/ClipboardEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
+docs/Touch.md
+docs/TouchEvent.md
 docs/Vector2int.md
 git_push.sh
 lib/openapi_client.rb
@@ -23,6 +25,8 @@ lib/openapi_client/models/clipboard_context.rb
 lib/openapi_client/models/clipboard_event.rb
 lib/openapi_client/models/io_document.rb
 lib/openapi_client/models/io_document_event.rb
+lib/openapi_client/models/touch.rb
+lib/openapi_client/models/touch_event.rb
 lib/openapi_client/models/vector2int.rb
 lib/openapi_client/version.rb
 openapi_client.gemspec
@@ -31,5 +35,7 @@ spec/models/clipboard_event_spec.rb
 spec/models/clipboard_spec.rb
 spec/models/io_document_event_spec.rb
 spec/models/io_document_spec.rb
+spec/models/touch_event_spec.rb
+spec/models/touch_spec.rb
 spec/models/vector2int_spec.rb
 spec/spec_helper.rb

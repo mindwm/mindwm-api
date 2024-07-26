@@ -241,6 +241,8 @@ use WWW::OpenAPIClient::Object::ClipboardContext;
 use WWW::OpenAPIClient::Object::ClipboardEvent;
 use WWW::OpenAPIClient::Object::IoDocument;
 use WWW::OpenAPIClient::Object::IoDocumentEvent;
+use WWW::OpenAPIClient::Object::Touch;
+use WWW::OpenAPIClient::Object::TouchEvent;
 use WWW::OpenAPIClient::Object::Vector2int;
 
 ````
@@ -260,6 +262,8 @@ use WWW::OpenAPIClient::Object::ClipboardContext;
 use WWW::OpenAPIClient::Object::ClipboardEvent;
 use WWW::OpenAPIClient::Object::IoDocument;
 use WWW::OpenAPIClient::Object::IoDocumentEvent;
+use WWW::OpenAPIClient::Object::Touch;
+use WWW::OpenAPIClient::Object::TouchEvent;
 use WWW::OpenAPIClient::Object::Vector2int;
 
 # for displaying the API response data
@@ -282,6 +286,8 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ClipboardEvent](docs/ClipboardEvent.md)
  - [WWW::OpenAPIClient::Object::IoDocument](docs/IoDocument.md)
  - [WWW::OpenAPIClient::Object::IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [WWW::OpenAPIClient::Object::Touch](docs/Touch.md)
+ - [WWW::OpenAPIClient::Object::TouchEvent](docs/TouchEvent.md)
  - [WWW::OpenAPIClient::Object::Vector2int](docs/Vector2int.md)
 
 

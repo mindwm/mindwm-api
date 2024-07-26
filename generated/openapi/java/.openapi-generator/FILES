@@ -11,6 +11,8 @@ docs/ClipboardContext.md
 docs/ClipboardEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
+docs/Touch.md
+docs/TouchEvent.md
 docs/Vector2int.md
 git_push.sh
 gradle.properties
@@ -44,10 +46,14 @@ src/main/java/org/openapitools/client/model/ClipboardContext.java
 src/main/java/org/openapitools/client/model/ClipboardEvent.java
 src/main/java/org/openapitools/client/model/IoDocument.java
 src/main/java/org/openapitools/client/model/IoDocumentEvent.java
+src/main/java/org/openapitools/client/model/Touch.java
+src/main/java/org/openapitools/client/model/TouchEvent.java
 src/main/java/org/openapitools/client/model/Vector2int.java
 src/test/java/org/openapitools/client/model/ClipboardContextTest.java
 src/test/java/org/openapitools/client/model/ClipboardEventTest.java
 src/test/java/org/openapitools/client/model/ClipboardTest.java
 src/test/java/org/openapitools/client/model/IoDocumentEventTest.java
 src/test/java/org/openapitools/client/model/IoDocumentTest.java
+src/test/java/org/openapitools/client/model/TouchEventTest.java
+src/test/java/org/openapitools/client/model/TouchTest.java
 src/test/java/org/openapitools/client/model/Vector2intTest.java

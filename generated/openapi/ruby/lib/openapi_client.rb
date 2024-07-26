@@ -22,6 +22,8 @@ require 'openapi_client/models/clipboard_context'
 require 'openapi_client/models/clipboard_event'
 require 'openapi_client/models/io_document'
 require 'openapi_client/models/io_document_event'
+require 'openapi_client/models/touch'
+require 'openapi_client/models/touch_event'
 require 'openapi_client/models/vector2int'
 
 # APIs

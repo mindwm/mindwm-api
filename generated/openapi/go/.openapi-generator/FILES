@@ -10,6 +10,8 @@ docs/ClipboardContext.md
 docs/ClipboardEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
+docs/Touch.md
+docs/TouchEvent.md
 docs/Vector2int.md
 git_push.sh
 go.mod
@@ -19,6 +21,8 @@ model_clipboard_context.go
 model_clipboard_event.go
 model_io_document.go
 model_io_document_event.go
+model_touch.go
+model_touch_event.go
 model_vector2int.go
 response.go
 utils.go

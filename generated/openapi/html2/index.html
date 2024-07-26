@@ -1105,6 +1105,122 @@ ul.nav-tabs {
     }
   } ]
 };
+    defs["Touch"] = {
+  "required" : [ "ids" ],
+  "properties" : {
+    "ids" : {
+      "type" : "array",
+      "items" : {
+        "type" : "number"
+      }
+    }
+  }
+};
+    defs["TouchEvent"] = {
+  "additionalProperties" : { },
+  "allOf" : [ {
+    "required" : [ "id", "source", "specversion", "type" ],
+    "properties" : {
+      "id" : {
+        "minLength" : 1,
+        "description" : "Identifies the event."
+      },
+      "source" : {
+        "minLength" : 1,
+        "description" : "Identifies the context in which an event happened.",
+        "format" : "uri-reference"
+      },
+      "specversion" : {
+        "minLength" : 1,
+        "description" : "The version of the CloudEvents specification which the event uses."
+      },
+      "type" : {
+        "minLength" : 1,
+        "description" : "Describes the type of event related to the originating occurrence."
+      },
+      "datacontenttype" : {
+        "minLength" : 1,
+        "description" : "Content type of the data value. Must adhere to RFC 2046 format."
+      },
+      "dataschema" : {
+        "minLength" : 1,
+        "description" : "Identifies the schema that data adheres to."
+      },
+      "subject" : {
+        "minLength" : 1,
+        "description" : "Describes the subject of the event in the context of the event producer (identified by source)."
+      },
+      "time" : {
+        "minLength" : 1,
+        "description" : "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
+        "format" : "date-time"
+      },
+      "data" : {
+        "$ref" : "#/components/schemas/IoDocumentEvent_allOf_data"
+      },
+      "data_base64" : {
+        "description" : "Base64 encoded event payload. Must adhere to RFC4648."
+      }
+    },
+    "description" : "CloudEvents Specification JSON Schema",
+    "definitions" : {
+      "iddef" : {
+        "type" : "string",
+        "minLength" : 1
+      },
+      "sourcedef" : {
+        "type" : "string",
+        "format" : "uri-reference",
+        "minLength" : 1
+      },
+      "specversiondef" : {
+        "type" : "string",
+        "minLength" : 1
+      },
+      "typedef" : {
+        "type" : "string",
+        "minLength" : 1
+      },
+      "datacontenttypedef" : {
+        "type" : "string",
+        "minLength" : 1
+      },
+      "dataschemadef" : {
+        "type" : "string",
+        "minLength" : 1
+      },
+      "subjectdef" : {
+        "type" : "string",
+        "minLength" : 1
+      },
+      "timedef" : {
+        "type" : "string",
+        "format" : "date-time",
+        "minLength" : 1
+      },
+      "datadef" : {
+        "type" : "object"
+      },
+      "data_base64def" : {
+        "type" : "string",
+        "contentEncoding" : "base64"
+      }
+    }
+  }, {
+    "properties" : {
+      "type" : {
+        "default" : "touch"
+      },
+      "subject" : {
+        "default" : "node"
+      },
+      "source" : { },
+      "data" : {
+        "$ref" : "#/components/schemas/Touch"
+      }
+    }
+  } ]
+};
     defs["Vector2int"] = {
   "required" : [ "x", "y" ],
   "properties" : {

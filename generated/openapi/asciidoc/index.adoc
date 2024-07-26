@@ -306,6 +306,113 @@ This document describes the documentation, a collection of JSON schemas and exam
 
 
 
+[#Touch]
+=== _Touch_ 
+
+
+
+
+[.fields-Touch]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| ids
+| X
+| 
+|   List   of <<number>>
+| 
+|     
+
+|===
+
+
+
+[#TouchEvent]
+=== _TouchEvent_ 
+
+
+
+
+[.fields-TouchEvent]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| id
+| X
+| 
+|   String  
+| Identifies the event.
+|     
+
+| source
+| X
+| 
+|   String  
+| 
+|     
+
+| specversion
+| X
+| 
+|   String  
+| The version of the CloudEvents specification which the event uses.
+|     
+
+| type
+| X
+| 
+|   String  
+| 
+|     
+
+| datacontenttype
+| 
+| 
+|   String  
+| Content type of the data value. Must adhere to RFC 2046 format.
+|     
+
+| dataschema
+| 
+| 
+|   String  
+| Identifies the schema that data adheres to.
+|     
+
+| subject
+| 
+| 
+|   String  
+| 
+|     
+
+| time
+| 
+| 
+|   Date  
+| Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+| date-time    
+
+| data
+| 
+| 
+| <<Touch>>    
+| 
+|     
+
+| data_base64
+| 
+| 
+|   String  
+| Base64 encoded event payload. Must adhere to RFC4648.
+|     
+
+|===
+
+
+
 [#Vector2int]
 === _Vector2int_ 
 

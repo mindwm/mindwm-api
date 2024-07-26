@@ -52,6 +52,9 @@ Class | Method | HTTP request | Description
 - [IoDocument](models/IoDocument.md)
 - [IoDocumentEvent](models/IoDocumentEvent.md)
 - [IoDocumentEventAllOf](models/IoDocumentEventAllOf.md)
+- [Touch](models/Touch.md)
+- [TouchEvent](models/TouchEvent.md)
+- [TouchEventAllOf](models/TouchEventAllOf.md)
 - [Vector2int](models/Vector2int.md)
 
 

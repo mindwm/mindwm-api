@@ -7,6 +7,8 @@ docs/clipboard_context.md
 docs/clipboard_event.md
 docs/io_document.md
 docs/io_document_event.md
+docs/touch.md
+docs/touch_event.md
 docs/vector2int.md
 external/cJSON.c
 external/cJSON.h
@@ -28,6 +30,10 @@ model/io_document_event.c
 model/io_document_event.h
 model/object.c
 model/object.h
+model/touch.c
+model/touch.h
+model/touch_event.c
+model/touch_event.h
 model/vector2int.c
 model/vector2int.h
 src/apiClient.c
@@ -40,4 +46,6 @@ unit-test/test_clipboard_context.c
 unit-test/test_clipboard_event.c
 unit-test/test_io_document.c
 unit-test/test_io_document_event.c
+unit-test/test_touch.c
+unit-test/test_touch_event.c
 unit-test/test_vector2int.c

@@ -9,6 +9,8 @@ docs/ClipboardContext.md
 docs/ClipboardEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
+docs/Touch.md
+docs/TouchEvent.md
 docs/Vector2int.md
 git_push.sh
 lib/WWW/OpenAPIClient/ApiClient.pm
@@ -19,6 +21,8 @@ lib/WWW/OpenAPIClient/Object/ClipboardContext.pm
 lib/WWW/OpenAPIClient/Object/ClipboardEvent.pm
 lib/WWW/OpenAPIClient/Object/IoDocument.pm
 lib/WWW/OpenAPIClient/Object/IoDocumentEvent.pm
+lib/WWW/OpenAPIClient/Object/Touch.pm
+lib/WWW/OpenAPIClient/Object/TouchEvent.pm
 lib/WWW/OpenAPIClient/Object/Vector2int.pm
 lib/WWW/OpenAPIClient/Role.pm
 lib/WWW/OpenAPIClient/Role/AutoDoc.pm
@@ -27,4 +31,6 @@ t/ClipboardEventTest.t
 t/ClipboardTest.t
 t/IoDocumentEventTest.t
 t/IoDocumentTest.t
+t/TouchEventTest.t
+t/TouchTest.t
 t/Vector2intTest.t

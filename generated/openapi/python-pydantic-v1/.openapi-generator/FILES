@@ -15,6 +15,8 @@ MindWM/models/clipboard_context.py
 MindWM/models/clipboard_event.py
 MindWM/models/io_document.py
 MindWM/models/io_document_event.py
+MindWM/models/touch.py
+MindWM/models/touch_event.py
 MindWM/models/vector2int.py
 MindWM/py.typed
 MindWM/rest.py
@@ -24,6 +26,8 @@ docs/ClipboardContext.md
 docs/ClipboardEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
+docs/Touch.md
+docs/TouchEvent.md
 docs/Vector2int.md
 git_push.sh
 pyproject.toml
@@ -37,5 +41,7 @@ test/test_clipboard_context.py
 test/test_clipboard_event.py
 test/test_io_document.py
 test/test_io_document_event.py
+test/test_touch.py
+test/test_touch_event.py
 test/test_vector2int.py
 tox.ini

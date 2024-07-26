@@ -87,6 +87,8 @@ Class | Method | HTTP request | Description
  - [ClipboardEvent](docs/ClipboardEvent.md)
  - [IoDocument](docs/IoDocument.md)
  - [IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [Touch](docs/Touch.md)
+ - [TouchEvent](docs/TouchEvent.md)
  - [Vector2int](docs/Vector2int.md)
 
 

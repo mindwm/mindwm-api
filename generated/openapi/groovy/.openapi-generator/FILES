@@ -7,4 +7,6 @@ src/main/groovy/org/openapitools/model/ClipboardContext.groovy
 src/main/groovy/org/openapitools/model/ClipboardEvent.groovy
 src/main/groovy/org/openapitools/model/IoDocument.groovy
 src/main/groovy/org/openapitools/model/IoDocumentEvent.groovy
+src/main/groovy/org/openapitools/model/Touch.groovy
+src/main/groovy/org/openapitools/model/TouchEvent.groovy
 src/main/groovy/org/openapitools/model/Vector2int.groovy

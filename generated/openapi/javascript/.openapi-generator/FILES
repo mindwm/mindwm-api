@@ -8,6 +8,8 @@ docs/ClipboardContext.md
 docs/ClipboardEvent.md
 docs/IoDocument.md
 docs/IoDocumentEvent.md
+docs/Touch.md
+docs/TouchEvent.md
 docs/Vector2int.md
 git_push.sh
 mocha.opts
@@ -19,10 +21,14 @@ src/model/ClipboardContext.js
 src/model/ClipboardEvent.js
 src/model/IoDocument.js
 src/model/IoDocumentEvent.js
+src/model/Touch.js
+src/model/TouchEvent.js
 src/model/Vector2int.js
 test/model/Clipboard.spec.js
 test/model/ClipboardContext.spec.js
 test/model/ClipboardEvent.spec.js
 test/model/IoDocument.spec.js
 test/model/IoDocumentEvent.spec.js
+test/model/Touch.spec.js
+test/model/TouchEvent.spec.js
 test/model/Vector2int.spec.js

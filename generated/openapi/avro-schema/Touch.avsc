@@ -1,0 +1,17 @@
+{
+  "namespace": "MindWM",
+  "type": "record",
+  "doc": "",
+  "name": "Touch",
+  "fields": [
+    {
+      "name": "ids",
+      "type": {
+        "type": "array",
+        "items": "double"
+      },
+      "doc": ""
+    }
+  ]
+
+}

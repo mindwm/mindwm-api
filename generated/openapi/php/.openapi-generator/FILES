@@ -9,6 +9,8 @@ docs/Model/ClipboardContext.md
 docs/Model/ClipboardEvent.md
 docs/Model/IoDocument.md
 docs/Model/IoDocumentEvent.md
+docs/Model/Touch.md
+docs/Model/TouchEvent.md
 docs/Model/Vector2int.md
 git_push.sh
 lib/ApiException.php
@@ -20,6 +22,8 @@ lib/Model/ClipboardEvent.php
 lib/Model/IoDocument.php
 lib/Model/IoDocumentEvent.php
 lib/Model/ModelInterface.php
+lib/Model/Touch.php
+lib/Model/TouchEvent.php
 lib/Model/Vector2int.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
@@ -28,4 +32,6 @@ test/Model/ClipboardEventTest.php
 test/Model/ClipboardTest.php
 test/Model/IoDocumentEventTest.php
 test/Model/IoDocumentTest.php
+test/Model/TouchEventTest.php
+test/Model/TouchTest.php
 test/Model/Vector2intTest.php

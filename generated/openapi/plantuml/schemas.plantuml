@@ -46,6 +46,23 @@ entity IoDocumentEvent {
     data_base64: String
 }
 
+entity Touch {
+    * ids: List<BigDecimal>
+}
+
+entity TouchEvent {
+    * id: String
+    * source: String
+    * specversion: String
+    * type: String
+    datacontenttype: String
+    dataschema: String
+    subject: String
+    time: Date
+    data: Touch
+    data_base64: String
+}
+
 entity Vector2int {
     * x: BigDecimal
     * y: BigDecimal
@@ -53,6 +70,7 @@ entity Vector2int {
 
 
 ClipboardEvent -- Clipboard : data
+TouchEvent -- Touch : data
 Clipboard -- ClipboardContext : context
 Clipboard -- Vector2int : selectionStart
 Clipboard -- Vector2int : selectionEnd
