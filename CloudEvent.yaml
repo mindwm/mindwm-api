@@ -59,6 +59,11 @@ properties:
     $ref: '#/definitions/data_base64def'
     examples:
       - Zm9vYg==
+  knativebrokerttl:
+    description: knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+    $ref: '#/definitions/knativebrokerttl'
+    examples:    
+      - "255"
 required:
   - id
   - source
@@ -97,3 +102,6 @@ definitions:
   data_base64def:
     type: string
     contentEncoding: base64
+  knativebrokerttl:
+    type: string
+    default: "255"
