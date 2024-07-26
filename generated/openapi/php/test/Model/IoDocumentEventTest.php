@@ -168,4 +168,13 @@ class IoDocumentEventTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "knativebrokerttl"
+     */
+    public function testPropertyKnativebrokerttl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

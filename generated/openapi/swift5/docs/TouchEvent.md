@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **time** | **Date** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
 **data** | [**Touch**](Touch.md) |  | [optional] 
 **dataBase64** | **String** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
+**knativebrokerttl** | **String** | knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518 | [optional] [default to "255"]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

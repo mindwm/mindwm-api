@@ -28,4 +28,6 @@ class IoDocumentEvent {
     IoDocument data
     /* Base64 encoded event payload. Must adhere to RFC4648. */
     String dataBase64
+    /* knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518 */
+    String knativebrokerttl = "255"
 }

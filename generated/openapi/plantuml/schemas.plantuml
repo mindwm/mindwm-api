@@ -25,6 +25,7 @@ entity ClipboardEvent {
     time: Date
     data: Clipboard
     data_base64: String
+    knativebrokerttl: String
 }
 
 entity IoDocument {
@@ -44,6 +45,7 @@ entity IoDocumentEvent {
     time: Date
     data: IoDocument
     data_base64: String
+    knativebrokerttl: String
 }
 
 entity Touch {
@@ -61,6 +63,7 @@ entity TouchEvent {
     time: Date
     data: Touch
     data_base64: String
+    knativebrokerttl: String
 }
 
 entity Vector2int {

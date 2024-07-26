@@ -15,7 +15,8 @@ clipboard_event_t *clipboard_event_create(
     char *subject,
     char *time,
     clipboard_t *data,
-    char *data_base64
+    char *data_base64,
+    char *knativebrokerttl
     ) {
     clipboard_event_t *clipboard_event_local_var = malloc(sizeof(clipboard_event_t));
     if (!clipboard_event_local_var) {
@@ -31,6 +32,7 @@ clipboard_event_t *clipboard_event_create(
     clipboard_event_local_var->time = time;
     clipboard_event_local_var->data = data;
     clipboard_event_local_var->data_base64 = data_base64;
+    clipboard_event_local_var->knativebrokerttl = knativebrokerttl;
 
     return clipboard_event_local_var;
 }
@@ -80,6 +82,10 @@ void clipboard_event_free(clipboard_event_t *clipboard_event) {
     if (clipboard_event->data_base64) {
         free(clipboard_event->data_base64);
         clipboard_event->data_base64 = NULL;
+    }
+    if (clipboard_event->knativebrokerttl) {
+        free(clipboard_event->knativebrokerttl);
+        clipboard_event->knativebrokerttl = NULL;
     }
     free(clipboard_event);
 }
@@ -171,6 +177,14 @@ cJSON *clipboard_event_convertToJSON(clipboard_event_t *clipboard_event) {
     // clipboard_event->data_base64
     if(clipboard_event->data_base64) {
     if(cJSON_AddStringToObject(item, "data_base64", clipboard_event->data_base64) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // clipboard_event->knativebrokerttl
+    if(clipboard_event->knativebrokerttl) {
+    if(cJSON_AddStringToObject(item, "knativebrokerttl", clipboard_event->knativebrokerttl) == NULL) {
     goto fail; //String
     }
     }
@@ -289,6 +303,15 @@ clipboard_event_t *clipboard_event_parseFromJSON(cJSON *clipboard_eventJSON){
     }
     }
 
+    // clipboard_event->knativebrokerttl
+    cJSON *knativebrokerttl = cJSON_GetObjectItemCaseSensitive(clipboard_eventJSON, "knativebrokerttl");
+    if (knativebrokerttl) { 
+    if(!cJSON_IsString(knativebrokerttl) && !cJSON_IsNull(knativebrokerttl))
+    {
+    goto end; //String
+    }
+    }
+
 
     clipboard_event_local_var = clipboard_event_create (
         strdup(id->valuestring),
@@ -300,7 +323,8 @@ clipboard_event_t *clipboard_event_parseFromJSON(cJSON *clipboard_eventJSON){
         subject && !cJSON_IsNull(subject) ? strdup(subject->valuestring) : NULL,
         time && !cJSON_IsNull(time) ? strdup(time->valuestring) : NULL,
         data ? data_local_nonprim : NULL,
-        data_base64 && !cJSON_IsNull(data_base64) ? strdup(data_base64->valuestring) : NULL
+        data_base64 && !cJSON_IsNull(data_base64) ? strdup(data_base64->valuestring) : NULL,
+        knativebrokerttl && !cJSON_IsNull(knativebrokerttl) ? strdup(knativebrokerttl->valuestring) : NULL
         );
 
     return clipboard_event_local_var;

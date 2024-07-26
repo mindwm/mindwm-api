@@ -31,6 +31,7 @@ typedef struct clipboard_event_t {
     char *time; //date time
     struct clipboard_t *data; //model
     char *data_base64; // string
+    char *knativebrokerttl; // string
 
 } clipboard_event_t;
 
@@ -44,7 +45,8 @@ clipboard_event_t *clipboard_event_create(
     char *subject,
     char *time,
     clipboard_t *data,
-    char *data_base64
+    char *data_base64,
+    char *knativebrokerttl
 );
 
 void clipboard_event_free(clipboard_event_t *clipboard_event);

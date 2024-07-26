@@ -54,6 +54,7 @@ h2. Models
          |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
          |data |(x) |{noformat:nopanel=true}Clipboard{noformat} |  |  | null
          |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
+         |knativebrokerttl |(x) |{noformat:nopanel=true}String{noformat} | knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518 |  | null
          
         {anchor:IoDocumentModelAnchor}
         h3. IoDocument
@@ -83,6 +84,7 @@ h2. Models
          |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
          |data |(x) |{noformat:nopanel=true}IoDocument{noformat} |  |  | null
          |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
+         |knativebrokerttl |(x) |{noformat:nopanel=true}String{noformat} | knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518 |  | null
          
         {anchor:TouchModelAnchor}
         h3. Touch
@@ -110,6 +112,7 @@ h2. Models
          |time |(x) |{noformat:nopanel=true}Date{noformat} | Timestamp of when the occurrence happened. Must adhere to RFC 3339. |  | null
          |data |(x) |{noformat:nopanel=true}Touch{noformat} |  |  | null
          |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
+         |knativebrokerttl |(x) |{noformat:nopanel=true}String{noformat} | knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518 |  | null
          
         {anchor:Vector2intModelAnchor}
         h3. Vector2int

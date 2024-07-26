@@ -47,7 +47,8 @@ class TestClipboardEvent(unittest.TestCase):
                 data = {
                     'key' : null
                     },
-                data_base64 = ''
+                data_base64 = '',
+                knativebrokerttl = '255'
             )
         else:
             return ClipboardEvent(

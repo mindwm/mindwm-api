@@ -32,7 +32,8 @@ clipboard_event_t* instantiate_clipboard_event(int include_optional) {
       "Clipboard",
       "2013-10-20T19:20:30+01:00",
       list_createList(),
-      "0"
+      "0",
+      "255"
     );
   } else {
     clipboard_event = clipboard_event_create(
@@ -45,7 +46,8 @@ clipboard_event_t* instantiate_clipboard_event(int include_optional) {
       "Clipboard",
       "2013-10-20T19:20:30+01:00",
       list_createList(),
-      "0"
+      "0",
+      "255"
     );
   }
 

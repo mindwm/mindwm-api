@@ -114,6 +114,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property knativebrokerttl (base name: "knativebrokerttl")', function() {
+      // uncomment below and update the code to test the property knativebrokerttl
+      //var instance = new MindwmApi.TouchEvent();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

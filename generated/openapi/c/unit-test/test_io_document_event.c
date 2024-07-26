@@ -31,7 +31,8 @@ io_document_event_t* instantiate_io_document_event(int include_optional) {
       "IoDocument",
       "2013-10-20T19:20:30+01:00",
       list_createList(),
-      "0"
+      "0",
+      "255"
     );
   } else {
     io_document_event = io_document_event_create(
@@ -44,7 +45,8 @@ io_document_event_t* instantiate_io_document_event(int include_optional) {
       "IoDocument",
       "2013-10-20T19:20:30+01:00",
       list_createList(),
-      "0"
+      "0",
+      "255"
     );
   }
 

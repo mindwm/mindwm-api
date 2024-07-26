@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ClipboardEvent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-26T11:12:50.970636631Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-26T14:32:56.409819870Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardEvent {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -92,6 +92,10 @@ public class ClipboardEvent {
   public static final String SERIALIZED_NAME_DATA_BASE64 = "data_base64";
   @SerializedName(SERIALIZED_NAME_DATA_BASE64)
   private String dataBase64;
+
+  public static final String SERIALIZED_NAME_KNATIVEBROKERTTL = "knativebrokerttl";
+  @SerializedName(SERIALIZED_NAME_KNATIVEBROKERTTL)
+  private String knativebrokerttl = "255";
 
   public ClipboardEvent() {
   }
@@ -285,6 +289,25 @@ public class ClipboardEvent {
     this.dataBase64 = dataBase64;
   }
 
+
+  public ClipboardEvent knativebrokerttl(String knativebrokerttl) {
+    this.knativebrokerttl = knativebrokerttl;
+    return this;
+  }
+
+  /**
+   * knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+   * @return knativebrokerttl
+   */
+  @javax.annotation.Nullable
+  public String getKnativebrokerttl() {
+    return knativebrokerttl;
+  }
+
+  public void setKnativebrokerttl(String knativebrokerttl) {
+    this.knativebrokerttl = knativebrokerttl;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -349,13 +372,14 @@ public class ClipboardEvent {
         Objects.equals(this.subject, clipboardEvent.subject) &&
         Objects.equals(this.time, clipboardEvent.time) &&
         Objects.equals(this.data, clipboardEvent.data) &&
-        Objects.equals(this.dataBase64, clipboardEvent.dataBase64)&&
+        Objects.equals(this.dataBase64, clipboardEvent.dataBase64) &&
+        Objects.equals(this.knativebrokerttl, clipboardEvent.knativebrokerttl)&&
         Objects.equals(this.additionalProperties, clipboardEvent.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64, additionalProperties);
+    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64, knativebrokerttl, additionalProperties);
   }
 
   @Override
@@ -372,6 +396,7 @@ public class ClipboardEvent {
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
+    sb.append("    knativebrokerttl: ").append(toIndentedString(knativebrokerttl)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -405,6 +430,7 @@ public class ClipboardEvent {
     openapiFields.add("time");
     openapiFields.add("data");
     openapiFields.add("data_base64");
+    openapiFields.add("knativebrokerttl");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -461,6 +487,9 @@ public class ClipboardEvent {
       }
       if ((jsonObj.get("data_base64") != null && !jsonObj.get("data_base64").isJsonNull()) && !jsonObj.get("data_base64").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `data_base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data_base64").toString()));
+      }
+      if ((jsonObj.get("knativebrokerttl") != null && !jsonObj.get("knativebrokerttl").isJsonNull()) && !jsonObj.get("knativebrokerttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `knativebrokerttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("knativebrokerttl").toString()));
       }
   }
 

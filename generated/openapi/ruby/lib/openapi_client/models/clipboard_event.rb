@@ -41,6 +41,9 @@ module OpenapiClient
     # Base64 encoded event payload. Must adhere to RFC4648.
     attr_accessor :data_base64
 
+    # knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+    attr_accessor :knativebrokerttl
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -53,7 +56,8 @@ module OpenapiClient
         :'subject' => :'subject',
         :'time' => :'time',
         :'data' => :'data',
-        :'data_base64' => :'data_base64'
+        :'data_base64' => :'data_base64',
+        :'knativebrokerttl' => :'knativebrokerttl'
       }
     end
 
@@ -74,7 +78,8 @@ module OpenapiClient
         :'subject' => :'String',
         :'time' => :'Time',
         :'data' => :'Clipboard',
-        :'data_base64' => :'String'
+        :'data_base64' => :'String',
+        :'knativebrokerttl' => :'String'
       }
     end
 
@@ -147,6 +152,12 @@ module OpenapiClient
 
       if attributes.key?(:'data_base64')
         self.data_base64 = attributes[:'data_base64']
+      end
+
+      if attributes.key?(:'knativebrokerttl')
+        self.knativebrokerttl = attributes[:'knativebrokerttl']
+      else
+        self.knativebrokerttl = '255'
       end
     end
 
@@ -294,7 +305,8 @@ module OpenapiClient
           subject == o.subject &&
           time == o.time &&
           data == o.data &&
-          data_base64 == o.data_base64
+          data_base64 == o.data_base64 &&
+          knativebrokerttl == o.knativebrokerttl
     end
 
     # @see the `==` method
@@ -306,7 +318,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, source, specversion, type, datacontenttype, dataschema, subject, time, data, data_base64].hash
+      [id, source, specversion, type, datacontenttype, dataschema, subject, time, data, data_base64, knativebrokerttl].hash
     end
 
     # Builds the object from hash

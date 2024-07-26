@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Time** | Pointer to **time.Time** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
 **Data** | Pointer to [**Clipboard**](Clipboard.md) |  | [optional] 
 **DataBase64** | Pointer to **string** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
+**Knativebrokerttl** | Pointer to **string** | knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518 | [optional] [default to "255"]
 
 ## Methods
 
@@ -263,6 +264,31 @@ SetDataBase64 sets DataBase64 field to given value.
 `func (o *ClipboardEvent) HasDataBase64() bool`
 
 HasDataBase64 returns a boolean if a field has been set.
+
+### GetKnativebrokerttl
+
+`func (o *ClipboardEvent) GetKnativebrokerttl() string`
+
+GetKnativebrokerttl returns the Knativebrokerttl field if non-nil, zero value otherwise.
+
+### GetKnativebrokerttlOk
+
+`func (o *ClipboardEvent) GetKnativebrokerttlOk() (*string, bool)`
+
+GetKnativebrokerttlOk returns a tuple with the Knativebrokerttl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKnativebrokerttl
+
+`func (o *ClipboardEvent) SetKnativebrokerttl(v string)`
+
+SetKnativebrokerttl sets Knativebrokerttl field to given value.
+
+### HasKnativebrokerttl
+
+`func (o *ClipboardEvent) HasKnativebrokerttl() bool`
+
+HasKnativebrokerttl returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

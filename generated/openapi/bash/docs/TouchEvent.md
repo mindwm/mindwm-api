@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **_time** | **string** |  | [optional] [default to null]
 **data** | [**Touch**](Touch.md) |  | [optional] [default to null]
 **dataUnderscorebase64** | **string** |  | [optional] [default to null]
+**knativebrokerttl** | **string** |  | [optional] [default to 255]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

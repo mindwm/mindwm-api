@@ -33,7 +33,8 @@ touch_event_t* instantiate_touch_event(int include_optional) {
       "2013-10-20T19:20:30+01:00",
        // false, not to have infinite recursion
       instantiate_touch(0),
-      "0"
+      "0",
+      "255"
     );
   } else {
     touch_event = touch_event_create(
@@ -46,7 +47,8 @@ touch_event_t* instantiate_touch_event(int include_optional) {
       "node",
       "2013-10-20T19:20:30+01:00",
       NULL,
-      "0"
+      "0",
+      "255"
     );
   }
 

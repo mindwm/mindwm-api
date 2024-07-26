@@ -90,6 +90,9 @@ class IoDocumentEvent {
             if (data.hasOwnProperty('data_base64')) {
                 obj['data_base64'] = ApiClient.convertToType(data['data_base64'], 'String');
             }
+            if (data.hasOwnProperty('knativebrokerttl')) {
+                obj['knativebrokerttl'] = ApiClient.convertToType(data['knativebrokerttl'], 'String');
+            }
         }
         return obj;
     }
@@ -137,6 +140,10 @@ class IoDocumentEvent {
         // ensure the json data is a string
         if (data['data_base64'] && !(typeof data['data_base64'] === 'string' || data['data_base64'] instanceof String)) {
             throw new Error("Expected the field `data_base64` to be a primitive type in the JSON string but got " + data['data_base64']);
+        }
+        // ensure the json data is a string
+        if (data['knativebrokerttl'] && !(typeof data['knativebrokerttl'] === 'string' || data['knativebrokerttl'] instanceof String)) {
+            throw new Error("Expected the field `knativebrokerttl` to be a primitive type in the JSON string but got " + data['knativebrokerttl']);
         }
 
         return true;
@@ -204,6 +211,13 @@ IoDocumentEvent.prototype['data'] = undefined;
  * @member {String} data_base64
  */
 IoDocumentEvent.prototype['data_base64'] = undefined;
+
+/**
+ * knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+ * @member {String} knativebrokerttl
+ * @default '255'
+ */
+IoDocumentEvent.prototype['knativebrokerttl'] = '255';
 
 
 

@@ -66,7 +66,8 @@ class TouchEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'subject' => 'string',
         'time' => '\DateTime',
         'data' => '\OpenAPI\Client\Model\Touch',
-        'data_base64' => 'string'
+        'data_base64' => 'string',
+        'knativebrokerttl' => 'string'
     ];
 
     /**
@@ -86,7 +87,8 @@ class TouchEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'subject' => null,
         'time' => 'date-time',
         'data' => null,
-        'data_base64' => null
+        'data_base64' => null,
+        'knativebrokerttl' => null
     ];
 
     /**
@@ -104,7 +106,8 @@ class TouchEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'subject' => false,
         'time' => false,
         'data' => false,
-        'data_base64' => false
+        'data_base64' => false,
+        'knativebrokerttl' => false
     ];
 
     /**
@@ -202,7 +205,8 @@ class TouchEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'subject' => 'subject',
         'time' => 'time',
         'data' => 'data',
-        'data_base64' => 'data_base64'
+        'data_base64' => 'data_base64',
+        'knativebrokerttl' => 'knativebrokerttl'
     ];
 
     /**
@@ -220,7 +224,8 @@ class TouchEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'subject' => 'setSubject',
         'time' => 'setTime',
         'data' => 'setData',
-        'data_base64' => 'setDataBase64'
+        'data_base64' => 'setDataBase64',
+        'knativebrokerttl' => 'setKnativebrokerttl'
     ];
 
     /**
@@ -238,7 +243,8 @@ class TouchEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'subject' => 'getSubject',
         'time' => 'getTime',
         'data' => 'getData',
-        'data_base64' => 'getDataBase64'
+        'data_base64' => 'getDataBase64',
+        'knativebrokerttl' => 'getKnativebrokerttl'
     ];
 
     /**
@@ -308,6 +314,7 @@ class TouchEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('time', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('data_base64', $data ?? [], null);
+        $this->setIfExists('knativebrokerttl', $data ?? [], '255');
     }
 
     /**
@@ -675,6 +682,33 @@ class TouchEvent implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable data_base64 cannot be null');
         }
         $this->container['data_base64'] = $data_base64;
+
+        return $this;
+    }
+
+    /**
+     * Gets knativebrokerttl
+     *
+     * @return string|null
+     */
+    public function getKnativebrokerttl()
+    {
+        return $this->container['knativebrokerttl'];
+    }
+
+    /**
+     * Sets knativebrokerttl
+     *
+     * @param string|null $knativebrokerttl knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+     *
+     * @return self
+     */
+    public function setKnativebrokerttl($knativebrokerttl)
+    {
+        if (is_null($knativebrokerttl)) {
+            throw new \InvalidArgumentException('non-nullable knativebrokerttl cannot be null');
+        }
+        $this->container['knativebrokerttl'] = $knativebrokerttl;
 
         return $this;
     }

@@ -59,6 +59,12 @@
       "type": ["null", "string"],
       "doc": "Base64 encoded event payload. Must adhere to RFC4648.",
       "default": null
+    },
+    {
+      "name": "knativebrokerttl",
+      "type": ["null", "string"],
+      "doc": "knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518",
+      "default": null
     }
   ]
 

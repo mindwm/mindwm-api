@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * TouchEvent
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-26T11:13:12.692409763Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-26T14:33:19.496237372Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class TouchEvent {
 
   private String id;
@@ -48,6 +48,8 @@ public class TouchEvent {
   private Touch data;
 
   private String dataBase64;
+
+  private String knativebrokerttl = "255";
 
   public TouchEvent() {
     super();
@@ -262,6 +264,26 @@ public class TouchEvent {
   public void setDataBase64(String dataBase64) {
     this.dataBase64 = dataBase64;
   }
+
+  public TouchEvent knativebrokerttl(String knativebrokerttl) {
+    this.knativebrokerttl = knativebrokerttl;
+    return this;
+  }
+
+  /**
+   * knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+   * @return knativebrokerttl
+   */
+  
+  @Schema(name = "knativebrokerttl", description = "knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("knativebrokerttl")
+  public String getKnativebrokerttl() {
+    return knativebrokerttl;
+  }
+
+  public void setKnativebrokerttl(String knativebrokerttl) {
+    this.knativebrokerttl = knativebrokerttl;
+  }
     /**
     * A container for additional, undeclared properties.
     * This is a holder for any undeclared properties as specified with
@@ -319,12 +341,13 @@ public class TouchEvent {
         Objects.equals(this.time, touchEvent.time) &&
         Objects.equals(this.data, touchEvent.data) &&
         Objects.equals(this.dataBase64, touchEvent.dataBase64) &&
+        Objects.equals(this.knativebrokerttl, touchEvent.knativebrokerttl) &&
     Objects.equals(this.additionalProperties, touchEvent.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64, additionalProperties);
+    return Objects.hash(id, source, specversion, type, datacontenttype, dataschema, subject, time, data, dataBase64, knativebrokerttl, additionalProperties);
   }
 
   @Override
@@ -341,6 +364,7 @@ public class TouchEvent {
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    dataBase64: ").append(toIndentedString(dataBase64)).append("\n");
+    sb.append("    knativebrokerttl: ").append(toIndentedString(knativebrokerttl)).append("\n");
     
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");

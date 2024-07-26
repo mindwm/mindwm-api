@@ -31,6 +31,7 @@ typedef struct touch_event_t {
     char *time; //date time
     struct touch_t *data; //model
     char *data_base64; // string
+    char *knativebrokerttl; // string
 
 } touch_event_t;
 
@@ -44,7 +45,8 @@ touch_event_t *touch_event_create(
     char *subject,
     char *time,
     touch_t *data,
-    char *data_base64
+    char *data_base64,
+    char *knativebrokerttl
 );
 
 void touch_event_free(touch_event_t *touch_event);

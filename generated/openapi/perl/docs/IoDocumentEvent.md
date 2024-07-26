@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **time** | **DATE_TIME** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
 **data** | [**IoDocument**](IoDocument.md) |  | [optional] 
 **data_base64** | **string** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
+**knativebrokerttl** | **string** | knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518 | [optional] [default to &#39;255&#39;]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

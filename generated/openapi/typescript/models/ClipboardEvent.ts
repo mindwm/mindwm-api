@@ -42,6 +42,10 @@ export class ClipboardEvent {
     * Base64 encoded event payload. Must adhere to RFC4648.
     */
     'dataBase64'?: string;
+    /**
+    * knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+    */
+    'knativebrokerttl'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -103,6 +107,12 @@ export class ClipboardEvent {
         {
             "name": "dataBase64",
             "baseName": "data_base64",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "knativebrokerttl",
+            "baseName": "knativebrokerttl",
             "type": "string",
             "format": ""
         }    ];

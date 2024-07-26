@@ -24,8 +24,10 @@ public struct IoDocumentEvent: Codable {
     public var data: IoDocument?
     /// Base64 encoded event payload. Must adhere to RFC4648.
     public var dataBase64: String?
+    /// knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+    public var knativebrokerttl: String? = "255"
 
-    public init(id: String, source: String, specversion: String, type: String = "IoDocument", datacontenttype: String? = nil, dataschema: String? = nil, subject: String? = "IoDocument", time: Date? = nil, data: IoDocument? = nil, dataBase64: String? = nil) {
+    public init(id: String, source: String, specversion: String, type: String = "IoDocument", datacontenttype: String? = nil, dataschema: String? = nil, subject: String? = "IoDocument", time: Date? = nil, data: IoDocument? = nil, dataBase64: String? = nil, knativebrokerttl: String? = "255") {
         self.id = id
         self.source = source
         self.specversion = specversion
@@ -36,6 +38,7 @@ public struct IoDocumentEvent: Codable {
         self.time = time
         self.data = data
         self.dataBase64 = dataBase64
+        self.knativebrokerttl = knativebrokerttl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -49,6 +52,7 @@ public struct IoDocumentEvent: Codable {
         case time
         case data
         case dataBase64 = "data_base64"
+        case knativebrokerttl
     }
 
     public init(from decoder: Decoder) throws {
@@ -63,6 +67,7 @@ public struct IoDocumentEvent: Codable {
         time = try container.decodeIfPresent(Date.self, forKey: .time)
         data = try container.decodeIfPresent(IoDocument.self, forKey: .data)
         dataBase64 = try container.decodeIfPresent(String.self, forKey: .dataBase64)
+        knativebrokerttl = try container.decodeIfPresent(String.self, forKey: .knativebrokerttl)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -77,5 +82,6 @@ public struct IoDocumentEvent: Codable {
         try container.encodeIfPresent(time, forKey: .time)
         try container.encodeIfPresent(data, forKey: .data)
         try container.encodeIfPresent(dataBase64, forKey: .dataBase64)
+        try container.encodeIfPresent(knativebrokerttl, forKey: .knativebrokerttl)
     }
 }

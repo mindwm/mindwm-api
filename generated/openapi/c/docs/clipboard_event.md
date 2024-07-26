@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **time** | **char \*** | Timestamp of when the occurrence happened. Must adhere to RFC 3339. | [optional] 
 **data** | [**clipboard_t**](clipboard.md) \* |  | [optional] 
 **data_base64** | **char \*** | Base64 encoded event payload. Must adhere to RFC4648. | [optional] 
+**knativebrokerttl** | **char \*** | knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518 | [optional] [default to '255']
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

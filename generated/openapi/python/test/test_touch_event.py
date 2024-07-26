@@ -47,7 +47,8 @@ class TestTouchEvent(unittest.TestCase):
                     ids = [
                         1.337
                         ], ),
-                data_base64 = ''
+                data_base64 = '',
+                knativebrokerttl = '255'
             )
         else:
             return TouchEvent(

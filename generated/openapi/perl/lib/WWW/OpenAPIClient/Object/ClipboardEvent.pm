@@ -290,6 +290,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'knativebrokerttl' => {
+        datatype => 'string',
+        base_name => 'knativebrokerttl',
+        description => 'knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -302,7 +309,8 @@ __PACKAGE__->openapi_types( {
     'subject' => 'string',
     'time' => 'DATE_TIME',
     'data' => 'Clipboard',
-    'data_base64' => 'string'
+    'data_base64' => 'string',
+    'knativebrokerttl' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -315,7 +323,8 @@ __PACKAGE__->attribute_map( {
     'subject' => 'subject',
     'time' => 'time',
     'data' => 'data',
-    'data_base64' => 'data_base64'
+    'data_base64' => 'data_base64',
+    'knativebrokerttl' => 'knativebrokerttl'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

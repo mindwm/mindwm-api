@@ -50,6 +50,9 @@ components:
             $ref: '#/components/schemas/IoDocumentEvent_allOf_data'
           data_base64:
             description: Base64 encoded event payload. Must adhere to RFC4648.
+          knativebrokerttl:
+            default: "255"
+            description: "knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518"
         required:
         - id
         - source
@@ -87,6 +90,9 @@ components:
           data_base64def:
             type: string
             contentEncoding: base64
+          knativebrokerttl:
+            type: string
+            default: "255"
       - properties:
           type:
             default: IoDocument
@@ -133,6 +139,9 @@ components:
             $ref: '#/components/schemas/IoDocumentEvent_allOf_data'
           data_base64:
             description: Base64 encoded event payload. Must adhere to RFC4648.
+          knativebrokerttl:
+            default: "255"
+            description: "knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518"
         required:
         - id
         - source
@@ -170,6 +179,9 @@ components:
           data_base64def:
             type: string
             contentEncoding: base64
+          knativebrokerttl:
+            type: string
+            default: "255"
       - properties:
           type:
             default: touch
@@ -216,6 +228,9 @@ components:
             $ref: '#/components/schemas/IoDocumentEvent_allOf_data'
           data_base64:
             description: Base64 encoded event payload. Must adhere to RFC4648.
+          knativebrokerttl:
+            default: "255"
+            description: "knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518"
         required:
         - id
         - source
@@ -253,6 +268,9 @@ components:
           data_base64def:
             type: string
             contentEncoding: base64
+          knativebrokerttl:
+            type: string
+            default: "255"
       - properties:
           type:
             default: Clipboard

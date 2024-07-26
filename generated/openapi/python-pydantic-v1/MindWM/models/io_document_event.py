@@ -36,8 +36,9 @@ class IoDocumentEvent(BaseModel):
     time: Optional[datetime] = Field(default=None, description="Timestamp of when the occurrence happened. Must adhere to RFC 3339.")
     data: Optional[IoDocument] = None
     data_base64: Optional[StrictStr] = Field(default=None, description="Base64 encoded event payload. Must adhere to RFC4648.")
+    knativebrokerttl: Optional[StrictStr] = Field(default='255', description="knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518")
     additional_properties: Dict[str, Any] = {}
-    __properties = ["id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64"]
+    __properties = ["id", "source", "specversion", "type", "datacontenttype", "dataschema", "subject", "time", "data", "data_base64", "knativebrokerttl"]
 
     class Config:
         """Pydantic configuration"""
@@ -93,7 +94,8 @@ class IoDocumentEvent(BaseModel):
             "subject": obj.get("subject") if obj.get("subject") is not None else 'IoDocument',
             "time": obj.get("time"),
             "data": IoDocument.from_dict(obj.get("data")) if obj.get("data") is not None else None,
-            "data_base64": obj.get("data_base64")
+            "data_base64": obj.get("data_base64"),
+            "knativebrokerttl": obj.get("knativebrokerttl") if obj.get("knativebrokerttl") is not None else '255'
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

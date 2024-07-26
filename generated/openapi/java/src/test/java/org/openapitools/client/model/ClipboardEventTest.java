@@ -119,4 +119,12 @@ public class ClipboardEventTest {
         // TODO: test dataBase64
     }
 
+    /**
+     * Test the property 'knativebrokerttl'
+     */
+    @Test
+    public void knativebrokerttlTest() {
+        // TODO: test knativebrokerttl
+    }
+
 }

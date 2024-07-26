@@ -37,6 +37,8 @@ type IoDocumentEvent struct {
 	Data *IoDocument `json:"data,omitempty"`
 	// Base64 encoded event payload. Must adhere to RFC4648.
 	DataBase64 *string `json:"data_base64,omitempty"`
+	// knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+	Knativebrokerttl *string `json:"knativebrokerttl,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -54,6 +56,8 @@ func NewIoDocumentEvent(id string, source string, specversion string, type_ stri
 	this.Type = type_
 	var subject string = "IoDocument"
 	this.Subject = &subject
+	var knativebrokerttl string = "255"
+	this.Knativebrokerttl = &knativebrokerttl
 	return &this
 }
 
@@ -66,6 +70,8 @@ func NewIoDocumentEventWithDefaults() *IoDocumentEvent {
 	this.Type = type_
 	var subject string = "IoDocument"
 	this.Subject = &subject
+	var knativebrokerttl string = "255"
+	this.Knativebrokerttl = &knativebrokerttl
 	return &this
 }
 
@@ -357,6 +363,38 @@ func (o *IoDocumentEvent) SetDataBase64(v string) {
 	o.DataBase64 = &v
 }
 
+// GetKnativebrokerttl returns the Knativebrokerttl field value if set, zero value otherwise.
+func (o *IoDocumentEvent) GetKnativebrokerttl() string {
+	if o == nil || IsNil(o.Knativebrokerttl) {
+		var ret string
+		return ret
+	}
+	return *o.Knativebrokerttl
+}
+
+// GetKnativebrokerttlOk returns a tuple with the Knativebrokerttl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IoDocumentEvent) GetKnativebrokerttlOk() (*string, bool) {
+	if o == nil || IsNil(o.Knativebrokerttl) {
+		return nil, false
+	}
+	return o.Knativebrokerttl, true
+}
+
+// HasKnativebrokerttl returns a boolean if a field has been set.
+func (o *IoDocumentEvent) HasKnativebrokerttl() bool {
+	if o != nil && !IsNil(o.Knativebrokerttl) {
+		return true
+	}
+
+	return false
+}
+
+// SetKnativebrokerttl gets a reference to the given string and assigns it to the Knativebrokerttl field.
+func (o *IoDocumentEvent) SetKnativebrokerttl(v string) {
+	o.Knativebrokerttl = &v
+}
+
 func (o IoDocumentEvent) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -388,6 +426,9 @@ func (o IoDocumentEvent) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DataBase64) {
 		toSerialize["data_base64"] = o.DataBase64
+	}
+	if !IsNil(o.Knativebrokerttl) {
+		toSerialize["knativebrokerttl"] = o.Knativebrokerttl
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -445,6 +486,7 @@ func (o *IoDocumentEvent) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "time")
 		delete(additionalProperties, "data")
 		delete(additionalProperties, "data_base64")
+		delete(additionalProperties, "knativebrokerttl")
 		o.AdditionalProperties = additionalProperties
 	}
 

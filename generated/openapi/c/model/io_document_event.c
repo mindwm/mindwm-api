@@ -15,7 +15,8 @@ io_document_event_t *io_document_event_create(
     char *subject,
     char *time,
     io_document_t *data,
-    char *data_base64
+    char *data_base64,
+    char *knativebrokerttl
     ) {
     io_document_event_t *io_document_event_local_var = malloc(sizeof(io_document_event_t));
     if (!io_document_event_local_var) {
@@ -31,6 +32,7 @@ io_document_event_t *io_document_event_create(
     io_document_event_local_var->time = time;
     io_document_event_local_var->data = data;
     io_document_event_local_var->data_base64 = data_base64;
+    io_document_event_local_var->knativebrokerttl = knativebrokerttl;
 
     return io_document_event_local_var;
 }
@@ -80,6 +82,10 @@ void io_document_event_free(io_document_event_t *io_document_event) {
     if (io_document_event->data_base64) {
         free(io_document_event->data_base64);
         io_document_event->data_base64 = NULL;
+    }
+    if (io_document_event->knativebrokerttl) {
+        free(io_document_event->knativebrokerttl);
+        io_document_event->knativebrokerttl = NULL;
     }
     free(io_document_event);
 }
@@ -171,6 +177,14 @@ cJSON *io_document_event_convertToJSON(io_document_event_t *io_document_event) {
     // io_document_event->data_base64
     if(io_document_event->data_base64) {
     if(cJSON_AddStringToObject(item, "data_base64", io_document_event->data_base64) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // io_document_event->knativebrokerttl
+    if(io_document_event->knativebrokerttl) {
+    if(cJSON_AddStringToObject(item, "knativebrokerttl", io_document_event->knativebrokerttl) == NULL) {
     goto fail; //String
     }
     }
@@ -289,6 +303,15 @@ io_document_event_t *io_document_event_parseFromJSON(cJSON *io_document_eventJSO
     }
     }
 
+    // io_document_event->knativebrokerttl
+    cJSON *knativebrokerttl = cJSON_GetObjectItemCaseSensitive(io_document_eventJSON, "knativebrokerttl");
+    if (knativebrokerttl) { 
+    if(!cJSON_IsString(knativebrokerttl) && !cJSON_IsNull(knativebrokerttl))
+    {
+    goto end; //String
+    }
+    }
+
 
     io_document_event_local_var = io_document_event_create (
         strdup(id->valuestring),
@@ -300,7 +323,8 @@ io_document_event_t *io_document_event_parseFromJSON(cJSON *io_document_eventJSO
         subject && !cJSON_IsNull(subject) ? strdup(subject->valuestring) : NULL,
         time && !cJSON_IsNull(time) ? strdup(time->valuestring) : NULL,
         data ? data_local_nonprim : NULL,
-        data_base64 && !cJSON_IsNull(data_base64) ? strdup(data_base64->valuestring) : NULL
+        data_base64 && !cJSON_IsNull(data_base64) ? strdup(data_base64->valuestring) : NULL,
+        knativebrokerttl && !cJSON_IsNull(knativebrokerttl) ? strdup(knativebrokerttl->valuestring) : NULL
         );
 
     return io_document_event_local_var;

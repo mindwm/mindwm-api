@@ -31,6 +31,7 @@ typedef struct io_document_event_t {
     char *time; //date time
     io_document_t *data; // custom
     char *data_base64; // string
+    char *knativebrokerttl; // string
 
 } io_document_event_t;
 
@@ -44,7 +45,8 @@ io_document_event_t *io_document_event_create(
     char *subject,
     char *time,
     io_document_t *data,
-    char *data_base64
+    char *data_base64,
+    char *knativebrokerttl
 );
 
 void io_document_event_free(io_document_event_t *io_document_event);

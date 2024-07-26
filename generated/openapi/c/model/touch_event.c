@@ -15,7 +15,8 @@ touch_event_t *touch_event_create(
     char *subject,
     char *time,
     touch_t *data,
-    char *data_base64
+    char *data_base64,
+    char *knativebrokerttl
     ) {
     touch_event_t *touch_event_local_var = malloc(sizeof(touch_event_t));
     if (!touch_event_local_var) {
@@ -31,6 +32,7 @@ touch_event_t *touch_event_create(
     touch_event_local_var->time = time;
     touch_event_local_var->data = data;
     touch_event_local_var->data_base64 = data_base64;
+    touch_event_local_var->knativebrokerttl = knativebrokerttl;
 
     return touch_event_local_var;
 }
@@ -80,6 +82,10 @@ void touch_event_free(touch_event_t *touch_event) {
     if (touch_event->data_base64) {
         free(touch_event->data_base64);
         touch_event->data_base64 = NULL;
+    }
+    if (touch_event->knativebrokerttl) {
+        free(touch_event->knativebrokerttl);
+        touch_event->knativebrokerttl = NULL;
     }
     free(touch_event);
 }
@@ -171,6 +177,14 @@ cJSON *touch_event_convertToJSON(touch_event_t *touch_event) {
     // touch_event->data_base64
     if(touch_event->data_base64) {
     if(cJSON_AddStringToObject(item, "data_base64", touch_event->data_base64) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // touch_event->knativebrokerttl
+    if(touch_event->knativebrokerttl) {
+    if(cJSON_AddStringToObject(item, "knativebrokerttl", touch_event->knativebrokerttl) == NULL) {
     goto fail; //String
     }
     }
@@ -289,6 +303,15 @@ touch_event_t *touch_event_parseFromJSON(cJSON *touch_eventJSON){
     }
     }
 
+    // touch_event->knativebrokerttl
+    cJSON *knativebrokerttl = cJSON_GetObjectItemCaseSensitive(touch_eventJSON, "knativebrokerttl");
+    if (knativebrokerttl) { 
+    if(!cJSON_IsString(knativebrokerttl) && !cJSON_IsNull(knativebrokerttl))
+    {
+    goto end; //String
+    }
+    }
+
 
     touch_event_local_var = touch_event_create (
         strdup(id->valuestring),
@@ -300,7 +323,8 @@ touch_event_t *touch_event_parseFromJSON(cJSON *touch_eventJSON){
         subject && !cJSON_IsNull(subject) ? strdup(subject->valuestring) : NULL,
         time && !cJSON_IsNull(time) ? strdup(time->valuestring) : NULL,
         data ? data_local_nonprim : NULL,
-        data_base64 && !cJSON_IsNull(data_base64) ? strdup(data_base64->valuestring) : NULL
+        data_base64 && !cJSON_IsNull(data_base64) ? strdup(data_base64->valuestring) : NULL,
+        knativebrokerttl && !cJSON_IsNull(knativebrokerttl) ? strdup(knativebrokerttl->valuestring) : NULL
         );
 
     return touch_event_local_var;

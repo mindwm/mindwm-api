@@ -181,6 +181,13 @@ This document describes the documentation, a collection of JSON schemas and exam
 | Base64 encoded event payload. Must adhere to RFC4648.
 |     
 
+| knativebrokerttl
+| 
+| 
+|   String  
+| knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+|     
+
 |===
 
 
@@ -302,6 +309,13 @@ This document describes the documentation, a collection of JSON schemas and exam
 | Base64 encoded event payload. Must adhere to RFC4648.
 |     
 
+| knativebrokerttl
+| 
+| 
+|   String  
+| knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
+|     
+
 |===
 
 
@@ -407,6 +421,13 @@ This document describes the documentation, a collection of JSON schemas and exam
 | 
 |   String  
 | Base64 encoded event payload. Must adhere to RFC4648.
+|     
+
+| knativebrokerttl
+| 
+| 
+|   String  
+| knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518
 |     
 
 |===
