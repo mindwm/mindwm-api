@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ClipboardEvent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-26T09:58:54.303463733Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-26T11:12:50.970636631Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardEvent {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
