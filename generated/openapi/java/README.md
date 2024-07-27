@@ -2,7 +2,7 @@
 
 Mindwm API
 - API version: 0.1.0
-  - Build date: 2024-07-27T19:48:07.432410968Z[Etc/UTC]
+  - Build date: 2024-07-27T20:33:12.445545920Z[Etc/UTC]
   - Generator version: 7.7.0
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
@@ -97,6 +97,15 @@ Class | Method | HTTP request | Description
  - [ClipboardEvent](docs/ClipboardEvent.md)
  - [IoDocument](docs/IoDocument.md)
  - [IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [Neo4jChangeDataCapture](docs/Neo4jChangeDataCapture.md)
+ - [Neo4jChangeDataCaptureMeta](docs/Neo4jChangeDataCaptureMeta.md)
+ - [Neo4jChangeDataCaptureMetaSource](docs/Neo4jChangeDataCaptureMetaSource.md)
+ - [Neo4jChangeDataCaptureNodePayload](docs/Neo4jChangeDataCaptureNodePayload.md)
+ - [Neo4jChangeDataCaptureNodePayloadAfter](docs/Neo4jChangeDataCaptureNodePayloadAfter.md)
+ - [Neo4jChangeDataCapturePayload](docs/Neo4jChangeDataCapturePayload.md)
+ - [Neo4jChangeDataCaptureRelationshipPayload](docs/Neo4jChangeDataCaptureRelationshipPayload.md)
+ - [Neo4jChangeDataCaptureRelationshipPayloadEnd](docs/Neo4jChangeDataCaptureRelationshipPayloadEnd.md)
+ - [Neo4jChangeDataCaptureSchema](docs/Neo4jChangeDataCaptureSchema.md)
  - [Touch](docs/Touch.md)
  - [TouchEvent](docs/TouchEvent.md)
  - [Vector2int](docs/Vector2int.md)

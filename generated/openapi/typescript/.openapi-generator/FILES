@@ -15,6 +15,15 @@ models/ClipboardContext.ts
 models/ClipboardEvent.ts
 models/IoDocument.ts
 models/IoDocumentEvent.ts
+models/Neo4jChangeDataCapture.ts
+models/Neo4jChangeDataCaptureMeta.ts
+models/Neo4jChangeDataCaptureMetaSource.ts
+models/Neo4jChangeDataCaptureNodePayload.ts
+models/Neo4jChangeDataCaptureNodePayloadAfter.ts
+models/Neo4jChangeDataCapturePayload.ts
+models/Neo4jChangeDataCaptureRelationshipPayload.ts
+models/Neo4jChangeDataCaptureRelationshipPayloadEnd.ts
+models/Neo4jChangeDataCaptureSchema.ts
 models/ObjectSerializer.ts
 models/Touch.ts
 models/TouchEvent.ts

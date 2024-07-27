@@ -4,6 +4,15 @@ ClipboardContext.avsc
 ClipboardEvent.avsc
 IoDocument.avsc
 IoDocumentEvent.avsc
+Neo4jChangeDataCapture.avsc
+Neo4jChangeDataCaptureMeta.avsc
+Neo4jChangeDataCaptureMetaSource.avsc
+Neo4jChangeDataCaptureNodePayload.avsc
+Neo4jChangeDataCaptureNodePayloadAfter.avsc
+Neo4jChangeDataCapturePayload.avsc
+Neo4jChangeDataCaptureRelationshipPayload.avsc
+Neo4jChangeDataCaptureRelationshipPayloadEnd.avsc
+Neo4jChangeDataCaptureSchema.avsc
 Touch.avsc
 TouchEvent.avsc
 Vector2int.avsc

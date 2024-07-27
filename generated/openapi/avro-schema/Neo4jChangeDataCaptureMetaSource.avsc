@@ -1,0 +1,14 @@
+{
+  "namespace": "MindWM",
+  "type": "record",
+  "doc": "",
+  "name": "Neo4jChangeDataCaptureMetaSource",
+  "fields": [
+    {
+      "name": "hostname",
+      "type": "string",
+      "doc": ""
+    }
+  ]
+
+}

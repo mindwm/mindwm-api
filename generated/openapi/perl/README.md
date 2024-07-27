@@ -241,6 +241,15 @@ use WWW::OpenAPIClient::Object::ClipboardContext;
 use WWW::OpenAPIClient::Object::ClipboardEvent;
 use WWW::OpenAPIClient::Object::IoDocument;
 use WWW::OpenAPIClient::Object::IoDocumentEvent;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCapture;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureMeta;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureMetaSource;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureNodePayload;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureNodePayloadAfter;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCapturePayload;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureRelationshipPayload;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureRelationshipPayloadEnd;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureSchema;
 use WWW::OpenAPIClient::Object::Touch;
 use WWW::OpenAPIClient::Object::TouchEvent;
 use WWW::OpenAPIClient::Object::Vector2int;
@@ -262,6 +271,15 @@ use WWW::OpenAPIClient::Object::ClipboardContext;
 use WWW::OpenAPIClient::Object::ClipboardEvent;
 use WWW::OpenAPIClient::Object::IoDocument;
 use WWW::OpenAPIClient::Object::IoDocumentEvent;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCapture;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureMeta;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureMetaSource;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureNodePayload;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureNodePayloadAfter;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCapturePayload;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureRelationshipPayload;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureRelationshipPayloadEnd;
+use WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureSchema;
 use WWW::OpenAPIClient::Object::Touch;
 use WWW::OpenAPIClient::Object::TouchEvent;
 use WWW::OpenAPIClient::Object::Vector2int;
@@ -286,6 +304,15 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ClipboardEvent](docs/ClipboardEvent.md)
  - [WWW::OpenAPIClient::Object::IoDocument](docs/IoDocument.md)
  - [WWW::OpenAPIClient::Object::IoDocumentEvent](docs/IoDocumentEvent.md)
+ - [WWW::OpenAPIClient::Object::Neo4jChangeDataCapture](docs/Neo4jChangeDataCapture.md)
+ - [WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureMeta](docs/Neo4jChangeDataCaptureMeta.md)
+ - [WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureMetaSource](docs/Neo4jChangeDataCaptureMetaSource.md)
+ - [WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureNodePayload](docs/Neo4jChangeDataCaptureNodePayload.md)
+ - [WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureNodePayloadAfter](docs/Neo4jChangeDataCaptureNodePayloadAfter.md)
+ - [WWW::OpenAPIClient::Object::Neo4jChangeDataCapturePayload](docs/Neo4jChangeDataCapturePayload.md)
+ - [WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureRelationshipPayload](docs/Neo4jChangeDataCaptureRelationshipPayload.md)
+ - [WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureRelationshipPayloadEnd](docs/Neo4jChangeDataCaptureRelationshipPayloadEnd.md)
+ - [WWW::OpenAPIClient::Object::Neo4jChangeDataCaptureSchema](docs/Neo4jChangeDataCaptureSchema.md)
  - [WWW::OpenAPIClient::Object::Touch](docs/Touch.md)
  - [WWW::OpenAPIClient::Object::TouchEvent](docs/TouchEvent.md)
  - [WWW::OpenAPIClient::Object::Vector2int](docs/Vector2int.md)

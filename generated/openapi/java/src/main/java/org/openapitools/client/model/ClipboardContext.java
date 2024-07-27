@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * ClipboardContext
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-27T19:48:07.432410968Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-27T20:33:12.445545920Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardContext {
   public static final String SERIALIZED_NAME_WINDOW_ID = "windowId";
   @SerializedName(SERIALIZED_NAME_WINDOW_ID)

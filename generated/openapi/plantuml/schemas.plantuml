@@ -48,6 +48,76 @@ entity IoDocumentEvent {
     knativebrokerttl: String
 }
 
+entity Neo4jChangeDataCapture {
+    * headers: Map
+    * message_key: String
+    * meta: Neo4jChangeDataCaptureMeta
+    * offset: Integer
+    * partition: Integer
+    * source_type: String
+    * timestamp: Date
+    * topic: String
+    * schema: Neo4jChangeDataCaptureSchema
+    * payload: Neo4jChangeDataCapturePayload
+}
+
+entity Neo4jChangeDataCaptureMeta {
+    * operation: String
+    * source: Neo4jChangeDataCaptureMetaSource
+    * timestamp: Integer
+    * txEventId: Integer
+    * txEventsCount: Integer
+    * txId: Integer
+    * username: String
+}
+
+entity Neo4jChangeDataCaptureMetaSource {
+    * hostname: String
+}
+
+entity Neo4jChangeDataCaptureNodePayload {
+    * after: Neo4jChangeDataCaptureNodePayloadAfter
+    * before: String
+    * id: String
+    * type: String
+}
+
+entity Neo4jChangeDataCaptureNodePayloadAfter {
+    * labels: List<String>
+    * properties: Map
+}
+
+entity Neo4jChangeDataCapturePayload {
+    * after: Object
+    * before: String
+    * id: String
+    * type: String
+    * end: Neo4jChangeDataCaptureRelationshipPayloadEnd
+    * label: String
+    * start: Neo4jChangeDataCaptureRelationshipPayloadEnd
+}
+
+entity Neo4jChangeDataCaptureRelationshipPayload {
+    * after: Object
+    * before: String
+    * end: Neo4jChangeDataCaptureRelationshipPayloadEnd
+    * id: String
+    * label: String
+    * start: Neo4jChangeDataCaptureRelationshipPayloadEnd
+    * type: String
+}
+
+entity Neo4jChangeDataCaptureRelationshipPayloadEnd {
+    * id: String
+    * ids: Map
+    * labels: List<String>
+}
+
+entity Neo4jChangeDataCaptureSchema {
+    constraints: Map
+    properties: Map
+}
+
 entity Touch {
     * ids: List<BigDecimal>
 }
@@ -73,7 +143,16 @@ entity Vector2int {
 
 
 ClipboardEvent -- Clipboard : data
+Neo4jChangeDataCaptureNodePayload -- Neo4jChangeDataCaptureNodePayloadAfter : after
 TouchEvent -- Touch : data
+Neo4jChangeDataCapturePayload -- Neo4jChangeDataCaptureRelationshipPayloadEnd : end
+Neo4jChangeDataCapturePayload -- Neo4jChangeDataCaptureRelationshipPayloadEnd : start
+Neo4jChangeDataCaptureRelationshipPayload -- Neo4jChangeDataCaptureRelationshipPayloadEnd : end
+Neo4jChangeDataCaptureRelationshipPayload -- Neo4jChangeDataCaptureRelationshipPayloadEnd : start
+Neo4jChangeDataCaptureMeta -- Neo4jChangeDataCaptureMetaSource : source
+Neo4jChangeDataCapture -- Neo4jChangeDataCaptureMeta : meta
+Neo4jChangeDataCapture -- Neo4jChangeDataCaptureSchema : schema
+Neo4jChangeDataCapture -- Neo4jChangeDataCapturePayload : payload
 Clipboard -- ClipboardContext : context
 Clipboard -- Vector2int : selectionStart
 Clipboard -- Vector2int : selectionEnd

@@ -1,0 +1,44 @@
+{
+  "namespace": "MindWM",
+  "type": "record",
+  "doc": "",
+  "name": "Neo4jChangeDataCaptureMeta",
+  "fields": [
+    {
+      "name": "operation",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "source",
+      "type": "MindWM.Neo4jChangeDataCaptureMetaSource",
+      "doc": ""
+    },
+    {
+      "name": "timestamp",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "txEventId",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "txEventsCount",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "txId",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "doc": ""
+    }
+  ]
+
+}

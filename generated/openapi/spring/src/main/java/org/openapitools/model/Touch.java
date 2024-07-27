@@ -22,7 +22,7 @@ import javax.annotation.Generated;
  * Touch
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-27T19:48:29.031412486Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-27T20:33:35.131405119Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Touch {
 
   @Valid

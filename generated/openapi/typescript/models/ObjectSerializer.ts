@@ -3,6 +3,15 @@ export * from '../models/ClipboardContext';
 export * from '../models/ClipboardEvent';
 export * from '../models/IoDocument';
 export * from '../models/IoDocumentEvent';
+export * from '../models/Neo4jChangeDataCapture';
+export * from '../models/Neo4jChangeDataCaptureMeta';
+export * from '../models/Neo4jChangeDataCaptureMetaSource';
+export * from '../models/Neo4jChangeDataCaptureNodePayload';
+export * from '../models/Neo4jChangeDataCaptureNodePayloadAfter';
+export * from '../models/Neo4jChangeDataCapturePayload';
+export * from '../models/Neo4jChangeDataCaptureRelationshipPayload';
+export * from '../models/Neo4jChangeDataCaptureRelationshipPayloadEnd';
+export * from '../models/Neo4jChangeDataCaptureSchema';
 export * from '../models/Touch';
 export * from '../models/TouchEvent';
 export * from '../models/Vector2int';
@@ -12,6 +21,15 @@ import { ClipboardContext } from '../models/ClipboardContext';
 import { ClipboardEvent } from '../models/ClipboardEvent';
 import { IoDocument } from '../models/IoDocument';
 import { IoDocumentEvent } from '../models/IoDocumentEvent';
+import { Neo4jChangeDataCapture } from '../models/Neo4jChangeDataCapture';
+import { Neo4jChangeDataCaptureMeta } from '../models/Neo4jChangeDataCaptureMeta';
+import { Neo4jChangeDataCaptureMetaSource } from '../models/Neo4jChangeDataCaptureMetaSource';
+import { Neo4jChangeDataCaptureNodePayload } from '../models/Neo4jChangeDataCaptureNodePayload';
+import { Neo4jChangeDataCaptureNodePayloadAfter } from '../models/Neo4jChangeDataCaptureNodePayloadAfter';
+import { Neo4jChangeDataCapturePayload } from '../models/Neo4jChangeDataCapturePayload';
+import { Neo4jChangeDataCaptureRelationshipPayload } from '../models/Neo4jChangeDataCaptureRelationshipPayload';
+import { Neo4jChangeDataCaptureRelationshipPayloadEnd } from '../models/Neo4jChangeDataCaptureRelationshipPayloadEnd';
+import { Neo4jChangeDataCaptureSchema } from '../models/Neo4jChangeDataCaptureSchema';
 import { Touch } from '../models/Touch';
 import { TouchEvent } from '../models/TouchEvent';
 import { Vector2int } from '../models/Vector2int';
@@ -38,6 +56,15 @@ let typeMap: {[index: string]: any} = {
     "ClipboardEvent": ClipboardEvent,
     "IoDocument": IoDocument,
     "IoDocumentEvent": IoDocumentEvent,
+    "Neo4jChangeDataCapture": Neo4jChangeDataCapture,
+    "Neo4jChangeDataCaptureMeta": Neo4jChangeDataCaptureMeta,
+    "Neo4jChangeDataCaptureMetaSource": Neo4jChangeDataCaptureMetaSource,
+    "Neo4jChangeDataCaptureNodePayload": Neo4jChangeDataCaptureNodePayload,
+    "Neo4jChangeDataCaptureNodePayloadAfter": Neo4jChangeDataCaptureNodePayloadAfter,
+    "Neo4jChangeDataCapturePayload": Neo4jChangeDataCapturePayload,
+    "Neo4jChangeDataCaptureRelationshipPayload": Neo4jChangeDataCaptureRelationshipPayload,
+    "Neo4jChangeDataCaptureRelationshipPayloadEnd": Neo4jChangeDataCaptureRelationshipPayloadEnd,
+    "Neo4jChangeDataCaptureSchema": Neo4jChangeDataCaptureSchema,
     "Touch": Touch,
     "TouchEvent": TouchEvent,
     "Vector2int": Vector2int,

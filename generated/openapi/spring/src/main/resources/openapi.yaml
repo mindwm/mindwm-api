@@ -187,7 +187,8 @@ components:
             default: touch
           subject:
             default: node
-          source: {}
+          source:
+            type: string
           data:
             $ref: '#/components/schemas/Touch'
     ClipboardEvent:
@@ -276,7 +277,8 @@ components:
             default: Clipboard
           subject:
             default: Clipboard
-          source: {}
+          source:
+            type: string
           data:
             $ref: '#/components/schemas/Clipboard'
     Clipboard:
@@ -348,5 +350,144 @@ components:
           type: array
       required:
       - ids
+    Neo4jChangeDataCapture:
+      properties:
+        headers:
+          additionalProperties: {}
+        message_key:
+          type: string
+        meta:
+          $ref: '#/components/schemas/Neo4jChangeDataCapture_meta'
+        offset:
+          type: integer
+        partition:
+          type: integer
+        source_type:
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        topic:
+          type: string
+        schema:
+          $ref: '#/components/schemas/Neo4jChangeDataCapture_schema'
+        payload:
+          $ref: '#/components/schemas/Neo4jChangeDataCapture_payload'
+      required:
+      - headers
+      - message_key
+      - meta
+      - offset
+      - partition
+      - payload
+      - schema
+      - source_type
+      - timestamp
+      - topic
+    Neo4jChangeDataCaptureNodePayload:
+      properties:
+        after:
+          $ref: '#/components/schemas/Neo4jChangeDataCaptureNodePayload_after'
+        before:
+          type: string
+        id:
+          type: string
+        type:
+          type: string
+      required:
+      - after
+      - before
+      - id
+      - type
+    Neo4jChangeDataCaptureRelationshipPayload:
+      properties:
+        after:
+          type: object
+        before:
+          type: string
+        end:
+          $ref: '#/components/schemas/Neo4jChangeDataCaptureRelationshipPayload_end'
+        id:
+          type: string
+        label:
+          type: string
+        start:
+          $ref: '#/components/schemas/Neo4jChangeDataCaptureRelationshipPayload_end'
+        type:
+          type: string
+      required:
+      - after
+      - before
+      - end
+      - id
+      - label
+      - start
+      - type
     IoDocumentEvent_allOf_data:
       description: The event payload.
+    Neo4jChangeDataCapture_meta_source:
+      properties:
+        hostname:
+          type: string
+      required:
+      - hostname
+    Neo4jChangeDataCapture_meta:
+      properties:
+        operation:
+          type: string
+        source:
+          $ref: '#/components/schemas/Neo4jChangeDataCapture_meta_source'
+        timestamp:
+          type: integer
+        txEventId:
+          type: integer
+        txEventsCount:
+          type: integer
+        txId:
+          type: integer
+        username:
+          type: string
+      required:
+      - operation
+      - source
+      - timestamp
+      - txEventId
+      - txEventsCount
+      - txId
+      - username
+    Neo4jChangeDataCapture_schema:
+      properties:
+        constraints:
+          additionalProperties: {}
+        properties:
+          additionalProperties: {}
+    Neo4jChangeDataCapture_payload:
+      oneOf:
+      - $ref: '#/components/schemas/Neo4jChangeDataCaptureNodePayload'
+      - $ref: '#/components/schemas/Neo4jChangeDataCaptureRelationshipPayload'
+      x-one-of-name: Neo4jChangeDataCapturePayload
+    Neo4jChangeDataCaptureNodePayload_after:
+      properties:
+        labels:
+          items:
+            type: string
+          type: array
+        properties:
+          additionalProperties: {}
+      required:
+      - labels
+      - properties
+    Neo4jChangeDataCaptureRelationshipPayload_end:
+      properties:
+        id:
+          type: string
+        ids:
+          additionalProperties: {}
+        labels:
+          items:
+            type: string
+          type: array
+      required:
+      - id
+      - ids
+      - labels

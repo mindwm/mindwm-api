@@ -7,6 +7,15 @@ src/main/groovy/org/openapitools/model/ClipboardContext.groovy
 src/main/groovy/org/openapitools/model/ClipboardEvent.groovy
 src/main/groovy/org/openapitools/model/IoDocument.groovy
 src/main/groovy/org/openapitools/model/IoDocumentEvent.groovy
+src/main/groovy/org/openapitools/model/Neo4jChangeDataCapture.groovy
+src/main/groovy/org/openapitools/model/Neo4jChangeDataCaptureMeta.groovy
+src/main/groovy/org/openapitools/model/Neo4jChangeDataCaptureMetaSource.groovy
+src/main/groovy/org/openapitools/model/Neo4jChangeDataCaptureNodePayload.groovy
+src/main/groovy/org/openapitools/model/Neo4jChangeDataCaptureNodePayloadAfter.groovy
+src/main/groovy/org/openapitools/model/Neo4jChangeDataCapturePayload.groovy
+src/main/groovy/org/openapitools/model/Neo4jChangeDataCaptureRelationshipPayload.groovy
+src/main/groovy/org/openapitools/model/Neo4jChangeDataCaptureRelationshipPayloadEnd.groovy
+src/main/groovy/org/openapitools/model/Neo4jChangeDataCaptureSchema.groovy
 src/main/groovy/org/openapitools/model/Touch.groovy
 src/main/groovy/org/openapitools/model/TouchEvent.groovy
 src/main/groovy/org/openapitools/model/Vector2int.groovy

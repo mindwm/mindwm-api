@@ -18,6 +18,15 @@ import ClipboardContext from './model/ClipboardContext';
 import ClipboardEvent from './model/ClipboardEvent';
 import IoDocument from './model/IoDocument';
 import IoDocumentEvent from './model/IoDocumentEvent';
+import Neo4jChangeDataCapture from './model/Neo4jChangeDataCapture';
+import Neo4jChangeDataCaptureMeta from './model/Neo4jChangeDataCaptureMeta';
+import Neo4jChangeDataCaptureMetaSource from './model/Neo4jChangeDataCaptureMetaSource';
+import Neo4jChangeDataCaptureNodePayload from './model/Neo4jChangeDataCaptureNodePayload';
+import Neo4jChangeDataCaptureNodePayloadAfter from './model/Neo4jChangeDataCaptureNodePayloadAfter';
+import Neo4jChangeDataCapturePayload from './model/Neo4jChangeDataCapturePayload';
+import Neo4jChangeDataCaptureRelationshipPayload from './model/Neo4jChangeDataCaptureRelationshipPayload';
+import Neo4jChangeDataCaptureRelationshipPayloadEnd from './model/Neo4jChangeDataCaptureRelationshipPayloadEnd';
+import Neo4jChangeDataCaptureSchema from './model/Neo4jChangeDataCaptureSchema';
 import Touch from './model/Touch';
 import TouchEvent from './model/TouchEvent';
 import Vector2int from './model/Vector2int';
@@ -90,6 +99,60 @@ export {
      * @property {module:model/IoDocumentEvent}
      */
     IoDocumentEvent,
+
+    /**
+     * The Neo4jChangeDataCapture model constructor.
+     * @property {module:model/Neo4jChangeDataCapture}
+     */
+    Neo4jChangeDataCapture,
+
+    /**
+     * The Neo4jChangeDataCaptureMeta model constructor.
+     * @property {module:model/Neo4jChangeDataCaptureMeta}
+     */
+    Neo4jChangeDataCaptureMeta,
+
+    /**
+     * The Neo4jChangeDataCaptureMetaSource model constructor.
+     * @property {module:model/Neo4jChangeDataCaptureMetaSource}
+     */
+    Neo4jChangeDataCaptureMetaSource,
+
+    /**
+     * The Neo4jChangeDataCaptureNodePayload model constructor.
+     * @property {module:model/Neo4jChangeDataCaptureNodePayload}
+     */
+    Neo4jChangeDataCaptureNodePayload,
+
+    /**
+     * The Neo4jChangeDataCaptureNodePayloadAfter model constructor.
+     * @property {module:model/Neo4jChangeDataCaptureNodePayloadAfter}
+     */
+    Neo4jChangeDataCaptureNodePayloadAfter,
+
+    /**
+     * The Neo4jChangeDataCapturePayload model constructor.
+     * @property {module:model/Neo4jChangeDataCapturePayload}
+     */
+    Neo4jChangeDataCapturePayload,
+
+    /**
+     * The Neo4jChangeDataCaptureRelationshipPayload model constructor.
+     * @property {module:model/Neo4jChangeDataCaptureRelationshipPayload}
+     */
+    Neo4jChangeDataCaptureRelationshipPayload,
+
+    /**
+     * The Neo4jChangeDataCaptureRelationshipPayloadEnd model constructor.
+     * @property {module:model/Neo4jChangeDataCaptureRelationshipPayloadEnd}
+     */
+    Neo4jChangeDataCaptureRelationshipPayloadEnd,
+
+    /**
+     * The Neo4jChangeDataCaptureSchema model constructor.
+     * @property {module:model/Neo4jChangeDataCaptureSchema}
+     */
+    Neo4jChangeDataCaptureSchema,
 
     /**
      * The Touch model constructor.

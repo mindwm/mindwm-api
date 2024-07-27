@@ -12,6 +12,15 @@ docs/models/ClipboardContext.html
 docs/models/ClipboardEvent.html
 docs/models/IoDocument.html
 docs/models/IoDocumentEvent.html
+docs/models/Neo4jChangeDataCapture.html
+docs/models/Neo4jChangeDataCaptureMeta.html
+docs/models/Neo4jChangeDataCaptureMetaSource.html
+docs/models/Neo4jChangeDataCaptureNodePayload.html
+docs/models/Neo4jChangeDataCaptureNodePayloadAfter.html
+docs/models/Neo4jChangeDataCapturePayload.html
+docs/models/Neo4jChangeDataCaptureRelationshipPayload.html
+docs/models/Neo4jChangeDataCaptureRelationshipPayloadEnd.html
+docs/models/Neo4jChangeDataCaptureSchema.html
 docs/models/Touch.html
 docs/models/TouchEvent.html
 docs/models/Vector2int.html

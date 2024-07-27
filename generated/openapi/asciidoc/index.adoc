@@ -320,6 +320,442 @@ This document describes the documentation, a collection of JSON schemas and exam
 
 
 
+[#Neo4jChangeDataCapture]
+=== _Neo4jChangeDataCapture_ 
+
+
+
+
+[.fields-Neo4jChangeDataCapture]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| headers
+| X
+| 
+|   Map   of <<AnyType>>
+| 
+|     
+
+| message_key
+| X
+| 
+|   String  
+| 
+|     
+
+| meta
+| X
+| 
+| <<Neo4jChangeDataCapture_meta>>    
+| 
+|     
+
+| offset
+| X
+| 
+|   Integer  
+| 
+|     
+
+| partition
+| X
+| 
+|   Integer  
+| 
+|     
+
+| source_type
+| X
+| 
+|   String  
+| 
+|     
+
+| timestamp
+| X
+| 
+|   Date  
+| 
+| date-time    
+
+| topic
+| X
+| 
+|   String  
+| 
+|     
+
+| schema
+| X
+| 
+| <<Neo4jChangeDataCapture_schema>>    
+| 
+|     
+
+| payload
+| X
+| 
+| <<Neo4jChangeDataCapture_payload>>    
+| 
+|     
+
+|===
+
+
+
+[#Neo4jChangeDataCaptureMeta]
+=== _Neo4jChangeDataCaptureMeta_ 
+
+
+
+
+[.fields-Neo4jChangeDataCaptureMeta]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| operation
+| X
+| 
+|   String  
+| 
+|     
+
+| source
+| X
+| 
+| <<Neo4jChangeDataCapture_meta_source>>    
+| 
+|     
+
+| timestamp
+| X
+| 
+|   Integer  
+| 
+|     
+
+| txEventId
+| X
+| 
+|   Integer  
+| 
+|     
+
+| txEventsCount
+| X
+| 
+|   Integer  
+| 
+|     
+
+| txId
+| X
+| 
+|   Integer  
+| 
+|     
+
+| username
+| X
+| 
+|   String  
+| 
+|     
+
+|===
+
+
+
+[#Neo4jChangeDataCaptureMetaSource]
+=== _Neo4jChangeDataCaptureMetaSource_ 
+
+
+
+
+[.fields-Neo4jChangeDataCaptureMetaSource]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| hostname
+| X
+| 
+|   String  
+| 
+|     
+
+|===
+
+
+
+[#Neo4jChangeDataCaptureNodePayload]
+=== _Neo4jChangeDataCaptureNodePayload_ 
+
+
+
+
+[.fields-Neo4jChangeDataCaptureNodePayload]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| after
+| X
+| 
+| <<Neo4jChangeDataCaptureNodePayload_after>>    
+| 
+|     
+
+| before
+| X
+| 
+|   String  
+| 
+|     
+
+| id
+| X
+| 
+|   String  
+| 
+|     
+
+| type
+| X
+| 
+|   String  
+| 
+|     
+
+|===
+
+
+
+[#Neo4jChangeDataCaptureNodePayloadAfter]
+=== _Neo4jChangeDataCaptureNodePayloadAfter_ 
+
+
+
+
+[.fields-Neo4jChangeDataCaptureNodePayloadAfter]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| labels
+| X
+| 
+|   List   of <<string>>
+| 
+|     
+
+| properties
+| X
+| 
+|   Map   of <<AnyType>>
+| 
+|     
+
+|===
+
+
+
+[#Neo4jChangeDataCapturePayload]
+=== _Neo4jChangeDataCapturePayload_ 
+
+
+
+
+[.fields-Neo4jChangeDataCapturePayload]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| after
+| X
+| 
+|   Object  
+| 
+|     
+
+| before
+| X
+| 
+|   String  
+| 
+|     
+
+| id
+| X
+| 
+|   String  
+| 
+|     
+
+| type
+| X
+| 
+|   String  
+| 
+|     
+
+| end
+| X
+| 
+| <<Neo4jChangeDataCaptureRelationshipPayload_end>>    
+| 
+|     
+
+| label
+| X
+| 
+|   String  
+| 
+|     
+
+| start
+| X
+| 
+| <<Neo4jChangeDataCaptureRelationshipPayload_end>>    
+| 
+|     
+
+|===
+
+
+
+[#Neo4jChangeDataCaptureRelationshipPayload]
+=== _Neo4jChangeDataCaptureRelationshipPayload_ 
+
+
+
+
+[.fields-Neo4jChangeDataCaptureRelationshipPayload]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| after
+| X
+| 
+|   Object  
+| 
+|     
+
+| before
+| X
+| 
+|   String  
+| 
+|     
+
+| end
+| X
+| 
+| <<Neo4jChangeDataCaptureRelationshipPayload_end>>    
+| 
+|     
+
+| id
+| X
+| 
+|   String  
+| 
+|     
+
+| label
+| X
+| 
+|   String  
+| 
+|     
+
+| start
+| X
+| 
+| <<Neo4jChangeDataCaptureRelationshipPayload_end>>    
+| 
+|     
+
+| type
+| X
+| 
+|   String  
+| 
+|     
+
+|===
+
+
+
+[#Neo4jChangeDataCaptureRelationshipPayloadEnd]
+=== _Neo4jChangeDataCaptureRelationshipPayloadEnd_ 
+
+
+
+
+[.fields-Neo4jChangeDataCaptureRelationshipPayloadEnd]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| id
+| X
+| 
+|   String  
+| 
+|     
+
+| ids
+| X
+| 
+|   Map   of <<AnyType>>
+| 
+|     
+
+| labels
+| X
+| 
+|   List   of <<string>>
+| 
+|     
+
+|===
+
+
+
+[#Neo4jChangeDataCaptureSchema]
+=== _Neo4jChangeDataCaptureSchema_ 
+
+
+
+
+[.fields-Neo4jChangeDataCaptureSchema]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| constraints
+| 
+| 
+|   Map   of <<AnyType>>
+| 
+|     
+
+| properties
+| 
+| 
+|   Map   of <<AnyType>>
+| 
+|     
+
+|===
+
+
+
 [#Touch]
 === _Touch_ 
 

@@ -11,6 +11,15 @@ src/main/java/org/openapitools/model/ClipboardContext.java
 src/main/java/org/openapitools/model/ClipboardEvent.java
 src/main/java/org/openapitools/model/IoDocument.java
 src/main/java/org/openapitools/model/IoDocumentEvent.java
+src/main/java/org/openapitools/model/Neo4jChangeDataCapture.java
+src/main/java/org/openapitools/model/Neo4jChangeDataCaptureMeta.java
+src/main/java/org/openapitools/model/Neo4jChangeDataCaptureMetaSource.java
+src/main/java/org/openapitools/model/Neo4jChangeDataCaptureNodePayload.java
+src/main/java/org/openapitools/model/Neo4jChangeDataCaptureNodePayloadAfter.java
+src/main/java/org/openapitools/model/Neo4jChangeDataCapturePayload.java
+src/main/java/org/openapitools/model/Neo4jChangeDataCaptureRelationshipPayload.java
+src/main/java/org/openapitools/model/Neo4jChangeDataCaptureRelationshipPayloadEnd.java
+src/main/java/org/openapitools/model/Neo4jChangeDataCaptureSchema.java
 src/main/java/org/openapitools/model/Touch.java
 src/main/java/org/openapitools/model/TouchEvent.java
 src/main/java/org/openapitools/model/Vector2int.java

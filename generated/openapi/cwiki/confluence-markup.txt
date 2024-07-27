@@ -86,6 +86,121 @@ h2. Models
          |data_base64 |(x) |{noformat:nopanel=true}String{noformat} | Base64 encoded event payload. Must adhere to RFC4648. |  | null
          |knativebrokerttl |(x) |{noformat:nopanel=true}String{noformat} | knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518 |  | null
          
+        {anchor:Neo4jChangeDataCaptureModelAnchor}
+        h3. Neo4jChangeDataCapture
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |headers |(/) |{noformat:nopanel=true}map[String, oas_any_type_not_mapped]{noformat} |  |  | null
+         |message_key |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |meta |(/) |{noformat:nopanel=true}Neo4jChangeDataCapture_meta{noformat} |  |  | null
+         |offset |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |partition |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |source_type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |timestamp |(/) |{noformat:nopanel=true}Date{noformat} |  |  | null
+         |topic |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |schema |(/) |{noformat:nopanel=true}Neo4jChangeDataCapture_schema{noformat} |  |  | null
+         |payload |(/) |{noformat:nopanel=true}Neo4jChangeDataCapture_payload{noformat} |  |  | null
+         
+        {anchor:Neo4jChangeDataCaptureMetaModelAnchor}
+        h3. Neo4jChangeDataCaptureMeta
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |operation |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |source |(/) |{noformat:nopanel=true}Neo4jChangeDataCapture_meta_source{noformat} |  |  | null
+         |timestamp |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |txEventId |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |txEventsCount |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |txId |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |username |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         
+        {anchor:Neo4jChangeDataCaptureMetaSourceModelAnchor}
+        h3. Neo4jChangeDataCaptureMetaSource
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |hostname |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         
+        {anchor:Neo4jChangeDataCaptureNodePayloadModelAnchor}
+        h3. Neo4jChangeDataCaptureNodePayload
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |after |(/) |{noformat:nopanel=true}Neo4jChangeDataCaptureNodePayload_after{noformat} |  |  | null
+         |before |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |id |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         
+        {anchor:Neo4jChangeDataCaptureNodePayloadAfterModelAnchor}
+        h3. Neo4jChangeDataCaptureNodePayloadAfter
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |labels |(/) |{noformat:nopanel=true}array[String]{noformat} |  |  | null
+         |properties |(/) |{noformat:nopanel=true}map[String, oas_any_type_not_mapped]{noformat} |  |  | null
+         
+        {anchor:Neo4jChangeDataCapturePayloadModelAnchor}
+        h3. Neo4jChangeDataCapturePayload
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |after |(/) |{noformat:nopanel=true}Object{noformat} |  |  | null
+         |before |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |id |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |end |(/) |{noformat:nopanel=true}Neo4jChangeDataCaptureRelationshipPayload_end{noformat} |  |  | null
+         |label |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |start |(/) |{noformat:nopanel=true}Neo4jChangeDataCaptureRelationshipPayload_end{noformat} |  |  | null
+         
+        {anchor:Neo4jChangeDataCaptureRelationshipPayloadModelAnchor}
+        h3. Neo4jChangeDataCaptureRelationshipPayload
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |after |(/) |{noformat:nopanel=true}Object{noformat} |  |  | null
+         |before |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |end |(/) |{noformat:nopanel=true}Neo4jChangeDataCaptureRelationshipPayload_end{noformat} |  |  | null
+         |id |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |label |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |start |(/) |{noformat:nopanel=true}Neo4jChangeDataCaptureRelationshipPayload_end{noformat} |  |  | null
+         |type |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         
+        {anchor:Neo4jChangeDataCaptureRelationshipPayloadEndModelAnchor}
+        h3. Neo4jChangeDataCaptureRelationshipPayloadEnd
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |id |(/) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |ids |(/) |{noformat:nopanel=true}map[String, oas_any_type_not_mapped]{noformat} |  |  | null
+         |labels |(/) |{noformat:nopanel=true}array[String]{noformat} |  |  | null
+         
+        {anchor:Neo4jChangeDataCaptureSchemaModelAnchor}
+        h3. Neo4jChangeDataCaptureSchema
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |constraints |(x) |{noformat:nopanel=true}map[String, oas_any_type_not_mapped]{noformat} |  |  | null
+         |properties |(x) |{noformat:nopanel=true}map[String, oas_any_type_not_mapped]{noformat} |  |  | null
+         
         {anchor:TouchModelAnchor}
         h3. Touch
 

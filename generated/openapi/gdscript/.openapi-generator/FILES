@@ -12,6 +12,15 @@ models/CloudEvent.gd
 models/IoDocument.gd
 models/IoDocumentEvent.gd
 models/IoDocumentEventAllOf.gd
+models/Neo4jChangeDataCapture.gd
+models/Neo4jChangeDataCaptureMeta.gd
+models/Neo4jChangeDataCaptureMetaSource.gd
+models/Neo4jChangeDataCaptureNodePayload.gd
+models/Neo4jChangeDataCaptureNodePayloadAfter.gd
+models/Neo4jChangeDataCapturePayload.gd
+models/Neo4jChangeDataCaptureRelationshipPayload.gd
+models/Neo4jChangeDataCaptureRelationshipPayloadEnd.gd
+models/Neo4jChangeDataCaptureSchema.gd
 models/Touch.gd
 models/TouchEvent.gd
 models/TouchEventAllOf.gd

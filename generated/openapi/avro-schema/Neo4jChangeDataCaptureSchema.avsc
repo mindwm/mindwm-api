@@ -1,0 +1,27 @@
+{
+  "namespace": "MindWM",
+  "type": "record",
+  "doc": "",
+  "name": "Neo4jChangeDataCaptureSchema",
+  "fields": [
+    {
+      "name": "constraints",
+      "type": ["null", {
+        "type": "map",
+        "items": "MindWM.AnyType"
+      }],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "properties",
+      "type": ["null", {
+        "type": "map",
+        "items": "MindWM.AnyType"
+      }],
+      "doc": "",
+      "default": null
+    }
+  ]
+
+}

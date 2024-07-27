@@ -206,6 +206,15 @@ font-style: italic;
     <li><a href="#ClipboardEvent"><code>ClipboardEvent</code> - </a></li>
     <li><a href="#IoDocument"><code>IoDocument</code> - </a></li>
     <li><a href="#IoDocumentEvent"><code>IoDocumentEvent</code> - </a></li>
+    <li><a href="#Neo4jChangeDataCapture"><code>Neo4jChangeDataCapture</code> - </a></li>
+    <li><a href="#Neo4jChangeDataCaptureNodePayload"><code>Neo4jChangeDataCaptureNodePayload</code> - </a></li>
+    <li><a href="#Neo4jChangeDataCaptureNodePayload_after"><code>Neo4jChangeDataCaptureNodePayload_after</code> - </a></li>
+    <li><a href="#Neo4jChangeDataCaptureRelationshipPayload"><code>Neo4jChangeDataCaptureRelationshipPayload</code> - </a></li>
+    <li><a href="#Neo4jChangeDataCaptureRelationshipPayload_end"><code>Neo4jChangeDataCaptureRelationshipPayload_end</code> - </a></li>
+    <li><a href="#Neo4jChangeDataCapture_meta"><code>Neo4jChangeDataCapture_meta</code> - </a></li>
+    <li><a href="#Neo4jChangeDataCapture_meta_source"><code>Neo4jChangeDataCapture_meta_source</code> - </a></li>
+    <li><a href="#Neo4jChangeDataCapture_payload"><code>Neo4jChangeDataCapture_payload</code> - </a></li>
+    <li><a href="#Neo4jChangeDataCapture_schema"><code>Neo4jChangeDataCapture_schema</code> - </a></li>
     <li><a href="#Touch"><code>Touch</code> - </a></li>
     <li><a href="#TouchEvent"><code>TouchEvent</code> - </a></li>
     <li><a href="#Vector2int"><code>Vector2int</code> - </a></li>
@@ -272,6 +281,103 @@ font-style: italic;
 <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#IoDocument">IoDocument</a></span>  </div>
 <div class="param">data_base64 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Base64 encoded event payload. Must adhere to RFC4648. </div>
 <div class="param">knativebrokerttl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> knative broker ttl, workaround for https://github.com/knative-extensions/eventing-natss/issues/518 </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jChangeDataCapture"><code>Neo4jChangeDataCapture</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">headers </div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">message_key </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Neo4jChangeDataCapture_meta">Neo4jChangeDataCapture_meta</a></span>  </div>
+<div class="param">offset </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">partition </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">source_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">topic </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">schema </div><div class="param-desc"><span class="param-type"><a href="#Neo4jChangeDataCapture_schema">Neo4jChangeDataCapture_schema</a></span>  </div>
+<div class="param">payload </div><div class="param-desc"><span class="param-type"><a href="#Neo4jChangeDataCapture_payload">Neo4jChangeDataCapture_payload</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jChangeDataCaptureNodePayload"><code>Neo4jChangeDataCaptureNodePayload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">after </div><div class="param-desc"><span class="param-type"><a href="#Neo4jChangeDataCaptureNodePayload_after">Neo4jChangeDataCaptureNodePayload_after</a></span>  </div>
+<div class="param">before </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jChangeDataCaptureNodePayload_after"><code>Neo4jChangeDataCaptureNodePayload_after</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">labels </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">properties </div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jChangeDataCaptureRelationshipPayload"><code>Neo4jChangeDataCaptureRelationshipPayload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">after </div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+<div class="param">before </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">end </div><div class="param-desc"><span class="param-type"><a href="#Neo4jChangeDataCaptureRelationshipPayload_end">Neo4jChangeDataCaptureRelationshipPayload_end</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">label </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">start </div><div class="param-desc"><span class="param-type"><a href="#Neo4jChangeDataCaptureRelationshipPayload_end">Neo4jChangeDataCaptureRelationshipPayload_end</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jChangeDataCaptureRelationshipPayload_end"><code>Neo4jChangeDataCaptureRelationshipPayload_end</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ids </div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">labels </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jChangeDataCapture_meta"><code>Neo4jChangeDataCapture_meta</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">operation </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">source </div><div class="param-desc"><span class="param-type"><a href="#Neo4jChangeDataCapture_meta_source">Neo4jChangeDataCapture_meta_source</a></span>  </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">txEventId </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">txEventsCount </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">txId </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">username </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jChangeDataCapture_meta_source"><code>Neo4jChangeDataCapture_meta_source</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">hostname </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jChangeDataCapture_payload"><code>Neo4jChangeDataCapture_payload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">after </div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+<div class="param">before </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">end </div><div class="param-desc"><span class="param-type"><a href="#Neo4jChangeDataCaptureRelationshipPayload_end">Neo4jChangeDataCaptureRelationshipPayload_end</a></span>  </div>
+<div class="param">label </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">start </div><div class="param-desc"><span class="param-type"><a href="#Neo4jChangeDataCaptureRelationshipPayload_end">Neo4jChangeDataCaptureRelationshipPayload_end</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Neo4jChangeDataCapture_schema"><code>Neo4jChangeDataCapture_schema</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">constraints (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">properties (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">

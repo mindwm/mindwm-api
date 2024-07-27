@@ -59,6 +59,15 @@ set(SRCS
     model/clipboard_event.c
     model/io_document.c
     model/io_document_event.c
+    model/neo4j_change_data_capture.c
+    model/neo4j_change_data_capture_meta.c
+    model/neo4j_change_data_capture_meta_source.c
+    model/neo4j_change_data_capture_node_payload.c
+    model/neo4j_change_data_capture_node_payload_after.c
+    model/neo4j_change_data_capture_payload.c
+    model/neo4j_change_data_capture_relationship_payload.c
+    model/neo4j_change_data_capture_relationship_payload_end.c
+    model/neo4j_change_data_capture_schema.c
     model/touch.c
     model/touch_event.c
     model/vector2int.c
@@ -77,6 +86,15 @@ set(HDRS
     model/clipboard_event.h
     model/io_document.h
     model/io_document_event.h
+    model/neo4j_change_data_capture.h
+    model/neo4j_change_data_capture_meta.h
+    model/neo4j_change_data_capture_meta_source.h
+    model/neo4j_change_data_capture_node_payload.h
+    model/neo4j_change_data_capture_node_payload_after.h
+    model/neo4j_change_data_capture_payload.h
+    model/neo4j_change_data_capture_relationship_payload.h
+    model/neo4j_change_data_capture_relationship_payload_end.h
+    model/neo4j_change_data_capture_schema.h
     model/touch.h
     model/touch_event.h
     model/vector2int.h
