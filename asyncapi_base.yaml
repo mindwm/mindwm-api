@@ -27,6 +27,21 @@ servers:
         default: localhost 
     externalDocs:
       url: "https://github.com/mindwm/mindwm-manager/blob/dc926f637bb8d31f21ecbd28479ab9b0a1ece23c/src/mindwm/modules/pipe_listener.py"
+  contextBroker:
+    protocol: http
+    host: "http://broker-ingress.knative-eventing.svc.cluster.local/context-{{.CONTEXT_NAME }}/context-broker-{{.CONTEXT_NAME}}"
+    description:
+      Knative context broker
+  userBroker:
+    protocol: http
+    host: "http://broker-ingress.knative-eventing.svc.cluster.local/user-{{.USERNAME}/user-{{.USERNAME}}-broker"
+    description: |
+      Knative user broker
+  hostBroker:
+    protocol: http
+    host: "http://broker-ingress.knative-eventing.svc.cluster.local/user-{{.USERNAME}}/{{.HOSTNAME}}-broker"
+    description: |
+      Knative host broker
   nats:
     host: '${address}:${port}'
     protocol: nats
