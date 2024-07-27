@@ -34,7 +34,7 @@ servers:
       - name: docker
   knative-eventing:
     protocol: http
-    host: "http://broker-ingress.knative-eventing.svc.cluster.local/context-{{.CONTEXT_NAME }}/context-broker-{{.CONTEXT_NAME}}"
+    host: "broker-ingress.knative-eventing.svc.cluster.local/context-{{.CONTEXT_NAME }}/context-broker-{{.CONTEXT_NAME}}"
     description: |
       Knative eventing
     externalDocs:
@@ -43,7 +43,7 @@ servers:
       - name: kubernetes
   knative-serving:
     protocol: http
-    host: "http://webhook.knative-serving:8008"
+    host: "webhook.knative-serving:8008"
     externalDocs:
       url: https://knative.dev/docs/serving/
     description: |
@@ -61,7 +61,7 @@ servers:
 
   neo4j-cdc-plugin:
     protocol: bolt
-    host: bolt://{{.CONTEXT_NAME}}-neo4j.context-{{.CONTEXT_NAME}}:7687
+    host: {{.CONTEXT_NAME}}-neo4j.context-{{.CONTEXT_NAME}}:7687
     description: |
       Neo4j Change data capture plugin
     externalDocs:
@@ -70,7 +70,7 @@ servers:
       - name: kubernetes
   vector: 
     protocol: http
-    host: http://{{.CONTEXT_NAME}}-vector-headless.{{.CONTEXT_NAME}}:80
+    host: {{.CONTEXT_NAME}}-vector-headless.{{.CONTEXT_NAME}}:80
     description: |
       Vector.dev
     externalDocs:
