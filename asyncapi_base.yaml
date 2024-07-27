@@ -27,21 +27,17 @@ servers:
         default: localhost 
     externalDocs:
       url: "https://github.com/mindwm/mindwm-manager/blob/dc926f637bb8d31f21ecbd28479ab9b0a1ece23c/src/mindwm/modules/pipe_listener.py"
-  contextBroker:
+  knative-eventing:
     protocol: http
     host: "http://broker-ingress.knative-eventing.svc.cluster.local/context-{{.CONTEXT_NAME }}/context-broker-{{.CONTEXT_NAME}}"
     description:
-      Knative context broker
-  userBroker:
-    protocol: http
-    host: "http://broker-ingress.knative-eventing.svc.cluster.local/user-{{.USERNAME}/user-{{.USERNAME}}-broker"
-    description: |
-      Knative user broker
-  hostBroker:
-    protocol: http
-    host: "http://broker-ingress.knative-eventing.svc.cluster.local/user-{{.USERNAME}}/{{.HOSTNAME}}-broker"
-    description: |
-      Knative host broker
+      Knative eventing
+  kafka:
+    protocol: kafka
+    host: "neo4j-cdc.redpanda:9093"
+    description:
+      Kafka cluster
+
   nats:
     host: '${address}:${port}'
     protocol: nats
@@ -60,6 +56,40 @@ servers:
         default: "4222"
            
 channels:
+  UserHostBroker:
+    address: "http://broker-ingress.knative-eventing.svc.cluster.local/user-{{.USERNAME}}/{{.HOSTNAME}}-broker"
+    externalDocs:
+      url: https://knative.dev/docs/eventing/brokers/
+    servers:
+      - $ref: '#/servers/knative-eventing'
+    messages:
+      TouchEvent:
+        $ref: '#/components/messages/TouchEvent'
+      IoDocument:
+        $ref: '#/components/messages/IoDocumentEvent'
+  UserBroker:
+    address: "http://broker-ingress.knative-eventing.svc.cluster.local/user-{{.USERNAME}/user-{{.USERNAME}}-broker"
+    externalDocs:
+      url: https://knative.dev/docs/eventing/brokers/
+    servers:
+      - $ref: '#/servers/knative-eventing'
+    messages:
+      TouchEvent:
+        $ref: '#/components/messages/TouchEvent'
+      IoDocument:
+        $ref: '#/components/messages/IoDocumentEvent'
+  ContextBroker:
+    address: "http://broker-ingress.knative-eventing.svc.cluster.local/context-{{.CONTEXT_NAME }}/context-broker-{{.CONTEXT_NAME}}"
+    externalDocs:
+      url: https://knative.dev/docs/eventing/brokers/
+    servers:
+      - $ref: '#/servers/knative-eventing'
+    messages:
+      TouchEvent:
+        $ref: '#/components/messages/TouchEvent'
+      IoDocument:
+        $ref: '#/components/messages/IoDocumentEvent'
+
   TmuxPane:
     address: /tmp/mindwm-asciinema-${MINDWM_UUID}.socket
     externalDocs:
