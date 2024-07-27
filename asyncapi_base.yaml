@@ -38,6 +38,14 @@ servers:
     description:
       Kafka cluster
 
+  neo4j-cdc-plugin:
+    protocol: bolt
+    host: bolt://{{.CONTEXT_NAME}}-neo4j.context-{{.CONTEXT_NAME}}:7687
+    description: |
+      Neo4j Change data capture plugin
+    externalDocs:
+      url: https://neo4j.com/docs/cdc/current/
+
   nats:
     host: '${address}:${port}'
     protocol: nats
