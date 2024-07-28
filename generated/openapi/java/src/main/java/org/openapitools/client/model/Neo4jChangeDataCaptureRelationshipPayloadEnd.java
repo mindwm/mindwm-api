@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * Neo4jChangeDataCaptureRelationshipPayloadEnd
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-27T20:33:12.445545920Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-28T13:33:10.984109087Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jChangeDataCaptureRelationshipPayloadEnd {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
