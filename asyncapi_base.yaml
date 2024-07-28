@@ -34,7 +34,7 @@ servers:
       - name: docker
   knative-eventing:
     protocol: http
-    host: "broker-ingress.knative-eventing.svc.cluster.local/context-{{.CONTEXT_NAME }}/context-broker-{{.CONTEXT_NAME}}"
+    host: "broker-ingress.knative-eventing.svc.cluster.local"
     description: |
       Knative eventing
     externalDocs:
