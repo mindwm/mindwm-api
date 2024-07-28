@@ -43,7 +43,7 @@ servers:
       - name: kubernetes
   knative-serving:
     protocol: http
-    host: "webhook.knative-serving:8008"
+    host: "webhook.knative-serving.svc.cluster.local:8008"
     externalDocs:
       url: https://knative.dev/docs/serving/
     description: |
@@ -57,10 +57,13 @@ servers:
       Kafka cluster
     tags:
       - name: kubernetes
-
   neo4j-cdc-plugin:
     protocol: bolt
     host: "{CONTEXT_NAME}-neo4j.context-{CONTEXT_NAME}:7687"
+    variables:
+      CONTEXT_NAME:
+        description: |
+          context name
     description: |
       Neo4j Change data capture plugin
     externalDocs:
