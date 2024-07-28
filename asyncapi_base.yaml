@@ -47,7 +47,11 @@ servers:
       - name: kubernetes
   knative-serving:
     protocol: http
-    host: "webhook.knative-serving.svc.cluster.local:8008"
+    host: "webhook.{KNATIVE_SERVING_NS}.svc.cluster.local:8008"
+    variables:
+      KNATIVE_SERVING_NS:
+        description: Namespace where Knative Serving is deployed
+        default: knative-eventing
     externalDocs:
       url: https://knative.dev/docs/serving/
     description: |
@@ -56,7 +60,11 @@ servers:
       - name: kubernetes
   kafka:
     protocol: kafka
-    host: "neo4j-cdc.redpanda:9093"
+    host: "neo4j-cdc.${KAFKA_NS}:9093"
+    variables:
+      KNATIVE_SERVING_NS:
+        description: Namespace where kafka broker is deployed
+        default: redpanda
     description:
       Kafka cluster
     tags:
@@ -77,6 +85,10 @@ servers:
   vector: 
     protocol: http
     host: "{CONTEXT_NAME}-vector-headless.{CONTEXT_NAME}:80"
+    variables:
+      CONTEXT_NAME:
+        description: |
+          context name
     description: |
       Vector.dev
     externalDocs:
@@ -88,6 +100,8 @@ servers:
     protocol: nats
     description: |
       Nats Server
+    security:
+      - type: userPassword
     variables:
       address:
         enum:
