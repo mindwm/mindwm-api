@@ -34,7 +34,11 @@ servers:
       - name: docker
   knative-eventing:
     protocol: http
-    host: "broker-ingress.knative-eventing.svc.cluster.local"
+    host: "broker-ingress.{KNATIVE_EVENTING_NS}.svc.cluster.local"
+    variables:
+      KNATIVE_EVENTING_NS:
+        description: Namespace where Knative Eventing is deployed
+        default: knative-eventing
     description: |
       Knative eventing
     externalDocs:
