@@ -9,7 +9,7 @@ info:
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
 servers:
   asciinema: 
-    host: "/tmp/mindwm-asciinema-${MINDWM_UUID}.socket"
+    host: "/tmp/mindwm-asciinema-{MINDWM_UUID}.socket"
     protocol: unixsocket
     description: Asciinema
     variables:
@@ -20,7 +20,7 @@ servers:
     tags: 
       - name: client
   mindwm-client:
-    host: "/tmp/mindwm-asciinema-${MINDWM_UUID}.socket"
+    host: "/tmp/mindwm-asciinema-{MINDWM_UUID}.socket"
     protocol: unixsocket
     description: |
       Mindwm Client      
@@ -50,7 +50,6 @@ servers:
       Knative serving
     tags:
       - name: kubernetes
-
   kafka:
     protocol: kafka
     host: "neo4j-cdc.redpanda:9093"
@@ -61,7 +60,7 @@ servers:
 
   neo4j-cdc-plugin:
     protocol: bolt
-    host: "{{.CONTEXT_NAME}}-neo4j.context-{{.CONTEXT_NAME}}:7687"
+    host: "{CONTEXT_NAME}-neo4j.context-{CONTEXT_NAME}:7687"
     description: |
       Neo4j Change data capture plugin
     externalDocs:
@@ -70,7 +69,7 @@ servers:
       - name: kubernetes
   vector: 
     protocol: http
-    host: "{{.CONTEXT_NAME}}-vector-headless.{{.CONTEXT_NAME}}:80"
+    host: "{CONTEXT_NAME}-vector-headless.{CONTEXT_NAME}:80"
     description: |
       Vector.dev
     externalDocs:
@@ -78,7 +77,7 @@ servers:
     tags:
       - name: kubernetes
   nats:
-    host: '${address}:${port}'
+    host: '{address}:{port}'
     protocol: nats
     description: |
       Nats Server
@@ -98,7 +97,7 @@ servers:
            
 channels:
   UserHostBroker:
-    address: "http://broker-ingress.knative-eventing.svc.cluster.local/user-{{.USERNAME}}/{{.HOSTNAME}}-broker"
+    address: "http://broker-ingress.knative-eventing.svc.cluster.local/user-{USERNAME}/{HOSTNAME}-broker"
     externalDocs:
       url: https://knative.dev/docs/eventing/brokers/
     servers:
@@ -112,7 +111,7 @@ channels:
       - name: kubernetes
       - name: knative-eventing
   UserBroker:
-    address: "http://broker-ingress.knative-eventing.svc.cluster.local/user-{{.USERNAME}/user-{{.USERNAME}}-broker"
+    address: "http://broker-ingress.knative-eventing.svc.cluster.local/user-{{.USERNAME}/user-{USERNAME}-broker"
     externalDocs:
       url: https://knative.dev/docs/eventing/brokers/
     servers:
@@ -126,7 +125,7 @@ channels:
       - name: kubernetes
       - name: knative-eventing
   ContextBroker:
-    address: "http://broker-ingress.knative-eventing.svc.cluster.local/context-{{.CONTEXT_NAME }}/context-broker-{{.CONTEXT_NAME}}"
+    address: "http://broker-ingress.knative-eventing.svc.cluster.local/context-{CONTEXT_NAME}/context-broker-{CONTEXT_NAME}"
     externalDocs:
       url: https://knative.dev/docs/eventing/brokers/
     servers:
@@ -138,7 +137,7 @@ channels:
         $ref: '#/components/messages/IoDocumentEvent'
 
   TmuxPane:
-    address: /tmp/mindwm-asciinema-${MINDWM_UUID}.socket
+    address: /tmp/mindwm-asciinema-{MINDWM_UUID}.socket
     externalDocs:
       url: https://github.com/mindwm/mindwm-manager/blob/dc926f637bb8d31f21ecbd28479ab9b0a1ece23c/src/mindwm/modules/tmux_session.py#L33
     servers:
@@ -149,27 +148,27 @@ channels:
         $ref: '#/components/messages/IoDocument'
 
   HostJetStreamChannel:
-    address: "KN_USER_${USERNAME}__${HOSTNAME}_BROKER_KNE_TRIGGER"
+    address: "KN_USER_{USERNAME}__{HOSTNAME}_BROKER_KNE_TRIGGER"
     servers: 
       - $ref: '#/servers/nats'
     externalDocs: 
       url: https://github.com/knative-extensions/eventing-natss
 #  HostNatsTopicIn:
-#    address: user-${USERNAME}.${HOSTNAME}-broker-kne-trigger._knative
+#    address: user-{USERNAME}.{HOSTNAME}-broker-kne-trigger._knative
 #    servers: 
 #      - $ref: '#/servers/nats'
 #    messages:
 #      GraphEvent:
 #        $ref: '#/components/messages/GraphEvent'
   HostNatsTopicIoDocument:
-    address: 'mindwm.${USER}.${HOSTNAME}.tmux.${TMUX_SOCKET}.${MINDWM_UUID}.${TMUX_ID}.${TMUX_PANE_ID}.iodocument'
+    address: 'mindwm.{USER}.{HOSTNAME}.tmux.{TMUX_SOCKET}.{MINDWM_UUID}.{TMUX_ID}.{TMUX_PANE_ID}.iodocument'
     servers: 
       - $ref: '#/servers/nats'
     messages:
       IoDocumentEvent:
         $ref: '#/components/messages/IoDocumentEvent'
   HostNatsTopicClipboard:
-    address: 'mindwm.${USER}.${HOSTNAME}.clipboard'
+    address: 'mindwm.{USER}.{HOSTNAME}.clipboard'
     servers: 
       - $ref: '#/servers/nats'
     messages:
@@ -177,7 +176,7 @@ channels:
         $ref: '#/components/messages/ClipboardEvent'
 
   TouchChannel:
-    address: 'mindwm.${USER}.${HOSTNAME}.touch'
+    address: 'mindwm.{USER}.{HOSTNAME}.touch'
     servers: 
       - $ref: '#/servers/nats'
     messages:
@@ -185,7 +184,7 @@ channels:
         $ref: '#/components/messages/TouchEvent'
 
   ChangeDataCapture:
-    address: '{{.CONTEXT_NAME}}-cdc-topic'
+    address: '{CONTEXT_NAME}-cdc-topic'
     servers: 
       - $ref: '#/servers/kafka'
       - $ref: '#/servers/knative-eventing'
