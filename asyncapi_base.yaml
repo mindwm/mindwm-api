@@ -62,7 +62,7 @@ servers:
     protocol: kafka
     host: "neo4j-cdc.${KAFKA_NS}:9093"
     variables:
-      KNATIVE_SERVING_NS:
+      KAFKA_NS:
         description: Namespace where kafka broker is deployed
         default: redpanda
     description:
