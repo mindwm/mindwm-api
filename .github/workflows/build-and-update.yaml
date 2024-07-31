@@ -163,3 +163,18 @@ jobs:
         target-branch: main
         target-directory: MindWM
 
+
+    - name: Update mindwm-sdk-javascript
+      id: update_mindwm_sdk_javascript
+      uses: cpina/github-action-push-to-another-repository@target-branch
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.MINDWM_TOKEN }}
+      with:
+        source-directory: generated/openapi/javascript/src
+        destination-github-username: 'mindwm'
+        destination-repository-name: 'mindwm-sdk-javascript'
+        user-email: metacoma@github.com
+        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+        target-branch: main
+        target-directory: mindwm
+
