@@ -60,7 +60,7 @@ import com.google.gson.JsonParseException;
 
 import org.openapitools.client.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-28T13:33:10.984109087Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-31T09:12:40.209034282Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jChangeDataCapturePayload extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(Neo4jChangeDataCapturePayload.class.getName());
 

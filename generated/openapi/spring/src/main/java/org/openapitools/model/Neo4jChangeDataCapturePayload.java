@@ -21,6 +21,6 @@ import java.util.*;
 import javax.annotation.Generated;
 
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-28T13:33:34.746287493Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-31T09:13:05.321170795Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public interface Neo4jChangeDataCapturePayload {
 }
