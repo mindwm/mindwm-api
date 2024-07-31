@@ -48,11 +48,9 @@ openapi-generator-gdscript: generated_dir
     	-o /local/$(GENERATED_DIR)/openapi/gdscript
 	(cd $(GENERATED_DIR)/openapi/gdscript && sudo sed -r -i'' 's/: Object:$$/: Dictionary:/' models/* core/*)
 
-
-	# cp ./openapi.yaml openapi-generator/modules
-	# cd openapi-generator && \
-	# ./run-in-docker.sh generate -i modules/openapi.yaml  -g gdscript -o /gen/$(GENERATED_DIR)/gdscript-mindwm -p packageName=$(PACKAGE_NAME) && \
-	# cp -vr $(GENERATED_DIR)/gdscript-mindwm/* ../$(GENERATED_DIR)/gdscript/
+.PHONY: openapi-context
+openapi-context: generated_dir
+	docker run -it --rm -v "$(PWD):/local" --entrypoint /bin/sh ghcr.io/mindwm/openapi-generator/openapi-generator:gdscript -c /bin/bash
 
 asyncapi-generate:
 	docker run --rm -it -v "$(PWD):/local" \
