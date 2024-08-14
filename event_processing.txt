@@ -1,0 +1,22 @@
+JetStreamChannel: 'KN_USER_{{ USER }}__{{ HOST }}_BROKER_KNE_TRIGGER' #example: KN_USER_ALICE__LAPTOP_BROKER_KNE_TRIGGER
+    in_topic: 'user-{{ user }}.{{ host }}-broker-kne-trigger._knative'  # example user-alice.laptop-broker-kne-trigger._knative
+    out_topic: 'org.mindwm.manager.{{ user }}.{{ host }}.>' # example: org.mindwm.manager.alice.laptop.>
+   
+# knative event routing
+Forward cloudevents from HostBroker(nats.out_topic) to ContextBroker:
+    - any:
+      - exact:
+          type: iodocument
+      - exact:
+          type: touch
+      - exact:
+          type: clipboard
+Forward cloudevents from ContextBroker in to HostBroker
+    - any:
+        - cesql: source LIKE 'org.mindwm.graph.%' # example org.mindwm.graph.node or org.mindwm.graph.node.relationship
+        - cesql: subject LIKE 'org.mindwm.manager.{{ user }}.%' # example org.mindwm.manager.alice.....
+       
+Forward cloudevents from HostBroker to nats.in_topic
+    - any:
+        - cesql: source LIKE 'org.mindwm.graph.%' # example org.mindwm.graph.node or org.mindwm.graph.node.relationship
+        - cesql: subject LIKE 'org.mindwm.manager.{ user }}.{{ host }}.%' # example org.mindwm.manager.alice.laptop....
