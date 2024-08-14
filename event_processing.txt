@@ -18,5 +18,47 @@ Forward cloudevents from ContextBroker in to HostBroker
        
 Forward cloudevents from HostBroker to nats.in_topic
     - any:
-        - cesql: source LIKE 'org.mindwm.graph.%' # example org.mindwm.graph.node or org.mindwm.graph.node.relationship
+        - cesql: source LIKE 'org.mindwm.{{ context_name }}.graph.%' # example org.mindwm.pink.graph.node or org.mindwm.pink.graph.node.relationship
         - cesql: subject LIKE 'org.mindwm.manager.{ user }}.{{ host }}.%' # example org.mindwm.manager.alice.laptop....
+
+Cloudevents examples
+
+Vector -> ContextBroker changes in neo4j graph
+    {
+      "source": org.mindwm.{{ context_name }}.graph.(node|relationship) # example org.mindwm.pink.graph.node org.mindwm.pink.graph.relationship
+      "type": ["{{ neo4j label }}"] # example iodocument HAS_IODOCUMENT
+      "subject": ["created", "deleted", "updated"] 
+    }
+
+MindWM.manager -> nats.out_topic
+iodocument:
+    {
+      "source": "org.mindwm.manager.{{ user }}.{{ host }}.tmux.{{ tmux_socket_path_b64 }}.{{ session_id }}.{{ tmux_session_id }}.{{ tmux_pane }}.iodocument" # example org.mindwm.manager.alice.laptop.tmux.L3RtcC90bXV4LTI1NjYwMDAwNi9kZWZhdWx0.add4fc2a-9848-5989-549c-1542c18c9eab.1.8.iodocument
+      "type": "iodocument"
+      "subject": "ip a show" 
+    }
+
+Mindwm.manager -> nats.out_topic
+clibpoard:
+    {
+      "source": "org.mindwm.manager.{{ user }}.{{ host }}.clipboard" # example org.mindwm.manager.alice.laptop.clipboard
+      "type": [ "primary", "secondary" ]
+      "subject": "{{ clipboard data }}"
+    }
+
+Mindwm.manager -> nats.out_topic
+touch:
+    {
+      "source": "org.mindwm.manager.{{ user }}.{{ host }}" # example org.mindwm.manager.alice.laptop
+      "type": "touch"
+      "subject": [ node_ids ] # example [ 30, 21, 33 ]
+   
+    } 
+
+mindwm-openai -> tmux feedback
+feedback:
+    {
+      "source": "org.mindwm.{{ context_name }}.knfunc.mindwm-openai" # example org.mindwm.pink.knfunc.mindwm-openai
+      "type": ["answer"] # 
+      "subject": "org.mindwm.manager.{{ user }}.{{ host }}.tmux.{{ tmux_socket_path_b64 }}.{{ session_id }}.{{ tmux_session_id }}.{{ tmux_pane }}.feedback" 
+    } 
