@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * Neo4jChangeDataCaptureNodePayloadAfter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-31T09:12:40.209034282Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-15T15:13:53.791480422Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Neo4jChangeDataCaptureNodePayloadAfter {
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)

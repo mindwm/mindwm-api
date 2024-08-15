@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Vector2int
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-31T09:12:40.209034282Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-15T15:13:53.791480422Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class Vector2int {
   public static final String SERIALIZED_NAME_X = "x";
   @SerializedName(SERIALIZED_NAME_X)

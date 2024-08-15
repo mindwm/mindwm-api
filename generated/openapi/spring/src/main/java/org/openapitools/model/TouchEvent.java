@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
  * TouchEvent
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-31T09:13:05.321170795Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-08-15T15:14:18.588332445Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class TouchEvent {
 
   private String id;
