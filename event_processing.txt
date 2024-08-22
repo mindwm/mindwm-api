@@ -22,12 +22,12 @@ Forward cloudevents from HostBroker(nats.out_topic) to ContextBroker:
           type: org.mindwm.v1.clipboard
 Forward cloudevents from ContextBroker in to HostBroker
     - any:
-        - cesql: source LIKE 'org.mindwm.context.{{ context_name }}.graph.{{ type }}%' # example org.mindwm.context.pink.graph.node or org.mindwm.context.pink.graph.relationship
+        - cesql: source LIKE 'org.mindwm.context.{{ context_name }}.graph.{{ type }}.%' # example org.mindwm.context.pink.graph.node or org.mindwm.context.pink.graph.relationship
         - cesql: subject LIKE 'org.mindwm.manager.{{ user }}.%' # example org.mindwm.manager.alice.....
        
 Forward cloudevents from HostBroker to nats.in_topic
     - any:
-        - cesql: source LIKE 'org.mindwm.graph.{{ context_name }}.%%' # example org.mindwm.graph.pink.node or org.mindwm.graph.pink.relationship
+        - cesql: source LIKE 'org.mindwm.graph.{{ context_name }}.%' # example org.mindwm.graph.pink.node or org.mindwm.graph.pink.relationship
         - cesql: subject LIKE 'org.mindwm.manager.{{ user }}.{{ host }}.%' # example org.mindwm.manager.alice.laptop....
 
 Cloudevents examples
