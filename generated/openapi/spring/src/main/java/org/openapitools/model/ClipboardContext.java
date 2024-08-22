@@ -19,7 +19,7 @@ import javax.annotation.Generated;
  * ClipboardContext
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-08-22T13:50:00.995778238Z[Etc/UTC]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-08-22T15:00:18.504406746Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ClipboardContext {
 
   private BigDecimal windowId;

@@ -2,7 +2,7 @@
 
 Mindwm API
 - API version: 0.1.0
-  - Build date: 2024-08-22T13:49:37.130540008Z[Etc/UTC]
+  - Build date: 2024-08-22T14:59:53.479770099Z[Etc/UTC]
   - Generator version: 7.7.0
 
 This document describes the documentation, a collection of JSON schemas and example cloudevent and payloads
