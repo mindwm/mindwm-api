@@ -6,29 +6,22 @@ JetStreamChannel: 'KN_USER_{{ USER }}__{{ HOST }}_BROKER_KNE_TRIGGER' #example: 
 Forward cloudevents from HostBroker(nats.out_topic) to ContextBroker:
     - any:
       - exact:
-          type: iodocument
+          type: org.mindwm.v1.iodocument
       - exact:
-          type: touch
+          type: org.mindwm.v1.touch
       - exact:
-          type: clipboard
+          type: org.mindwm.v1.clipboard
 Forward cloudevents from ContextBroker in to HostBroker
     - any:
-        - cesql: source LIKE 'org.mindwm.graph.%' # example org.mindwm.graph.node or org.mindwm.graph.node.relationship
+        - cesql: source LIKE 'org.mindwm.graph.{{ context_name }}.%' # example org.mindwm.graph.pink.node or org.mindwm.graph.pink.node.relationship
         - cesql: subject LIKE 'org.mindwm.manager.{{ user }}.%' # example org.mindwm.manager.alice.....
        
 Forward cloudevents from HostBroker to nats.in_topic
     - any:
-        - cesql: source LIKE 'org.mindwm.{{ context_name }}.graph.%' # example org.mindwm.pink.graph.node or org.mindwm.pink.graph.node.relationship
-        - cesql: subject LIKE 'org.mindwm.manager.{ user }}.{{ host }}.%' # example org.mindwm.manager.alice.laptop....
+        - cesql: source LIKE 'org.mindwm.graph.{{ context_name }}.%%' # example org.mindwm.graph.pink.node or org.mindwm.graph.node.pink.relationship
+        - cesql: subject LIKE 'org.mindwm.manager.{{ user }}.{{ host }}.%' # example org.mindwm.manager.alice.laptop....
 
 Cloudevents examples
-
-Vector -> ContextBroker changes in neo4j graph
-    {z
-      "source": org.mindwm.{{ context_name }}.graph.(node|relationship) # example org.mindwm.pink.graph.node org.mindwm.pink.graph.relationship
-      "type": ["{{ neo4j label }}"] # example iodocument HAS_IODOCUMENT
-      "subject": ["created", "deleted", "updated"] 
-    }
 
 MindWM.manager -> nats.out_topic
 iodocument:
@@ -57,7 +50,7 @@ touch:
 mindwm-openai -> tmux feedback
 feedback:
     {
-      "source": "org.mindwm.{{ context_name }}.knfunc.mindwm-openai" # example org.mindwm.pink.knfunc.mindwm-openai
+      "source": "org.mindwm.knfunc.{{ context_name }}.mindwm-openai" # example org.mindwm.knfunc.pink.mindwm-openai
       "type": LLMAnswer 
       "subject": "org.mindwm.manager.{{ user }}.{{ host }}.tmux.{{ tmux_socket_path_b64 }}.{{ session_id }}.{{ tmux_session_id }}.{{ tmux_pane }}.feedback" 
       data: AnswerPaylod
