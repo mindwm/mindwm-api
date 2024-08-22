@@ -1,3 +1,12 @@
+```
+subject: org.mindwm.manager.{{ user }}.{{ host }}.< tmux | terminal | clipboard | etc >
+source: org.mindwm.context.{{ context_name }}.graph.node
+source: org.mindwm.context.{{ context_name }}.graph.relationship
+source: org.mindwm.context.{{ context_name }}.knfunc.llm_answer
+source: org.mindwm.context.{{ context_name }}.knfunc.show_message
+source: org.mindwm.zulip.{{ org_name }}.{{ stream_name }}
+```
+
 JetStreamChannel: 'KN_USER_{{ USER }}__{{ HOST }}_BROKER_KNE_TRIGGER' #example: KN_USER_ALICE__LAPTOP_BROKER_KNE_TRIGGER
     in_topic: 'user-{{ user }}.{{ host }}-broker-kne-trigger._knative'  # example user-alice.laptop-broker-kne-trigger._knative
     out_topic: 'org.mindwm.manager.{{ user }}.{{ host }}.>' # example: org.mindwm.manager.alice.laptop.>
@@ -13,7 +22,7 @@ Forward cloudevents from HostBroker(nats.out_topic) to ContextBroker:
           type: org.mindwm.v1.clipboard
 Forward cloudevents from ContextBroker in to HostBroker
     - any:
-        - cesql: source LIKE 'org.mindwm.graph.{{ context_name }}.%' # example org.mindwm.graph.pink.node or org.mindwm.graph.pink.relationship
+        - cesql: source LIKE 'org.mindwm.context.{{ context_name }}.graph.{{ type }}%' # example org.mindwm.context.pink.graph.node or org.mindwm.context.pink.graph.relationship
         - cesql: subject LIKE 'org.mindwm.manager.{{ user }}.%' # example org.mindwm.manager.alice.....
        
 Forward cloudevents from HostBroker to nats.in_topic
@@ -27,18 +36,19 @@ MindWM.manager -> nats.out_topic
 iodocument:
     {
       "source": "org.mindwm.manager.{{ user }}.{{ host }}.tmux.{{ tmux_socket_path_b64 }}.{{ session_id }}.{{ tmux_session_id }}.{{ tmux_pane }}" # example org.mindwm.manager.alice.laptop.tmux.L3RtcC90bXV4LTI1NjYwMDAwNi9kZWZhdWx0.add4fc2a-9848-5989-549c-1542c18c9eab.1.8
-      "type": "iodocument"
+      "type": "org.mindwm.v1.iodocument"
       "subject": "ip a show" 
     }
 
 Mindwm.manager -> nats.out_topic
 clibpoard:
+```json
     {
       "source": "org.mindwm.manager.{{ user }}.{{ host }}.clipboard" # example org.mindwm.manager.alice.laptop
-      "type": clipboard
+      "type": "org.mindwm.v1.clipboard"
       "subject": [ "primary", "secondary" ]
       }
-
+```
 Mindwm.manager -> nats.out_topic
 touch:
     {
@@ -47,10 +57,10 @@ touch:
       "subject": "<free field>"
     } 
 
-mindwm-openai -> tmux feedback
+llm_answer -> tmux feedback
 feedback:
     {
-      "source": "org.mindwm.knfunc.{{ context_name }}.mindwm-openai" # example org.mindwm.knfunc.pink.mindwm-openai
+      "source": "org.mindwm.context.{{ context_name }}.knfunc.{{ func_name }}" # example org.mindwm.context.pink.knfunc.llm_answer
       "type": LLMAnswer 
       "subject": "org.mindwm.manager.{{ user }}.{{ host }}.tmux.{{ tmux_socket_path_b64 }}.{{ session_id }}.{{ tmux_session_id }}.{{ tmux_pane }}.feedback" 
       data: AnswerPaylod
